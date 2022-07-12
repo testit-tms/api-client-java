@@ -26,7 +26,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.model.AttachmentModel;
 import java.io.File;
+import ru.testit.model.ImageResizeType;
+import ru.testit.model.ProblemDetails;
+import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -54,15 +59,406 @@ public class AttachmentsApi {
     }
 
     /**
-     * Build call for addAttachment
-     * @param file  (optional)
-     * @param apiVersion  (optional)
+     * Build call for apiV2AttachmentsIdDelete
+     * @param id  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addAttachmentCall(File file, String apiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call apiV2AttachmentsIdDeleteCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/attachments/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "text/plain", "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AttachmentsIdDeleteValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2AttachmentsIdDelete(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdDeleteCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete attachment file
+     * 
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2AttachmentsIdDelete(UUID id) throws ApiException {
+        apiV2AttachmentsIdDeleteWithHttpInfo(id);
+    }
+
+    /**
+     * Delete attachment file
+     * 
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2AttachmentsIdDeleteWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdDeleteValidateBeforeCall(id, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete attachment file (asynchronously)
+     * 
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsIdDeleteAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2AttachmentsIdGet
+     * @param id  (required)
+     * @param width Width of the result image (optional)
+     * @param height Height of the result image (optional)
+     * @param resizeType Type of resizing to apply to the result image (optional)
+     * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
+     * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsIdGetCall(UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/attachments/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (width != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("width", width));
+        if (height != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("height", height));
+        if (resizeType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("resizeType", resizeType));
+        if (backgroundColor != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("backgroundColor", backgroundColor));
+        if (preview != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("preview", preview));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AttachmentsIdGetValidateBeforeCall(UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2AttachmentsIdGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdGetCall(id, width, height, resizeType, backgroundColor, preview, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Download attachment file
+     * 
+     * @param id  (required)
+     * @param width Width of the result image (optional)
+     * @param height Height of the result image (optional)
+     * @param resizeType Type of resizing to apply to the result image (optional)
+     * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
+     * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File apiV2AttachmentsIdGet(UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+        ApiResponse<File> resp = apiV2AttachmentsIdGetWithHttpInfo(id, width, height, resizeType, backgroundColor, preview);
+        return resp.getData();
+    }
+
+    /**
+     * Download attachment file
+     * 
+     * @param id  (required)
+     * @param width Width of the result image (optional)
+     * @param height Height of the result image (optional)
+     * @param resizeType Type of resizing to apply to the result image (optional)
+     * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
+     * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<File> apiV2AttachmentsIdGetWithHttpInfo(UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdGetValidateBeforeCall(id, width, height, resizeType, backgroundColor, preview, null, null);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Download attachment file (asynchronously)
+     * 
+     * @param id  (required)
+     * @param width Width of the result image (optional)
+     * @param height Height of the result image (optional)
+     * @param resizeType Type of resizing to apply to the result image (optional)
+     * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
+     * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsIdGetAsync(UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AttachmentsIdGetValidateBeforeCall(id, width, height, resizeType, backgroundColor, preview, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2AttachmentsOccupiedFileStorageSizeGet
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsOccupiedFileStorageSizeGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/attachments/occupiedFileStorageSize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "text/plain"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AttachmentsOccupiedFileStorageSizeGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2AttachmentsOccupiedFileStorageSizeGetCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @return Float
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Float apiV2AttachmentsOccupiedFileStorageSizeGet() throws ApiException {
+        ApiResponse<Float> resp = apiV2AttachmentsOccupiedFileStorageSizeGetWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @return ApiResponse&lt;Float&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Float> apiV2AttachmentsOccupiedFileStorageSizeGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AttachmentsOccupiedFileStorageSizeGetValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<Float>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsOccupiedFileStorageSizeGetAsync(final ApiCallback<Float> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AttachmentsOccupiedFileStorageSizeGetValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Float>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2AttachmentsPost
+     * @param file  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AttachmentsPostCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -70,8 +466,6 @@ public class AttachmentsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (apiVersion != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("apiVersion", apiVersion));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -108,9 +502,9 @@ public class AttachmentsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addAttachmentValidateBeforeCall(File file, String apiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call apiV2AttachmentsPostValidateBeforeCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = addAttachmentCall(file, apiVersion, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = apiV2AttachmentsPostCall(file, progressListener, progressRequestListener);
         return call;
 
         
@@ -120,42 +514,39 @@ public class AttachmentsApi {
     }
 
     /**
-     * Create attachment
-     * &lt;br&gt;Use case  &lt;br&gt;User send file  &lt;br&gt;User runs method execution  &lt;br&gt;System upload file  &lt;br&gt;System create attachment  &lt;br&gt;System return attachment model (listed in response parameters)
+     * Upload new attachment file
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @return String
+     * @return AttachmentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String addAttachment(File file, String apiVersion) throws ApiException {
-        ApiResponse<String> resp = addAttachmentWithHttpInfo(file, apiVersion);
+    public AttachmentModel apiV2AttachmentsPost(File file) throws ApiException {
+        ApiResponse<AttachmentModel> resp = apiV2AttachmentsPostWithHttpInfo(file);
         return resp.getData();
     }
 
     /**
-     * Create attachment
-     * &lt;br&gt;Use case  &lt;br&gt;User send file  &lt;br&gt;User runs method execution  &lt;br&gt;System upload file  &lt;br&gt;System create attachment  &lt;br&gt;System return attachment model (listed in response parameters)
+     * Upload new attachment file
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> addAttachmentWithHttpInfo(File file, String apiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = addAttachmentValidateBeforeCall(file, apiVersion, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<AttachmentModel> apiV2AttachmentsPostWithHttpInfo(File file) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AttachmentsPostValidateBeforeCall(file, null, null);
+        Type localVarReturnType = new TypeToken<AttachmentModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Create attachment (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User send file  &lt;br&gt;User runs method execution  &lt;br&gt;System upload file  &lt;br&gt;System create attachment  &lt;br&gt;System return attachment model (listed in response parameters)
+     * Upload new attachment file (asynchronously)
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param file  (optional)
-     * @param apiVersion  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addAttachmentAsync(File file, String apiVersion, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call apiV2AttachmentsPostAsync(File file, final ApiCallback<AttachmentModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,8 +567,8 @@ public class AttachmentsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addAttachmentValidateBeforeCall(file, apiVersion, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = apiV2AttachmentsPostValidateBeforeCall(file, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AttachmentModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

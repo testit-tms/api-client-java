@@ -26,9 +26,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.model.ConfigurationByParametersModel;
 import ru.testit.model.ConfigurationModel;
 import ru.testit.model.ConfigurationPostModel;
 import ru.testit.model.ConfigurationPutModel;
+import ru.testit.model.ConfigurationSelectModel;
+import ru.testit.model.ProblemDetails;
+import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -55,6 +60,276 @@ public class ConfigurationsApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for apiV2ConfigurationsCreateByParametersPost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ConfigurationsCreateByParametersPostCall(ConfigurationByParametersModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/configurations/createByParameters";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(ConfigurationByParametersModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ConfigurationsCreateByParametersPostCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create Configurations by parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets request model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configurations  &lt;br&gt;System returns created configuration ids (listed in the response example)
+     * @param body  (optional)
+     * @return List&lt;UUID&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<UUID> apiV2ConfigurationsCreateByParametersPost(ConfigurationByParametersModel body) throws ApiException {
+        ApiResponse<List<UUID>> resp = apiV2ConfigurationsCreateByParametersPostWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Create Configurations by parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets request model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configurations  &lt;br&gt;System returns created configuration ids (listed in the response example)
+     * @param body  (optional)
+     * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<UUID>> apiV2ConfigurationsCreateByParametersPostWithHttpInfo(ConfigurationByParametersModel body) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Configurations by parameters (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets request model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configurations  &lt;br&gt;System returns created configuration ids (listed in the response example)
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ConfigurationsCreateByParametersPostAsync(ConfigurationByParametersModel body, final ApiCallback<List<UUID>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ConfigurationsSearchPost
+     * @param body Model containing all the filters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ConfigurationsSearchPostCall(ConfigurationSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/configurations/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ConfigurationsSearchPostValidateBeforeCall(ConfigurationSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ConfigurationsSearchPostCall(body, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Search for configurations
+     * 
+     * @param body Model containing all the filters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;ConfigurationModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ConfigurationModel> apiV2ConfigurationsSearchPost(ConfigurationSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ConfigurationModel>> resp = apiV2ConfigurationsSearchPostWithHttpInfo(body, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Search for configurations
+     * 
+     * @param body Model containing all the filters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ConfigurationModel>> apiV2ConfigurationsSearchPostWithHttpInfo(ConfigurationSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ConfigurationsSearchPostValidateBeforeCall(body, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search for configurations (asynchronously)
+     * 
+     * @param body Model containing all the filters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ConfigurationsSearchPostAsync(ConfigurationSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ConfigurationsSearchPostValidateBeforeCall(body, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for createConfiguration
      * @param body  (optional)
@@ -83,7 +358,7 @@ public class ConfigurationsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -177,18 +452,18 @@ public class ConfigurationsApi {
     }
     /**
      * Build call for getConfigurationById
-     * @param configurationId Configuration internal (guid format) or global (integer format) identifier (required)
+     * @param id  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationByIdCall(String configurationId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationByIdCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/configurations/{configurationId}"
-            .replaceAll("\\{" + "configurationId" + "\\}", apiClient.escapeString(configurationId.toString()));
+        String localVarPath = "/api/v2/configurations/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -226,13 +501,13 @@ public class ConfigurationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConfigurationByIdValidateBeforeCall(String configurationId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'configurationId' is set
-        if (configurationId == null) {
-            throw new ApiException("Missing the required parameter 'configurationId' when calling getConfigurationById(Async)");
+    private com.squareup.okhttp.Call getConfigurationByIdValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getConfigurationById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getConfigurationByIdCall(configurationId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -242,39 +517,39 @@ public class ConfigurationsApi {
     }
 
     /**
-     * Get Configuration by Id or GlobalId
+     * Get configuration by internal or global ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search configuration using the identifier  &lt;br&gt;System returns configuration
-     * @param configurationId Configuration internal (guid format) or global (integer format) identifier (required)
+     * @param id  (required)
      * @return ConfigurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConfigurationModel getConfigurationById(String configurationId) throws ApiException {
-        ApiResponse<ConfigurationModel> resp = getConfigurationByIdWithHttpInfo(configurationId);
+    public ConfigurationModel getConfigurationById(String id) throws ApiException {
+        ApiResponse<ConfigurationModel> resp = getConfigurationByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get Configuration by Id or GlobalId
+     * Get configuration by internal or global ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search configuration using the identifier  &lt;br&gt;System returns configuration
-     * @param configurationId Configuration internal (guid format) or global (integer format) identifier (required)
+     * @param id  (required)
      * @return ApiResponse&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConfigurationModel> getConfigurationByIdWithHttpInfo(String configurationId) throws ApiException {
-        com.squareup.okhttp.Call call = getConfigurationByIdValidateBeforeCall(configurationId, null, null);
+    public ApiResponse<ConfigurationModel> getConfigurationByIdWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getConfigurationByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ConfigurationModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Configuration by Id or GlobalId (asynchronously)
+     * Get configuration by internal or global ID (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search configuration using the identifier  &lt;br&gt;System returns configuration
-     * @param configurationId Configuration internal (guid format) or global (integer format) identifier (required)
+     * @param id  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationByIdAsync(String configurationId, final ApiCallback<ConfigurationModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationByIdAsync(String id, final ApiCallback<ConfigurationModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -295,7 +570,7 @@ public class ConfigurationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConfigurationByIdValidateBeforeCall(configurationId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConfigurationModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -328,7 +603,7 @@ public class ConfigurationsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

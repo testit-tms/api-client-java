@@ -30,7 +30,7 @@ import ru.testit.model.CustomAttributeModel;
  * ProjectModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class ProjectModel {
   @SerializedName("attributesScheme")
   private List<CustomAttributeModel> attributesScheme = null;
@@ -249,7 +249,7 @@ public class ProjectModel {
    * Get createdDate
    * @return createdDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -267,7 +267,7 @@ public class ProjectModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -285,7 +285,7 @@ public class ProjectModel {
    * Get createdById
    * @return createdById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getCreatedById() {
     return createdById;
   }
@@ -303,7 +303,7 @@ public class ProjectModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -339,7 +339,7 @@ public class ProjectModel {
    * Get id
    * @return id
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getId() {
     return id;
   }

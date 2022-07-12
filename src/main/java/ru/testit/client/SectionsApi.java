@@ -26,12 +26,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.model.ProblemDetails;
 import ru.testit.model.SectionMoveModel;
 import ru.testit.model.SectionPostModel;
 import ru.testit.model.SectionPutModel;
 import ru.testit.model.SectionRenameModel;
 import ru.testit.model.SectionWithStepsModel;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 import ru.testit.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -87,7 +89,7 @@ public class SectionsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -121,7 +123,7 @@ public class SectionsApi {
     }
 
     /**
-     * Create Section
+     * Create section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
      * @param body  (optional)
      * @return SectionWithStepsModel
@@ -133,7 +135,7 @@ public class SectionsApi {
     }
 
     /**
-     * Create Section
+     * Create section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
      * @param body  (optional)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
@@ -146,7 +148,7 @@ public class SectionsApi {
     }
 
     /**
-     * Create Section (asynchronously)
+     * Create section (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -181,18 +183,18 @@ public class SectionsApi {
     }
     /**
      * Build call for deleteSection
-     * @param sectionId Section internal (guid format) identifier (required)
+     * @param id Section internal (UUID) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionCall(UUID sectionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteSectionCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/sections/{sectionId}"
-            .replaceAll("\\{" + "sectionId" + "\\}", apiClient.escapeString(sectionId.toString()));
+        String localVarPath = "/api/v2/sections/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -230,13 +232,13 @@ public class SectionsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(UUID sectionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'sectionId' is set
-        if (sectionId == null) {
-            throw new ApiException("Missing the required parameter 'sectionId' when calling deleteSection(Async)");
+    private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteSection(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteSectionCall(sectionId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteSectionCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -246,36 +248,36 @@ public class SectionsApi {
     }
 
     /**
-     * Delete Section by id
+     * Delete section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
-     * @param sectionId Section internal (guid format) identifier (required)
+     * @param id Section internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteSection(UUID sectionId) throws ApiException {
-        deleteSectionWithHttpInfo(sectionId);
+    public void deleteSection(UUID id) throws ApiException {
+        deleteSectionWithHttpInfo(id);
     }
 
     /**
-     * Delete Section by id
+     * Delete section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
-     * @param sectionId Section internal (guid format) identifier (required)
+     * @param id Section internal (UUID) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteSectionWithHttpInfo(UUID sectionId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(sectionId, null, null);
+    public ApiResponse<Void> deleteSectionWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete Section by id (asynchronously)
+     * Delete section (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
-     * @param sectionId Section internal (guid format) identifier (required)
+     * @param id Section internal (UUID) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionAsync(UUID sectionId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteSectionAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -296,25 +298,25 @@ public class SectionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(sectionId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for getSectionById
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted section must be include in the response (optional, default to false)
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionByIdCall(UUID sectionId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSectionByIdCall(UUID id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/sections/{sectionId}"
-            .replaceAll("\\{" + "sectionId" + "\\}", apiClient.escapeString(sectionId.toString()));
+        String localVarPath = "/api/v2/sections/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -354,13 +356,13 @@ public class SectionsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSectionByIdValidateBeforeCall(UUID sectionId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'sectionId' is set
-        if (sectionId == null) {
-            throw new ApiException("Missing the required parameter 'sectionId' when calling getSectionById(Async)");
+    private com.squareup.okhttp.Call getSectionByIdValidateBeforeCall(UUID id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getSectionById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getSectionByIdCall(sectionId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSectionByIdCall(id, isDeleted, progressListener, progressRequestListener);
         return call;
 
         
@@ -370,42 +372,42 @@ public class SectionsApi {
     }
 
     /**
-     * Get Section by id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns section
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted section must be include in the response (optional, default to false)
+     * Get section
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
      * @return SectionWithStepsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SectionWithStepsModel getSectionById(UUID sectionId, Boolean isDeleted) throws ApiException {
-        ApiResponse<SectionWithStepsModel> resp = getSectionByIdWithHttpInfo(sectionId, isDeleted);
+    public SectionWithStepsModel getSectionById(UUID id, Boolean isDeleted) throws ApiException {
+        ApiResponse<SectionWithStepsModel> resp = getSectionByIdWithHttpInfo(id, isDeleted);
         return resp.getData();
     }
 
     /**
-     * Get Section by id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns section
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted section must be include in the response (optional, default to false)
+     * Get section
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SectionWithStepsModel> getSectionByIdWithHttpInfo(UUID sectionId, Boolean isDeleted) throws ApiException {
-        com.squareup.okhttp.Call call = getSectionByIdValidateBeforeCall(sectionId, isDeleted, null, null);
+    public ApiResponse<SectionWithStepsModel> getSectionByIdWithHttpInfo(UUID id, Boolean isDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = getSectionByIdValidateBeforeCall(id, isDeleted, null, null);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Section by id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns section
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted section must be include in the response (optional, default to false)
+     * Get section (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSectionByIdAsync(UUID sectionId, Boolean isDeleted, final ApiCallback<SectionWithStepsModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSectionByIdAsync(UUID id, Boolean isDeleted, final ApiCallback<SectionWithStepsModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -426,33 +428,33 @@ public class SectionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSectionByIdValidateBeforeCall(sectionId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSectionByIdValidateBeforeCall(id, isDeleted, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemsBySectionId
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
+     * @param tagNames List of work item tags (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsBySectionIdCall(UUID sectionId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsBySectionIdCall(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/sections/{sectionId}/workItems"
-            .replaceAll("\\{" + "sectionId" + "\\}", apiClient.escapeString(sectionId.toString()));
+        String localVarPath = "/api/v2/sections/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -462,16 +464,16 @@ public class SectionsApi {
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "tagNames", tagNames));
         if (includeIterations != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeIterations", includeIterations));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -506,13 +508,13 @@ public class SectionsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemsBySectionIdValidateBeforeCall(UUID sectionId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'sectionId' is set
-        if (sectionId == null) {
-            throw new ApiException("Missing the required parameter 'sectionId' when calling getWorkItemsBySectionId(Async)");
+    private com.squareup.okhttp.Call getWorkItemsBySectionIdValidateBeforeCall(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemsBySectionId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemsBySectionIdCall(sectionId, isDeleted, tagNames, includeIterations, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsBySectionIdCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -522,63 +524,63 @@ public class SectionsApi {
     }
 
     /**
-     * Get WorkItems for Section (if isDeleted is true, return deleted WorkItems)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search workitems related to the section  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns workitem collection
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get section work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
+     * @param tagNames List of work item tags (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemShortModel> getWorkItemsBySectionId(UUID sectionId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsBySectionIdWithHttpInfo(sectionId, isDeleted, tagNames, includeIterations, , , , , );
+    public List<WorkItemShortModel> getWorkItemsBySectionId(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsBySectionIdWithHttpInfo(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get WorkItems for Section (if isDeleted is true, return deleted WorkItems)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search workitems related to the section  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns workitem collection
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get section work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
+     * @param tagNames List of work item tags (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemShortModel>> getWorkItemsBySectionIdWithHttpInfo(UUID sectionId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemsBySectionIdValidateBeforeCall(sectionId, isDeleted, tagNames, includeIterations, , , , , , null, null);
+    public ApiResponse<List<WorkItemShortModel>> getWorkItemsBySectionIdWithHttpInfo(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemsBySectionIdValidateBeforeCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get WorkItems for Section (if isDeleted is true, return deleted WorkItems) (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search workitems related to the section  &lt;br&gt;                      [Optional] If isDeleted flag equals false, deleted workitems are not being searched.                      If true, deleted workitems are also being searched, null for all workitems.                    &lt;br&gt;System returns workitem collection
-     * @param sectionId Section internal (guid format) identifier (required)
-     * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get section work items (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     * @param id Section internal (UUID) identifier (required)
+     * @param isDeleted Requested section is deleted (optional, default to false)
+     * @param tagNames List of work item tags (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsBySectionIdAsync(UUID sectionId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsBySectionIdAsync(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -599,7 +601,7 @@ public class SectionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemsBySectionIdValidateBeforeCall(sectionId, isDeleted, tagNames, includeIterations, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsBySectionIdValidateBeforeCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -632,7 +634,7 @@ public class SectionsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -666,8 +668,8 @@ public class SectionsApi {
     }
 
     /**
-     * Move Section. Can be moved inside another section. It is possible to indicate a project
-     * &lt;br&gt;Use case  &lt;br&gt;                      User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed                      in request example)                    &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
+     * Move section
+     * &lt;br&gt;Can be moved inside another section. It is possible to indicate a project  &lt;br&gt;Use case  &lt;br&gt;User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -676,8 +678,8 @@ public class SectionsApi {
     }
 
     /**
-     * Move Section. Can be moved inside another section. It is possible to indicate a project
-     * &lt;br&gt;Use case  &lt;br&gt;                      User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed                      in request example)                    &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
+     * Move section
+     * &lt;br&gt;Can be moved inside another section. It is possible to indicate a project  &lt;br&gt;Use case  &lt;br&gt;User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -688,8 +690,8 @@ public class SectionsApi {
     }
 
     /**
-     * Move Section. Can be moved inside another section. It is possible to indicate a project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;                      User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed                      in request example)                    &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
+     * Move section (asynchronously)
+     * &lt;br&gt;Can be moved inside another section. It is possible to indicate a project  &lt;br&gt;Use case  &lt;br&gt;User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System unlink section from the old parent and links to the new one  &lt;br&gt;System updates section rank using the next section identifier  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -748,7 +750,7 @@ public class SectionsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -782,7 +784,7 @@ public class SectionsApi {
     }
 
     /**
-     * Rename Section
+     * Rename section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -792,7 +794,7 @@ public class SectionsApi {
     }
 
     /**
-     * Rename Section
+     * Rename section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -804,7 +806,7 @@ public class SectionsApi {
     }
 
     /**
-     * Rename Section (asynchronously)
+     * Rename section (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -864,7 +866,7 @@ public class SectionsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -898,7 +900,7 @@ public class SectionsApi {
     }
 
     /**
-     * Update Section
+     * Update section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -908,7 +910,7 @@ public class SectionsApi {
     }
 
     /**
-     * Update Section
+     * Update section
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -920,7 +922,7 @@ public class SectionsApi {
     }
 
     /**
-     * Update Section (asynchronously)
+     * Update section (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes

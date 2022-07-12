@@ -36,7 +36,7 @@ import ru.testit.model.TestPointShortModel;
  * TestResultV2GetModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class TestResultV2GetModel {
   @SerializedName("configuration")
   private ConfigurationModel _configuration = null;
@@ -146,7 +146,7 @@ public class TestResultV2GetModel {
    * Get id
    * @return id
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getId() {
     return id;
   }
@@ -164,7 +164,7 @@ public class TestResultV2GetModel {
    * Get configurationId
    * @return configurationId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getConfigurationId() {
     return configurationId;
   }
@@ -182,7 +182,7 @@ public class TestResultV2GetModel {
    * Get workItemVersionId
    * @return workItemVersionId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
@@ -200,7 +200,7 @@ public class TestResultV2GetModel {
    * Get autoTestId
    * @return autoTestId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getAutoTestId() {
     return autoTestId;
   }
@@ -218,7 +218,7 @@ public class TestResultV2GetModel {
    * Get message
    * @return message
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public String getMessage() {
     return message;
   }
@@ -254,7 +254,7 @@ public class TestResultV2GetModel {
    * Get startedOn
    * @return startedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
@@ -272,7 +272,7 @@ public class TestResultV2GetModel {
    * Get completedOn
    * @return completedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
@@ -290,7 +290,7 @@ public class TestResultV2GetModel {
    * Get runByUserId
    * @return runByUserId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getRunByUserId() {
     return runByUserId;
   }
@@ -308,7 +308,7 @@ public class TestResultV2GetModel {
    * Get stoppedByUserId
    * @return stoppedByUserId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
   }
@@ -326,7 +326,7 @@ public class TestResultV2GetModel {
    * Get testPointId
    * @return testPointId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getTestPointId() {
     return testPointId;
   }
@@ -362,7 +362,7 @@ public class TestResultV2GetModel {
    * Get testRunId
    * @return testRunId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getTestRunId() {
     return testRunId;
   }

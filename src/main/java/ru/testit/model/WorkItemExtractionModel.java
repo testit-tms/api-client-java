@@ -25,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 /**
- * WorkItemExtractionModel
+ * Rules for different level entities inclusion/exclusion
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@Schema(description = "Rules for different level entities inclusion/exclusion")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class WorkItemExtractionModel {
   @SerializedName("includeWorkItems")
   private List<UUID> includeWorkItems = null;
@@ -62,10 +62,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get includeWorkItems
+   * Identifiers of work items to be included
    * @return includeWorkItems
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of work items to be included")
   public List<UUID> getIncludeWorkItems() {
     return includeWorkItems;
   }
@@ -88,10 +88,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get includeSections
+   * Identifiers of sections to be included
    * @return includeSections
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of sections to be included")
   public List<UUID> getIncludeSections() {
     return includeSections;
   }
@@ -114,10 +114,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get includeProjects
+   * Identifiers of projects to be included
    * @return includeProjects
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of projects to be included")
   public List<UUID> getIncludeProjects() {
     return includeProjects;
   }
@@ -140,10 +140,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get excludeWorkItems
+   * Identifiers of work items to be excluded
    * @return excludeWorkItems
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of work items to be excluded")
   public List<UUID> getExcludeWorkItems() {
     return excludeWorkItems;
   }
@@ -166,10 +166,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get excludeSections
+   * Identifiers of sections to be excluded
    * @return excludeSections
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of sections to be excluded")
   public List<UUID> getExcludeSections() {
     return excludeSections;
   }
@@ -192,10 +192,10 @@ public class WorkItemExtractionModel {
   }
 
    /**
-   * Get excludeProjects
+   * Identifiers of projects to be excluded
    * @return excludeProjects
   **/
-  @Schema(description = "")
+  @Schema(description = "Identifiers of projects to be excluded")
   public List<UUID> getExcludeProjects() {
     return excludeProjects;
   }

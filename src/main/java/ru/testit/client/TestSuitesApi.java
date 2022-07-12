@@ -63,19 +63,19 @@ public class TestSuitesApi {
 
     /**
      * Build call for addTestPointsToTestSuite
-     * @param testSuiteId Test suite internal identifier (required)
+     * @param id Test suite internal identifier (required)
      * @param body Filter object to retrieve work items for test-suite&#x27;s project (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addTestPointsToTestSuiteCall(UUID testSuiteId, WorkItemSelectModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addTestPointsToTestSuiteCall(UUID id, WorkItemSelectModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/test-points"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/test-points"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -91,7 +91,7 @@ public class TestSuitesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -113,13 +113,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addTestPointsToTestSuiteValidateBeforeCall(UUID testSuiteId, WorkItemSelectModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling addTestPointsToTestSuite(Async)");
+    private com.squareup.okhttp.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, WorkItemSelectModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling addTestPointsToTestSuite(Async)");
         }
         
-        com.squareup.okhttp.Call call = addTestPointsToTestSuiteCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTestPointsToTestSuiteCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -131,37 +131,37 @@ public class TestSuitesApi {
     /**
      * Add test-points to test suite
      * 
-     * @param testSuiteId Test suite internal identifier (required)
+     * @param id Test suite internal identifier (required)
      * @param body Filter object to retrieve work items for test-suite&#x27;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void addTestPointsToTestSuite(UUID testSuiteId, WorkItemSelectModel body) throws ApiException {
-        addTestPointsToTestSuiteWithHttpInfo(testSuiteId, body);
+    public void addTestPointsToTestSuite(UUID id, WorkItemSelectModel body) throws ApiException {
+        addTestPointsToTestSuiteWithHttpInfo(id, body);
     }
 
     /**
      * Add test-points to test suite
      * 
-     * @param testSuiteId Test suite internal identifier (required)
+     * @param id Test suite internal identifier (required)
      * @param body Filter object to retrieve work items for test-suite&#x27;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID testSuiteId, WorkItemSelectModel body) throws ApiException {
-        com.squareup.okhttp.Call call = addTestPointsToTestSuiteValidateBeforeCall(testSuiteId, body, null, null);
+    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, WorkItemSelectModel body) throws ApiException {
+        com.squareup.okhttp.Call call = addTestPointsToTestSuiteValidateBeforeCall(id, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Add test-points to test suite (asynchronously)
      * 
-     * @param testSuiteId Test suite internal identifier (required)
+     * @param id Test suite internal identifier (required)
      * @param body Filter object to retrieve work items for test-suite&#x27;s project (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addTestPointsToTestSuiteAsync(UUID testSuiteId, WorkItemSelectModel body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call addTestPointsToTestSuiteAsync(UUID id, WorkItemSelectModel body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -182,7 +182,7 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addTestPointsToTestSuiteValidateBeforeCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTestPointsToTestSuiteValidateBeforeCall(id, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -214,7 +214,7 @@ public class TestSuitesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -308,18 +308,18 @@ public class TestSuitesApi {
     }
     /**
      * Build call for deleteTestSuite
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTestSuiteCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteTestSuiteCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -357,13 +357,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTestSuiteValidateBeforeCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling deleteTestSuite(Async)");
+    private com.squareup.okhttp.Call deleteTestSuiteValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteTestSuite(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteTestSuiteCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTestSuiteCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -375,24 +375,24 @@ public class TestSuitesApi {
     /**
      * Delete TestSuite
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String deleteTestSuite(UUID testSuiteId) throws ApiException {
-        ApiResponse<String> resp = deleteTestSuiteWithHttpInfo(testSuiteId);
+    public String deleteTestSuite(UUID id) throws ApiException {
+        ApiResponse<String> resp = deleteTestSuiteWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Delete TestSuite
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> deleteTestSuiteWithHttpInfo(UUID testSuiteId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteTestSuiteValidateBeforeCall(testSuiteId, null, null);
+    public ApiResponse<String> deleteTestSuiteWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTestSuiteValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -400,12 +400,12 @@ public class TestSuitesApi {
     /**
      * Delete TestSuite (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTestSuiteAsync(UUID testSuiteId, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTestSuiteAsync(UUID id, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -426,25 +426,25 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteTestSuiteValidateBeforeCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTestSuiteValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getConfigurationsByTestSuiteId
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationsByTestSuiteIdCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationsByTestSuiteIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/configurations"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/configurations"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -482,13 +482,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConfigurationsByTestSuiteIdValidateBeforeCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling getConfigurationsByTestSuiteId(Async)");
+    private com.squareup.okhttp.Call getConfigurationsByTestSuiteIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getConfigurationsByTestSuiteId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -500,24 +500,24 @@ public class TestSuitesApi {
     /**
      * Get Configurations By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ConfigurationModel> getConfigurationsByTestSuiteId(UUID testSuiteId) throws ApiException {
-        ApiResponse<List<ConfigurationModel>> resp = getConfigurationsByTestSuiteIdWithHttpInfo(testSuiteId);
+    public List<ConfigurationModel> getConfigurationsByTestSuiteId(UUID id) throws ApiException {
+        ApiResponse<List<ConfigurationModel>> resp = getConfigurationsByTestSuiteIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get Configurations By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ConfigurationModel>> getConfigurationsByTestSuiteIdWithHttpInfo(UUID testSuiteId) throws ApiException {
-        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdValidateBeforeCall(testSuiteId, null, null);
+    public ApiResponse<List<ConfigurationModel>> getConfigurationsByTestSuiteIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -525,12 +525,12 @@ public class TestSuitesApi {
     /**
      * Get Configurations By Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationsByTestSuiteIdAsync(UUID testSuiteId, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationsByTestSuiteIdAsync(UUID id, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -551,25 +551,25 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdValidateBeforeCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationsByTestSuiteIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestPointsById
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestPointsByIdCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestPointsByIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/testPoints"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/testPoints"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -607,13 +607,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestPointsByIdValidateBeforeCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling getTestPointsById(Async)");
+    private com.squareup.okhttp.Call getTestPointsByIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestPointsById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestPointsByIdCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestPointsByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -625,24 +625,24 @@ public class TestSuitesApi {
     /**
      * Get TestPoints By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestPointByTestSuiteModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestPointByTestSuiteModel> getTestPointsById(UUID testSuiteId) throws ApiException {
-        ApiResponse<List<TestPointByTestSuiteModel>> resp = getTestPointsByIdWithHttpInfo(testSuiteId);
+    public List<TestPointByTestSuiteModel> getTestPointsById(UUID id) throws ApiException {
+        ApiResponse<List<TestPointByTestSuiteModel>> resp = getTestPointsByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get TestPoints By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestPointByTestSuiteModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestPointByTestSuiteModel>> getTestPointsByIdWithHttpInfo(UUID testSuiteId) throws ApiException {
-        com.squareup.okhttp.Call call = getTestPointsByIdValidateBeforeCall(testSuiteId, null, null);
+    public ApiResponse<List<TestPointByTestSuiteModel>> getTestPointsByIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getTestPointsByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<TestPointByTestSuiteModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -650,12 +650,12 @@ public class TestSuitesApi {
     /**
      * Get TestPoints By Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestPointsByIdAsync(UUID testSuiteId, final ApiCallback<List<TestPointByTestSuiteModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestPointsByIdAsync(UUID id, final ApiCallback<List<TestPointByTestSuiteModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -676,25 +676,25 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestPointsByIdValidateBeforeCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestPointsByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestPointByTestSuiteModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestResultsById
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestResultsByIdCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestResultsByIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/testResults"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/testResults"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -732,13 +732,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestResultsByIdValidateBeforeCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling getTestResultsById(Async)");
+    private com.squareup.okhttp.Call getTestResultsByIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestResultsById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestResultsByIdCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestResultsByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -750,24 +750,24 @@ public class TestSuitesApi {
     /**
      * Get TestResults By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestResultV2ShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestResultV2ShortModel> getTestResultsById(UUID testSuiteId) throws ApiException {
-        ApiResponse<List<TestResultV2ShortModel>> resp = getTestResultsByIdWithHttpInfo(testSuiteId);
+    public List<TestResultV2ShortModel> getTestResultsById(UUID id) throws ApiException {
+        ApiResponse<List<TestResultV2ShortModel>> resp = getTestResultsByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get TestResults By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestResultV2ShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestResultV2ShortModel>> getTestResultsByIdWithHttpInfo(UUID testSuiteId) throws ApiException {
-        com.squareup.okhttp.Call call = getTestResultsByIdValidateBeforeCall(testSuiteId, null, null);
+    public ApiResponse<List<TestResultV2ShortModel>> getTestResultsByIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getTestResultsByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<TestResultV2ShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -775,12 +775,12 @@ public class TestSuitesApi {
     /**
      * Get TestResults By Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestResultsByIdAsync(UUID testSuiteId, final ApiCallback<List<TestResultV2ShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestResultsByIdAsync(UUID id, final ApiCallback<List<TestResultV2ShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -801,25 +801,25 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestResultsByIdValidateBeforeCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestResultsByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestResultV2ShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestSuiteById
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestSuiteByIdCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestSuiteByIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -857,13 +857,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestSuiteByIdValidateBeforeCall(UUID testSuiteId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling getTestSuiteById(Async)");
+    private com.squareup.okhttp.Call getTestSuiteByIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestSuiteById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestSuiteByIdCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestSuiteByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -875,24 +875,24 @@ public class TestSuitesApi {
     /**
      * Get TestSuite by Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TestSuiteV2GetModel getTestSuiteById(UUID testSuiteId) throws ApiException {
-        ApiResponse<TestSuiteV2GetModel> resp = getTestSuiteByIdWithHttpInfo(testSuiteId);
+    public TestSuiteV2GetModel getTestSuiteById(UUID id) throws ApiException {
+        ApiResponse<TestSuiteV2GetModel> resp = getTestSuiteByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get TestSuite by Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TestSuiteV2GetModel> getTestSuiteByIdWithHttpInfo(UUID testSuiteId) throws ApiException {
-        com.squareup.okhttp.Call call = getTestSuiteByIdValidateBeforeCall(testSuiteId, null, null);
+    public ApiResponse<TestSuiteV2GetModel> getTestSuiteByIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getTestSuiteByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -900,12 +900,12 @@ public class TestSuitesApi {
     /**
      * Get TestSuite by Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestSuiteByIdAsync(UUID testSuiteId, final ApiCallback<TestSuiteV2GetModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestSuiteByIdAsync(UUID id, final ApiCallback<TestSuiteV2GetModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -926,32 +926,32 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestSuiteByIdValidateBeforeCall(testSuiteId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestSuiteByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemsById
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
      * @param tagNames Array of workitem tag names (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsByIdCall(UUID testSuiteId, Boolean isDeleted, List<String> tagNames,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsByIdCall(UUID id, Boolean isDeleted, List<String> tagNames, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/workItems"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -959,16 +959,16 @@ public class TestSuitesApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
         if (tagNames != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "tagNames", tagNames));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1003,13 +1003,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemsByIdValidateBeforeCall(UUID testSuiteId, Boolean isDeleted, List<String> tagNames,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling getWorkItemsById(Async)");
+    private com.squareup.okhttp.Call getWorkItemsByIdValidateBeforeCall(UUID id, Boolean isDeleted, List<String> tagNames, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemsById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemsByIdCall(testSuiteId, isDeleted, tagNames, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsByIdCall(id, isDeleted, tagNames, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -1021,38 +1021,38 @@ public class TestSuitesApi {
     /**
      * Get WorkItems By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets isDeleted property as true  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems related to the test points  &lt;br&gt;                      [Optional] User sets isDeleted property is set as true, System includes deleted workitems                      Otherwise, system applies filter which excludes deleted workitems from all found workitems                    &lt;br&gt;System returns workitems array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
      * @param tagNames Array of workitem tag names (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemShortModel> getWorkItemsById(UUID testSuiteId, Boolean isDeleted, List<String> tagNames,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsByIdWithHttpInfo(testSuiteId, isDeleted, tagNames, , , , , );
+    public List<WorkItemShortModel> getWorkItemsById(UUID id, Boolean isDeleted, List<String> tagNames, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsByIdWithHttpInfo(id, isDeleted, tagNames, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
      * Get WorkItems By Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets isDeleted property as true  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems related to the test points  &lt;br&gt;                      [Optional] User sets isDeleted property is set as true, System includes deleted workitems                      Otherwise, system applies filter which excludes deleted workitems from all found workitems                    &lt;br&gt;System returns workitems array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
      * @param tagNames Array of workitem tag names (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemShortModel>> getWorkItemsByIdWithHttpInfo(UUID testSuiteId, Boolean isDeleted, List<String> tagNames,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemsByIdValidateBeforeCall(testSuiteId, isDeleted, tagNames, , , , , , null, null);
+    public ApiResponse<List<WorkItemShortModel>> getWorkItemsByIdWithHttpInfo(UUID id, Boolean isDeleted, List<String> tagNames, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemsByIdValidateBeforeCall(id, isDeleted, tagNames, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1060,19 +1060,19 @@ public class TestSuitesApi {
     /**
      * Get WorkItems By Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets isDeleted property as true  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems related to the test points  &lt;br&gt;                      [Optional] User sets isDeleted property is set as true, System includes deleted workitems                      Otherwise, system applies filter which excludes deleted workitems from all found workitems                    &lt;br&gt;System returns workitems array
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param isDeleted Flag that defines if deleted workitems must be include in the response (optional, default to false)
      * @param tagNames Array of workitem tag names (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsByIdAsync(UUID testSuiteId, Boolean isDeleted, List<String> tagNames,  ,  ,  ,  ,  , final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsByIdAsync(UUID id, Boolean isDeleted, List<String> tagNames, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1093,26 +1093,26 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemsByIdValidateBeforeCall(testSuiteId, isDeleted, tagNames, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsByIdValidateBeforeCall(id, isDeleted, tagNames, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setConfigurationsByTestSuiteId
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of configuration identifiers&quot; (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setConfigurationsByTestSuiteIdCall(UUID testSuiteId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call setConfigurationsByTestSuiteIdCall(UUID id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/configurations"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/configurations"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1128,7 +1128,7 @@ public class TestSuitesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1150,13 +1150,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setConfigurationsByTestSuiteIdValidateBeforeCall(UUID testSuiteId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling setConfigurationsByTestSuiteId(Async)");
+    private com.squareup.okhttp.Call setConfigurationsByTestSuiteIdValidateBeforeCall(UUID id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setConfigurationsByTestSuiteId(Async)");
         }
         
-        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1168,26 +1168,26 @@ public class TestSuitesApi {
     /**
      * Set Configurations By TestSuite Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of configuration identifiers&quot; (optional)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ConfigurationModel> setConfigurationsByTestSuiteId(UUID testSuiteId, List<UUID> body) throws ApiException {
-        ApiResponse<List<ConfigurationModel>> resp = setConfigurationsByTestSuiteIdWithHttpInfo(testSuiteId, body);
+    public List<ConfigurationModel> setConfigurationsByTestSuiteId(UUID id, List<UUID> body) throws ApiException {
+        ApiResponse<List<ConfigurationModel>> resp = setConfigurationsByTestSuiteIdWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * Set Configurations By TestSuite Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of configuration identifiers&quot; (optional)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ConfigurationModel>> setConfigurationsByTestSuiteIdWithHttpInfo(UUID testSuiteId, List<UUID> body) throws ApiException {
-        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdValidateBeforeCall(testSuiteId, body, null, null);
+    public ApiResponse<List<ConfigurationModel>> setConfigurationsByTestSuiteIdWithHttpInfo(UUID id, List<UUID> body) throws ApiException {
+        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1195,13 +1195,13 @@ public class TestSuitesApi {
     /**
      * Set Configurations By TestSuite Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of configuration identifiers&quot; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setConfigurationsByTestSuiteIdAsync(UUID testSuiteId, List<UUID> body, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call setConfigurationsByTestSuiteIdAsync(UUID id, List<UUID> body, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1222,26 +1222,26 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdValidateBeforeCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setConfigurationsByTestSuiteIdValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setWorkItemsByTestSuiteId
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of workitem identifiers&quot; (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setWorkItemsByTestSuiteIdCall(UUID testSuiteId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call setWorkItemsByTestSuiteIdCall(UUID id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{testSuiteId}/workItems"
-            .replaceAll("\\{" + "testSuiteId" + "\\}", apiClient.escapeString(testSuiteId.toString()));
+        String localVarPath = "/api/v2/testSuites/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1257,7 +1257,7 @@ public class TestSuitesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1279,13 +1279,13 @@ public class TestSuitesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setWorkItemsByTestSuiteIdValidateBeforeCall(UUID testSuiteId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testSuiteId' is set
-        if (testSuiteId == null) {
-            throw new ApiException("Missing the required parameter 'testSuiteId' when calling setWorkItemsByTestSuiteId(Async)");
+    private com.squareup.okhttp.Call setWorkItemsByTestSuiteIdValidateBeforeCall(UUID id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setWorkItemsByTestSuiteId(Async)");
         }
         
-        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1297,26 +1297,26 @@ public class TestSuitesApi {
     /**
      * Set WorkItems By TestSuite Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of workitems identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems  &lt;br&gt;System restores(if exist) or creates test points with listed workitems  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of workitem identifiers&quot; (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemShortModel> setWorkItemsByTestSuiteId(UUID testSuiteId, List<UUID> body) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> resp = setWorkItemsByTestSuiteIdWithHttpInfo(testSuiteId, body);
+    public List<WorkItemShortModel> setWorkItemsByTestSuiteId(UUID id, List<UUID> body) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> resp = setWorkItemsByTestSuiteIdWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * Set WorkItems By TestSuite Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of workitems identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems  &lt;br&gt;System restores(if exist) or creates test points with listed workitems  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of workitem identifiers&quot; (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemShortModel>> setWorkItemsByTestSuiteIdWithHttpInfo(UUID testSuiteId, List<UUID> body) throws ApiException {
-        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdValidateBeforeCall(testSuiteId, body, null, null);
+    public ApiResponse<List<WorkItemShortModel>> setWorkItemsByTestSuiteIdWithHttpInfo(UUID id, List<UUID> body) throws ApiException {
+        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1324,13 +1324,13 @@ public class TestSuitesApi {
     /**
      * Set WorkItems By TestSuite Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of workitems identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems  &lt;br&gt;System restores(if exist) or creates test points with listed workitems  &lt;br&gt;System returns no content response
-     * @param testSuiteId Test suite internal (guid format) identifier\&quot; (required)
+     * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param body Collection of workitem identifiers&quot; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setWorkItemsByTestSuiteIdAsync(UUID testSuiteId, List<UUID> body, final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call setWorkItemsByTestSuiteIdAsync(UUID id, List<UUID> body, final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1351,7 +1351,7 @@ public class TestSuitesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdValidateBeforeCall(testSuiteId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setWorkItemsByTestSuiteIdValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1384,7 +1384,7 @@ public class TestSuitesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

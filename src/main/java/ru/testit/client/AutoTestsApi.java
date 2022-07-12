@@ -30,12 +30,16 @@ import ru.testit.model.AutoTestAverageDurationModel;
 import ru.testit.model.AutoTestModel;
 import ru.testit.model.AutoTestPostModel;
 import ru.testit.model.AutoTestPutModel;
+import ru.testit.model.FlakyBulkDto;
 import org.threeten.bp.OffsetDateTime;
+import ru.testit.model.ProblemDetails;
 import ru.testit.model.TestResultChronologyModel;
 import ru.testit.model.TestResultHistoryReportModel;
 import ru.testit.model.TestRunShortModel;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 import ru.testit.model.WorkItemIdModel;
+import ru.testit.model.WorkItemIdentifierModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,6 +66,377 @@ public class AutoTestsApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for apiV2AutoTestsFlakyBulkPost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsFlakyBulkPostCall(FlakyBulkDto body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/autoTests/flaky/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(FlakyBulkDto body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2AutoTestsFlakyBulkPostCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Set \&quot;Flaky\&quot; status for multiple autotests
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param body  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2AutoTestsFlakyBulkPost(FlakyBulkDto body) throws ApiException {
+        apiV2AutoTestsFlakyBulkPostWithHttpInfo(body);
+    }
+
+    /**
+     * Set \&quot;Flaky\&quot; status for multiple autotests
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param body  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(FlakyBulkDto body) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(body, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Set \&quot;Flaky\&quot; status for multiple autotests (asynchronously)
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsFlakyBulkPostAsync(FlakyBulkDto body, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2AutoTestsIdWorkItemsChangedIdGet
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedIdGetCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/autoTests/{id}/workItems/changed/id"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedIdGetValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2AutoTestsIdWorkItemsChangedIdGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedIdGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get identifiers of changed linked work items
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @return List&lt;UUID&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<UUID> apiV2AutoTestsIdWorkItemsChangedIdGet(UUID id) throws ApiException {
+        ApiResponse<List<UUID>> resp = apiV2AutoTestsIdWorkItemsChangedIdGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Get identifiers of changed linked work items
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<UUID>> apiV2AutoTestsIdWorkItemsChangedIdGetWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedIdGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get identifiers of changed linked work items (asynchronously)
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedIdGetAsync(UUID id, final ApiCallback<List<UUID>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost
+     * @param id  (required)
+     * @param workItemId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostCall(UUID id, UUID workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostValidateBeforeCall(UUID id, UUID workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(Async)");
+        }
+        // verify the required parameter 'workItemId' is set
+        if (workItemId == null) {
+            throw new ApiException("Missing the required parameter 'workItemId' when calling apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostCall(id, workItemId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Approve changes to work items linked to autotest
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @param workItemId  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(UUID id, UUID workItemId) throws ApiException {
+        apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostWithHttpInfo(id, workItemId);
+    }
+
+    /**
+     * Approve changes to work items linked to autotest
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @param workItemId  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostWithHttpInfo(UUID id, UUID workItemId) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostValidateBeforeCall(id, workItemId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Approve changes to work items linked to autotest (asynchronously)
+     * User permissions for project:  - Read only  - Execute  - Write  - Full control
+     * @param id  (required)
+     * @param workItemId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostAsync(UUID id, UUID workItemId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePostValidateBeforeCall(id, workItemId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /**
      * Build call for createAutoTest
      * @param body  (optional)
@@ -90,7 +465,7 @@ public class AutoTestsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -124,7 +499,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTest
+     * Create autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @return AutoTestModel
@@ -136,7 +511,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTest
+     * Create autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @return ApiResponse&lt;AutoTestModel&gt;
@@ -149,7 +524,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTest (asynchronously)
+     * Create autotest (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -210,7 +585,7 @@ public class AutoTestsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -244,7 +619,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTests multiple
+     * Create multiple autotests
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @return List&lt;AutoTestModel&gt;
@@ -256,7 +631,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTests multiple
+     * Create multiple autotests
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
@@ -269,7 +644,7 @@ public class AutoTestsApi {
     }
 
     /**
-     * Create AutoTests multiple (asynchronously)
+     * Create multiple autotests (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest parameters (listed in the example) and runs method execution  &lt;br&gt;System creates autotest  &lt;br&gt;[Optional] If steps enumeration is set, system creates step items and relates them to autotest  &lt;br&gt;[Optional] If setup enumeration is set, system creates setup items and relates them to autotest  &lt;br&gt;[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  &lt;br&gt;[Optional] If label enumeration is set, system creates labels and relates them to autotest  &lt;br&gt;[Optional] If link enumeration is set, system creates links and relates them to autotest  &lt;br&gt;System returns autotest model (example listed in response parameters)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -304,18 +679,18 @@ public class AutoTestsApi {
     }
     /**
      * Build call for deleteAutoTest
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier \&quot; (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAutoTestCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteAutoTestCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -353,13 +728,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteAutoTestValidateBeforeCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling deleteAutoTest(Async)");
+    private com.squareup.okhttp.Call deleteAutoTestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteAutoTest(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteAutoTestCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAutoTestCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -369,36 +744,36 @@ public class AutoTestsApi {
     }
 
     /**
-     * Delete AutoTest by Id or GlobalId
+     * Delete autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System deletes autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier \&quot; (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteAutoTest(String autoTestId) throws ApiException {
-        deleteAutoTestWithHttpInfo(autoTestId);
+    public void deleteAutoTest(String id) throws ApiException {
+        deleteAutoTestWithHttpInfo(id);
     }
 
     /**
-     * Delete AutoTest by Id or GlobalId
+     * Delete autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System deletes autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier \&quot; (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteAutoTestWithHttpInfo(String autoTestId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteAutoTestValidateBeforeCall(autoTestId, null, null);
+    public ApiResponse<Void> deleteAutoTestWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteAutoTestValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete AutoTest by Id or GlobalId (asynchronously)
+     * Delete autotest (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System deletes autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier \&quot; (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteAutoTestAsync(String autoTestId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteAutoTestAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -419,25 +794,25 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteAutoTestValidateBeforeCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAutoTestValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for deleteAutoTestLinkFromWorkItem
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param workItemId workItem internal (guid format) or global  (integer format) identifier (optional)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemCall(String autoTestId, String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemCall(String id, String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/workItems"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -477,13 +852,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemValidateBeforeCall(String autoTestId, String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling deleteAutoTestLinkFromWorkItem(Async)");
+    private com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemValidateBeforeCall(String id, String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteAutoTestLinkFromWorkItem(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemCall(autoTestId, workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemCall(id, workItemId, progressListener, progressRequestListener);
         return call;
 
         
@@ -493,39 +868,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Delete AutoTest link from WorkItem by Id or GlobalId  (if workItemId is not specified, then remove all links WorkItems to AutoTest)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;                      [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it                      from autotest.                    &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param workItemId workItem internal (guid format) or global  (integer format) identifier (optional)
+     * Unlink autotest from work item
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;              [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteAutoTestLinkFromWorkItem(String autoTestId, String workItemId) throws ApiException {
-        deleteAutoTestLinkFromWorkItemWithHttpInfo(autoTestId, workItemId);
+    public void deleteAutoTestLinkFromWorkItem(String id, String workItemId) throws ApiException {
+        deleteAutoTestLinkFromWorkItemWithHttpInfo(id, workItemId);
     }
 
     /**
-     * Delete AutoTest link from WorkItem by Id or GlobalId  (if workItemId is not specified, then remove all links WorkItems to AutoTest)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;                      [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it                      from autotest.                    &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param workItemId workItem internal (guid format) or global  (integer format) identifier (optional)
+     * Unlink autotest from work item
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;              [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteAutoTestLinkFromWorkItemWithHttpInfo(String autoTestId, String workItemId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemValidateBeforeCall(autoTestId, workItemId, null, null);
+    public ApiResponse<Void> deleteAutoTestLinkFromWorkItemWithHttpInfo(String id, String workItemId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemValidateBeforeCall(id, workItemId, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete AutoTest link from WorkItem by Id or GlobalId  (if workItemId is not specified, then remove all links WorkItems to AutoTest) (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;                      [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it                      from autotest.                    &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param workItemId workItem internal (guid format) or global  (integer format) identifier (optional)
+     * Unlink autotest from work item (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;[Optional] User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;              [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                &lt;br&gt;[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  &lt;br&gt;System returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemAsync(String autoTestId, String workItemId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteAutoTestLinkFromWorkItemAsync(String id, String workItemId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -546,37 +921,43 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemValidateBeforeCall(autoTestId, workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAutoTestLinkFromWorkItemValidateBeforeCall(id, workItemId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for getAllAutoTests
-     * @param projectId Project internal identifier (optional)
-     * @param externalId Autotest external identifier (optional)
-     * @param globalId Autotest global identifier (optional)
-     * @param namespace Name of abstract storage where autotest is located (optional)
-     * @param isNamespaceNull Boolean flag which defines if search must include autotests with null  value Namespace attribute (optional, default to false)
-     * @param classname Name of the class where autotest is located (optional)
-     * @param isClassnameNull Boolean flag which defines if search must include autotests with null  value Classname attribute (optional, default to false)
-     * @param isDeleted Boolean flag which defines if search must include deleted autotests (optional, default to false)
-     * @param labels List of autotests labels to filter by (optional)
-     * @param stabilityMinimal Minimal stability value to filter by (optional)
-     * @param stabilityMaximal Maximal stability value to filter by (optional)
-     * @param isFlaky [Optional] If flaky is set (optional)
-     * @param includeSteps Boolean flag which defines if setup, steps and teardown fields must be included (optional, default to true)
-     * @param includeLabels Boolean flag which defines if labels field must be included (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param projectId Project internal ID (optional)
+     * @param externalId Autotest external ID (optional)
+     * @param globalId Autotest global ID (optional)
+     * @param namespace Namespace in which autotest is located (optional)
+     * @param isNamespaceNull OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead (optional)
+     * @param includeEmptyNamespaces If result must contain autotests without namespace (optional)
+     * @param className Name of class in which autotest is located (optional)
+     * @param isClassnameNull OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead (optional)
+     * @param includeEmptyClassNames If result must contain autotests without class (optional)
+     * @param isDeleted OBSOLETE: Use &#x60;deleted&#x60; instead (optional)
+     * @param deleted Is autotest deleted (optional)
+     * @param labels Include only autotests with provided labels (optional)
+     * @param stabilityMinimal OBSOLETE: Use &#x60;minStability&#x60; instead (optional)
+     * @param minStability Minimum stability value of autotest (optional)
+     * @param stabilityMaximal OBSOLETE: Use &#x60;maxStability&#x60; instead (optional)
+     * @param maxStability Maximum stability value of autotest (optional)
+     * @param isFlaky OBSOLETE: Use &#x60;flaky&#x60; instead (optional)
+     * @param flaky Is autotest marked as \&quot;Flaky\&quot; (optional)
+     * @param includeSteps If result must also include autotest steps (optional)
+     * @param includeLabels If result must also include autotest labels (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllAutoTestsCall(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, String classname, Boolean isClassnameNull, Boolean isDeleted, List<String> labels, Integer stabilityMinimal, Integer stabilityMaximal, Boolean isFlaky, Boolean includeSteps, Boolean includeLabels,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAllAutoTestsCall(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, Boolean includeEmptyNamespaces, String className, Boolean isClassnameNull, Boolean includeEmptyClassNames, Boolean isDeleted, Boolean deleted, List<String> labels, Integer stabilityMinimal, Integer minStability, Integer stabilityMaximal, Integer maxStability, Boolean isFlaky, Boolean flaky, Boolean includeSteps, Boolean includeLabels, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -591,37 +972,49 @@ public class AutoTestsApi {
         if (globalId != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("globalId", globalId));
         if (namespace != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Namespace", namespace));
+        localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
         if (isNamespaceNull != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isNamespaceNull", isNamespaceNull));
-        if (classname != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("classname", classname));
+        if (includeEmptyNamespaces != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeEmptyNamespaces", includeEmptyNamespaces));
+        if (className != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("className", className));
         if (isClassnameNull != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isClassnameNull", isClassnameNull));
+        if (includeEmptyClassNames != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeEmptyClassNames", includeEmptyClassNames));
         if (isDeleted != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
+        if (deleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("deleted", deleted));
         if (labels != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
         if (stabilityMinimal != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("stabilityMinimal", stabilityMinimal));
+        if (minStability != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("minStability", minStability));
         if (stabilityMaximal != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("stabilityMaximal", stabilityMaximal));
+        if (maxStability != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("maxStability", maxStability));
         if (isFlaky != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isFlaky", isFlaky));
+        if (flaky != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("flaky", flaky));
         if (includeSteps != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeSteps", includeSteps));
         if (includeLabels != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeLabels", includeLabels));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -656,9 +1049,9 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllAutoTestsValidateBeforeCall(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, String classname, Boolean isClassnameNull, Boolean isDeleted, List<String> labels, Integer stabilityMinimal, Integer stabilityMaximal, Boolean isFlaky, Boolean includeSteps, Boolean includeLabels,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllAutoTestsValidateBeforeCall(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, Boolean includeEmptyNamespaces, String className, Boolean isClassnameNull, Boolean includeEmptyClassNames, Boolean isDeleted, Boolean deleted, List<String> labels, Integer stabilityMinimal, Integer minStability, Integer stabilityMaximal, Integer maxStability, Boolean isFlaky, Boolean flaky, Boolean includeSteps, Boolean includeLabels, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = getAllAutoTestsCall(projectId, externalId, globalId, namespace, isNamespaceNull, classname, isClassnameNull, isDeleted, labels, stabilityMinimal, stabilityMaximal, isFlaky, includeSteps, includeLabels, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllAutoTestsCall(projectId, externalId, globalId, namespace, isNamespaceNull, includeEmptyNamespaces, className, isClassnameNull, includeEmptyClassNames, isDeleted, deleted, labels, stabilityMinimal, minStability, stabilityMaximal, maxStability, isFlaky, flaky, includeSteps, includeLabels, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -668,93 +1061,111 @@ public class AutoTestsApi {
     }
 
     /**
-     * Get all AutoTests (if parameters are specified, then it&#x27;s filtered by them.)
+     * Get all autotests
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets search parameters (listed in request parameters) and runs method execution  &lt;br&gt;System returns all autotests, matching search criteria
-     * @param projectId Project internal identifier (optional)
-     * @param externalId Autotest external identifier (optional)
-     * @param globalId Autotest global identifier (optional)
-     * @param namespace Name of abstract storage where autotest is located (optional)
-     * @param isNamespaceNull Boolean flag which defines if search must include autotests with null  value Namespace attribute (optional, default to false)
-     * @param classname Name of the class where autotest is located (optional)
-     * @param isClassnameNull Boolean flag which defines if search must include autotests with null  value Classname attribute (optional, default to false)
-     * @param isDeleted Boolean flag which defines if search must include deleted autotests (optional, default to false)
-     * @param labels List of autotests labels to filter by (optional)
-     * @param stabilityMinimal Minimal stability value to filter by (optional)
-     * @param stabilityMaximal Maximal stability value to filter by (optional)
-     * @param isFlaky [Optional] If flaky is set (optional)
-     * @param includeSteps Boolean flag which defines if setup, steps and teardown fields must be included (optional, default to true)
-     * @param includeLabels Boolean flag which defines if labels field must be included (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param projectId Project internal ID (optional)
+     * @param externalId Autotest external ID (optional)
+     * @param globalId Autotest global ID (optional)
+     * @param namespace Namespace in which autotest is located (optional)
+     * @param isNamespaceNull OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead (optional)
+     * @param includeEmptyNamespaces If result must contain autotests without namespace (optional)
+     * @param className Name of class in which autotest is located (optional)
+     * @param isClassnameNull OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead (optional)
+     * @param includeEmptyClassNames If result must contain autotests without class (optional)
+     * @param isDeleted OBSOLETE: Use &#x60;deleted&#x60; instead (optional)
+     * @param deleted Is autotest deleted (optional)
+     * @param labels Include only autotests with provided labels (optional)
+     * @param stabilityMinimal OBSOLETE: Use &#x60;minStability&#x60; instead (optional)
+     * @param minStability Minimum stability value of autotest (optional)
+     * @param stabilityMaximal OBSOLETE: Use &#x60;maxStability&#x60; instead (optional)
+     * @param maxStability Maximum stability value of autotest (optional)
+     * @param isFlaky OBSOLETE: Use &#x60;flaky&#x60; instead (optional)
+     * @param flaky Is autotest marked as \&quot;Flaky\&quot; (optional)
+     * @param includeSteps If result must also include autotest steps (optional)
+     * @param includeLabels If result must also include autotest labels (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AutoTestModel> getAllAutoTests(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, String classname, Boolean isClassnameNull, Boolean isDeleted, List<String> labels, Integer stabilityMinimal, Integer stabilityMaximal, Boolean isFlaky, Boolean includeSteps, Boolean includeLabels,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<AutoTestModel>> resp = getAllAutoTestsWithHttpInfo(projectId, externalId, globalId, namespace, isNamespaceNull, classname, isClassnameNull, isDeleted, labels, stabilityMinimal, stabilityMaximal, isFlaky, includeSteps, includeLabels, , , , , );
+    public List<AutoTestModel> getAllAutoTests(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, Boolean includeEmptyNamespaces, String className, Boolean isClassnameNull, Boolean includeEmptyClassNames, Boolean isDeleted, Boolean deleted, List<String> labels, Integer stabilityMinimal, Integer minStability, Integer stabilityMaximal, Integer maxStability, Boolean isFlaky, Boolean flaky, Boolean includeSteps, Boolean includeLabels, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<AutoTestModel>> resp = getAllAutoTestsWithHttpInfo(projectId, externalId, globalId, namespace, isNamespaceNull, includeEmptyNamespaces, className, isClassnameNull, includeEmptyClassNames, isDeleted, deleted, labels, stabilityMinimal, minStability, stabilityMaximal, maxStability, isFlaky, flaky, includeSteps, includeLabels, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get all AutoTests (if parameters are specified, then it&#x27;s filtered by them.)
+     * Get all autotests
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets search parameters (listed in request parameters) and runs method execution  &lt;br&gt;System returns all autotests, matching search criteria
-     * @param projectId Project internal identifier (optional)
-     * @param externalId Autotest external identifier (optional)
-     * @param globalId Autotest global identifier (optional)
-     * @param namespace Name of abstract storage where autotest is located (optional)
-     * @param isNamespaceNull Boolean flag which defines if search must include autotests with null  value Namespace attribute (optional, default to false)
-     * @param classname Name of the class where autotest is located (optional)
-     * @param isClassnameNull Boolean flag which defines if search must include autotests with null  value Classname attribute (optional, default to false)
-     * @param isDeleted Boolean flag which defines if search must include deleted autotests (optional, default to false)
-     * @param labels List of autotests labels to filter by (optional)
-     * @param stabilityMinimal Minimal stability value to filter by (optional)
-     * @param stabilityMaximal Maximal stability value to filter by (optional)
-     * @param isFlaky [Optional] If flaky is set (optional)
-     * @param includeSteps Boolean flag which defines if setup, steps and teardown fields must be included (optional, default to true)
-     * @param includeLabels Boolean flag which defines if labels field must be included (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param projectId Project internal ID (optional)
+     * @param externalId Autotest external ID (optional)
+     * @param globalId Autotest global ID (optional)
+     * @param namespace Namespace in which autotest is located (optional)
+     * @param isNamespaceNull OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead (optional)
+     * @param includeEmptyNamespaces If result must contain autotests without namespace (optional)
+     * @param className Name of class in which autotest is located (optional)
+     * @param isClassnameNull OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead (optional)
+     * @param includeEmptyClassNames If result must contain autotests without class (optional)
+     * @param isDeleted OBSOLETE: Use &#x60;deleted&#x60; instead (optional)
+     * @param deleted Is autotest deleted (optional)
+     * @param labels Include only autotests with provided labels (optional)
+     * @param stabilityMinimal OBSOLETE: Use &#x60;minStability&#x60; instead (optional)
+     * @param minStability Minimum stability value of autotest (optional)
+     * @param stabilityMaximal OBSOLETE: Use &#x60;maxStability&#x60; instead (optional)
+     * @param maxStability Maximum stability value of autotest (optional)
+     * @param isFlaky OBSOLETE: Use &#x60;flaky&#x60; instead (optional)
+     * @param flaky Is autotest marked as \&quot;Flaky\&quot; (optional)
+     * @param includeSteps If result must also include autotest steps (optional)
+     * @param includeLabels If result must also include autotest labels (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AutoTestModel>> getAllAutoTestsWithHttpInfo(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, String classname, Boolean isClassnameNull, Boolean isDeleted, List<String> labels, Integer stabilityMinimal, Integer stabilityMaximal, Boolean isFlaky, Boolean includeSteps, Boolean includeLabels,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getAllAutoTestsValidateBeforeCall(projectId, externalId, globalId, namespace, isNamespaceNull, classname, isClassnameNull, isDeleted, labels, stabilityMinimal, stabilityMaximal, isFlaky, includeSteps, includeLabels, , , , , , null, null);
+    public ApiResponse<List<AutoTestModel>> getAllAutoTestsWithHttpInfo(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, Boolean includeEmptyNamespaces, String className, Boolean isClassnameNull, Boolean includeEmptyClassNames, Boolean isDeleted, Boolean deleted, List<String> labels, Integer stabilityMinimal, Integer minStability, Integer stabilityMaximal, Integer maxStability, Boolean isFlaky, Boolean flaky, Boolean includeSteps, Boolean includeLabels, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getAllAutoTestsValidateBeforeCall(projectId, externalId, globalId, namespace, isNamespaceNull, includeEmptyNamespaces, className, isClassnameNull, includeEmptyClassNames, isDeleted, deleted, labels, stabilityMinimal, minStability, stabilityMaximal, maxStability, isFlaky, flaky, includeSteps, includeLabels, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get all AutoTests (if parameters are specified, then it&#x27;s filtered by them.) (asynchronously)
+     * Get all autotests (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets search parameters (listed in request parameters) and runs method execution  &lt;br&gt;System returns all autotests, matching search criteria
-     * @param projectId Project internal identifier (optional)
-     * @param externalId Autotest external identifier (optional)
-     * @param globalId Autotest global identifier (optional)
-     * @param namespace Name of abstract storage where autotest is located (optional)
-     * @param isNamespaceNull Boolean flag which defines if search must include autotests with null  value Namespace attribute (optional, default to false)
-     * @param classname Name of the class where autotest is located (optional)
-     * @param isClassnameNull Boolean flag which defines if search must include autotests with null  value Classname attribute (optional, default to false)
-     * @param isDeleted Boolean flag which defines if search must include deleted autotests (optional, default to false)
-     * @param labels List of autotests labels to filter by (optional)
-     * @param stabilityMinimal Minimal stability value to filter by (optional)
-     * @param stabilityMaximal Maximal stability value to filter by (optional)
-     * @param isFlaky [Optional] If flaky is set (optional)
-     * @param includeSteps Boolean flag which defines if setup, steps and teardown fields must be included (optional, default to true)
-     * @param includeLabels Boolean flag which defines if labels field must be included (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param projectId Project internal ID (optional)
+     * @param externalId Autotest external ID (optional)
+     * @param globalId Autotest global ID (optional)
+     * @param namespace Namespace in which autotest is located (optional)
+     * @param isNamespaceNull OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead (optional)
+     * @param includeEmptyNamespaces If result must contain autotests without namespace (optional)
+     * @param className Name of class in which autotest is located (optional)
+     * @param isClassnameNull OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead (optional)
+     * @param includeEmptyClassNames If result must contain autotests without class (optional)
+     * @param isDeleted OBSOLETE: Use &#x60;deleted&#x60; instead (optional)
+     * @param deleted Is autotest deleted (optional)
+     * @param labels Include only autotests with provided labels (optional)
+     * @param stabilityMinimal OBSOLETE: Use &#x60;minStability&#x60; instead (optional)
+     * @param minStability Minimum stability value of autotest (optional)
+     * @param stabilityMaximal OBSOLETE: Use &#x60;maxStability&#x60; instead (optional)
+     * @param maxStability Maximum stability value of autotest (optional)
+     * @param isFlaky OBSOLETE: Use &#x60;flaky&#x60; instead (optional)
+     * @param flaky Is autotest marked as \&quot;Flaky\&quot; (optional)
+     * @param includeSteps If result must also include autotest steps (optional)
+     * @param includeLabels If result must also include autotest labels (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllAutoTestsAsync(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, String classname, Boolean isClassnameNull, Boolean isDeleted, List<String> labels, Integer stabilityMinimal, Integer stabilityMaximal, Boolean isFlaky, Boolean includeSteps, Boolean includeLabels,  ,  ,  ,  ,  , final ApiCallback<List<AutoTestModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllAutoTestsAsync(UUID projectId, String externalId, Long globalId, String namespace, Boolean isNamespaceNull, Boolean includeEmptyNamespaces, String className, Boolean isClassnameNull, Boolean includeEmptyClassNames, Boolean isDeleted, Boolean deleted, List<String> labels, Integer stabilityMinimal, Integer minStability, Integer stabilityMaximal, Integer maxStability, Boolean isFlaky, Boolean flaky, Boolean includeSteps, Boolean includeLabels, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<AutoTestModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -775,25 +1186,25 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllAutoTestsValidateBeforeCall(projectId, externalId, globalId, namespace, isNamespaceNull, classname, isClassnameNull, isDeleted, labels, stabilityMinimal, stabilityMaximal, isFlaky, includeSteps, includeLabels, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllAutoTestsValidateBeforeCall(projectId, externalId, globalId, namespace, isNamespaceNull, includeEmptyNamespaces, className, isClassnameNull, includeEmptyClassNames, isDeleted, deleted, labels, stabilityMinimal, minStability, stabilityMaximal, maxStability, isFlaky, flaky, includeSteps, includeLabels, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAutoTestAverageDuration
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestAverageDurationCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestAverageDurationCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/averageDuration"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/averageDuration"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -831,13 +1242,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAutoTestAverageDurationValidateBeforeCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getAutoTestAverageDuration(Async)");
+    private com.squareup.okhttp.Call getAutoTestAverageDurationValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAutoTestAverageDuration(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAutoTestAverageDurationCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestAverageDurationCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -847,39 +1258,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Get AutoTest average duration by Id or GlobalId
+     * Get average autotest duration
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System calculates pass average duration and fail average duration of autotest from all related test results  &lt;br&gt;System returns pass average duration and fail average duration for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return AutoTestAverageDurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AutoTestAverageDurationModel getAutoTestAverageDuration(String autoTestId) throws ApiException {
-        ApiResponse<AutoTestAverageDurationModel> resp = getAutoTestAverageDurationWithHttpInfo(autoTestId);
+    public AutoTestAverageDurationModel getAutoTestAverageDuration(String id) throws ApiException {
+        ApiResponse<AutoTestAverageDurationModel> resp = getAutoTestAverageDurationWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get AutoTest average duration by Id or GlobalId
+     * Get average autotest duration
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System calculates pass average duration and fail average duration of autotest from all related test results  &lt;br&gt;System returns pass average duration and fail average duration for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;AutoTestAverageDurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AutoTestAverageDurationModel> getAutoTestAverageDurationWithHttpInfo(String autoTestId) throws ApiException {
-        com.squareup.okhttp.Call call = getAutoTestAverageDurationValidateBeforeCall(autoTestId, null, null);
+    public ApiResponse<AutoTestAverageDurationModel> getAutoTestAverageDurationWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoTestAverageDurationValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<AutoTestAverageDurationModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get AutoTest average duration by Id or GlobalId (asynchronously)
+     * Get average autotest duration (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System calculates pass average duration and fail average duration of autotest from all related test results  &lt;br&gt;System returns pass average duration and fail average duration for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestAverageDurationAsync(String autoTestId, final ApiCallback<AutoTestAverageDurationModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestAverageDurationAsync(String id, final ApiCallback<AutoTestAverageDurationModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -900,25 +1311,25 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAutoTestAverageDurationValidateBeforeCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestAverageDurationValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoTestAverageDurationModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAutoTestById
-     * @param autoTestId Autotest internal identifier (guid format) or  global identifier (integer format) (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestByIdCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestByIdCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -956,13 +1367,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAutoTestByIdValidateBeforeCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getAutoTestById(Async)");
+    private com.squareup.okhttp.Call getAutoTestByIdValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAutoTestById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAutoTestByIdCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -972,39 +1383,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Get AutoTest by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;                      System returns autotest, which internal or global identifier equals the identifier value set in the previous                      action                  
-     * @param autoTestId Autotest internal identifier (guid format) or  global identifier (integer format) (required)
+     * Get autotest by internal or global ID
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return AutoTestModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AutoTestModel getAutoTestById(String autoTestId) throws ApiException {
-        ApiResponse<AutoTestModel> resp = getAutoTestByIdWithHttpInfo(autoTestId);
+    public AutoTestModel getAutoTestById(String id) throws ApiException {
+        ApiResponse<AutoTestModel> resp = getAutoTestByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get AutoTest by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;                      System returns autotest, which internal or global identifier equals the identifier value set in the previous                      action                  
-     * @param autoTestId Autotest internal identifier (guid format) or  global identifier (integer format) (required)
+     * Get autotest by internal or global ID
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AutoTestModel> getAutoTestByIdWithHttpInfo(String autoTestId) throws ApiException {
-        com.squareup.okhttp.Call call = getAutoTestByIdValidateBeforeCall(autoTestId, null, null);
+    public ApiResponse<AutoTestModel> getAutoTestByIdWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoTestByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get AutoTest by Id or GlobalId (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;                      System returns autotest, which internal or global identifier equals the identifier value set in the previous                      action                  
-     * @param autoTestId Autotest internal identifier (guid format) or  global identifier (integer format) (required)
+     * Get autotest by internal or global ID (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal or global identifier and runs method execution  &lt;br&gt;System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestByIdAsync(String autoTestId, final ApiCallback<AutoTestModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestByIdAsync(String id, final ApiCallback<AutoTestModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1025,25 +1436,25 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAutoTestByIdValidateBeforeCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAutoTestChronology
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestChronologyCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestChronologyCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/chronology"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/chronology"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1081,13 +1492,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAutoTestChronologyValidateBeforeCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getAutoTestChronology(Async)");
+    private com.squareup.okhttp.Call getAutoTestChronologyValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAutoTestChronology(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAutoTestChronologyCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestChronologyCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -1097,39 +1508,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Get AutoTest chronology by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;                      System orders the test results by CompletedOn property descending and then orders by CreatedDate property                      descending                    &lt;br&gt;System returns test result chronology for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * Get autotest chronology
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  &lt;br&gt;System returns test result chronology for autotest
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return List&lt;TestResultChronologyModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestResultChronologyModel> getAutoTestChronology(String autoTestId) throws ApiException {
-        ApiResponse<List<TestResultChronologyModel>> resp = getAutoTestChronologyWithHttpInfo(autoTestId);
+    public List<TestResultChronologyModel> getAutoTestChronology(String id) throws ApiException {
+        ApiResponse<List<TestResultChronologyModel>> resp = getAutoTestChronologyWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get AutoTest chronology by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;                      System orders the test results by CompletedOn property descending and then orders by CreatedDate property                      descending                    &lt;br&gt;System returns test result chronology for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * Get autotest chronology
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  &lt;br&gt;System returns test result chronology for autotest
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestResultChronologyModel>> getAutoTestChronologyWithHttpInfo(String autoTestId) throws ApiException {
-        com.squareup.okhttp.Call call = getAutoTestChronologyValidateBeforeCall(autoTestId, null, null);
+    public ApiResponse<List<TestResultChronologyModel>> getAutoTestChronologyWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoTestChronologyValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<TestResultChronologyModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get AutoTest chronology by Id or GlobalId (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;                      System orders the test results by CompletedOn property descending and then orders by CreatedDate property                      descending                    &lt;br&gt;System returns test result chronology for autotest
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * Get autotest chronology (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search all test results related to autotest (with default limit equal 100)  &lt;br&gt;System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  &lt;br&gt;System returns test result chronology for autotest
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestChronologyAsync(String autoTestId, final ApiCallback<List<TestResultChronologyModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestChronologyAsync(String id, final ApiCallback<List<TestResultChronologyModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1150,25 +1561,25 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAutoTestChronologyValidateBeforeCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestChronologyValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestResultChronologyModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestRuns
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestRunsCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunsCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/testRuns"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/testRuns"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1206,13 +1617,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestRunsValidateBeforeCall(String autoTestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getTestRuns(Async)");
+    private com.squareup.okhttp.Call getTestRunsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestRuns(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestRunsCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunsCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -1222,39 +1633,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Stopped and completed TestRuns which contain AutoTest by Id or GlobalId
+     * Get completed tests runs for autotests
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search for all test runs related to the autotest  &lt;br&gt;System returns the enumeration of test runs
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return List&lt;TestRunShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestRunShortModel> getTestRuns(String autoTestId) throws ApiException {
-        ApiResponse<List<TestRunShortModel>> resp = getTestRunsWithHttpInfo(autoTestId);
+    public List<TestRunShortModel> getTestRuns(String id) throws ApiException {
+        ApiResponse<List<TestRunShortModel>> resp = getTestRunsWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Stopped and completed TestRuns which contain AutoTest by Id or GlobalId
+     * Get completed tests runs for autotests
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search for all test runs related to the autotest  &lt;br&gt;System returns the enumeration of test runs
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;TestRunShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestRunShortModel>> getTestRunsWithHttpInfo(String autoTestId) throws ApiException {
-        com.squareup.okhttp.Call call = getTestRunsValidateBeforeCall(autoTestId, null, null);
+    public ApiResponse<List<TestRunShortModel>> getTestRunsWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getTestRunsValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<TestRunShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Stopped and completed TestRuns which contain AutoTest by Id or GlobalId (asynchronously)
+     * Get completed tests runs for autotests (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search for all test runs related to the autotest  &lt;br&gt;System returns the enumeration of test runs
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestRunsAsync(String autoTestId, final ApiCallback<List<TestRunShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunsAsync(String id, final ApiCallback<List<TestRunShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1275,67 +1686,70 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestRunsValidateBeforeCall(autoTestId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunsValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestRunShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemResults
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param from  (optional)
-     * @param to  (optional)
-     * @param configurationIds  (optional)
-     * @param testPlanIds  (optional)
-     * @param userIds  (optional)
-     * @param outcomes  (optional)
-     * @param isAutomated  (optional)
-     * @param testRunIds  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemResultsCall(String autoTestId, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, List<UUID> testRunIds,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemResultsCall(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/testResultHistory"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/testResultHistory"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (from != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("From", from));
+        localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
         if (to != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("To", to));
+        localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
         if (configurationIds != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ConfigurationIds", configurationIds));
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "configurationIds", configurationIds));
         if (testPlanIds != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "TestPlanIds", testPlanIds));
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "testPlanIds", testPlanIds));
         if (userIds != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "UserIds", userIds));
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "userIds", userIds));
         if (outcomes != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "Outcomes", outcomes));
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "outcomes", outcomes));
         if (isAutomated != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("IsAutomated", isAutomated));
+        localVarQueryParams.addAll(apiClient.parameterToPair("isAutomated", isAutomated));
+        if (automated != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("automated", automated));
         if (testRunIds != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "TestRunIds", testRunIds));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "testRunIds", testRunIds));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1370,13 +1784,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemResultsValidateBeforeCall(String autoTestId, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, List<UUID> testRunIds,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getWorkItemResults(Async)");
+    private com.squareup.okhttp.Call getWorkItemResultsValidateBeforeCall(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemResults(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemResultsCall(autoTestId, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, testRunIds, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemResultsCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -1386,78 +1800,81 @@ public class AutoTestsApi {
     }
 
     /**
-     * History of TestResults for AutoTest by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and autoTestId  &lt;br&gt;System returns the enumeration of test results
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param from  (optional)
-     * @param to  (optional)
-     * @param configurationIds  (optional)
-     * @param testPlanIds  (optional)
-     * @param userIds  (optional)
-     * @param outcomes  (optional)
-     * @param isAutomated  (optional)
-     * @param testRunIds  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * Get test results history for autotest
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and id  &lt;br&gt;System returns the enumeration of test results
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;TestResultHistoryReportModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestResultHistoryReportModel> getWorkItemResults(String autoTestId, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, List<UUID> testRunIds,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<TestResultHistoryReportModel>> resp = getWorkItemResultsWithHttpInfo(autoTestId, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, testRunIds, , , , , );
+    public List<TestResultHistoryReportModel> getWorkItemResults(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestResultHistoryReportModel>> resp = getWorkItemResultsWithHttpInfo(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * History of TestResults for AutoTest by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and autoTestId  &lt;br&gt;System returns the enumeration of test results
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param from  (optional)
-     * @param to  (optional)
-     * @param configurationIds  (optional)
-     * @param testPlanIds  (optional)
-     * @param userIds  (optional)
-     * @param outcomes  (optional)
-     * @param isAutomated  (optional)
-     * @param testRunIds  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * Get test results history for autotest
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and id  &lt;br&gt;System returns the enumeration of test results
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;TestResultHistoryReportModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestResultHistoryReportModel>> getWorkItemResultsWithHttpInfo(String autoTestId, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, List<UUID> testRunIds,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemResultsValidateBeforeCall(autoTestId, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, testRunIds, , , , , , null, null);
+    public ApiResponse<List<TestResultHistoryReportModel>> getWorkItemResultsWithHttpInfo(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemResultsValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * History of TestResults for AutoTest by Id or GlobalId (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and autoTestId  &lt;br&gt;System returns the enumeration of test results
-     * @param autoTestId autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param from  (optional)
-     * @param to  (optional)
-     * @param configurationIds  (optional)
-     * @param testPlanIds  (optional)
-     * @param userIds  (optional)
-     * @param outcomes  (optional)
-     * @param isAutomated  (optional)
-     * @param testRunIds  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * Get test results history for autotest (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets getTestResultHistoryReportQuery (listed in the example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search for test results using filters set by user in getTestResultHistoryReportQuery and id  &lt;br&gt;System returns the enumeration of test results
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemResultsAsync(String autoTestId, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, List<UUID> testRunIds,  ,  ,  ,  ,  , final ApiCallback<List<TestResultHistoryReportModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemResultsAsync(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestResultHistoryReportModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1478,29 +1895,32 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemResultsValidateBeforeCall(autoTestId, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, testRunIds, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemResultsValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemsLinkedToAutoTest
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param isWorkItemDeleted Boolean flag which defines if search must include deleted worItems (optional, default to false)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param includeDeleted If result must contain deleted work items (optional)
+     * @param isWorkItemDeleted OBSOLETE: Use &#x60;includeDeleted&#x60; instead (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestCall(String autoTestId, Boolean isWorkItemDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestCall(String id, Boolean includeDeleted, Boolean isWorkItemDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/workItems"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (includeDeleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeDeleted", includeDeleted));
         if (isWorkItemDeleted != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isWorkItemDeleted", isWorkItemDeleted));
 
@@ -1537,13 +1957,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestValidateBeforeCall(String autoTestId, Boolean isWorkItemDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling getWorkItemsLinkedToAutoTest(Async)");
+    private com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestValidateBeforeCall(String id, Boolean includeDeleted, Boolean isWorkItemDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemsLinkedToAutoTest(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestCall(autoTestId, isWorkItemDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestCall(id, includeDeleted, isWorkItemDeleted, progressListener, progressRequestListener);
         return call;
 
         
@@ -1553,42 +1973,45 @@ public class AutoTestsApi {
     }
 
     /**
-     * Get all WorkItems Ids linked to AutoTest by Id or GlobalId
+     * Get work items linked to autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System finds all actual and not deleted WorkItems related to the found autotest  &lt;br&gt;System returns the enumeration of WorkItems
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param isWorkItemDeleted Boolean flag which defines if search must include deleted worItems (optional, default to false)
-     * @return List&lt;WorkItemIdModel&gt;
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param includeDeleted If result must contain deleted work items (optional)
+     * @param isWorkItemDeleted OBSOLETE: Use &#x60;includeDeleted&#x60; instead (optional, default to false)
+     * @return List&lt;WorkItemIdentifierModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemIdModel> getWorkItemsLinkedToAutoTest(String autoTestId, Boolean isWorkItemDeleted) throws ApiException {
-        ApiResponse<List<WorkItemIdModel>> resp = getWorkItemsLinkedToAutoTestWithHttpInfo(autoTestId, isWorkItemDeleted);
+    public List<WorkItemIdentifierModel> getWorkItemsLinkedToAutoTest(String id, Boolean includeDeleted, Boolean isWorkItemDeleted) throws ApiException {
+        ApiResponse<List<WorkItemIdentifierModel>> resp = getWorkItemsLinkedToAutoTestWithHttpInfo(id, includeDeleted, isWorkItemDeleted);
         return resp.getData();
     }
 
     /**
-     * Get all WorkItems Ids linked to AutoTest by Id or GlobalId
+     * Get work items linked to autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System finds all actual and not deleted WorkItems related to the found autotest  &lt;br&gt;System returns the enumeration of WorkItems
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param isWorkItemDeleted Boolean flag which defines if search must include deleted worItems (optional, default to false)
-     * @return ApiResponse&lt;List&lt;WorkItemIdModel&gt;&gt;
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param includeDeleted If result must contain deleted work items (optional)
+     * @param isWorkItemDeleted OBSOLETE: Use &#x60;includeDeleted&#x60; instead (optional, default to false)
+     * @return ApiResponse&lt;List&lt;WorkItemIdentifierModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemIdModel>> getWorkItemsLinkedToAutoTestWithHttpInfo(String autoTestId, Boolean isWorkItemDeleted) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestValidateBeforeCall(autoTestId, isWorkItemDeleted, null, null);
-        Type localVarReturnType = new TypeToken<List<WorkItemIdModel>>(){}.getType();
+    public ApiResponse<List<WorkItemIdentifierModel>> getWorkItemsLinkedToAutoTestWithHttpInfo(String id, Boolean includeDeleted, Boolean isWorkItemDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestValidateBeforeCall(id, includeDeleted, isWorkItemDeleted, null, null);
+        Type localVarReturnType = new TypeToken<List<WorkItemIdentifierModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get all WorkItems Ids linked to AutoTest by Id or GlobalId (asynchronously)
+     * Get work items linked to autotest (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System finds all actual and not deleted WorkItems related to the found autotest  &lt;br&gt;System returns the enumeration of WorkItems
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
-     * @param isWorkItemDeleted Boolean flag which defines if search must include deleted worItems (optional, default to false)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
+     * @param includeDeleted If result must contain deleted work items (optional)
+     * @param isWorkItemDeleted OBSOLETE: Use &#x60;includeDeleted&#x60; instead (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestAsync(String autoTestId, Boolean isWorkItemDeleted, final ApiCallback<List<WorkItemIdModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsLinkedToAutoTestAsync(String id, Boolean includeDeleted, Boolean isWorkItemDeleted, final ApiCallback<List<WorkItemIdentifierModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1609,26 +2032,26 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestValidateBeforeCall(autoTestId, isWorkItemDeleted, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<WorkItemIdModel>>(){}.getType();
+        com.squareup.okhttp.Call call = getWorkItemsLinkedToAutoTestValidateBeforeCall(id, includeDeleted, isWorkItemDeleted, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<WorkItemIdentifierModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for linkAutoTestToWorkItem
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call linkAutoTestToWorkItemCall(String autoTestId, WorkItemIdModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call linkAutoTestToWorkItemCall(String id, WorkItemIdModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{autoTestId}/workItems"
-            .replaceAll("\\{" + "autoTestId" + "\\}", apiClient.escapeString(autoTestId.toString()));
+        String localVarPath = "/api/v2/autoTests/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1644,7 +2067,7 @@ public class AutoTestsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1666,13 +2089,13 @@ public class AutoTestsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call linkAutoTestToWorkItemValidateBeforeCall(String autoTestId, WorkItemIdModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'autoTestId' is set
-        if (autoTestId == null) {
-            throw new ApiException("Missing the required parameter 'autoTestId' when calling linkAutoTestToWorkItem(Async)");
+    private com.squareup.okhttp.Call linkAutoTestToWorkItemValidateBeforeCall(String id, WorkItemIdModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling linkAutoTestToWorkItem(Async)");
         }
         
-        com.squareup.okhttp.Call call = linkAutoTestToWorkItemCall(autoTestId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = linkAutoTestToWorkItemCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1682,39 +2105,39 @@ public class AutoTestsApi {
     }
 
     /**
-     * Link AutoTest to WorkItem by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the workitem by the workitem identifier  &lt;br&gt;System relates the workitem with the autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
+     * Link autotest with work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void linkAutoTestToWorkItem(String autoTestId, WorkItemIdModel body) throws ApiException {
-        linkAutoTestToWorkItemWithHttpInfo(autoTestId, body);
+    public void linkAutoTestToWorkItem(String id, WorkItemIdModel body) throws ApiException {
+        linkAutoTestToWorkItemWithHttpInfo(id, body);
     }
 
     /**
-     * Link AutoTest to WorkItem by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the workitem by the workitem identifier  &lt;br&gt;System relates the workitem with the autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
+     * Link autotest with work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String autoTestId, WorkItemIdModel body) throws ApiException {
-        com.squareup.okhttp.Call call = linkAutoTestToWorkItemValidateBeforeCall(autoTestId, body, null, null);
+    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String id, WorkItemIdModel body) throws ApiException {
+        com.squareup.okhttp.Call call = linkAutoTestToWorkItemValidateBeforeCall(id, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Link AutoTest to WorkItem by Id or GlobalId (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets workitem internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the workitem by the workitem identifier  &lt;br&gt;System relates the workitem with the autotest and returns no content response
-     * @param autoTestId Autotest internal (guid format) or global  (integer format) identifier (required)
+     * Link autotest with work items (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
+     * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call linkAutoTestToWorkItemAsync(String autoTestId, WorkItemIdModel body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call linkAutoTestToWorkItemAsync(String id, WorkItemIdModel body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1735,7 +2158,7 @@ public class AutoTestsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = linkAutoTestToWorkItemValidateBeforeCall(autoTestId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = linkAutoTestToWorkItemValidateBeforeCall(id, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1767,7 +2190,7 @@ public class AutoTestsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1801,8 +2224,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTest
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update autotest
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1811,8 +2234,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTest
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update autotest
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1823,8 +2246,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTest (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update autotest (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1883,7 +2306,7 @@ public class AutoTestsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1917,8 +2340,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTests multiple
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update multiple autotests
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1927,8 +2350,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTests multiple
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update multiple autotests
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1939,8 +2362,8 @@ public class AutoTestsApi {
     }
 
     /**
-     * Update AutoTests multiple (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;                      [Optional] If steps enumeration is set, system creates step items, relates them to autotest                      and deletes relations with current steps( if exist)                    &lt;br&gt;                      [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest                      and deletes relations with current Setup items (if exist)                    &lt;br&gt;                      [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest                      and deletes relations with current teardown items (if exist)                    &lt;br&gt;                      [Optional] If label enumeration is set, system creates labels and relates them to autotest                      and deletes relations with current Labels (if exist)                    &lt;br&gt;                      [Optional] If link enumeration is set, system creates links and relates them to autotest                      and deletes relations with current Links (if exist)                    &lt;br&gt;System updates autotest and returns no content response
+     * Update multiple autotests (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

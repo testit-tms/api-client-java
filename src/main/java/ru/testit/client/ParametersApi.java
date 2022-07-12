@@ -26,10 +26,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.model.ParameterGroupModel;
 import ru.testit.model.ParameterModel;
 import ru.testit.model.ParameterPostModel;
 import ru.testit.model.ParameterPutModel;
+import ru.testit.model.ProblemDetails;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,6 +59,766 @@ public class ParametersApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for apiV2ParametersBulkPost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersBulkPostCall(List<ParameterPostModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersBulkPostValidateBeforeCall(List<ParameterPostModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPostCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create multiple parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates parameters  &lt;br&gt;System returns list of parameter model (listed in the response example)
+     * @param body  (optional)
+     * @return List&lt;ParameterModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ParameterModel> apiV2ParametersBulkPost(List<ParameterPostModel> body) throws ApiException {
+        ApiResponse<List<ParameterModel>> resp = apiV2ParametersBulkPostWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Create multiple parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates parameters  &lt;br&gt;System returns list of parameter model (listed in the response example)
+     * @param body  (optional)
+     * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ParameterModel>> apiV2ParametersBulkPostWithHttpInfo(List<ParameterPostModel> body) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create multiple parameters (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates parameters  &lt;br&gt;System returns list of parameter model (listed in the response example)
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersBulkPostAsync(List<ParameterPostModel> body, final ApiCallback<List<ParameterModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ParametersBulkPut
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersBulkPutCall(List<ParameterPutModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersBulkPutValidateBeforeCall(List<ParameterPutModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPutCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Update multiple parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates parameters
+     * @param body  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2ParametersBulkPut(List<ParameterPutModel> body) throws ApiException {
+        apiV2ParametersBulkPutWithHttpInfo(body);
+    }
+
+    /**
+     * Update multiple parameters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates parameters
+     * @param body  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<ParameterPutModel> body) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPutValidateBeforeCall(body, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update multiple parameters (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates parameters
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersBulkPutAsync(List<ParameterPutModel> body, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersBulkPutValidateBeforeCall(body, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ParametersGroupsGet
+     * @param isDeleted  (optional)
+     * @param parameterKeyIds  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersGroupsGetCall(Boolean isDeleted, List<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/groups";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isDeleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
+        if (parameterKeyIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "parameterKeyIds", parameterKeyIds));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersGroupsGetValidateBeforeCall(Boolean isDeleted, List<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ParametersGroupsGetCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get parameters as group
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameters  &lt;br&gt;System returns parameters models as groups (listed in the response example)
+     * @param isDeleted  (optional)
+     * @param parameterKeyIds  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;ParameterGroupModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ParameterGroupModel> apiV2ParametersGroupsGet(Boolean isDeleted, List<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ParameterGroupModel>> resp = apiV2ParametersGroupsGetWithHttpInfo(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get parameters as group
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameters  &lt;br&gt;System returns parameters models as groups (listed in the response example)
+     * @param isDeleted  (optional)
+     * @param parameterKeyIds  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;ParameterGroupModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ParameterGroupModel>> apiV2ParametersGroupsGetWithHttpInfo(Boolean isDeleted, List<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersGroupsGetValidateBeforeCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get parameters as group (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameters  &lt;br&gt;System returns parameters models as groups (listed in the response example)
+     * @param isDeleted  (optional)
+     * @param parameterKeyIds  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersGroupsGetAsync(Boolean isDeleted, List<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersGroupsGetValidateBeforeCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ParametersKeyNameNameExistsGet
+     * @param name  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeyNameNameExistsGetCall(String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/key/name/{name}/exists"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersKeyNameNameExistsGetValidateBeforeCall(String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling apiV2ParametersKeyNameNameExistsGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ParametersKeyNameNameExistsGetCall(name, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Check existence parameter key in system
+     * &lt;br&gt;Use case  &lt;br&gt;User sets name of parameter key  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter key  &lt;br&gt;System returns the flag for the existence of the parameter key in the system
+     * @param name  (required)
+     * @return Boolean
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Boolean apiV2ParametersKeyNameNameExistsGet(String name) throws ApiException {
+        ApiResponse<Boolean> resp = apiV2ParametersKeyNameNameExistsGetWithHttpInfo(name);
+        return resp.getData();
+    }
+
+    /**
+     * Check existence parameter key in system
+     * &lt;br&gt;Use case  &lt;br&gt;User sets name of parameter key  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter key  &lt;br&gt;System returns the flag for the existence of the parameter key in the system
+     * @param name  (required)
+     * @return ApiResponse&lt;Boolean&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Boolean> apiV2ParametersKeyNameNameExistsGetWithHttpInfo(String name) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersKeyNameNameExistsGetValidateBeforeCall(name, null, null);
+        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check existence parameter key in system (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets name of parameter key  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter key  &lt;br&gt;System returns the flag for the existence of the parameter key in the system
+     * @param name  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeyNameNameExistsGetAsync(String name, final ApiCallback<Boolean> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersKeyNameNameExistsGetValidateBeforeCall(name, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ParametersKeyValuesGet
+     * @param key Parameter key (string format) (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeyValuesGetCall(String key, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/{key}/values"
+            .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersKeyValuesGetValidateBeforeCall(String key, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new ApiException("Missing the required parameter 'key' when calling apiV2ParametersKeyValuesGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ParametersKeyValuesGetCall(key, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get all parameter key values
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter key (string format)  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter values using the key  &lt;br&gt;System returns parameter
+     * @param key Parameter key (string format) (required)
+     * @return List&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<String> apiV2ParametersKeyValuesGet(String key) throws ApiException {
+        ApiResponse<List<String>> resp = apiV2ParametersKeyValuesGetWithHttpInfo(key);
+        return resp.getData();
+    }
+
+    /**
+     * Get all parameter key values
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter key (string format)  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter values using the key  &lt;br&gt;System returns parameter
+     * @param key Parameter key (string format) (required)
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<String>> apiV2ParametersKeyValuesGetWithHttpInfo(String key) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersKeyValuesGetValidateBeforeCall(key, null, null);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all parameter key values (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter key (string format)  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter values using the key  &lt;br&gt;System returns parameter
+     * @param key Parameter key (string format) (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeyValuesGetAsync(String key, final ApiCallback<List<String>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersKeyValuesGetValidateBeforeCall(key, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ParametersKeysGet
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeysGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/keys";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ParametersKeysGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ParametersKeysGetCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get all parameter keys
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search all parameter keys  &lt;br&gt;System returns parameter keys
+     * @return List&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<String> apiV2ParametersKeysGet() throws ApiException {
+        ApiResponse<List<String>> resp = apiV2ParametersKeysGetWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get all parameter keys
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search all parameter keys  &lt;br&gt;System returns parameter keys
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<String>> apiV2ParametersKeysGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ParametersKeysGetValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all parameter keys (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search all parameter keys  &lt;br&gt;System returns parameter keys
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ParametersKeysGetAsync(final ApiCallback<List<String>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ParametersKeysGetValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for createParameter
      * @param body  (optional)
@@ -84,7 +847,7 @@ public class ParametersApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -298,19 +1061,19 @@ public class ParametersApi {
         return call;
     }
     /**
-     * Build call for deleteParameter
-     * @param parameterId Parameter internal(guid format) identifier (required)
+     * Build call for deleteByParameterKeyId
+     * @param keyId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParameterCall(UUID parameterId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteByParameterKeyIdCall(UUID keyId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/parameters/{parameterId}"
-            .replaceAll("\\{" + "parameterId" + "\\}", apiClient.escapeString(parameterId.toString()));
+        String localVarPath = "/api/v2/parameters/keyId/{keyId}"
+            .replaceAll("\\{" + "keyId" + "\\}", apiClient.escapeString(keyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -348,13 +1111,13 @@ public class ParametersApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteParameterValidateBeforeCall(UUID parameterId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'parameterId' is set
-        if (parameterId == null) {
-            throw new ApiException("Missing the required parameter 'parameterId' when calling deleteParameter(Async)");
+    private com.squareup.okhttp.Call deleteByParameterKeyIdValidateBeforeCall(UUID keyId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'keyId' is set
+        if (keyId == null) {
+            throw new ApiException("Missing the required parameter 'keyId' when calling deleteByParameterKeyId(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteParameterCall(parameterId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteByParameterKeyIdCall(keyId, progressListener, progressRequestListener);
         return call;
 
         
@@ -364,39 +1127,36 @@ public class ParametersApi {
     }
 
     /**
-     * Delete parameter by id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
-     * @param parameterId Parameter internal(guid format) identifier (required)
-     * @return ParameterModel
+     * Delete parameters by parameter key identifier
+     * Deletes parameter and all it&#x27;s values by parameter key identifier
+     * @param keyId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParameterModel deleteParameter(UUID parameterId) throws ApiException {
-        ApiResponse<ParameterModel> resp = deleteParameterWithHttpInfo(parameterId);
-        return resp.getData();
+    public void deleteByParameterKeyId(UUID keyId) throws ApiException {
+        deleteByParameterKeyIdWithHttpInfo(keyId);
     }
 
     /**
-     * Delete parameter by id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
-     * @param parameterId Parameter internal(guid format) identifier (required)
-     * @return ApiResponse&lt;ParameterModel&gt;
+     * Delete parameters by parameter key identifier
+     * Deletes parameter and all it&#x27;s values by parameter key identifier
+     * @param keyId  (required)
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ParameterModel> deleteParameterWithHttpInfo(UUID parameterId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteParameterValidateBeforeCall(parameterId, null, null);
-        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+    public ApiResponse<Void> deleteByParameterKeyIdWithHttpInfo(UUID keyId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteByParameterKeyIdValidateBeforeCall(keyId, null, null);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete parameter by id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
-     * @param parameterId Parameter internal(guid format) identifier (required)
+     * Delete parameters by parameter key identifier (asynchronously)
+     * Deletes parameter and all it&#x27;s values by parameter key identifier
+     * @param keyId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteParameterAsync(UUID parameterId, final ApiCallback<ParameterModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteByParameterKeyIdAsync(UUID keyId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -417,25 +1177,149 @@ public class ParametersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteParameterValidateBeforeCall(parameterId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteByParameterKeyIdValidateBeforeCall(keyId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteParameter
+     * @param id Parameter internal (UUID) identifier (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParameterCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/parameters/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParameterValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteParameter(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteParameterCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete parameter
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
+     * @param id Parameter internal (UUID) identifier (required)
+     * @return ParameterModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParameterModel deleteParameter(UUID id) throws ApiException {
+        ApiResponse<ParameterModel> resp = deleteParameterWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Delete parameter
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
+     * @param id Parameter internal (UUID) identifier (required)
+     * @return ApiResponse&lt;ParameterModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ParameterModel> deleteParameterWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteParameterValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete parameter (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
+     * @param id Parameter internal (UUID) identifier (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteParameterAsync(UUID id, final ApiCallback<ParameterModel> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParameterValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAllParameters
-     * @param isDeleted Boolean flag which defines if search must include deleted parameters (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllParametersCall(Boolean isDeleted,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAllParametersCall(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -445,16 +1329,16 @@ public class ParametersApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isDeleted != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -489,9 +1373,9 @@ public class ParametersApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllParametersValidateBeforeCall(Boolean isDeleted,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllParametersValidateBeforeCall(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = getAllParametersCall(isDeleted, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllParametersCall(isDeleted, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -501,54 +1385,54 @@ public class ParametersApi {
     }
 
     /**
-     * Get all parameters (if isDeleted is true, return deleted parameters)
+     * Get all parameters
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted parameters  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all parameters  &lt;br&gt;System returns array of all found parameters(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted parameters (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
-     * @return List&lt;ParameterModel&gt;
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ParameterModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ParameterModel> getAllParameters(Boolean isDeleted,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<ParameterModel>> resp = getAllParametersWithHttpInfo(isDeleted, , , , , );
+    public ParameterModel getAllParameters(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<ParameterModel> resp = getAllParametersWithHttpInfo(isDeleted, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get all parameters (if isDeleted is true, return deleted parameters)
+     * Get all parameters
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted parameters  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all parameters  &lt;br&gt;System returns array of all found parameters(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted parameters (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
-     * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ParameterModel>> getAllParametersWithHttpInfo(Boolean isDeleted,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getAllParametersValidateBeforeCall(isDeleted, , , , , , null, null);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+    public ApiResponse<ParameterModel> getAllParametersWithHttpInfo(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getAllParametersValidateBeforeCall(isDeleted, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get all parameters (if isDeleted is true, return deleted parameters) (asynchronously)
+     * Get all parameters (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted parameters  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all parameters  &lt;br&gt;System returns array of all found parameters(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted parameters (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllParametersAsync(Boolean isDeleted,  ,  ,  ,  ,  , final ApiCallback<List<ParameterModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllParametersAsync(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<ParameterModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -569,25 +1453,25 @@ public class ParametersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllParametersValidateBeforeCall(isDeleted, , , , , , progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        com.squareup.okhttp.Call call = getAllParametersValidateBeforeCall(isDeleted, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getParameterById
-     * @param parameterId Parameter internal (guid format) identifier (required)
+     * @param id Parameter internal (UUID) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParameterByIdCall(UUID parameterId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getParameterByIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/parameters/{parameterId}"
-            .replaceAll("\\{" + "parameterId" + "\\}", apiClient.escapeString(parameterId.toString()));
+        String localVarPath = "/api/v2/parameters/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -625,13 +1509,13 @@ public class ParametersApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParameterByIdValidateBeforeCall(UUID parameterId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'parameterId' is set
-        if (parameterId == null) {
-            throw new ApiException("Missing the required parameter 'parameterId' when calling getParameterById(Async)");
+    private com.squareup.okhttp.Call getParameterByIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getParameterById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getParameterByIdCall(parameterId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getParameterByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -641,39 +1525,39 @@ public class ParametersApi {
     }
 
     /**
-     * Get parameter by id
+     * Get parameter by ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter using the identifier  &lt;br&gt;System returns parameter
-     * @param parameterId Parameter internal (guid format) identifier (required)
+     * @param id Parameter internal (UUID) identifier (required)
      * @return ParameterModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParameterModel getParameterById(UUID parameterId) throws ApiException {
-        ApiResponse<ParameterModel> resp = getParameterByIdWithHttpInfo(parameterId);
+    public ParameterModel getParameterById(UUID id) throws ApiException {
+        ApiResponse<ParameterModel> resp = getParameterByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get parameter by id
+     * Get parameter by ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter using the identifier  &lt;br&gt;System returns parameter
-     * @param parameterId Parameter internal (guid format) identifier (required)
+     * @param id Parameter internal (UUID) identifier (required)
      * @return ApiResponse&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ParameterModel> getParameterByIdWithHttpInfo(UUID parameterId) throws ApiException {
-        com.squareup.okhttp.Call call = getParameterByIdValidateBeforeCall(parameterId, null, null);
+    public ApiResponse<ParameterModel> getParameterByIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getParameterByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get parameter by id (asynchronously)
+     * Get parameter by ID (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter using the identifier  &lt;br&gt;System returns parameter
-     * @param parameterId Parameter internal (guid format) identifier (required)
+     * @param id Parameter internal (UUID) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParameterByIdAsync(UUID parameterId, final ApiCallback<ParameterModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParameterByIdAsync(UUID id, final ApiCallback<ParameterModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -694,14 +1578,14 @@ public class ParametersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getParameterByIdValidateBeforeCall(parameterId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getParameterByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for obsoleteDeleteByName
-     * @param name Parameter name(string format) (optional)
+     * @param name  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -723,7 +1607,7 @@ public class ParametersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -763,9 +1647,9 @@ public class ParametersApi {
     }
 
     /**
-     * Delete parameters by name
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter name (string format)  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns no content response
-     * @param name Parameter name(string format) (optional)
+     * 
+     * 
+     * @param name  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void obsoleteDeleteByName(String name) throws ApiException {
@@ -773,9 +1657,9 @@ public class ParametersApi {
     }
 
     /**
-     * Delete parameters by name
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter name (string format)  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns no content response
-     * @param name Parameter name(string format) (optional)
+     * 
+     * 
+     * @param name  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -785,9 +1669,9 @@ public class ParametersApi {
     }
 
     /**
-     * Delete parameters by name (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets parameter name (string format)  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns no content response
-     * @param name Parameter name(string format) (optional)
+     *  (asynchronously)
+     * 
+     * @param name  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -845,7 +1729,7 @@ public class ParametersApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

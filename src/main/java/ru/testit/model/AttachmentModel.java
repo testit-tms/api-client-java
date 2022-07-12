@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
  * AttachmentModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class AttachmentModel {
   @SerializedName("fileId")
   private String fileId = null;
@@ -65,7 +65,7 @@ public class AttachmentModel {
    * Get fileId
    * @return fileId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", required = true, description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", required = true, description = "")
   public String getFileId() {
     return fileId;
   }
@@ -119,7 +119,7 @@ public class AttachmentModel {
    * Get createdDate
    * @return createdDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -137,7 +137,7 @@ public class AttachmentModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -155,7 +155,7 @@ public class AttachmentModel {
    * Get createdById
    * @return createdById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getCreatedById() {
     return createdById;
   }
@@ -173,7 +173,7 @@ public class AttachmentModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -191,7 +191,7 @@ public class AttachmentModel {
    * Get name
    * @return name
   **/
-  @Schema(example = "My_favourite_image.jpg", required = true, description = "")
+  @Schema(example = "example", required = true, description = "")
   public String getName() {
     return name;
   }
@@ -209,7 +209,7 @@ public class AttachmentModel {
    * Get id
    * @return id
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", required = true, description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", required = true, description = "")
   public UUID getId() {
     return id;
   }

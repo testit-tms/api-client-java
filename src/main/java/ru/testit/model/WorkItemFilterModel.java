@@ -30,10 +30,10 @@ import org.threeten.bp.OffsetDateTime;
 import ru.testit.model.WorkItemPriorityModel;
 import ru.testit.model.WorkItemStates;
 /**
- * WorkItemFilterModel
+ * Collection of filters to apply to search
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@Schema(description = "Collection of filters to apply to search")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class WorkItemFilterModel {
   @SerializedName("nameOrId")
   private String nameOrId = null;
@@ -113,10 +113,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get nameOrId
+   * Name or identifier (UUID) of work item
    * @return nameOrId
   **/
-  @Schema(description = "")
+  @Schema(description = "Name or identifier (UUID) of work item")
   public String getNameOrId() {
     return nameOrId;
   }
@@ -139,10 +139,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get includeIds
+   * Collection of identifiers of work items which need to be included in result regardless of filtering
    * @return includeIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of identifiers of work items which need to be included in result regardless of filtering")
   public List<UUID> getIncludeIds() {
     return includeIds;
   }
@@ -165,10 +165,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get excludeIds
+   * Collection of identifiers of work items which need to be excluded from result regardless of filtering
    * @return excludeIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of identifiers of work items which need to be excluded from result regardless of filtering")
   public List<UUID> getExcludeIds() {
     return excludeIds;
   }
@@ -183,10 +183,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get name
+   * Name of work item
    * @return name
   **/
-  @Schema(description = "")
+  @Schema(description = "Name of work item")
   public String getName() {
     return name;
   }
@@ -209,10 +209,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get globalIds
+   * Collection of global (integer) identifiers
    * @return globalIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of global (integer) identifiers")
   public List<Long> getGlobalIds() {
     return globalIds;
   }
@@ -235,10 +235,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get attributes
+   * Custom attributes of work item
    * @return attributes
   **/
-  @Schema(description = "")
+  @Schema(description = "Custom attributes of work item")
   public Map<String, List<String>> getAttributes() {
     return attributes;
   }
@@ -253,10 +253,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get isDeleted
+   * Is result must consist of only actual/deleted work items
    * @return isDeleted
   **/
-  @Schema(description = "")
+  @Schema(description = "Is result must consist of only actual/deleted work items")
   public Boolean isIsDeleted() {
     return isDeleted;
   }
@@ -279,10 +279,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get projectIds
+   * Collection of project identifiers
    * @return projectIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of project identifiers")
   public List<UUID> getProjectIds() {
     return projectIds;
   }
@@ -305,10 +305,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get sectionIds
+   * Collection of section identifiers
    * @return sectionIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of section identifiers")
   public List<UUID> getSectionIds() {
     return sectionIds;
   }
@@ -331,10 +331,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get createdByIds
+   * Collection of identifiers of users who created work item
    * @return createdByIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of identifiers of users who created work item")
   public List<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -357,10 +357,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get modifiedByIds
+   * Collection of identifiers of users who applied last modification to work item
    * @return modifiedByIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of identifiers of users who applied last modification to work item")
   public List<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
@@ -383,10 +383,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get states
+   * Collection of states of work item
    * @return states
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of states of work item")
   public List<WorkItemStates> getStates() {
     return states;
   }
@@ -409,10 +409,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get priorities
+   * Collection of priorities of work item
    * @return priorities
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of priorities of work item")
   public List<WorkItemPriorityModel> getPriorities() {
     return priorities;
   }
@@ -435,10 +435,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get entityTypes
+   * Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`")
   public List<String> getEntityTypes() {
     return entityTypes;
   }
@@ -453,10 +453,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get createdDateMinimal
+   * Minimum date and time of work item creation
    * @return createdDateMinimal
   **/
-  @Schema(description = "")
+  @Schema(description = "Minimum date and time of work item creation")
   public OffsetDateTime getCreatedDateMinimal() {
     return createdDateMinimal;
   }
@@ -471,10 +471,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get createdDateMaximal
+   * Maximum date and time of work item creation
    * @return createdDateMaximal
   **/
-  @Schema(description = "")
+  @Schema(description = "Maximum date and time of work item creation")
   public OffsetDateTime getCreatedDateMaximal() {
     return createdDateMaximal;
   }
@@ -489,10 +489,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get modifiedDateMinimal
+   * Minimum date and time of work item last modification
    * @return modifiedDateMinimal
   **/
-  @Schema(description = "")
+  @Schema(description = "Minimum date and time of work item last modification")
   public OffsetDateTime getModifiedDateMinimal() {
     return modifiedDateMinimal;
   }
@@ -507,10 +507,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get modifiedDateMaximal
+   * Maximum date and time of work item last modification
    * @return modifiedDateMaximal
   **/
-  @Schema(description = "")
+  @Schema(description = "Maximum date and time of work item last modification")
   public OffsetDateTime getModifiedDateMaximal() {
     return modifiedDateMaximal;
   }
@@ -525,10 +525,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get durationMinimal
+   * Minimum completion time (seconds) of work item
    * @return durationMinimal
   **/
-  @Schema(description = "")
+  @Schema(description = "Minimum completion time (seconds) of work item")
   public Integer getDurationMinimal() {
     return durationMinimal;
   }
@@ -543,10 +543,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get durationMaximal
+   * Maximum completion time (seconds) of work item
    * @return durationMaximal
   **/
-  @Schema(description = "")
+  @Schema(description = "Maximum completion time (seconds) of work item")
   public Integer getDurationMaximal() {
     return durationMaximal;
   }
@@ -561,10 +561,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get isAutomated
+   * Is result must consist of only manual/automated work items
    * @return isAutomated
   **/
-  @Schema(description = "")
+  @Schema(description = "Is result must consist of only manual/automated work items")
   public Boolean isIsAutomated() {
     return isAutomated;
   }
@@ -587,10 +587,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get tagNames
+   * Collection of tags
    * @return tagNames
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of tags")
   public List<String> getTagNames() {
     return tagNames;
   }
@@ -613,10 +613,10 @@ public class WorkItemFilterModel {
   }
 
    /**
-   * Get autoTestIds
+   * Collection of identifiers of linked autotests
    * @return autoTestIds
   **/
-  @Schema(description = "")
+  @Schema(description = "Collection of identifiers of linked autotests")
   public List<UUID> getAutoTestIds() {
     return autoTestIds;
   }

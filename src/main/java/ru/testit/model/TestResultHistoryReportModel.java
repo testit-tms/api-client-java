@@ -31,7 +31,7 @@ import ru.testit.model.LinkModel;
  * TestResultHistoryReportModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class TestResultHistoryReportModel {
   @SerializedName("id")
   private UUID id = null;
@@ -117,7 +117,7 @@ public class TestResultHistoryReportModel {
    * Get id
    * @return id
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getId() {
     return id;
   }
@@ -135,7 +135,7 @@ public class TestResultHistoryReportModel {
    * Get createdDate
    * @return createdDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -153,7 +153,7 @@ public class TestResultHistoryReportModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -171,7 +171,7 @@ public class TestResultHistoryReportModel {
    * If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result
    * @return userId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result")
   public UUID getUserId() {
     return userId;
   }
@@ -189,7 +189,7 @@ public class TestResultHistoryReportModel {
    * Get testRunId
    * @return testRunId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getTestRunId() {
     return testRunId;
   }
@@ -243,7 +243,7 @@ public class TestResultHistoryReportModel {
    * Get testPlanId
    * @return testPlanId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -395,7 +395,7 @@ public class TestResultHistoryReportModel {
    * Get startedOn
    * @return startedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
@@ -413,7 +413,7 @@ public class TestResultHistoryReportModel {
    * Get completedOn
    * @return completedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
@@ -449,7 +449,7 @@ public class TestResultHistoryReportModel {
    * Get createdById
    * @return createdById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getCreatedById() {
     return createdById;
   }
@@ -467,7 +467,7 @@ public class TestResultHistoryReportModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -511,7 +511,7 @@ public class TestResultHistoryReportModel {
    * Get workItemVersionId
    * @return workItemVersionId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", description = "")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", description = "")
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }

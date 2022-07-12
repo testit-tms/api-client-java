@@ -30,8 +30,11 @@ import ru.testit.model.AutoTestNamespaceModel;
 import ru.testit.model.ConfigurationModel;
 import ru.testit.model.CustomAttributeModel;
 import ru.testit.model.CustomAttributePostModel;
+import ru.testit.model.CustomAttributePutModel;
 import ru.testit.model.CustomAttributeTestPlanProjectRelationPutModel;
+import ru.testit.model.FailureClassModel;
 import java.io.File;
+import ru.testit.model.FilterModel;
 import org.threeten.bp.OffsetDateTime;
 import ru.testit.model.ProblemDetails;
 import ru.testit.model.ProjectExportQueryModel;
@@ -39,10 +42,17 @@ import ru.testit.model.ProjectExportWithTestPlansPostModel;
 import ru.testit.model.ProjectModel;
 import ru.testit.model.ProjectPostModel;
 import ru.testit.model.ProjectPutModel;
+import ru.testit.model.ProjectSelectModel;
+import ru.testit.model.PublicTestRunModel;
 import ru.testit.model.SectionModel;
+import ru.testit.model.TagShortModel;
 import ru.testit.model.TestPlanModel;
+import ru.testit.model.TestPlanSearchQueryModel;
+import ru.testit.model.TestPlanWithAnalyticModel;
+import ru.testit.model.TestRunModel;
 import ru.testit.model.TestRunV2GetModel;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 import ru.testit.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -71,16 +81,1599 @@ public class ProjectsApi {
     }
 
     /**
-     * Build call for callImport
-     * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * Build call for apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDelete
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call callImportCall(File file, String apiVersion, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteCall(String id, UUID templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/customAttributeTemplates/{templateId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "templateId" + "\\}", apiClient.escapeString(templateId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteValidateBeforeCall(String id, UUID templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDelete(Async)");
+        }
+        // verify the required parameter 'templateId' is set
+        if (templateId == null) {
+            throw new ApiException("Missing the required parameter 'templateId' when calling apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDelete(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteCall(id, templateId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete CustomAttributeTemplate from Project
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDelete(String id, UUID templateId) throws ApiException {
+        apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteWithHttpInfo(id, templateId);
+    }
+
+    /**
+     * Delete CustomAttributeTemplate from Project
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteWithHttpInfo(String id, UUID templateId) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteValidateBeforeCall(id, templateId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete CustomAttributeTemplate from Project (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteAsync(String id, UUID templateId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdDeleteValidateBeforeCall(id, templateId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPost
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostCall(String id, UUID templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/customAttributeTemplates/{templateId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "templateId" + "\\}", apiClient.escapeString(templateId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostValidateBeforeCall(String id, UUID templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPost(Async)");
+        }
+        // verify the required parameter 'templateId' is set
+        if (templateId == null) {
+            throw new ApiException("Missing the required parameter 'templateId' when calling apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostCall(id, templateId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Add CustomAttributeTemplate to Project
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System add attribute template to project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPost(String id, UUID templateId) throws ApiException {
+        apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostWithHttpInfo(id, templateId);
+    }
+
+    /**
+     * Add CustomAttributeTemplate to Project
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System add attribute template to project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostWithHttpInfo(String id, UUID templateId) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostValidateBeforeCall(id, templateId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Add CustomAttributeTemplate to Project (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System add attribute template to project
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostAsync(String id, UUID templateId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdCustomAttributeTemplatesTemplateIdPostValidateBeforeCall(id, templateId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdFailureClassesGet
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFailureClassesGetCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/failureClasses"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isDeleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdFailureClassesGetValidateBeforeCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdFailureClassesGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFailureClassesGetCall(id, isDeleted, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get Project FailureClasses
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project failre classes
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted  (optional)
+     * @return List&lt;FailureClassModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<FailureClassModel> apiV2ProjectsIdFailureClassesGet(String id, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<FailureClassModel>> resp = apiV2ProjectsIdFailureClassesGetWithHttpInfo(id, isDeleted);
+        return resp.getData();
+    }
+
+    /**
+     * Get Project FailureClasses
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project failre classes
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted  (optional)
+     * @return ApiResponse&lt;List&lt;FailureClassModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<FailureClassModel>> apiV2ProjectsIdFailureClassesGetWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFailureClassesGetValidateBeforeCall(id, isDeleted, null, null);
+        Type localVarReturnType = new TypeToken<List<FailureClassModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Project FailureClasses (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project failre classes
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFailureClassesGetAsync(String id, Boolean isDeleted, final ApiCallback<List<FailureClassModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFailureClassesGetValidateBeforeCall(id, isDeleted, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<FailureClassModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdFavoritePut
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFavoritePutCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/favorite"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdFavoritePutValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdFavoritePut(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFavoritePutCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Mark Project as favorite
+     * User permissions for project:  {Read only}  {Execute}  {Write}  {Full control}
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2ProjectsIdFavoritePut(String id) throws ApiException {
+        apiV2ProjectsIdFavoritePutWithHttpInfo(id);
+    }
+
+    /**
+     * Mark Project as favorite
+     * User permissions for project:  {Read only}  {Execute}  {Write}  {Full control}
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2ProjectsIdFavoritePutWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFavoritePutValidateBeforeCall(id, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Mark Project as favorite (asynchronously)
+     * User permissions for project:  {Read only}  {Execute}  {Write}  {Full control}
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFavoritePutAsync(String id, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFavoritePutValidateBeforeCall(id, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdFiltersGet
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFiltersGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/filters"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdFiltersGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdFiltersGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFiltersGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get Project filters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @return List&lt;FilterModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<FilterModel> apiV2ProjectsIdFiltersGet(String id) throws ApiException {
+        ApiResponse<List<FilterModel>> resp = apiV2ProjectsIdFiltersGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Get Project filters
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @return ApiResponse&lt;List&lt;FilterModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<FilterModel>> apiV2ProjectsIdFiltersGetWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFiltersGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<List<FilterModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Project filters (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdFiltersGetAsync(String id, final ApiCallback<List<FilterModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdFiltersGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<FilterModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdTestPlansAnalyticsGet
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestPlansAnalyticsGetCall(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/testPlans/analytics"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isDeleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
+        if (mustUpdateCache != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("mustUpdateCache", mustUpdateCache));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdTestPlansAnalyticsGetValidateBeforeCall(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansAnalyticsGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansAnalyticsGetCall(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get TestPlans analytics
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier  &lt;br&gt;User sets query params  &lt;br&gt;User runs method execution  &lt;br&gt;System return analytics
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;TestPlanWithAnalyticModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TestPlanWithAnalyticModel> apiV2ProjectsIdTestPlansAnalyticsGet(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestPlanWithAnalyticModel>> resp = apiV2ProjectsIdTestPlansAnalyticsGetWithHttpInfo(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get TestPlans analytics
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier  &lt;br&gt;User sets query params  &lt;br&gt;User runs method execution  &lt;br&gt;System return analytics
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsIdTestPlansAnalyticsGetWithHttpInfo(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansAnalyticsGetValidateBeforeCall(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get TestPlans analytics (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier  &lt;br&gt;User sets query params  &lt;br&gt;User runs method execution  &lt;br&gt;System return analytics
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestPlansAnalyticsGetAsync(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestPlanWithAnalyticModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansAnalyticsGetValidateBeforeCall(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdTestPlansSearchPost
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param body  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestPlansSearchPostCall(String id, TestPlanSearchQueryModel body, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/testPlans/search"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (mustUpdateCache != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("mustUpdateCache", mustUpdateCache));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(String id, TestPlanSearchQueryModel body, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansSearchPost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansSearchPostCall(id, body, mustUpdateCache, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get Project TestPlans with analytics
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets request body   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project testplans with analytics
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param body  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;TestPlanWithAnalyticModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TestPlanWithAnalyticModel> apiV2ProjectsIdTestPlansSearchPost(String id, TestPlanSearchQueryModel body, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestPlanWithAnalyticModel>> resp = apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(id, body, mustUpdateCache, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get Project TestPlans with analytics
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets request body   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project testplans with analytics
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param body  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(String id, TestPlanSearchQueryModel body, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, body, mustUpdateCache, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Project TestPlans with analytics (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets request body   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project testplans with analytics
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param body  (optional)
+     * @param mustUpdateCache  (optional, default to false)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestPlansSearchPostAsync(String id, TestPlanSearchQueryModel body, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestPlanWithAnalyticModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, body, mustUpdateCache, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdTestRunsActiveGet
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestRunsActiveGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/testRuns/active"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdTestRunsActiveGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestRunsActiveGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsActiveGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get active Project TestRuns
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @return List&lt;PublicTestRunModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PublicTestRunModel> apiV2ProjectsIdTestRunsActiveGet(String id) throws ApiException {
+        ApiResponse<List<PublicTestRunModel>> resp = apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Get active Project TestRuns
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @return ApiResponse&lt;List&lt;PublicTestRunModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PublicTestRunModel>> apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsActiveGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<List<PublicTestRunModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get active Project TestRuns (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestRunsActiveGetAsync(String id, final ApiCallback<List<PublicTestRunModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsActiveGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<PublicTestRunModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdTestRunsFullGet
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param includeTestResults  (optional, default to false)
+     * @param mustAggregateTestResults  (optional, default to true)
+     * @param notStarted  (optional)
+     * @param inProgress  (optional)
+     * @param stopped  (optional)
+     * @param completed  (optional)
+     * @param createdDateFrom  (optional)
+     * @param createdDateTo  (optional)
+     * @param testPlanId  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestRunsFullGetCall(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/testRuns/full"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (includeTestResults != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeTestResults", includeTestResults));
+        if (mustAggregateTestResults != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("mustAggregateTestResults", mustAggregateTestResults));
+        if (notStarted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("notStarted", notStarted));
+        if (inProgress != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("inProgress", inProgress));
+        if (stopped != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("stopped", stopped));
+        if (completed != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("completed", completed));
+        if (createdDateFrom != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("createdDateFrom", createdDateFrom));
+        if (createdDateTo != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("createdDateTo", createdDateTo));
+        if (testPlanId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("testPlanId", testPlanId));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdTestRunsFullGetValidateBeforeCall(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestRunsFullGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsFullGetCall(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get Project TestRuns full models
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param includeTestResults  (optional, default to false)
+     * @param mustAggregateTestResults  (optional, default to true)
+     * @param notStarted  (optional)
+     * @param inProgress  (optional)
+     * @param stopped  (optional)
+     * @param completed  (optional)
+     * @param createdDateFrom  (optional)
+     * @param createdDateTo  (optional)
+     * @param testPlanId  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;TestRunModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TestRunModel> apiV2ProjectsIdTestRunsFullGet(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestRunModel>> resp = apiV2ProjectsIdTestRunsFullGetWithHttpInfo(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get Project TestRuns full models
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param includeTestResults  (optional, default to false)
+     * @param mustAggregateTestResults  (optional, default to true)
+     * @param notStarted  (optional)
+     * @param inProgress  (optional)
+     * @param stopped  (optional)
+     * @param completed  (optional)
+     * @param createdDateFrom  (optional)
+     * @param createdDateTo  (optional)
+     * @param testPlanId  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;TestRunModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TestRunModel>> apiV2ProjectsIdTestRunsFullGetWithHttpInfo(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsFullGetValidateBeforeCall(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Project TestRuns full models (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param includeTestResults  (optional, default to false)
+     * @param mustAggregateTestResults  (optional, default to true)
+     * @param notStarted  (optional)
+     * @param inProgress  (optional)
+     * @param stopped  (optional)
+     * @param completed  (optional)
+     * @param createdDateFrom  (optional)
+     * @param createdDateTo  (optional)
+     * @param testPlanId  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdTestRunsFullGetAsync(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdTestRunsFullGetValidateBeforeCall(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsIdWorkItemsTagsGet
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdWorkItemsTagsGetCall(UUID id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/workItems/tags"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isDeleted != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsIdWorkItemsTagsGetValidateBeforeCall(UUID id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdWorkItemsTagsGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsIdWorkItemsTagsGetCall(id, isDeleted, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get WorkItems Tags
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @return List&lt;TagShortModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TagShortModel> apiV2ProjectsIdWorkItemsTagsGet(UUID id, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<TagShortModel>> resp = apiV2ProjectsIdWorkItemsTagsGetWithHttpInfo(id, isDeleted);
+        return resp.getData();
+    }
+
+    /**
+     * Get WorkItems Tags
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @return ApiResponse&lt;List&lt;TagShortModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TagShortModel>> apiV2ProjectsIdWorkItemsTagsGetWithHttpInfo(UUID id, Boolean isDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsIdWorkItemsTagsGetValidateBeforeCall(id, isDeleted, null, null);
+        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get WorkItems Tags (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
+     * @param id Project internal (UUID) identifier (required)
+     * @param isDeleted  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsIdWorkItemsTagsGetAsync(UUID id, Boolean isDeleted, final ApiCallback<List<TagShortModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsIdWorkItemsTagsGetValidateBeforeCall(id, isDeleted, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2ProjectsSearchPost
+     * @param body  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsSearchPostCall(ProjectSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2ProjectsSearchPostValidateBeforeCall(ProjectSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2ProjectsSearchPostCall(body, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;ProjectModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ProjectModel> apiV2ProjectsSearchPost(ProjectSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ProjectModel>> resp = apiV2ProjectsSearchPostWithHttpInfo(body, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;ProjectModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(ProjectSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2ProjectsSearchPostValidateBeforeCall(body, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2ProjectsSearchPostAsync(ProjectSelectModel body, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ProjectModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2ProjectsSearchPostValidateBeforeCall(body, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for callImport
+     * @param file  (optional)
+     * @param includeAttachments  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call callImportCall(File file, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -88,8 +1681,6 @@ public class ProjectsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (apiVersion != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("apiVersion", apiVersion));
         if (includeAttachments != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeAttachments", includeAttachments));
 
@@ -128,9 +1719,9 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call callImportValidateBeforeCall(File file, String apiVersion, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call callImportValidateBeforeCall(File file, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = callImportCall(file, apiVersion, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = callImportCall(file, includeAttachments, progressListener, progressRequestListener);
         return call;
 
         
@@ -140,42 +1731,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Import Project from json file  Project can be imported only once (this method or ImportToExistingProject)  Next import will sync content in previously imported project.
+     * Import project from JSON file
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns no content response
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void callImport(File file, String apiVersion, Boolean includeAttachments) throws ApiException {
-        callImportWithHttpInfo(file, apiVersion, includeAttachments);
+    public void callImport(File file, Boolean includeAttachments) throws ApiException {
+        callImportWithHttpInfo(file, includeAttachments);
     }
 
     /**
-     * Import Project from json file  Project can be imported only once (this method or ImportToExistingProject)  Next import will sync content in previously imported project.
+     * Import project from JSON file
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns no content response
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> callImportWithHttpInfo(File file, String apiVersion, Boolean includeAttachments) throws ApiException {
-        com.squareup.okhttp.Call call = callImportValidateBeforeCall(file, apiVersion, includeAttachments, null, null);
+    public ApiResponse<Void> callImportWithHttpInfo(File file, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = callImportValidateBeforeCall(file, includeAttachments, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Import Project from json file  Project can be imported only once (this method or ImportToExistingProject)  Next import will sync content in previously imported project. (asynchronously)
+     * Import project from JSON file (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns no content response
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call callImportAsync(File file, String apiVersion, Boolean includeAttachments, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call callImportAsync(File file, Boolean includeAttachments, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -196,25 +1784,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = callImportValidateBeforeCall(file, apiVersion, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = callImportValidateBeforeCall(file, includeAttachments, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for createCustomAttributeTestPlanProjectRelations
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsCall(String projectId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsCall(String id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/testPlans/attributes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -230,7 +1818,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -252,13 +1840,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling createCustomAttributeTestPlanProjectRelations(Async)");
+    private com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, List<UUID> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createCustomAttributeTestPlanProjectRelations(Async)");
         }
         
-        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -268,39 +1856,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Add attributes to project for test plans
+     * Add attributes to project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and add attributes to project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void createCustomAttributeTestPlanProjectRelations(String projectId, List<UUID> body) throws ApiException {
-        createCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, body);
+    public void createCustomAttributeTestPlanProjectRelations(String id, List<UUID> body) throws ApiException {
+        createCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, body);
     }
 
     /**
-     * Add attributes to project for test plans
+     * Add attributes to project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and add attributes to project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> createCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, List<UUID> body) throws ApiException {
-        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, body, null, null);
+    public ApiResponse<Void> createCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, List<UUID> body) throws ApiException {
+        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Add attributes to project for test plans (asynchronously)
+     * Add attributes to project&#x27;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and add attributes to project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsAsync(String projectId, List<UUID> body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call createCustomAttributeTestPlanProjectRelationsAsync(String id, List<UUID> body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -321,7 +1909,7 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -353,7 +1941,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -387,7 +1975,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Create Project
+     * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
      * @param body  (optional)
      * @return ProjectModel
@@ -399,7 +1987,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Create Project
+     * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
      * @param body  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
@@ -412,7 +2000,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Create Project (asynchronously)
+     * Create project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -447,19 +2035,19 @@ public class ProjectsApi {
     }
     /**
      * Build call for createProjectsAttribute
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createProjectsAttributeCall(String projectId, CustomAttributePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createProjectsAttributeCall(String id, CustomAttributePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/attributes"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/attributes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -475,7 +2063,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -497,13 +2085,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createProjectsAttributeValidateBeforeCall(String projectId, CustomAttributePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling createProjectsAttribute(Async)");
+    private com.squareup.okhttp.Call createProjectsAttributeValidateBeforeCall(String id, CustomAttributePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createProjectsAttribute(Async)");
         }
         
-        com.squareup.okhttp.Call call = createProjectsAttributeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createProjectsAttributeCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -513,42 +2101,42 @@ public class ProjectsApi {
     }
 
     /**
-     * Create Projects Attribute
+     * Create project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomAttributeModel createProjectsAttribute(String projectId, CustomAttributePostModel body) throws ApiException {
-        ApiResponse<CustomAttributeModel> resp = createProjectsAttributeWithHttpInfo(projectId, body);
+    public CustomAttributeModel createProjectsAttribute(String id, CustomAttributePostModel body) throws ApiException {
+        ApiResponse<CustomAttributeModel> resp = createProjectsAttributeWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
-     * Create Projects Attribute
+     * Create project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String projectId, CustomAttributePostModel body) throws ApiException {
-        com.squareup.okhttp.Call call = createProjectsAttributeValidateBeforeCall(projectId, body, null, null);
+    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String id, CustomAttributePostModel body) throws ApiException {
+        com.squareup.okhttp.Call call = createProjectsAttributeValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Create Projects Attribute (asynchronously)
+     * Create project attribute (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createProjectsAttributeAsync(String projectId, CustomAttributePostModel body, final ApiCallback<CustomAttributeModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call createProjectsAttributeAsync(String id, CustomAttributePostModel body, final ApiCallback<CustomAttributeModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -569,26 +2157,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createProjectsAttributeValidateBeforeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createProjectsAttributeValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for deleteCustomAttributeTestPlanProjectRelations
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testPlans/attribute/{attributeId}"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()))
+        String localVarPath = "/api/v2/projects/{id}/testPlans/attribute/{attributeId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
             .replaceAll("\\{" + "attributeId" + "\\}", apiClient.escapeString(attributeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -627,17 +2215,17 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling deleteCustomAttributeTestPlanProjectRelations(Async)");
+    private com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteCustomAttributeTestPlanProjectRelations(Async)");
         }
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling deleteCustomAttributeTestPlanProjectRelations(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsCall(id, attributeId, progressListener, progressRequestListener);
         return call;
 
         
@@ -647,39 +2235,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Delete attribute from project for test plans
+     * Delete attribute from project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteCustomAttributeTestPlanProjectRelations(String projectId, UUID attributeId) throws ApiException {
-        deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, attributeId);
+    public void deleteCustomAttributeTestPlanProjectRelations(String id, UUID attributeId) throws ApiException {
+        deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, attributeId);
     }
 
     /**
-     * Delete attribute from project for test plans
+     * Delete attribute from project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, UUID attributeId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, attributeId, null, null);
+    public ApiResponse<Void> deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, UUID attributeId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, attributeId, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete attribute from project for test plans (asynchronously)
+     * Delete attribute from project&#x27;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsAsync(String projectId, UUID attributeId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCustomAttributeTestPlanProjectRelationsAsync(String id, UUID attributeId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -700,24 +2288,24 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, attributeId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for deleteProject
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -755,13 +2343,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteProjectValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling deleteProject(Async)");
+    private com.squareup.okhttp.Call deleteProjectValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteProject(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteProjectCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -771,36 +2359,36 @@ public class ProjectsApi {
     }
 
     /**
-     * Delete Project by Id or GlobalId
+     * Delete project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteProject(String projectId) throws ApiException {
-        deleteProjectWithHttpInfo(projectId);
+    public void deleteProject(String id) throws ApiException {
+        deleteProjectWithHttpInfo(id);
     }
 
     /**
-     * Delete Project by Id or GlobalId
+     * Delete project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteProjectWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteProjectValidateBeforeCall(projectId, null, null);
+    public ApiResponse<Void> deleteProjectWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteProjectValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete Project by Id or GlobalId (asynchronously)
+     * Delete project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectAsync(String projectId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -821,24 +2409,24 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteProjectValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for deleteProjectAutoTests
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectAutoTestsCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectAutoTestsCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/autoTests"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/autoTests"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -876,13 +2464,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteProjectAutoTestsValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling deleteProjectAutoTests(Async)");
+    private com.squareup.okhttp.Call deleteProjectAutoTestsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteProjectAutoTests(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteProjectAutoTestsCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectAutoTestsCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -892,36 +2480,36 @@ public class ProjectsApi {
     }
 
     /**
-     * Delete all AutoTests from Project
+     * Delete project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete all autotests from project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteProjectAutoTests(String projectId) throws ApiException {
-        deleteProjectAutoTestsWithHttpInfo(projectId);
+    public void deleteProjectAutoTests(String id) throws ApiException {
+        deleteProjectAutoTestsWithHttpInfo(id);
     }
 
     /**
-     * Delete all AutoTests from Project
+     * Delete project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete all autotests from project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteProjectAutoTestsWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteProjectAutoTestsValidateBeforeCall(projectId, null, null);
+    public ApiResponse<Void> deleteProjectAutoTestsWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteProjectAutoTestsValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete all AutoTests from Project (asynchronously)
+     * Delete project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete all autotests from project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectAutoTestsAsync(String projectId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectAutoTestsAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -942,25 +2530,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteProjectAutoTestsValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectAutoTestsValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for deleteProjectsAttribute
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectsAttributeCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectsAttributeCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/attributes/{attributeId}"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()))
+        String localVarPath = "/api/v2/projects/{id}/attributes/{attributeId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
             .replaceAll("\\{" + "attributeId" + "\\}", apiClient.escapeString(attributeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -999,17 +2587,17 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteProjectsAttributeValidateBeforeCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling deleteProjectsAttribute(Async)");
+    private com.squareup.okhttp.Call deleteProjectsAttributeValidateBeforeCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteProjectsAttribute(Async)");
         }
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling deleteProjectsAttribute(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteProjectsAttributeCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectsAttributeCall(id, attributeId, progressListener, progressRequestListener);
         return call;
 
         
@@ -1019,39 +2607,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Delete Projects Attribute by Id
+     * Delete project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteProjectsAttribute(String projectId, UUID attributeId) throws ApiException {
-        deleteProjectsAttributeWithHttpInfo(projectId, attributeId);
+    public void deleteProjectsAttribute(String id, UUID attributeId) throws ApiException {
+        deleteProjectsAttributeWithHttpInfo(id, attributeId);
     }
 
     /**
-     * Delete Projects Attribute by Id
+     * Delete project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteProjectsAttributeWithHttpInfo(String projectId, UUID attributeId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteProjectsAttributeValidateBeforeCall(projectId, attributeId, null, null);
+    public ApiResponse<Void> deleteProjectsAttributeWithHttpInfo(String id, UUID attributeId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteProjectsAttributeValidateBeforeCall(id, attributeId, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Delete Projects Attribute by Id (asynchronously)
+     * Delete project attribute (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteProjectsAttributeAsync(String projectId, UUID attributeId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteProjectsAttributeAsync(String id, UUID attributeId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1072,26 +2660,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteProjectsAttributeValidateBeforeCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteProjectsAttributeValidateBeforeCall(id, attributeId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for export
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call exportCall(String projectId, ProjectExportQueryModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call exportCall(String id, ProjectExportQueryModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/export"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/export"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1109,7 +2697,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1131,13 +2719,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call exportValidateBeforeCall(String projectId, ProjectExportQueryModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling export(Async)");
+    private com.squareup.okhttp.Call exportValidateBeforeCall(String id, ProjectExportQueryModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling export(Async)");
         }
         
-        com.squareup.okhttp.Call call = exportCall(projectId, body, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = exportCall(id, body, includeAttachments, progressListener, progressRequestListener);
         return call;
 
         
@@ -1147,45 +2735,45 @@ public class ProjectsApi {
     }
 
     /**
-     * Export Project with tests, sections and configurations in json file
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections and                      workitems                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project as JSON file
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project data as json file, containing project data, related attributes, sections and work items
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File export(String projectId, ProjectExportQueryModel body, Boolean includeAttachments) throws ApiException {
-        ApiResponse<File> resp = exportWithHttpInfo(projectId, body, includeAttachments);
+    public File export(String id, ProjectExportQueryModel body, Boolean includeAttachments) throws ApiException {
+        ApiResponse<File> resp = exportWithHttpInfo(id, body, includeAttachments);
         return resp.getData();
     }
 
     /**
-     * Export Project with tests, sections and configurations in json file
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections and                      workitems                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project as JSON file
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project data as json file, containing project data, related attributes, sections and work items
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<File> exportWithHttpInfo(String projectId, ProjectExportQueryModel body, Boolean includeAttachments) throws ApiException {
-        com.squareup.okhttp.Call call = exportValidateBeforeCall(projectId, body, includeAttachments, null, null);
+    public ApiResponse<File> exportWithHttpInfo(String id, ProjectExportQueryModel body, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = exportValidateBeforeCall(id, body, includeAttachments, null, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Export Project with tests, sections and configurations in json file (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections and                      workitems                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project as JSON file (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project data as json file, containing project data, related attributes, sections and work items
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call exportAsync(String projectId, ProjectExportQueryModel body, Boolean includeAttachments, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call exportAsync(String id, ProjectExportQueryModel body, Boolean includeAttachments, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1206,27 +2794,27 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = exportValidateBeforeCall(projectId, body, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = exportValidateBeforeCall(id, body, includeAttachments, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for exportWithTestPlansAndConfigurations
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsCall(String projectId, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsCall(String id, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/export-by-testPlans"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/export-by-testPlans"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1244,7 +2832,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1266,13 +2854,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String projectId, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling exportWithTestPlansAndConfigurations(Async)");
+    private com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling exportWithTestPlansAndConfigurations(Async)");
         }
         
-        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsCall(projectId, body, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsCall(id, body, includeAttachments, progressListener, progressRequestListener);
         return call;
 
         
@@ -1282,45 +2870,45 @@ public class ProjectsApi {
     }
 
     /**
-     * Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections, workitems,                      test plans, test suites, test points and configurations                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project with test plans, test suites and test points as JSON file
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;              System returns project data as JSON file, containing project data, related attributes, sections, work items,              test plans, test suites, test points and configurations              
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File exportWithTestPlansAndConfigurations(String projectId, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments) throws ApiException {
-        ApiResponse<File> resp = exportWithTestPlansAndConfigurationsWithHttpInfo(projectId, body, includeAttachments);
+    public File exportWithTestPlansAndConfigurations(String id, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments) throws ApiException {
+        ApiResponse<File> resp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, body, includeAttachments);
         return resp.getData();
     }
 
     /**
-     * Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections, workitems,                      test plans, test suites, test points and configurations                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project with test plans, test suites and test points as JSON file
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;              System returns project data as JSON file, containing project data, related attributes, sections, work items,              test plans, test suites, test points and configurations              
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String projectId, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments) throws ApiException {
-        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsValidateBeforeCall(projectId, body, includeAttachments, null, null);
+    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, body, includeAttachments, null, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections, workitems,                      test plans, test suites, test points and configurations                  
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * Export project with test plans, test suites and test points as JSON file (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;              System returns project data as JSON file, containing project data, related attributes, sections, work items,              test plans, test suites, test points and configurations              
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsAsync(String projectId, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call exportWithTestPlansAndConfigurationsAsync(String id, ProjectExportWithTestPlansPostModel body, Boolean includeAttachments, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1341,26 +2929,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsValidateBeforeCall(projectId, body, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, body, includeAttachments, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAllProjects
-     * @param isDeleted Boolean flag which defines if search must include deleted projects (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllProjectsCall(Boolean isDeleted, String projectName,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAllProjectsCall(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1372,16 +2960,16 @@ public class ProjectsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("isDeleted", isDeleted));
         if (projectName != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("projectName", projectName));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1416,9 +3004,9 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllProjectsValidateBeforeCall(Boolean isDeleted, String projectName,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllProjectsValidateBeforeCall(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = getAllProjectsCall(isDeleted, projectName, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllProjectsCall(isDeleted, projectName, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -1428,57 +3016,57 @@ public class ProjectsApi {
     }
 
     /**
-     * Get all Projects (if isDeleted is true, return deleted Projects)
+     * Get all projects
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted projects (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ProjectModel> getAllProjects(Boolean isDeleted, String projectName,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<ProjectModel>> resp = getAllProjectsWithHttpInfo(isDeleted, projectName, , , , , );
+    public List<ProjectModel> getAllProjects(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ProjectModel>> resp = getAllProjectsWithHttpInfo(isDeleted, projectName, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get all Projects (if isDeleted is true, return deleted Projects)
+     * Get all projects
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted projects (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;ProjectModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ProjectModel>> getAllProjectsWithHttpInfo(Boolean isDeleted, String projectName,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getAllProjectsValidateBeforeCall(isDeleted, projectName, , , , , , null, null);
+    public ApiResponse<List<ProjectModel>> getAllProjectsWithHttpInfo(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getAllProjectsValidateBeforeCall(isDeleted, projectName, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get all Projects (if isDeleted is true, return deleted Projects) (asynchronously)
+     * Get all projects (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
-     * @param isDeleted Boolean flag which defines if search must include deleted projects (optional)
+     * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllProjectsAsync(Boolean isDeleted, String projectName,  ,  ,  ,  ,  , final ApiCallback<List<ProjectModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllProjectsAsync(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ProjectModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1499,26 +3087,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllProjectsValidateBeforeCall(isDeleted, projectName, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllProjectsValidateBeforeCall(isDeleted, projectName, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAttributeByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAttributeByProjectIdCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAttributeByProjectIdCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/attributes/{attributeId}"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()))
+        String localVarPath = "/api/v2/projects/{id}/attributes/{attributeId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
             .replaceAll("\\{" + "attributeId" + "\\}", apiClient.escapeString(attributeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1557,17 +3145,17 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAttributeByProjectIdValidateBeforeCall(String projectId, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getAttributeByProjectId(Async)");
+    private com.squareup.okhttp.Call getAttributeByProjectIdValidateBeforeCall(String id, UUID attributeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAttributeByProjectId(Async)");
         }
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling getAttributeByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAttributeByProjectIdCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAttributeByProjectIdCall(id, attributeId, progressListener, progressRequestListener);
         return call;
 
         
@@ -1577,42 +3165,42 @@ public class ProjectsApi {
     }
 
     /**
-     * Get Projects Attribute by Id
+     * Get project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomAttributeModel getAttributeByProjectId(String projectId, UUID attributeId) throws ApiException {
-        ApiResponse<CustomAttributeModel> resp = getAttributeByProjectIdWithHttpInfo(projectId, attributeId);
+    public CustomAttributeModel getAttributeByProjectId(String id, UUID attributeId) throws ApiException {
+        ApiResponse<CustomAttributeModel> resp = getAttributeByProjectIdWithHttpInfo(id, attributeId);
         return resp.getData();
     }
 
     /**
-     * Get Projects Attribute by Id
+     * Get project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomAttributeModel> getAttributeByProjectIdWithHttpInfo(String projectId, UUID attributeId) throws ApiException {
-        com.squareup.okhttp.Call call = getAttributeByProjectIdValidateBeforeCall(projectId, attributeId, null, null);
+    public ApiResponse<CustomAttributeModel> getAttributeByProjectIdWithHttpInfo(String id, UUID attributeId) throws ApiException {
+        com.squareup.okhttp.Call call = getAttributeByProjectIdValidateBeforeCall(id, attributeId, null, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Projects Attribute by Id (asynchronously)
+     * Get project attribute (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param attributeId Project attribute internal(guid format)  identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAttributeByProjectIdAsync(String projectId, UUID attributeId, final ApiCallback<CustomAttributeModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAttributeByProjectIdAsync(String id, UUID attributeId, final ApiCallback<CustomAttributeModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1633,26 +3221,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAttributeByProjectIdValidateBeforeCall(projectId, attributeId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAttributeByProjectIdValidateBeforeCall(id, attributeId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAttributesByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted attributes (optional, default to false)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAttributesByProjectIdCall(String projectId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAttributesByProjectIdCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/attributes"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/attributes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1692,13 +3280,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAttributesByProjectIdValidateBeforeCall(String projectId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getAttributesByProjectId(Async)");
+    private com.squareup.okhttp.Call getAttributesByProjectIdValidateBeforeCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAttributesByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAttributesByProjectIdCall(projectId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAttributesByProjectIdCall(id, isDeleted, progressListener, progressRequestListener);
         return call;
 
         
@@ -1708,42 +3296,42 @@ public class ProjectsApi {
     }
 
     /**
-     * Get Projects Attributes by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all attributes related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted attributes (optional, default to false)
+     * Get project attributes
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<CustomAttributeModel> getAttributesByProjectId(String projectId, Boolean isDeleted) throws ApiException {
-        ApiResponse<List<CustomAttributeModel>> resp = getAttributesByProjectIdWithHttpInfo(projectId, isDeleted);
+    public List<CustomAttributeModel> getAttributesByProjectId(String id, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<CustomAttributeModel>> resp = getAttributesByProjectIdWithHttpInfo(id, isDeleted);
         return resp.getData();
     }
 
     /**
-     * Get Projects Attributes by Id or GlobalId
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all attributes related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted attributes (optional, default to false)
+     * Get project attributes
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<CustomAttributeModel>> getAttributesByProjectIdWithHttpInfo(String projectId, Boolean isDeleted) throws ApiException {
-        com.squareup.okhttp.Call call = getAttributesByProjectIdValidateBeforeCall(projectId, isDeleted, null, null);
+    public ApiResponse<List<CustomAttributeModel>> getAttributesByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = getAttributesByProjectIdValidateBeforeCall(id, isDeleted, null, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Projects Attributes by Id or GlobalId (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all attributes related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted attributes (optional, default to false)
+     * Get project attributes (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAttributesByProjectIdAsync(String projectId, Boolean isDeleted, final ApiCallback<List<CustomAttributeModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAttributesByProjectIdAsync(String id, Boolean isDeleted, final ApiCallback<List<CustomAttributeModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1764,25 +3352,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAttributesByProjectIdValidateBeforeCall(projectId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAttributesByProjectIdValidateBeforeCall(id, isDeleted, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getAutoTestsNamespaces
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestsNamespacesCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestsNamespacesCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/autoTestsNamespaces"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/autoTestsNamespaces"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1820,13 +3408,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAutoTestsNamespacesValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getAutoTestsNamespaces(Async)");
+    private com.squareup.okhttp.Call getAutoTestsNamespacesValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAutoTestsNamespaces(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAutoTestsNamespacesCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestsNamespacesCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -1836,39 +3424,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Get AutoTests Namespaces for Project by Id or GlobalId
+     * Get namespaces of autotests in project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;AutoTestNamespaceModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AutoTestNamespaceModel> getAutoTestsNamespaces(String projectId) throws ApiException {
-        ApiResponse<List<AutoTestNamespaceModel>> resp = getAutoTestsNamespacesWithHttpInfo(projectId);
+    public List<AutoTestNamespaceModel> getAutoTestsNamespaces(String id) throws ApiException {
+        ApiResponse<List<AutoTestNamespaceModel>> resp = getAutoTestsNamespacesWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get AutoTests Namespaces for Project by Id or GlobalId
+     * Get namespaces of autotests in project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;AutoTestNamespaceModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AutoTestNamespaceModel>> getAutoTestsNamespacesWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = getAutoTestsNamespacesValidateBeforeCall(projectId, null, null);
+    public ApiResponse<List<AutoTestNamespaceModel>> getAutoTestsNamespacesWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoTestsNamespacesValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<AutoTestNamespaceModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get AutoTests Namespaces for Project by Id or GlobalId (asynchronously)
+     * Get namespaces of autotests in project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestsNamespacesAsync(String projectId, final ApiCallback<List<AutoTestNamespaceModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestsNamespacesAsync(String id, final ApiCallback<List<AutoTestNamespaceModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1889,25 +3477,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAutoTestsNamespacesValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestsNamespacesValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AutoTestNamespaceModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getConfigurationsByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationsByProjectIdCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationsByProjectIdCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/configurations"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/configurations"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1945,13 +3533,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConfigurationsByProjectIdValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getConfigurationsByProjectId(Async)");
+    private com.squareup.okhttp.Call getConfigurationsByProjectIdValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getConfigurationsByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getConfigurationsByProjectIdCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationsByProjectIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -1961,39 +3549,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Get Configurations for Project by Id or GlobalId
+     * Get project configurations
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all configurations related to project  &lt;br&gt;System returns array of found configurations (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ConfigurationModel> getConfigurationsByProjectId(String projectId) throws ApiException {
-        ApiResponse<List<ConfigurationModel>> resp = getConfigurationsByProjectIdWithHttpInfo(projectId);
+    public List<ConfigurationModel> getConfigurationsByProjectId(String id) throws ApiException {
+        ApiResponse<List<ConfigurationModel>> resp = getConfigurationsByProjectIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get Configurations for Project by Id or GlobalId
+     * Get project configurations
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all configurations related to project  &lt;br&gt;System returns array of found configurations (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ConfigurationModel>> getConfigurationsByProjectIdWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = getConfigurationsByProjectIdValidateBeforeCall(projectId, null, null);
+    public ApiResponse<List<ConfigurationModel>> getConfigurationsByProjectIdWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getConfigurationsByProjectIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Configurations for Project by Id or GlobalId (asynchronously)
+     * Get project configurations (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all configurations related to project  &lt;br&gt;System returns array of found configurations (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConfigurationsByProjectIdAsync(String projectId, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationsByProjectIdAsync(String id, final ApiCallback<List<ConfigurationModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2014,25 +3602,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConfigurationsByProjectIdValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationsByProjectIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getCustomAttributeTestPlanProjectRelations
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/testPlans/attributes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2070,13 +3658,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getCustomAttributeTestPlanProjectRelations(Async)");
+    private com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getCustomAttributeTestPlanProjectRelations(Async)");
         }
         
-        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -2086,39 +3674,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Get project for test plans attributes
+     * Get project&#x27;s test plan attributes
      * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns project for test plans attributes by project identifier
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<CustomAttributeModel> getCustomAttributeTestPlanProjectRelations(String projectId) throws ApiException {
-        ApiResponse<List<CustomAttributeModel>> resp = getCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId);
+    public List<CustomAttributeModel> getCustomAttributeTestPlanProjectRelations(String id) throws ApiException {
+        ApiResponse<List<CustomAttributeModel>> resp = getCustomAttributeTestPlanProjectRelationsWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get project for test plans attributes
+     * Get project&#x27;s test plan attributes
      * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns project for test plans attributes by project identifier
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<CustomAttributeModel>> getCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, null, null);
+    public ApiResponse<List<CustomAttributeModel>> getCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get project for test plans attributes (asynchronously)
+     * Get project&#x27;s test plan attributes (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns project for test plans attributes by project identifier
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsAsync(String projectId, final ApiCallback<List<CustomAttributeModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCustomAttributeTestPlanProjectRelationsAsync(String id, final ApiCallback<List<CustomAttributeModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2139,25 +3727,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getProjectById
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getProjectByIdCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getProjectByIdCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2195,13 +3783,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getProjectByIdValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getProjectById(Async)");
+    private com.squareup.okhttp.Call getProjectByIdValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getProjectById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getProjectByIdCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getProjectByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -2211,39 +3799,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Get Project by Id or GlobalId
+     * Get project by ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProjectModel getProjectById(String projectId) throws ApiException {
-        ApiResponse<ProjectModel> resp = getProjectByIdWithHttpInfo(projectId);
+    public ProjectModel getProjectById(String id) throws ApiException {
+        ApiResponse<ProjectModel> resp = getProjectByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get Project by Id or GlobalId
+     * Get project by ID
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ProjectModel> getProjectByIdWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = getProjectByIdValidateBeforeCall(projectId, null, null);
+    public ApiResponse<ProjectModel> getProjectByIdWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getProjectByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Project by Id or GlobalId (asynchronously)
+     * Get project by ID (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProjectByIdAsync(String projectId, final ApiCallback<ProjectModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProjectByIdAsync(String id, final ApiCallback<ProjectModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2264,43 +3852,43 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getProjectByIdValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getProjectByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getSectionsByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionsByProjectIdCall(String projectId,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSectionsByProjectIdCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/sections"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/sections"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2335,13 +3923,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSectionsByProjectIdValidateBeforeCall(String projectId,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getSectionsByProjectId(Async)");
+    private com.squareup.okhttp.Call getSectionsByProjectIdValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getSectionsByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getSectionsByProjectIdCall(projectId, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSectionsByProjectIdCall(id, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -2351,54 +3939,54 @@ public class ProjectsApi {
     }
 
     /**
-     * Get Sections for Project by Id or GlobalId
+     * Get project sections
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all sections related to the project  &lt;br&gt;System returns array of sections (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;SectionModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<SectionModel> getSectionsByProjectId(String projectId,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<SectionModel>> resp = getSectionsByProjectIdWithHttpInfo(projectId, , , , , );
+    public List<SectionModel> getSectionsByProjectId(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<SectionModel>> resp = getSectionsByProjectIdWithHttpInfo(id, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get Sections for Project by Id or GlobalId
+     * Get project sections
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all sections related to the project  &lt;br&gt;System returns array of sections (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;SectionModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<SectionModel>> getSectionsByProjectIdWithHttpInfo(String projectId,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getSectionsByProjectIdValidateBeforeCall(projectId, , , , , , null, null);
+    public ApiResponse<List<SectionModel>> getSectionsByProjectIdWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getSectionsByProjectIdValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<SectionModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get Sections for Project by Id or GlobalId (asynchronously)
+     * Get project sections (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all sections related to the project  &lt;br&gt;System returns array of sections (listed in response)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSectionsByProjectIdAsync(String projectId,  ,  ,  ,  ,  , final ApiCallback<List<SectionModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSectionsByProjectIdAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<SectionModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2419,26 +4007,26 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSectionsByProjectIdValidateBeforeCall(projectId, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSectionsByProjectIdValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<SectionModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestPlansByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted test plans (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestPlansByProjectIdCall(String projectId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestPlansByProjectIdCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testPlans"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/testPlans"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2478,13 +4066,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestPlansByProjectIdValidateBeforeCall(String projectId, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getTestPlansByProjectId(Async)");
+    private com.squareup.okhttp.Call getTestPlansByProjectIdValidateBeforeCall(String id, Boolean isDeleted, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestPlansByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestPlansByProjectIdCall(projectId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestPlansByProjectIdCall(id, isDeleted, progressListener, progressRequestListener);
         return call;
 
         
@@ -2494,42 +4082,42 @@ public class ProjectsApi {
     }
 
     /**
-     * Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted test plans (optional)
+     * Get project test plans
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return List&lt;TestPlanModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestPlanModel> getTestPlansByProjectId(String projectId, Boolean isDeleted) throws ApiException {
-        ApiResponse<List<TestPlanModel>> resp = getTestPlansByProjectIdWithHttpInfo(projectId, isDeleted);
+    public List<TestPlanModel> getTestPlansByProjectId(String id, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<TestPlanModel>> resp = getTestPlansByProjectIdWithHttpInfo(id, isDeleted);
         return resp.getData();
     }
 
     /**
-     * Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted test plans (optional)
+     * Get project test plans
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return ApiResponse&lt;List&lt;TestPlanModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String projectId, Boolean isDeleted) throws ApiException {
-        com.squareup.okhttp.Call call = getTestPlansByProjectIdValidateBeforeCall(projectId, isDeleted, null, null);
+    public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
+        com.squareup.okhttp.Call call = getTestPlansByProjectIdValidateBeforeCall(id, isDeleted, null, null);
         Type localVarReturnType = new TypeToken<List<TestPlanModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans) (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted test plans (optional)
+     * Get project test plans (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestPlansByProjectIdAsync(String projectId, Boolean isDeleted, final ApiCallback<List<TestPlanModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestPlansByProjectIdAsync(String id, Boolean isDeleted, final ApiCallback<List<TestPlanModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2550,14 +4138,14 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestPlansByProjectIdValidateBeforeCall(projectId, isDeleted, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestPlansByProjectIdValidateBeforeCall(id, isDeleted, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestPlanModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getTestRunsByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
      * @param stopped  (optional)
@@ -2565,49 +4153,49 @@ public class ProjectsApi {
      * @param createdDateFrom  (optional)
      * @param createdDateTo  (optional)
      * @param testPlanId  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestRunsByProjectIdCall(String projectId, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunsByProjectIdCall(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testRuns"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/testRuns"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (notStarted != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("NotStarted", notStarted));
+        localVarQueryParams.addAll(apiClient.parameterToPair("notStarted", notStarted));
         if (inProgress != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("InProgress", inProgress));
+        localVarQueryParams.addAll(apiClient.parameterToPair("inProgress", inProgress));
         if (stopped != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Stopped", stopped));
+        localVarQueryParams.addAll(apiClient.parameterToPair("stopped", stopped));
         if (completed != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Completed", completed));
+        localVarQueryParams.addAll(apiClient.parameterToPair("completed", completed));
         if (createdDateFrom != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("CreatedDateFrom", createdDateFrom));
+        localVarQueryParams.addAll(apiClient.parameterToPair("createdDateFrom", createdDateFrom));
         if (createdDateTo != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("CreatedDateTo", createdDateTo));
+        localVarQueryParams.addAll(apiClient.parameterToPair("createdDateTo", createdDateTo));
         if (testPlanId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("TestPlanId", testPlanId));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        localVarQueryParams.addAll(apiClient.parameterToPair("testPlanId", testPlanId));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2642,13 +4230,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestRunsByProjectIdValidateBeforeCall(String projectId, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getTestRunsByProjectId(Async)");
+    private com.squareup.okhttp.Call getTestRunsByProjectIdValidateBeforeCall(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestRunsByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestRunsByProjectIdCall(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunsByProjectIdCall(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -2658,9 +4246,9 @@ public class ProjectsApi {
     }
 
     /**
-     * Get TestRuns for Project by Id or GlobalId
+     * Get project test runs
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
      * @param stopped  (optional)
@@ -2668,23 +4256,23 @@ public class ProjectsApi {
      * @param createdDateFrom  (optional)
      * @param createdDateTo  (optional)
      * @param testPlanId  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestRunV2GetModel> getTestRunsByProjectId(String projectId, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<TestRunV2GetModel>> resp = getTestRunsByProjectIdWithHttpInfo(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , );
+    public List<TestRunV2GetModel> getTestRunsByProjectId(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestRunV2GetModel>> resp = getTestRunsByProjectIdWithHttpInfo(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get TestRuns for Project by Id or GlobalId
+     * Get project test runs
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
      * @param stopped  (optional)
@@ -2692,24 +4280,24 @@ public class ProjectsApi {
      * @param createdDateFrom  (optional)
      * @param createdDateTo  (optional)
      * @param testPlanId  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;TestRunV2GetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestRunV2GetModel>> getTestRunsByProjectIdWithHttpInfo(String projectId, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getTestRunsByProjectIdValidateBeforeCall(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , , null, null);
+    public ApiResponse<List<TestRunV2GetModel>> getTestRunsByProjectIdWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getTestRunsByProjectIdValidateBeforeCall(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<TestRunV2GetModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get TestRuns for Project by Id or GlobalId (asynchronously)
+     * Get project test runs (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
      * @param stopped  (optional)
@@ -2717,16 +4305,16 @@ public class ProjectsApi {
      * @param createdDateFrom  (optional)
      * @param createdDateTo  (optional)
      * @param testPlanId  (optional)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestRunsByProjectIdAsync(String projectId, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId,  ,  ,  ,  ,  , final ApiCallback<List<TestRunV2GetModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunsByProjectIdAsync(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunV2GetModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2747,33 +4335,33 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestRunsByProjectIdValidateBeforeCall(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunsByProjectIdValidateBeforeCall(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestRunV2GetModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemsByProjectId
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted workitems (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
+     * @param tagNames List of tags to filter by (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsByProjectIdCall(String projectId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsByProjectIdCall(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/workItems"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/workItems"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2783,16 +4371,16 @@ public class ProjectsApi {
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "tagNames", tagNames));
         if (includeIterations != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeIterations", includeIterations));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("Take", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", ));
-        if ( != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", ));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2827,13 +4415,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemsByProjectIdValidateBeforeCall(String projectId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling getWorkItemsByProjectId(Async)");
+    private com.squareup.okhttp.Call getWorkItemsByProjectIdValidateBeforeCall(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemsByProjectId(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemsByProjectIdCall(projectId, isDeleted, tagNames, includeIterations, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsByProjectIdCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         return call;
 
         
@@ -2843,63 +4431,63 @@ public class ProjectsApi {
     }
 
     /**
-     * Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all workitems related to project which                      are not deleted                    &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted workitems (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get project work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
+     * @param tagNames List of tags to filter by (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemShortModel> getWorkItemsByProjectId(String projectId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  ) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsByProjectIdWithHttpInfo(projectId, isDeleted, tagNames, includeIterations, , , , , );
+    public List<WorkItemShortModel> getWorkItemsByProjectId(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> resp = getWorkItemsByProjectIdWithHttpInfo(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue);
         return resp.getData();
     }
 
     /**
-     * Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all workitems related to project which                      are not deleted                    &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted workitems (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get project work items
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
+     * @param tagNames List of tags to filter by (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemShortModel>> getWorkItemsByProjectIdWithHttpInfo(String projectId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  ) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemsByProjectIdValidateBeforeCall(projectId, isDeleted, tagNames, includeIterations, , , , , , null, null);
+    public ApiResponse<List<WorkItemShortModel>> getWorkItemsByProjectIdWithHttpInfo(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemsByProjectIdValidateBeforeCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, null, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems) (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all workitems related to project which                      are not deleted                    &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
-     * @param isDeleted Boolean flag which defines if search must include deleted workitems (optional, default to false)
-     * @param tagNames Array of workitem tag names (optional)
+     * Get project work items (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
+     * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
+     * @param tagNames List of tags to filter by (optional)
      * @param includeIterations  (optional, default to true)
-     * @param  Amount of items to be skipped (offset) (optional)
-     * @param  Amount of items to be taken (limit) (optional)
-     * @param  SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param  Property name for searching (optional)
-     * @param  Value for searching (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemsByProjectIdAsync(String projectId, Boolean isDeleted, List<String> tagNames, Boolean includeIterations,  ,  ,  ,  ,  , final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemsByProjectIdAsync(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemShortModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2920,33 +4508,30 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemsByProjectIdValidateBeforeCall(projectId, isDeleted, tagNames, includeIterations, , , , , , progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemsByProjectIdValidateBeforeCall(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for importToExistingProject
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call importToExistingProjectCall(String projectId, File file, String apiVersion, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call importToExistingProjectCall(String id, File file, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/import"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/import"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (apiVersion != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("apiVersion", apiVersion));
         if (includeAttachments != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("includeAttachments", includeAttachments));
 
@@ -2985,13 +4570,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call importToExistingProjectValidateBeforeCall(String projectId, File file, String apiVersion, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling importToExistingProject(Async)");
+    private com.squareup.okhttp.Call importToExistingProjectValidateBeforeCall(String id, File file, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling importToExistingProject(Async)");
         }
         
-        com.squareup.okhttp.Call call = importToExistingProjectCall(projectId, file, apiVersion, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = importToExistingProjectCall(id, file, includeAttachments, progressListener, progressRequestListener);
         return call;
 
         
@@ -3001,45 +4586,42 @@ public class ProjectsApi {
     }
 
     /**
-     * Import to existing Project from json file.  Sections can be imported in only one target project!
+     * Import project from JSON file into existing project
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void importToExistingProject(String projectId, File file, String apiVersion, Boolean includeAttachments) throws ApiException {
-        importToExistingProjectWithHttpInfo(projectId, file, apiVersion, includeAttachments);
+    public void importToExistingProject(String id, File file, Boolean includeAttachments) throws ApiException {
+        importToExistingProjectWithHttpInfo(id, file, includeAttachments);
     }
 
     /**
-     * Import to existing Project from json file.  Sections can be imported in only one target project!
+     * Import project from JSON file into existing project
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> importToExistingProjectWithHttpInfo(String projectId, File file, String apiVersion, Boolean includeAttachments) throws ApiException {
-        com.squareup.okhttp.Call call = importToExistingProjectValidateBeforeCall(projectId, file, apiVersion, includeAttachments, null, null);
+    public ApiResponse<Void> importToExistingProjectWithHttpInfo(String id, File file, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = importToExistingProjectValidateBeforeCall(id, file, includeAttachments, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Import to existing Project from json file.  Sections can be imported in only one target project! (asynchronously)
+     * Import project from JSON file into existing project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param file  (optional)
-     * @param apiVersion  (optional)
-     * @param includeAttachments  (optional, default to false)
+     * @param includeAttachments  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call importToExistingProjectAsync(String projectId, File file, String apiVersion, Boolean includeAttachments, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call importToExistingProjectAsync(String id, File file, Boolean includeAttachments, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3060,24 +4642,24 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = importToExistingProjectValidateBeforeCall(projectId, file, apiVersion, includeAttachments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = importToExistingProjectValidateBeforeCall(id, file, includeAttachments, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for restoreProject
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call restoreProjectCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call restoreProjectCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/restore"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/restore"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3115,13 +4697,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call restoreProjectValidateBeforeCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling restoreProject(Async)");
+    private com.squareup.okhttp.Call restoreProjectValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling restoreProject(Async)");
         }
         
-        com.squareup.okhttp.Call call = restoreProjectCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = restoreProjectCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -3131,36 +4713,36 @@ public class ProjectsApi {
     }
 
     /**
-     * Restore Project by Id or GlobalId
+     * Restore project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and restores deleted project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void restoreProject(String projectId) throws ApiException {
-        restoreProjectWithHttpInfo(projectId);
+    public void restoreProject(String id) throws ApiException {
+        restoreProjectWithHttpInfo(id);
     }
 
     /**
-     * Restore Project by Id or GlobalId
+     * Restore project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and restores deleted project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> restoreProjectWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = restoreProjectValidateBeforeCall(projectId, null, null);
+    public ApiResponse<Void> restoreProjectWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = restoreProjectValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Restore Project by Id or GlobalId (asynchronously)
+     * Restore project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and restores deleted project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call restoreProjectAsync(String projectId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call restoreProjectAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3181,25 +4763,25 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = restoreProjectValidateBeforeCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = restoreProjectValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for updateCustomAttributeTestPlanProjectRelations
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsCall(String id, CustomAttributeTestPlanProjectRelationPutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/testPlans/attribute"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/testPlans/attribute"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3215,7 +4797,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3237,13 +4819,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling updateCustomAttributeTestPlanProjectRelations(Async)");
+    private com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, CustomAttributeTestPlanProjectRelationPutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateCustomAttributeTestPlanProjectRelations(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -3253,39 +4835,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Update project attribute for test plan
+     * Update attribute of project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void updateCustomAttributeTestPlanProjectRelations(String projectId, CustomAttributeTestPlanProjectRelationPutModel body) throws ApiException {
-        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, body);
+    public void updateCustomAttributeTestPlanProjectRelations(String id, CustomAttributeTestPlanProjectRelationPutModel body) throws ApiException {
+        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, body);
     }
 
     /**
-     * Update project attribute for test plan
+     * Update attribute of project&#x27;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, CustomAttributeTestPlanProjectRelationPutModel body) throws ApiException {
-        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, body, null, null);
+    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, CustomAttributeTestPlanProjectRelationPutModel body) throws ApiException {
+        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Update project attribute for test plan (asynchronously)
+     * Update attribute of project&#x27;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
-     * @param projectId  (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsAsync(String projectId, CustomAttributeTestPlanProjectRelationPutModel body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateCustomAttributeTestPlanProjectRelationsAsync(String id, CustomAttributeTestPlanProjectRelationPutModel body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3306,7 +4888,7 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -3338,7 +4920,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3372,7 +4954,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Update Project
+     * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3382,7 +4964,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Update Project
+     * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -3394,7 +4976,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Update Project (asynchronously)
+     * Update project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -3428,19 +5010,19 @@ public class ProjectsApi {
     }
     /**
      * Build call for updateProjectsAttribute
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateProjectsAttributeCall(String projectId, CustomAttributeModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateProjectsAttributeCall(String id, CustomAttributePutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/projects/{projectId}/attributes"
-            .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
+        String localVarPath = "/api/v2/projects/{id}/attributes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3456,7 +5038,7 @@ public class ProjectsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3478,13 +5060,13 @@ public class ProjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateProjectsAttributeValidateBeforeCall(String projectId, CustomAttributeModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling updateProjectsAttribute(Async)");
+    private com.squareup.okhttp.Call updateProjectsAttributeValidateBeforeCall(String id, CustomAttributePutModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateProjectsAttribute(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateProjectsAttributeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateProjectsAttributeCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -3494,39 +5076,39 @@ public class ProjectsApi {
     }
 
     /**
-     * Update Projects Attribute
+     * Update project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System updates attribute related to the project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void updateProjectsAttribute(String projectId, CustomAttributeModel body) throws ApiException {
-        updateProjectsAttributeWithHttpInfo(projectId, body);
+    public void updateProjectsAttribute(String id, CustomAttributePutModel body) throws ApiException {
+        updateProjectsAttributeWithHttpInfo(id, body);
     }
 
     /**
-     * Update Projects Attribute
+     * Update project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System updates attribute related to the project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String projectId, CustomAttributeModel body) throws ApiException {
-        com.squareup.okhttp.Call call = updateProjectsAttributeValidateBeforeCall(projectId, body, null, null);
+    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String id, CustomAttributePutModel body) throws ApiException {
+        com.squareup.okhttp.Call call = updateProjectsAttributeValidateBeforeCall(id, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * Update Projects Attribute (asynchronously)
+     * Update project attribute (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System updates attribute related to the project  &lt;br&gt;System returns no content response
-     * @param projectId Project internal(guid format) or global(int  format) identifier (required)
+     * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateProjectsAttributeAsync(String projectId, CustomAttributeModel body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateProjectsAttributeAsync(String id, CustomAttributePutModel body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3547,7 +5129,7 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateProjectsAttributeValidateBeforeCall(projectId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateProjectsAttributeValidateBeforeCall(id, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

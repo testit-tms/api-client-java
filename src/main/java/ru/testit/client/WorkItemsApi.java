@@ -28,12 +28,20 @@ import java.io.IOException;
 
 import ru.testit.model.AutoTestModel;
 import ru.testit.model.IterationModel;
+import org.threeten.bp.OffsetDateTime;
 import ru.testit.model.ProblemDetails;
+import ru.testit.model.SharedStepReferenceModel;
 import ru.testit.model.TestResultChronologyModel;
+import ru.testit.model.TestResultHistoryReportModel;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
+import ru.testit.model.WorkItemChangeModel;
+import ru.testit.model.WorkItemLikeModel;
 import ru.testit.model.WorkItemModel;
+import ru.testit.model.WorkItemMovePostModel;
 import ru.testit.model.WorkItemPostModel;
 import ru.testit.model.WorkItemPutModel;
+import ru.testit.model.WorkItemShortModel;
 import ru.testit.model.WorkItemVersionModel;
 
 import java.lang.reflect.Type;
@@ -62,6 +70,1363 @@ public class WorkItemsApi {
     }
 
     /**
+     * Build call for apiV2WorkItemsIdActualPost
+     * @param id  (required)
+     * @param versionId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdActualPostCall(UUID id, UUID versionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/actual"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (versionId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("versionId", versionId));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdActualPostValidateBeforeCall(UUID id, UUID versionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdActualPost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdActualPostCall(id, versionId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Set WorkItem as actual
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set WorkItem as actual
+     * @param id  (required)
+     * @param versionId  (optional)
+     * @return WorkItemModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkItemModel apiV2WorkItemsIdActualPost(UUID id, UUID versionId) throws ApiException {
+        ApiResponse<WorkItemModel> resp = apiV2WorkItemsIdActualPostWithHttpInfo(id, versionId);
+        return resp.getData();
+    }
+
+    /**
+     * Set WorkItem as actual
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set WorkItem as actual
+     * @param id  (required)
+     * @param versionId  (optional)
+     * @return ApiResponse&lt;WorkItemModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkItemModel> apiV2WorkItemsIdActualPostWithHttpInfo(UUID id, UUID versionId) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdActualPostValidateBeforeCall(id, versionId, null, null);
+        Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set WorkItem as actual (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set WorkItem as actual
+     * @param id  (required)
+     * @param versionId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdActualPostAsync(UUID id, UUID versionId, final ApiCallback<WorkItemModel> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdActualPostValidateBeforeCall(id, versionId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdCheckListTransformToTestCasePost
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdCheckListTransformToTestCasePostCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/checkList/transformTo/testCase"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdCheckListTransformToTestCasePostValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdCheckListTransformToTestCasePost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdCheckListTransformToTestCasePostCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Transform CheckList to TestCase
+     * &lt;br&gt;Use case  &lt;br&gt;User sets checklist identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System transform CheckList to TestCase
+     * @param id  (required)
+     * @return WorkItemModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkItemModel apiV2WorkItemsIdCheckListTransformToTestCasePost(UUID id) throws ApiException {
+        ApiResponse<WorkItemModel> resp = apiV2WorkItemsIdCheckListTransformToTestCasePostWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Transform CheckList to TestCase
+     * &lt;br&gt;Use case  &lt;br&gt;User sets checklist identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System transform CheckList to TestCase
+     * @param id  (required)
+     * @return ApiResponse&lt;WorkItemModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkItemModel> apiV2WorkItemsIdCheckListTransformToTestCasePostWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdCheckListTransformToTestCasePostValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Transform CheckList to TestCase (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets checklist identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System transform CheckList to TestCase
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdCheckListTransformToTestCasePostAsync(UUID id, final ApiCallback<WorkItemModel> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdCheckListTransformToTestCasePostValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdHistoryGet
+     * @param id  (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdHistoryGetCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/history"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdHistoryGetValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdHistoryGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdHistoryGetCall(id, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get change history of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return change history of WorkItem
+     * @param id  (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;WorkItemChangeModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<WorkItemChangeModel> apiV2WorkItemsIdHistoryGet(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<WorkItemChangeModel>> resp = apiV2WorkItemsIdHistoryGetWithHttpInfo(id, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get change history of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return change history of WorkItem
+     * @param id  (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;WorkItemChangeModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<WorkItemChangeModel>> apiV2WorkItemsIdHistoryGetWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdHistoryGetValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<WorkItemChangeModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get change history of WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return change history of WorkItem
+     * @param id  (required)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdHistoryGetAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemChangeModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdHistoryGetValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<WorkItemChangeModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdLikeDelete
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikeDeleteCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/like"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdLikeDeleteValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdLikeDelete(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikeDeleteCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete like from WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete like from WorkItem
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2WorkItemsIdLikeDelete(UUID id) throws ApiException {
+        apiV2WorkItemsIdLikeDeleteWithHttpInfo(id);
+    }
+
+    /**
+     * Delete like from WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete like from WorkItem
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2WorkItemsIdLikeDeleteWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikeDeleteValidateBeforeCall(id, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete like from WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete like from WorkItem
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikeDeleteAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikeDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdLikePost
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikePostCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/like"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdLikePostValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdLikePost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikePostCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Set like to WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set like to WorkItem
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void apiV2WorkItemsIdLikePost(UUID id) throws ApiException {
+        apiV2WorkItemsIdLikePostWithHttpInfo(id);
+    }
+
+    /**
+     * Set like to WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set like to WorkItem
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> apiV2WorkItemsIdLikePostWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikePostValidateBeforeCall(id, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Set like to WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set like to WorkItem
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikePostAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikePostValidateBeforeCall(id, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdLikesCountGet
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikesCountGetCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/likes/count"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdLikesCountGetValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdLikesCountGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesCountGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get likes count of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes count of WorkItem
+     * @param id  (required)
+     * @return Integer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Integer apiV2WorkItemsIdLikesCountGet(UUID id) throws ApiException {
+        ApiResponse<Integer> resp = apiV2WorkItemsIdLikesCountGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Get likes count of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes count of WorkItem
+     * @param id  (required)
+     * @return ApiResponse&lt;Integer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Integer> apiV2WorkItemsIdLikesCountGetWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesCountGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<Integer>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get likes count of WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes count of WorkItem
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikesCountGetAsync(UUID id, final ApiCallback<Integer> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesCountGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Integer>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdLikesGet
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikesGetCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/likes"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdLikesGetValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdLikesGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get likes of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes of WorkItem
+     * @param id  (required)
+     * @return List&lt;WorkItemLikeModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<WorkItemLikeModel> apiV2WorkItemsIdLikesGet(UUID id) throws ApiException {
+        ApiResponse<List<WorkItemLikeModel>> resp = apiV2WorkItemsIdLikesGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Get likes of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes of WorkItem
+     * @param id  (required)
+     * @return ApiResponse&lt;List&lt;WorkItemLikeModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<WorkItemLikeModel>> apiV2WorkItemsIdLikesGetWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<List<WorkItemLikeModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get likes of WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes of WorkItem
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdLikesGetAsync(UUID id, final ApiCallback<List<WorkItemLikeModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdLikesGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<WorkItemLikeModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsIdTestResultsHistoryGet
+     * @param id  (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdTestResultsHistoryGetCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/{id}/testResults/history"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (from != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        if (to != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+        if (configurationIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "configurationIds", configurationIds));
+        if (testPlanIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "testPlanIds", testPlanIds));
+        if (userIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "userIds", userIds));
+        if (outcomes != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "outcomes", outcomes));
+        if (isAutomated != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isAutomated", isAutomated));
+        if (automated != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("automated", automated));
+        if (testRunIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "testRunIds", testRunIds));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Skip", skip));
+        if (take != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("Take", take));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+        if (searchField != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchField", searchField));
+        if (searchValue != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("SearchValue", searchValue));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdTestResultsHistoryGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdTestResultsHistoryGetCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get test results history of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test results history of WorkItem
+     * @param id  (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return List&lt;TestResultHistoryReportModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TestResultHistoryReportModel> apiV2WorkItemsIdTestResultsHistoryGet(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestResultHistoryReportModel>> resp = apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
+        return resp.getData();
+    }
+
+    /**
+     * Get test results history of WorkItem
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test results history of WorkItem
+     * @param id  (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @return ApiResponse&lt;List&lt;TestResultHistoryReportModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TestResultHistoryReportModel>> apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, null, null);
+        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get test results history of WorkItem (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test results history of WorkItem
+     * @param id  (required)
+     * @param from Take results from this date (optional)
+     * @param to Take results until this date (optional)
+     * @param configurationIds Identifiers of test result configurations (optional)
+     * @param testPlanIds Identifiers of test plans which contain test results (optional)
+     * @param userIds Identifiers of users who set test results (optional)
+     * @param outcomes List of outcomes of test results (optional)
+     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
+     * @param automated If result must consist of only manual/automated test results (optional)
+     * @param testRunIds Identifiers of test runs which contain test results (optional)
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsIdTestResultsHistoryGetAsync(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestResultHistoryReportModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsMovePost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsMovePostCall(WorkItemMovePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/move";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsMovePostValidateBeforeCall(WorkItemMovePostModel body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsMovePostCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Move WorkItem to another section
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
+     * @param body  (optional)
+     * @return WorkItemShortModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkItemShortModel apiV2WorkItemsMovePost(WorkItemMovePostModel body) throws ApiException {
+        ApiResponse<WorkItemShortModel> resp = apiV2WorkItemsMovePostWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Move WorkItem to another section
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
+     * @param body  (optional)
+     * @return ApiResponse&lt;WorkItemShortModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkItemShortModel> apiV2WorkItemsMovePostWithHttpInfo(WorkItemMovePostModel body) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsMovePostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<WorkItemShortModel>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Move WorkItem to another section (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsMovePostAsync(WorkItemMovePostModel body, final ApiCallback<WorkItemShortModel> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsMovePostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkItemShortModel>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2WorkItemsSharedStepsSharedStepIdReferencesGet
+     * @param sharedStepId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsSharedStepsSharedStepIdReferencesGetCall(UUID sharedStepId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/sharedSteps/{sharedStepId}/references"
+            .replaceAll("\\{" + "sharedStepId" + "\\}", apiClient.escapeString(sharedStepId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2WorkItemsSharedStepsSharedStepIdReferencesGetValidateBeforeCall(UUID sharedStepId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'sharedStepId' is set
+        if (sharedStepId == null) {
+            throw new ApiException("Missing the required parameter 'sharedStepId' when calling apiV2WorkItemsSharedStepsSharedStepIdReferencesGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2WorkItemsSharedStepsSharedStepIdReferencesGetCall(sharedStepId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get SharedStep references
+     * &lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+     * @param sharedStepId  (required)
+     * @return List&lt;SharedStepReferenceModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SharedStepReferenceModel> apiV2WorkItemsSharedStepsSharedStepIdReferencesGet(UUID sharedStepId) throws ApiException {
+        ApiResponse<List<SharedStepReferenceModel>> resp = apiV2WorkItemsSharedStepsSharedStepIdReferencesGetWithHttpInfo(sharedStepId);
+        return resp.getData();
+    }
+
+    /**
+     * Get SharedStep references
+     * &lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+     * @param sharedStepId  (required)
+     * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SharedStepReferenceModel>> apiV2WorkItemsSharedStepsSharedStepIdReferencesGetWithHttpInfo(UUID sharedStepId) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2WorkItemsSharedStepsSharedStepIdReferencesGetValidateBeforeCall(sharedStepId, null, null);
+        Type localVarReturnType = new TypeToken<List<SharedStepReferenceModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get SharedStep references (asynchronously)
+     * &lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+     * @param sharedStepId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2WorkItemsSharedStepsSharedStepIdReferencesGetAsync(UUID sharedStepId, final ApiCallback<List<SharedStepReferenceModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2WorkItemsSharedStepsSharedStepIdReferencesGetValidateBeforeCall(sharedStepId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SharedStepReferenceModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for createWorkItem
      * @param body  (optional)
      * @param progressListener Progress listener
@@ -89,7 +1454,7 @@ public class WorkItemsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -183,18 +1548,18 @@ public class WorkItemsApi {
     }
     /**
      * Build call for deleteAllWorkItemsFromAutoTest
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}/autoTests"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}/autoTests"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -232,13 +1597,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestValidateBeforeCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling deleteAllWorkItemsFromAutoTest(Async)");
+    private com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteAllWorkItemsFromAutoTest(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -250,34 +1615,34 @@ public class WorkItemsApi {
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search and delete all autotests, related to found workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteAllWorkItemsFromAutoTest(String workItemId) throws ApiException {
-        deleteAllWorkItemsFromAutoTestWithHttpInfo(workItemId);
+    public void deleteAllWorkItemsFromAutoTest(String id) throws ApiException {
+        deleteAllWorkItemsFromAutoTestWithHttpInfo(id);
     }
 
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search and delete all autotests, related to found workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteAllWorkItemsFromAutoTestWithHttpInfo(String workItemId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestValidateBeforeCall(workItemId, null, null);
+    public ApiResponse<Void> deleteAllWorkItemsFromAutoTestWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search and delete all autotests, related to found workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestAsync(String workItemId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteAllWorkItemsFromAutoTestAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -298,24 +1663,24 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestValidateBeforeCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteAllWorkItemsFromAutoTestValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for deleteWorkItem
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteWorkItemCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteWorkItemCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -353,13 +1718,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteWorkItemValidateBeforeCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling deleteWorkItem(Async)");
+    private com.squareup.okhttp.Call deleteWorkItemValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteWorkItem(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteWorkItemCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteWorkItemCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -371,34 +1736,34 @@ public class WorkItemsApi {
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteWorkItem(String workItemId) throws ApiException {
-        deleteWorkItemWithHttpInfo(workItemId);
+    public void deleteWorkItem(String id) throws ApiException {
+        deleteWorkItemWithHttpInfo(id);
     }
 
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteWorkItemWithHttpInfo(String workItemId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteWorkItemValidateBeforeCall(workItemId, null, null);
+    public ApiResponse<Void> deleteWorkItemWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteWorkItemValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes workitem  &lt;br&gt;System returns no content response
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteWorkItemAsync(String workItemId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteWorkItemAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -419,24 +1784,24 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteWorkItemValidateBeforeCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteWorkItemValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for getAutoTestsForWorkItem
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestsForWorkItemCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestsForWorkItemCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}/autoTests"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}/autoTests"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -474,13 +1839,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAutoTestsForWorkItemValidateBeforeCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling getAutoTestsForWorkItem(Async)");
+    private com.squareup.okhttp.Call getAutoTestsForWorkItemValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAutoTestsForWorkItem(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAutoTestsForWorkItemCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestsForWorkItemCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -492,24 +1857,24 @@ public class WorkItemsApi {
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search all autotests, related to found workitem  &lt;br&gt;System returns list of found autotests
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AutoTestModel> getAutoTestsForWorkItem(String workItemId) throws ApiException {
-        ApiResponse<List<AutoTestModel>> resp = getAutoTestsForWorkItemWithHttpInfo(workItemId);
+    public List<AutoTestModel> getAutoTestsForWorkItem(String id) throws ApiException {
+        ApiResponse<List<AutoTestModel>> resp = getAutoTestsForWorkItemWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search all autotests, related to found workitem  &lt;br&gt;System returns list of found autotests
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AutoTestModel>> getAutoTestsForWorkItemWithHttpInfo(String workItemId) throws ApiException {
-        com.squareup.okhttp.Call call = getAutoTestsForWorkItemValidateBeforeCall(workItemId, null, null);
+    public ApiResponse<List<AutoTestModel>> getAutoTestsForWorkItemWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoTestsForWorkItemValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -517,12 +1882,12 @@ public class WorkItemsApi {
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search all autotests, related to found workitem  &lt;br&gt;System returns list of found autotests
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAutoTestsForWorkItemAsync(String workItemId, final ApiCallback<List<AutoTestModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoTestsForWorkItemAsync(String id, final ApiCallback<List<AutoTestModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -543,14 +1908,14 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAutoTestsForWorkItemValidateBeforeCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoTestsForWorkItemValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getIterations
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param progressListener Progress listener
@@ -558,12 +1923,12 @@ public class WorkItemsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getIterationsCall(String workItemId, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getIterationsCall(String id, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}/iterations"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}/iterations"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -605,13 +1970,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getIterationsValidateBeforeCall(String workItemId, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling getIterations(Async)");
+    private com.squareup.okhttp.Call getIterationsValidateBeforeCall(String id, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getIterations(Async)");
         }
         
-        com.squareup.okhttp.Call call = getIterationsCall(workItemId, versionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getIterationsCall(id, versionId, versionNumber, progressListener, progressRequestListener);
         return call;
 
         
@@ -623,28 +1988,28 @@ public class WorkItemsApi {
     /**
      * Get iterations by workitem Id or GlobalId
      * 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return List&lt;IterationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IterationModel> getIterations(String workItemId, UUID versionId, Integer versionNumber) throws ApiException {
-        ApiResponse<List<IterationModel>> resp = getIterationsWithHttpInfo(workItemId, versionId, versionNumber);
+    public List<IterationModel> getIterations(String id, UUID versionId, Integer versionNumber) throws ApiException {
+        ApiResponse<List<IterationModel>> resp = getIterationsWithHttpInfo(id, versionId, versionNumber);
         return resp.getData();
     }
 
     /**
      * Get iterations by workitem Id or GlobalId
      * 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return ApiResponse&lt;List&lt;IterationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IterationModel>> getIterationsWithHttpInfo(String workItemId, UUID versionId, Integer versionNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getIterationsValidateBeforeCall(workItemId, versionId, versionNumber, null, null);
+    public ApiResponse<List<IterationModel>> getIterationsWithHttpInfo(String id, UUID versionId, Integer versionNumber) throws ApiException {
+        com.squareup.okhttp.Call call = getIterationsValidateBeforeCall(id, versionId, versionNumber, null, null);
         Type localVarReturnType = new TypeToken<List<IterationModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -652,14 +2017,14 @@ public class WorkItemsApi {
     /**
      * Get iterations by workitem Id or GlobalId (asynchronously)
      * 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getIterationsAsync(String workItemId, UUID versionId, Integer versionNumber, final ApiCallback<List<IterationModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getIterationsAsync(String id, UUID versionId, Integer versionNumber, final ApiCallback<List<IterationModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -680,14 +2045,14 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getIterationsValidateBeforeCall(workItemId, versionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getIterationsValidateBeforeCall(id, versionId, versionNumber, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IterationModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemById
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param progressListener Progress listener
@@ -695,12 +2060,12 @@ public class WorkItemsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemByIdCall(String workItemId, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemByIdCall(String id, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -742,13 +2107,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemByIdValidateBeforeCall(String workItemId, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling getWorkItemById(Async)");
+    private com.squareup.okhttp.Call getWorkItemByIdValidateBeforeCall(String id, UUID versionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemByIdCall(workItemId, versionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemByIdCall(id, versionId, versionNumber, progressListener, progressRequestListener);
         return call;
 
         
@@ -760,28 +2125,28 @@ public class WorkItemsApi {
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;[Optional] User sets workitem version number  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;[Optional] if User sets workitem version identifier, system search workitem version by identifier.  &lt;br&gt;[Optional] if user sets workitem version number, system search workitem version by number  &lt;br&gt;Otherwise, system search last workitem version  &lt;br&gt;System returns workitem 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return WorkItemModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorkItemModel getWorkItemById(String workItemId, UUID versionId, Integer versionNumber) throws ApiException {
-        ApiResponse<WorkItemModel> resp = getWorkItemByIdWithHttpInfo(workItemId, versionId, versionNumber);
+    public WorkItemModel getWorkItemById(String id, UUID versionId, Integer versionNumber) throws ApiException {
+        ApiResponse<WorkItemModel> resp = getWorkItemByIdWithHttpInfo(id, versionId, versionNumber);
         return resp.getData();
     }
 
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;[Optional] User sets workitem version number  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;[Optional] if User sets workitem version identifier, system search workitem version by identifier.  &lt;br&gt;[Optional] if user sets workitem version number, system search workitem version by number  &lt;br&gt;Otherwise, system search last workitem version  &lt;br&gt;System returns workitem 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return ApiResponse&lt;WorkItemModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorkItemModel> getWorkItemByIdWithHttpInfo(String workItemId, UUID versionId, Integer versionNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemByIdValidateBeforeCall(workItemId, versionId, versionNumber, null, null);
+    public ApiResponse<WorkItemModel> getWorkItemByIdWithHttpInfo(String id, UUID versionId, Integer versionNumber) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemByIdValidateBeforeCall(id, versionId, versionNumber, null, null);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -789,14 +2154,14 @@ public class WorkItemsApi {
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;[Optional] User sets workitem version number  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;[Optional] if User sets workitem version identifier, system search workitem version by identifier.  &lt;br&gt;[Optional] if user sets workitem version number, system search workitem version by number  &lt;br&gt;Otherwise, system search last workitem version  &lt;br&gt;System returns workitem 
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemByIdAsync(String workItemId, UUID versionId, Integer versionNumber, final ApiCallback<WorkItemModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemByIdAsync(String id, UUID versionId, Integer versionNumber, final ApiCallback<WorkItemModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -817,25 +2182,25 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemByIdValidateBeforeCall(workItemId, versionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemByIdValidateBeforeCall(id, versionId, versionNumber, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemChronology
-     * @param workItemId  (required)
+     * @param id  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemChronologyCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemChronologyCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}/chronology"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}/chronology"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -873,13 +2238,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemChronologyValidateBeforeCall(String workItemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling getWorkItemChronology(Async)");
+    private com.squareup.okhttp.Call getWorkItemChronologyValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemChronology(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemChronologyCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemChronologyCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -891,24 +2256,24 @@ public class WorkItemsApi {
     /**
      * Get WorkItem chronology by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search test results of all autotests, related to found workitem  &lt;br&gt;System sort results by CompletedOn ascending, then by CreatedDate ascending  &lt;br&gt;System returns sorted collection of test results
-     * @param workItemId  (required)
+     * @param id  (required)
      * @return List&lt;TestResultChronologyModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<TestResultChronologyModel> getWorkItemChronology(String workItemId) throws ApiException {
-        ApiResponse<List<TestResultChronologyModel>> resp = getWorkItemChronologyWithHttpInfo(workItemId);
+    public List<TestResultChronologyModel> getWorkItemChronology(String id) throws ApiException {
+        ApiResponse<List<TestResultChronologyModel>> resp = getWorkItemChronologyWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get WorkItem chronology by Id or GlobalId
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search test results of all autotests, related to found workitem  &lt;br&gt;System sort results by CompletedOn ascending, then by CreatedDate ascending  &lt;br&gt;System returns sorted collection of test results
-     * @param workItemId  (required)
+     * @param id  (required)
      * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<TestResultChronologyModel>> getWorkItemChronologyWithHttpInfo(String workItemId) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemChronologyValidateBeforeCall(workItemId, null, null);
+    public ApiResponse<List<TestResultChronologyModel>> getWorkItemChronologyWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemChronologyValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<List<TestResultChronologyModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -916,12 +2281,12 @@ public class WorkItemsApi {
     /**
      * Get WorkItem chronology by Id or GlobalId (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;System search test results of all autotests, related to found workitem  &lt;br&gt;System sort results by CompletedOn ascending, then by CreatedDate ascending  &lt;br&gt;System returns sorted collection of test results
-     * @param workItemId  (required)
+     * @param id  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemChronologyAsync(String workItemId, final ApiCallback<List<TestResultChronologyModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemChronologyAsync(String id, final ApiCallback<List<TestResultChronologyModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -942,14 +2307,14 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemChronologyValidateBeforeCall(workItemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemChronologyValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TestResultChronologyModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getWorkItemVersions
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
      * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
      * @param progressListener Progress listener
@@ -957,12 +2322,12 @@ public class WorkItemsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemVersionsCall(String workItemId, UUID workItemVersionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemVersionsCall(String id, UUID workItemVersionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/workItems/{workItemId}/versions"
-            .replaceAll("\\{" + "workItemId" + "\\}", apiClient.escapeString(workItemId.toString()));
+        String localVarPath = "/api/v2/workItems/{id}/versions"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1004,13 +2369,13 @@ public class WorkItemsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWorkItemVersionsValidateBeforeCall(String workItemId, UUID workItemVersionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'workItemId' is set
-        if (workItemId == null) {
-            throw new ApiException("Missing the required parameter 'workItemId' when calling getWorkItemVersions(Async)");
+    private com.squareup.okhttp.Call getWorkItemVersionsValidateBeforeCall(String id, UUID workItemVersionId, Integer versionNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemVersions(Async)");
         }
         
-        com.squareup.okhttp.Call call = getWorkItemVersionsCall(workItemId, workItemVersionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemVersionsCall(id, workItemVersionId, versionNumber, progressListener, progressRequestListener);
         return call;
 
         
@@ -1022,28 +2387,28 @@ public class WorkItemsApi {
     /**
      * Get WorkItem versions
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;                      [Optional] If User set workitem version identifier, System search workitem version by version identifier                      Otherwise, system search all version of workitem                    &lt;br&gt;System returns array of workitem version models (listed in response example)
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
      * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
      * @return List&lt;WorkItemVersionModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkItemVersionModel> getWorkItemVersions(String workItemId, UUID workItemVersionId, Integer versionNumber) throws ApiException {
-        ApiResponse<List<WorkItemVersionModel>> resp = getWorkItemVersionsWithHttpInfo(workItemId, workItemVersionId, versionNumber);
+    public List<WorkItemVersionModel> getWorkItemVersions(String id, UUID workItemVersionId, Integer versionNumber) throws ApiException {
+        ApiResponse<List<WorkItemVersionModel>> resp = getWorkItemVersionsWithHttpInfo(id, workItemVersionId, versionNumber);
         return resp.getData();
     }
 
     /**
      * Get WorkItem versions
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;                      [Optional] If User set workitem version identifier, System search workitem version by version identifier                      Otherwise, system search all version of workitem                    &lt;br&gt;System returns array of workitem version models (listed in response example)
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
      * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
      * @return ApiResponse&lt;List&lt;WorkItemVersionModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkItemVersionModel>> getWorkItemVersionsWithHttpInfo(String workItemId, UUID workItemVersionId, Integer versionNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getWorkItemVersionsValidateBeforeCall(workItemId, workItemVersionId, versionNumber, null, null);
+    public ApiResponse<List<WorkItemVersionModel>> getWorkItemVersionsWithHttpInfo(String id, UUID workItemVersionId, Integer versionNumber) throws ApiException {
+        com.squareup.okhttp.Call call = getWorkItemVersionsValidateBeforeCall(id, workItemVersionId, versionNumber, null, null);
         Type localVarReturnType = new TypeToken<List<WorkItemVersionModel>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1051,14 +2416,14 @@ public class WorkItemsApi {
     /**
      * Get WorkItem versions (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets workitem identifier  &lt;br&gt;[Optional] User sets workitem version identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search workitem by identifier  &lt;br&gt;                      [Optional] If User set workitem version identifier, System search workitem version by version identifier                      Otherwise, system search all version of workitem                    &lt;br&gt;System returns array of workitem version models (listed in response example)
-     * @param workItemId WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
      * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
      * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorkItemVersionsAsync(String workItemId, UUID workItemVersionId, Integer versionNumber, final ApiCallback<List<WorkItemVersionModel>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorkItemVersionsAsync(String id, UUID workItemVersionId, Integer versionNumber, final ApiCallback<List<WorkItemVersionModel>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1079,7 +2444,7 @@ public class WorkItemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWorkItemVersionsValidateBeforeCall(workItemId, workItemVersionId, versionNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWorkItemVersionsValidateBeforeCall(id, workItemVersionId, versionNumber, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkItemVersionModel>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1112,7 +2477,7 @@ public class WorkItemsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

@@ -27,6 +27,9 @@ import java.io.IOException;
 
 
 import ru.testit.model.AutoTestResultsForTestRunModel;
+import org.threeten.bp.OffsetDateTime;
+import ru.testit.model.ProblemDetails;
+import ru.testit.model.TestPointResultModel;
 import ru.testit.model.TestRunFillByAutoTestsPostModel;
 import ru.testit.model.TestRunFillByConfigurationsPostModel;
 import ru.testit.model.TestRunFillByWorkItemsPostModel;
@@ -34,6 +37,7 @@ import ru.testit.model.TestRunV2GetModel;
 import ru.testit.model.TestRunV2PostShortModel;
 import ru.testit.model.TestRunV2PutModel;
 import java.util.UUID;
+import ru.testit.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -61,19 +65,269 @@ public class TestRunsApi {
     }
 
     /**
-     * Build call for completeTestRun
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * Build call for apiV2TestRunsIdTestPointsResultsGet
+     * @param id  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call completeTestRunCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call apiV2TestRunsIdTestPointsResultsGetCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testRuns/{testRunId}/complete"
-            .replaceAll("\\{" + "testRunId" + "\\}", apiClient.escapeString(testRunId.toString()));
+        String localVarPath = "/api/v2/testRuns/{id}/testPoints/results"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2TestRunsIdTestPointsResultsGetValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdTestPointsResultsGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestPointsResultsGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @return List&lt;TestPointResultModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<TestPointResultModel> apiV2TestRunsIdTestPointsResultsGet(UUID id) throws ApiException {
+        ApiResponse<List<TestPointResultModel>> resp = apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @return ApiResponse&lt;List&lt;TestPointResultModel&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<TestPointResultModel>> apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestPointsResultsGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<List<TestPointResultModel>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2TestRunsIdTestPointsResultsGetAsync(UUID id, final ApiCallback<List<TestPointResultModel>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestPointsResultsGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<TestPointResultModel>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for apiV2TestRunsIdTestResultsLastModifiedModificationDateGet
+     * @param id  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call apiV2TestRunsIdTestResultsLastModifiedModificationDateGetCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/testRuns/{id}/testResults/lastModified/modificationDate"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call apiV2TestRunsIdTestResultsLastModifiedModificationDateGetValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdTestResultsLastModifiedModificationDateGet(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestResultsLastModifiedModificationDateGetCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @return OffsetDateTime
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OffsetDateTime apiV2TestRunsIdTestResultsLastModifiedModificationDateGet(UUID id) throws ApiException {
+        ApiResponse<OffsetDateTime> resp = apiV2TestRunsIdTestResultsLastModifiedModificationDateGetWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @return ApiResponse&lt;OffsetDateTime&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OffsetDateTime> apiV2TestRunsIdTestResultsLastModifiedModificationDateGetWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestResultsLastModifiedModificationDateGetValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<OffsetDateTime>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param id  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call apiV2TestRunsIdTestResultsLastModifiedModificationDateGetAsync(UUID id, final ApiCallback<OffsetDateTime> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = apiV2TestRunsIdTestResultsLastModifiedModificationDateGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OffsetDateTime>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for completeTestRun
+     * @param id Test Run internal identifier (GUID format) (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call completeTestRunCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/v2/testRuns/{id}/complete"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -111,13 +365,13 @@ public class TestRunsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call completeTestRunValidateBeforeCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testRunId' is set
-        if (testRunId == null) {
-            throw new ApiException("Missing the required parameter 'testRunId' when calling completeTestRun(Async)");
+    private com.squareup.okhttp.Call completeTestRunValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling completeTestRun(Async)");
         }
         
-        com.squareup.okhttp.Call call = completeTestRunCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = completeTestRunCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -129,34 +383,34 @@ public class TestRunsApi {
     /**
      * Complete TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void completeTestRun(UUID testRunId) throws ApiException {
-        completeTestRunWithHttpInfo(testRunId);
+    public void completeTestRun(UUID id) throws ApiException {
+        completeTestRunWithHttpInfo(id);
     }
 
     /**
      * Complete TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> completeTestRunWithHttpInfo(UUID testRunId) throws ApiException {
-        com.squareup.okhttp.Call call = completeTestRunValidateBeforeCall(testRunId, null, null);
+    public ApiResponse<Void> completeTestRunWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = completeTestRunValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Complete TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call completeTestRunAsync(UUID testRunId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call completeTestRunAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -177,7 +431,7 @@ public class TestRunsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = completeTestRunValidateBeforeCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = completeTestRunValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -209,7 +463,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -329,7 +583,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -449,7 +703,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -569,7 +823,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -663,18 +917,18 @@ public class TestRunsApi {
     }
     /**
      * Build call for getTestRunById
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestRunByIdCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunByIdCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testRuns/{testRunId}"
-            .replaceAll("\\{" + "testRunId" + "\\}", apiClient.escapeString(testRunId.toString()));
+        String localVarPath = "/api/v2/testRuns/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -712,13 +966,13 @@ public class TestRunsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestRunByIdValidateBeforeCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testRunId' is set
-        if (testRunId == null) {
-            throw new ApiException("Missing the required parameter 'testRunId' when calling getTestRunById(Async)");
+    private com.squareup.okhttp.Call getTestRunByIdValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTestRunById(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTestRunByIdCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunByIdCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -730,24 +984,24 @@ public class TestRunsApi {
     /**
      * Get TestRun by Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test run  &lt;br&gt;System returns test run
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TestRunV2GetModel getTestRunById(UUID testRunId) throws ApiException {
-        ApiResponse<TestRunV2GetModel> resp = getTestRunByIdWithHttpInfo(testRunId);
+    public TestRunV2GetModel getTestRunById(UUID id) throws ApiException {
+        ApiResponse<TestRunV2GetModel> resp = getTestRunByIdWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Get TestRun by Id
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test run  &lt;br&gt;System returns test run
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TestRunV2GetModel> getTestRunByIdWithHttpInfo(UUID testRunId) throws ApiException {
-        com.squareup.okhttp.Call call = getTestRunByIdValidateBeforeCall(testRunId, null, null);
+    public ApiResponse<TestRunV2GetModel> getTestRunByIdWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = getTestRunByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -755,12 +1009,12 @@ public class TestRunsApi {
     /**
      * Get TestRun by Id (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test run  &lt;br&gt;System returns test run
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestRunByIdAsync(UUID testRunId, final ApiCallback<TestRunV2GetModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTestRunByIdAsync(UUID id, final ApiCallback<TestRunV2GetModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -781,26 +1035,26 @@ public class TestRunsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestRunByIdValidateBeforeCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTestRunByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setAutoTestResultsForTestRun
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setAutoTestResultsForTestRunCall(UUID testRunId, List<AutoTestResultsForTestRunModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call setAutoTestResultsForTestRunCall(UUID id, List<AutoTestResultsForTestRunModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testRuns/{testRunId}/testResults"
-            .replaceAll("\\{" + "testRunId" + "\\}", apiClient.escapeString(testRunId.toString()));
+        String localVarPath = "/api/v2/testRuns/{id}/testResults"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -816,7 +1070,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -838,13 +1092,13 @@ public class TestRunsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setAutoTestResultsForTestRunValidateBeforeCall(UUID testRunId, List<AutoTestResultsForTestRunModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testRunId' is set
-        if (testRunId == null) {
-            throw new ApiException("Missing the required parameter 'testRunId' when calling setAutoTestResultsForTestRun(Async)");
+    private com.squareup.okhttp.Call setAutoTestResultsForTestRunValidateBeforeCall(UUID id, List<AutoTestResultsForTestRunModel> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setAutoTestResultsForTestRun(Async)");
         }
         
-        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunCall(testRunId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -856,26 +1110,26 @@ public class TestRunsApi {
     /**
      * Set AutoTest Results For TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User sets test result model (listed in request parameters)   &lt;br&gt;User runs method execution  &lt;br&gt;System sets test results of autotest listed in request in test run  &lt;br&gt;System returns array of test results identifiers
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param body  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<UUID> setAutoTestResultsForTestRun(UUID testRunId, List<AutoTestResultsForTestRunModel> body) throws ApiException {
-        ApiResponse<List<UUID>> resp = setAutoTestResultsForTestRunWithHttpInfo(testRunId, body);
+    public List<UUID> setAutoTestResultsForTestRun(UUID id, List<AutoTestResultsForTestRunModel> body) throws ApiException {
+        ApiResponse<List<UUID>> resp = setAutoTestResultsForTestRunWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * Set AutoTest Results For TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User sets test result model (listed in request parameters)   &lt;br&gt;User runs method execution  &lt;br&gt;System sets test results of autotest listed in request in test run  &lt;br&gt;System returns array of test results identifiers
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<UUID>> setAutoTestResultsForTestRunWithHttpInfo(UUID testRunId, List<AutoTestResultsForTestRunModel> body) throws ApiException {
-        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunValidateBeforeCall(testRunId, body, null, null);
+    public ApiResponse<List<UUID>> setAutoTestResultsForTestRunWithHttpInfo(UUID id, List<AutoTestResultsForTestRunModel> body) throws ApiException {
+        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -883,13 +1137,13 @@ public class TestRunsApi {
     /**
      * Set AutoTest Results For TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User sets test result model (listed in request parameters)   &lt;br&gt;User runs method execution  &lt;br&gt;System sets test results of autotest listed in request in test run  &lt;br&gt;System returns array of test results identifiers
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setAutoTestResultsForTestRunAsync(UUID testRunId, List<AutoTestResultsForTestRunModel> body, final ApiCallback<List<UUID>> callback) throws ApiException {
+    public com.squareup.okhttp.Call setAutoTestResultsForTestRunAsync(UUID id, List<AutoTestResultsForTestRunModel> body, final ApiCallback<List<UUID>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -910,25 +1164,25 @@ public class TestRunsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunValidateBeforeCall(testRunId, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setAutoTestResultsForTestRunValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for startTestRun
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call startTestRunCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call startTestRunCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testRuns/{testRunId}/start"
-            .replaceAll("\\{" + "testRunId" + "\\}", apiClient.escapeString(testRunId.toString()));
+        String localVarPath = "/api/v2/testRuns/{id}/start"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -966,13 +1220,13 @@ public class TestRunsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call startTestRunValidateBeforeCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testRunId' is set
-        if (testRunId == null) {
-            throw new ApiException("Missing the required parameter 'testRunId' when calling startTestRun(Async)");
+    private com.squareup.okhttp.Call startTestRunValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling startTestRun(Async)");
         }
         
-        com.squareup.okhttp.Call call = startTestRunCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = startTestRunCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -984,34 +1238,34 @@ public class TestRunsApi {
     /**
      * Start TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void startTestRun(UUID testRunId) throws ApiException {
-        startTestRunWithHttpInfo(testRunId);
+    public void startTestRun(UUID id) throws ApiException {
+        startTestRunWithHttpInfo(id);
     }
 
     /**
      * Start TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> startTestRunWithHttpInfo(UUID testRunId) throws ApiException {
-        com.squareup.okhttp.Call call = startTestRunValidateBeforeCall(testRunId, null, null);
+    public ApiResponse<Void> startTestRunWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = startTestRunValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Start TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call startTestRunAsync(UUID testRunId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call startTestRunAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1032,24 +1286,24 @@ public class TestRunsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = startTestRunValidateBeforeCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = startTestRunValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for stopTestRun
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call stopTestRunCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call stopTestRunCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v2/testRuns/{testRunId}/stop"
-            .replaceAll("\\{" + "testRunId" + "\\}", apiClient.escapeString(testRunId.toString()));
+        String localVarPath = "/api/v2/testRuns/{id}/stop"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1087,13 +1341,13 @@ public class TestRunsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call stopTestRunValidateBeforeCall(UUID testRunId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'testRunId' is set
-        if (testRunId == null) {
-            throw new ApiException("Missing the required parameter 'testRunId' when calling stopTestRun(Async)");
+    private com.squareup.okhttp.Call stopTestRunValidateBeforeCall(UUID id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling stopTestRun(Async)");
         }
         
-        com.squareup.okhttp.Call call = stopTestRunCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopTestRunCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -1105,34 +1359,34 @@ public class TestRunsApi {
     /**
      * Stop TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System stops test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void stopTestRun(UUID testRunId) throws ApiException {
-        stopTestRunWithHttpInfo(testRunId);
+    public void stopTestRun(UUID id) throws ApiException {
+        stopTestRunWithHttpInfo(id);
     }
 
     /**
      * Stop TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System stops test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> stopTestRunWithHttpInfo(UUID testRunId) throws ApiException {
-        com.squareup.okhttp.Call call = stopTestRunValidateBeforeCall(testRunId, null, null);
+    public ApiResponse<Void> stopTestRunWithHttpInfo(UUID id) throws ApiException {
+        com.squareup.okhttp.Call call = stopTestRunValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Stop TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System stops test run  &lt;br&gt;System returns no content response
-     * @param testRunId Test Run internal identifier (GUID format) (required)
+     * @param id Test Run internal identifier (GUID format) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call stopTestRunAsync(UUID testRunId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call stopTestRunAsync(UUID id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1153,7 +1407,7 @@ public class TestRunsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = stopTestRunValidateBeforeCall(testRunId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopTestRunValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1185,7 +1439,7 @@ public class TestRunsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

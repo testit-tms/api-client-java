@@ -24,10 +24,10 @@ import java.io.IOException;
 import ru.testit.model.WorkItemExtractionModel;
 import ru.testit.model.WorkItemFilterModel;
 /**
- * WorkItemSelectModel
+ * Model containing options to filter work items
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@Schema(description = "Model containing options to filter work items")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class WorkItemSelectModel {
   @SerializedName("filter")
   private WorkItemFilterModel filter = null;

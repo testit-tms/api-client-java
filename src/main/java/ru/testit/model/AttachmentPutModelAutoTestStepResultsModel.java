@@ -32,13 +32,16 @@ import ru.testit.model.AttachmentPutModelAutoTestStepResultsModel;
  * AttachmentPutModelAutoTestStepResultsModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class AttachmentPutModelAutoTestStepResultsModel {
   @SerializedName("title")
   private String title = null;
 
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("info")
+  private String info = null;
 
   @SerializedName("startedOn")
   private OffsetDateTime startedOn = null;
@@ -97,6 +100,24 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.description = description;
   }
 
+  public AttachmentPutModelAutoTestStepResultsModel info(String info) {
+    this.info = info;
+    return this;
+  }
+
+   /**
+   * Place here step related error message or stack trace or any other info
+   * @return info
+  **/
+  @Schema(example = "example", description = "Place here step related error message or stack trace or any other info")
+  public String getInfo() {
+    return info;
+  }
+
+  public void setInfo(String info) {
+    this.info = info;
+  }
+
   public AttachmentPutModelAutoTestStepResultsModel startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
@@ -106,7 +127,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
    * Get startedOn
    * @return startedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
@@ -124,7 +145,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
    * Get completedOn
    * @return completedOn
   **/
-  @Schema(example = "2022-07-12T13:28:30.489584500Z", description = "")
+  @Schema(example = "2022-06-30T11:46:45.461804600Z", description = "")
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
@@ -260,6 +281,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     AttachmentPutModelAutoTestStepResultsModel attachmentPutModelAutoTestStepResultsModel = (AttachmentPutModelAutoTestStepResultsModel) o;
     return Objects.equals(this.title, attachmentPutModelAutoTestStepResultsModel.title) &&
         Objects.equals(this.description, attachmentPutModelAutoTestStepResultsModel.description) &&
+        Objects.equals(this.info, attachmentPutModelAutoTestStepResultsModel.info) &&
         Objects.equals(this.startedOn, attachmentPutModelAutoTestStepResultsModel.startedOn) &&
         Objects.equals(this.completedOn, attachmentPutModelAutoTestStepResultsModel.completedOn) &&
         Objects.equals(this.duration, attachmentPutModelAutoTestStepResultsModel.duration) &&
@@ -271,7 +293,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, startedOn, completedOn, duration, outcome, stepResults, attachments, parameters);
+    return Objects.hash(title, description, info, startedOn, completedOn, duration, outcome, stepResults, attachments, parameters);
   }
 
 
@@ -282,6 +304,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
     sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");

@@ -26,7 +26,7 @@ import java.util.UUID;
  * TestRunV2PostShortModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class TestRunV2PostShortModel {
   @SerializedName("projectId")
   private UUID projectId = null;
@@ -49,7 +49,7 @@ public class TestRunV2PostShortModel {
    * This property is to link test run with a project
    * @return projectId
   **/
-  @Schema(example = "a70fa497-5526-4fb2-8f44-749ea5533c00", required = true, description = "This property is to link test run with a project")
+  @Schema(example = "9891bb36-71eb-4a4a-a049-eae838db9514", required = true, description = "This property is to link test run with a project")
   public UUID getProjectId() {
     return projectId;
   }

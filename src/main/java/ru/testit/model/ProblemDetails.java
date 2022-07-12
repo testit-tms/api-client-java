@@ -27,7 +27,7 @@ import java.util.Map;
  * ProblemDetails
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-12T16:29:55.695125+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-05T10:40:26.135191+03:00[Europe/Moscow]")
 public class ProblemDetails extends HashMap<String, Object> {
   @SerializedName("type")
   private String type = null;
