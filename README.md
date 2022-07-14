@@ -15,11 +15,10 @@
 Add this dependency to your project's POM:
 
 ```xml
-
 <dependency>
     <groupId>ru.testit</groupId>
     <artifactId>testit-api-client</artifactId>
-    <version>0.1</version>
+    <version>LATEST_VERSION</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -29,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-implementation "ru.testit:testit-api-client:0.1"
+implementation "ru.testit:testit-api-client:LATEST_VERSION"
 ```
 
 ## Examples
@@ -54,8 +53,8 @@ public class AttachmentsApiExample {
         defaultClient.setApiKey("Your private token");
 
         AttachmentsApi apiInstance = new AttachmentsApi();
-        File file = new File("file_example"); // File | 
-        String apiVersion = "apiVersion_example"; // String | 
+        File file = new File("file_example"); 
+        String apiVersion = "apiVersion_example";  
         try {
             String result = apiInstance.addAttachment(file, apiVersion);
             System.out.println(result);
