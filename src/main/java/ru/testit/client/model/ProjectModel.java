@@ -85,7 +85,7 @@ public class ProjectModel {
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -392,7 +392,7 @@ public class ProjectModel {
 
 
   public ProjectModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -401,27 +401,19 @@ public class ProjectModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -435,7 +427,7 @@ public class ProjectModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -469,7 +461,7 @@ public class ProjectModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -495,7 +487,7 @@ public class ProjectModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -555,7 +547,7 @@ public class ProjectModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -651,7 +643,7 @@ public class ProjectModel {
         equalsNullable(this.autoTestsCount, projectModel.autoTestsCount) &&
         Objects.equals(this.isFavorite, projectModel.isFavorite) &&
         Objects.equals(this.isDeleted, projectModel.isDeleted) &&
-        equalsNullable(this.createdDate, projectModel.createdDate) &&
+        Objects.equals(this.createdDate, projectModel.createdDate) &&
         equalsNullable(this.modifiedDate, projectModel.modifiedDate) &&
         Objects.equals(this.createdById, projectModel.createdById) &&
         equalsNullable(this.modifiedById, projectModel.modifiedById) &&
@@ -667,7 +659,7 @@ public class ProjectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(attributesScheme), hashCodeNullable(testPlansAttributesScheme), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), isFavorite, isDeleted, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), globalId, id, hashCodeNullable(description), name);
+    return Objects.hash(hashCodeNullable(attributesScheme), hashCodeNullable(testPlansAttributesScheme), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), isFavorite, isDeleted, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), globalId, id, hashCodeNullable(description), name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

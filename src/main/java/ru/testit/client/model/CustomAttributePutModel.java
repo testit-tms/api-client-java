@@ -89,7 +89,7 @@ public class CustomAttributePutModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,11 +209,11 @@ public class CustomAttributePutModel {
   }
 
    /**
-   * Get name
+   * Name of attribute
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Original estimate", required = true, value = "")
+  @ApiModelProperty(required = true, value = "Name of attribute")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -235,11 +235,11 @@ public class CustomAttributePutModel {
   }
 
    /**
-   * Get enabled
+   * Indicates whether the attribute is available
    * @return enabled
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is available")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -261,11 +261,11 @@ public class CustomAttributePutModel {
   }
 
    /**
-   * Get required
+   * Indicates whether the attribute value is mandatory to specify
    * @return required
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -287,11 +287,11 @@ public class CustomAttributePutModel {
   }
 
    /**
-   * Get isGlobal
+   * Indicates whether the attribute is available across all projects
    * @return isGlobal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is available across all projects")
   @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

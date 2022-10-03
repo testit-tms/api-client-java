@@ -121,7 +121,7 @@ public class WorkItemModel {
   private JsonNullable<List<IterationModel>> iterations = JsonNullable.<List<IterationModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -187,7 +187,7 @@ public class WorkItemModel {
    * @return versionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "used for versioning changes in workitem")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "used for versioning changes in workitem")
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -265,7 +265,7 @@ public class WorkItemModel {
    * @return projectId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -590,7 +590,7 @@ public class WorkItemModel {
 
 
   public WorkItemModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -599,27 +599,19 @@ public class WorkItemModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -633,7 +625,7 @@ public class WorkItemModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -667,7 +659,7 @@ public class WorkItemModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -693,7 +685,7 @@ public class WorkItemModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -753,7 +745,7 @@ public class WorkItemModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -779,7 +771,7 @@ public class WorkItemModel {
    * @return sectionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1145,7 +1137,7 @@ public class WorkItemModel {
         equalsNullable(this.sectionPostconditionSteps, workItemModel.sectionPostconditionSteps) &&
         Objects.equals(this.versionNumber, workItemModel.versionNumber) &&
         equalsNullable(this.iterations, workItemModel.iterations) &&
-        equalsNullable(this.createdDate, workItemModel.createdDate) &&
+        Objects.equals(this.createdDate, workItemModel.createdDate) &&
         equalsNullable(this.modifiedDate, workItemModel.modifiedDate) &&
         Objects.equals(this.createdById, workItemModel.createdById) &&
         equalsNullable(this.modifiedById, workItemModel.modifiedById) &&
@@ -1171,7 +1163,7 @@ public class WorkItemModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), versionNumber, hashCodeNullable(iterations), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), globalId, id, sectionId, hashCodeNullable(description), state, priority, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name);
+    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), versionNumber, hashCodeNullable(iterations), createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), globalId, id, sectionId, hashCodeNullable(description), state, priority, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

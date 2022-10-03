@@ -50,6 +50,7 @@ public class TagsApi {
   /**
    * Get all Tags
    * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+   * @return List&lt;TagShortModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,14 +59,14 @@ public class TagsApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
-  public void apiV2TagsGet() throws ApiException {
-    apiV2TagsGetWithHttpInfo();
+  public List<TagShortModel> apiV2TagsGet() throws ApiException {
+    return apiV2TagsGetWithHttpInfo().getData();
   }
 
   /**
    * Get all Tags
    * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;List&lt;TagShortModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -74,7 +75,7 @@ public class TagsApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> apiV2TagsGetWithHttpInfo() throws ApiException {
+  public ApiResponse<List<TagShortModel>> apiV2TagsGetWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -102,9 +103,11 @@ public class TagsApi {
 
     String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
 
+    GenericType<List<TagShortModel>> localVarReturnType = new GenericType<List<TagShortModel>>() {};
+
     return apiClient.invokeAPI("TagsApi.apiV2TagsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get all Tags that are used in TestPlans
@@ -119,9 +122,9 @@ public class TagsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public List<TagShortModel> apiV2TagsTestPlansTagsGet(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -141,9 +144,9 @@ public class TagsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TagShortModel>> apiV2TagsTestPlansTagsGetWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {

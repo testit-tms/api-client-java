@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -39,63 +43,79 @@ import ru.testit.client.invoker.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DateRangeModel {
   public static final String JSON_PROPERTY_FROM = "from";
-  private OffsetDateTime from;
+  private JsonNullable<OffsetDateTime> from = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TO = "to";
-  private OffsetDateTime to;
+  private JsonNullable<OffsetDateTime> to = JsonNullable.<OffsetDateTime>undefined();
 
   public DateRangeModel() { 
   }
 
   public DateRangeModel from(OffsetDateTime from) {
-    this.from = from;
+    this.from = JsonNullable.<OffsetDateTime>of(from);
     return this;
   }
 
    /**
-   * Get from
+   * Minimum date and time
    * @return from
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Minimum date and time")
+  @JsonIgnore
 
   public OffsetDateTime getFrom() {
-    return from;
+        return from.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFrom(OffsetDateTime from) {
+
+  public JsonNullable<OffsetDateTime> getFrom_JsonNullable() {
+    return from;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FROM)
+  public void setFrom_JsonNullable(JsonNullable<OffsetDateTime> from) {
     this.from = from;
+  }
+
+  public void setFrom(OffsetDateTime from) {
+    this.from = JsonNullable.<OffsetDateTime>of(from);
   }
 
 
   public DateRangeModel to(OffsetDateTime to) {
-    this.to = to;
+    this.to = JsonNullable.<OffsetDateTime>of(to);
     return this;
   }
 
    /**
-   * Get to
+   * Maximum date and time
    * @return to
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Maximum date and time")
+  @JsonIgnore
 
   public OffsetDateTime getTo() {
-    return to;
+        return to.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTo(OffsetDateTime to) {
+
+  public JsonNullable<OffsetDateTime> getTo_JsonNullable() {
+    return to;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TO)
+  public void setTo_JsonNullable(JsonNullable<OffsetDateTime> to) {
     this.to = to;
+  }
+
+  public void setTo(OffsetDateTime to) {
+    this.to = JsonNullable.<OffsetDateTime>of(to);
   }
 
 
@@ -111,13 +131,24 @@ public class DateRangeModel {
       return false;
     }
     DateRangeModel dateRangeModel = (DateRangeModel) o;
-    return Objects.equals(this.from, dateRangeModel.from) &&
-        Objects.equals(this.to, dateRangeModel.to);
+    return equalsNullable(this.from, dateRangeModel.from) &&
+        equalsNullable(this.to, dateRangeModel.to);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to);
+    return Objects.hash(hashCodeNullable(from), hashCodeNullable(to));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

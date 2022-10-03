@@ -88,11 +88,11 @@ public class CustomAttributePostModel {
   }
 
    /**
-   * Get options
+   * Collection of attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
   @JsonIgnore
 
   public List<CustomAttributeOptionPostModel> getOptions() {
@@ -148,11 +148,11 @@ public class CustomAttributePostModel {
   }
 
    /**
-   * Get name
+   * Name of attribute
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Original estimate", required = true, value = "")
+  @ApiModelProperty(required = true, value = "Name of attribute")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -174,11 +174,11 @@ public class CustomAttributePostModel {
   }
 
    /**
-   * Get enabled
+   * Indicates whether the attribute is available
    * @return enabled
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is available")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -200,11 +200,11 @@ public class CustomAttributePostModel {
   }
 
    /**
-   * Get required
+   * Indicates whether the attribute value is mandatory to specify
    * @return required
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,11 +226,11 @@ public class CustomAttributePostModel {
   }
 
    /**
-   * Get isGlobal
+   * Indicates whether the attribute is available across all projects
    * @return isGlobal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is available across all projects")
   @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

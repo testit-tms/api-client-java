@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.Int32RangeSelectorModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -44,18 +45,13 @@ import ru.testit.client.invoker.JSON;
   ProjectSelectModel.JSON_PROPERTY_NAME,
   ProjectSelectModel.JSON_PROPERTY_IS_FAVORITE,
   ProjectSelectModel.JSON_PROPERTY_IS_DELETED,
-  ProjectSelectModel.JSON_PROPERTY_MIN_TEST_CASES_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MAX_TEST_CASES_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MIN_CHECKLISTS_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MAX_CHECKLISTS_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MIN_SHARED_STEPS_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MAX_SHARED_STEPS_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MIN_AUTOTESTS_COUNT,
-  ProjectSelectModel.JSON_PROPERTY_MAX_AUTOTESTS_COUNT,
+  ProjectSelectModel.JSON_PROPERTY_TEST_CASES_COUNT,
+  ProjectSelectModel.JSON_PROPERTY_CHECKLISTS_COUNT,
+  ProjectSelectModel.JSON_PROPERTY_SHARED_STEPS_COUNT,
+  ProjectSelectModel.JSON_PROPERTY_AUTOTESTS_COUNT,
   ProjectSelectModel.JSON_PROPERTY_GLOBAL_IDS,
   ProjectSelectModel.JSON_PROPERTY_CREATED_BY_IDS,
-  ProjectSelectModel.JSON_PROPERTY_CREATED_FROM,
-  ProjectSelectModel.JSON_PROPERTY_CREATED_TO
+  ProjectSelectModel.JSON_PROPERTY_CREATED_DATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectSelectModel {
@@ -68,29 +64,17 @@ public class ProjectSelectModel {
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_MIN_TEST_CASES_COUNT = "minTestCasesCount";
-  private JsonNullable<Integer> minTestCasesCount = JsonNullable.<Integer>undefined();
+  public static final String JSON_PROPERTY_TEST_CASES_COUNT = "testCasesCount";
+  private Int32RangeSelectorModel testCasesCount;
 
-  public static final String JSON_PROPERTY_MAX_TEST_CASES_COUNT = "maxTestCasesCount";
-  private JsonNullable<Integer> maxTestCasesCount = JsonNullable.<Integer>undefined();
+  public static final String JSON_PROPERTY_CHECKLISTS_COUNT = "checklistsCount";
+  private Int32RangeSelectorModel checklistsCount;
 
-  public static final String JSON_PROPERTY_MIN_CHECKLISTS_COUNT = "minChecklistsCount";
-  private JsonNullable<Integer> minChecklistsCount = JsonNullable.<Integer>undefined();
+  public static final String JSON_PROPERTY_SHARED_STEPS_COUNT = "sharedStepsCount";
+  private Int32RangeSelectorModel sharedStepsCount;
 
-  public static final String JSON_PROPERTY_MAX_CHECKLISTS_COUNT = "maxChecklistsCount";
-  private JsonNullable<Integer> maxChecklistsCount = JsonNullable.<Integer>undefined();
-
-  public static final String JSON_PROPERTY_MIN_SHARED_STEPS_COUNT = "minSharedStepsCount";
-  private JsonNullable<Integer> minSharedStepsCount = JsonNullable.<Integer>undefined();
-
-  public static final String JSON_PROPERTY_MAX_SHARED_STEPS_COUNT = "maxSharedStepsCount";
-  private JsonNullable<Integer> maxSharedStepsCount = JsonNullable.<Integer>undefined();
-
-  public static final String JSON_PROPERTY_MIN_AUTOTESTS_COUNT = "minAutotestsCount";
-  private JsonNullable<Integer> minAutotestsCount = JsonNullable.<Integer>undefined();
-
-  public static final String JSON_PROPERTY_MAX_AUTOTESTS_COUNT = "maxAutotestsCount";
-  private JsonNullable<Integer> maxAutotestsCount = JsonNullable.<Integer>undefined();
+  public static final String JSON_PROPERTY_AUTOTESTS_COUNT = "autotestsCount";
+  private Int32RangeSelectorModel autotestsCount;
 
   public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
   private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
@@ -98,11 +82,8 @@ public class ProjectSelectModel {
   public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
   private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_FROM = "createdFrom";
-  private JsonNullable<OffsetDateTime> createdFrom = JsonNullable.<OffsetDateTime>undefined();
-
-  public static final String JSON_PROPERTY_CREATED_TO = "createdTo";
-  private JsonNullable<OffsetDateTime> createdTo = JsonNullable.<OffsetDateTime>undefined();
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private DateTimeRangeSelectorModel createdDate;
 
   public ProjectSelectModel() { 
   }
@@ -209,291 +190,107 @@ public class ProjectSelectModel {
   }
 
 
-  public ProjectSelectModel minTestCasesCount(Integer minTestCasesCount) {
-    this.minTestCasesCount = JsonNullable.<Integer>of(minTestCasesCount);
+  public ProjectSelectModel testCasesCount(Int32RangeSelectorModel testCasesCount) {
+    this.testCasesCount = testCasesCount;
     return this;
   }
 
    /**
-   * Get minTestCasesCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return minTestCasesCount
+   * Get testCasesCount
+   * @return testCasesCount
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMinTestCasesCount() {
-        return minTestCasesCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MIN_TEST_CASES_COUNT)
+  @JsonProperty(JSON_PROPERTY_TEST_CASES_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getMinTestCasesCount_JsonNullable() {
-    return minTestCasesCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MIN_TEST_CASES_COUNT)
-  public void setMinTestCasesCount_JsonNullable(JsonNullable<Integer> minTestCasesCount) {
-    this.minTestCasesCount = minTestCasesCount;
-  }
-
-  public void setMinTestCasesCount(Integer minTestCasesCount) {
-    this.minTestCasesCount = JsonNullable.<Integer>of(minTestCasesCount);
+  public Int32RangeSelectorModel getTestCasesCount() {
+    return testCasesCount;
   }
 
 
-  public ProjectSelectModel maxTestCasesCount(Integer maxTestCasesCount) {
-    this.maxTestCasesCount = JsonNullable.<Integer>of(maxTestCasesCount);
+  @JsonProperty(JSON_PROPERTY_TEST_CASES_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTestCasesCount(Int32RangeSelectorModel testCasesCount) {
+    this.testCasesCount = testCasesCount;
+  }
+
+
+  public ProjectSelectModel checklistsCount(Int32RangeSelectorModel checklistsCount) {
+    this.checklistsCount = checklistsCount;
     return this;
   }
 
    /**
-   * Get maxTestCasesCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return maxTestCasesCount
+   * Get checklistsCount
+   * @return checklistsCount
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMaxTestCasesCount() {
-        return maxTestCasesCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MAX_TEST_CASES_COUNT)
+  @JsonProperty(JSON_PROPERTY_CHECKLISTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getMaxTestCasesCount_JsonNullable() {
-    return maxTestCasesCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MAX_TEST_CASES_COUNT)
-  public void setMaxTestCasesCount_JsonNullable(JsonNullable<Integer> maxTestCasesCount) {
-    this.maxTestCasesCount = maxTestCasesCount;
-  }
-
-  public void setMaxTestCasesCount(Integer maxTestCasesCount) {
-    this.maxTestCasesCount = JsonNullable.<Integer>of(maxTestCasesCount);
+  public Int32RangeSelectorModel getChecklistsCount() {
+    return checklistsCount;
   }
 
 
-  public ProjectSelectModel minChecklistsCount(Integer minChecklistsCount) {
-    this.minChecklistsCount = JsonNullable.<Integer>of(minChecklistsCount);
+  @JsonProperty(JSON_PROPERTY_CHECKLISTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setChecklistsCount(Int32RangeSelectorModel checklistsCount) {
+    this.checklistsCount = checklistsCount;
+  }
+
+
+  public ProjectSelectModel sharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+    this.sharedStepsCount = sharedStepsCount;
     return this;
   }
 
    /**
-   * Get minChecklistsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return minChecklistsCount
+   * Get sharedStepsCount
+   * @return sharedStepsCount
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMinChecklistsCount() {
-        return minChecklistsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MIN_CHECKLISTS_COUNT)
+  @JsonProperty(JSON_PROPERTY_SHARED_STEPS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getMinChecklistsCount_JsonNullable() {
-    return minChecklistsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MIN_CHECKLISTS_COUNT)
-  public void setMinChecklistsCount_JsonNullable(JsonNullable<Integer> minChecklistsCount) {
-    this.minChecklistsCount = minChecklistsCount;
-  }
-
-  public void setMinChecklistsCount(Integer minChecklistsCount) {
-    this.minChecklistsCount = JsonNullable.<Integer>of(minChecklistsCount);
+  public Int32RangeSelectorModel getSharedStepsCount() {
+    return sharedStepsCount;
   }
 
 
-  public ProjectSelectModel maxChecklistsCount(Integer maxChecklistsCount) {
-    this.maxChecklistsCount = JsonNullable.<Integer>of(maxChecklistsCount);
+  @JsonProperty(JSON_PROPERTY_SHARED_STEPS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+    this.sharedStepsCount = sharedStepsCount;
+  }
+
+
+  public ProjectSelectModel autotestsCount(Int32RangeSelectorModel autotestsCount) {
+    this.autotestsCount = autotestsCount;
     return this;
   }
 
    /**
-   * Get maxChecklistsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return maxChecklistsCount
+   * Get autotestsCount
+   * @return autotestsCount
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMaxChecklistsCount() {
-        return maxChecklistsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MAX_CHECKLISTS_COUNT)
+  @JsonProperty(JSON_PROPERTY_AUTOTESTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getMaxChecklistsCount_JsonNullable() {
-    return maxChecklistsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MAX_CHECKLISTS_COUNT)
-  public void setMaxChecklistsCount_JsonNullable(JsonNullable<Integer> maxChecklistsCount) {
-    this.maxChecklistsCount = maxChecklistsCount;
-  }
-
-  public void setMaxChecklistsCount(Integer maxChecklistsCount) {
-    this.maxChecklistsCount = JsonNullable.<Integer>of(maxChecklistsCount);
+  public Int32RangeSelectorModel getAutotestsCount() {
+    return autotestsCount;
   }
 
 
-  public ProjectSelectModel minSharedStepsCount(Integer minSharedStepsCount) {
-    this.minSharedStepsCount = JsonNullable.<Integer>of(minSharedStepsCount);
-    return this;
-  }
-
-   /**
-   * Get minSharedStepsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return minSharedStepsCount
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMinSharedStepsCount() {
-        return minSharedStepsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MIN_SHARED_STEPS_COUNT)
+  @JsonProperty(JSON_PROPERTY_AUTOTESTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getMinSharedStepsCount_JsonNullable() {
-    return minSharedStepsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MIN_SHARED_STEPS_COUNT)
-  public void setMinSharedStepsCount_JsonNullable(JsonNullable<Integer> minSharedStepsCount) {
-    this.minSharedStepsCount = minSharedStepsCount;
-  }
-
-  public void setMinSharedStepsCount(Integer minSharedStepsCount) {
-    this.minSharedStepsCount = JsonNullable.<Integer>of(minSharedStepsCount);
-  }
-
-
-  public ProjectSelectModel maxSharedStepsCount(Integer maxSharedStepsCount) {
-    this.maxSharedStepsCount = JsonNullable.<Integer>of(maxSharedStepsCount);
-    return this;
-  }
-
-   /**
-   * Get maxSharedStepsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return maxSharedStepsCount
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMaxSharedStepsCount() {
-        return maxSharedStepsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MAX_SHARED_STEPS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getMaxSharedStepsCount_JsonNullable() {
-    return maxSharedStepsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MAX_SHARED_STEPS_COUNT)
-  public void setMaxSharedStepsCount_JsonNullable(JsonNullable<Integer> maxSharedStepsCount) {
-    this.maxSharedStepsCount = maxSharedStepsCount;
-  }
-
-  public void setMaxSharedStepsCount(Integer maxSharedStepsCount) {
-    this.maxSharedStepsCount = JsonNullable.<Integer>of(maxSharedStepsCount);
-  }
-
-
-  public ProjectSelectModel minAutotestsCount(Integer minAutotestsCount) {
-    this.minAutotestsCount = JsonNullable.<Integer>of(minAutotestsCount);
-    return this;
-  }
-
-   /**
-   * Get minAutotestsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return minAutotestsCount
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMinAutotestsCount() {
-        return minAutotestsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MIN_AUTOTESTS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getMinAutotestsCount_JsonNullable() {
-    return minAutotestsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MIN_AUTOTESTS_COUNT)
-  public void setMinAutotestsCount_JsonNullable(JsonNullable<Integer> minAutotestsCount) {
-    this.minAutotestsCount = minAutotestsCount;
-  }
-
-  public void setMinAutotestsCount(Integer minAutotestsCount) {
-    this.minAutotestsCount = JsonNullable.<Integer>of(minAutotestsCount);
-  }
-
-
-  public ProjectSelectModel maxAutotestsCount(Integer maxAutotestsCount) {
-    this.maxAutotestsCount = JsonNullable.<Integer>of(maxAutotestsCount);
-    return this;
-  }
-
-   /**
-   * Get maxAutotestsCount
-   * minimum: 0
-   * maximum: 2147483647
-   * @return maxAutotestsCount
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Integer getMaxAutotestsCount() {
-        return maxAutotestsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MAX_AUTOTESTS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getMaxAutotestsCount_JsonNullable() {
-    return maxAutotestsCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MAX_AUTOTESTS_COUNT)
-  public void setMaxAutotestsCount_JsonNullable(JsonNullable<Integer> maxAutotestsCount) {
-    this.maxAutotestsCount = maxAutotestsCount;
-  }
-
-  public void setMaxAutotestsCount(Integer maxAutotestsCount) {
-    this.maxAutotestsCount = JsonNullable.<Integer>of(maxAutotestsCount);
+  public void setAutotestsCount(Int32RangeSelectorModel autotestsCount) {
+    this.autotestsCount = autotestsCount;
   }
 
 
@@ -589,71 +386,29 @@ public class ProjectSelectModel {
   }
 
 
-  public ProjectSelectModel createdFrom(OffsetDateTime createdFrom) {
-    this.createdFrom = JsonNullable.<OffsetDateTime>of(createdFrom);
+  public ProjectSelectModel createdDate(DateTimeRangeSelectorModel createdDate) {
+    this.createdDate = createdDate;
     return this;
   }
 
    /**
-   * Get createdFrom
-   * @return createdFrom
+   * Get createdDate
+   * @return createdDate
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedFrom() {
-        return createdFrom.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_FROM)
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedFrom_JsonNullable() {
-    return createdFrom;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_FROM)
-  public void setCreatedFrom_JsonNullable(JsonNullable<OffsetDateTime> createdFrom) {
-    this.createdFrom = createdFrom;
-  }
-
-  public void setCreatedFrom(OffsetDateTime createdFrom) {
-    this.createdFrom = JsonNullable.<OffsetDateTime>of(createdFrom);
+  public DateTimeRangeSelectorModel getCreatedDate() {
+    return createdDate;
   }
 
 
-  public ProjectSelectModel createdTo(OffsetDateTime createdTo) {
-    this.createdTo = JsonNullable.<OffsetDateTime>of(createdTo);
-    return this;
-  }
-
-   /**
-   * Get createdTo
-   * @return createdTo
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedTo() {
-        return createdTo.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_TO)
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getCreatedTo_JsonNullable() {
-    return createdTo;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_TO)
-  public void setCreatedTo_JsonNullable(JsonNullable<OffsetDateTime> createdTo) {
-    this.createdTo = createdTo;
-  }
-
-  public void setCreatedTo(OffsetDateTime createdTo) {
-    this.createdTo = JsonNullable.<OffsetDateTime>of(createdTo);
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+    this.createdDate = createdDate;
   }
 
 
@@ -672,18 +427,13 @@ public class ProjectSelectModel {
     return equalsNullable(this.name, projectSelectModel.name) &&
         equalsNullable(this.isFavorite, projectSelectModel.isFavorite) &&
         equalsNullable(this.isDeleted, projectSelectModel.isDeleted) &&
-        equalsNullable(this.minTestCasesCount, projectSelectModel.minTestCasesCount) &&
-        equalsNullable(this.maxTestCasesCount, projectSelectModel.maxTestCasesCount) &&
-        equalsNullable(this.minChecklistsCount, projectSelectModel.minChecklistsCount) &&
-        equalsNullable(this.maxChecklistsCount, projectSelectModel.maxChecklistsCount) &&
-        equalsNullable(this.minSharedStepsCount, projectSelectModel.minSharedStepsCount) &&
-        equalsNullable(this.maxSharedStepsCount, projectSelectModel.maxSharedStepsCount) &&
-        equalsNullable(this.minAutotestsCount, projectSelectModel.minAutotestsCount) &&
-        equalsNullable(this.maxAutotestsCount, projectSelectModel.maxAutotestsCount) &&
+        Objects.equals(this.testCasesCount, projectSelectModel.testCasesCount) &&
+        Objects.equals(this.checklistsCount, projectSelectModel.checklistsCount) &&
+        Objects.equals(this.sharedStepsCount, projectSelectModel.sharedStepsCount) &&
+        Objects.equals(this.autotestsCount, projectSelectModel.autotestsCount) &&
         equalsNullable(this.globalIds, projectSelectModel.globalIds) &&
         equalsNullable(this.createdByIds, projectSelectModel.createdByIds) &&
-        equalsNullable(this.createdFrom, projectSelectModel.createdFrom) &&
-        equalsNullable(this.createdTo, projectSelectModel.createdTo);
+        Objects.equals(this.createdDate, projectSelectModel.createdDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -692,7 +442,7 @@ public class ProjectSelectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(isFavorite), hashCodeNullable(isDeleted), hashCodeNullable(minTestCasesCount), hashCodeNullable(maxTestCasesCount), hashCodeNullable(minChecklistsCount), hashCodeNullable(maxChecklistsCount), hashCodeNullable(minSharedStepsCount), hashCodeNullable(maxSharedStepsCount), hashCodeNullable(minAutotestsCount), hashCodeNullable(maxAutotestsCount), hashCodeNullable(globalIds), hashCodeNullable(createdByIds), hashCodeNullable(createdFrom), hashCodeNullable(createdTo));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(isFavorite), hashCodeNullable(isDeleted), testCasesCount, checklistsCount, sharedStepsCount, autotestsCount, hashCodeNullable(globalIds), hashCodeNullable(createdByIds), createdDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -709,18 +459,13 @@ public class ProjectSelectModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
-    sb.append("    minTestCasesCount: ").append(toIndentedString(minTestCasesCount)).append("\n");
-    sb.append("    maxTestCasesCount: ").append(toIndentedString(maxTestCasesCount)).append("\n");
-    sb.append("    minChecklistsCount: ").append(toIndentedString(minChecklistsCount)).append("\n");
-    sb.append("    maxChecklistsCount: ").append(toIndentedString(maxChecklistsCount)).append("\n");
-    sb.append("    minSharedStepsCount: ").append(toIndentedString(minSharedStepsCount)).append("\n");
-    sb.append("    maxSharedStepsCount: ").append(toIndentedString(maxSharedStepsCount)).append("\n");
-    sb.append("    minAutotestsCount: ").append(toIndentedString(minAutotestsCount)).append("\n");
-    sb.append("    maxAutotestsCount: ").append(toIndentedString(maxAutotestsCount)).append("\n");
+    sb.append("    testCasesCount: ").append(toIndentedString(testCasesCount)).append("\n");
+    sb.append("    checklistsCount: ").append(toIndentedString(checklistsCount)).append("\n");
+    sb.append("    sharedStepsCount: ").append(toIndentedString(sharedStepsCount)).append("\n");
+    sb.append("    autotestsCount: ").append(toIndentedString(autotestsCount)).append("\n");
     sb.append("    globalIds: ").append(toIndentedString(globalIds)).append("\n");
     sb.append("    createdByIds: ").append(toIndentedString(createdByIds)).append("\n");
-    sb.append("    createdFrom: ").append(toIndentedString(createdFrom)).append("\n");
-    sb.append("    createdTo: ").append(toIndentedString(createdTo)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

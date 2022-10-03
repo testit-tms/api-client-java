@@ -61,8 +61,8 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<ParameterModel> apiV2ParametersBulkPost(List<ParameterPostModel> parameterPostModel) throws ApiException {
@@ -78,8 +78,8 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<ParameterModel>> apiV2ParametersBulkPostWithHttpInfo(List<ParameterPostModel> parameterPostModel) throws ApiException {
@@ -124,10 +124,10 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
      </table>
    */
   public void apiV2ParametersBulkPut(List<ParameterPutModel> parameterPutModel) throws ApiException {
@@ -143,10 +143,10 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<ParameterPutModel> parameterPutModel) throws ApiException {
@@ -196,8 +196,8 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public List<ParameterGroupModel> apiV2ParametersGroupsGet(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -219,8 +219,8 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public ApiResponse<List<ParameterGroupModel>> apiV2ParametersGroupsGetWithHttpInfo(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -534,9 +534,9 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
   public void deleteByName(String name) throws ApiException {
@@ -552,9 +552,9 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteByNameWithHttpInfo(String name) throws ApiException {
@@ -603,9 +603,9 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
   public void deleteByParameterKeyId(UUID keyId) throws ApiException {
@@ -621,9 +621,9 @@ public class ParametersApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteByParameterKeyIdWithHttpInfo(UUID keyId) throws ApiException {
@@ -668,7 +668,6 @@ public class ParametersApi {
    * Delete parameter
    * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
    * @param id Parameter internal (UUID) identifier (required)
-   * @return ParameterModel
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -678,15 +677,15 @@ public class ParametersApi {
        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
-  public ParameterModel deleteParameter(UUID id) throws ApiException {
-    return deleteParameterWithHttpInfo(id).getData();
+  public void deleteParameter(UUID id) throws ApiException {
+    deleteParameterWithHttpInfo(id);
   }
 
   /**
    * Delete parameter
    * &lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
    * @param id Parameter internal (UUID) identifier (required)
-   * @return ApiResponse&lt;ParameterModel&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -696,7 +695,7 @@ public class ParametersApi {
        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ParameterModel> deleteParameterWithHttpInfo(UUID id) throws ApiException {
+  public ApiResponse<Void> deleteParameterWithHttpInfo(UUID id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -730,11 +729,9 @@ public class ParametersApi {
 
     String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
 
-    GenericType<ParameterModel> localVarReturnType = new GenericType<ParameterModel>() {};
-
     return apiClient.invokeAPI("ParametersApi.deleteParameter", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, null, false);
   }
   /**
    * Get all parameters

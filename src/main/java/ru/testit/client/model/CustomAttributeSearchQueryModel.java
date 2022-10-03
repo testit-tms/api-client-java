@@ -77,11 +77,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get name
+   * Name of attribute
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of attribute")
   @JsonIgnore
 
   public String getName() {
@@ -123,11 +123,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get projectIds
+   * Unique IDs of projects where attribute is in use
    * @return projectIds
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique IDs of projects where attribute is in use")
   @JsonIgnore
 
   public Set<UUID> getProjectIds() {
@@ -169,11 +169,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get customAttributeIds
+   * Unique IDs of attributes for search restriction
    * @return customAttributeIds
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique IDs of attributes for search restriction")
   @JsonIgnore
 
   public Set<UUID> getCustomAttributeIds() {
@@ -215,11 +215,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get customAttributeTypes
+   * Collection of attribute types
    * @return customAttributeTypes
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of attribute types")
   @JsonIgnore
 
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
@@ -249,11 +249,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get isGlobal
+   * Indicates whether the attribute is available across all projects
    * @return isGlobal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is available across all projects")
   @JsonIgnore
 
   public Boolean getIsGlobal() {
@@ -283,11 +283,11 @@ public class CustomAttributeSearchQueryModel {
   }
 
    /**
-   * Get isDeleted
+   * Indicates whether the attribute is deleted
    * @return isDeleted
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the attribute is deleted")
   @JsonIgnore
 
   public Boolean getIsDeleted() {

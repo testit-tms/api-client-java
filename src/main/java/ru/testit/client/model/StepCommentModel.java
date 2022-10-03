@@ -79,7 +79,7 @@ public class StepCommentModel {
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -97,7 +97,7 @@ public class StepCommentModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -340,7 +340,7 @@ public class StepCommentModel {
 
 
   public StepCommentModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -350,26 +350,18 @@ public class StepCommentModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -427,7 +419,7 @@ public class StepCommentModel {
         Objects.equals(this.testResultId, stepCommentModel.testResultId) &&
         Objects.equals(this.createdById, stepCommentModel.createdById) &&
         equalsNullable(this.modifiedById, stepCommentModel.modifiedById) &&
-        equalsNullable(this.createdDate, stepCommentModel.createdDate) &&
+        Objects.equals(this.createdDate, stepCommentModel.createdDate) &&
         equalsNullable(this.modifiedDate, stepCommentModel.modifiedDate);
   }
 
@@ -437,7 +429,7 @@ public class StepCommentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(text), stepId, hashCodeNullable(parentStepId), hashCodeNullable(attachments), testResultId, createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate));
+    return Objects.hash(id, hashCodeNullable(text), stepId, hashCodeNullable(parentStepId), hashCodeNullable(attachments), testResultId, createdById, hashCodeNullable(modifiedById), createdDate, hashCodeNullable(modifiedDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

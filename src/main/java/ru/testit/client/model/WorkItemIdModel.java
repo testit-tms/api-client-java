@@ -56,7 +56,7 @@ public class WorkItemIdModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format")
   @JsonIgnore
 
   public String getId() {

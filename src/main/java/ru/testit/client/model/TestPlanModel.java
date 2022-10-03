@@ -174,7 +174,7 @@ public class TestPlanModel {
    * @return startedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "Set when test plan is starter (status changed to: In Progress)")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "Set when test plan is starter (status changed to: In Progress)")
   @JsonIgnore
 
   public OffsetDateTime getStartedOn() {
@@ -208,7 +208,7 @@ public class TestPlanModel {
    * @return completedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "set when test plan status is completed (status changed to: Completed)")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "set when test plan status is completed (status changed to: Completed)")
   @JsonIgnore
 
   public OffsetDateTime getCompletedOn() {
@@ -242,7 +242,7 @@ public class TestPlanModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getCreatedDate() {
@@ -276,7 +276,7 @@ public class TestPlanModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -310,7 +310,7 @@ public class TestPlanModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -336,7 +336,7 @@ public class TestPlanModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -422,7 +422,7 @@ public class TestPlanModel {
    * @return lockedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getLockedDate() {
@@ -455,10 +455,10 @@ public class TestPlanModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -466,7 +466,7 @@ public class TestPlanModel {
 
 
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -588,7 +588,7 @@ public class TestPlanModel {
    * @return startDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "Used for analytics")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "Used for analytics")
   @JsonIgnore
 
   public OffsetDateTime getStartDate() {
@@ -622,7 +622,7 @@ public class TestPlanModel {
    * @return endDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "Used for analytics")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "Used for analytics")
   @JsonIgnore
 
   public OffsetDateTime getEndDate() {
@@ -724,7 +724,7 @@ public class TestPlanModel {
    * @return projectId
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", required = true, value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestResultV2GetModel;
-import ru.testit.client.model.TestRunStateTypeModel;
+import ru.testit.client.model.TestRunState;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -67,7 +67,7 @@ public class TestRunV2GetModel {
   private JsonNullable<OffsetDateTime> completedOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_STATE_NAME = "stateName";
-  private TestRunStateTypeModel stateName;
+  private TestRunState stateName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
@@ -79,7 +79,7 @@ public class TestRunV2GetModel {
   private JsonNullable<List<TestResultV2GetModel>> testResults = JsonNullable.<List<TestResultV2GetModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -118,7 +118,7 @@ public class TestRunV2GetModel {
    * @return startedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getStartedOn() {
@@ -152,7 +152,7 @@ public class TestRunV2GetModel {
    * @return completedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getCompletedOn() {
@@ -176,7 +176,7 @@ public class TestRunV2GetModel {
   }
 
 
-  public TestRunV2GetModel stateName(TestRunStateTypeModel stateName) {
+  public TestRunV2GetModel stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -190,14 +190,14 @@ public class TestRunV2GetModel {
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TestRunStateTypeModel getStateName() {
+  public TestRunState getStateName() {
     return stateName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateName(TestRunStateTypeModel stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
@@ -212,7 +212,7 @@ public class TestRunV2GetModel {
    * @return projectId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "This property is used to link test run with project")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "This property is used to link test run with project")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -238,7 +238,7 @@ public class TestRunV2GetModel {
    * @return testPlanId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "This property is used to link test run with test plan")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "This property is used to link test run with test plan")
   @JsonIgnore
 
   public UUID getTestPlanId() {
@@ -309,7 +309,7 @@ public class TestRunV2GetModel {
 
 
   public TestRunV2GetModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -318,27 +318,19 @@ public class TestRunV2GetModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -352,7 +344,7 @@ public class TestRunV2GetModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -386,7 +378,7 @@ public class TestRunV2GetModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -412,7 +404,7 @@ public class TestRunV2GetModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -480,7 +472,7 @@ public class TestRunV2GetModel {
    * @return id
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", required = true, value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -608,7 +600,7 @@ public class TestRunV2GetModel {
         Objects.equals(this.projectId, testRunV2GetModel.projectId) &&
         equalsNullable(this.testPlanId, testRunV2GetModel.testPlanId) &&
         equalsNullable(this.testResults, testRunV2GetModel.testResults) &&
-        equalsNullable(this.createdDate, testRunV2GetModel.createdDate) &&
+        Objects.equals(this.createdDate, testRunV2GetModel.createdDate) &&
         equalsNullable(this.modifiedDate, testRunV2GetModel.modifiedDate) &&
         Objects.equals(this.createdById, testRunV2GetModel.createdById) &&
         equalsNullable(this.modifiedById, testRunV2GetModel.modifiedById) &&
@@ -625,7 +617,7 @@ public class TestRunV2GetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(startedOn), hashCodeNullable(completedOn), stateName, projectId, hashCodeNullable(testPlanId), hashCodeNullable(testResults), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), id, name, hashCodeNullable(description), hashCodeNullable(launchSource));
+    return Objects.hash(hashCodeNullable(startedOn), hashCodeNullable(completedOn), stateName, projectId, hashCodeNullable(testPlanId), hashCodeNullable(testResults), createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), id, name, hashCodeNullable(description), hashCodeNullable(launchSource));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

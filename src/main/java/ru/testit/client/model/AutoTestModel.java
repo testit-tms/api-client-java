@@ -79,13 +79,13 @@ public class AutoTestModel {
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_MUST_BE_APPROVED = "mustBeApproved";
-  private JsonNullable<Boolean> mustBeApproved = JsonNullable.<Boolean>undefined();
+  private Boolean mustBeApproved;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -148,7 +148,7 @@ public class AutoTestModel {
   private JsonNullable<List<LabelShortModel>> labels = JsonNullable.<List<LabelShortModel>>undefined();
 
   public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
-  private Boolean isFlaky;
+  private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
 
   public AutoTestModel() { 
   }
@@ -206,7 +206,7 @@ public class AutoTestModel {
 
 
   public AutoTestModel mustBeApproved(Boolean mustBeApproved) {
-    this.mustBeApproved = JsonNullable.<Boolean>of(mustBeApproved);
+    this.mustBeApproved = mustBeApproved;
     return this;
   }
 
@@ -216,26 +216,18 @@ public class AutoTestModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Boolean getMustBeApproved() {
-        return mustBeApproved.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MUST_BE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Boolean> getMustBeApproved_JsonNullable() {
+  public Boolean getMustBeApproved() {
     return mustBeApproved;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MUST_BE_APPROVED)
-  public void setMustBeApproved_JsonNullable(JsonNullable<Boolean> mustBeApproved) {
-    this.mustBeApproved = mustBeApproved;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MUST_BE_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMustBeApproved(Boolean mustBeApproved) {
-    this.mustBeApproved = JsonNullable.<Boolean>of(mustBeApproved);
+    this.mustBeApproved = mustBeApproved;
   }
 
 
@@ -249,7 +241,7 @@ public class AutoTestModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -266,7 +258,7 @@ public class AutoTestModel {
 
 
   public AutoTestModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -275,27 +267,19 @@ public class AutoTestModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -309,7 +293,7 @@ public class AutoTestModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -343,7 +327,7 @@ public class AutoTestModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -369,7 +353,7 @@ public class AutoTestModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -403,7 +387,7 @@ public class AutoTestModel {
    * @return lastTestRunId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getLastTestRunId() {
@@ -471,7 +455,7 @@ public class AutoTestModel {
    * @return lastTestResultId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getLastTestResultId() {
@@ -1008,7 +992,7 @@ public class AutoTestModel {
 
 
   public AutoTestModel isFlaky(Boolean isFlaky) {
-    this.isFlaky = isFlaky;
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
     return this;
   }
 
@@ -1018,18 +1002,26 @@ public class AutoTestModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Marks the autotest as flaky.")
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getIsFlaky() {
-    return isFlaky;
+        return isFlaky.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IS_FLAKY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsFlaky(Boolean isFlaky) {
+
+  public JsonNullable<Boolean> getIsFlaky_JsonNullable() {
+    return isFlaky;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
+  public void setIsFlaky_JsonNullable(JsonNullable<Boolean> isFlaky) {
     this.isFlaky = isFlaky;
+  }
+
+  public void setIsFlaky(Boolean isFlaky) {
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
@@ -1047,9 +1039,9 @@ public class AutoTestModel {
     AutoTestModel autoTestModel = (AutoTestModel) o;
     return Objects.equals(this.globalId, autoTestModel.globalId) &&
         Objects.equals(this.isDeleted, autoTestModel.isDeleted) &&
-        equalsNullable(this.mustBeApproved, autoTestModel.mustBeApproved) &&
+        Objects.equals(this.mustBeApproved, autoTestModel.mustBeApproved) &&
         Objects.equals(this.id, autoTestModel.id) &&
-        equalsNullable(this.createdDate, autoTestModel.createdDate) &&
+        Objects.equals(this.createdDate, autoTestModel.createdDate) &&
         equalsNullable(this.modifiedDate, autoTestModel.modifiedDate) &&
         Objects.equals(this.createdById, autoTestModel.createdById) &&
         equalsNullable(this.modifiedById, autoTestModel.modifiedById) &&
@@ -1070,7 +1062,7 @@ public class AutoTestModel {
         equalsNullable(this.title, autoTestModel.title) &&
         equalsNullable(this.description, autoTestModel.description) &&
         equalsNullable(this.labels, autoTestModel.labels) &&
-        Objects.equals(this.isFlaky, autoTestModel.isFlaky);
+        equalsNullable(this.isFlaky, autoTestModel.isFlaky);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1079,7 +1071,7 @@ public class AutoTestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(globalId, isDeleted, hashCodeNullable(mustBeApproved), id, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(stabilityPercentage), externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), isFlaky);
+    return Objects.hash(globalId, isDeleted, mustBeApproved, id, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(stabilityPercentage), externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), hashCodeNullable(isFlaky));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

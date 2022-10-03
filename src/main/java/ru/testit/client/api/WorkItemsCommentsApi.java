@@ -58,10 +58,10 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
    */
@@ -78,10 +78,10 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
    */
@@ -132,10 +132,10 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
    */
@@ -152,10 +152,10 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
    */
@@ -269,9 +269,9 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public List<WorkItemCommentModel> apiV2WorkItemsIdCommentsGet(String id) throws ApiException {
@@ -287,9 +287,9 @@ public class WorkItemsCommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<WorkItemCommentModel>> apiV2WorkItemsIdCommentsGetWithHttpInfo(String id) throws ApiException {

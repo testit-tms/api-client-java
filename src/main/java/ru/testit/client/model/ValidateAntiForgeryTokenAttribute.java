@@ -61,7 +61,7 @@ public class ValidateAntiForgeryTokenAttribute {
   ) {
     this();
     this.isReusable = isReusable;
-    this.typeId = (JsonNullable<Object>) typeId;
+    this.typeId = JsonNullable.of(typeId);
   }
 
   public ValidateAntiForgeryTokenAttribute order(Integer order) {

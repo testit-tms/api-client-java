@@ -62,12 +62,12 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public SectionWithStepsModel createSection(SectionPostModel sectionPostModel) throws ApiException {
@@ -83,12 +83,12 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(SectionPostModel sectionPostModel) throws ApiException {
@@ -213,10 +213,10 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
    */
   public SectionWithStepsModel getSectionById(UUID id, Boolean isDeleted) throws ApiException {
@@ -234,10 +234,10 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<SectionWithStepsModel> getSectionByIdWithHttpInfo(UUID id, Boolean isDeleted) throws ApiException {
@@ -298,11 +298,11 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public List<WorkItemShortModel> getWorkItemsBySectionId(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -326,11 +326,11 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<WorkItemShortModel>> getWorkItemsBySectionIdWithHttpInfo(UUID id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -389,12 +389,12 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Action leads to section loop </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Section with provided ID was not found  &lt;br&gt;- Parent section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section was modified </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Cannot move root section </td><td>  -  </td></tr>
      </table>
    */
@@ -411,12 +411,12 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Action leads to section loop </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Section with provided ID was not found  &lt;br&gt;- Parent section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section was modified </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Cannot move root section </td><td>  -  </td></tr>
      </table>
    */
@@ -460,11 +460,11 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
    */
@@ -481,11 +481,11 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
    */
@@ -529,13 +529,13 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
    */
   public void updateSection(SectionPutModel sectionPutModel) throws ApiException {
@@ -551,13 +551,13 @@ public class SectionsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateSectionWithHttpInfo(SectionPutModel sectionPutModel) throws ApiException {

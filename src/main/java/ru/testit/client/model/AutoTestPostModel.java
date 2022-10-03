@@ -66,7 +66,7 @@ public class AutoTestPostModel {
   private JsonNullable<Set<UUID>> workItemIdsForLinkWithAutoTest = JsonNullable.<Set<UUID>>undefined();
 
   public static final String JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM = "shouldCreateWorkItem";
-  private Boolean shouldCreateWorkItem;
+  private JsonNullable<Boolean> shouldCreateWorkItem = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
   private String externalId;
@@ -105,7 +105,7 @@ public class AutoTestPostModel {
   private JsonNullable<List<LabelPostModel>> labels = JsonNullable.<List<LabelPostModel>>undefined();
 
   public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
-  private Boolean isFlaky;
+  private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
 
   public AutoTestPostModel() { 
   }
@@ -157,7 +157,7 @@ public class AutoTestPostModel {
 
 
   public AutoTestPostModel shouldCreateWorkItem(Boolean shouldCreateWorkItem) {
-    this.shouldCreateWorkItem = shouldCreateWorkItem;
+    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
     return this;
   }
 
@@ -167,18 +167,26 @@ public class AutoTestPostModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Creates a test case linked to the autotest.")
-  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getShouldCreateWorkItem() {
-    return shouldCreateWorkItem;
+        return shouldCreateWorkItem.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShouldCreateWorkItem(Boolean shouldCreateWorkItem) {
+
+  public JsonNullable<Boolean> getShouldCreateWorkItem_JsonNullable() {
+    return shouldCreateWorkItem;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
+  public void setShouldCreateWorkItem_JsonNullable(JsonNullable<Boolean> shouldCreateWorkItem) {
     this.shouldCreateWorkItem = shouldCreateWorkItem;
+  }
+
+  public void setShouldCreateWorkItem(Boolean shouldCreateWorkItem) {
+    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
   }
 
 
@@ -627,7 +635,7 @@ public class AutoTestPostModel {
 
 
   public AutoTestPostModel isFlaky(Boolean isFlaky) {
-    this.isFlaky = isFlaky;
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
     return this;
   }
 
@@ -637,18 +645,26 @@ public class AutoTestPostModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Marks the autotest as flaky.")
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getIsFlaky() {
-    return isFlaky;
+        return isFlaky.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IS_FLAKY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsFlaky(Boolean isFlaky) {
+
+  public JsonNullable<Boolean> getIsFlaky_JsonNullable() {
+    return isFlaky;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
+  public void setIsFlaky_JsonNullable(JsonNullable<Boolean> isFlaky) {
     this.isFlaky = isFlaky;
+  }
+
+  public void setIsFlaky(Boolean isFlaky) {
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
@@ -665,7 +681,7 @@ public class AutoTestPostModel {
     }
     AutoTestPostModel autoTestPostModel = (AutoTestPostModel) o;
     return equalsNullable(this.workItemIdsForLinkWithAutoTest, autoTestPostModel.workItemIdsForLinkWithAutoTest) &&
-        Objects.equals(this.shouldCreateWorkItem, autoTestPostModel.shouldCreateWorkItem) &&
+        equalsNullable(this.shouldCreateWorkItem, autoTestPostModel.shouldCreateWorkItem) &&
         Objects.equals(this.externalId, autoTestPostModel.externalId) &&
         equalsNullable(this.links, autoTestPostModel.links) &&
         Objects.equals(this.projectId, autoTestPostModel.projectId) &&
@@ -678,7 +694,7 @@ public class AutoTestPostModel {
         equalsNullable(this.title, autoTestPostModel.title) &&
         equalsNullable(this.description, autoTestPostModel.description) &&
         equalsNullable(this.labels, autoTestPostModel.labels) &&
-        Objects.equals(this.isFlaky, autoTestPostModel.isFlaky);
+        equalsNullable(this.isFlaky, autoTestPostModel.isFlaky);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -687,7 +703,7 @@ public class AutoTestPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(workItemIdsForLinkWithAutoTest), shouldCreateWorkItem, externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), isFlaky);
+    return Objects.hash(hashCodeNullable(workItemIdsForLinkWithAutoTest), hashCodeNullable(shouldCreateWorkItem), externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), hashCodeNullable(isFlaky));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

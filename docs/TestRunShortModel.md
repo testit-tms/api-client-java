@@ -1,12 +1,19 @@
+
+
 # TestRunShortModel
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**stateName** | [**TestRunStateTypeModel**](TestRunStateTypeModel.md) |  |  [optional]
-**projectId** | [**UUID**](UUID.md) |  |  [optional]
-**testPlanId** | [**UUID**](UUID.md) |  |  [optional]
-**name** | **String** |  |  [optional]
-**description** | **String** |  |  [optional]
-**id** | [**UUID**](UUID.md) |  |  [optional]
-**isDeleted** | **Boolean** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**stateName** | **TestRunState** |  |  [optional] |
+|**projectId** | **UUID** |  |  [optional] |
+|**testPlanId** | **UUID** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**id** | **UUID** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  [optional] |
+
+
+

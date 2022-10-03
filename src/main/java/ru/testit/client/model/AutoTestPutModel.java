@@ -105,7 +105,7 @@ public class AutoTestPutModel {
   private JsonNullable<List<LabelPostModel>> labels = JsonNullable.<List<LabelPostModel>>undefined();
 
   public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
-  private Boolean isFlaky;
+  private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
 
   public AutoTestPutModel() { 
   }
@@ -120,7 +120,7 @@ public class AutoTestPutModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -627,7 +627,7 @@ public class AutoTestPutModel {
 
 
   public AutoTestPutModel isFlaky(Boolean isFlaky) {
-    this.isFlaky = isFlaky;
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
     return this;
   }
 
@@ -637,18 +637,26 @@ public class AutoTestPutModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Marks the autotest as flaky.")
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getIsFlaky() {
-    return isFlaky;
+        return isFlaky.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IS_FLAKY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsFlaky(Boolean isFlaky) {
+
+  public JsonNullable<Boolean> getIsFlaky_JsonNullable() {
+    return isFlaky;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
+  public void setIsFlaky_JsonNullable(JsonNullable<Boolean> isFlaky) {
     this.isFlaky = isFlaky;
+  }
+
+  public void setIsFlaky(Boolean isFlaky) {
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
@@ -678,7 +686,7 @@ public class AutoTestPutModel {
         equalsNullable(this.title, autoTestPutModel.title) &&
         equalsNullable(this.description, autoTestPutModel.description) &&
         equalsNullable(this.labels, autoTestPutModel.labels) &&
-        Objects.equals(this.isFlaky, autoTestPutModel.isFlaky);
+        equalsNullable(this.isFlaky, autoTestPutModel.isFlaky);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -687,7 +695,7 @@ public class AutoTestPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(workItemIdsForLinkWithAutoTest), externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), isFlaky);
+    return Objects.hash(id, hashCodeNullable(workItemIdsForLinkWithAutoTest), externalId, hashCodeNullable(links), projectId, name, hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), hashCodeNullable(isFlaky));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

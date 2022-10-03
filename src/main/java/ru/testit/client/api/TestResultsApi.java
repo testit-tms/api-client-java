@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.GenericType;
 import ru.testit.client.model.AttachmentModel;
 import java.io.File;
 import ru.testit.client.model.ImageResizeType;
-import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TestResultCreateModel;
-import ru.testit.client.model.TestResultLinkRequestPostModel;
 import ru.testit.client.model.TestResultModel;
+import ru.testit.client.model.TestResultShortGetModel;
+import ru.testit.client.model.TestResultUpdateModel;
+import ru.testit.client.model.TestResultsFilterModel;
+import ru.testit.client.model.TestResultsStatisticsGetModel;
 import java.util.UUID;
-import ru.testit.client.model.UseTestResultLinkRequestPostModel;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.util.ArrayList;
@@ -268,160 +268,6 @@ public class TestResultsApi {
    * 
    * 
    * @param id  (required)
-   * @param externalProjectId  (required)
-   * @param body  (optional)
-   * @return String
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public String apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPost(UUID id, UUID externalProjectId, Object body) throws ApiException {
-    return apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPostWithHttpInfo(id, externalProjectId, body).getData();
-  }
-
-  /**
-   * 
-   * 
-   * @param id  (required)
-   * @param externalProjectId  (required)
-   * @param body  (optional)
-   * @return ApiResponse&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<String> apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPostWithHttpInfo(UUID id, UUID externalProjectId, Object body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPost");
-    }
-    
-    // verify the required parameter 'externalProjectId' is set
-    if (externalProjectId == null) {
-      throw new ApiException(400, "Missing the required parameter 'externalProjectId' when calling apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPost");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v2/testResults/{id}/externalProjects/{externalProjectId}/defect"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-      .replaceAll("\\{" + "externalProjectId" + "\\}", apiClient.escapeString(externalProjectId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
-
-    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdExternalProjectsExternalProjectIdDefectPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, true);
-  }
-  /**
-   * 
-   * 
-   * @param id  (required)
-   * @param externalProjectId  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public Object apiV2TestResultsIdExternalProjectsExternalProjectIdFormGet(UUID id, UUID externalProjectId) throws ApiException {
-    return apiV2TestResultsIdExternalProjectsExternalProjectIdFormGetWithHttpInfo(id, externalProjectId).getData();
-  }
-
-  /**
-   * 
-   * 
-   * @param id  (required)
-   * @param externalProjectId  (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Object> apiV2TestResultsIdExternalProjectsExternalProjectIdFormGetWithHttpInfo(UUID id, UUID externalProjectId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestResultsIdExternalProjectsExternalProjectIdFormGet");
-    }
-    
-    // verify the required parameter 'externalProjectId' is set
-    if (externalProjectId == null) {
-      throw new ApiException(400, "Missing the required parameter 'externalProjectId' when calling apiV2TestResultsIdExternalProjectsExternalProjectIdFormGet");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v2/testResults/{id}/externalProjects/{externalProjectId}/form"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-      .replaceAll("\\{" + "externalProjectId" + "\\}", apiClient.escapeString(externalProjectId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
-    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdExternalProjectsExternalProjectIdFormGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * 
-   * 
-   * @param id  (required)
    * @return TestResultModel
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -490,77 +336,7 @@ public class TestResultsApi {
    * 
    * 
    * @param id  (required)
-   * @param testResultLinkRequestPostModel  (optional)
-   * @return UUID
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public UUID apiV2TestResultsIdLinkRequestsPost(UUID id, TestResultLinkRequestPostModel testResultLinkRequestPostModel) throws ApiException {
-    return apiV2TestResultsIdLinkRequestsPostWithHttpInfo(id, testResultLinkRequestPostModel).getData();
-  }
-
-  /**
-   * 
-   * 
-   * @param id  (required)
-   * @param testResultLinkRequestPostModel  (optional)
-   * @return ApiResponse&lt;UUID&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<UUID> apiV2TestResultsIdLinkRequestsPostWithHttpInfo(UUID id, TestResultLinkRequestPostModel testResultLinkRequestPostModel) throws ApiException {
-    Object localVarPostBody = testResultLinkRequestPostModel;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestResultsIdLinkRequestsPost");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v2/testResults/{id}/linkRequests"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-
-    GenericType<UUID> localVarReturnType = new GenericType<UUID>() {};
-
-    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdLinkRequestsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * 
-   * 
-   * @param id  (required)
-   * @param testResultCreateModel  (optional)
+   * @param testResultUpdateModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -568,15 +344,15 @@ public class TestResultsApi {
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
-  public void apiV2TestResultsIdPut(UUID id, TestResultCreateModel testResultCreateModel) throws ApiException {
-    apiV2TestResultsIdPutWithHttpInfo(id, testResultCreateModel);
+  public void apiV2TestResultsIdPut(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
+    apiV2TestResultsIdPutWithHttpInfo(id, testResultUpdateModel);
   }
 
   /**
    * 
    * 
    * @param id  (required)
-   * @param testResultCreateModel  (optional)
+   * @param testResultUpdateModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -585,8 +361,8 @@ public class TestResultsApi {
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, TestResultCreateModel testResultCreateModel) throws ApiException {
-    Object localVarPostBody = testResultCreateModel;
+  public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
+    Object localVarPostBody = testResultUpdateModel;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -626,26 +402,85 @@ public class TestResultsApi {
   /**
    * 
    * 
-   * @param linkRequestId  (required)
-   * @param useTestResultLinkRequestPostModel  (optional)
-   * @return LinkModel
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param testResultsFilterModel  (optional)
+   * @return List&lt;TestResultShortGetModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
-  public LinkModel apiV2TestResultsLinkRequestsLinkRequestIdUsePost(UUID linkRequestId, UseTestResultLinkRequestPostModel useTestResultLinkRequestPostModel) throws ApiException {
-    return apiV2TestResultsLinkRequestsLinkRequestIdUsePostWithHttpInfo(linkRequestId, useTestResultLinkRequestPostModel).getData();
+  public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
+    return apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testResultsFilterModel).getData();
   }
 
   /**
    * 
    * 
-   * @param linkRequestId  (required)
-   * @param useTestResultLinkRequestPostModel  (optional)
-   * @return ApiResponse&lt;LinkModel&gt;
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param testResultsFilterModel  (optional)
+   * @return ApiResponse&lt;List&lt;TestResultShortGetModel&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
+    Object localVarPostBody = testResultsFilterModel;
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/testResults/search";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Skip", skip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+
+    GenericType<List<TestResultShortGetModel>> localVarReturnType = new GenericType<List<TestResultShortGetModel>>() {};
+
+    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsSearchPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * 
+   * 
+   * @param testResultsFilterModel  (optional)
+   * @return TestResultsStatisticsGetModel
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -653,17 +488,27 @@ public class TestResultsApi {
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LinkModel> apiV2TestResultsLinkRequestsLinkRequestIdUsePostWithHttpInfo(UUID linkRequestId, UseTestResultLinkRequestPostModel useTestResultLinkRequestPostModel) throws ApiException {
-    Object localVarPostBody = useTestResultLinkRequestPostModel;
-    
-    // verify the required parameter 'linkRequestId' is set
-    if (linkRequestId == null) {
-      throw new ApiException(400, "Missing the required parameter 'linkRequestId' when calling apiV2TestResultsLinkRequestsLinkRequestIdUsePost");
-    }
+  public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(TestResultsFilterModel testResultsFilterModel) throws ApiException {
+    return apiV2TestResultsStatisticsFilterPostWithHttpInfo(testResultsFilterModel).getData();
+  }
+
+  /**
+   * 
+   * 
+   * @param testResultsFilterModel  (optional)
+   * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(TestResultsFilterModel testResultsFilterModel) throws ApiException {
+    Object localVarPostBody = testResultsFilterModel;
     
     // create path and map variables
-    String localVarPath = "/api/v2/testResults/linkRequests/{linkRequestId}/use"
-      .replaceAll("\\{" + "linkRequestId" + "\\}", apiClient.escapeString(linkRequestId.toString()));
+    String localVarPath = "/api/v2/testResults/statistics/filter";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -687,9 +532,9 @@ public class TestResultsApi {
 
     String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
 
-    GenericType<LinkModel> localVarReturnType = new GenericType<LinkModel>() {};
+    GenericType<TestResultsStatisticsGetModel> localVarReturnType = new GenericType<TestResultsStatisticsGetModel>() {};
 
-    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsLinkRequestsLinkRequestIdUsePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsStatisticsFilterPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -703,10 +548,10 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
      </table>
@@ -725,10 +570,10 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
      </table>
@@ -784,9 +629,9 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
      </table>
    */
@@ -804,9 +649,9 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
      </table>
    */
@@ -868,11 +713,11 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public void downloadAttachment(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
@@ -894,11 +739,11 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> downloadAttachmentWithHttpInfo(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
@@ -961,10 +806,10 @@ public class TestResultsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public AttachmentModel getAttachment(UUID id, UUID attachmentId) throws ApiException {
@@ -982,10 +827,10 @@ public class TestResultsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<AttachmentModel> getAttachmentWithHttpInfo(UUID id, UUID attachmentId) throws ApiException {
@@ -1043,11 +888,11 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
      </table>
    */
   public List<AttachmentModel> getAttachments(UUID id) throws ApiException {
@@ -1063,11 +908,11 @@ public class TestResultsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<AttachmentModel>> getAttachmentsWithHttpInfo(UUID id) throws ApiException {

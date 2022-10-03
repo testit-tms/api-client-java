@@ -59,7 +59,7 @@ public class WorkItemCommentModel {
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -160,7 +160,7 @@ public class WorkItemCommentModel {
 
 
   public WorkItemCommentModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -170,26 +170,18 @@ public class WorkItemCommentModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -263,7 +255,7 @@ public class WorkItemCommentModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -294,7 +286,7 @@ public class WorkItemCommentModel {
     return Objects.equals(this.user, workItemCommentModel.user) &&
         Objects.equals(this.createdById, workItemCommentModel.createdById) &&
         equalsNullable(this.modifiedById, workItemCommentModel.modifiedById) &&
-        equalsNullable(this.createdDate, workItemCommentModel.createdDate) &&
+        Objects.equals(this.createdDate, workItemCommentModel.createdDate) &&
         equalsNullable(this.modifiedDate, workItemCommentModel.modifiedDate) &&
         Objects.equals(this.text, workItemCommentModel.text) &&
         Objects.equals(this.id, workItemCommentModel.id);
@@ -306,7 +298,7 @@ public class WorkItemCommentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), text, id);
+    return Objects.hash(user, createdById, hashCodeNullable(modifiedById), createdDate, hashCodeNullable(modifiedDate), text, id);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

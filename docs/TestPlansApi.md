@@ -1,62 +1,89 @@
 # TestPlansApi
 
-All URIs are relative to */*
+All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addTestPointsWithSections**](TestPlansApi.md#addTestPointsWithSections) | **POST** /api/v2/testPlans/{testPlanId}/test-points/withSections | Add test-points to test suite with sections
-[**addWorkItemsWithSections**](TestPlansApi.md#addWorkItemsWithSections) | **POST** /api/v2/testPlans/{testPlanId}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites
-[**clone**](TestPlansApi.md#clone) | **POST** /api/v2/testPlans/{testPlanId}/clone | Clone TestPlan
-[**complete**](TestPlansApi.md#complete) | **POST** /api/v2/testPlans/{testPlanId}/complete | Complete TestPlan
-[**createTestPlan**](TestPlansApi.md#createTestPlan) | **POST** /api/v2/testPlans | Create TestPlan
-[**deleteTestPlan**](TestPlansApi.md#deleteTestPlan) | **DELETE** /api/v2/testPlans/{testPlanId} | Delete TestPlan
-[**getTestPlanById**](TestPlansApi.md#getTestPlanById) | **GET** /api/v2/testPlans/{testPlanId} | Get TestPlan by Id
-[**getTestSuitesById**](TestPlansApi.md#getTestSuitesById) | **GET** /api/v2/testPlans/{testPlanId}/testSuites | Get TestSuites Tree By Id
-[**pause**](TestPlansApi.md#pause) | **POST** /api/v2/testPlans/{testPlanId}/pause | Pause TestPlan
-[**restoreTestPlan**](TestPlansApi.md#restoreTestPlan) | **POST** /api/v2/testPlans/{testPlanId}/restore | Restore TestPlan
-[**start**](TestPlansApi.md#start) | **POST** /api/v2/testPlans/{testPlanId}/start | Start TestPlan
-[**updateTestPlan**](TestPlansApi.md#updateTestPlan) | **PUT** /api/v2/testPlans | Update TestPlan
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**addTestPointsWithSections**](TestPlansApi.md#addTestPointsWithSections) | **POST** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections |
+| [**addWorkItemsWithSections**](TestPlansApi.md#addWorkItemsWithSections) | **POST** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites |
+| [**apiV2TestPlansIdAnalyticsGet**](TestPlansApi.md#apiV2TestPlansIdAnalyticsGet) | **GET** /api/v2/testPlans/{id}/analytics | Get analytics by TestPlan |
+| [**apiV2TestPlansIdAutobalancePost**](TestPlansApi.md#apiV2TestPlansIdAutobalancePost) | **POST** /api/v2/testPlans/{id}/autobalance | Auto-balance for TestPlan with testers |
+| [**apiV2TestPlansIdConfigurationsGet**](TestPlansApi.md#apiV2TestPlansIdConfigurationsGet) | **GET** /api/v2/testPlans/{id}/configurations | Get TestPlan configurations |
+| [**apiV2TestPlansIdExportTestPointsXlsxPost**](TestPlansApi.md#apiV2TestPlansIdExportTestPointsXlsxPost) | **POST** /api/v2/testPlans/{id}/export/testPoints/xlsx | Export TestPoints from TestPlan in xls format |
+| [**apiV2TestPlansIdExportTestResultHistoryXlsxPost**](TestPlansApi.md#apiV2TestPlansIdExportTestResultHistoryXlsxPost) | **POST** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format |
+| [**apiV2TestPlansIdHistoryGet**](TestPlansApi.md#apiV2TestPlansIdHistoryGet) | **GET** /api/v2/testPlans/{id}/history | Get TestPlan history |
+| [**apiV2TestPlansIdLinksGet**](TestPlansApi.md#apiV2TestPlansIdLinksGet) | **GET** /api/v2/testPlans/{id}/links | Get Links of TestPlan |
+| [**apiV2TestPlansIdTestPointsLastResultsGet**](TestPlansApi.md#apiV2TestPlansIdTestPointsLastResultsGet) | **GET** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan |
+| [**apiV2TestPlansIdTestPointsResetPost**](TestPlansApi.md#apiV2TestPlansIdTestPointsResetPost) | **POST** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan |
+| [**apiV2TestPlansIdTestRunsGet**](TestPlansApi.md#apiV2TestPlansIdTestRunsGet) | **GET** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan |
+| [**apiV2TestPlansIdTestRunsSearchPost**](TestPlansApi.md#apiV2TestPlansIdTestRunsSearchPost) | **POST** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan |
+| [**apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet**](TestPlansApi.md#apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet) | **GET** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get max modified date in TestRun for TestPlan |
+| [**apiV2TestPlansIdUnlockRequestPost**](TestPlansApi.md#apiV2TestPlansIdUnlockRequestPost) | **POST** /api/v2/testPlans/{id}/unlock/request | Send unlock TestPlan notification |
+| [**apiV2TestPlansShortsPost**](TestPlansApi.md#apiV2TestPlansShortsPost) | **POST** /api/v2/testPlans/shorts | Get TestPlans short models by Project identifiers |
+| [**clone**](TestPlansApi.md#clone) | **POST** /api/v2/testPlans/{id}/clone | Clone TestPlan |
+| [**complete**](TestPlansApi.md#complete) | **POST** /api/v2/testPlans/{id}/complete | Complete TestPlan |
+| [**createTestPlan**](TestPlansApi.md#createTestPlan) | **POST** /api/v2/testPlans | Create TestPlan |
+| [**deleteTestPlan**](TestPlansApi.md#deleteTestPlan) | **DELETE** /api/v2/testPlans/{id} | Delete TestPlan |
+| [**getTestPlanById**](TestPlansApi.md#getTestPlanById) | **GET** /api/v2/testPlans/{id} | Get TestPlan by Id |
+| [**getTestSuitesById**](TestPlansApi.md#getTestSuitesById) | **GET** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id |
+| [**pause**](TestPlansApi.md#pause) | **POST** /api/v2/testPlans/{id}/pause | Pause TestPlan |
+| [**restoreTestPlan**](TestPlansApi.md#restoreTestPlan) | **POST** /api/v2/testPlans/{id}/restore | Restore TestPlan |
+| [**start**](TestPlansApi.md#start) | **POST** /api/v2/testPlans/{id}/start | Start TestPlan |
+| [**updateTestPlan**](TestPlansApi.md#updateTestPlan) | **PUT** /api/v2/testPlans | Update TestPlan |
 
-<a name="addTestPointsWithSections"></a>
-# **addTestPointsWithSections**
-> addTestPointsWithSections(testPlanId, body)
 
-Add test-points to test suite with sections
+
+## addTestPointsWithSections
+
+> addTestPointsWithSections(id, workItemSelectModel)
+
+Add test-points to TestPlan with sections
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-UUID testPlanId = new UUID(); // UUID | Test suite internal identifier
-WorkItemSelectModel body = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
-try {
-    apiInstance.addTestPointsWithSections(testPlanId, body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#addTestPointsWithSections");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
+        try {
+            apiInstance.addTestPointsWithSections(id, workItemSelectModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#addTestPointsWithSections");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | [**UUID**](.md)| Test suite internal identifier |
- **body** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#x27;s project | [optional]
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -68,51 +95,77 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="addWorkItemsWithSections"></a>
-# **addWorkItemsWithSections**
-> addWorkItemsWithSections(testPlanId, body)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **403** | Update permission for test plan is required |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Shared steps cannot be added to test suite |  -  |
+| **404** | Test suite with provided ID was not found |  -  |
+
+
+## addWorkItemsWithSections
+
+> addWorkItemsWithSections(id, UUID)
 
 Add WorkItems to TestPlan with Sections as TestSuites
 
-&lt;br&gt;Use case  &lt;br&gt;User sets TestPlan identifier  &lt;br&gt;User sets WorkItem identifiers (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System added WorkItems and Sections to TestPlan  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets TestPlan identifier
+<br>User sets WorkItem identifiers (listed in request example)
+<br>User runs method execution
+<br>System added WorkItems and Sections to TestPlan
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-UUID testPlanId = new UUID(); // UUID | Test plan internal (guid format) or global (int  format) identifier
-List<UUID> body = Arrays.asList(new UUID()); // List<UUID> | 
-try {
-    apiInstance.addWorkItemsWithSections(testPlanId, body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#addWorkItemsWithSections");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+        try {
+            apiInstance.addWorkItemsWithSections(id, UUID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#addWorkItemsWithSections");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | [**UUID**](.md)| Test plan internal (guid format) or global (int  format) identifier |
- **body** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
 
 ### Return type
 
@@ -124,50 +177,1257 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="clone"></a>
-# **clone**
-> TestPlanModel clone(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist |  -  |
+| **204** | Successful operation |  -  |
+| **422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
+| **400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for TestPlan required |  -  |
+
+
+## apiV2TestPlansIdAnalyticsGet
+
+> TestPointAnalyticResult apiV2TestPlansIdAnalyticsGet(id)
+
+Get analytics by TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System returns analytics by test plan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            TestPointAnalyticResult result = apiInstance.apiV2TestPlansIdAnalyticsGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdAnalyticsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+
+### Return type
+
+[**TestPointAnalyticResult**](TestPointAnalyticResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Can&#39;t find a Project with id |  -  |
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## apiV2TestPlansIdAutobalancePost
+
+> TestPlanWithTestSuiteTreeModel apiV2TestPlansIdAutobalancePost(id, testers)
+
+Auto-balance for TestPlan with testers
+
+<br>Use case
+<br>User sets TestPlan identifier
+<br>User sets testers identifiers (listed in request example)
+<br>User runs method execution
+<br>System auto-balances TestPlan
+<br>System returns test plan model (listed in response example)
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Set<UUID> testers = Arrays.asList(); // Set<UUID> | List of testers internal identifiers
+        try {
+            TestPlanWithTestSuiteTreeModel result = apiInstance.apiV2TestPlansIdAutobalancePost(id, testers);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdAutobalancePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **testers** | **List&lt;UUID&gt;**| List of testers internal identifiers | [optional] |
+
+### Return type
+
+[**TestPlanWithTestSuiteTreeModel**](TestPlanWithTestSuiteTreeModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Test suite with provided ID was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan is required |  -  |
+
+
+## apiV2TestPlansIdConfigurationsGet
+
+> List&lt;ConfigurationModel&gt; apiV2TestPlansIdConfigurationsGet(id)
+
+Get TestPlan configurations
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System return test plan configurations
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            List<ConfigurationModel> result = apiInstance.apiV2TestPlansIdConfigurationsGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdConfigurationsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+
+### Return type
+
+[**List&lt;ConfigurationModel&gt;**](ConfigurationModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | TestPlan not found |  -  |
+| **403** | Read permission for test plan required |  -  |
+
+
+## apiV2TestPlansIdExportTestPointsXlsxPost
+
+> File apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel)
+
+Export TestPoints from TestPlan in xls format
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets filter model (listed in request example)
+<br>User runs method execution
+<br>System return export xlsx file
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Long timeZoneOffsetInMinutes = 56L; // Long | 
+        GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel = new GetXlsxTestPointsByTestPlanModel(); // GetXlsxTestPointsByTestPlanModel | 
+        try {
+            File result = apiInstance.apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdExportTestPointsXlsxPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+| **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md)|  | [optional] |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/octet-stream, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | TestPlan not found |  -  |
+| **403** | Read permission for test plan required |  -  |
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## apiV2TestPlansIdExportTestResultHistoryXlsxPost
+
+> File apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes)
+
+Export TestResults history from TestPlan in xls format
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets filter model (listed in request example)
+<br>User runs method execution
+<br>System return export xlsx file
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Boolean mustReturnOnlyLastTestResult = true; // Boolean | 
+        Boolean includeSteps = true; // Boolean | 
+        Boolean includeDeletedTestSuites = true; // Boolean | 
+        Long timeZoneOffsetInMinutes = 56L; // Long | 
+        try {
+            File result = apiInstance.apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdExportTestResultHistoryXlsxPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **mustReturnOnlyLastTestResult** | **Boolean**|  | [optional] |
+| **includeSteps** | **Boolean**|  | [optional] |
+| **includeDeletedTestSuites** | **Boolean**|  | [optional] |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | TestPlan not found |  -  |
+| **403** | Read permission for test plan required |  -  |
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## apiV2TestPlansIdHistoryGet
+
+> List&lt;TestPlanChangeModel&gt; apiV2TestPlansIdHistoryGet(id, skip, take, orderBy, searchField, searchValue)
+
+Get TestPlan history
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System return test plan history
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<TestPlanChangeModel> result = apiInstance.apiV2TestPlansIdHistoryGet(id, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdHistoryGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+
+### Return type
+
+[**List&lt;TestPlanChangeModel&gt;**](TestPlanChangeModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | TestPlan not found |  -  |
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan required |  -  |
+
+
+## apiV2TestPlansIdLinksGet
+
+> List&lt;TestPlanLink&gt; apiV2TestPlansIdLinksGet(id, skip, take, orderBy)
+
+Get Links of TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets pagination filter (listed in request example)
+<br>User runs method execution
+<br>System returns links of TestPlan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Integer skip = 56; // Integer | 
+        Integer take = 56; // Integer | 
+        String orderBy = "orderBy_example"; // String | 
+        try {
+            List<TestPlanLink> result = apiInstance.apiV2TestPlansIdLinksGet(id, skip, take, orderBy);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdLinksGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **skip** | **Integer**|  | [optional] |
+| **take** | **Integer**|  | [optional] |
+| **orderBy** | **String**|  | [optional] |
+
+### Return type
+
+[**List&lt;TestPlanLink&gt;**](TestPlanLink.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan is required |  -  |
+| **200** | Successful operation |  -  |
+
+
+## apiV2TestPlansIdTestPointsLastResultsGet
+
+> List&lt;TestPointWithLastResultModel&gt; apiV2TestPlansIdTestPointsLastResultsGet(id, mustAddGroupingElements, testerId, skip, take, orderBy, searchField, searchValue)
+
+Get TestPoints with last result from TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets filter (listed in request example)
+<br>User runs method execution
+<br>System return test points with last result from test plan
+
+### Example
+
+```java
+import java.util.UUID;
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Boolean mustAddGroupingElements = true; // Boolean | 
+        UUID testerId = UUID.randomUUID(); // UUID | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<TestPointWithLastResultModel> result = apiInstance.apiV2TestPlansIdTestPointsLastResultsGet(id, mustAddGroupingElements, testerId, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsLastResultsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **mustAddGroupingElements** | **Boolean**|  | [optional] |
+| **testerId** | **UUID**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+
+### Return type
+
+[**List&lt;TestPointWithLastResultModel&gt;**](TestPointWithLastResultModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan required |  -  |
+| **404** | TestPlan not found |  -  |
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+
+## apiV2TestPlansIdTestPointsResetPost
+
+> apiV2TestPlansIdTestPointsResetPost(id, UUID)
+
+Reset TestPoints status of TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets test points identifiers
+<br>User runs method execution
+<br>System reset test points statuses of test plan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+        try {
+            apiInstance.apiV2TestPlansIdTestPointsResetPost(id, UUID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsResetPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **422** | Client Error |  -  |
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## apiV2TestPlansIdTestRunsGet
+
+> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue)
+
+Get TestRuns of TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets TestRun status filter (listed in request example)
+<br>User runs method execution
+<br>System returns TestRuns for TestPlan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Boolean notStarted = true; // Boolean | 
+        Boolean inProgress = true; // Boolean | 
+        Boolean stopped = true; // Boolean | 
+        Boolean completed = true; // Boolean | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **notStarted** | **Boolean**|  | [optional] |
+| **inProgress** | **Boolean**|  | [optional] |
+| **stopped** | **Boolean**|  | [optional] |
+| **completed** | **Boolean**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+
+### Return type
+
+[**List&lt;TestRunModel&gt;**](TestRunModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Read permission for test plan is required |  -  |
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **401** | Unauthorized |  -  |
+
+
+## apiV2TestPlansIdTestRunsSearchPost
+
+> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel)
+
+Search TestRuns of TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User sets TestRuns filter (listed in request example)
+<br>User runs method execution
+<br>System returns TestRuns for TestPlan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        TestRunSearchQueryModel testRunSearchQueryModel = new TestRunSearchQueryModel(); // TestRunSearchQueryModel | 
+        try {
+            List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **testRunSearchQueryModel** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;TestRunModel&gt;**](TestRunModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan is required |  -  |
+
+
+## apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet
+
+> OffsetDateTime apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id)
+
+Get max modified date in TestRun for TestPlan
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System returns max modified date in TestRun for TestPlan
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            OffsetDateTime result = apiInstance.apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+
+### Return type
+
+[**OffsetDateTime**](OffsetDateTime.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan is required |  -  |
+
+
+## apiV2TestPlansIdUnlockRequestPost
+
+> apiV2TestPlansIdUnlockRequestPost(id)
+
+Send unlock TestPlan notification
+
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System send unlock test plan notification
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.apiV2TestPlansIdUnlockRequestPost(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdUnlockRequestPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan required |  -  |
+| **404** | TestPlan not found |  -  |
+
+
+## apiV2TestPlansShortsPost
+
+> List&lt;TestPlanShortModel&gt; apiV2TestPlansShortsPost(isDeleted, UUID)
+
+Get TestPlans short models by Project identifiers
+
+<br>Use case
+<br>User sets projects identifiers
+<br>User runs method execution
+<br>System return test plans short models (listed in response example)
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        Boolean isDeleted = true; // Boolean | 
+        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+        try {
+            List<TestPlanShortModel> result = apiInstance.apiV2TestPlansShortsPost(isDeleted, UUID);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#apiV2TestPlansShortsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **isDeleted** | **Boolean**|  | [optional] |
+| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
+
+### Return type
+
+[**List&lt;TestPlanShortModel&gt;**](TestPlanShortModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project not found |  -  |
+| **200** | Successful operation |  -  |
+| **403** | Read permission for project required |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## clone
+
+> TestPlanModel clone(id)
 
 Clone TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System clones test plan  &lt;br&gt;System returns test plan (listed in response example)
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System clones test plan
+<br>System returns test plan (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    TestPlanModel result = apiInstance.clone(testPlanId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#clone");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            TestPlanModel result = apiInstance.clone(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#clone");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -179,49 +1439,74 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="complete"></a>
-# **complete**
-> complete(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+
+
+## complete
+
+> complete(id)
 
 Complete TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes the test plan and updates test plan status  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System completes the test plan and updates test plan status
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    apiInstance.complete(testPlanId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#complete");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.complete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#complete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -233,50 +1518,75 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="createTestPlan"></a>
-# **createTestPlan**
-> TestPlanModel createTestPlan(body)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden |  -  |
+
+
+## createTestPlan
+
+> TestPlanModel createTestPlan(testPlanPostModel)
 
 Create TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
+<br>Use case
+<br>User sets test plan properties (listed in request example)
+<br>User runs method execution
+<br>System creates test plan
+<br>System returns test plan (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-TestPlanPostModel body = new TestPlanPostModel(); // TestPlanPostModel | 
-try {
-    TestPlanModel result = apiInstance.createTestPlan(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#createTestPlan");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        TestPlanPostModel testPlanPostModel = new TestPlanPostModel(); // TestPlanPostModel | 
+        try {
+            TestPlanModel result = apiInstance.createTestPlan(testPlanPostModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#createTestPlan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**TestPlanPostModel**](TestPlanPostModel.md)|  | [optional]
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **testPlanPostModel** | [**TestPlanPostModel**](TestPlanPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -288,49 +1598,74 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="deleteTestPlan"></a>
-# **deleteTestPlan**
-> deleteTestPlan(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **409** | TestPlan with the same name already exists! |  -  |
+| **201** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## deleteTestPlan
+
+> deleteTestPlan(id)
 
 Delete TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete test plan  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System delete test plan
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    apiInstance.deleteTestPlan(testPlanId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#deleteTestPlan");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.deleteTestPlan(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#deleteTestPlan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -342,50 +1677,74 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTestPlanById"></a>
-# **getTestPlanById**
-> TestPlanModel getTestPlanById(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Delete permission for test plan required |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+
+
+## getTestPlanById
+
+> TestPlanModel getTestPlanById(id)
 
 Get TestPlan by Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search  test plan by the identifier  &lt;br&gt;System returns test plan
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System search  test plan by the identifier
+<br>System returns test plan
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    TestPlanModel result = apiInstance.getTestPlanById(testPlanId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#getTestPlanById");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            TestPlanModel result = apiInstance.getTestPlanById(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#getTestPlanById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -397,50 +1756,74 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTestSuitesById"></a>
-# **getTestSuitesById**
-> List&lt;TestSuiteV2TreeModel&gt; getTestSuitesById(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan required |  -  |
+| **404** | Can&#39;t find a Project with id |  -  |
+| **200** | Successful operation |  -  |
+
+
+## getTestSuitesById
+
+> List&lt;TestSuiteV2TreeModel&gt; getTestSuitesById(id)
 
 Get TestSuites Tree By Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test suites related to the test plan  &lt;br&gt;System returns test suites as a tree model (listed in response example)
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System finds test suites related to the test plan
+<br>System returns test suites as a tree model (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    List<TestSuiteV2TreeModel> result = apiInstance.getTestSuitesById(testPlanId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#getTestSuitesById");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            List<TestSuiteV2TreeModel> result = apiInstance.getTestSuitesById(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#getTestSuitesById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -452,49 +1835,73 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="pause"></a>
-# **pause**
-> pause(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Can&#39;t find a TestRun with id! |  -  |
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test plan required |  -  |
+
+
+## pause
+
+> pause(id)
 
 Pause TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System pauses the test plan and updates test plan status  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System pauses the test plan and updates test plan status
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    apiInstance.pause(testPlanId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#pause");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.pause(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#pause");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -506,49 +1913,74 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="restoreTestPlan"></a>
-# **restoreTestPlan**
-> restoreTestPlan(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Change status from New to Paused forbidden  &lt;br&gt;Change status from Paused to Paused forbidden  &lt;br&gt;Change status from Completed to Paused forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+
+
+## restoreTestPlan
+
+> restoreTestPlan(id)
 
 Restore TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System restores test plan  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System restores test plan
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    apiInstance.restoreTestPlan(testPlanId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#restoreTestPlan");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.restoreTestPlan(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#restoreTestPlan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -560,49 +1992,73 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="start"></a>
-# **start**
-> start(testPlanId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for test plan required |  -  |
+| **204** | Successful operation |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## start
+
+> start(id)
 
 Start TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts the test plan and updates test plan status  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan identifier
+<br>User runs method execution
+<br>System starts the test plan and updates test plan status
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-String testPlanId = "testPlanId_example"; // String | Test plan internal (guid format) or global (int  format) identifier
-try {
-    apiInstance.start(testPlanId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#start");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
+        try {
+            apiInstance.start(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#start");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testPlanId** | **String**| Test plan internal (guid format) or global (int  format) identifier |
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -614,49 +2070,73 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="updateTestPlan"></a>
-# **updateTestPlan**
-> updateTestPlan(body)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## updateTestPlan
+
+> updateTestPlan(testPlanPutModel)
 
 Update TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets test plan properties(listed in request example)
+<br>User runs method execution
+<br>System updates test plan
+<br>System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
-//import ru.testit.invoker.ApiClient;
-//import ru.testit.invoker.ApiException;
-//import ru.testit.invoker.Configuration;
-//import ru.testit.invoker.auth.*;
-//import ru.testit.client.TestPlansApi;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestPlansApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-TestPlansApi apiInstance = new TestPlansApi();
-TestPlanPutModel body = new TestPlanPutModel(); // TestPlanPutModel | 
-try {
-    apiInstance.updateTestPlan(body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TestPlansApi#updateTestPlan");
-    e.printStackTrace();
+        TestPlansApi apiInstance = new TestPlansApi(defaultClient);
+        TestPlanPutModel testPlanPutModel = new TestPlanPutModel(); // TestPlanPutModel | 
+        try {
+            apiInstance.updateTestPlan(testPlanPutModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestPlansApi#updateTestPlan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**TestPlanPutModel**](TestPlanPutModel.md)|  | [optional]
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **testPlanPutModel** | [**TestPlanPutModel**](TestPlanPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -668,6 +2148,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for test plan required |  -  |
+| **422** | Can&#39;t change ProjectId |  -  |
+| **409** | TestPlan with the same name already exists! |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
+| **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Can&#39;t find a TestPlan with id! |  -  |
 
