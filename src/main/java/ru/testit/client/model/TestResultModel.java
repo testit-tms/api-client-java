@@ -152,7 +152,7 @@ public class TestResultModel {
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -940,7 +940,7 @@ public class TestResultModel {
 
 
   public TestResultModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -950,26 +950,18 @@ public class TestResultModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -1399,7 +1391,7 @@ public class TestResultModel {
         equalsNullable(this.parameters, testResultModel.parameters) &&
         equalsNullable(this.properties, testResultModel.properties) &&
         Objects.equals(this.id, testResultModel.id) &&
-        equalsNullable(this.createdDate, testResultModel.createdDate) &&
+        Objects.equals(this.createdDate, testResultModel.createdDate) &&
         equalsNullable(this.modifiedDate, testResultModel.modifiedDate) &&
         Objects.equals(this.createdById, testResultModel.createdById) &&
         equalsNullable(this.modifiedById, testResultModel.modifiedById) &&
@@ -1418,7 +1410,7 @@ public class TestResultModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(autoTestId), configurationId, hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(durationInMs), hashCodeNullable(traces), hashCodeNullable(failureType), hashCodeNullable(message), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), testPointId, testRunId, testPoint, autoTest, hashCodeNullable(autoTestStepResults), hashCodeNullable(setupResults), hashCodeNullable(teardownResults), workItemVersionId, hashCodeNullable(workItemVersionNumber), hashCodeNullable(parameters), hashCodeNullable(properties), id, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(stepComments), hashCodeNullable(failureClassIds), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(stepResults), hashCodeNullable(attachments));
+    return Objects.hash(hashCodeNullable(autoTestId), configurationId, hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(durationInMs), hashCodeNullable(traces), hashCodeNullable(failureType), hashCodeNullable(message), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), testPointId, testRunId, testPoint, autoTest, hashCodeNullable(autoTestStepResults), hashCodeNullable(setupResults), hashCodeNullable(teardownResults), workItemVersionId, hashCodeNullable(workItemVersionNumber), hashCodeNullable(parameters), hashCodeNullable(properties), id, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(stepComments), hashCodeNullable(failureClassIds), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(stepResults), hashCodeNullable(attachments));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

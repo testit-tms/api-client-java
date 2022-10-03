@@ -65,11 +65,11 @@ public class CustomAttributeOptionModel {
   }
 
    /**
-   * Get id
+   * Unique ID of attribute option
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(value = "Unique ID of attribute option")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +91,11 @@ public class CustomAttributeOptionModel {
   }
 
    /**
-   * Get isDeleted
+   * Indicates whether the options is deleted
    * @return isDeleted
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the options is deleted")
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +117,11 @@ public class CustomAttributeOptionModel {
   }
 
    /**
-   * Get value
+   * Value of attribute option
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "5 hours", value = "")
+  @ApiModelProperty(value = "Value of attribute option")
   @JsonIgnore
 
   public String getValue() {
@@ -151,11 +151,11 @@ public class CustomAttributeOptionModel {
   }
 
    /**
-   * Get isDefault
+   * Indicates whether the option is used by default
    * @return isDefault
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(value = "Indicates whether the option is used by default")
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

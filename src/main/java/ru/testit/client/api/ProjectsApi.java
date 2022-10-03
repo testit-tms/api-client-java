@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 
 import ru.testit.client.model.AutoTestNamespaceModel;
 import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.CustomAttributePostModel;
 import ru.testit.client.model.CustomAttributePutModel;
@@ -26,7 +27,9 @@ import ru.testit.client.model.ProjectPostModel;
 import ru.testit.client.model.ProjectPutModel;
 import ru.testit.client.model.ProjectSelectModel;
 import ru.testit.client.model.PublicTestRunModel;
+import ru.testit.client.model.SearchAttributesInProjectQueryModel;
 import ru.testit.client.model.SectionModel;
+import java.util.Set;
 import ru.testit.client.model.TagShortModel;
 import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestPlanSearchQueryModel;
@@ -73,6 +76,86 @@ public class ProjectsApi {
   }
 
   /**
+   * Add global attributes to project
+   * &lt;br&gt;Use case  &lt;br&gt;User sets parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns ok response
+   * @param id Project internal (UUID) or global (integer) identifier (required)
+   * @param UUID  (optional)
+   * @return CustomAttributeModel
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public CustomAttributeModel addGlobaAttributesToProject(String id, Set<UUID> UUID) throws ApiException {
+    return addGlobaAttributesToProjectWithHttpInfo(id, UUID).getData();
+  }
+
+  /**
+   * Add global attributes to project
+   * &lt;br&gt;Use case  &lt;br&gt;User sets parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns ok response
+   * @param id Project internal (UUID) or global (integer) identifier (required)
+   * @param UUID  (optional)
+   * @return ApiResponse&lt;CustomAttributeModel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<CustomAttributeModel> addGlobaAttributesToProjectWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
+    Object localVarPostBody = UUID;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling addGlobaAttributesToProject");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/projects/{id}/globalAttributes"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+
+    GenericType<CustomAttributeModel> localVarReturnType = new GenericType<CustomAttributeModel>() {};
+
+    return apiClient.invokeAPI("ProjectsApi.addGlobaAttributesToProject", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Delete CustomAttributeTemplate from Project
    * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
    * @param id Project internal (UUID) or global (integer) identifier (required)
@@ -81,8 +164,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
@@ -101,8 +184,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
@@ -240,8 +323,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<FailureClassModel> apiV2ProjectsIdFailureClassesGet(String id, Boolean isDeleted) throws ApiException {
@@ -258,8 +341,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<FailureClassModel>> apiV2ProjectsIdFailureClassesGetWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -311,10 +394,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public void apiV2ProjectsIdFavoritePut(String id) throws ApiException {
@@ -330,10 +413,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> apiV2ProjectsIdFavoritePutWithHttpInfo(String id) throws ApiException {
@@ -383,8 +466,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<FilterModel> apiV2ProjectsIdFiltersGet(String id) throws ApiException {
@@ -400,8 +483,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<FilterModel>> apiV2ProjectsIdFiltersGetWithHttpInfo(String id) throws ApiException {
@@ -635,9 +718,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public List<PublicTestRunModel> apiV2ProjectsIdTestRunsActiveGet(String id) throws ApiException {
@@ -654,9 +737,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<PublicTestRunModel>> apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(String id) throws ApiException {
@@ -968,11 +1051,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public void callImport(Boolean includeAttachments, File _file) throws ApiException {
@@ -989,11 +1072,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> callImportWithHttpInfo(Boolean includeAttachments, File _file) throws ApiException {
@@ -1040,11 +1123,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
    */
-  public void createCustomAttributeTestPlanProjectRelations(String id, List<UUID> UUID) throws ApiException {
+  public void createCustomAttributeTestPlanProjectRelations(String id, Set<UUID> UUID) throws ApiException {
     createCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, UUID);
   }
 
@@ -1058,11 +1142,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, List<UUID> UUID) throws ApiException {
+  public ApiResponse<Void> createCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
     Object localVarPostBody = UUID;
     
     // verify the required parameter 'id' is set
@@ -1109,11 +1194,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
    */
   public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
@@ -1129,11 +1214,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
@@ -1180,12 +1265,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
    */
   public CustomAttributeModel createProjectsAttribute(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
@@ -1202,12 +1287,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
@@ -1327,16 +1412,15 @@ public class ProjectsApi {
   }
   /**
    * Delete project
-   * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
+   * &lt;br&gt;Use case:  &lt;br&gt;1. User sets project internal or global identifier and runs method execution  &lt;br&gt;2. System searches and moves requested project to archive  &lt;br&gt;3. System responds with no content (204) result
    * @param id Project internal (UUID) or global (integer) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
    */
   public void deleteProject(String id) throws ApiException {
@@ -1345,7 +1429,7 @@ public class ProjectsApi {
 
   /**
    * Delete project
-   * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
+   * &lt;br&gt;Use case:  &lt;br&gt;1. User sets project internal or global identifier and runs method execution  &lt;br&gt;2. System searches and moves requested project to archive  &lt;br&gt;3. System responds with no content (204) result
    * @param id Project internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1353,9 +1437,8 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteProjectWithHttpInfo(String id) throws ApiException {
@@ -1404,9 +1487,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Delete permission for AutoTest required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Delete permission for AutoTest required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public void deleteProjectAutoTests(String id) throws ApiException {
@@ -1422,9 +1505,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Delete permission for AutoTest required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Delete permission for AutoTest required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteProjectAutoTestsWithHttpInfo(String id) throws ApiException {
@@ -1474,10 +1557,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public void deleteProjectsAttribute(String id, UUID attributeId) throws ApiException {
@@ -1494,10 +1577,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteProjectsAttributeWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -1556,9 +1639,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public File export(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -1577,9 +1660,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> exportWithHttpInfo(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -1634,10 +1717,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -1655,10 +1738,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -1717,10 +1800,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public List<ProjectModel> getAllProjects(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
     return getAllProjectsWithHttpInfo(isDeleted, projectName, skip, take, orderBy, searchField, searchValue).getData();
   }
@@ -1740,10 +1825,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<ProjectModel>> getAllProjectsWithHttpInfo(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
     Object localVarPostBody = null;
     
@@ -1795,10 +1882,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
    */
   public CustomAttributeModel getAttributeByProjectId(String id, UUID attributeId) throws ApiException {
@@ -1815,10 +1902,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CustomAttributeModel> getAttributeByProjectIdWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -1877,10 +1964,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<CustomAttributeModel> getAttributesByProjectId(String id, Boolean isDeleted) throws ApiException {
@@ -1897,10 +1984,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<CustomAttributeModel>> getAttributesByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -1953,8 +2040,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
@@ -1971,8 +2058,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
@@ -2025,10 +2112,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public List<ConfigurationModel> getConfigurationsByProjectId(String id) throws ApiException {
@@ -2044,10 +2131,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<ConfigurationModel>> getConfigurationsByProjectIdWithHttpInfo(String id) throws ApiException {
@@ -2099,8 +2186,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<CustomAttributeModel> getCustomAttributeTestPlanProjectRelations(String id) throws ApiException {
@@ -2116,8 +2203,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<CustomAttributeModel>> getCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id) throws ApiException {
@@ -2169,8 +2256,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
@@ -2188,8 +2275,8 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
@@ -2248,10 +2335,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public List<SectionModel> getSectionsByProjectId(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2272,10 +2359,10 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<SectionModel>> getSectionsByProjectIdWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2333,9 +2420,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public List<TestPlanModel> getTestPlansByProjectId(String id, Boolean isDeleted) throws ApiException {
@@ -2352,9 +2439,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -2419,9 +2506,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public List<TestRunV2GetModel> getTestRunsByProjectId(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2449,9 +2536,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public ApiResponse<List<TestRunV2GetModel>> getTestRunsByProjectIdWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2523,9 +2610,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
@@ -2550,9 +2637,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
@@ -2614,11 +2701,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
    */
   public void importToExistingProject(String id, Boolean includeAttachments, File _file) throws ApiException {
@@ -2636,11 +2723,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> importToExistingProjectWithHttpInfo(String id, Boolean includeAttachments, File _file) throws ApiException {
@@ -2692,9 +2779,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public void restoreProject(String id) throws ApiException {
@@ -2710,9 +2797,9 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> restoreProjectWithHttpInfo(String id) throws ApiException {
@@ -2752,6 +2839,188 @@ public class ProjectsApi {
     return apiClient.invokeAPI("ProjectsApi.restoreProject", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param searchAttributesInProjectQueryModel  (optional)
+   * @return List&lt;CustomAttributeGetModel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+   */
+  public List<CustomAttributeGetModel> searchAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectQueryModel searchAttributesInProjectQueryModel) throws ApiException {
+    return searchAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectQueryModel).getData();
+  }
+
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param searchAttributesInProjectQueryModel  (optional)
+   * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectQueryModel searchAttributesInProjectQueryModel) throws ApiException {
+    Object localVarPostBody = searchAttributesInProjectQueryModel;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling searchAttributesInProject");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/projects/{id}/attributes/search"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Skip", skip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+
+    GenericType<List<CustomAttributeGetModel>> localVarReturnType = new GenericType<List<CustomAttributeGetModel>>() {};
+
+    return apiClient.invokeAPI("ProjectsApi.searchAttributesInProject", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param searchAttributesInProjectQueryModel  (optional)
+   * @return List&lt;CustomAttributeGetModel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+   */
+  public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectQueryModel searchAttributesInProjectQueryModel) throws ApiException {
+    return searchTestPlanAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectQueryModel).getData();
+  }
+
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param searchAttributesInProjectQueryModel  (optional)
+   * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectQueryModel searchAttributesInProjectQueryModel) throws ApiException {
+    Object localVarPostBody = searchAttributesInProjectQueryModel;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling searchTestPlanAttributesInProject");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/projects/{id}/testPlans/attributes/search"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Skip", skip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+
+    GenericType<List<CustomAttributeGetModel>> localVarReturnType = new GenericType<List<CustomAttributeGetModel>>() {};
+
+    return apiClient.invokeAPI("ProjectsApi.searchTestPlanAttributesInProject", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Update attribute of project&#39;s test plans
@@ -2830,11 +3099,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
    */
   public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
@@ -2850,11 +3119,11 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
@@ -2898,12 +3167,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
      </table>
    */
   public void updateProjectsAttribute(String id, CustomAttributePutModel customAttributePutModel) throws ApiException {
@@ -2920,12 +3189,12 @@ public class ProjectsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String id, CustomAttributePutModel customAttributePutModel) throws ApiException {

@@ -51,7 +51,7 @@ public class ProjectShortestModel {
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
-  private JsonNullable<Long> globalId = JsonNullable.<Long>undefined();
+  private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -65,11 +65,11 @@ public class ProjectShortestModel {
   }
 
    /**
-   * Get id
+   * Unique ID of project
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique ID of project")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +91,11 @@ public class ProjectShortestModel {
   }
 
    /**
-   * Get isDeleted
+   * Indicates whether the project is deleted
    * @return isDeleted
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the project is deleted")
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,36 +112,28 @@ public class ProjectShortestModel {
 
 
   public ProjectShortestModel globalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
     return this;
   }
 
    /**
-   * Get globalId
+   * Global ID of project
    * @return globalId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Long getGlobalId() {
-        return globalId.orElse(null);
-  }
-
+  @ApiModelProperty(value = "Global ID of project")
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getGlobalId_JsonNullable() {
+  public Long getGlobalId() {
     return globalId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  public void setGlobalId_JsonNullable(JsonNullable<Long> globalId) {
-    this.globalId = globalId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
   }
 
 
@@ -151,11 +143,11 @@ public class ProjectShortestModel {
   }
 
    /**
-   * Get name
+   * Name of project
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of project")
   @JsonIgnore
 
   public String getName() {
@@ -193,7 +185,7 @@ public class ProjectShortestModel {
     ProjectShortestModel projectShortestModel = (ProjectShortestModel) o;
     return Objects.equals(this.id, projectShortestModel.id) &&
         Objects.equals(this.isDeleted, projectShortestModel.isDeleted) &&
-        equalsNullable(this.globalId, projectShortestModel.globalId) &&
+        Objects.equals(this.globalId, projectShortestModel.globalId) &&
         equalsNullable(this.name, projectShortestModel.name);
   }
 
@@ -203,7 +195,7 @@ public class ProjectShortestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isDeleted, hashCodeNullable(globalId), hashCodeNullable(name));
+    return Objects.hash(id, isDeleted, globalId, hashCodeNullable(name));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

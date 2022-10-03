@@ -136,7 +136,7 @@ public class WorkItemShortModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -162,7 +162,7 @@ public class WorkItemShortModel {
    * @return versionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "used for versioning changes in workitem")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "used for versioning changes in workitem")
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -240,7 +240,7 @@ public class WorkItemShortModel {
    * @return projectId
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", required = true, value = "This property is used to link autotest with project")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "This property is used to link autotest with project")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -266,7 +266,7 @@ public class WorkItemShortModel {
    * @return sectionId
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", required = true, value = "This property links workitem with section")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "This property links workitem with section")
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -416,7 +416,7 @@ public class WorkItemShortModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -442,7 +442,7 @@ public class WorkItemShortModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -476,7 +476,7 @@ public class WorkItemShortModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getCreatedDate() {
@@ -510,7 +510,7 @@ public class WorkItemShortModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {

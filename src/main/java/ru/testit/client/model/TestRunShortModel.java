@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestRunStateTypeModel;
+import ru.testit.client.model.TestRunState;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -49,7 +49,7 @@ import ru.testit.client.invoker.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunShortModel {
   public static final String JSON_PROPERTY_STATE_NAME = "stateName";
-  private TestRunStateTypeModel stateName;
+  private TestRunState stateName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
@@ -72,7 +72,7 @@ public class TestRunShortModel {
   public TestRunShortModel() { 
   }
 
-  public TestRunShortModel stateName(TestRunStateTypeModel stateName) {
+  public TestRunShortModel stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -86,14 +86,14 @@ public class TestRunShortModel {
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TestRunStateTypeModel getStateName() {
+  public TestRunState getStateName() {
     return stateName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateName(TestRunStateTypeModel stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
@@ -108,7 +108,7 @@ public class TestRunShortModel {
    * @return projectId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +134,7 @@ public class TestRunShortModel {
    * @return testPlanId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getTestPlanId() {
@@ -236,7 +236,7 @@ public class TestRunShortModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

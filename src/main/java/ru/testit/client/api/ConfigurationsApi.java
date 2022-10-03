@@ -62,8 +62,8 @@ public class ConfigurationsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
      </table>
    */
   public List<UUID> apiV2ConfigurationsCreateByParametersPost(ConfigurationByParametersModel configurationByParametersModel) throws ApiException {
@@ -80,8 +80,8 @@ public class ConfigurationsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<UUID>> apiV2ConfigurationsCreateByParametersPostWithHttpInfo(ConfigurationByParametersModel configurationByParametersModel) throws ApiException {
@@ -204,12 +204,12 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
    */
   public ConfigurationModel createConfiguration(ConfigurationPostModel configurationPostModel) throws ApiException {
@@ -225,12 +225,12 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ConfigurationModel> createConfigurationWithHttpInfo(ConfigurationPostModel configurationPostModel) throws ApiException {
@@ -276,9 +276,9 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
      </table>
    */
@@ -295,9 +295,9 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
      </table>
    */
@@ -349,13 +349,13 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
      </table>
    */
   public void updateConfiguration(ConfigurationPutModel configurationPutModel) throws ApiException {
@@ -371,13 +371,13 @@ public class ConfigurationsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;- Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;- Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateConfigurationWithHttpInfo(ConfigurationPutModel configurationPutModel) throws ApiException {

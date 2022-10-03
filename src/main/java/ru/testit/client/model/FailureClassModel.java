@@ -61,7 +61,7 @@ public class FailureClassModel {
   private FailureCategoryModel failureCategory;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -145,7 +145,7 @@ public class FailureClassModel {
 
 
   public FailureClassModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -155,26 +155,18 @@ public class FailureClassModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -328,7 +320,7 @@ public class FailureClassModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -384,7 +376,7 @@ public class FailureClassModel {
     FailureClassModel failureClassModel = (FailureClassModel) o;
     return equalsNullable(this.name, failureClassModel.name) &&
         Objects.equals(this.failureCategory, failureClassModel.failureCategory) &&
-        equalsNullable(this.createdDate, failureClassModel.createdDate) &&
+        Objects.equals(this.createdDate, failureClassModel.createdDate) &&
         equalsNullable(this.modifiedDate, failureClassModel.modifiedDate) &&
         Objects.equals(this.createdById, failureClassModel.createdById) &&
         equalsNullable(this.modifiedById, failureClassModel.modifiedById) &&
@@ -399,7 +391,7 @@ public class FailureClassModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), failureCategory, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(failureClassRegexes), id, isDeleted);
+    return Objects.hash(hashCodeNullable(name), failureCategory, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(failureClassRegexes), id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

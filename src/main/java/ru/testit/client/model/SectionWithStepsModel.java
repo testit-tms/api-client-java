@@ -74,7 +74,7 @@ public class SectionWithStepsModel {
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -193,7 +193,7 @@ public class SectionWithStepsModel {
    * @return projectId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getProjectId() {
@@ -227,7 +227,7 @@ public class SectionWithStepsModel {
    * @return parentId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getParentId() {
@@ -287,7 +287,7 @@ public class SectionWithStepsModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -304,7 +304,7 @@ public class SectionWithStepsModel {
 
 
   public SectionWithStepsModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -313,27 +313,19 @@ public class SectionWithStepsModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -347,7 +339,7 @@ public class SectionWithStepsModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -381,7 +373,7 @@ public class SectionWithStepsModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -407,7 +399,7 @@ public class SectionWithStepsModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -475,7 +467,7 @@ public class SectionWithStepsModel {
         equalsNullable(this.parentId, sectionWithStepsModel.parentId) &&
         Objects.equals(this.isDeleted, sectionWithStepsModel.isDeleted) &&
         Objects.equals(this.id, sectionWithStepsModel.id) &&
-        equalsNullable(this.createdDate, sectionWithStepsModel.createdDate) &&
+        Objects.equals(this.createdDate, sectionWithStepsModel.createdDate) &&
         equalsNullable(this.modifiedDate, sectionWithStepsModel.modifiedDate) &&
         Objects.equals(this.createdById, sectionWithStepsModel.createdById) &&
         equalsNullable(this.modifiedById, sectionWithStepsModel.modifiedById) &&
@@ -488,7 +480,7 @@ public class SectionWithStepsModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(preconditionSteps), hashCodeNullable(postconditionSteps), hashCodeNullable(projectId), hashCodeNullable(parentId), isDeleted, id, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), name);
+    return Objects.hash(hashCodeNullable(preconditionSteps), hashCodeNullable(postconditionSteps), hashCodeNullable(projectId), hashCodeNullable(parentId), isDeleted, id, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

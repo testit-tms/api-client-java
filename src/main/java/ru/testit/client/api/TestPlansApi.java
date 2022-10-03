@@ -24,6 +24,7 @@ import ru.testit.client.model.TestPlanWithTestSuiteTreeModel;
 import ru.testit.client.model.TestPointAnalyticResult;
 import ru.testit.client.model.TestPointWithLastResultModel;
 import ru.testit.client.model.TestRunModel;
+import ru.testit.client.model.TestRunSearchQueryModel;
 import ru.testit.client.model.TestSuiteV2TreeModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -65,19 +66,19 @@ public class TestPlansApi {
   }
 
   /**
-   * Add test-points to test suite with sections
+   * Add test-points to TestPlan with sections
    * 
-   * @param id Test suite internal identifier (required)
+   * @param id Test plan internal (guid format) or global (int  format) identifier (required)
    * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public void addTestPointsWithSections(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -85,9 +86,9 @@ public class TestPlansApi {
   }
 
   /**
-   * Add test-points to test suite with sections
+   * Add test-points to TestPlan with sections
    * 
-   * @param id Test suite internal identifier (required)
+   * @param id Test plan internal (guid format) or global (int  format) identifier (required)
    * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -95,10 +96,10 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> addTestPointsWithSectionsWithHttpInfo(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -124,7 +125,7 @@ public class TestPlansApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -148,12 +149,12 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
    */
   public void addWorkItemsWithSections(String id, Set<UUID> UUID) throws ApiException {
@@ -170,12 +171,12 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> addWorkItemsWithSectionsWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
@@ -225,9 +226,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
@@ -244,9 +245,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
@@ -381,8 +382,8 @@ public class TestPlansApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
      </table>
    */
   public List<ConfigurationModel> apiV2TestPlansIdConfigurationsGet(String id) throws ApiException {
@@ -401,8 +402,8 @@ public class TestPlansApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<ConfigurationModel>> apiV2TestPlansIdConfigurationsGetWithHttpInfo(String id) throws ApiException {
@@ -456,11 +457,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public File apiV2TestPlansIdExportTestPointsXlsxPost(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
@@ -478,11 +479,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
@@ -540,11 +541,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public File apiV2TestPlansIdExportTestResultHistoryXlsxPost(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
@@ -564,11 +565,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> apiV2TestPlansIdExportTestResultHistoryXlsxPostWithHttpInfo(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
@@ -630,11 +631,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public List<TestPlanChangeModel> apiV2TestPlansIdHistoryGet(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -655,11 +656,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TestPlanChangeModel>> apiV2TestPlansIdHistoryGetWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -719,9 +720,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public List<TestPlanLink> apiV2TestPlansIdLinksGet(String id, Integer skip, Integer take, String orderBy) throws ApiException {
@@ -740,9 +741,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TestPlanLink>> apiV2TestPlansIdLinksGetWithHttpInfo(String id, Integer skip, Integer take, String orderBy) throws ApiException {
@@ -804,11 +805,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public List<TestPointWithLastResultModel> apiV2TestPlansIdTestPointsLastResultsGet(String id, Boolean mustAddGroupingElements, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -831,11 +832,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
   public ApiResponse<List<TestPointWithLastResultModel>> apiV2TestPlansIdTestPointsLastResultsGetWithHttpInfo(String id, Boolean mustAddGroupingElements, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -894,13 +895,13 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
-  public void apiV2TestPlansIdTestPointsResetPost(String id, List<UUID> UUID) throws ApiException {
+  public void apiV2TestPlansIdTestPointsResetPost(String id, Set<UUID> UUID) throws ApiException {
     apiV2TestPlansIdTestPointsResetPostWithHttpInfo(id, UUID);
   }
 
@@ -914,13 +915,13 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> apiV2TestPlansIdTestPointsResetPostWithHttpInfo(String id, List<UUID> UUID) throws ApiException {
+  public ApiResponse<Void> apiV2TestPlansIdTestPointsResetPostWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
     Object localVarPostBody = UUID;
     
     // verify the required parameter 'id' is set
@@ -976,9 +977,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
    */
   public List<TestRunModel> apiV2TestPlansIdTestRunsGet(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1003,9 +1004,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsGetWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1054,6 +1055,95 @@ public class TestPlansApi {
     GenericType<List<TestRunModel>> localVarReturnType = new GenericType<List<TestRunModel>>() {};
 
     return apiClient.invokeAPI("TestPlansApi.apiV2TestPlansIdTestRunsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Search TestRuns of TestPlan
+   * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+   * @param id Test plan internal (guid format) or global (int  format) identifier (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param testRunSearchQueryModel  (optional)
+   * @return List&lt;TestRunModel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+   */
+  public List<TestRunModel> apiV2TestPlansIdTestRunsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
+    return apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel).getData();
+  }
+
+  /**
+   * Search TestRuns of TestPlan
+   * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+   * @param id Test plan internal (guid format) or global (int  format) identifier (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param testRunSearchQueryModel  (optional)
+   * @return ApiResponse&lt;List&lt;TestRunModel&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
+    Object localVarPostBody = testRunSearchQueryModel;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestPlansIdTestRunsSearchPost");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/testPlans/{id}/testRuns/search"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Skip", skip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+
+    GenericType<List<TestRunModel>> localVarReturnType = new GenericType<List<TestRunModel>>() {};
+
+    return apiClient.invokeAPI("TestPlansApi.apiV2TestPlansIdTestRunsSearchPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1137,8 +1227,8 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
@@ -1157,8 +1247,8 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
@@ -1212,9 +1302,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
@@ -1232,9 +1322,9 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
@@ -1282,7 +1372,7 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
@@ -1302,7 +1392,7 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
@@ -1357,11 +1447,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden </td><td>  -  </td></tr>
      </table>
    */
   public void complete(String id) throws ApiException {
@@ -1377,11 +1467,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> completeWithHttpInfo(String id) throws ApiException {
@@ -1431,11 +1521,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public TestPlanModel createTestPlan(TestPlanPostModel testPlanPostModel) throws ApiException {
@@ -1451,11 +1541,11 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<TestPlanModel> createTestPlanWithHttpInfo(TestPlanPostModel testPlanPostModel) throws ApiException {
@@ -1572,10 +1662,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public TestPlanModel getTestPlanById(String id) throws ApiException {
@@ -1591,10 +1681,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<TestPlanModel> getTestPlanByIdWithHttpInfo(String id) throws ApiException {
@@ -1646,10 +1736,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
    */
   public List<TestSuiteV2TreeModel> getTestSuitesById(String id) throws ApiException {
@@ -1665,10 +1755,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<TestSuiteV2TreeModel>> getTestSuitesByIdWithHttpInfo(String id) throws ApiException {
@@ -1792,10 +1882,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public void restoreTestPlan(String id) throws ApiException {
@@ -1811,10 +1901,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> restoreTestPlanWithHttpInfo(String id) throws ApiException {
@@ -1863,10 +1953,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
      </table>
    */
   public void start(String id) throws ApiException {
@@ -1882,10 +1972,10 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> startWithHttpInfo(String id) throws ApiException {
@@ -1934,13 +2024,13 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
      </table>
    */
   public void updateTestPlan(TestPlanPutModel testPlanPutModel) throws ApiException {
@@ -1956,13 +2046,13 @@ public class TestPlansApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateTestPlanWithHttpInfo(TestPlanPutModel testPlanPutModel) throws ApiException {

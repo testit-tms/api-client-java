@@ -1,7 +1,14 @@
+
+
 # ParameterPostModel
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | **String** |  | 
-**name** | **String** |  | 
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**value** | **String** |  |  |
+|**name** | **String** |  |  |
+
+
+

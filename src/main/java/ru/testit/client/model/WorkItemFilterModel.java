@@ -89,7 +89,7 @@ public class WorkItemFilterModel {
   private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JsonNullable<Map<String, List<String>>> attributes = JsonNullable.<Map<String, List<String>>>undefined();
+  private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
@@ -354,14 +354,14 @@ public class WorkItemFilterModel {
   }
 
 
-  public WorkItemFilterModel attributes(Map<String, List<String>> attributes) {
-    this.attributes = JsonNullable.<Map<String, List<String>>>of(attributes);
+  public WorkItemFilterModel attributes(Map<String, Set<String>> attributes) {
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
 
-  public WorkItemFilterModel putAttributesItem(String key, List<String> attributesItem) {
+  public WorkItemFilterModel putAttributesItem(String key, Set<String> attributesItem) {
     if (this.attributes == null || !this.attributes.isPresent()) {
-      this.attributes = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+      this.attributes = JsonNullable.<Map<String, Set<String>>>of(new HashMap<>());
     }
     try {
       this.attributes.get().put(key, attributesItem);
@@ -379,24 +379,24 @@ public class WorkItemFilterModel {
   @ApiModelProperty(value = "Custom attributes of work item")
   @JsonIgnore
 
-  public Map<String, List<String>> getAttributes() {
+  public Map<String, Set<String>> getAttributes() {
         return attributes.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Map<String, List<String>>> getAttributes_JsonNullable() {
+  public JsonNullable<Map<String, Set<String>>> getAttributes_JsonNullable() {
     return attributes;
   }
   
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  public void setAttributes_JsonNullable(JsonNullable<Map<String, List<String>>> attributes) {
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Set<String>>> attributes) {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, List<String>> attributes) {
-    this.attributes = JsonNullable.<Map<String, List<String>>>of(attributes);
+  public void setAttributes(Map<String, Set<String>> attributes) {
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 

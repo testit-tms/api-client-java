@@ -26,7 +26,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentModel;
@@ -66,7 +68,8 @@ import ru.testit.client.invoker.JSON;
   TestResultHistoryReportModel.JSON_PROPERTY_WORK_ITEM_VERSION_ID,
   TestResultHistoryReportModel.JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER,
   TestResultHistoryReportModel.JSON_PROPERTY_LAUNCH_SOURCE,
-  TestResultHistoryReportModel.JSON_PROPERTY_FAILURE_CLASS_IDS
+  TestResultHistoryReportModel.JSON_PROPERTY_FAILURE_CLASS_IDS,
+  TestResultHistoryReportModel.JSON_PROPERTY_PARAMETERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultHistoryReportModel {
@@ -145,6 +148,9 @@ public class TestResultHistoryReportModel {
   public static final String JSON_PROPERTY_FAILURE_CLASS_IDS = "failureClassIds";
   private JsonNullable<List<UUID>> failureClassIds = JsonNullable.<List<UUID>>undefined();
 
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private JsonNullable<Map<String, String>> parameters = JsonNullable.<Map<String, String>>undefined();
+
   public TestResultHistoryReportModel() { 
   }
 
@@ -158,7 +164,7 @@ public class TestResultHistoryReportModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,7 +190,7 @@ public class TestResultHistoryReportModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,7 +216,7 @@ public class TestResultHistoryReportModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,7 +242,7 @@ public class TestResultHistoryReportModel {
    * @return userId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result")
   @JsonProperty(JSON_PROPERTY_USER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,7 +268,7 @@ public class TestResultHistoryReportModel {
    * @return testRunId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getTestRunId() {
@@ -364,7 +370,7 @@ public class TestResultHistoryReportModel {
    * @return testPlanId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getTestPlanId() {
@@ -640,7 +646,7 @@ public class TestResultHistoryReportModel {
    * @return startedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getStartedOn() {
@@ -674,7 +680,7 @@ public class TestResultHistoryReportModel {
    * @return completedOn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getCompletedOn() {
@@ -742,7 +748,7 @@ public class TestResultHistoryReportModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -768,7 +774,7 @@ public class TestResultHistoryReportModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -848,7 +854,7 @@ public class TestResultHistoryReportModel {
    * @return workItemVersionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getWorkItemVersionId() {
@@ -986,6 +992,52 @@ public class TestResultHistoryReportModel {
   }
 
 
+  public TestResultHistoryReportModel parameters(Map<String, String> parameters) {
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
+    return this;
+  }
+
+  public TestResultHistoryReportModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null || !this.parameters.isPresent()) {
+      this.parameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    }
+    try {
+      this.parameters.get().put(key, parametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Map<String, String> getParameters() {
+        return parameters.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getParameters_JsonNullable() {
+    return parameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  public void setParameters_JsonNullable(JsonNullable<Map<String, String>> parameters) {
+    this.parameters = parameters;
+  }
+
+  public void setParameters(Map<String, String> parameters) {
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
+  }
+
+
   /**
    * Return true if this TestResultHistoryReportModel object is equal to o.
    */
@@ -1022,7 +1074,8 @@ public class TestResultHistoryReportModel {
         equalsNullable(this.workItemVersionId, testResultHistoryReportModel.workItemVersionId) &&
         equalsNullable(this.workItemVersionNumber, testResultHistoryReportModel.workItemVersionNumber) &&
         equalsNullable(this.launchSource, testResultHistoryReportModel.launchSource) &&
-        equalsNullable(this.failureClassIds, testResultHistoryReportModel.failureClassIds);
+        equalsNullable(this.failureClassIds, testResultHistoryReportModel.failureClassIds) &&
+        equalsNullable(this.parameters, testResultHistoryReportModel.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1031,7 +1084,7 @@ public class TestResultHistoryReportModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, modifiedDate, userId, hashCodeNullable(testRunId), hashCodeNullable(testRunName), hashCodeNullable(createdByUserName), hashCodeNullable(testPlanId), hashCodeNullable(testPlanGlobalId), hashCodeNullable(testPlanName), hashCodeNullable(configurationName), isAutomated, hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), createdById, hashCodeNullable(modifiedById), hashCodeNullable(attachments), hashCodeNullable(workItemVersionId), hashCodeNullable(workItemVersionNumber), hashCodeNullable(launchSource), hashCodeNullable(failureClassIds));
+    return Objects.hash(id, createdDate, modifiedDate, userId, hashCodeNullable(testRunId), hashCodeNullable(testRunName), hashCodeNullable(createdByUserName), hashCodeNullable(testPlanId), hashCodeNullable(testPlanGlobalId), hashCodeNullable(testPlanName), hashCodeNullable(configurationName), isAutomated, hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), createdById, hashCodeNullable(modifiedById), hashCodeNullable(attachments), hashCodeNullable(workItemVersionId), hashCodeNullable(workItemVersionNumber), hashCodeNullable(launchSource), hashCodeNullable(failureClassIds), hashCodeNullable(parameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1070,6 +1123,7 @@ public class TestResultHistoryReportModel {
     sb.append("    workItemVersionNumber: ").append(toIndentedString(workItemVersionNumber)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    failureClassIds: ").append(toIndentedString(failureClassIds)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

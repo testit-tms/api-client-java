@@ -38,8 +38,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   WorkItemMovePostModel.JSON_PROPERTY_ID,
-  WorkItemMovePostModel.JSON_PROPERTY_OLD_SECTION_ID,
   WorkItemMovePostModel.JSON_PROPERTY_NEW_SECTION_ID,
+  WorkItemMovePostModel.JSON_PROPERTY_OLD_SECTION_ID,
   WorkItemMovePostModel.JSON_PROPERTY_NEXT_WORK_ITEM_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -47,11 +47,11 @@ public class WorkItemMovePostModel {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
+  public static final String JSON_PROPERTY_NEW_SECTION_ID = "newSectionId";
+  private UUID newSectionId;
+
   public static final String JSON_PROPERTY_OLD_SECTION_ID = "oldSectionId";
   private JsonNullable<UUID> oldSectionId = JsonNullable.<UUID>undefined();
-
-  public static final String JSON_PROPERTY_NEW_SECTION_ID = "newSectionId";
-  private JsonNullable<UUID> newSectionId = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_NEXT_WORK_ITEM_ID = "nextWorkItemId";
   private JsonNullable<UUID> nextWorkItemId = JsonNullable.<UUID>undefined();
@@ -65,13 +65,13 @@ public class WorkItemMovePostModel {
   }
 
    /**
-   * WorkItemId
+   * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "WorkItemId")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -79,9 +79,35 @@ public class WorkItemMovePostModel {
 
 
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
+  }
+
+
+  public WorkItemMovePostModel newSectionId(UUID newSectionId) {
+    this.newSectionId = newSectionId;
+    return this;
+  }
+
+   /**
+   * Get newSectionId
+   * @return newSectionId
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getNewSectionId() {
+    return newSectionId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setNewSectionId(UUID newSectionId) {
+    this.newSectionId = newSectionId;
   }
 
 
@@ -116,40 +142,6 @@ public class WorkItemMovePostModel {
 
   public void setOldSectionId(UUID oldSectionId) {
     this.oldSectionId = JsonNullable.<UUID>of(oldSectionId);
-  }
-
-
-  public WorkItemMovePostModel newSectionId(UUID newSectionId) {
-    this.newSectionId = JsonNullable.<UUID>of(newSectionId);
-    return this;
-  }
-
-   /**
-   * Get newSectionId
-   * @return newSectionId
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public UUID getNewSectionId() {
-        return newSectionId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getNewSectionId_JsonNullable() {
-    return newSectionId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
-  public void setNewSectionId_JsonNullable(JsonNullable<UUID> newSectionId) {
-    this.newSectionId = newSectionId;
-  }
-
-  public void setNewSectionId(UUID newSectionId) {
-    this.newSectionId = JsonNullable.<UUID>of(newSectionId);
   }
 
 
@@ -200,8 +192,8 @@ public class WorkItemMovePostModel {
     }
     WorkItemMovePostModel workItemMovePostModel = (WorkItemMovePostModel) o;
     return Objects.equals(this.id, workItemMovePostModel.id) &&
+        Objects.equals(this.newSectionId, workItemMovePostModel.newSectionId) &&
         equalsNullable(this.oldSectionId, workItemMovePostModel.oldSectionId) &&
-        equalsNullable(this.newSectionId, workItemMovePostModel.newSectionId) &&
         equalsNullable(this.nextWorkItemId, workItemMovePostModel.nextWorkItemId);
   }
 
@@ -211,7 +203,7 @@ public class WorkItemMovePostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(oldSectionId), hashCodeNullable(newSectionId), hashCodeNullable(nextWorkItemId));
+    return Objects.hash(id, newSectionId, hashCodeNullable(oldSectionId), hashCodeNullable(nextWorkItemId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -226,8 +218,8 @@ public class WorkItemMovePostModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkItemMovePostModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    oldSectionId: ").append(toIndentedString(oldSectionId)).append("\n");
     sb.append("    newSectionId: ").append(toIndentedString(newSectionId)).append("\n");
+    sb.append("    oldSectionId: ").append(toIndentedString(oldSectionId)).append("\n");
     sb.append("    nextWorkItemId: ").append(toIndentedString(nextWorkItemId)).append("\n");
     sb.append("}");
     return sb.toString();

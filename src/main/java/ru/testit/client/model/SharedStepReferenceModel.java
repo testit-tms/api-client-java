@@ -25,8 +25,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TagShortModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,7 +56,10 @@ import ru.testit.client.invoker.JSON;
   SharedStepReferenceModel.JSON_PROPERTY_STATE,
   SharedStepReferenceModel.JSON_PROPERTY_PRIORITY,
   SharedStepReferenceModel.JSON_PROPERTY_IS_DELETED,
-  SharedStepReferenceModel.JSON_PROPERTY_VERSION_ID
+  SharedStepReferenceModel.JSON_PROPERTY_VERSION_ID,
+  SharedStepReferenceModel.JSON_PROPERTY_IS_AUTOMATED,
+  SharedStepReferenceModel.JSON_PROPERTY_SECTION_ID,
+  SharedStepReferenceModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SharedStepReferenceModel {
@@ -61,7 +67,7 @@ public class SharedStepReferenceModel {
   private UUID id;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
-  private JsonNullable<Long> globalId = JsonNullable.<Long>undefined();
+  private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -102,6 +108,15 @@ public class SharedStepReferenceModel {
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
   private UUID versionId;
 
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  private Boolean isAutomated;
+
+  public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  private UUID sectionId;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<TagShortModel>> tags = JsonNullable.<List<TagShortModel>>undefined();
+
   public SharedStepReferenceModel() { 
   }
 
@@ -115,7 +130,7 @@ public class SharedStepReferenceModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -132,7 +147,7 @@ public class SharedStepReferenceModel {
 
 
   public SharedStepReferenceModel globalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
     return this;
   }
 
@@ -141,27 +156,19 @@ public class SharedStepReferenceModel {
    * @return globalId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Long getGlobalId() {
-        return globalId.orElse(null);
-  }
-
+  @ApiModelProperty(example = "1000", value = "")
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getGlobalId_JsonNullable() {
+  public Long getGlobalId() {
     return globalId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  public void setGlobalId_JsonNullable(JsonNullable<Long> globalId) {
-    this.globalId = globalId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
   }
 
 
@@ -175,7 +182,7 @@ public class SharedStepReferenceModel {
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Basic template", value = "")
   @JsonIgnore
 
   public String getName() {
@@ -209,7 +216,7 @@ public class SharedStepReferenceModel {
    * @return entityTypeName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "TestCase", value = "")
   @JsonIgnore
 
   public String getEntityTypeName() {
@@ -243,7 +250,7 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsStep
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_STEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -269,7 +276,7 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsPrecondition
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_PRECONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -295,7 +302,7 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsPostcondition
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_POSTCONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -321,7 +328,7 @@ public class SharedStepReferenceModel {
    * @return createdById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -347,7 +354,7 @@ public class SharedStepReferenceModel {
    * @return modifiedById
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonIgnore
 
   public UUID getModifiedById() {
@@ -381,7 +388,7 @@ public class SharedStepReferenceModel {
    * @return createdDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getCreatedDate() {
@@ -415,7 +422,7 @@ public class SharedStepReferenceModel {
    * @return modifiedDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
   @JsonIgnore
 
   public OffsetDateTime getModifiedDate() {
@@ -449,7 +456,7 @@ public class SharedStepReferenceModel {
    * @return state
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Ready", value = "")
   @JsonIgnore
 
   public String getState() {
@@ -509,7 +516,7 @@ public class SharedStepReferenceModel {
    * @return isDeleted
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -531,11 +538,11 @@ public class SharedStepReferenceModel {
   }
 
    /**
-   * Get versionId
+   * used for versioning changes in workitem
    * @return versionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "used for versioning changes in workitem")
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -548,6 +555,104 @@ public class SharedStepReferenceModel {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
+  }
+
+
+  public SharedStepReferenceModel isAutomated(Boolean isAutomated) {
+    this.isAutomated = isAutomated;
+    return this;
+  }
+
+   /**
+   * Get isAutomated
+   * @return isAutomated
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsAutomated() {
+    return isAutomated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsAutomated(Boolean isAutomated) {
+    this.isAutomated = isAutomated;
+  }
+
+
+  public SharedStepReferenceModel sectionId(UUID sectionId) {
+    this.sectionId = sectionId;
+    return this;
+  }
+
+   /**
+   * Get sectionId
+   * @return sectionId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getSectionId() {
+    return sectionId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSectionId(UUID sectionId) {
+    this.sectionId = sectionId;
+  }
+
+
+  public SharedStepReferenceModel tags(List<TagShortModel> tags) {
+    this.tags = JsonNullable.<List<TagShortModel>>of(tags);
+    return this;
+  }
+
+  public SharedStepReferenceModel addTagsItem(TagShortModel tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<TagShortModel>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public List<TagShortModel> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TagShortModel>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<TagShortModel>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(List<TagShortModel> tags) {
+    this.tags = JsonNullable.<List<TagShortModel>>of(tags);
   }
 
 
@@ -564,7 +669,7 @@ public class SharedStepReferenceModel {
     }
     SharedStepReferenceModel sharedStepReferenceModel = (SharedStepReferenceModel) o;
     return Objects.equals(this.id, sharedStepReferenceModel.id) &&
-        equalsNullable(this.globalId, sharedStepReferenceModel.globalId) &&
+        Objects.equals(this.globalId, sharedStepReferenceModel.globalId) &&
         equalsNullable(this.name, sharedStepReferenceModel.name) &&
         equalsNullable(this.entityTypeName, sharedStepReferenceModel.entityTypeName) &&
         Objects.equals(this.hasThisSharedStepAsStep, sharedStepReferenceModel.hasThisSharedStepAsStep) &&
@@ -577,7 +682,10 @@ public class SharedStepReferenceModel {
         equalsNullable(this.state, sharedStepReferenceModel.state) &&
         Objects.equals(this.priority, sharedStepReferenceModel.priority) &&
         Objects.equals(this.isDeleted, sharedStepReferenceModel.isDeleted) &&
-        Objects.equals(this.versionId, sharedStepReferenceModel.versionId);
+        Objects.equals(this.versionId, sharedStepReferenceModel.versionId) &&
+        Objects.equals(this.isAutomated, sharedStepReferenceModel.isAutomated) &&
+        Objects.equals(this.sectionId, sharedStepReferenceModel.sectionId) &&
+        equalsNullable(this.tags, sharedStepReferenceModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -586,7 +694,7 @@ public class SharedStepReferenceModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(globalId), hashCodeNullable(name), hashCodeNullable(entityTypeName), hasThisSharedStepAsStep, hasThisSharedStepAsPrecondition, hasThisSharedStepAsPostcondition, createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(state), priority, isDeleted, versionId);
+    return Objects.hash(id, globalId, hashCodeNullable(name), hashCodeNullable(entityTypeName), hasThisSharedStepAsStep, hasThisSharedStepAsPrecondition, hasThisSharedStepAsPostcondition, createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(state), priority, isDeleted, versionId, isAutomated, sectionId, hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -615,6 +723,9 @@ public class SharedStepReferenceModel {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
+    sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
+    sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

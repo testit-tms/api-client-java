@@ -33,7 +33,7 @@ import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestResultModel;
 import ru.testit.client.model.TestRunAnalyticResultModel;
-import ru.testit.client.model.TestRunStateTypeModel;
+import ru.testit.client.model.TestRunState;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -95,7 +95,7 @@ public class TestRunModel {
   private TestPlanModel testPlan;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -122,7 +122,7 @@ public class TestRunModel {
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATE_NAME = "stateName";
-  private TestRunStateTypeModel stateName;
+  private TestRunState stateName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
@@ -394,7 +394,7 @@ public class TestRunModel {
 
 
   public TestRunModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -404,26 +404,18 @@ public class TestRunModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -691,7 +683,7 @@ public class TestRunModel {
   }
 
 
-  public TestRunModel stateName(TestRunStateTypeModel stateName) {
+  public TestRunModel stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -705,14 +697,14 @@ public class TestRunModel {
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TestRunStateTypeModel getStateName() {
+  public TestRunState getStateName() {
     return stateName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateName(TestRunStateTypeModel stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
@@ -923,7 +915,7 @@ public class TestRunModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -984,7 +976,7 @@ public class TestRunModel {
         Objects.equals(this.analytic, testRunModel.analytic) &&
         equalsNullable(this.testResults, testRunModel.testResults) &&
         Objects.equals(this.testPlan, testRunModel.testPlan) &&
-        equalsNullable(this.createdDate, testRunModel.createdDate) &&
+        Objects.equals(this.createdDate, testRunModel.createdDate) &&
         equalsNullable(this.modifiedDate, testRunModel.modifiedDate) &&
         Objects.equals(this.createdById, testRunModel.createdById) &&
         equalsNullable(this.modifiedById, testRunModel.modifiedById) &&
@@ -1010,7 +1002,7 @@ public class TestRunModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(autoTests), autoTestsCount, hashCodeNullable(testSuiteIds), isAutomated, analytic, hashCodeNullable(testResults), testPlan, hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(build), hashCodeNullable(description), stateName, projectId, hashCodeNullable(testPlanId), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), hashCodeNullable(name), hashCodeNullable(launchSource), id, isDeleted);
+    return Objects.hash(hashCodeNullable(autoTests), autoTestsCount, hashCodeNullable(testSuiteIds), isAutomated, analytic, hashCodeNullable(testResults), testPlan, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(build), hashCodeNullable(description), stateName, projectId, hashCodeNullable(testPlanId), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), hashCodeNullable(name), hashCodeNullable(launchSource), id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

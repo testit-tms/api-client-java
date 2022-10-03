@@ -12,9 +12,9 @@ import ru.testit.client.model.CustomAttributeTemplateModel;
 import ru.testit.client.model.CustomAttributeTemplatePostModel;
 import ru.testit.client.model.CustomAttributeTemplatePutModel;
 import ru.testit.client.model.CustomAttributeTemplateSearchQueryModel;
-import ru.testit.client.model.CustomAttributeTemplateSearchResponseModel;
 import ru.testit.client.model.NoContentResult;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.SearchCustomAttributeTemplateGetModel;
 import java.util.Set;
 import java.util.UUID;
 import ru.testit.client.model.ValidateAntiForgeryTokenAttribute;
@@ -64,9 +64,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
    */
@@ -84,9 +84,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
    */
@@ -210,8 +210,8 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
    */
@@ -228,8 +228,8 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
    */
@@ -282,9 +282,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public CustomAttributeTemplateModel apiV2CustomAttributesTemplatesIdGet(UUID id) throws ApiException {
@@ -300,9 +300,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesIdGetWithHttpInfo(UUID id) throws ApiException {
@@ -354,9 +354,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public List<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesNameGet(String name) throws ApiException {
@@ -372,9 +372,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<CustomAttributeTemplateModel>> apiV2CustomAttributesTemplatesNameGetWithHttpInfo(String name) throws ApiException {
@@ -426,9 +426,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
@@ -444,9 +444,9 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesPostWithHttpInfo(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
@@ -491,10 +491,10 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public void apiV2CustomAttributesTemplatesPut(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
@@ -510,10 +510,10 @@ public class CustomAttributeTemplatesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> apiV2CustomAttributesTemplatesPutWithHttpInfo(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
@@ -551,34 +551,44 @@ public class CustomAttributeTemplatesApi {
   /**
    * Search CustomAttributeTemplates
    * &lt;br&gt;Use case  &lt;br&gt;User sets search params model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute templates (listed in response example)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
    * @param customAttributeTemplateSearchQueryModel  (optional)
-   * @return List&lt;CustomAttributeTemplateSearchResponseModel&gt;
+   * @return List&lt;SearchCustomAttributeTemplateGetModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
-  public List<CustomAttributeTemplateSearchResponseModel> apiV2CustomAttributesTemplatesSearchPost(CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
-    return apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(customAttributeTemplateSearchQueryModel).getData();
+  public List<SearchCustomAttributeTemplateGetModel> apiV2CustomAttributesTemplatesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
+    return apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel).getData();
   }
 
   /**
    * Search CustomAttributeTemplates
    * &lt;br&gt;Use case  &lt;br&gt;User sets search params model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute templates (listed in response example)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
    * @param customAttributeTemplateSearchQueryModel  (optional)
-   * @return ApiResponse&lt;List&lt;CustomAttributeTemplateSearchResponseModel&gt;&gt;
+   * @return ApiResponse&lt;List&lt;SearchCustomAttributeTemplateGetModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
    */
-  public ApiResponse<List<CustomAttributeTemplateSearchResponseModel>> apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
+  public ApiResponse<List<SearchCustomAttributeTemplateGetModel>> apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
     Object localVarPostBody = customAttributeTemplateSearchQueryModel;
     
     // create path and map variables
@@ -590,6 +600,11 @@ public class CustomAttributeTemplatesApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Skip", skip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
 
     
     
@@ -606,7 +621,7 @@ public class CustomAttributeTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
 
-    GenericType<List<CustomAttributeTemplateSearchResponseModel>> localVarReturnType = new GenericType<List<CustomAttributeTemplateSearchResponseModel>>() {};
+    GenericType<List<SearchCustomAttributeTemplateGetModel>> localVarReturnType = new GenericType<List<SearchCustomAttributeTemplateGetModel>>() {};
 
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesSearchPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

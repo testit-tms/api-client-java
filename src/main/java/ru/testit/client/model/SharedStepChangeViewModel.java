@@ -51,7 +51,7 @@ public class SharedStepChangeViewModel {
   private UUID id;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
-  private JsonNullable<Long> globalId = JsonNullable.<Long>undefined();
+  private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -89,7 +89,7 @@ public class SharedStepChangeViewModel {
 
 
   public SharedStepChangeViewModel globalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
     return this;
   }
 
@@ -99,26 +99,18 @@ public class SharedStepChangeViewModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Long getGlobalId() {
-        return globalId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getGlobalId_JsonNullable() {
+  public Long getGlobalId() {
     return globalId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  public void setGlobalId_JsonNullable(JsonNullable<Long> globalId) {
-    this.globalId = globalId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
   }
 
 
@@ -215,7 +207,7 @@ public class SharedStepChangeViewModel {
     }
     SharedStepChangeViewModel sharedStepChangeViewModel = (SharedStepChangeViewModel) o;
     return Objects.equals(this.id, sharedStepChangeViewModel.id) &&
-        equalsNullable(this.globalId, sharedStepChangeViewModel.globalId) &&
+        Objects.equals(this.globalId, sharedStepChangeViewModel.globalId) &&
         equalsNullable(this.name, sharedStepChangeViewModel.name) &&
         equalsNullable(this.steps, sharedStepChangeViewModel.steps);
   }
@@ -226,7 +218,7 @@ public class SharedStepChangeViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(globalId), hashCodeNullable(name), hashCodeNullable(steps));
+    return Objects.hash(id, globalId, hashCodeNullable(name), hashCodeNullable(steps));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

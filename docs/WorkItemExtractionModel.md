@@ -1,11 +1,19 @@
+
+
 # WorkItemExtractionModel
 
+Rules for different level entities inclusion/exclusion
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**includeWorkItems** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**includeSections** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**includeProjects** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**excludeWorkItems** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**excludeSections** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**excludeProjects** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**includeWorkItems** | **Set&lt;UUID&gt;** | Identifiers of work items to be included |  [optional] |
+|**includeSections** | **Set&lt;UUID&gt;** | Identifiers of sections to be included |  [optional] |
+|**includeProjects** | **Set&lt;UUID&gt;** | Identifiers of projects to be included |  [optional] |
+|**excludeWorkItems** | **Set&lt;UUID&gt;** | Identifiers of work items to be excluded |  [optional] |
+|**excludeSections** | **Set&lt;UUID&gt;** | Identifiers of sections to be excluded |  [optional] |
+|**excludeProjects** | **Set&lt;UUID&gt;** | Identifiers of projects to be excluded |  [optional] |
+
+
+

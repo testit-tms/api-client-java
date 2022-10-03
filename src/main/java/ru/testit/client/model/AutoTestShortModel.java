@@ -49,7 +49,7 @@ public class AutoTestShortModel {
   private UUID id;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
-  private JsonNullable<Long> globalId = JsonNullable.<Long>undefined();
+  private Long globalId;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
   private JsonNullable<String> externalId = JsonNullable.<String>undefined();
@@ -90,7 +90,7 @@ public class AutoTestShortModel {
 
 
   public AutoTestShortModel globalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
     return this;
   }
 
@@ -100,26 +100,18 @@ public class AutoTestShortModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Long getGlobalId() {
-        return globalId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getGlobalId_JsonNullable() {
+  public Long getGlobalId() {
     return globalId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  public void setGlobalId_JsonNullable(JsonNullable<Long> globalId) {
-    this.globalId = globalId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalId(Long globalId) {
-    this.globalId = JsonNullable.<Long>of(globalId);
+    this.globalId = globalId;
   }
 
 
@@ -230,7 +222,7 @@ public class AutoTestShortModel {
     }
     AutoTestShortModel autoTestShortModel = (AutoTestShortModel) o;
     return Objects.equals(this.id, autoTestShortModel.id) &&
-        equalsNullable(this.globalId, autoTestShortModel.globalId) &&
+        Objects.equals(this.globalId, autoTestShortModel.globalId) &&
         equalsNullable(this.externalId, autoTestShortModel.externalId) &&
         Objects.equals(this.projectId, autoTestShortModel.projectId) &&
         equalsNullable(this.name, autoTestShortModel.name);
@@ -242,7 +234,7 @@ public class AutoTestShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(globalId), hashCodeNullable(externalId), projectId, hashCodeNullable(name));
+    return Objects.hash(id, globalId, hashCodeNullable(externalId), projectId, hashCodeNullable(name));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

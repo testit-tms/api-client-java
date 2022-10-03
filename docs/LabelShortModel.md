@@ -1,7 +1,14 @@
+
+
 # LabelShortModel
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**globalId** | **Long** |  |  [optional]
-**name** | **String** |  | 
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**globalId** | **Long** |  |  [optional] |
+|**name** | **String** | Label name. |  |
+
+
+

@@ -53,7 +53,7 @@ import ru.testit.client.invoker.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FilterModel {
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
   private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -86,7 +86,7 @@ public class FilterModel {
   }
 
   public FilterModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -96,26 +96,18 @@ public class FilterModel {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
@@ -343,7 +335,7 @@ public class FilterModel {
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -397,7 +389,7 @@ public class FilterModel {
       return false;
     }
     FilterModel filterModel = (FilterModel) o;
-    return equalsNullable(this.createdDate, filterModel.createdDate) &&
+    return Objects.equals(this.createdDate, filterModel.createdDate) &&
         equalsNullable(this.modifiedDate, filterModel.modifiedDate) &&
         Objects.equals(this.createdById, filterModel.createdById) &&
         equalsNullable(this.modifiedById, filterModel.modifiedById) &&
@@ -415,7 +407,7 @@ public class FilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), data, projectId, hashCodeNullable(fieldsToShow), hashCodeNullable(name), id, isDeleted);
+    return Objects.hash(createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), data, projectId, hashCodeNullable(fieldsToShow), hashCodeNullable(name), id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -171,7 +171,7 @@ public class TestPlanPostModel {
    * @return startDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "Used for analytics")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "Used for analytics")
   @JsonIgnore
 
   public OffsetDateTime getStartDate() {
@@ -205,7 +205,7 @@ public class TestPlanPostModel {
    * @return endDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-07-14T09:52:35.620427900Z", value = "Used for analytics")
+  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "Used for analytics")
   @JsonIgnore
 
   public OffsetDateTime getEndDate() {
@@ -307,7 +307,7 @@ public class TestPlanPostModel {
    * @return projectId
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", required = true, value = "")
+  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

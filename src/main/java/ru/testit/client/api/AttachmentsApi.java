@@ -58,8 +58,8 @@ public class AttachmentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
      </table>
    */
   public void apiV2AttachmentsIdDelete(UUID id) throws ApiException {
@@ -75,8 +75,8 @@ public class AttachmentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> apiV2AttachmentsIdDeleteWithHttpInfo(UUID id) throws ApiException {
@@ -243,7 +243,7 @@ public class AttachmentsApi {
     
     
     final String[] localVarAccepts = {
-      "text/plain"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -269,9 +269,9 @@ public class AttachmentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
@@ -288,9 +288,9 @@ public class AttachmentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
