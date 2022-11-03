@@ -41,6 +41,7 @@ import ru.testit.invoker.*;
 import ru.testit.invoker.auth.*;
 import ru.testit.model.*;
 import ru.testit.client.AttachmentsApi;
+import ru.testit.client.model.AttachmentModel;
 
 import java.io.File;
 import java.util.*;
@@ -57,7 +58,7 @@ public class AttachmentsApiExample {
         File file = new File("file_example"); 
         String apiVersion = "apiVersion_example";  
         try {
-            String result = apiInstance.addAttachment(file, apiVersion);
+            AttachmentModel result = apiInstance.apiV2AttachmentsPost(file);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#addAttachment");
