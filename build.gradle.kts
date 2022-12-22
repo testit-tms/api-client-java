@@ -81,7 +81,7 @@ tasks.withType<Sign>().configureEach {
 }
 
 tasks.withType<Javadoc> {
-    (options as StandardJavadocDocletOptions).tags("http.response.details:a:Http Response Details")
+    enabled = false
 }
 
 tasks.withType<GenerateModuleMetadata> {
