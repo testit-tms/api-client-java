@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2TestResultsIdAggregatedGet**](TestResultsApi.md#apiV2TestResultsIdAggregatedGet) | **GET** /api/v2/testResults/{id}/aggregated |  |
-| [**apiV2TestResultsIdAttachmentsAttachmentIdPut**](TestResultsApi.md#apiV2TestResultsIdAttachmentsAttachmentIdPut) | **PUT** /api/v2/testResults/{id}/attachments/{attachmentId} |  |
-| [**apiV2TestResultsIdAttachmentsInfoGet**](TestResultsApi.md#apiV2TestResultsIdAttachmentsInfoGet) | **GET** /api/v2/testResults/{id}/attachments/info |  |
-| [**apiV2TestResultsIdGet**](TestResultsApi.md#apiV2TestResultsIdGet) | **GET** /api/v2/testResults/{id} |  |
-| [**apiV2TestResultsIdPut**](TestResultsApi.md#apiV2TestResultsIdPut) | **PUT** /api/v2/testResults/{id} |  |
-| [**apiV2TestResultsSearchPost**](TestResultsApi.md#apiV2TestResultsSearchPost) | **POST** /api/v2/testResults/search |  |
-| [**apiV2TestResultsStatisticsFilterPost**](TestResultsApi.md#apiV2TestResultsStatisticsFilterPost) | **POST** /api/v2/testResults/statistics/filter |  |
+| [**apiV2TestResultsIdAggregatedGet**](TestResultsApi.md#apiV2TestResultsIdAggregatedGet) | **GET** /api/v2/testResults/{id}/aggregated | Get test result by ID aggregated with previous results |
+| [**apiV2TestResultsIdAttachmentsAttachmentIdPut**](TestResultsApi.md#apiV2TestResultsIdAttachmentsAttachmentIdPut) | **PUT** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result |
+| [**apiV2TestResultsIdAttachmentsInfoGet**](TestResultsApi.md#apiV2TestResultsIdAttachmentsInfoGet) | **GET** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information |
+| [**apiV2TestResultsIdGet**](TestResultsApi.md#apiV2TestResultsIdGet) | **GET** /api/v2/testResults/{id} | Get test result by ID |
+| [**apiV2TestResultsIdPut**](TestResultsApi.md#apiV2TestResultsIdPut) | **PUT** /api/v2/testResults/{id} | Edit test result by ID |
+| [**apiV2TestResultsSearchPost**](TestResultsApi.md#apiV2TestResultsSearchPost) | **POST** /api/v2/testResults/search | Search for test results |
+| [**apiV2TestResultsStatisticsFilterPost**](TestResultsApi.md#apiV2TestResultsStatisticsFilterPost) | **POST** /api/v2/testResults/statistics/filter | Search for test results and extract statistics |
 | [**createAttachment**](TestResultsApi.md#createAttachment) | **POST** /api/v2/testResults/{id}/attachments | Upload and link attachment to TestResult |
 | [**deleteAttachment**](TestResultsApi.md#deleteAttachment) | **DELETE** /api/v2/testResults/{id}/attachments/{attachmentId} | Remove attachment and unlink from TestResult |
 | [**downloadAttachment**](TestResultsApi.md#downloadAttachment) | **GET** /api/v2/testResults/{id}/attachments/{attachmentId} | Get attachment of TestResult |
@@ -18,58 +18,54 @@ All URIs are relative to *http://localhost*
 | [**getAttachments**](TestResultsApi.md#getAttachments) | **GET** /api/v2/testResults/{id}/attachments | Get all attachments of TestResult |
 
 
-
-## apiV2TestResultsIdAggregatedGet
-
+<a name="apiV2TestResultsIdAggregatedGet"></a>
+# **apiV2TestResultsIdAggregatedGet**
 > TestResultModel apiV2TestResultsIdAggregatedGet(id)
 
-
+Get test result by ID aggregated with previous results
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            TestResultModel result = apiInstance.apiV2TestResultsIdAggregatedGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAggregatedGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    try {
+      TestResultModel result = apiInstance.apiV2TestResultsIdAggregatedGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAggregatedGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **id** | **UUID**| Test result unique ID | |
 
 ### Return type
 
@@ -81,67 +77,64 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Read permission for the test result is required |  -  |
 
-
-## apiV2TestResultsIdAttachmentsAttachmentIdPut
-
+<a name="apiV2TestResultsIdAttachmentsAttachmentIdPut"></a>
+# **apiV2TestResultsIdAttachmentsAttachmentIdPut**
 > apiV2TestResultsIdAttachmentsAttachmentIdPut(id, attachmentId)
 
-
+Attach file to the test result
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID attachmentId = UUID.randomUUID(); // UUID | 
-        try {
-            apiInstance.apiV2TestResultsIdAttachmentsAttachmentIdPut(id, attachmentId);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAttachmentsAttachmentIdPut");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    UUID attachmentId = UUID.randomUUID(); // UUID | Attachment unique ID
+    try {
+      apiInstance.apiV2TestResultsIdAttachmentsAttachmentIdPut(id, attachmentId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAttachmentsAttachmentIdPut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **attachmentId** | **UUID**|  | |
+| **id** | **UUID**| Test result unique ID | |
+| **attachmentId** | **UUID**| Attachment unique ID | |
 
 ### Return type
 
@@ -153,66 +146,63 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Only edits from assigned user are allowed |  -  |
 
-
-## apiV2TestResultsIdAttachmentsInfoGet
-
+<a name="apiV2TestResultsIdAttachmentsInfoGet"></a>
+# **apiV2TestResultsIdAttachmentsInfoGet**
 > List&lt;AttachmentModel&gt; apiV2TestResultsIdAttachmentsInfoGet(id)
 
-
+Get test result attachments meta-information
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            List<AttachmentModel> result = apiInstance.apiV2TestResultsIdAttachmentsInfoGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAttachmentsInfoGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    try {
+      List<AttachmentModel> result = apiInstance.apiV2TestResultsIdAttachmentsInfoGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAttachmentsInfoGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **id** | **UUID**| Test result unique ID | |
 
 ### Return type
 
@@ -224,66 +214,63 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Read permission for the test result is required |  -  |
 
-
-## apiV2TestResultsIdGet
-
+<a name="apiV2TestResultsIdGet"></a>
+# **apiV2TestResultsIdGet**
 > TestResultModel apiV2TestResultsIdGet(id)
 
-
+Get test result by ID
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            TestResultModel result = apiInstance.apiV2TestResultsIdGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    try {
+      TestResultModel result = apiInstance.apiV2TestResultsIdGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **id** | **UUID**| Test result unique ID | |
 
 ### Return type
 
@@ -295,66 +282,63 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Read permission for the test result is required |  -  |
 
-
-## apiV2TestResultsIdPut
-
+<a name="apiV2TestResultsIdPut"></a>
+# **apiV2TestResultsIdPut**
 > apiV2TestResultsIdPut(id, testResultUpdateModel)
 
-
+Edit test result by ID
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        TestResultUpdateModel testResultUpdateModel = new TestResultUpdateModel(); // TestResultUpdateModel | 
-        try {
-            apiInstance.apiV2TestResultsIdPut(id, testResultUpdateModel);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdPut");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    TestResultUpdateModel testResultUpdateModel = new TestResultUpdateModel(); // TestResultUpdateModel | 
+    try {
+      apiInstance.apiV2TestResultsIdPut(id, testResultUpdateModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdPut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **id** | **UUID**| Test result unique ID | |
 | **testResultUpdateModel** | [**TestResultUpdateModel**](TestResultUpdateModel.md)|  | [optional] |
 
 ### Return type
@@ -367,66 +351,64 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Only edits from assigned user are allowed |  -  |
 | **200** | Success |  -  |
 
-
-## apiV2TestResultsSearchPost
-
+<a name="apiV2TestResultsSearchPost"></a>
+# **apiV2TestResultsSearchPost**
 > List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel)
 
-
+Search for test results
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-        Integer take = 56; // Integer | Amount of items to be taken (limit)
-        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-        String searchField = "searchField_example"; // String | Property name for searching
-        String searchValue = "searchValue_example"; // String | Value for searching
-        TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
-        try {
-            List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
+    try {
+      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -447,61 +429,59 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for all requested test runs is required |  -  |
 
-
-## apiV2TestResultsStatisticsFilterPost
-
+<a name="apiV2TestResultsStatisticsFilterPost"></a>
+# **apiV2TestResultsStatisticsFilterPost**
 > TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(testResultsFilterModel)
 
-
+Search for test results and extract statistics
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
-        try {
-            TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(testResultsFilterModel);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
+    try {
+      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(testResultsFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -517,70 +497,62 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Read permission for all requested test runs is required |  -  |
 
-
-## createAttachment
-
+<a name="createAttachment"></a>
+# **createAttachment**
 > UUID createAttachment(id, _file)
 
 Upload and link attachment to TestResult
 
-<br>Use case
-<br>User sets testResultId
-<br>User attaches a file
-<br>System creates attachment and links it to the test result
-<br>System returns attachment identifier
+&lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the test result  &lt;br&gt;System returns attachment identifier
 
 ### Example
-
 ```java
-import java.io.File;
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
-        File _file = new File("/path/to/file"); // File | Select file
-        try {
-            UUID result = apiInstance.createAttachment(id, _file);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#createAttachment");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      UUID result = apiInstance.createAttachment(id, _file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#createAttachment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -597,74 +569,65 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **403** | Update permission for test result required |  -  |
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
 | **404** |  |  -  |
 | **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
-
-## deleteAttachment
-
+<a name="deleteAttachment"></a>
+# **deleteAttachment**
 > deleteAttachment(id, attachmentId)
 
 Remove attachment and unlink from TestResult
 
-<br>Use case
-<br>User sets testResultId and attachmentId
-<br>User attaches a file
-<br>User runs method execution
-<br>System deletes attachment and unlinks it from the test result
-<br>System returns attachment identifier
+&lt;br&gt;Use case  &lt;br&gt;User sets testResultId and attachmentId  &lt;br&gt;User attaches a file  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes attachment and unlinks it from the test result  &lt;br&gt;System returns attachment identifier
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
-        UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
-        try {
-            apiInstance.deleteAttachment(id, attachmentId);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#deleteAttachment");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
+    UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
+    try {
+      apiInstance.deleteAttachment(id, attachmentId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#deleteAttachment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -681,82 +644,68 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **204** | Successful operation |  -  |
 | **403** | Update permission for test result required |  -  |
 
-
-## downloadAttachment
-
+<a name="downloadAttachment"></a>
+# **downloadAttachment**
 > downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview)
 
 Get attachment of TestResult
 
-<br>Use case
-<br>User sets attachmentId and testResultId
-<br>[Optional] User sets resize configuration
-<br>User runs method execution
-<br>System search attachments by the attachmentId and the testResultId
-<br>
-                    [Optional] If resize configuration is set, System resizes the attachment according to the resize
-                    configuration
-                
-<br>[Optional] Otherwise, System does not resize the attachment
-<br>System returns attachment as a file
+&lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;[Optional] User sets resize configuration  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachments by the attachmentId and the testResultId  &lt;br&gt;                      [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                    &lt;br&gt;[Optional] Otherwise, System does not resize the attachment  &lt;br&gt;System returns attachment as a file
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
-        Integer width = 56; // Integer | Width of the result image
-        Integer height = 56; // Integer | Height of the result image
-        ImageResizeType resizeType = ImageResizeType.fromValue("Crop"); // ImageResizeType | Type of resizing to apply to the result image
-        String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
-        Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
-        try {
-            apiInstance.downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#downloadAttachment");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
+    Integer width = 56; // Integer | Width of the result image
+    Integer height = 56; // Integer | Height of the result image
+    ImageResizeType resizeType = ImageResizeType.fromValue("Crop"); // ImageResizeType | Type of resizing to apply to the result image
+    String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
+    Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
+    try {
+      apiInstance.downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#downloadAttachment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -764,7 +713,7 @@ public class Example {
 | **id** | **UUID**| Test result internal identifier (guid format) | |
 | **width** | **Integer**| Width of the result image | [optional] |
 | **height** | **Integer**| Height of the result image | [optional] |
-| **resizeType** | **ImageResizeType**| Type of resizing to apply to the result image | [optional] [enum: Crop, AddBackgroundStripes] |
+| **resizeType** | [**ImageResizeType**](.md)| Type of resizing to apply to the result image | [optional] [enum: Crop, AddBackgroundStripes] |
 | **backgroundColor** | **String**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional] |
 | **preview** | **Boolean**| If image must be converted to a preview (lower quality, no animation) | [optional] |
 
@@ -778,73 +727,65 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
-| **403** | Read permission for test result required |  -  |
+| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **200** | Success |  -  |
+| **403** | Read permission for test result required |  -  |
 
-
-## getAttachment
-
+<a name="getAttachment"></a>
+# **getAttachment**
 > AttachmentModel getAttachment(id, attachmentId)
 
 Get Metadata of TestResult&#39;s attachment
 
-<br>Use case
-<br>User sets attachmentId and testResultId
-<br>User runs method execution
-<br>System search attachment by the attachmentId and the testResultId
-<br>System returns attachment data
+&lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachment by the attachmentId and the testResultId  &lt;br&gt;System returns attachment data
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
-        UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
-        try {
-            AttachmentModel result = apiInstance.getAttachment(id, attachmentId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#getAttachment");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
+    UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
+    try {
+      AttachmentModel result = apiInstance.getAttachment(id, attachmentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#getAttachment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -861,72 +802,64 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **404** | File not found |  -  |
 | **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | File not found |  -  |
 | **403** | Read permission for test result required |  -  |
-| **400** | Bad Request |  -  |
 
-
-## getAttachments
-
+<a name="getAttachments"></a>
+# **getAttachments**
 > List&lt;AttachmentModel&gt; getAttachments(id)
 
 Get all attachments of TestResult
 
-<br>Use case
-<br>User sets testResultId
-<br>User runs method execution
-<br>System search all attachments of the test result
-<br>System returns attachments enumeration
+&lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search all attachments of the test result  &lt;br&gt;System returns attachments enumeration
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestResultsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
-        try {
-            List<AttachmentModel> result = apiInstance.getAttachments(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestResultsApi#getAttachments");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
+    try {
+      List<AttachmentModel> result = apiInstance.getAttachments(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#getAttachments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -942,15 +875,15 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **404** | TestResult not found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for test result required |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Read permission for test result required |  -  |
 

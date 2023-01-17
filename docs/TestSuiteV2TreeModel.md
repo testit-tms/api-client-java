@@ -10,7 +10,7 @@
 |**children** | [**List&lt;TestSuiteV2TreeModel&gt;**](TestSuiteV2TreeModel.md) | nested enumeration of children is allowed |  [optional] |
 |**id** | **UUID** |  |  [optional] |
 |**parentId** | **UUID** |  |  [optional] |
-|**testPlanId** | **UUID** |  |  [optional] |
+|**testPlanId** | **UUID** |  |  |
 |**name** | **String** |  |  |
 
 

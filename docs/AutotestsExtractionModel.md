@@ -1,14 +1,13 @@
 
 
-# WorkItemCommentPostModel
+# AutotestsExtractionModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**text** | **String** |  |  |
-|**workItemId** | **UUID** |  |  |
+|**ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
 
 
 

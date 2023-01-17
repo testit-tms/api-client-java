@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**text** | **String** |  |  |
-|**id** | **UUID** |  |  [optional] |
+|**text** | **String** | Text of the comment |  |
+|**id** | **UUID** | Unique ID of the comment |  |
 
 
 
