@@ -13,20 +13,17 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
 
 /**
  * Gets or Sets TestPlanStatusModel
  */
+@JsonAdapter(TestPlanStatusModel.Adapter.class)
 public enum TestPlanStatusModel {
   
   NEW("New"),
@@ -43,7 +40,6 @@ public enum TestPlanStatusModel {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -53,7 +49,6 @@ public enum TestPlanStatusModel {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static TestPlanStatusModel fromValue(String value) {
     for (TestPlanStatusModel b : TestPlanStatusModel.values()) {
       if (b.value.equals(value)) {
@@ -61,6 +56,19 @@ public enum TestPlanStatusModel {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<TestPlanStatusModel> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final TestPlanStatusModel enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public TestPlanStatusModel read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return TestPlanStatusModel.fromValue(value);
+    }
   }
 }
 

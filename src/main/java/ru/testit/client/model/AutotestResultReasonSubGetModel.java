@@ -13,45 +13,40 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.FailureCategoryModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * AutotestResultReasonSubGetModel
  */
-@JsonPropertyOrder({
-  AutotestResultReasonSubGetModel.JSON_PROPERTY_FAILURE_CATEGORY,
-  AutotestResultReasonSubGetModel.JSON_PROPERTY_NAME
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutotestResultReasonSubGetModel {
-  public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
   private FailureCategoryModel failureCategory;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public AutotestResultReasonSubGetModel() { 
+  public AutotestResultReasonSubGetModel() {
   }
 
   public AutotestResultReasonSubGetModel failureCategory(FailureCategoryModel failureCategory) {
+    
     this.failureCategory = failureCategory;
     return this;
   }
@@ -60,25 +55,22 @@ public class AutotestResultReasonSubGetModel {
    * Get failureCategory
    * @return failureCategory
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FailureCategoryModel getFailureCategory() {
     return failureCategory;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFailureCategory(FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
   public AutotestResultReasonSubGetModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -86,34 +78,20 @@ public class AutotestResultReasonSubGetModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
+
+
+  public void setName(String name) {
     this.name = name;
   }
 
-  public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
-  }
 
 
-  /**
-   * Return true if this AutotestResultReasonSubGetModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,7 +102,7 @@ public class AutotestResultReasonSubGetModel {
     }
     AutotestResultReasonSubGetModel autotestResultReasonSubGetModel = (AutotestResultReasonSubGetModel) o;
     return Objects.equals(this.failureCategory, autotestResultReasonSubGetModel.failureCategory) &&
-        equalsNullable(this.name, autotestResultReasonSubGetModel.name);
+        Objects.equals(this.name, autotestResultReasonSubGetModel.name);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -133,7 +111,7 @@ public class AutotestResultReasonSubGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(failureCategory, hashCodeNullable(name));
+    return Objects.hash(failureCategory, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -164,5 +142,92 @@ public class AutotestResultReasonSubGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("failureCategory");
+    openapiFields.add("name");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutotestResultReasonSubGetModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutotestResultReasonSubGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestResultReasonSubGetModel is not found in the empty JSON string", AutotestResultReasonSubGetModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AutotestResultReasonSubGetModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultReasonSubGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AutotestResultReasonSubGetModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutotestResultReasonSubGetModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AutotestResultReasonSubGetModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutotestResultReasonSubGetModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AutotestResultReasonSubGetModel>() {
+           @Override
+           public void write(JsonWriter out, AutotestResultReasonSubGetModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AutotestResultReasonSubGetModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AutotestResultReasonSubGetModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutotestResultReasonSubGetModel
+  * @throws IOException if the JSON string is invalid with respect to AutotestResultReasonSubGetModel
+  */
+  public static AutotestResultReasonSubGetModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutotestResultReasonSubGetModel.class);
+  }
+
+ /**
+  * Convert an instance of AutotestResultReasonSubGetModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

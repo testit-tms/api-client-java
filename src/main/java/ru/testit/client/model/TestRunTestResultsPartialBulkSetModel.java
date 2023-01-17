@@ -13,62 +13,49 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.LinkPostModel;
-import ru.testit.client.model.TestRunTestResultsSelectModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestRunTestResultsPartialBulkSetModel
  */
-@JsonPropertyOrder({
-  TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_SELECTOR,
-  TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_RESULT_REASON_IDS,
-  TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_LINKS,
-  TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_COMMENT,
-  TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_ATTACHMENT_IDS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunTestResultsPartialBulkSetModel {
-  public static final String JSON_PROPERTY_SELECTOR = "selector";
+  public static final String SERIALIZED_NAME_SELECTOR = "selector";
+  @SerializedName(SERIALIZED_NAME_SELECTOR)
   private TestRunTestResultsSelectModel selector;
 
-  public static final String JSON_PROPERTY_RESULT_REASON_IDS = "resultReasonIds";
-  private JsonNullable<Set<UUID>> resultReasonIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_RESULT_REASON_IDS = "resultReasonIds";
+  @SerializedName(SERIALIZED_NAME_RESULT_REASON_IDS)
+  private Set<UUID> resultReasonIds = null;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<Set<LinkPostModel>> links = JsonNullable.<Set<LinkPostModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private Set<LinkPostModel> links = null;
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private String comment;
 
-  public static final String JSON_PROPERTY_ATTACHMENT_IDS = "attachmentIds";
-  private JsonNullable<Set<UUID>> attachmentIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
+  private Set<UUID> attachmentIds = null;
 
-  public TestRunTestResultsPartialBulkSetModel() { 
+  public TestRunTestResultsPartialBulkSetModel() {
   }
 
   public TestRunTestResultsPartialBulkSetModel selector(TestRunTestResultsSelectModel selector) {
+    
     this.selector = selector;
     return this;
   }
@@ -77,198 +64,136 @@ public class TestRunTestResultsPartialBulkSetModel {
    * Get selector
    * @return selector
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SELECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TestRunTestResultsSelectModel getSelector() {
     return selector;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SELECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelector(TestRunTestResultsSelectModel selector) {
     this.selector = selector;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel resultReasonIds(Set<UUID> resultReasonIds) {
-    this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
+    
+    this.resultReasonIds = resultReasonIds;
     return this;
   }
 
   public TestRunTestResultsPartialBulkSetModel addResultReasonIdsItem(UUID resultReasonIdsItem) {
-    if (this.resultReasonIds == null || !this.resultReasonIds.isPresent()) {
-      this.resultReasonIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.resultReasonIds == null) {
+      this.resultReasonIds = new LinkedHashSet<>();
     }
-    try {
-      this.resultReasonIds.get().add(resultReasonIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.resultReasonIds.add(resultReasonIdsItem);
     return this;
   }
 
    /**
-   * Get resultReasonIds
+   * Unique IDs of result reasons to be assigned to test results
    * @return resultReasonIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique IDs of result reasons to be assigned to test results")
 
   public Set<UUID> getResultReasonIds() {
-        return resultReasonIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RESULT_REASON_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getResultReasonIds_JsonNullable() {
     return resultReasonIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_RESULT_REASON_IDS)
-  public void setResultReasonIds_JsonNullable(JsonNullable<Set<UUID>> resultReasonIds) {
-    this.resultReasonIds = resultReasonIds;
-  }
+
 
   public void setResultReasonIds(Set<UUID> resultReasonIds) {
-    this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
+    this.resultReasonIds = resultReasonIds;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel links(Set<LinkPostModel> links) {
-    this.links = JsonNullable.<Set<LinkPostModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public TestRunTestResultsPartialBulkSetModel addLinksItem(LinkPostModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<Set<LinkPostModel>>of(new LinkedHashSet<>());
+    if (this.links == null) {
+      this.links = new LinkedHashSet<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
    /**
-   * Get links
+   * Collection of links to be assigned to test results
    * @return links
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of links to be assigned to test results")
 
   public Set<LinkPostModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<LinkPostModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<Set<LinkPostModel>> links) {
-    this.links = links;
-  }
+
 
   public void setLinks(Set<LinkPostModel> links) {
-    this.links = JsonNullable.<Set<LinkPostModel>>of(links);
+    this.links = links;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel comment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    
+    this.comment = comment;
     return this;
   }
 
    /**
-   * Get comment
+   * Comment to be added to test results
    * @return comment
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comment to be added to test results")
 
   public String getComment() {
-        return comment.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<String> comment) {
-    this.comment = comment;
-  }
+
 
   public void setComment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    this.comment = comment;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel attachmentIds(Set<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
+    
+    this.attachmentIds = attachmentIds;
     return this;
   }
 
   public TestRunTestResultsPartialBulkSetModel addAttachmentIdsItem(UUID attachmentIdsItem) {
-    if (this.attachmentIds == null || !this.attachmentIds.isPresent()) {
-      this.attachmentIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.attachmentIds == null) {
+      this.attachmentIds = new LinkedHashSet<>();
     }
-    try {
-      this.attachmentIds.get().add(attachmentIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachmentIds.add(attachmentIdsItem);
     return this;
   }
 
    /**
-   * Get attachmentIds
+   * Unique IDs of files to be attached to test results
    * @return attachmentIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique IDs of files to be attached to test results")
 
   public Set<UUID> getAttachmentIds() {
-        return attachmentIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getAttachmentIds_JsonNullable() {
     return attachmentIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  public void setAttachmentIds_JsonNullable(JsonNullable<Set<UUID>> attachmentIds) {
+
+
+  public void setAttachmentIds(Set<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 
-  public void setAttachmentIds(Set<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
-  }
 
 
-  /**
-   * Return true if this TestRunTestResultsPartialBulkSetModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -279,10 +204,10 @@ public class TestRunTestResultsPartialBulkSetModel {
     }
     TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel = (TestRunTestResultsPartialBulkSetModel) o;
     return Objects.equals(this.selector, testRunTestResultsPartialBulkSetModel.selector) &&
-        equalsNullable(this.resultReasonIds, testRunTestResultsPartialBulkSetModel.resultReasonIds) &&
-        equalsNullable(this.links, testRunTestResultsPartialBulkSetModel.links) &&
-        equalsNullable(this.comment, testRunTestResultsPartialBulkSetModel.comment) &&
-        equalsNullable(this.attachmentIds, testRunTestResultsPartialBulkSetModel.attachmentIds);
+        Objects.equals(this.resultReasonIds, testRunTestResultsPartialBulkSetModel.resultReasonIds) &&
+        Objects.equals(this.links, testRunTestResultsPartialBulkSetModel.links) &&
+        Objects.equals(this.comment, testRunTestResultsPartialBulkSetModel.comment) &&
+        Objects.equals(this.attachmentIds, testRunTestResultsPartialBulkSetModel.attachmentIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -291,7 +216,7 @@ public class TestRunTestResultsPartialBulkSetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selector, hashCodeNullable(resultReasonIds), hashCodeNullable(links), hashCodeNullable(comment), hashCodeNullable(attachmentIds));
+    return Objects.hash(selector, resultReasonIds, links, comment, attachmentIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -325,5 +250,121 @@ public class TestRunTestResultsPartialBulkSetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("selector");
+    openapiFields.add("resultReasonIds");
+    openapiFields.add("links");
+    openapiFields.add("comment");
+    openapiFields.add("attachmentIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunTestResultsPartialBulkSetModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunTestResultsPartialBulkSetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunTestResultsPartialBulkSetModel is not found in the empty JSON string", TestRunTestResultsPartialBulkSetModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunTestResultsPartialBulkSetModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunTestResultsPartialBulkSetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `selector`
+      if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
+        TestRunTestResultsSelectModel.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("resultReasonIds") != null && !jsonObj.get("resultReasonIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resultReasonIds` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasonIds").toString()));
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attachmentIds` to be an array in the JSON string but got `%s`", jsonObj.get("attachmentIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunTestResultsPartialBulkSetModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunTestResultsPartialBulkSetModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunTestResultsPartialBulkSetModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunTestResultsPartialBulkSetModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunTestResultsPartialBulkSetModel>() {
+           @Override
+           public void write(JsonWriter out, TestRunTestResultsPartialBulkSetModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunTestResultsPartialBulkSetModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunTestResultsPartialBulkSetModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunTestResultsPartialBulkSetModel
+  * @throws IOException if the JSON string is invalid with respect to TestRunTestResultsPartialBulkSetModel
+  */
+  public static TestRunTestResultsPartialBulkSetModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunTestResultsPartialBulkSetModel.class);
+  }
+
+ /**
+  * Convert an instance of TestRunTestResultsPartialBulkSetModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

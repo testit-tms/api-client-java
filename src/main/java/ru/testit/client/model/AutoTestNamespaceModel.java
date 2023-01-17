@@ -13,48 +13,38 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * AutoTestNamespaceModel
  */
-@JsonPropertyOrder({
-  AutoTestNamespaceModel.JSON_PROPERTY_NAME,
-  AutoTestNamespaceModel.JSON_PROPERTY_CLASSES
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoTestNamespaceModel {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_CLASSES = "classes";
-  private JsonNullable<Set<String>> classes = JsonNullable.<Set<String>>undefined();
+  public static final String SERIALIZED_NAME_CLASSES = "classes";
+  @SerializedName(SERIALIZED_NAME_CLASSES)
+  private Set<String> classes = null;
 
-  public AutoTestNamespaceModel() { 
+  public AutoTestNamespaceModel() {
   }
 
   public AutoTestNamespaceModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -62,45 +52,30 @@ public class AutoTestNamespaceModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "WebApi.Core.Tests", value = "")
-  @JsonIgnore
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public AutoTestNamespaceModel classes(Set<String> classes) {
-    this.classes = JsonNullable.<Set<String>>of(classes);
+    
+    this.classes = classes;
     return this;
   }
 
   public AutoTestNamespaceModel addClassesItem(String classesItem) {
-    if (this.classes == null || !this.classes.isPresent()) {
-      this.classes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    if (this.classes == null) {
+      this.classes = new LinkedHashSet<>();
     }
-    try {
-      this.classes.get().add(classesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.classes.add(classesItem);
     return this;
   }
 
@@ -108,34 +83,20 @@ public class AutoTestNamespaceModel {
    * Get classes
    * @return classes
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Set<String> getClasses() {
-        return classes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CLASSES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<String>> getClasses_JsonNullable() {
     return classes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CLASSES)
-  public void setClasses_JsonNullable(JsonNullable<Set<String>> classes) {
+
+
+  public void setClasses(Set<String> classes) {
     this.classes = classes;
   }
 
-  public void setClasses(Set<String> classes) {
-    this.classes = JsonNullable.<Set<String>>of(classes);
-  }
 
 
-  /**
-   * Return true if this AutoTestNamespaceModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,8 +106,8 @@ public class AutoTestNamespaceModel {
       return false;
     }
     AutoTestNamespaceModel autoTestNamespaceModel = (AutoTestNamespaceModel) o;
-    return equalsNullable(this.name, autoTestNamespaceModel.name) &&
-        equalsNullable(this.classes, autoTestNamespaceModel.classes);
+    return Objects.equals(this.name, autoTestNamespaceModel.name) &&
+        Objects.equals(this.classes, autoTestNamespaceModel.classes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -155,7 +116,7 @@ public class AutoTestNamespaceModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(classes));
+    return Objects.hash(name, classes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -186,5 +147,96 @@ public class AutoTestNamespaceModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("classes");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutoTestNamespaceModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutoTestNamespaceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestNamespaceModel is not found in the empty JSON string", AutoTestNamespaceModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AutoTestNamespaceModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestNamespaceModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("classes") != null && !jsonObj.get("classes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `classes` to be an array in the JSON string but got `%s`", jsonObj.get("classes").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AutoTestNamespaceModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutoTestNamespaceModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AutoTestNamespaceModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestNamespaceModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AutoTestNamespaceModel>() {
+           @Override
+           public void write(JsonWriter out, AutoTestNamespaceModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AutoTestNamespaceModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AutoTestNamespaceModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutoTestNamespaceModel
+  * @throws IOException if the JSON string is invalid with respect to AutoTestNamespaceModel
+  */
+  public static AutoTestNamespaceModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutoTestNamespaceModel.class);
+  }
+
+ /**
+  * Convert an instance of AutoTestNamespaceModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -13,67 +13,57 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.ExternalLinkModel;
-import ru.testit.client.model.LinkModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestPlanLink
  */
-@JsonPropertyOrder({
-  TestPlanLink.JSON_PROPERTY_BUG_LINK,
-  TestPlanLink.JSON_PROPERTY_WORK_ITEM_GLOBAL_ID,
-  TestPlanLink.JSON_PROPERTY_WORK_ITEM_NAME,
-  TestPlanLink.JSON_PROPERTY_CONFIGURATION_NAME,
-  TestPlanLink.JSON_PROPERTY_CREATED_BY_ID,
-  TestPlanLink.JSON_PROPERTY_COMMENT,
-  TestPlanLink.JSON_PROPERTY_INFO
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanLink {
-  public static final String JSON_PROPERTY_BUG_LINK = "bugLink";
+  public static final String SERIALIZED_NAME_BUG_LINK = "bugLink";
+  @SerializedName(SERIALIZED_NAME_BUG_LINK)
   private LinkModel bugLink;
 
-  public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
-  private JsonNullable<Long> workItemGlobalId = JsonNullable.<Long>undefined();
+  public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
+  private Long workItemGlobalId;
 
-  public static final String JSON_PROPERTY_WORK_ITEM_NAME = "workItemName";
-  private JsonNullable<String> workItemName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
+  private String workItemName;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
-  private JsonNullable<String> configurationName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  private String configurationName;
 
-  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
-  private JsonNullable<UUID> createdById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  private UUID createdById;
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private String comment;
 
-  public static final String JSON_PROPERTY_INFO = "info";
+  public static final String SERIALIZED_NAME_INFO = "info";
+  @SerializedName(SERIALIZED_NAME_INFO)
   private ExternalLinkModel info;
 
-  public TestPlanLink() { 
+  public TestPlanLink() {
   }
 
   public TestPlanLink bugLink(LinkModel bugLink) {
+    
     this.bugLink = bugLink;
     return this;
   }
@@ -82,25 +72,22 @@ public class TestPlanLink {
    * Get bugLink
    * @return bugLink
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BUG_LINK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LinkModel getBugLink() {
     return bugLink;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BUG_LINK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBugLink(LinkModel bugLink) {
     this.bugLink = bugLink;
   }
 
 
   public TestPlanLink workItemGlobalId(Long workItemGlobalId) {
-    this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
+    
+    this.workItemGlobalId = workItemGlobalId;
     return this;
   }
 
@@ -108,33 +95,22 @@ public class TestPlanLink {
    * Get workItemGlobalId
    * @return workItemGlobalId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Long getWorkItemGlobalId() {
-        return workItemGlobalId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Long> getWorkItemGlobalId_JsonNullable() {
     return workItemGlobalId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
-  public void setWorkItemGlobalId_JsonNullable(JsonNullable<Long> workItemGlobalId) {
-    this.workItemGlobalId = workItemGlobalId;
-  }
+
 
   public void setWorkItemGlobalId(Long workItemGlobalId) {
-    this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
+    this.workItemGlobalId = workItemGlobalId;
   }
 
 
   public TestPlanLink workItemName(String workItemName) {
-    this.workItemName = JsonNullable.<String>of(workItemName);
+    
+    this.workItemName = workItemName;
     return this;
   }
 
@@ -142,33 +118,22 @@ public class TestPlanLink {
    * Get workItemName
    * @return workItemName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getWorkItemName() {
-        return workItemName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getWorkItemName_JsonNullable() {
     return workItemName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
-  public void setWorkItemName_JsonNullable(JsonNullable<String> workItemName) {
-    this.workItemName = workItemName;
-  }
+
 
   public void setWorkItemName(String workItemName) {
-    this.workItemName = JsonNullable.<String>of(workItemName);
+    this.workItemName = workItemName;
   }
 
 
   public TestPlanLink configurationName(String configurationName) {
-    this.configurationName = JsonNullable.<String>of(configurationName);
+    
+    this.configurationName = configurationName;
     return this;
   }
 
@@ -176,33 +141,22 @@ public class TestPlanLink {
    * Get configurationName
    * @return configurationName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getConfigurationName() {
-        return configurationName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getConfigurationName_JsonNullable() {
     return configurationName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
-  public void setConfigurationName_JsonNullable(JsonNullable<String> configurationName) {
-    this.configurationName = configurationName;
-  }
+
 
   public void setConfigurationName(String configurationName) {
-    this.configurationName = JsonNullable.<String>of(configurationName);
+    this.configurationName = configurationName;
   }
 
 
   public TestPlanLink createdById(UUID createdById) {
-    this.createdById = JsonNullable.<UUID>of(createdById);
+    
+    this.createdById = createdById;
     return this;
   }
 
@@ -210,33 +164,22 @@ public class TestPlanLink {
    * Get createdById
    * @return createdById
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public UUID getCreatedById() {
-        return createdById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getCreatedById_JsonNullable() {
     return createdById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  public void setCreatedById_JsonNullable(JsonNullable<UUID> createdById) {
-    this.createdById = createdById;
-  }
+
 
   public void setCreatedById(UUID createdById) {
-    this.createdById = JsonNullable.<UUID>of(createdById);
+    this.createdById = createdById;
   }
 
 
   public TestPlanLink comment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    
+    this.comment = comment;
     return this;
   }
 
@@ -244,32 +187,21 @@ public class TestPlanLink {
    * Get comment
    * @return comment
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getComment() {
-        return comment.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<String> comment) {
-    this.comment = comment;
-  }
+
 
   public void setComment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    this.comment = comment;
   }
 
 
   public TestPlanLink info(ExternalLinkModel info) {
+    
     this.info = info;
     return this;
   }
@@ -278,26 +210,20 @@ public class TestPlanLink {
    * Get info
    * @return info
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ExternalLinkModel getInfo() {
     return info;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfo(ExternalLinkModel info) {
     this.info = info;
   }
 
 
-  /**
-   * Return true if this TestPlanLink object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -308,11 +234,11 @@ public class TestPlanLink {
     }
     TestPlanLink testPlanLink = (TestPlanLink) o;
     return Objects.equals(this.bugLink, testPlanLink.bugLink) &&
-        equalsNullable(this.workItemGlobalId, testPlanLink.workItemGlobalId) &&
-        equalsNullable(this.workItemName, testPlanLink.workItemName) &&
-        equalsNullable(this.configurationName, testPlanLink.configurationName) &&
-        equalsNullable(this.createdById, testPlanLink.createdById) &&
-        equalsNullable(this.comment, testPlanLink.comment) &&
+        Objects.equals(this.workItemGlobalId, testPlanLink.workItemGlobalId) &&
+        Objects.equals(this.workItemName, testPlanLink.workItemName) &&
+        Objects.equals(this.configurationName, testPlanLink.configurationName) &&
+        Objects.equals(this.createdById, testPlanLink.createdById) &&
+        Objects.equals(this.comment, testPlanLink.comment) &&
         Objects.equals(this.info, testPlanLink.info);
   }
 
@@ -322,7 +248,7 @@ public class TestPlanLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bugLink, hashCodeNullable(workItemGlobalId), hashCodeNullable(workItemName), hashCodeNullable(configurationName), hashCodeNullable(createdById), hashCodeNullable(comment), info);
+    return Objects.hash(bugLink, workItemGlobalId, workItemName, configurationName, createdById, comment, info);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,5 +284,114 @@ public class TestPlanLink {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("bugLink");
+    openapiFields.add("workItemGlobalId");
+    openapiFields.add("workItemName");
+    openapiFields.add("configurationName");
+    openapiFields.add("createdById");
+    openapiFields.add("comment");
+    openapiFields.add("info");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanLink
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanLink.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanLink is not found in the empty JSON string", TestPlanLink.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPlanLink.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanLink` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `bugLink`
+      if (jsonObj.get("bugLink") != null && !jsonObj.get("bugLink").isJsonNull()) {
+        LinkModel.validateJsonObject(jsonObj.getAsJsonObject("bugLink"));
+      }
+      if ((jsonObj.get("workItemName") != null && !jsonObj.get("workItemName").isJsonNull()) && !jsonObj.get("workItemName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemName").toString()));
+      }
+      if ((jsonObj.get("configurationName") != null && !jsonObj.get("configurationName").isJsonNull()) && !jsonObj.get("configurationName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
+      }
+      if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      // validate the optional field `info`
+      if (jsonObj.get("info") != null && !jsonObj.get("info").isJsonNull()) {
+        ExternalLinkModel.validateJsonObject(jsonObj.getAsJsonObject("info"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPlanLink.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPlanLink' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPlanLink> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanLink.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPlanLink>() {
+           @Override
+           public void write(JsonWriter out, TestPlanLink value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPlanLink read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPlanLink given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanLink
+  * @throws IOException if the JSON string is invalid with respect to TestPlanLink
+  */
+  public static TestPlanLink fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPlanLink.class);
+  }
+
+ /**
+  * Convert an instance of TestPlanLink to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

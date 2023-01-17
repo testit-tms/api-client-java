@@ -13,97 +13,78 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentPutModel;
-import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
-import ru.testit.client.model.LinkModel;
-import ru.testit.client.model.StepResultModel;
-import ru.testit.client.model.TestResultStepCommentPutModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestResultUpdateModel
  */
-@JsonPropertyOrder({
-  TestResultUpdateModel.JSON_PROPERTY_SETUP_RESULTS,
-  TestResultUpdateModel.JSON_PROPERTY_TEARDOWN_RESULTS,
-  TestResultUpdateModel.JSON_PROPERTY_DURATION_IN_MS,
-  TestResultUpdateModel.JSON_PROPERTY_STEP_COMMENTS,
-  TestResultUpdateModel.JSON_PROPERTY_FAILURE_CLASS_IDS,
-  TestResultUpdateModel.JSON_PROPERTY_OUTCOME,
-  TestResultUpdateModel.JSON_PROPERTY_COMMENT,
-  TestResultUpdateModel.JSON_PROPERTY_LINKS,
-  TestResultUpdateModel.JSON_PROPERTY_STEP_RESULTS,
-  TestResultUpdateModel.JSON_PROPERTY_ATTACHMENTS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultUpdateModel {
-  public static final String JSON_PROPERTY_SETUP_RESULTS = "setupResults";
-  private JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>undefined();
+  public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
+  @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
+  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults = null;
 
-  public static final String JSON_PROPERTY_TEARDOWN_RESULTS = "teardownResults";
-  private JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>undefined();
+  public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
+  @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
+  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults = null;
 
-  public static final String JSON_PROPERTY_DURATION_IN_MS = "durationInMs";
-  private JsonNullable<Long> durationInMs = JsonNullable.<Long>undefined();
+  public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
+  @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
+  private Long durationInMs;
 
-  public static final String JSON_PROPERTY_STEP_COMMENTS = "stepComments";
-  private JsonNullable<List<TestResultStepCommentPutModel>> stepComments = JsonNullable.<List<TestResultStepCommentPutModel>>undefined();
+  public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
+  @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
+  private List<TestResultStepCommentPutModel> stepComments = null;
 
-  public static final String JSON_PROPERTY_FAILURE_CLASS_IDS = "failureClassIds";
-  private JsonNullable<List<UUID>> failureClassIds = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
+  private List<UUID> failureClassIds = null;
 
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
-  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private String outcome;
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private String comment;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<LinkModel>> links = JsonNullable.<List<LinkModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private List<LinkModel> links = null;
 
-  public static final String JSON_PROPERTY_STEP_RESULTS = "stepResults";
-  private JsonNullable<List<StepResultModel>> stepResults = JsonNullable.<List<StepResultModel>>undefined();
+  public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
+  @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
+  private List<StepResultModel> stepResults = null;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentPutModel>> attachments = JsonNullable.<List<AttachmentPutModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentPutModel> attachments = null;
 
-  public TestResultUpdateModel() { 
+  public TestResultUpdateModel() {
   }
 
   public TestResultUpdateModel setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
-    this.setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(setupResults);
+    
+    this.setupResults = setupResults;
     return this;
   }
 
   public TestResultUpdateModel addSetupResultsItem(AttachmentPutModelAutoTestStepResultsModel setupResultsItem) {
-    if (this.setupResults == null || !this.setupResults.isPresent()) {
-      this.setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(new ArrayList<>());
+    if (this.setupResults == null) {
+      this.setupResults = new ArrayList<>();
     }
-    try {
-      this.setupResults.get().add(setupResultsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.setupResults.add(setupResultsItem);
     return this;
   }
 
@@ -111,45 +92,30 @@ public class TestResultUpdateModel {
    * Get setupResults
    * @return setupResults
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
-        return setupResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SETUP_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> getSetupResults_JsonNullable() {
     return setupResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SETUP_RESULTS)
-  public void setSetupResults_JsonNullable(JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> setupResults) {
-    this.setupResults = setupResults;
-  }
+
 
   public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
-    this.setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(setupResults);
+    this.setupResults = setupResults;
   }
 
 
   public TestResultUpdateModel teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
-    this.teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(teardownResults);
+    
+    this.teardownResults = teardownResults;
     return this;
   }
 
   public TestResultUpdateModel addTeardownResultsItem(AttachmentPutModelAutoTestStepResultsModel teardownResultsItem) {
-    if (this.teardownResults == null || !this.teardownResults.isPresent()) {
-      this.teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(new ArrayList<>());
+    if (this.teardownResults == null) {
+      this.teardownResults = new ArrayList<>();
     }
-    try {
-      this.teardownResults.get().add(teardownResultsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.teardownResults.add(teardownResultsItem);
     return this;
   }
 
@@ -157,33 +123,22 @@ public class TestResultUpdateModel {
    * Get teardownResults
    * @return teardownResults
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
-        return teardownResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEARDOWN_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> getTeardownResults_JsonNullable() {
     return teardownResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEARDOWN_RESULTS)
-  public void setTeardownResults_JsonNullable(JsonNullable<List<AttachmentPutModelAutoTestStepResultsModel>> teardownResults) {
-    this.teardownResults = teardownResults;
-  }
+
 
   public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
-    this.teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(teardownResults);
+    this.teardownResults = teardownResults;
   }
 
 
   public TestResultUpdateModel durationInMs(Long durationInMs) {
-    this.durationInMs = JsonNullable.<Long>of(durationInMs);
+    
+    this.durationInMs = durationInMs;
     return this;
   }
 
@@ -192,45 +147,30 @@ public class TestResultUpdateModel {
    * minimum: 0
    * @return durationInMs
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Long getDurationInMs() {
-        return durationInMs.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DURATION_IN_MS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Long> getDurationInMs_JsonNullable() {
     return durationInMs;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DURATION_IN_MS)
-  public void setDurationInMs_JsonNullable(JsonNullable<Long> durationInMs) {
-    this.durationInMs = durationInMs;
-  }
+
 
   public void setDurationInMs(Long durationInMs) {
-    this.durationInMs = JsonNullable.<Long>of(durationInMs);
+    this.durationInMs = durationInMs;
   }
 
 
   public TestResultUpdateModel stepComments(List<TestResultStepCommentPutModel> stepComments) {
-    this.stepComments = JsonNullable.<List<TestResultStepCommentPutModel>>of(stepComments);
+    
+    this.stepComments = stepComments;
     return this;
   }
 
   public TestResultUpdateModel addStepCommentsItem(TestResultStepCommentPutModel stepCommentsItem) {
-    if (this.stepComments == null || !this.stepComments.isPresent()) {
-      this.stepComments = JsonNullable.<List<TestResultStepCommentPutModel>>of(new ArrayList<>());
+    if (this.stepComments == null) {
+      this.stepComments = new ArrayList<>();
     }
-    try {
-      this.stepComments.get().add(stepCommentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.stepComments.add(stepCommentsItem);
     return this;
   }
 
@@ -238,45 +178,30 @@ public class TestResultUpdateModel {
    * Get stepComments
    * @return stepComments
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestResultStepCommentPutModel> getStepComments() {
-        return stepComments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STEP_COMMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestResultStepCommentPutModel>> getStepComments_JsonNullable() {
     return stepComments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STEP_COMMENTS)
-  public void setStepComments_JsonNullable(JsonNullable<List<TestResultStepCommentPutModel>> stepComments) {
-    this.stepComments = stepComments;
-  }
+
 
   public void setStepComments(List<TestResultStepCommentPutModel> stepComments) {
-    this.stepComments = JsonNullable.<List<TestResultStepCommentPutModel>>of(stepComments);
+    this.stepComments = stepComments;
   }
 
 
   public TestResultUpdateModel failureClassIds(List<UUID> failureClassIds) {
-    this.failureClassIds = JsonNullable.<List<UUID>>of(failureClassIds);
+    
+    this.failureClassIds = failureClassIds;
     return this;
   }
 
   public TestResultUpdateModel addFailureClassIdsItem(UUID failureClassIdsItem) {
-    if (this.failureClassIds == null || !this.failureClassIds.isPresent()) {
-      this.failureClassIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.failureClassIds == null) {
+      this.failureClassIds = new ArrayList<>();
     }
-    try {
-      this.failureClassIds.get().add(failureClassIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.failureClassIds.add(failureClassIdsItem);
     return this;
   }
 
@@ -284,33 +209,22 @@ public class TestResultUpdateModel {
    * Get failureClassIds
    * @return failureClassIds
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<UUID> getFailureClassIds() {
-        return failureClassIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getFailureClassIds_JsonNullable() {
     return failureClassIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_IDS)
-  public void setFailureClassIds_JsonNullable(JsonNullable<List<UUID>> failureClassIds) {
-    this.failureClassIds = failureClassIds;
-  }
+
 
   public void setFailureClassIds(List<UUID> failureClassIds) {
-    this.failureClassIds = JsonNullable.<List<UUID>>of(failureClassIds);
+    this.failureClassIds = failureClassIds;
   }
 
 
   public TestResultUpdateModel outcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    
+    this.outcome = outcome;
     return this;
   }
 
@@ -318,33 +232,22 @@ public class TestResultUpdateModel {
    * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getOutcome() {
-        return outcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOutcome_JsonNullable() {
     return outcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
-    this.outcome = outcome;
-  }
+
 
   public void setOutcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    this.outcome = outcome;
   }
 
 
   public TestResultUpdateModel comment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    
+    this.comment = comment;
     return this;
   }
 
@@ -352,45 +255,30 @@ public class TestResultUpdateModel {
    * Get comment
    * @return comment
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getComment() {
-        return comment.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<String> comment) {
-    this.comment = comment;
-  }
+
 
   public void setComment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    this.comment = comment;
   }
 
 
   public TestResultUpdateModel links(List<LinkModel> links) {
-    this.links = JsonNullable.<List<LinkModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public TestResultUpdateModel addLinksItem(LinkModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<LinkModel>>of(new ArrayList<>());
+    if (this.links == null) {
+      this.links = new ArrayList<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
@@ -398,45 +286,30 @@ public class TestResultUpdateModel {
    * Get links
    * @return links
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<LinkModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<LinkModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<LinkModel>> links) {
-    this.links = links;
-  }
+
 
   public void setLinks(List<LinkModel> links) {
-    this.links = JsonNullable.<List<LinkModel>>of(links);
+    this.links = links;
   }
 
 
   public TestResultUpdateModel stepResults(List<StepResultModel> stepResults) {
-    this.stepResults = JsonNullable.<List<StepResultModel>>of(stepResults);
+    
+    this.stepResults = stepResults;
     return this;
   }
 
   public TestResultUpdateModel addStepResultsItem(StepResultModel stepResultsItem) {
-    if (this.stepResults == null || !this.stepResults.isPresent()) {
-      this.stepResults = JsonNullable.<List<StepResultModel>>of(new ArrayList<>());
+    if (this.stepResults == null) {
+      this.stepResults = new ArrayList<>();
     }
-    try {
-      this.stepResults.get().add(stepResultsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.stepResults.add(stepResultsItem);
     return this;
   }
 
@@ -444,45 +317,30 @@ public class TestResultUpdateModel {
    * Get stepResults
    * @return stepResults
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<StepResultModel> getStepResults() {
-        return stepResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STEP_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<StepResultModel>> getStepResults_JsonNullable() {
     return stepResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STEP_RESULTS)
-  public void setStepResults_JsonNullable(JsonNullable<List<StepResultModel>> stepResults) {
-    this.stepResults = stepResults;
-  }
+
 
   public void setStepResults(List<StepResultModel> stepResults) {
-    this.stepResults = JsonNullable.<List<StepResultModel>>of(stepResults);
+    this.stepResults = stepResults;
   }
 
 
   public TestResultUpdateModel attachments(List<AttachmentPutModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public TestResultUpdateModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentPutModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
@@ -490,34 +348,20 @@ public class TestResultUpdateModel {
    * Get attachments
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentPutModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentPutModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentPutModel>> attachments) {
+
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentPutModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
-  }
 
 
-  /**
-   * Return true if this TestResultUpdateModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -527,16 +371,16 @@ public class TestResultUpdateModel {
       return false;
     }
     TestResultUpdateModel testResultUpdateModel = (TestResultUpdateModel) o;
-    return equalsNullable(this.setupResults, testResultUpdateModel.setupResults) &&
-        equalsNullable(this.teardownResults, testResultUpdateModel.teardownResults) &&
-        equalsNullable(this.durationInMs, testResultUpdateModel.durationInMs) &&
-        equalsNullable(this.stepComments, testResultUpdateModel.stepComments) &&
-        equalsNullable(this.failureClassIds, testResultUpdateModel.failureClassIds) &&
-        equalsNullable(this.outcome, testResultUpdateModel.outcome) &&
-        equalsNullable(this.comment, testResultUpdateModel.comment) &&
-        equalsNullable(this.links, testResultUpdateModel.links) &&
-        equalsNullable(this.stepResults, testResultUpdateModel.stepResults) &&
-        equalsNullable(this.attachments, testResultUpdateModel.attachments);
+    return Objects.equals(this.setupResults, testResultUpdateModel.setupResults) &&
+        Objects.equals(this.teardownResults, testResultUpdateModel.teardownResults) &&
+        Objects.equals(this.durationInMs, testResultUpdateModel.durationInMs) &&
+        Objects.equals(this.stepComments, testResultUpdateModel.stepComments) &&
+        Objects.equals(this.failureClassIds, testResultUpdateModel.failureClassIds) &&
+        Objects.equals(this.outcome, testResultUpdateModel.outcome) &&
+        Objects.equals(this.comment, testResultUpdateModel.comment) &&
+        Objects.equals(this.links, testResultUpdateModel.links) &&
+        Objects.equals(this.stepResults, testResultUpdateModel.stepResults) &&
+        Objects.equals(this.attachments, testResultUpdateModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -545,7 +389,7 @@ public class TestResultUpdateModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(setupResults), hashCodeNullable(teardownResults), hashCodeNullable(durationInMs), hashCodeNullable(stepComments), hashCodeNullable(failureClassIds), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(stepResults), hashCodeNullable(attachments));
+    return Objects.hash(setupResults, teardownResults, durationInMs, stepComments, failureClassIds, outcome, comment, links, stepResults, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -584,5 +428,191 @@ public class TestResultUpdateModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("setupResults");
+    openapiFields.add("teardownResults");
+    openapiFields.add("durationInMs");
+    openapiFields.add("stepComments");
+    openapiFields.add("failureClassIds");
+    openapiFields.add("outcome");
+    openapiFields.add("comment");
+    openapiFields.add("links");
+    openapiFields.add("stepResults");
+    openapiFields.add("attachments");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultUpdateModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultUpdateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultUpdateModel is not found in the empty JSON string", TestResultUpdateModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultUpdateModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultUpdateModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("setupResults") != null && !jsonObj.get("setupResults").isJsonNull()) {
+        JsonArray jsonArraysetupResults = jsonObj.getAsJsonArray("setupResults");
+        if (jsonArraysetupResults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("setupResults").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `setupResults` to be an array in the JSON string but got `%s`", jsonObj.get("setupResults").toString()));
+          }
+
+          // validate the optional field `setupResults` (array)
+          for (int i = 0; i < jsonArraysetupResults.size(); i++) {
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArraysetupResults.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("teardownResults") != null && !jsonObj.get("teardownResults").isJsonNull()) {
+        JsonArray jsonArrayteardownResults = jsonObj.getAsJsonArray("teardownResults");
+        if (jsonArrayteardownResults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("teardownResults").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `teardownResults` to be an array in the JSON string but got `%s`", jsonObj.get("teardownResults").toString()));
+          }
+
+          // validate the optional field `teardownResults` (array)
+          for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArrayteardownResults.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("stepComments") != null && !jsonObj.get("stepComments").isJsonNull()) {
+        JsonArray jsonArraystepComments = jsonObj.getAsJsonArray("stepComments");
+        if (jsonArraystepComments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("stepComments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `stepComments` to be an array in the JSON string but got `%s`", jsonObj.get("stepComments").toString()));
+          }
+
+          // validate the optional field `stepComments` (array)
+          for (int i = 0; i < jsonArraystepComments.size(); i++) {
+            TestResultStepCommentPutModel.validateJsonObject(jsonArraystepComments.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("failureClassIds") != null && !jsonObj.get("failureClassIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
+      }
+      if ((jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) && !jsonObj.get("outcome").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("stepResults") != null && !jsonObj.get("stepResults").isJsonNull()) {
+        JsonArray jsonArraystepResults = jsonObj.getAsJsonArray("stepResults");
+        if (jsonArraystepResults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("stepResults").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `stepResults` to be an array in the JSON string but got `%s`", jsonObj.get("stepResults").toString()));
+          }
+
+          // validate the optional field `stepResults` (array)
+          for (int i = 0; i < jsonArraystepResults.size(); i++) {
+            StepResultModel.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultUpdateModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultUpdateModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultUpdateModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultUpdateModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultUpdateModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultUpdateModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultUpdateModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultUpdateModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultUpdateModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultUpdateModel
+  */
+  public static TestResultUpdateModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultUpdateModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultUpdateModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

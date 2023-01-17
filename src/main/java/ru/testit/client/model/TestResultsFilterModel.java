@@ -13,320 +13,222 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.FailureCategoryModel;
-import ru.testit.client.model.TestResultOutcome;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestResultsFilterModel
  */
-@JsonPropertyOrder({
-  TestResultsFilterModel.JSON_PROPERTY_TEST_RUN_IDS,
-  TestResultsFilterModel.JSON_PROPERTY_CONFIGURATION_IDS,
-  TestResultsFilterModel.JSON_PROPERTY_OUTCOMES,
-  TestResultsFilterModel.JSON_PROPERTY_FAILURE_CATEGORIES,
-  TestResultsFilterModel.JSON_PROPERTY_NAMESPACE,
-  TestResultsFilterModel.JSON_PROPERTY_CLASS_NAME
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultsFilterModel {
-  public static final String JSON_PROPERTY_TEST_RUN_IDS = "testRunIds";
-  private JsonNullable<Set<UUID>> testRunIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
+  @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
+  private Set<UUID> testRunIds = null;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
-  private JsonNullable<Set<UUID>> configurationIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  private Set<UUID> configurationIds = null;
 
-  public static final String JSON_PROPERTY_OUTCOMES = "outcomes";
-  private JsonNullable<Set<TestResultOutcome>> outcomes = JsonNullable.<Set<TestResultOutcome>>undefined();
+  public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
+  @SerializedName(SERIALIZED_NAME_OUTCOMES)
+  private Set<TestResultOutcome> outcomes = null;
 
-  public static final String JSON_PROPERTY_FAILURE_CATEGORIES = "failureCategories";
-  private JsonNullable<Set<FailureCategoryModel>> failureCategories = JsonNullable.<Set<FailureCategoryModel>>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
+  private Set<FailureCategoryModel> failureCategories = null;
 
-  public static final String JSON_PROPERTY_NAMESPACE = "namespace";
-  private JsonNullable<String> namespace = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
 
-  public static final String JSON_PROPERTY_CLASS_NAME = "className";
-  private JsonNullable<String> className = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_CLASS_NAME = "className";
+  @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  private String className;
 
-  public TestResultsFilterModel() { 
+  public TestResultsFilterModel() {
   }
 
   public TestResultsFilterModel testRunIds(Set<UUID> testRunIds) {
-    this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
+    
+    this.testRunIds = testRunIds;
     return this;
   }
 
   public TestResultsFilterModel addTestRunIdsItem(UUID testRunIdsItem) {
-    if (this.testRunIds == null || !this.testRunIds.isPresent()) {
-      this.testRunIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.testRunIds == null) {
+      this.testRunIds = new LinkedHashSet<>();
     }
-    try {
-      this.testRunIds.get().add(testRunIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.testRunIds.add(testRunIdsItem);
     return this;
   }
 
    /**
-   * Get testRunIds
+   * Specifies a test result test run IDs to search for
    * @return testRunIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result test run IDs to search for")
 
   public Set<UUID> getTestRunIds() {
-        return testRunIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_RUN_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getTestRunIds_JsonNullable() {
     return testRunIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_RUN_IDS)
-  public void setTestRunIds_JsonNullable(JsonNullable<Set<UUID>> testRunIds) {
-    this.testRunIds = testRunIds;
-  }
+
 
   public void setTestRunIds(Set<UUID> testRunIds) {
-    this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
+    this.testRunIds = testRunIds;
   }
 
 
   public TestResultsFilterModel configurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
+    
+    this.configurationIds = configurationIds;
     return this;
   }
 
   public TestResultsFilterModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
-      this.configurationIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.configurationIds == null) {
+      this.configurationIds = new LinkedHashSet<>();
     }
-    try {
-      this.configurationIds.get().add(configurationIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.configurationIds.add(configurationIdsItem);
     return this;
   }
 
    /**
-   * Get configurationIds
+   * Specifies a test result configuration IDs to search for
    * @return configurationIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result configuration IDs to search for")
 
   public Set<UUID> getConfigurationIds() {
-        return configurationIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getConfigurationIds_JsonNullable() {
     return configurationIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  public void setConfigurationIds_JsonNullable(JsonNullable<Set<UUID>> configurationIds) {
-    this.configurationIds = configurationIds;
-  }
+
 
   public void setConfigurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
+    this.configurationIds = configurationIds;
   }
 
 
   public TestResultsFilterModel outcomes(Set<TestResultOutcome> outcomes) {
-    this.outcomes = JsonNullable.<Set<TestResultOutcome>>of(outcomes);
+    
+    this.outcomes = outcomes;
     return this;
   }
 
   public TestResultsFilterModel addOutcomesItem(TestResultOutcome outcomesItem) {
-    if (this.outcomes == null || !this.outcomes.isPresent()) {
-      this.outcomes = JsonNullable.<Set<TestResultOutcome>>of(new LinkedHashSet<>());
+    if (this.outcomes == null) {
+      this.outcomes = new LinkedHashSet<>();
     }
-    try {
-      this.outcomes.get().add(outcomesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.outcomes.add(outcomesItem);
     return this;
   }
 
    /**
-   * Get outcomes
+   * Specifies a test result outcomes to search for
    * @return outcomes
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result outcomes to search for")
 
   public Set<TestResultOutcome> getOutcomes() {
-        return outcomes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<TestResultOutcome>> getOutcomes_JsonNullable() {
     return outcomes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOMES)
-  public void setOutcomes_JsonNullable(JsonNullable<Set<TestResultOutcome>> outcomes) {
-    this.outcomes = outcomes;
-  }
+
 
   public void setOutcomes(Set<TestResultOutcome> outcomes) {
-    this.outcomes = JsonNullable.<Set<TestResultOutcome>>of(outcomes);
+    this.outcomes = outcomes;
   }
 
 
   public TestResultsFilterModel failureCategories(Set<FailureCategoryModel> failureCategories) {
-    this.failureCategories = JsonNullable.<Set<FailureCategoryModel>>of(failureCategories);
+    
+    this.failureCategories = failureCategories;
     return this;
   }
 
   public TestResultsFilterModel addFailureCategoriesItem(FailureCategoryModel failureCategoriesItem) {
-    if (this.failureCategories == null || !this.failureCategories.isPresent()) {
-      this.failureCategories = JsonNullable.<Set<FailureCategoryModel>>of(new LinkedHashSet<>());
+    if (this.failureCategories == null) {
+      this.failureCategories = new LinkedHashSet<>();
     }
-    try {
-      this.failureCategories.get().add(failureCategoriesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.failureCategories.add(failureCategoriesItem);
     return this;
   }
 
    /**
-   * Get failureCategories
+   * Specifies a test result failure categories to search for
    * @return failureCategories
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result failure categories to search for")
 
   public Set<FailureCategoryModel> getFailureCategories() {
-        return failureCategories.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<FailureCategoryModel>> getFailureCategories_JsonNullable() {
     return failureCategories;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORIES)
-  public void setFailureCategories_JsonNullable(JsonNullable<Set<FailureCategoryModel>> failureCategories) {
-    this.failureCategories = failureCategories;
-  }
+
 
   public void setFailureCategories(Set<FailureCategoryModel> failureCategories) {
-    this.failureCategories = JsonNullable.<Set<FailureCategoryModel>>of(failureCategories);
+    this.failureCategories = failureCategories;
   }
 
 
   public TestResultsFilterModel namespace(String namespace) {
-    this.namespace = JsonNullable.<String>of(namespace);
+    
+    this.namespace = namespace;
     return this;
   }
 
    /**
-   * Get namespace
+   * Specifies a test result namespace to search for
    * @return namespace
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result namespace to search for")
 
   public String getNamespace() {
-        return namespace.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAMESPACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getNamespace_JsonNullable() {
     return namespace;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAMESPACE)
-  public void setNamespace_JsonNullable(JsonNullable<String> namespace) {
-    this.namespace = namespace;
-  }
+
 
   public void setNamespace(String namespace) {
-    this.namespace = JsonNullable.<String>of(namespace);
+    this.namespace = namespace;
   }
 
 
   public TestResultsFilterModel className(String className) {
-    this.className = JsonNullable.<String>of(className);
+    
+    this.className = className;
     return this;
   }
 
    /**
-   * Get className
+   * Specifies a test result class name to search for
    * @return className
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test result class name to search for")
 
   public String getClassName() {
-        return className.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CLASS_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getClassName_JsonNullable() {
     return className;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CLASS_NAME)
-  public void setClassName_JsonNullable(JsonNullable<String> className) {
+
+
+  public void setClassName(String className) {
     this.className = className;
   }
 
-  public void setClassName(String className) {
-    this.className = JsonNullable.<String>of(className);
-  }
 
 
-  /**
-   * Return true if this TestResultsFilterModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -336,12 +238,12 @@ public class TestResultsFilterModel {
       return false;
     }
     TestResultsFilterModel testResultsFilterModel = (TestResultsFilterModel) o;
-    return equalsNullable(this.testRunIds, testResultsFilterModel.testRunIds) &&
-        equalsNullable(this.configurationIds, testResultsFilterModel.configurationIds) &&
-        equalsNullable(this.outcomes, testResultsFilterModel.outcomes) &&
-        equalsNullable(this.failureCategories, testResultsFilterModel.failureCategories) &&
-        equalsNullable(this.namespace, testResultsFilterModel.namespace) &&
-        equalsNullable(this.className, testResultsFilterModel.className);
+    return Objects.equals(this.testRunIds, testResultsFilterModel.testRunIds) &&
+        Objects.equals(this.configurationIds, testResultsFilterModel.configurationIds) &&
+        Objects.equals(this.outcomes, testResultsFilterModel.outcomes) &&
+        Objects.equals(this.failureCategories, testResultsFilterModel.failureCategories) &&
+        Objects.equals(this.namespace, testResultsFilterModel.namespace) &&
+        Objects.equals(this.className, testResultsFilterModel.className);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -350,7 +252,7 @@ public class TestResultsFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(testRunIds), hashCodeNullable(configurationIds), hashCodeNullable(outcomes), hashCodeNullable(failureCategories), hashCodeNullable(namespace), hashCodeNullable(className));
+    return Objects.hash(testRunIds, configurationIds, outcomes, failureCategories, namespace, className);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -385,5 +287,115 @@ public class TestResultsFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("testRunIds");
+    openapiFields.add("configurationIds");
+    openapiFields.add("outcomes");
+    openapiFields.add("failureCategories");
+    openapiFields.add("namespace");
+    openapiFields.add("className");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultsFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultsFilterModel is not found in the empty JSON string", TestResultsFilterModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultsFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureCategories` to be an array in the JSON string but got `%s`", jsonObj.get("failureCategories").toString()));
+      }
+      if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+      }
+      if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultsFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultsFilterModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultsFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultsFilterModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultsFilterModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultsFilterModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultsFilterModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultsFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultsFilterModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultsFilterModel
+  */
+  public static TestResultsFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultsFilterModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultsFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

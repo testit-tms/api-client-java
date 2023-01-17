@@ -13,454 +13,325 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int64RangeSelectorModel;
-import ru.testit.client.model.TestPointStatus;
-import ru.testit.client.model.WorkItemPriorityModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestPointFilterModel
  */
-@JsonPropertyOrder({
-  TestPointFilterModel.JSON_PROPERTY_TEST_SUITE_IDS,
-  TestPointFilterModel.JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS,
-  TestPointFilterModel.JSON_PROPERTY_STATUSES,
-  TestPointFilterModel.JSON_PROPERTY_PRIORITIES,
-  TestPointFilterModel.JSON_PROPERTY_IS_AUTOMATED,
-  TestPointFilterModel.JSON_PROPERTY_NAME,
-  TestPointFilterModel.JSON_PROPERTY_CONFIGURATION_IDS,
-  TestPointFilterModel.JSON_PROPERTY_TESTER_IDS,
-  TestPointFilterModel.JSON_PROPERTY_DURATION,
-  TestPointFilterModel.JSON_PROPERTY_SECTION_IDS,
-  TestPointFilterModel.JSON_PROPERTY_CREATED_DATE,
-  TestPointFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
-  TestPointFilterModel.JSON_PROPERTY_MODIFIED_DATE,
-  TestPointFilterModel.JSON_PROPERTY_MODIFIED_BY_IDS,
-  TestPointFilterModel.JSON_PROPERTY_TAGS,
-  TestPointFilterModel.JSON_PROPERTY_ATTRIBUTES
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointFilterModel {
-  public static final String JSON_PROPERTY_TEST_SUITE_IDS = "testSuiteIds";
-  private JsonNullable<Set<UUID>> testSuiteIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
+  @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
+  private Set<UUID> testSuiteIds = null;
 
-  public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
-  private JsonNullable<Set<Long>> workItemGlobalIds = JsonNullable.<Set<Long>>undefined();
+  public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS)
+  private Set<Long> workItemGlobalIds = null;
 
-  public static final String JSON_PROPERTY_STATUSES = "statuses";
-  private JsonNullable<Set<TestPointStatus>> statuses = JsonNullable.<Set<TestPointStatus>>undefined();
+  public static final String SERIALIZED_NAME_STATUSES = "statuses";
+  @SerializedName(SERIALIZED_NAME_STATUSES)
+  private Set<TestPointStatus> statuses = null;
 
-  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
-  private JsonNullable<Set<WorkItemPriorityModel>> priorities = JsonNullable.<Set<WorkItemPriorityModel>>undefined();
+  public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
+  @SerializedName(SERIALIZED_NAME_PRIORITIES)
+  private Set<WorkItemPriorityModel> priorities = null;
 
-  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
-  private JsonNullable<Boolean> isAutomated = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
+  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  private Boolean isAutomated;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
-  private JsonNullable<Set<UUID>> configurationIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  private Set<UUID> configurationIds = null;
 
-  public static final String JSON_PROPERTY_TESTER_IDS = "testerIds";
-  private JsonNullable<Set<UUID>> testerIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_TESTER_IDS = "testerIds";
+  @SerializedName(SERIALIZED_NAME_TESTER_IDS)
+  private Set<UUID> testerIds = null;
 
-  public static final String JSON_PROPERTY_DURATION = "duration";
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
   private Int64RangeSelectorModel duration;
 
-  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
-  private JsonNullable<Set<UUID>> sectionIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
+  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
+  private Set<UUID> sectionIds = null;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private DateTimeRangeSelectorModel createdDate;
 
-  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
-  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  private Set<UUID> createdByIds = null;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
   private DateTimeRangeSelectorModel modifiedDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
-  private JsonNullable<Set<UUID>> modifiedByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
+  private Set<UUID> modifiedByIds = null;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Set<String> tags = null;
 
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Set<String>> attributes = null;
 
-  public TestPointFilterModel() { 
+  public TestPointFilterModel() {
   }
 
   public TestPointFilterModel testSuiteIds(Set<UUID> testSuiteIds) {
-    this.testSuiteIds = JsonNullable.<Set<UUID>>of(testSuiteIds);
+    
+    this.testSuiteIds = testSuiteIds;
     return this;
   }
 
   public TestPointFilterModel addTestSuiteIdsItem(UUID testSuiteIdsItem) {
-    if (this.testSuiteIds == null || !this.testSuiteIds.isPresent()) {
-      this.testSuiteIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.testSuiteIds == null) {
+      this.testSuiteIds = new LinkedHashSet<>();
     }
-    try {
-      this.testSuiteIds.get().add(testSuiteIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.testSuiteIds.add(testSuiteIdsItem);
     return this;
   }
 
    /**
-   * Get testSuiteIds
+   * Specifies a test point test suite IDs to search for
    * @return testSuiteIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point test suite IDs to search for")
 
   public Set<UUID> getTestSuiteIds() {
-        return testSuiteIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_SUITE_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getTestSuiteIds_JsonNullable() {
     return testSuiteIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_SUITE_IDS)
-  public void setTestSuiteIds_JsonNullable(JsonNullable<Set<UUID>> testSuiteIds) {
-    this.testSuiteIds = testSuiteIds;
-  }
+
 
   public void setTestSuiteIds(Set<UUID> testSuiteIds) {
-    this.testSuiteIds = JsonNullable.<Set<UUID>>of(testSuiteIds);
+    this.testSuiteIds = testSuiteIds;
   }
 
 
   public TestPointFilterModel workItemGlobalIds(Set<Long> workItemGlobalIds) {
-    this.workItemGlobalIds = JsonNullable.<Set<Long>>of(workItemGlobalIds);
+    
+    this.workItemGlobalIds = workItemGlobalIds;
     return this;
   }
 
   public TestPointFilterModel addWorkItemGlobalIdsItem(Long workItemGlobalIdsItem) {
-    if (this.workItemGlobalIds == null || !this.workItemGlobalIds.isPresent()) {
-      this.workItemGlobalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
+    if (this.workItemGlobalIds == null) {
+      this.workItemGlobalIds = new LinkedHashSet<>();
     }
-    try {
-      this.workItemGlobalIds.get().add(workItemGlobalIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.workItemGlobalIds.add(workItemGlobalIdsItem);
     return this;
   }
 
    /**
-   * Get workItemGlobalIds
+   * Specifies a test point work item global IDs to search for
    * @return workItemGlobalIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point work item global IDs to search for")
 
   public Set<Long> getWorkItemGlobalIds() {
-        return workItemGlobalIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<Long>> getWorkItemGlobalIds_JsonNullable() {
     return workItemGlobalIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS)
-  public void setWorkItemGlobalIds_JsonNullable(JsonNullable<Set<Long>> workItemGlobalIds) {
-    this.workItemGlobalIds = workItemGlobalIds;
-  }
+
 
   public void setWorkItemGlobalIds(Set<Long> workItemGlobalIds) {
-    this.workItemGlobalIds = JsonNullable.<Set<Long>>of(workItemGlobalIds);
+    this.workItemGlobalIds = workItemGlobalIds;
   }
 
 
   public TestPointFilterModel statuses(Set<TestPointStatus> statuses) {
-    this.statuses = JsonNullable.<Set<TestPointStatus>>of(statuses);
+    
+    this.statuses = statuses;
     return this;
   }
 
   public TestPointFilterModel addStatusesItem(TestPointStatus statusesItem) {
-    if (this.statuses == null || !this.statuses.isPresent()) {
-      this.statuses = JsonNullable.<Set<TestPointStatus>>of(new LinkedHashSet<>());
+    if (this.statuses == null) {
+      this.statuses = new LinkedHashSet<>();
     }
-    try {
-      this.statuses.get().add(statusesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.statuses.add(statusesItem);
     return this;
   }
 
    /**
-   * Get statuses
+   * Specifies a test point statuses to search for
    * @return statuses
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point statuses to search for")
 
   public Set<TestPointStatus> getStatuses() {
-        return statuses.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUSES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<TestPointStatus>> getStatuses_JsonNullable() {
     return statuses;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUSES)
-  public void setStatuses_JsonNullable(JsonNullable<Set<TestPointStatus>> statuses) {
-    this.statuses = statuses;
-  }
+
 
   public void setStatuses(Set<TestPointStatus> statuses) {
-    this.statuses = JsonNullable.<Set<TestPointStatus>>of(statuses);
+    this.statuses = statuses;
   }
 
 
   public TestPointFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
+    
+    this.priorities = priorities;
     return this;
   }
 
   public TestPointFilterModel addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null || !this.priorities.isPresent()) {
-      this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(new LinkedHashSet<>());
+    if (this.priorities == null) {
+      this.priorities = new LinkedHashSet<>();
     }
-    try {
-      this.priorities.get().add(prioritiesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.priorities.add(prioritiesItem);
     return this;
   }
 
    /**
-   * Get priorities
+   * Specifies a test point priorities to search for
    * @return priorities
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point priorities to search for")
 
   public Set<WorkItemPriorityModel> getPriorities() {
-        return priorities.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<WorkItemPriorityModel>> getPriorities_JsonNullable() {
     return priorities;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRIORITIES)
-  public void setPriorities_JsonNullable(JsonNullable<Set<WorkItemPriorityModel>> priorities) {
-    this.priorities = priorities;
-  }
+
 
   public void setPriorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
+    this.priorities = priorities;
   }
 
 
   public TestPointFilterModel isAutomated(Boolean isAutomated) {
-    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
+    
+    this.isAutomated = isAutomated;
     return this;
   }
 
    /**
-   * Get isAutomated
+   * Specifies a test point automation status to search for
    * @return isAutomated
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point automation status to search for")
 
   public Boolean getIsAutomated() {
-        return isAutomated.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsAutomated_JsonNullable() {
     return isAutomated;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  public void setIsAutomated_JsonNullable(JsonNullable<Boolean> isAutomated) {
-    this.isAutomated = isAutomated;
-  }
+
 
   public void setIsAutomated(Boolean isAutomated) {
-    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
+    this.isAutomated = isAutomated;
   }
 
 
   public TestPointFilterModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * Specifies a test point name to search for
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point name to search for")
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public TestPointFilterModel configurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
+    
+    this.configurationIds = configurationIds;
     return this;
   }
 
   public TestPointFilterModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
-      this.configurationIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.configurationIds == null) {
+      this.configurationIds = new LinkedHashSet<>();
     }
-    try {
-      this.configurationIds.get().add(configurationIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.configurationIds.add(configurationIdsItem);
     return this;
   }
 
    /**
-   * Get configurationIds
+   * Specifies a test point configuration IDs to search for
    * @return configurationIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point configuration IDs to search for")
 
   public Set<UUID> getConfigurationIds() {
-        return configurationIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getConfigurationIds_JsonNullable() {
     return configurationIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  public void setConfigurationIds_JsonNullable(JsonNullable<Set<UUID>> configurationIds) {
-    this.configurationIds = configurationIds;
-  }
+
 
   public void setConfigurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
+    this.configurationIds = configurationIds;
   }
 
 
   public TestPointFilterModel testerIds(Set<UUID> testerIds) {
-    this.testerIds = JsonNullable.<Set<UUID>>of(testerIds);
+    
+    this.testerIds = testerIds;
     return this;
   }
 
   public TestPointFilterModel addTesterIdsItem(UUID testerIdsItem) {
-    if (this.testerIds == null || !this.testerIds.isPresent()) {
-      this.testerIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.testerIds == null) {
+      this.testerIds = new LinkedHashSet<>();
     }
-    try {
-      this.testerIds.get().add(testerIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.testerIds.add(testerIdsItem);
     return this;
   }
 
    /**
-   * Get testerIds
+   * Specifies a test point assigned user IDs to search for
    * @return testerIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point assigned user IDs to search for")
 
   public Set<UUID> getTesterIds() {
-        return testerIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getTesterIds_JsonNullable() {
     return testerIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
-  public void setTesterIds_JsonNullable(JsonNullable<Set<UUID>> testerIds) {
-    this.testerIds = testerIds;
-  }
+
 
   public void setTesterIds(Set<UUID> testerIds) {
-    this.testerIds = JsonNullable.<Set<UUID>>of(testerIds);
+    this.testerIds = testerIds;
   }
 
 
   public TestPointFilterModel duration(Int64RangeSelectorModel duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -469,70 +340,52 @@ public class TestPointFilterModel {
    * Get duration
    * @return duration
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Int64RangeSelectorModel getDuration() {
     return duration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDuration(Int64RangeSelectorModel duration) {
     this.duration = duration;
   }
 
 
   public TestPointFilterModel sectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
+    
+    this.sectionIds = sectionIds;
     return this;
   }
 
   public TestPointFilterModel addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null || !this.sectionIds.isPresent()) {
-      this.sectionIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.sectionIds == null) {
+      this.sectionIds = new LinkedHashSet<>();
     }
-    try {
-      this.sectionIds.get().add(sectionIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.sectionIds.add(sectionIdsItem);
     return this;
   }
 
    /**
-   * Get sectionIds
+   * Specifies a test point work item section IDs to search for
    * @return sectionIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point work item section IDs to search for")
 
   public Set<UUID> getSectionIds() {
-        return sectionIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getSectionIds_JsonNullable() {
     return sectionIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
-  public void setSectionIds_JsonNullable(JsonNullable<Set<UUID>> sectionIds) {
-    this.sectionIds = sectionIds;
-  }
+
 
   public void setSectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
+    this.sectionIds = sectionIds;
   }
 
 
   public TestPointFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -541,70 +394,52 @@ public class TestPointFilterModel {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPointFilterModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    
+    this.createdByIds = createdByIds;
     return this;
   }
 
   public TestPointFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
-      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.createdByIds == null) {
+      this.createdByIds = new LinkedHashSet<>();
     }
-    try {
-      this.createdByIds.get().add(createdByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.createdByIds.add(createdByIdsItem);
     return this;
   }
 
    /**
-   * Get createdByIds
+   * Specifies a test point creator IDs to search for
    * @return createdByIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point creator IDs to search for")
 
   public Set<UUID> getCreatedByIds() {
-        return createdByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
-    this.createdByIds = createdByIds;
-  }
+
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    this.createdByIds = createdByIds;
   }
 
 
   public TestPointFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -613,164 +448,113 @@ public class TestPointFilterModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPointFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    
+    this.modifiedByIds = modifiedByIds;
     return this;
   }
 
   public TestPointFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null || !this.modifiedByIds.isPresent()) {
-      this.modifiedByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.modifiedByIds == null) {
+      this.modifiedByIds = new LinkedHashSet<>();
     }
-    try {
-      this.modifiedByIds.get().add(modifiedByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
 
    /**
-   * Get modifiedByIds
+   * Specifies a test point last editor IDs to search for
    * @return modifiedByIds
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point last editor IDs to search for")
 
   public Set<UUID> getModifiedByIds() {
-        return modifiedByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getModifiedByIds_JsonNullable() {
     return modifiedByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  public void setModifiedByIds_JsonNullable(JsonNullable<Set<UUID>> modifiedByIds) {
-    this.modifiedByIds = modifiedByIds;
-  }
+
 
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    this.modifiedByIds = modifiedByIds;
   }
 
 
   public TestPointFilterModel tags(Set<String> tags) {
-    this.tags = JsonNullable.<Set<String>>of(tags);
+    
+    this.tags = tags;
     return this;
   }
 
   public TestPointFilterModel addTagsItem(String tagsItem) {
-    if (this.tags == null || !this.tags.isPresent()) {
-      this.tags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    if (this.tags == null) {
+      this.tags = new LinkedHashSet<>();
     }
-    try {
-      this.tags.get().add(tagsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * Get tags
+   * Specifies a test point tags to search for
    * @return tags
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point tags to search for")
 
   public Set<String> getTags() {
-        return tags.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<String>> getTags_JsonNullable() {
     return tags;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<Set<String>> tags) {
-    this.tags = tags;
-  }
+
 
   public void setTags(Set<String> tags) {
-    this.tags = JsonNullable.<Set<String>>of(tags);
+    this.tags = tags;
   }
 
 
   public TestPointFilterModel attributes(Map<String, Set<String>> attributes) {
-    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
+    
+    this.attributes = attributes;
     return this;
   }
 
   public TestPointFilterModel putAttributesItem(String key, Set<String> attributesItem) {
-    if (this.attributes == null || !this.attributes.isPresent()) {
-      this.attributes = JsonNullable.<Map<String, Set<String>>>of(new HashMap<>());
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
     }
-    try {
-      this.attributes.get().put(key, attributesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
    /**
-   * Get attributes
+   * Specifies a test point attributes to search for
    * @return attributes
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test point attributes to search for")
 
   public Map<String, Set<String>> getAttributes() {
-        return attributes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, Set<String>>> getAttributes_JsonNullable() {
     return attributes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  public void setAttributes_JsonNullable(JsonNullable<Map<String, Set<String>>> attributes) {
+
+
+  public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Set<String>> attributes) {
-    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
-  }
 
 
-  /**
-   * Return true if this TestPointFilterModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -780,22 +564,22 @@ public class TestPointFilterModel {
       return false;
     }
     TestPointFilterModel testPointFilterModel = (TestPointFilterModel) o;
-    return equalsNullable(this.testSuiteIds, testPointFilterModel.testSuiteIds) &&
-        equalsNullable(this.workItemGlobalIds, testPointFilterModel.workItemGlobalIds) &&
-        equalsNullable(this.statuses, testPointFilterModel.statuses) &&
-        equalsNullable(this.priorities, testPointFilterModel.priorities) &&
-        equalsNullable(this.isAutomated, testPointFilterModel.isAutomated) &&
-        equalsNullable(this.name, testPointFilterModel.name) &&
-        equalsNullable(this.configurationIds, testPointFilterModel.configurationIds) &&
-        equalsNullable(this.testerIds, testPointFilterModel.testerIds) &&
+    return Objects.equals(this.testSuiteIds, testPointFilterModel.testSuiteIds) &&
+        Objects.equals(this.workItemGlobalIds, testPointFilterModel.workItemGlobalIds) &&
+        Objects.equals(this.statuses, testPointFilterModel.statuses) &&
+        Objects.equals(this.priorities, testPointFilterModel.priorities) &&
+        Objects.equals(this.isAutomated, testPointFilterModel.isAutomated) &&
+        Objects.equals(this.name, testPointFilterModel.name) &&
+        Objects.equals(this.configurationIds, testPointFilterModel.configurationIds) &&
+        Objects.equals(this.testerIds, testPointFilterModel.testerIds) &&
         Objects.equals(this.duration, testPointFilterModel.duration) &&
-        equalsNullable(this.sectionIds, testPointFilterModel.sectionIds) &&
+        Objects.equals(this.sectionIds, testPointFilterModel.sectionIds) &&
         Objects.equals(this.createdDate, testPointFilterModel.createdDate) &&
-        equalsNullable(this.createdByIds, testPointFilterModel.createdByIds) &&
+        Objects.equals(this.createdByIds, testPointFilterModel.createdByIds) &&
         Objects.equals(this.modifiedDate, testPointFilterModel.modifiedDate) &&
-        equalsNullable(this.modifiedByIds, testPointFilterModel.modifiedByIds) &&
-        equalsNullable(this.tags, testPointFilterModel.tags) &&
-        equalsNullable(this.attributes, testPointFilterModel.attributes);
+        Objects.equals(this.modifiedByIds, testPointFilterModel.modifiedByIds) &&
+        Objects.equals(this.tags, testPointFilterModel.tags) &&
+        Objects.equals(this.attributes, testPointFilterModel.attributes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -804,7 +588,7 @@ public class TestPointFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(testSuiteIds), hashCodeNullable(workItemGlobalIds), hashCodeNullable(statuses), hashCodeNullable(priorities), hashCodeNullable(isAutomated), hashCodeNullable(name), hashCodeNullable(configurationIds), hashCodeNullable(testerIds), duration, hashCodeNullable(sectionIds), createdDate, hashCodeNullable(createdByIds), modifiedDate, hashCodeNullable(modifiedByIds), hashCodeNullable(tags), hashCodeNullable(attributes));
+    return Objects.hash(testSuiteIds, workItemGlobalIds, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -849,5 +633,158 @@ public class TestPointFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("testSuiteIds");
+    openapiFields.add("workItemGlobalIds");
+    openapiFields.add("statuses");
+    openapiFields.add("priorities");
+    openapiFields.add("isAutomated");
+    openapiFields.add("name");
+    openapiFields.add("configurationIds");
+    openapiFields.add("testerIds");
+    openapiFields.add("duration");
+    openapiFields.add("sectionIds");
+    openapiFields.add("createdDate");
+    openapiFields.add("createdByIds");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("modifiedByIds");
+    openapiFields.add("tags");
+    openapiFields.add("attributes");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointFilterModel is not found in the empty JSON string", TestPointFilterModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPointFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testSuiteIds` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("workItemGlobalIds") != null && !jsonObj.get("workItemGlobalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemGlobalIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statuses` to be an array in the JSON string but got `%s`", jsonObj.get("statuses").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testerIds") != null && !jsonObj.get("testerIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testerIds` to be an array in the JSON string but got `%s`", jsonObj.get("testerIds").toString()));
+      }
+      // validate the optional field `duration`
+      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
+        Int64RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
+      }
+      // validate the optional field `createdDate`
+      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
+      }
+      // validate the optional field `modifiedDate`
+      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPointFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPointFilterModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPointFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointFilterModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPointFilterModel>() {
+           @Override
+           public void write(JsonWriter out, TestPointFilterModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPointFilterModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPointFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointFilterModel
+  * @throws IOException if the JSON string is invalid with respect to TestPointFilterModel
+  */
+  public static TestPointFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPointFilterModel.class);
+  }
+
+ /**
+  * Convert an instance of TestPointFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

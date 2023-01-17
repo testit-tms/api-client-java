@@ -13,79 +13,66 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentModel;
-import ru.testit.client.model.AutoTestShortModel;
-import ru.testit.client.model.TestPointPutModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestResultShortModel
  */
-@JsonPropertyOrder({
-  TestResultShortModel.JSON_PROPERTY_ID,
-  TestResultShortModel.JSON_PROPERTY_OUTCOME,
-  TestResultShortModel.JSON_PROPERTY_TRACES,
-  TestResultShortModel.JSON_PROPERTY_FAILURE_TYPE,
-  TestResultShortModel.JSON_PROPERTY_MESSAGE,
-  TestResultShortModel.JSON_PROPERTY_TEST_POINT,
-  TestResultShortModel.JSON_PROPERTY_CREATED_DATE,
-  TestResultShortModel.JSON_PROPERTY_AUTO_TEST,
-  TestResultShortModel.JSON_PROPERTY_ATTACHMENTS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultShortModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
-  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private String outcome;
 
-  public static final String JSON_PROPERTY_TRACES = "traces";
-  private JsonNullable<String> traces = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TRACES = "traces";
+  @SerializedName(SERIALIZED_NAME_TRACES)
+  private String traces;
 
-  public static final String JSON_PROPERTY_FAILURE_TYPE = "failureType";
-  private JsonNullable<String> failureType = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_TYPE = "failureType";
+  @SerializedName(SERIALIZED_NAME_FAILURE_TYPE)
+  private String failureType;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
 
-  public static final String JSON_PROPERTY_TEST_POINT = "testPoint";
+  public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
+  @SerializedName(SERIALIZED_NAME_TEST_POINT)
   private TestPointPutModel testPoint;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private OffsetDateTime createdDate;
 
-  public static final String JSON_PROPERTY_AUTO_TEST = "autoTest";
+  public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
+  @SerializedName(SERIALIZED_NAME_AUTO_TEST)
   private AutoTestShortModel autoTest;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentModel>> attachments = JsonNullable.<List<AttachmentModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentModel> attachments = null;
 
-  public TestResultShortModel() { 
+  public TestResultShortModel() {
   }
 
   public TestResultShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -94,25 +81,22 @@ public class TestResultShortModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultShortModel outcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    
+    this.outcome = outcome;
     return this;
   }
 
@@ -120,33 +104,22 @@ public class TestResultShortModel {
    * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getOutcome() {
-        return outcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOutcome_JsonNullable() {
     return outcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
-    this.outcome = outcome;
-  }
+
 
   public void setOutcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    this.outcome = outcome;
   }
 
 
   public TestResultShortModel traces(String traces) {
-    this.traces = JsonNullable.<String>of(traces);
+    
+    this.traces = traces;
     return this;
   }
 
@@ -154,33 +127,22 @@ public class TestResultShortModel {
    * Get traces
    * @return traces
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getTraces() {
-        return traces.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TRACES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTraces_JsonNullable() {
     return traces;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TRACES)
-  public void setTraces_JsonNullable(JsonNullable<String> traces) {
-    this.traces = traces;
-  }
+
 
   public void setTraces(String traces) {
-    this.traces = JsonNullable.<String>of(traces);
+    this.traces = traces;
   }
 
 
   public TestResultShortModel failureType(String failureType) {
-    this.failureType = JsonNullable.<String>of(failureType);
+    
+    this.failureType = failureType;
     return this;
   }
 
@@ -188,33 +150,22 @@ public class TestResultShortModel {
    * Get failureType
    * @return failureType
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getFailureType() {
-        return failureType.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getFailureType_JsonNullable() {
     return failureType;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_TYPE)
-  public void setFailureType_JsonNullable(JsonNullable<String> failureType) {
-    this.failureType = failureType;
-  }
+
 
   public void setFailureType(String failureType) {
-    this.failureType = JsonNullable.<String>of(failureType);
+    this.failureType = failureType;
   }
 
 
   public TestResultShortModel message(String message) {
-    this.message = JsonNullable.<String>of(message);
+    
+    this.message = message;
     return this;
   }
 
@@ -222,32 +173,21 @@ public class TestResultShortModel {
    * Get message
    * @return message
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getMessage() {
-        return message.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  public void setMessage_JsonNullable(JsonNullable<String> message) {
-    this.message = message;
-  }
+
 
   public void setMessage(String message) {
-    this.message = JsonNullable.<String>of(message);
+    this.message = message;
   }
 
 
   public TestResultShortModel testPoint(TestPointPutModel testPoint) {
+    
     this.testPoint = testPoint;
     return this;
   }
@@ -256,25 +196,22 @@ public class TestResultShortModel {
    * Get testPoint
    * @return testPoint
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TEST_POINT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TestPointPutModel getTestPoint() {
     return testPoint;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_POINT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestPoint(TestPointPutModel testPoint) {
     this.testPoint = testPoint;
   }
 
 
   public TestResultShortModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -282,32 +219,21 @@ public class TestResultShortModel {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
+
 
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
   public TestResultShortModel autoTest(AutoTestShortModel autoTest) {
+    
     this.autoTest = autoTest;
     return this;
   }
@@ -316,37 +242,30 @@ public class TestResultShortModel {
    * Get autoTest
    * @return autoTest
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_AUTO_TEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AutoTestShortModel getAutoTest() {
     return autoTest;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTO_TEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoTest(AutoTestShortModel autoTest) {
     this.autoTest = autoTest;
   }
 
 
   public TestResultShortModel attachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public TestResultShortModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
@@ -354,34 +273,20 @@ public class TestResultShortModel {
    * Get attachments
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentModel>> attachments) {
+
+
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
-  }
 
 
-  /**
-   * Return true if this TestResultShortModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -392,14 +297,14 @@ public class TestResultShortModel {
     }
     TestResultShortModel testResultShortModel = (TestResultShortModel) o;
     return Objects.equals(this.id, testResultShortModel.id) &&
-        equalsNullable(this.outcome, testResultShortModel.outcome) &&
-        equalsNullable(this.traces, testResultShortModel.traces) &&
-        equalsNullable(this.failureType, testResultShortModel.failureType) &&
-        equalsNullable(this.message, testResultShortModel.message) &&
+        Objects.equals(this.outcome, testResultShortModel.outcome) &&
+        Objects.equals(this.traces, testResultShortModel.traces) &&
+        Objects.equals(this.failureType, testResultShortModel.failureType) &&
+        Objects.equals(this.message, testResultShortModel.message) &&
         Objects.equals(this.testPoint, testResultShortModel.testPoint) &&
-        equalsNullable(this.createdDate, testResultShortModel.createdDate) &&
+        Objects.equals(this.createdDate, testResultShortModel.createdDate) &&
         Objects.equals(this.autoTest, testResultShortModel.autoTest) &&
-        equalsNullable(this.attachments, testResultShortModel.attachments);
+        Objects.equals(this.attachments, testResultShortModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -408,7 +313,7 @@ public class TestResultShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(outcome), hashCodeNullable(traces), hashCodeNullable(failureType), hashCodeNullable(message), testPoint, hashCodeNullable(createdDate), autoTest, hashCodeNullable(attachments));
+    return Objects.hash(id, outcome, traces, failureType, message, testPoint, createdDate, autoTest, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -446,5 +351,133 @@ public class TestResultShortModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("outcome");
+    openapiFields.add("traces");
+    openapiFields.add("failureType");
+    openapiFields.add("message");
+    openapiFields.add("testPoint");
+    openapiFields.add("createdDate");
+    openapiFields.add("autoTest");
+    openapiFields.add("attachments");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortModel is not found in the empty JSON string", TestResultShortModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultShortModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) && !jsonObj.get("outcome").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
+      }
+      if ((jsonObj.get("traces") != null && !jsonObj.get("traces").isJsonNull()) && !jsonObj.get("traces").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `traces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("traces").toString()));
+      }
+      if ((jsonObj.get("failureType") != null && !jsonObj.get("failureType").isJsonNull()) && !jsonObj.get("failureType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failureType").toString()));
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      // validate the optional field `testPoint`
+      if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
+        TestPointPutModel.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
+      }
+      // validate the optional field `autoTest`
+      if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
+        AutoTestShortModel.validateJsonObject(jsonObj.getAsJsonObject("autoTest"));
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultShortModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultShortModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultShortModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultShortModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultShortModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultShortModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultShortModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultShortModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultShortModel
+  */
+  public static TestResultShortModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultShortModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultShortModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

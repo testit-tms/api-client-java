@@ -13,167 +13,136 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * SectionMoveModel
  */
-@JsonPropertyOrder({
-  SectionMoveModel.JSON_PROPERTY_ID,
-  SectionMoveModel.JSON_PROPERTY_OLD_PARENT_ID,
-  SectionMoveModel.JSON_PROPERTY_PARENT_ID,
-  SectionMoveModel.JSON_PROPERTY_NEXT_SECTION_ID
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionMoveModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_OLD_PARENT_ID = "oldParentId";
+  public static final String SERIALIZED_NAME_OLD_PARENT_ID = "oldParentId";
+  @SerializedName(SERIALIZED_NAME_OLD_PARENT_ID)
   private UUID oldParentId;
 
-  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
   private UUID parentId;
 
-  public static final String JSON_PROPERTY_NEXT_SECTION_ID = "nextSectionId";
-  private JsonNullable<UUID> nextSectionId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_NEXT_SECTION_ID = "nextSectionId";
+  @SerializedName(SERIALIZED_NAME_NEXT_SECTION_ID)
+  private UUID nextSectionId;
 
-  public SectionMoveModel() { 
+  public SectionMoveModel() {
   }
 
   public SectionMoveModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Unique ID of the section
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Unique ID of the section")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public SectionMoveModel oldParentId(UUID oldParentId) {
+    
     this.oldParentId = oldParentId;
     return this;
   }
 
    /**
-   * Get oldParentId
+   * Unique ID of the section&#39;s current parent section
    * @return oldParentId
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_OLD_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Unique ID of the section's current parent section")
 
   public UUID getOldParentId() {
     return oldParentId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OLD_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOldParentId(UUID oldParentId) {
     this.oldParentId = oldParentId;
   }
 
 
   public SectionMoveModel parentId(UUID parentId) {
+    
     this.parentId = parentId;
     return this;
   }
 
    /**
-   * Get parentId
+   * Unique ID of the section&#39;s target parent section
    * @return parentId
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Unique ID of the section's target parent section")
 
   public UUID getParentId() {
     return parentId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
   public SectionMoveModel nextSectionId(UUID nextSectionId) {
-    this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
+    
+    this.nextSectionId = nextSectionId;
     return this;
   }
 
    /**
-   * Used for section rank set
+   * Unique ID of the section&#39;s following section
    * @return nextSectionId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "Used for section rank set")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the section's following section")
 
   public UUID getNextSectionId() {
-        return nextSectionId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEXT_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getNextSectionId_JsonNullable() {
     return nextSectionId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEXT_SECTION_ID)
-  public void setNextSectionId_JsonNullable(JsonNullable<UUID> nextSectionId) {
+
+
+  public void setNextSectionId(UUID nextSectionId) {
     this.nextSectionId = nextSectionId;
   }
 
-  public void setNextSectionId(UUID nextSectionId) {
-    this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
-  }
 
 
-  /**
-   * Return true if this SectionMoveModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,7 +155,7 @@ public class SectionMoveModel {
     return Objects.equals(this.id, sectionMoveModel.id) &&
         Objects.equals(this.oldParentId, sectionMoveModel.oldParentId) &&
         Objects.equals(this.parentId, sectionMoveModel.parentId) &&
-        equalsNullable(this.nextSectionId, sectionMoveModel.nextSectionId);
+        Objects.equals(this.nextSectionId, sectionMoveModel.nextSectionId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -195,7 +164,7 @@ public class SectionMoveModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, oldParentId, parentId, hashCodeNullable(nextSectionId));
+    return Objects.hash(id, oldParentId, parentId, nextSectionId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -228,5 +197,113 @@ public class SectionMoveModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("oldParentId");
+    openapiFields.add("parentId");
+    openapiFields.add("nextSectionId");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("oldParentId");
+    openapiRequiredFields.add("parentId");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SectionMoveModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SectionMoveModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SectionMoveModel is not found in the empty JSON string", SectionMoveModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!SectionMoveModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionMoveModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : SectionMoveModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (!jsonObj.get("oldParentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oldParentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldParentId").toString()));
+      }
+      if (!jsonObj.get("parentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
+      }
+      if ((jsonObj.get("nextSectionId") != null && !jsonObj.get("nextSectionId").isJsonNull()) && !jsonObj.get("nextSectionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nextSectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nextSectionId").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SectionMoveModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SectionMoveModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SectionMoveModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SectionMoveModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SectionMoveModel>() {
+           @Override
+           public void write(JsonWriter out, SectionMoveModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SectionMoveModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of SectionMoveModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SectionMoveModel
+  * @throws IOException if the JSON string is invalid with respect to SectionMoveModel
+  */
+  public static SectionMoveModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SectionMoveModel.class);
+  }
+
+ /**
+  * Convert an instance of SectionMoveModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

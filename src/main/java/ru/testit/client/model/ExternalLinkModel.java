@@ -13,69 +13,65 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * ExternalLinkModel
  */
-@JsonPropertyOrder({
-  ExternalLinkModel.JSON_PROPERTY_URL,
-  ExternalLinkModel.JSON_PROPERTY_TITLE,
-  ExternalLinkModel.JSON_PROPERTY_ISSUE_TYPE_NAME,
-  ExternalLinkModel.JSON_PROPERTY_ISSUE_TYPE_ICON_URL,
-  ExternalLinkModel.JSON_PROPERTY_PRIORITY_NAME,
-  ExternalLinkModel.JSON_PROPERTY_PRIORITY_ICON_URL,
-  ExternalLinkModel.JSON_PROPERTY_STATUS_NAME,
-  ExternalLinkModel.JSON_PROPERTY_ASSIGNEE_DISPLAY_NAME
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExternalLinkModel {
-  public static final String JSON_PROPERTY_URL = "url";
-  private JsonNullable<String> url = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String JSON_PROPERTY_ISSUE_TYPE_NAME = "issueTypeName";
-  private JsonNullable<String> issueTypeName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_ISSUE_TYPE_NAME = "issueTypeName";
+  @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_NAME)
+  private String issueTypeName;
 
-  public static final String JSON_PROPERTY_ISSUE_TYPE_ICON_URL = "issueTypeIconUrl";
-  private JsonNullable<String> issueTypeIconUrl = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_ISSUE_TYPE_ICON_URL = "issueTypeIconUrl";
+  @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_ICON_URL)
+  private String issueTypeIconUrl;
 
-  public static final String JSON_PROPERTY_PRIORITY_NAME = "priorityName";
-  private JsonNullable<String> priorityName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_PRIORITY_NAME = "priorityName";
+  @SerializedName(SERIALIZED_NAME_PRIORITY_NAME)
+  private String priorityName;
 
-  public static final String JSON_PROPERTY_PRIORITY_ICON_URL = "priorityIconUrl";
-  private JsonNullable<String> priorityIconUrl = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_PRIORITY_ICON_URL = "priorityIconUrl";
+  @SerializedName(SERIALIZED_NAME_PRIORITY_ICON_URL)
+  private String priorityIconUrl;
 
-  public static final String JSON_PROPERTY_STATUS_NAME = "statusName";
-  private JsonNullable<String> statusName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_STATUS_NAME = "statusName";
+  @SerializedName(SERIALIZED_NAME_STATUS_NAME)
+  private String statusName;
 
-  public static final String JSON_PROPERTY_ASSIGNEE_DISPLAY_NAME = "assigneeDisplayName";
-  private JsonNullable<String> assigneeDisplayName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME = "assigneeDisplayName";
+  @SerializedName(SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME)
+  private String assigneeDisplayName;
 
-  public ExternalLinkModel() { 
+  public ExternalLinkModel() {
   }
 
   public ExternalLinkModel url(String url) {
-    this.url = JsonNullable.<String>of(url);
+    
+    this.url = url;
     return this;
   }
 
@@ -83,33 +79,22 @@ public class ExternalLinkModel {
    * Get url
    * @return url
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getUrl() {
-        return url.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getUrl_JsonNullable() {
     return url;
   }
-  
-  @JsonProperty(JSON_PROPERTY_URL)
-  public void setUrl_JsonNullable(JsonNullable<String> url) {
-    this.url = url;
-  }
+
 
   public void setUrl(String url) {
-    this.url = JsonNullable.<String>of(url);
+    this.url = url;
   }
 
 
   public ExternalLinkModel title(String title) {
-    this.title = JsonNullable.<String>of(title);
+    
+    this.title = title;
     return this;
   }
 
@@ -117,33 +102,22 @@ public class ExternalLinkModel {
    * Get title
    * @return title
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
+
 
   public void setTitle(String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
 
   public ExternalLinkModel issueTypeName(String issueTypeName) {
-    this.issueTypeName = JsonNullable.<String>of(issueTypeName);
+    
+    this.issueTypeName = issueTypeName;
     return this;
   }
 
@@ -151,33 +125,22 @@ public class ExternalLinkModel {
    * Get issueTypeName
    * @return issueTypeName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getIssueTypeName() {
-        return issueTypeName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getIssueTypeName_JsonNullable() {
     return issueTypeName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_NAME)
-  public void setIssueTypeName_JsonNullable(JsonNullable<String> issueTypeName) {
-    this.issueTypeName = issueTypeName;
-  }
+
 
   public void setIssueTypeName(String issueTypeName) {
-    this.issueTypeName = JsonNullable.<String>of(issueTypeName);
+    this.issueTypeName = issueTypeName;
   }
 
 
   public ExternalLinkModel issueTypeIconUrl(String issueTypeIconUrl) {
-    this.issueTypeIconUrl = JsonNullable.<String>of(issueTypeIconUrl);
+    
+    this.issueTypeIconUrl = issueTypeIconUrl;
     return this;
   }
 
@@ -185,33 +148,22 @@ public class ExternalLinkModel {
    * Get issueTypeIconUrl
    * @return issueTypeIconUrl
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getIssueTypeIconUrl() {
-        return issueTypeIconUrl.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_ICON_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getIssueTypeIconUrl_JsonNullable() {
     return issueTypeIconUrl;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_ICON_URL)
-  public void setIssueTypeIconUrl_JsonNullable(JsonNullable<String> issueTypeIconUrl) {
-    this.issueTypeIconUrl = issueTypeIconUrl;
-  }
+
 
   public void setIssueTypeIconUrl(String issueTypeIconUrl) {
-    this.issueTypeIconUrl = JsonNullable.<String>of(issueTypeIconUrl);
+    this.issueTypeIconUrl = issueTypeIconUrl;
   }
 
 
   public ExternalLinkModel priorityName(String priorityName) {
-    this.priorityName = JsonNullable.<String>of(priorityName);
+    
+    this.priorityName = priorityName;
     return this;
   }
 
@@ -219,33 +171,22 @@ public class ExternalLinkModel {
    * Get priorityName
    * @return priorityName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getPriorityName() {
-        return priorityName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getPriorityName_JsonNullable() {
     return priorityName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRIORITY_NAME)
-  public void setPriorityName_JsonNullable(JsonNullable<String> priorityName) {
-    this.priorityName = priorityName;
-  }
+
 
   public void setPriorityName(String priorityName) {
-    this.priorityName = JsonNullable.<String>of(priorityName);
+    this.priorityName = priorityName;
   }
 
 
   public ExternalLinkModel priorityIconUrl(String priorityIconUrl) {
-    this.priorityIconUrl = JsonNullable.<String>of(priorityIconUrl);
+    
+    this.priorityIconUrl = priorityIconUrl;
     return this;
   }
 
@@ -253,33 +194,22 @@ public class ExternalLinkModel {
    * Get priorityIconUrl
    * @return priorityIconUrl
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getPriorityIconUrl() {
-        return priorityIconUrl.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITY_ICON_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getPriorityIconUrl_JsonNullable() {
     return priorityIconUrl;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRIORITY_ICON_URL)
-  public void setPriorityIconUrl_JsonNullable(JsonNullable<String> priorityIconUrl) {
-    this.priorityIconUrl = priorityIconUrl;
-  }
+
 
   public void setPriorityIconUrl(String priorityIconUrl) {
-    this.priorityIconUrl = JsonNullable.<String>of(priorityIconUrl);
+    this.priorityIconUrl = priorityIconUrl;
   }
 
 
   public ExternalLinkModel statusName(String statusName) {
-    this.statusName = JsonNullable.<String>of(statusName);
+    
+    this.statusName = statusName;
     return this;
   }
 
@@ -287,33 +217,22 @@ public class ExternalLinkModel {
    * Get statusName
    * @return statusName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getStatusName() {
-        return statusName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getStatusName_JsonNullable() {
     return statusName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
-  public void setStatusName_JsonNullable(JsonNullable<String> statusName) {
-    this.statusName = statusName;
-  }
+
 
   public void setStatusName(String statusName) {
-    this.statusName = JsonNullable.<String>of(statusName);
+    this.statusName = statusName;
   }
 
 
   public ExternalLinkModel assigneeDisplayName(String assigneeDisplayName) {
-    this.assigneeDisplayName = JsonNullable.<String>of(assigneeDisplayName);
+    
+    this.assigneeDisplayName = assigneeDisplayName;
     return this;
   }
 
@@ -321,34 +240,20 @@ public class ExternalLinkModel {
    * Get assigneeDisplayName
    * @return assigneeDisplayName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getAssigneeDisplayName() {
-        return assigneeDisplayName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ASSIGNEE_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getAssigneeDisplayName_JsonNullable() {
     return assigneeDisplayName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ASSIGNEE_DISPLAY_NAME)
-  public void setAssigneeDisplayName_JsonNullable(JsonNullable<String> assigneeDisplayName) {
+
+
+  public void setAssigneeDisplayName(String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
   }
 
-  public void setAssigneeDisplayName(String assigneeDisplayName) {
-    this.assigneeDisplayName = JsonNullable.<String>of(assigneeDisplayName);
-  }
 
 
-  /**
-   * Return true if this ExternalLinkModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -358,14 +263,14 @@ public class ExternalLinkModel {
       return false;
     }
     ExternalLinkModel externalLinkModel = (ExternalLinkModel) o;
-    return equalsNullable(this.url, externalLinkModel.url) &&
-        equalsNullable(this.title, externalLinkModel.title) &&
-        equalsNullable(this.issueTypeName, externalLinkModel.issueTypeName) &&
-        equalsNullable(this.issueTypeIconUrl, externalLinkModel.issueTypeIconUrl) &&
-        equalsNullable(this.priorityName, externalLinkModel.priorityName) &&
-        equalsNullable(this.priorityIconUrl, externalLinkModel.priorityIconUrl) &&
-        equalsNullable(this.statusName, externalLinkModel.statusName) &&
-        equalsNullable(this.assigneeDisplayName, externalLinkModel.assigneeDisplayName);
+    return Objects.equals(this.url, externalLinkModel.url) &&
+        Objects.equals(this.title, externalLinkModel.title) &&
+        Objects.equals(this.issueTypeName, externalLinkModel.issueTypeName) &&
+        Objects.equals(this.issueTypeIconUrl, externalLinkModel.issueTypeIconUrl) &&
+        Objects.equals(this.priorityName, externalLinkModel.priorityName) &&
+        Objects.equals(this.priorityIconUrl, externalLinkModel.priorityIconUrl) &&
+        Objects.equals(this.statusName, externalLinkModel.statusName) &&
+        Objects.equals(this.assigneeDisplayName, externalLinkModel.assigneeDisplayName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -374,7 +279,7 @@ public class ExternalLinkModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(url), hashCodeNullable(title), hashCodeNullable(issueTypeName), hashCodeNullable(issueTypeIconUrl), hashCodeNullable(priorityName), hashCodeNullable(priorityIconUrl), hashCodeNullable(statusName), hashCodeNullable(assigneeDisplayName));
+    return Objects.hash(url, title, issueTypeName, issueTypeIconUrl, priorityName, priorityIconUrl, statusName, assigneeDisplayName);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -411,5 +316,119 @@ public class ExternalLinkModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("url");
+    openapiFields.add("title");
+    openapiFields.add("issueTypeName");
+    openapiFields.add("issueTypeIconUrl");
+    openapiFields.add("priorityName");
+    openapiFields.add("priorityIconUrl");
+    openapiFields.add("statusName");
+    openapiFields.add("assigneeDisplayName");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ExternalLinkModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ExternalLinkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalLinkModel is not found in the empty JSON string", ExternalLinkModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ExternalLinkModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalLinkModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("issueTypeName") != null && !jsonObj.get("issueTypeName").isJsonNull()) && !jsonObj.get("issueTypeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issueTypeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issueTypeName").toString()));
+      }
+      if ((jsonObj.get("issueTypeIconUrl") != null && !jsonObj.get("issueTypeIconUrl").isJsonNull()) && !jsonObj.get("issueTypeIconUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issueTypeIconUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issueTypeIconUrl").toString()));
+      }
+      if ((jsonObj.get("priorityName") != null && !jsonObj.get("priorityName").isJsonNull()) && !jsonObj.get("priorityName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorityName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityName").toString()));
+      }
+      if ((jsonObj.get("priorityIconUrl") != null && !jsonObj.get("priorityIconUrl").isJsonNull()) && !jsonObj.get("priorityIconUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorityIconUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityIconUrl").toString()));
+      }
+      if ((jsonObj.get("statusName") != null && !jsonObj.get("statusName").isJsonNull()) && !jsonObj.get("statusName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statusName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusName").toString()));
+      }
+      if ((jsonObj.get("assigneeDisplayName") != null && !jsonObj.get("assigneeDisplayName").isJsonNull()) && !jsonObj.get("assigneeDisplayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `assigneeDisplayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("assigneeDisplayName").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ExternalLinkModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ExternalLinkModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ExternalLinkModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ExternalLinkModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ExternalLinkModel>() {
+           @Override
+           public void write(JsonWriter out, ExternalLinkModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ExternalLinkModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ExternalLinkModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ExternalLinkModel
+  * @throws IOException if the JSON string is invalid with respect to ExternalLinkModel
+  */
+  public static ExternalLinkModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ExternalLinkModel.class);
+  }
+
+ /**
+  * Convert an instance of ExternalLinkModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

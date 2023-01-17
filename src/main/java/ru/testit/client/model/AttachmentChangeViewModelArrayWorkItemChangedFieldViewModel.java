@@ -13,60 +13,46 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentChangeViewModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel
  */
-@JsonPropertyOrder({
-  AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
-  AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
-  private JsonNullable<List<AttachmentChangeViewModel>> oldValue = JsonNullable.<List<AttachmentChangeViewModel>>undefined();
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private List<AttachmentChangeViewModel> oldValue = null;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
-  private JsonNullable<List<AttachmentChangeViewModel>> newValue = JsonNullable.<List<AttachmentChangeViewModel>>undefined();
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  private List<AttachmentChangeViewModel> newValue = null;
 
-  public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel() { 
+  public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel() {
   }
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel oldValue(List<AttachmentChangeViewModel> oldValue) {
-    this.oldValue = JsonNullable.<List<AttachmentChangeViewModel>>of(oldValue);
+    
+    this.oldValue = oldValue;
     return this;
   }
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel addOldValueItem(AttachmentChangeViewModel oldValueItem) {
-    if (this.oldValue == null || !this.oldValue.isPresent()) {
-      this.oldValue = JsonNullable.<List<AttachmentChangeViewModel>>of(new ArrayList<>());
+    if (this.oldValue == null) {
+      this.oldValue = new ArrayList<>();
     }
-    try {
-      this.oldValue.get().add(oldValueItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.oldValue.add(oldValueItem);
     return this;
   }
 
@@ -74,45 +60,30 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentChangeViewModel> getOldValue() {
-        return oldValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentChangeViewModel>> getOldValue_JsonNullable() {
     return oldValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  public void setOldValue_JsonNullable(JsonNullable<List<AttachmentChangeViewModel>> oldValue) {
-    this.oldValue = oldValue;
-  }
+
 
   public void setOldValue(List<AttachmentChangeViewModel> oldValue) {
-    this.oldValue = JsonNullable.<List<AttachmentChangeViewModel>>of(oldValue);
+    this.oldValue = oldValue;
   }
 
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel newValue(List<AttachmentChangeViewModel> newValue) {
-    this.newValue = JsonNullable.<List<AttachmentChangeViewModel>>of(newValue);
+    
+    this.newValue = newValue;
     return this;
   }
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel addNewValueItem(AttachmentChangeViewModel newValueItem) {
-    if (this.newValue == null || !this.newValue.isPresent()) {
-      this.newValue = JsonNullable.<List<AttachmentChangeViewModel>>of(new ArrayList<>());
+    if (this.newValue == null) {
+      this.newValue = new ArrayList<>();
     }
-    try {
-      this.newValue.get().add(newValueItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.newValue.add(newValueItem);
     return this;
   }
 
@@ -120,34 +91,20 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<AttachmentChangeViewModel> getNewValue() {
-        return newValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentChangeViewModel>> getNewValue_JsonNullable() {
     return newValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  public void setNewValue_JsonNullable(JsonNullable<List<AttachmentChangeViewModel>> newValue) {
+
+
+  public void setNewValue(List<AttachmentChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<AttachmentChangeViewModel> newValue) {
-    this.newValue = JsonNullable.<List<AttachmentChangeViewModel>>of(newValue);
-  }
 
 
-  /**
-   * Return true if this AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,8 +114,8 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
       return false;
     }
     AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel attachmentChangeViewModelArrayWorkItemChangedFieldViewModel = (AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel) o;
-    return equalsNullable(this.oldValue, attachmentChangeViewModelArrayWorkItemChangedFieldViewModel.oldValue) &&
-        equalsNullable(this.newValue, attachmentChangeViewModelArrayWorkItemChangedFieldViewModel.newValue);
+    return Objects.equals(this.oldValue, attachmentChangeViewModelArrayWorkItemChangedFieldViewModel.oldValue) &&
+        Objects.equals(this.newValue, attachmentChangeViewModelArrayWorkItemChangedFieldViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -167,7 +124,7 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(oldValue), hashCodeNullable(newValue));
+    return Objects.hash(oldValue, newValue);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -198,5 +155,117 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel is not found in the empty JSON string", AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
+        JsonArray jsonArrayoldValue = jsonObj.getAsJsonArray("oldValue");
+        if (jsonArrayoldValue != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("oldValue").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be an array in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
+          }
+
+          // validate the optional field `oldValue` (array)
+          for (int i = 0; i < jsonArrayoldValue.size(); i++) {
+            AttachmentChangeViewModel.validateJsonObject(jsonArrayoldValue.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
+        JsonArray jsonArraynewValue = jsonObj.getAsJsonArray("newValue");
+        if (jsonArraynewValue != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("newValue").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `newValue` to be an array in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
+          }
+
+          // validate the optional field `newValue` (array)
+          for (int i = 0; i < jsonArraynewValue.size(); i++) {
+            AttachmentChangeViewModel.validateJsonObject(jsonArraynewValue.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel>() {
+           @Override
+           public void write(JsonWriter out, AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel
+  */
+  public static AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.class);
+  }
+
+ /**
+  * Convert an instance of AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

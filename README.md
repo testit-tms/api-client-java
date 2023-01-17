@@ -8,6 +8,7 @@
 |---------|------------|
 | 3.5     | 0.1        |
 | 3.9     | 0.2.1      |
+| 4.0     | 0.3.0      |
 
 ### Installation
 
@@ -55,8 +56,7 @@ public class AttachmentsApiExample {
         defaultClient.setApiKey("Your private token");
 
         AttachmentsApi apiInstance = new AttachmentsApi();
-        File file = new File("file_example"); 
-        String apiVersion = "apiVersion_example";  
+        File file = new File("file_example");
         try {
             AttachmentModel result = apiInstance.apiV2AttachmentsPost(file);
             System.out.println(result);

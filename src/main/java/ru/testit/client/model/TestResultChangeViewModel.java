@@ -13,36 +13,34 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * TestResultChangeViewModel
  */
-@JsonPropertyOrder({
-  TestResultChangeViewModel.JSON_PROPERTY_TEST_POINT_COUNT
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultChangeViewModel {
-  public static final String JSON_PROPERTY_TEST_POINT_COUNT = "testPointCount";
+  public static final String SERIALIZED_NAME_TEST_POINT_COUNT = "testPointCount";
+  @SerializedName(SERIALIZED_NAME_TEST_POINT_COUNT)
   private Long testPointCount;
 
-  public TestResultChangeViewModel() { 
+  public TestResultChangeViewModel() {
   }
 
   public TestResultChangeViewModel testPointCount(Long testPointCount) {
+    
     this.testPointCount = testPointCount;
     return this;
   }
@@ -51,26 +49,20 @@ public class TestResultChangeViewModel {
    * Get testPointCount
    * @return testPointCount
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TEST_POINT_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getTestPointCount() {
     return testPointCount;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_POINT_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 
 
-  /**
-   * Return true if this TestResultChangeViewModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,5 +100,88 @@ public class TestResultChangeViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("testPointCount");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultChangeViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultChangeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultChangeViewModel is not found in the empty JSON string", TestResultChangeViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultChangeViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultChangeViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultChangeViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultChangeViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultChangeViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultChangeViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultChangeViewModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultChangeViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultChangeViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultChangeViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultChangeViewModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultChangeViewModel
+  */
+  public static TestResultChangeViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultChangeViewModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultChangeViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

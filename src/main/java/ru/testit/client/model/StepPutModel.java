@@ -13,61 +13,53 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * StepPutModel
  */
-@JsonPropertyOrder({
-  StepPutModel.JSON_PROPERTY_ID,
-  StepPutModel.JSON_PROPERTY_ACTION,
-  StepPutModel.JSON_PROPERTY_EXPECTED,
-  StepPutModel.JSON_PROPERTY_TEST_DATA,
-  StepPutModel.JSON_PROPERTY_COMMENTS,
-  StepPutModel.JSON_PROPERTY_WORK_ITEM_ID
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StepPutModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_ACTION = "action";
-  private JsonNullable<String> action = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_ACTION = "action";
+  @SerializedName(SERIALIZED_NAME_ACTION)
+  private String action;
 
-  public static final String JSON_PROPERTY_EXPECTED = "expected";
-  private JsonNullable<String> expected = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_EXPECTED = "expected";
+  @SerializedName(SERIALIZED_NAME_EXPECTED)
+  private String expected;
 
-  public static final String JSON_PROPERTY_TEST_DATA = "testData";
-  private JsonNullable<String> testData = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TEST_DATA = "testData";
+  @SerializedName(SERIALIZED_NAME_TEST_DATA)
+  private String testData;
 
-  public static final String JSON_PROPERTY_COMMENTS = "comments";
-  private JsonNullable<String> comments = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENTS = "comments";
+  @SerializedName(SERIALIZED_NAME_COMMENTS)
+  private String comments;
 
-  public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
-  private JsonNullable<UUID> workItemId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
+  private UUID workItemId;
 
-  public StepPutModel() { 
+  public StepPutModel() {
   }
 
   public StepPutModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -76,25 +68,22 @@ public class StepPutModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public StepPutModel action(String action) {
-    this.action = JsonNullable.<String>of(action);
+    
+    this.action = action;
     return this;
   }
 
@@ -102,33 +91,22 @@ public class StepPutModel {
    * Get action
    * @return action
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "User press the button", value = "")
-  @JsonIgnore
 
   public String getAction() {
-        return action.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getAction_JsonNullable() {
     return action;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  public void setAction_JsonNullable(JsonNullable<String> action) {
-    this.action = action;
-  }
+
 
   public void setAction(String action) {
-    this.action = JsonNullable.<String>of(action);
+    this.action = action;
   }
 
 
   public StepPutModel expected(String expected) {
-    this.expected = JsonNullable.<String>of(expected);
+    
+    this.expected = expected;
     return this;
   }
 
@@ -136,33 +114,22 @@ public class StepPutModel {
    * Get expected
    * @return expected
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "System makes a beeeep sound", value = "")
-  @JsonIgnore
 
   public String getExpected() {
-        return expected.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EXPECTED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getExpected_JsonNullable() {
     return expected;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EXPECTED)
-  public void setExpected_JsonNullable(JsonNullable<String> expected) {
-    this.expected = expected;
-  }
+
 
   public void setExpected(String expected) {
-    this.expected = JsonNullable.<String>of(expected);
+    this.expected = expected;
   }
 
 
   public StepPutModel testData(String testData) {
-    this.testData = JsonNullable.<String>of(testData);
+    
+    this.testData = testData;
     return this;
   }
 
@@ -170,33 +137,22 @@ public class StepPutModel {
    * Get testData
    * @return testData
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Some variables values", value = "")
-  @JsonIgnore
 
   public String getTestData() {
-        return testData.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTestData_JsonNullable() {
     return testData;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_DATA)
-  public void setTestData_JsonNullable(JsonNullable<String> testData) {
-    this.testData = testData;
-  }
+
 
   public void setTestData(String testData) {
-    this.testData = JsonNullable.<String>of(testData);
+    this.testData = testData;
   }
 
 
   public StepPutModel comments(String comments) {
-    this.comments = JsonNullable.<String>of(comments);
+    
+    this.comments = comments;
     return this;
   }
 
@@ -204,33 +160,22 @@ public class StepPutModel {
    * Get comments
    * @return comments
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Comment on what to look for", value = "")
-  @JsonIgnore
 
   public String getComments() {
-        return comments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComments_JsonNullable() {
     return comments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENTS)
-  public void setComments_JsonNullable(JsonNullable<String> comments) {
-    this.comments = comments;
-  }
+
 
   public void setComments(String comments) {
-    this.comments = JsonNullable.<String>of(comments);
+    this.comments = comments;
   }
 
 
   public StepPutModel workItemId(UUID workItemId) {
-    this.workItemId = JsonNullable.<UUID>of(workItemId);
+    
+    this.workItemId = workItemId;
     return this;
   }
 
@@ -238,34 +183,20 @@ public class StepPutModel {
    * Get workItemId
    * @return workItemId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getWorkItemId() {
-        return workItemId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getWorkItemId_JsonNullable() {
     return workItemId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
-  public void setWorkItemId_JsonNullable(JsonNullable<UUID> workItemId) {
+
+
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
-    this.workItemId = JsonNullable.<UUID>of(workItemId);
-  }
 
 
-  /**
-   * Return true if this StepPutModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -276,11 +207,11 @@ public class StepPutModel {
     }
     StepPutModel stepPutModel = (StepPutModel) o;
     return Objects.equals(this.id, stepPutModel.id) &&
-        equalsNullable(this.action, stepPutModel.action) &&
-        equalsNullable(this.expected, stepPutModel.expected) &&
-        equalsNullable(this.testData, stepPutModel.testData) &&
-        equalsNullable(this.comments, stepPutModel.comments) &&
-        equalsNullable(this.workItemId, stepPutModel.workItemId);
+        Objects.equals(this.action, stepPutModel.action) &&
+        Objects.equals(this.expected, stepPutModel.expected) &&
+        Objects.equals(this.testData, stepPutModel.testData) &&
+        Objects.equals(this.comments, stepPutModel.comments) &&
+        Objects.equals(this.workItemId, stepPutModel.workItemId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -289,7 +220,7 @@ public class StepPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(action), hashCodeNullable(expected), hashCodeNullable(testData), hashCodeNullable(comments), hashCodeNullable(workItemId));
+    return Objects.hash(id, action, expected, testData, comments, workItemId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -324,5 +255,111 @@ public class StepPutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("action");
+    openapiFields.add("expected");
+    openapiFields.add("testData");
+    openapiFields.add("comments");
+    openapiFields.add("workItemId");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to StepPutModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!StepPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StepPutModel is not found in the empty JSON string", StepPutModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!StepPutModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      if ((jsonObj.get("expected") != null && !jsonObj.get("expected").isJsonNull()) && !jsonObj.get("expected").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expected` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expected").toString()));
+      }
+      if ((jsonObj.get("testData") != null && !jsonObj.get("testData").isJsonNull()) && !jsonObj.get("testData").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testData").toString()));
+      }
+      if ((jsonObj.get("comments") != null && !jsonObj.get("comments").isJsonNull()) && !jsonObj.get("comments").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comments").toString()));
+      }
+      if ((jsonObj.get("workItemId") != null && !jsonObj.get("workItemId").isJsonNull()) && !jsonObj.get("workItemId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemId").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!StepPutModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StepPutModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<StepPutModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StepPutModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<StepPutModel>() {
+           @Override
+           public void write(JsonWriter out, StepPutModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public StepPutModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of StepPutModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StepPutModel
+  * @throws IOException if the JSON string is invalid with respect to StepPutModel
+  */
+  public static StepPutModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StepPutModel.class);
+  }
+
+ /**
+  * Convert an instance of StepPutModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

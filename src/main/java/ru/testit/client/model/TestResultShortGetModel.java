@@ -13,268 +13,220 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentSubGetModel;
-import ru.testit.client.model.AutotestResultReasonSubGetModel;
-import ru.testit.client.model.LinkSubGetModel;
-import ru.testit.client.model.TestResultOutcome;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestResultShortGetModel
  */
-@JsonPropertyOrder({
-  TestResultShortGetModel.JSON_PROPERTY_ID,
-  TestResultShortGetModel.JSON_PROPERTY_NAME,
-  TestResultShortGetModel.JSON_PROPERTY_AUTOTEST_GLOBAL_ID,
-  TestResultShortGetModel.JSON_PROPERTY_TEST_RUN_ID,
-  TestResultShortGetModel.JSON_PROPERTY_CONFIGURATION_ID,
-  TestResultShortGetModel.JSON_PROPERTY_CONFIGURATION_NAME,
-  TestResultShortGetModel.JSON_PROPERTY_OUTCOME,
-  TestResultShortGetModel.JSON_PROPERTY_RESULT_REASONS,
-  TestResultShortGetModel.JSON_PROPERTY_COMMENT,
-  TestResultShortGetModel.JSON_PROPERTY_DATE,
-  TestResultShortGetModel.JSON_PROPERTY_DURATION,
-  TestResultShortGetModel.JSON_PROPERTY_LINKS,
-  TestResultShortGetModel.JSON_PROPERTY_ATTACHMENTS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultShortGetModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
+  public static final String SERIALIZED_NAME_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
+  @SerializedName(SERIALIZED_NAME_AUTOTEST_GLOBAL_ID)
   private Long autotestGlobalId;
 
-  public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
+  @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
   private UUID testRunId;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
   private UUID configurationId;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
-  private JsonNullable<String> configurationName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  private String configurationName;
 
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
   private TestResultOutcome outcome;
 
-  public static final String JSON_PROPERTY_RESULT_REASONS = "resultReasons";
-  private JsonNullable<List<AutotestResultReasonSubGetModel>> resultReasons = JsonNullable.<List<AutotestResultReasonSubGetModel>>undefined();
+  public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
+  @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
+  private List<AutotestResultReasonSubGetModel> resultReasons = null;
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private String comment;
 
-  public static final String JSON_PROPERTY_DATE = "date";
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
 
-  public static final String JSON_PROPERTY_DURATION = "duration";
-  private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Long duration;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<LinkSubGetModel>> links = JsonNullable.<List<LinkSubGetModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private List<LinkSubGetModel> links = null;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentSubGetModel>> attachments = JsonNullable.<List<AttachmentSubGetModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentSubGetModel> attachments = null;
 
-  public TestResultShortGetModel() { 
+  public TestResultShortGetModel() {
   }
 
   public TestResultShortGetModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Unique ID of test result
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of test result")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultShortGetModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * Name of autotest represented by the test result
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of autotest represented by the test result")
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public TestResultShortGetModel autotestGlobalId(Long autotestGlobalId) {
+    
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
 
    /**
-   * Get autotestGlobalId
+   * Global ID of autotest represented by test result
    * @return autotestGlobalId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_AUTOTEST_GLOBAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Global ID of autotest represented by test result")
 
   public Long getAutotestGlobalId() {
     return autotestGlobalId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTOTEST_GLOBAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutotestGlobalId(Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
   public TestResultShortGetModel testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
 
    /**
-   * Get testRunId
+   * Unique ID of test run where test result is located
    * @return testRunId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of test run where test result is located")
 
   public UUID getTestRunId() {
     return testRunId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public TestResultShortGetModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
 
    /**
-   * Get configurationId
+   * Unique ID of configuration which test result uses
    * @return configurationId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of configuration which test result uses")
 
   public UUID getConfigurationId() {
     return configurationId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestResultShortGetModel configurationName(String configurationName) {
-    this.configurationName = JsonNullable.<String>of(configurationName);
+    
+    this.configurationName = configurationName;
     return this;
   }
 
    /**
-   * Get configurationName
+   * Name of configuration which test result uses
    * @return configurationName
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of configuration which test result uses")
 
   public String getConfigurationName() {
-        return configurationName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getConfigurationName_JsonNullable() {
     return configurationName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
-  public void setConfigurationName_JsonNullable(JsonNullable<String> configurationName) {
-    this.configurationName = configurationName;
-  }
+
 
   public void setConfigurationName(String configurationName) {
-    this.configurationName = JsonNullable.<String>of(configurationName);
+    this.configurationName = configurationName;
   }
 
 
   public TestResultShortGetModel outcome(TestResultOutcome outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -283,258 +235,182 @@ public class TestResultShortGetModel {
    * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TestResultOutcome getOutcome() {
     return outcome;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcome(TestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultShortGetModel resultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
-    this.resultReasons = JsonNullable.<List<AutotestResultReasonSubGetModel>>of(resultReasons);
+    
+    this.resultReasons = resultReasons;
     return this;
   }
 
   public TestResultShortGetModel addResultReasonsItem(AutotestResultReasonSubGetModel resultReasonsItem) {
-    if (this.resultReasons == null || !this.resultReasons.isPresent()) {
-      this.resultReasons = JsonNullable.<List<AutotestResultReasonSubGetModel>>of(new ArrayList<>());
+    if (this.resultReasons == null) {
+      this.resultReasons = new ArrayList<>();
     }
-    try {
-      this.resultReasons.get().add(resultReasonsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.resultReasons.add(resultReasonsItem);
     return this;
   }
 
    /**
-   * Get resultReasons
+   * Collection of result reasons which test result have
    * @return resultReasons
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of result reasons which test result have")
 
   public List<AutotestResultReasonSubGetModel> getResultReasons() {
-        return resultReasons.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RESULT_REASONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AutotestResultReasonSubGetModel>> getResultReasons_JsonNullable() {
     return resultReasons;
   }
-  
-  @JsonProperty(JSON_PROPERTY_RESULT_REASONS)
-  public void setResultReasons_JsonNullable(JsonNullable<List<AutotestResultReasonSubGetModel>> resultReasons) {
-    this.resultReasons = resultReasons;
-  }
+
 
   public void setResultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
-    this.resultReasons = JsonNullable.<List<AutotestResultReasonSubGetModel>>of(resultReasons);
+    this.resultReasons = resultReasons;
   }
 
 
   public TestResultShortGetModel comment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    
+    this.comment = comment;
     return this;
   }
 
    /**
-   * Get comment
+   * Comment to test result
    * @return comment
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comment to test result")
 
   public String getComment() {
-        return comment.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<String> comment) {
-    this.comment = comment;
-  }
+
 
   public void setComment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    this.comment = comment;
   }
 
 
   public TestResultShortGetModel date(OffsetDateTime date) {
+    
     this.date = date;
     return this;
   }
 
    /**
-   * Get date
+   * Date when test result has been set
    * @return date
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date when test result has been set")
 
   public OffsetDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
 
   public TestResultShortGetModel duration(Long duration) {
-    this.duration = JsonNullable.<Long>of(duration);
+    
+    this.duration = duration;
     return this;
   }
 
    /**
-   * Get duration
+   * Time which it took to run the test
    * @return duration
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time which it took to run the test")
 
   public Long getDuration() {
-        return duration.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Long> getDuration_JsonNullable() {
     return duration;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  public void setDuration_JsonNullable(JsonNullable<Long> duration) {
-    this.duration = duration;
-  }
+
 
   public void setDuration(Long duration) {
-    this.duration = JsonNullable.<Long>of(duration);
+    this.duration = duration;
   }
 
 
   public TestResultShortGetModel links(List<LinkSubGetModel> links) {
-    this.links = JsonNullable.<List<LinkSubGetModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public TestResultShortGetModel addLinksItem(LinkSubGetModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<LinkSubGetModel>>of(new ArrayList<>());
+    if (this.links == null) {
+      this.links = new ArrayList<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
    /**
-   * Get links
+   * Collection of links attached to test result
    * @return links
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of links attached to test result")
 
   public List<LinkSubGetModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<LinkSubGetModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<LinkSubGetModel>> links) {
-    this.links = links;
-  }
+
 
   public void setLinks(List<LinkSubGetModel> links) {
-    this.links = JsonNullable.<List<LinkSubGetModel>>of(links);
+    this.links = links;
   }
 
 
   public TestResultShortGetModel attachments(List<AttachmentSubGetModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentSubGetModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public TestResultShortGetModel addAttachmentsItem(AttachmentSubGetModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentSubGetModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
    /**
-   * Get attachments
+   * Collection of files attached to test result
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of files attached to test result")
 
   public List<AttachmentSubGetModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentSubGetModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentSubGetModel>> attachments) {
+
+
+  public void setAttachments(List<AttachmentSubGetModel> attachments) {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentSubGetModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentSubGetModel>>of(attachments);
-  }
 
 
-  /**
-   * Return true if this TestResultShortGetModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -545,18 +421,18 @@ public class TestResultShortGetModel {
     }
     TestResultShortGetModel testResultShortGetModel = (TestResultShortGetModel) o;
     return Objects.equals(this.id, testResultShortGetModel.id) &&
-        equalsNullable(this.name, testResultShortGetModel.name) &&
+        Objects.equals(this.name, testResultShortGetModel.name) &&
         Objects.equals(this.autotestGlobalId, testResultShortGetModel.autotestGlobalId) &&
         Objects.equals(this.testRunId, testResultShortGetModel.testRunId) &&
         Objects.equals(this.configurationId, testResultShortGetModel.configurationId) &&
-        equalsNullable(this.configurationName, testResultShortGetModel.configurationName) &&
+        Objects.equals(this.configurationName, testResultShortGetModel.configurationName) &&
         Objects.equals(this.outcome, testResultShortGetModel.outcome) &&
-        equalsNullable(this.resultReasons, testResultShortGetModel.resultReasons) &&
-        equalsNullable(this.comment, testResultShortGetModel.comment) &&
+        Objects.equals(this.resultReasons, testResultShortGetModel.resultReasons) &&
+        Objects.equals(this.comment, testResultShortGetModel.comment) &&
         Objects.equals(this.date, testResultShortGetModel.date) &&
-        equalsNullable(this.duration, testResultShortGetModel.duration) &&
-        equalsNullable(this.links, testResultShortGetModel.links) &&
-        equalsNullable(this.attachments, testResultShortGetModel.attachments);
+        Objects.equals(this.duration, testResultShortGetModel.duration) &&
+        Objects.equals(this.links, testResultShortGetModel.links) &&
+        Objects.equals(this.attachments, testResultShortGetModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -565,7 +441,7 @@ public class TestResultShortGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), autotestGlobalId, testRunId, configurationId, hashCodeNullable(configurationName), outcome, hashCodeNullable(resultReasons), hashCodeNullable(comment), date, hashCodeNullable(duration), hashCodeNullable(links), hashCodeNullable(attachments));
+    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, outcome, resultReasons, comment, date, duration, links, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -607,5 +483,160 @@ public class TestResultShortGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("autotestGlobalId");
+    openapiFields.add("testRunId");
+    openapiFields.add("configurationId");
+    openapiFields.add("configurationName");
+    openapiFields.add("outcome");
+    openapiFields.add("resultReasons");
+    openapiFields.add("comment");
+    openapiFields.add("date");
+    openapiFields.add("duration");
+    openapiFields.add("links");
+    openapiFields.add("attachments");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultShortGetModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortGetModel is not found in the empty JSON string", TestResultShortGetModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultShortGetModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("testRunId") != null && !jsonObj.get("testRunId").isJsonNull()) && !jsonObj.get("testRunId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
+      }
+      if ((jsonObj.get("configurationId") != null && !jsonObj.get("configurationId").isJsonNull()) && !jsonObj.get("configurationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
+      }
+      if ((jsonObj.get("configurationName") != null && !jsonObj.get("configurationName").isJsonNull()) && !jsonObj.get("configurationName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
+      }
+      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonNull()) {
+        JsonArray jsonArrayresultReasons = jsonObj.getAsJsonArray("resultReasons");
+        if (jsonArrayresultReasons != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("resultReasons").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `resultReasons` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasons").toString()));
+          }
+
+          // validate the optional field `resultReasons` (array)
+          for (int i = 0; i < jsonArrayresultReasons.size(); i++) {
+            AutotestResultReasonSubGetModel.validateJsonObject(jsonArrayresultReasons.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkSubGetModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentSubGetModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultShortGetModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultShortGetModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultShortGetModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultShortGetModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultShortGetModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultShortGetModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultShortGetModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultShortGetModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultShortGetModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultShortGetModel
+  */
+  public static TestResultShortGetModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultShortGetModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultShortGetModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

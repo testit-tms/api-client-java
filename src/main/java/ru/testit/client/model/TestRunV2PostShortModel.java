@@ -13,53 +13,45 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestRunV2PostShortModel
  */
-@JsonPropertyOrder({
-  TestRunV2PostShortModel.JSON_PROPERTY_PROJECT_ID,
-  TestRunV2PostShortModel.JSON_PROPERTY_NAME,
-  TestRunV2PostShortModel.JSON_PROPERTY_DESCRIPTION,
-  TestRunV2PostShortModel.JSON_PROPERTY_LAUNCH_SOURCE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunV2PostShortModel {
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private UUID projectId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
-  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
+  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  private String launchSource;
 
-  public TestRunV2PostShortModel() { 
+  public TestRunV2PostShortModel() {
   }
 
   public TestRunV2PostShortModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -68,25 +60,22 @@ public class TestRunV2PostShortModel {
    * This property is to link test run with a project
    * @return projectId
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "This property is to link test run with a project")
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property is to link test run with a project")
 
   public UUID getProjectId() {
     return projectId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestRunV2PostShortModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -94,33 +83,22 @@ public class TestRunV2PostShortModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "First run", value = "")
-  @JsonIgnore
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public TestRunV2PostShortModel description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -128,33 +106,22 @@ public class TestRunV2PostShortModel {
    * Get description
    * @return description
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public TestRunV2PostShortModel launchSource(String launchSource) {
-    this.launchSource = JsonNullable.<String>of(launchSource);
+    
+    this.launchSource = launchSource;
     return this;
   }
 
@@ -162,34 +129,20 @@ public class TestRunV2PostShortModel {
    * Get launchSource
    * @return launchSource
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "By user via API", value = "")
-  @JsonIgnore
 
   public String getLaunchSource() {
-        return launchSource.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getLaunchSource_JsonNullable() {
     return launchSource;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
-  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
+
+
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
-  public void setLaunchSource(String launchSource) {
-    this.launchSource = JsonNullable.<String>of(launchSource);
-  }
 
 
-  /**
-   * Return true if this TestRunV2PostShortModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -200,9 +153,9 @@ public class TestRunV2PostShortModel {
     }
     TestRunV2PostShortModel testRunV2PostShortModel = (TestRunV2PostShortModel) o;
     return Objects.equals(this.projectId, testRunV2PostShortModel.projectId) &&
-        equalsNullable(this.name, testRunV2PostShortModel.name) &&
-        equalsNullable(this.description, testRunV2PostShortModel.description) &&
-        equalsNullable(this.launchSource, testRunV2PostShortModel.launchSource);
+        Objects.equals(this.name, testRunV2PostShortModel.name) &&
+        Objects.equals(this.description, testRunV2PostShortModel.description) &&
+        Objects.equals(this.launchSource, testRunV2PostShortModel.launchSource);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -211,7 +164,7 @@ public class TestRunV2PostShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource));
+    return Objects.hash(projectId, name, description, launchSource);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -244,5 +197,111 @@ public class TestRunV2PostShortModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projectId");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("launchSource");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("projectId");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunV2PostShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunV2PostShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunV2PostShortModel is not found in the empty JSON string", TestRunV2PostShortModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunV2PostShortModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2PostShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestRunV2PostShortModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunV2PostShortModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunV2PostShortModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunV2PostShortModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunV2PostShortModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunV2PostShortModel>() {
+           @Override
+           public void write(JsonWriter out, TestRunV2PostShortModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunV2PostShortModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunV2PostShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunV2PostShortModel
+  * @throws IOException if the JSON string is invalid with respect to TestRunV2PostShortModel
+  */
+  public static TestRunV2PostShortModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunV2PostShortModel.class);
+  }
+
+ /**
+  * Convert an instance of TestRunV2PostShortModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

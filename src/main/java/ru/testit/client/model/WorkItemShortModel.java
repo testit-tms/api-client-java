@@ -13,120 +13,106 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.IterationModel;
-import ru.testit.client.model.WorkItemPriorityModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * WorkItemShortModel
  */
-@JsonPropertyOrder({
-  WorkItemShortModel.JSON_PROPERTY_ID,
-  WorkItemShortModel.JSON_PROPERTY_VERSION_ID,
-  WorkItemShortModel.JSON_PROPERTY_NAME,
-  WorkItemShortModel.JSON_PROPERTY_ENTITY_TYPE_NAME,
-  WorkItemShortModel.JSON_PROPERTY_PROJECT_ID,
-  WorkItemShortModel.JSON_PROPERTY_SECTION_ID,
-  WorkItemShortModel.JSON_PROPERTY_IS_AUTOMATED,
-  WorkItemShortModel.JSON_PROPERTY_GLOBAL_ID,
-  WorkItemShortModel.JSON_PROPERTY_DURATION,
-  WorkItemShortModel.JSON_PROPERTY_ATTRIBUTES,
-  WorkItemShortModel.JSON_PROPERTY_CREATED_BY_ID,
-  WorkItemShortModel.JSON_PROPERTY_MODIFIED_BY_ID,
-  WorkItemShortModel.JSON_PROPERTY_CREATED_DATE,
-  WorkItemShortModel.JSON_PROPERTY_MODIFIED_DATE,
-  WorkItemShortModel.JSON_PROPERTY_STATE,
-  WorkItemShortModel.JSON_PROPERTY_PRIORITY,
-  WorkItemShortModel.JSON_PROPERTY_IS_DELETED,
-  WorkItemShortModel.JSON_PROPERTY_TAG_NAMES,
-  WorkItemShortModel.JSON_PROPERTY_ITERATIONS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemShortModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
+  @SerializedName(SERIALIZED_NAME_VERSION_ID)
   private UUID versionId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
+  public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
+  @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
   private String entityTypeName;
 
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private UUID projectId;
 
-  public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
+  @SerializedName(SERIALIZED_NAME_SECTION_ID)
   private UUID sectionId;
 
-  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
+  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
   private Boolean isAutomated;
 
-  public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
   private Long globalId;
 
-  public static final String JSON_PROPERTY_DURATION = "duration";
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
   private Integer duration;
 
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes = null;
 
-  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
   private UUID createdById;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
-  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private OffsetDateTime createdDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
 
-  public static final String JSON_PROPERTY_STATE = "state";
-  private String state;
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private WorkItemStates state;
 
-  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  public static final String SERIALIZED_NAME_PRIORITY = "priority";
+  @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
-  private JsonNullable<List<String>> tagNames = JsonNullable.<List<String>>undefined();
+  public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
+  @SerializedName(SERIALIZED_NAME_TAG_NAMES)
+  private List<String> tagNames = null;
 
-  public static final String JSON_PROPERTY_ITERATIONS = "iterations";
-  private JsonNullable<List<IterationModel>> iterations = JsonNullable.<List<IterationModel>>undefined();
+  public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
+  @SerializedName(SERIALIZED_NAME_ITERATIONS)
+  private List<IterationModel> iterations = null;
 
-  public WorkItemShortModel() { 
+  public WorkItemShortModel() {
   }
 
   public WorkItemShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -135,24 +121,21 @@ public class WorkItemShortModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemShortModel versionId(UUID versionId) {
+    
     this.versionId = versionId;
     return this;
   }
@@ -161,24 +144,21 @@ public class WorkItemShortModel {
    * used for versioning changes in workitem
    * @return versionId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "used for versioning changes in workitem")
-  @JsonProperty(JSON_PROPERTY_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "used for versioning changes in workitem")
 
   public UUID getVersionId() {
     return versionId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public WorkItemShortModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -187,24 +167,21 @@ public class WorkItemShortModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Performance test", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public WorkItemShortModel entityTypeName(String entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -213,24 +190,21 @@ public class WorkItemShortModel {
    * Property can have one of these values: CheckLists, SharedSteps, TestCases
    * @return entityTypeName
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "SharedSteps", required = true, value = "Property can have one of these values: CheckLists, SharedSteps, TestCases")
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEntityTypeName() {
     return entityTypeName;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntityTypeName(String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
   public WorkItemShortModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -239,24 +213,21 @@ public class WorkItemShortModel {
    * This property is used to link autotest with project
    * @return projectId
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "This property is used to link autotest with project")
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property is used to link autotest with project")
 
   public UUID getProjectId() {
     return projectId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public WorkItemShortModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
@@ -265,24 +236,21 @@ public class WorkItemShortModel {
    * This property links workitem with section
    * @return sectionId
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "This property links workitem with section")
-  @JsonProperty(JSON_PROPERTY_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property links workitem with section")
 
   public UUID getSectionId() {
     return sectionId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public WorkItemShortModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -291,24 +259,21 @@ public class WorkItemShortModel {
    * Get isAutomated
    * @return isAutomated
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public WorkItemShortModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
@@ -317,24 +282,21 @@ public class WorkItemShortModel {
    * Get globalId
    * @return globalId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1000", value = "")
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getGlobalId() {
     return globalId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public WorkItemShortModel duration(Integer duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -343,37 +305,30 @@ public class WorkItemShortModel {
    * Get duration
    * @return duration
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1000", value = "")
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getDuration() {
     return duration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public WorkItemShortModel attributes(Map<String, Object> attributes) {
-    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+    
+    this.attributes = attributes;
     return this;
   }
 
   public WorkItemShortModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null || !this.attributes.isPresent()) {
-      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
     }
-    try {
-      this.attributes.get().put(key, attributesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
@@ -381,32 +336,21 @@ public class WorkItemShortModel {
    * Get attributes
    * @return attributes
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Map<String, Object> getAttributes() {
-        return attributes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
     return attributes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
-    this.attributes = attributes;
-  }
+
 
   public void setAttributes(Map<String, Object> attributes) {
-    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+    this.attributes = attributes;
   }
 
 
   public WorkItemShortModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -415,25 +359,22 @@ public class WorkItemShortModel {
    * Get createdById
    * @return createdById
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public WorkItemShortModel modifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    
+    this.modifiedById = modifiedById;
     return this;
   }
 
@@ -441,33 +382,22 @@ public class WorkItemShortModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
-        return modifiedById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
-    this.modifiedById = modifiedById;
-  }
+
 
   public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    this.modifiedById = modifiedById;
   }
 
 
   public WorkItemShortModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -475,33 +405,22 @@ public class WorkItemShortModel {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
-    this.createdDate = createdDate;
-  }
+
 
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
   public WorkItemShortModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -509,58 +428,44 @@ public class WorkItemShortModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-10-03T10:29:25.447304600Z", value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
-  }
 
-
-  public WorkItemShortModel state(String state) {
+  public WorkItemShortModel state(WorkItemStates state) {
+    
     this.state = state;
     return this;
   }
 
    /**
-   * Property can have one of these values: NeedsWork, NotReady, Ready
+   * Get state
    * @return state
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Ready", required = true, value = "Property can have one of these values: NeedsWork, NotReady, Ready")
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
-  public String getState() {
+  public WorkItemStates getState() {
     return state;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(String state) {
+  public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
   public WorkItemShortModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
@@ -569,24 +474,21 @@ public class WorkItemShortModel {
    * Get priority
    * @return priority
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public WorkItemShortModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -595,37 +497,30 @@ public class WorkItemShortModel {
    * Get isDeleted
    * @return isDeleted
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public WorkItemShortModel tagNames(List<String> tagNames) {
-    this.tagNames = JsonNullable.<List<String>>of(tagNames);
+    
+    this.tagNames = tagNames;
     return this;
   }
 
   public WorkItemShortModel addTagNamesItem(String tagNamesItem) {
-    if (this.tagNames == null || !this.tagNames.isPresent()) {
-      this.tagNames = JsonNullable.<List<String>>of(new ArrayList<>());
+    if (this.tagNames == null) {
+      this.tagNames = new ArrayList<>();
     }
-    try {
-      this.tagNames.get().add(tagNamesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.tagNames.add(tagNamesItem);
     return this;
   }
 
@@ -633,45 +528,30 @@ public class WorkItemShortModel {
    * Get tagNames
    * @return tagNames
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<String> getTagNames() {
-        return tagNames.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TAG_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<String>> getTagNames_JsonNullable() {
     return tagNames;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TAG_NAMES)
-  public void setTagNames_JsonNullable(JsonNullable<List<String>> tagNames) {
-    this.tagNames = tagNames;
-  }
+
 
   public void setTagNames(List<String> tagNames) {
-    this.tagNames = JsonNullable.<List<String>>of(tagNames);
+    this.tagNames = tagNames;
   }
 
 
   public WorkItemShortModel iterations(List<IterationModel> iterations) {
-    this.iterations = JsonNullable.<List<IterationModel>>of(iterations);
+    
+    this.iterations = iterations;
     return this;
   }
 
   public WorkItemShortModel addIterationsItem(IterationModel iterationsItem) {
-    if (this.iterations == null || !this.iterations.isPresent()) {
-      this.iterations = JsonNullable.<List<IterationModel>>of(new ArrayList<>());
+    if (this.iterations == null) {
+      this.iterations = new ArrayList<>();
     }
-    try {
-      this.iterations.get().add(iterationsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.iterations.add(iterationsItem);
     return this;
   }
 
@@ -679,34 +559,20 @@ public class WorkItemShortModel {
    * Get iterations
    * @return iterations
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<IterationModel> getIterations() {
-        return iterations.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ITERATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<IterationModel>> getIterations_JsonNullable() {
     return iterations;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ITERATIONS)
-  public void setIterations_JsonNullable(JsonNullable<List<IterationModel>> iterations) {
+
+
+  public void setIterations(List<IterationModel> iterations) {
     this.iterations = iterations;
   }
 
-  public void setIterations(List<IterationModel> iterations) {
-    this.iterations = JsonNullable.<List<IterationModel>>of(iterations);
-  }
 
 
-  /**
-   * Return true if this WorkItemShortModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -725,16 +591,16 @@ public class WorkItemShortModel {
         Objects.equals(this.isAutomated, workItemShortModel.isAutomated) &&
         Objects.equals(this.globalId, workItemShortModel.globalId) &&
         Objects.equals(this.duration, workItemShortModel.duration) &&
-        equalsNullable(this.attributes, workItemShortModel.attributes) &&
+        Objects.equals(this.attributes, workItemShortModel.attributes) &&
         Objects.equals(this.createdById, workItemShortModel.createdById) &&
-        equalsNullable(this.modifiedById, workItemShortModel.modifiedById) &&
-        equalsNullable(this.createdDate, workItemShortModel.createdDate) &&
-        equalsNullable(this.modifiedDate, workItemShortModel.modifiedDate) &&
+        Objects.equals(this.modifiedById, workItemShortModel.modifiedById) &&
+        Objects.equals(this.createdDate, workItemShortModel.createdDate) &&
+        Objects.equals(this.modifiedDate, workItemShortModel.modifiedDate) &&
         Objects.equals(this.state, workItemShortModel.state) &&
         Objects.equals(this.priority, workItemShortModel.priority) &&
         Objects.equals(this.isDeleted, workItemShortModel.isDeleted) &&
-        equalsNullable(this.tagNames, workItemShortModel.tagNames) &&
-        equalsNullable(this.iterations, workItemShortModel.iterations);
+        Objects.equals(this.tagNames, workItemShortModel.tagNames) &&
+        Objects.equals(this.iterations, workItemShortModel.iterations);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -743,7 +609,7 @@ public class WorkItemShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versionId, name, entityTypeName, projectId, sectionId, isAutomated, globalId, duration, hashCodeNullable(attributes), createdById, hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), state, priority, isDeleted, hashCodeNullable(tagNames), hashCodeNullable(iterations));
+    return Objects.hash(id, versionId, name, entityTypeName, projectId, sectionId, isAutomated, globalId, duration, attributes, createdById, modifiedById, createdDate, modifiedDate, state, priority, isDeleted, tagNames, iterations);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -791,5 +657,161 @@ public class WorkItemShortModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("versionId");
+    openapiFields.add("name");
+    openapiFields.add("entityTypeName");
+    openapiFields.add("projectId");
+    openapiFields.add("sectionId");
+    openapiFields.add("isAutomated");
+    openapiFields.add("globalId");
+    openapiFields.add("duration");
+    openapiFields.add("attributes");
+    openapiFields.add("createdById");
+    openapiFields.add("modifiedById");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("state");
+    openapiFields.add("priority");
+    openapiFields.add("isDeleted");
+    openapiFields.add("tagNames");
+    openapiFields.add("iterations");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("entityTypeName");
+    openapiRequiredFields.add("projectId");
+    openapiRequiredFields.add("sectionId");
+    openapiRequiredFields.add("state");
+    openapiRequiredFields.add("priority");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemShortModel is not found in the empty JSON string", WorkItemShortModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemShortModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WorkItemShortModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("versionId") != null && !jsonObj.get("versionId").isJsonNull()) && !jsonObj.get("versionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (!jsonObj.get("entityTypeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entityTypeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityTypeName").toString()));
+      }
+      if (!jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if (!jsonObj.get("sectionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionId").toString()));
+      }
+      if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
+      }
+      if (jsonObj.get("iterations") != null && !jsonObj.get("iterations").isJsonNull()) {
+        JsonArray jsonArrayiterations = jsonObj.getAsJsonArray("iterations");
+        if (jsonArrayiterations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("iterations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `iterations` to be an array in the JSON string but got `%s`", jsonObj.get("iterations").toString()));
+          }
+
+          // validate the optional field `iterations` (array)
+          for (int i = 0; i < jsonArrayiterations.size(); i++) {
+            IterationModel.validateJsonObject(jsonArrayiterations.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemShortModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemShortModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemShortModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemShortModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemShortModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemShortModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemShortModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemShortModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemShortModel
+  */
+  public static WorkItemShortModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemShortModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemShortModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
