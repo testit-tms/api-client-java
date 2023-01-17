@@ -106,16 +106,10 @@ publishing.publications.named<MavenPublication>("maven") {
     }
 }
 
-val jacksonDatabindVersion = "2.13.3"
 val okhttpVersion = "4.10.0"
-val swaggerAnnotationsVersion = "1.6.8"
-val jacksonDatabindNullableVersion = "0.2.3"
-val jakartaAnnotationVersion = "1.3.5"
-val jerseyVersion = "3.0.4"
-val junitVersion = "5.8.2"
 
 dependencies {
-    implementation("io.swagger:swagger-annotations:$swaggerAnnotationsVersion")
+    implementation("io.swagger:swagger-annotations:1.6.8")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
@@ -125,5 +119,5 @@ dependencies {
     implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
     implementation("org.openapitools:jackson-databind-nullable:0.2.4")
     implementation("org.apache.commons:commons-lang3:3.12.0")
-    implementation("jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion")
+    implementation("jakarta.annotation:jakarta.annotation-api:1.3.5")
 }
