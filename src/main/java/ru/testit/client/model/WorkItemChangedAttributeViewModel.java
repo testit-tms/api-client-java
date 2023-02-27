@@ -13,57 +13,53 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * WorkItemChangedAttributeViewModel
  */
-@JsonPropertyOrder({
-  WorkItemChangedAttributeViewModel.JSON_PROPERTY_TYPE,
-  WorkItemChangedAttributeViewModel.JSON_PROPERTY_OLD_ATTRIBUTE_NAME,
-  WorkItemChangedAttributeViewModel.JSON_PROPERTY_NEW_ATTRIBUTE_NAME,
-  WorkItemChangedAttributeViewModel.JSON_PROPERTY_OLD_VALUE,
-  WorkItemChangedAttributeViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemChangedAttributeViewModel {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public static final String JSON_PROPERTY_OLD_ATTRIBUTE_NAME = "oldAttributeName";
-  private JsonNullable<String> oldAttributeName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
+  @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
+  private String oldAttributeName;
 
-  public static final String JSON_PROPERTY_NEW_ATTRIBUTE_NAME = "newAttributeName";
-  private JsonNullable<String> newAttributeName = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
+  @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
+  private String newAttributeName;
 
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
-  private JsonNullable<Object> oldValue = JsonNullable.<Object>of(null);
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private Object oldValue = null;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
-  private JsonNullable<Object> newValue = JsonNullable.<Object>of(null);
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  private Object newValue = null;
 
-  public WorkItemChangedAttributeViewModel() { 
+  public WorkItemChangedAttributeViewModel() {
   }
 
   public WorkItemChangedAttributeViewModel type(String type) {
-    this.type = JsonNullable.<String>of(type);
+    
+    this.type = type;
     return this;
   }
 
@@ -71,33 +67,22 @@ public class WorkItemChangedAttributeViewModel {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<String> type) {
-    this.type = type;
-  }
+
 
   public void setType(String type) {
-    this.type = JsonNullable.<String>of(type);
+    this.type = type;
   }
 
 
   public WorkItemChangedAttributeViewModel oldAttributeName(String oldAttributeName) {
-    this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
+    
+    this.oldAttributeName = oldAttributeName;
     return this;
   }
 
@@ -105,33 +90,22 @@ public class WorkItemChangedAttributeViewModel {
    * Get oldAttributeName
    * @return oldAttributeName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getOldAttributeName() {
-        return oldAttributeName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_ATTRIBUTE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOldAttributeName_JsonNullable() {
     return oldAttributeName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_ATTRIBUTE_NAME)
-  public void setOldAttributeName_JsonNullable(JsonNullable<String> oldAttributeName) {
-    this.oldAttributeName = oldAttributeName;
-  }
+
 
   public void setOldAttributeName(String oldAttributeName) {
-    this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
+    this.oldAttributeName = oldAttributeName;
   }
 
 
   public WorkItemChangedAttributeViewModel newAttributeName(String newAttributeName) {
-    this.newAttributeName = JsonNullable.<String>of(newAttributeName);
+    
+    this.newAttributeName = newAttributeName;
     return this;
   }
 
@@ -139,33 +113,22 @@ public class WorkItemChangedAttributeViewModel {
    * Get newAttributeName
    * @return newAttributeName
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getNewAttributeName() {
-        return newAttributeName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_ATTRIBUTE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getNewAttributeName_JsonNullable() {
     return newAttributeName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_ATTRIBUTE_NAME)
-  public void setNewAttributeName_JsonNullable(JsonNullable<String> newAttributeName) {
-    this.newAttributeName = newAttributeName;
-  }
+
 
   public void setNewAttributeName(String newAttributeName) {
-    this.newAttributeName = JsonNullable.<String>of(newAttributeName);
+    this.newAttributeName = newAttributeName;
   }
 
 
   public WorkItemChangedAttributeViewModel oldValue(Object oldValue) {
-    this.oldValue = JsonNullable.<Object>of(oldValue);
+    
+    this.oldValue = oldValue;
     return this;
   }
 
@@ -173,33 +136,22 @@ public class WorkItemChangedAttributeViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Object getOldValue() {
-        return oldValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getOldValue_JsonNullable() {
     return oldValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  public void setOldValue_JsonNullable(JsonNullable<Object> oldValue) {
-    this.oldValue = oldValue;
-  }
+
 
   public void setOldValue(Object oldValue) {
-    this.oldValue = JsonNullable.<Object>of(oldValue);
+    this.oldValue = oldValue;
   }
 
 
   public WorkItemChangedAttributeViewModel newValue(Object newValue) {
-    this.newValue = JsonNullable.<Object>of(newValue);
+    
+    this.newValue = newValue;
     return this;
   }
 
@@ -207,34 +159,20 @@ public class WorkItemChangedAttributeViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Object getNewValue() {
-        return newValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getNewValue_JsonNullable() {
     return newValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  public void setNewValue_JsonNullable(JsonNullable<Object> newValue) {
+
+
+  public void setNewValue(Object newValue) {
     this.newValue = newValue;
   }
 
-  public void setNewValue(Object newValue) {
-    this.newValue = JsonNullable.<Object>of(newValue);
-  }
 
 
-  /**
-   * Return true if this WorkItemChangedAttributeViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,11 +182,11 @@ public class WorkItemChangedAttributeViewModel {
       return false;
     }
     WorkItemChangedAttributeViewModel workItemChangedAttributeViewModel = (WorkItemChangedAttributeViewModel) o;
-    return equalsNullable(this.type, workItemChangedAttributeViewModel.type) &&
-        equalsNullable(this.oldAttributeName, workItemChangedAttributeViewModel.oldAttributeName) &&
-        equalsNullable(this.newAttributeName, workItemChangedAttributeViewModel.newAttributeName) &&
-        equalsNullable(this.oldValue, workItemChangedAttributeViewModel.oldValue) &&
-        equalsNullable(this.newValue, workItemChangedAttributeViewModel.newValue);
+    return Objects.equals(this.type, workItemChangedAttributeViewModel.type) &&
+        Objects.equals(this.oldAttributeName, workItemChangedAttributeViewModel.oldAttributeName) &&
+        Objects.equals(this.newAttributeName, workItemChangedAttributeViewModel.newAttributeName) &&
+        Objects.equals(this.oldValue, workItemChangedAttributeViewModel.oldValue) &&
+        Objects.equals(this.newValue, workItemChangedAttributeViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -257,7 +195,7 @@ public class WorkItemChangedAttributeViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(type), hashCodeNullable(oldAttributeName), hashCodeNullable(newAttributeName), hashCodeNullable(oldValue), hashCodeNullable(newValue));
+    return Objects.hash(type, oldAttributeName, newAttributeName, oldValue, newValue);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -291,5 +229,101 @@ public class WorkItemChangedAttributeViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("type");
+    openapiFields.add("oldAttributeName");
+    openapiFields.add("newAttributeName");
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemChangedAttributeViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemChangedAttributeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemChangedAttributeViewModel is not found in the empty JSON string", WorkItemChangedAttributeViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemChangedAttributeViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemChangedAttributeViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("oldAttributeName") != null && !jsonObj.get("oldAttributeName").isJsonNull()) && !jsonObj.get("oldAttributeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oldAttributeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldAttributeName").toString()));
+      }
+      if ((jsonObj.get("newAttributeName") != null && !jsonObj.get("newAttributeName").isJsonNull()) && !jsonObj.get("newAttributeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `newAttributeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newAttributeName").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemChangedAttributeViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemChangedAttributeViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemChangedAttributeViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemChangedAttributeViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemChangedAttributeViewModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemChangedAttributeViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemChangedAttributeViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemChangedAttributeViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemChangedAttributeViewModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemChangedAttributeViewModel
+  */
+  public static WorkItemChangedAttributeViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemChangedAttributeViewModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemChangedAttributeViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -106,28 +106,18 @@ publishing.publications.named<MavenPublication>("maven") {
     }
 }
 
-val jacksonDatabindVersion = "2.13.3"
-val jacksonVersion = "2.13.3"
-val swaggerAnnotationsVersion = "1.6.6"
-val jacksonDatabindNullableVersion = "0.2.3"
-val jakartaAnnotationVersion = "2.1.0"
-val jerseyVersion = "3.0.4"
-val junitVersion = "5.8.2"
+val okhttpVersion = "4.10.0"
 
 dependencies {
-    implementation("io.swagger:swagger-annotations:$swaggerAnnotationsVersion")
+    implementation("io.swagger:swagger-annotations:1.6.8")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
-    implementation("org.glassfish.jersey.core:jersey-client:$jerseyVersion")
-    implementation("org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion")
-    implementation("org.glassfish.jersey.media:jersey-media-multipart:$jerseyVersion")
-    implementation("org.glassfish.jersey.media:jersey-media-json-jackson:$jerseyVersion")
-    implementation("org.glassfish.jersey.connectors:jersey-apache-connector:$jerseyVersion")
-    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
-    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
-    implementation("org.openapitools:jackson-databind-nullable:$jacksonDatabindNullableVersion")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-    implementation("jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("io.gsonfire:gson-fire:1.8.5")
+    implementation("javax.ws.rs:jsr311-api:1.1.1")
+    implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
+    implementation("org.openapitools:jackson-databind-nullable:0.2.4")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
+    implementation("jakarta.annotation:jakarta.annotation-api:1.3.5")
 }

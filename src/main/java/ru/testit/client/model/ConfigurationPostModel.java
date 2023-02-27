@@ -13,65 +13,58 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * ConfigurationPostModel
  */
-@JsonPropertyOrder({
-  ConfigurationPostModel.JSON_PROPERTY_DESCRIPTION,
-  ConfigurationPostModel.JSON_PROPERTY_IS_ACTIVE,
-  ConfigurationPostModel.JSON_PROPERTY_CAPABILITIES,
-  ConfigurationPostModel.JSON_PROPERTY_PROJECT_ID,
-  ConfigurationPostModel.JSON_PROPERTY_IS_DEFAULT,
-  ConfigurationPostModel.JSON_PROPERTY_NAME
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationPostModel {
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
+  public static final String SERIALIZED_NAME_IS_ACTIVE = "isActive";
+  @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
   private Boolean isActive;
 
-  public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private Map<String, String> capabilities = new HashMap<>();
+  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
+  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+  private Map<String, String> capabilities = null;
 
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private Map<String, String> parameters = null;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private UUID projectId;
 
-  public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
+  @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
   private Boolean isDefault;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public ConfigurationPostModel() { 
+  public ConfigurationPostModel() {
   }
 
   public ConfigurationPostModel description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -79,32 +72,21 @@ public class ConfigurationPostModel {
    * Get description
    * @return description
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Default configuration", value = "")
-  @JsonIgnore
 
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public ConfigurationPostModel isActive(Boolean isActive) {
+    
     this.isActive = isActive;
     return this;
   }
@@ -113,29 +95,29 @@ public class ConfigurationPostModel {
    * Get isActive
    * @return isActive
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsActive() {
     return isActive;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
   }
 
 
   public ConfigurationPostModel capabilities(Map<String, String> capabilities) {
+    
     this.capabilities = capabilities;
     return this;
   }
 
   public ConfigurationPostModel putCapabilitiesItem(String key, String capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new HashMap<>();
+    }
     this.capabilities.put(key, capabilitiesItem);
     return this;
   }
@@ -143,25 +125,55 @@ public class ConfigurationPostModel {
    /**
    * Get capabilities
    * @return capabilities
+   * @deprecated
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @Deprecated
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getCapabilities() {
     return capabilities;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCapabilities(Map<String, String> capabilities) {
     this.capabilities = capabilities;
   }
 
 
+  public ConfigurationPostModel parameters(Map<String, String> parameters) {
+    
+    this.parameters = parameters;
+    return this;
+  }
+
+  public ConfigurationPostModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
+    this.parameters.put(key, parametersItem);
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getParameters() {
+    return parameters;
+  }
+
+
+  public void setParameters(Map<String, String> parameters) {
+    this.parameters = parameters;
+  }
+
+
   public ConfigurationPostModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -170,24 +182,21 @@ public class ConfigurationPostModel {
    * This property is used to link configuration with project
    * @return projectId
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "This property is used to link configuration with project")
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getProjectId() {
     return projectId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public ConfigurationPostModel isDefault(Boolean isDefault) {
+    
     this.isDefault = isDefault;
     return this;
   }
@@ -196,24 +205,21 @@ public class ConfigurationPostModel {
    * Get isDefault
    * @return isDefault
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsDefault() {
     return isDefault;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
   public ConfigurationPostModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -222,26 +228,20 @@ public class ConfigurationPostModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Default", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
-  /**
-   * Return true if this ConfigurationPostModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -251,9 +251,10 @@ public class ConfigurationPostModel {
       return false;
     }
     ConfigurationPostModel configurationPostModel = (ConfigurationPostModel) o;
-    return equalsNullable(this.description, configurationPostModel.description) &&
+    return Objects.equals(this.description, configurationPostModel.description) &&
         Objects.equals(this.isActive, configurationPostModel.isActive) &&
         Objects.equals(this.capabilities, configurationPostModel.capabilities) &&
+        Objects.equals(this.parameters, configurationPostModel.parameters) &&
         Objects.equals(this.projectId, configurationPostModel.projectId) &&
         Objects.equals(this.isDefault, configurationPostModel.isDefault) &&
         Objects.equals(this.name, configurationPostModel.name);
@@ -265,7 +266,7 @@ public class ConfigurationPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), isActive, capabilities, projectId, isDefault, name);
+    return Objects.hash(description, isActive, capabilities, parameters, projectId, isDefault, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -282,6 +283,7 @@ public class ConfigurationPostModel {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -300,5 +302,112 @@ public class ConfigurationPostModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("description");
+    openapiFields.add("isActive");
+    openapiFields.add("capabilities");
+    openapiFields.add("parameters");
+    openapiFields.add("projectId");
+    openapiFields.add("isDefault");
+    openapiFields.add("name");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("projectId");
+    openapiRequiredFields.add("name");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationPostModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationPostModel is not found in the empty JSON string", ConfigurationPostModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ConfigurationPostModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ConfigurationPostModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if (!jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ConfigurationPostModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConfigurationPostModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ConfigurationPostModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConfigurationPostModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ConfigurationPostModel>() {
+           @Override
+           public void write(JsonWriter out, ConfigurationPostModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ConfigurationPostModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ConfigurationPostModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigurationPostModel
+  * @throws IOException if the JSON string is invalid with respect to ConfigurationPostModel
+  */
+  public static ConfigurationPostModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConfigurationPostModel.class);
+  }
+
+ /**
+  * Convert an instance of ConfigurationPostModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

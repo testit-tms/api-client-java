@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**text** | **String** |  |  |
-|**workItemId** | **UUID** |  |  [optional] |
+|**workItemId** | **UUID** |  |  |
 
 
 

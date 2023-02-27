@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** | Name of work item |  [optional] |
+|**ids** | **Set&lt;UUID&gt;** | Specifies a work item unique IDs to search for |  [optional] |
 |**globalIds** | **Set&lt;Long&gt;** | Collection of global (integer) identifiers |  [optional] |
 |**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** | Custom attributes of work item |  [optional] |
 |**isDeleted** | **Boolean** | Is result must consist of only actual/deleted work items |  [optional] |
@@ -17,17 +18,13 @@
 |**modifiedByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who applied last modification to work item |  [optional] |
 |**states** | **Set&lt;WorkItemStates&gt;** | Collection of states of work item |  [optional] |
 |**priorities** | **Set&lt;WorkItemPriorityModel&gt;** | Collection of priorities of work item |  [optional] |
-|**entityTypes** | **Set&lt;String&gt;** | Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; |  [optional] |
-|**createdDateMinimal** | **OffsetDateTime** | Minimum date and time of work item creation |  [optional] |
-|**createdDateMaximal** | **OffsetDateTime** | Maximum date and time of work item creation |  [optional] |
-|**modifiedDateMinimal** | **OffsetDateTime** | Minimum date and time of work item last modification |  [optional] |
-|**modifiedDateMaximal** | **OffsetDateTime** | Maximum date and time of work item last modification |  [optional] |
-|**durationMinimal** | **Integer** | Minimum completion time (seconds) of work item |  [optional] |
-|**durationMaximal** | **Integer** | Maximum completion time (seconds) of work item |  [optional] |
+|**types** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item |  [optional] |
+|**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**duration** | [**Int32RangeSelectorModel**](Int32RangeSelectorModel.md) |  |  [optional] |
 |**isAutomated** | **Boolean** | Is result must consist of only manual/automated work items |  [optional] |
-|**tagNames** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
+|**tags** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
 |**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |
-|**exceptWorkItemIds** | **Set&lt;UUID&gt;** |  |  [optional] |
 
 
 

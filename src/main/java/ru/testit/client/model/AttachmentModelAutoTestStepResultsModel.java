@@ -13,83 +13,71 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * AttachmentModelAutoTestStepResultsModel
  */
-@JsonPropertyOrder({
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_TITLE,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_DESCRIPTION,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_INFO,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_STARTED_ON,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_COMPLETED_ON,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_DURATION,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_OUTCOME,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_STEP_RESULTS,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_ATTACHMENTS,
-  AttachmentModelAutoTestStepResultsModel.JSON_PROPERTY_PARAMETERS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AttachmentModelAutoTestStepResultsModel {
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_INFO = "info";
-  private JsonNullable<String> info = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_INFO = "info";
+  @SerializedName(SERIALIZED_NAME_INFO)
+  private String info;
 
-  public static final String JSON_PROPERTY_STARTED_ON = "startedOn";
-  private JsonNullable<OffsetDateTime> startedOn = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
+  @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  private OffsetDateTime startedOn;
 
-  public static final String JSON_PROPERTY_COMPLETED_ON = "completedOn";
-  private JsonNullable<OffsetDateTime> completedOn = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  private OffsetDateTime completedOn;
 
-  public static final String JSON_PROPERTY_DURATION = "duration";
-  private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Long duration;
 
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
-  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private AvailableTestResultOutcome outcome;
 
-  public static final String JSON_PROPERTY_STEP_RESULTS = "stepResults";
-  private JsonNullable<List<AttachmentModelAutoTestStepResultsModel>> stepResults = JsonNullable.<List<AttachmentModelAutoTestStepResultsModel>>undefined();
+  public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
+  @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
+  private List<AttachmentModelAutoTestStepResultsModel> stepResults = null;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentModel>> attachments = JsonNullable.<List<AttachmentModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentModel> attachments = null;
 
-  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  private JsonNullable<Map<String, String>> parameters = JsonNullable.<Map<String, String>>undefined();
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private Map<String, String> parameters = null;
 
-  public AttachmentModelAutoTestStepResultsModel() { 
+  public AttachmentModelAutoTestStepResultsModel() {
   }
 
   public AttachmentModelAutoTestStepResultsModel title(String title) {
-    this.title = JsonNullable.<String>of(title);
+    
+    this.title = title;
     return this;
   }
 
@@ -97,33 +85,22 @@ public class AttachmentModelAutoTestStepResultsModel {
    * The name of the step.
    * @return title
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the step.")
-  @JsonIgnore
 
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
+
 
   public void setTitle(String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -131,33 +108,22 @@ public class AttachmentModelAutoTestStepResultsModel {
    * Description of the step result.
    * @return description
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the step result.")
-  @JsonIgnore
 
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel info(String info) {
-    this.info = JsonNullable.<String>of(info);
+    
+    this.info = info;
     return this;
   }
 
@@ -165,33 +131,22 @@ public class AttachmentModelAutoTestStepResultsModel {
    * Extended description of the step result.
    * @return info
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Extended description of the step result.")
-  @JsonIgnore
 
   public String getInfo() {
-        return info.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getInfo_JsonNullable() {
     return info;
   }
-  
-  @JsonProperty(JSON_PROPERTY_INFO)
-  public void setInfo_JsonNullable(JsonNullable<String> info) {
-    this.info = info;
-  }
+
 
   public void setInfo(String info) {
-    this.info = JsonNullable.<String>of(info);
+    this.info = info;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel startedOn(OffsetDateTime startedOn) {
-    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+    
+    this.startedOn = startedOn;
     return this;
   }
 
@@ -199,33 +154,22 @@ public class AttachmentModelAutoTestStepResultsModel {
    * Step start date.
    * @return startedOn
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Step start date.")
-  @JsonIgnore
 
   public OffsetDateTime getStartedOn() {
-        return startedOn.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STARTED_ON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getStartedOn_JsonNullable() {
     return startedOn;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STARTED_ON)
-  public void setStartedOn_JsonNullable(JsonNullable<OffsetDateTime> startedOn) {
-    this.startedOn = startedOn;
-  }
+
 
   public void setStartedOn(OffsetDateTime startedOn) {
-    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+    this.startedOn = startedOn;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel completedOn(OffsetDateTime completedOn) {
-    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+    
+    this.completedOn = completedOn;
     return this;
   }
 
@@ -233,33 +177,22 @@ public class AttachmentModelAutoTestStepResultsModel {
    * Step end date.
    * @return completedOn
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Step end date.")
-  @JsonIgnore
 
   public OffsetDateTime getCompletedOn() {
-        return completedOn.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getCompletedOn_JsonNullable() {
     return completedOn;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
-  public void setCompletedOn_JsonNullable(JsonNullable<OffsetDateTime> completedOn) {
-    this.completedOn = completedOn;
-  }
+
 
   public void setCompletedOn(OffsetDateTime completedOn) {
-    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+    this.completedOn = completedOn;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel duration(Long duration) {
-    this.duration = JsonNullable.<Long>of(duration);
+    
+    this.duration = duration;
     return this;
   }
 
@@ -268,79 +201,53 @@ public class AttachmentModelAutoTestStepResultsModel {
    * minimum: 0
    * @return duration
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Expected or actual duration of the test run execution in seconds.")
-  @JsonIgnore
 
   public Long getDuration() {
-        return duration.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Long> getDuration_JsonNullable() {
     return duration;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  public void setDuration_JsonNullable(JsonNullable<Long> duration) {
+
+
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
-    this.duration = JsonNullable.<Long>of(duration);
-  }
 
-
-  public AttachmentModelAutoTestStepResultsModel outcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+  public AttachmentModelAutoTestStepResultsModel outcome(AvailableTestResultOutcome outcome) {
+    
+    this.outcome = outcome;
     return this;
   }
 
    /**
-   * Specifies the result of the autotest execution.
+   * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the result of the autotest execution.")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public String getOutcome() {
-        return outcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOutcome_JsonNullable() {
+  public AvailableTestResultOutcome getOutcome() {
     return outcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
-    this.outcome = outcome;
-  }
 
-  public void setOutcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+
+  public void setOutcome(AvailableTestResultOutcome outcome) {
+    this.outcome = outcome;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel stepResults(List<AttachmentModelAutoTestStepResultsModel> stepResults) {
-    this.stepResults = JsonNullable.<List<AttachmentModelAutoTestStepResultsModel>>of(stepResults);
+    
+    this.stepResults = stepResults;
     return this;
   }
 
   public AttachmentModelAutoTestStepResultsModel addStepResultsItem(AttachmentModelAutoTestStepResultsModel stepResultsItem) {
-    if (this.stepResults == null || !this.stepResults.isPresent()) {
-      this.stepResults = JsonNullable.<List<AttachmentModelAutoTestStepResultsModel>>of(new ArrayList<>());
+    if (this.stepResults == null) {
+      this.stepResults = new ArrayList<>();
     }
-    try {
-      this.stepResults.get().add(stepResultsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.stepResults.add(stepResultsItem);
     return this;
   }
 
@@ -348,45 +255,30 @@ public class AttachmentModelAutoTestStepResultsModel {
    * Nested step results. The maximum nesting level is 15.
    * @return stepResults
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Nested step results. The maximum nesting level is 15.")
-  @JsonIgnore
 
   public List<AttachmentModelAutoTestStepResultsModel> getStepResults() {
-        return stepResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STEP_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentModelAutoTestStepResultsModel>> getStepResults_JsonNullable() {
     return stepResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STEP_RESULTS)
-  public void setStepResults_JsonNullable(JsonNullable<List<AttachmentModelAutoTestStepResultsModel>> stepResults) {
-    this.stepResults = stepResults;
-  }
+
 
   public void setStepResults(List<AttachmentModelAutoTestStepResultsModel> stepResults) {
-    this.stepResults = JsonNullable.<List<AttachmentModelAutoTestStepResultsModel>>of(stepResults);
+    this.stepResults = stepResults;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel attachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public AttachmentModelAutoTestStepResultsModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
@@ -394,45 +286,30 @@ public class AttachmentModelAutoTestStepResultsModel {
    * /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt;
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "/// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>")
-  @JsonIgnore
 
   public List<AttachmentModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentModel>> attachments) {
-    this.attachments = attachments;
-  }
+
 
   public void setAttachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
+    this.attachments = attachments;
   }
 
 
   public AttachmentModelAutoTestStepResultsModel parameters(Map<String, String> parameters) {
-    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
+    
+    this.parameters = parameters;
     return this;
   }
 
   public AttachmentModelAutoTestStepResultsModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null || !this.parameters.isPresent()) {
-      this.parameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
     }
-    try {
-      this.parameters.get().put(key, parametersItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.parameters.put(key, parametersItem);
     return this;
   }
 
@@ -440,34 +317,20 @@ public class AttachmentModelAutoTestStepResultsModel {
    * \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent.
    * @return parameters
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "\"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.")
-  @JsonIgnore
 
   public Map<String, String> getParameters() {
-        return parameters.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, String>> getParameters_JsonNullable() {
     return parameters;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  public void setParameters_JsonNullable(JsonNullable<Map<String, String>> parameters) {
+
+
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
-    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
-  }
 
 
-  /**
-   * Return true if this AttachmentModelAutoTestStepResultsModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -477,16 +340,16 @@ public class AttachmentModelAutoTestStepResultsModel {
       return false;
     }
     AttachmentModelAutoTestStepResultsModel attachmentModelAutoTestStepResultsModel = (AttachmentModelAutoTestStepResultsModel) o;
-    return equalsNullable(this.title, attachmentModelAutoTestStepResultsModel.title) &&
-        equalsNullable(this.description, attachmentModelAutoTestStepResultsModel.description) &&
-        equalsNullable(this.info, attachmentModelAutoTestStepResultsModel.info) &&
-        equalsNullable(this.startedOn, attachmentModelAutoTestStepResultsModel.startedOn) &&
-        equalsNullable(this.completedOn, attachmentModelAutoTestStepResultsModel.completedOn) &&
-        equalsNullable(this.duration, attachmentModelAutoTestStepResultsModel.duration) &&
-        equalsNullable(this.outcome, attachmentModelAutoTestStepResultsModel.outcome) &&
-        equalsNullable(this.stepResults, attachmentModelAutoTestStepResultsModel.stepResults) &&
-        equalsNullable(this.attachments, attachmentModelAutoTestStepResultsModel.attachments) &&
-        equalsNullable(this.parameters, attachmentModelAutoTestStepResultsModel.parameters);
+    return Objects.equals(this.title, attachmentModelAutoTestStepResultsModel.title) &&
+        Objects.equals(this.description, attachmentModelAutoTestStepResultsModel.description) &&
+        Objects.equals(this.info, attachmentModelAutoTestStepResultsModel.info) &&
+        Objects.equals(this.startedOn, attachmentModelAutoTestStepResultsModel.startedOn) &&
+        Objects.equals(this.completedOn, attachmentModelAutoTestStepResultsModel.completedOn) &&
+        Objects.equals(this.duration, attachmentModelAutoTestStepResultsModel.duration) &&
+        Objects.equals(this.outcome, attachmentModelAutoTestStepResultsModel.outcome) &&
+        Objects.equals(this.stepResults, attachmentModelAutoTestStepResultsModel.stepResults) &&
+        Objects.equals(this.attachments, attachmentModelAutoTestStepResultsModel.attachments) &&
+        Objects.equals(this.parameters, attachmentModelAutoTestStepResultsModel.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -495,7 +358,7 @@ public class AttachmentModelAutoTestStepResultsModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(info), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(outcome), hashCodeNullable(stepResults), hashCodeNullable(attachments), hashCodeNullable(parameters));
+    return Objects.hash(title, description, info, startedOn, completedOn, duration, outcome, stepResults, attachments, parameters);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -534,5 +397,134 @@ public class AttachmentModelAutoTestStepResultsModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("title");
+    openapiFields.add("description");
+    openapiFields.add("info");
+    openapiFields.add("startedOn");
+    openapiFields.add("completedOn");
+    openapiFields.add("duration");
+    openapiFields.add("outcome");
+    openapiFields.add("stepResults");
+    openapiFields.add("attachments");
+    openapiFields.add("parameters");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AttachmentModelAutoTestStepResultsModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AttachmentModelAutoTestStepResultsModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AttachmentModelAutoTestStepResultsModel is not found in the empty JSON string", AttachmentModelAutoTestStepResultsModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AttachmentModelAutoTestStepResultsModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AttachmentModelAutoTestStepResultsModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("info") != null && !jsonObj.get("info").isJsonNull()) && !jsonObj.get("info").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `info` to be a primitive type in the JSON string but got `%s`", jsonObj.get("info").toString()));
+      }
+      if (jsonObj.get("stepResults") != null && !jsonObj.get("stepResults").isJsonNull()) {
+        JsonArray jsonArraystepResults = jsonObj.getAsJsonArray("stepResults");
+        if (jsonArraystepResults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("stepResults").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `stepResults` to be an array in the JSON string but got `%s`", jsonObj.get("stepResults").toString()));
+          }
+
+          // validate the optional field `stepResults` (array)
+          for (int i = 0; i < jsonArraystepResults.size(); i++) {
+            AttachmentModelAutoTestStepResultsModel.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AttachmentModelAutoTestStepResultsModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AttachmentModelAutoTestStepResultsModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AttachmentModelAutoTestStepResultsModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AttachmentModelAutoTestStepResultsModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AttachmentModelAutoTestStepResultsModel>() {
+           @Override
+           public void write(JsonWriter out, AttachmentModelAutoTestStepResultsModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AttachmentModelAutoTestStepResultsModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AttachmentModelAutoTestStepResultsModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AttachmentModelAutoTestStepResultsModel
+  * @throws IOException if the JSON string is invalid with respect to AttachmentModelAutoTestStepResultsModel
+  */
+  public static AttachmentModelAutoTestStepResultsModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AttachmentModelAutoTestStepResultsModel.class);
+  }
+
+ /**
+  * Convert an instance of AttachmentModelAutoTestStepResultsModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -13,69 +13,54 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * ConfigurationSelectModel
  */
-@JsonPropertyOrder({
-  ConfigurationSelectModel.JSON_PROPERTY_PROJECT_IDS,
-  ConfigurationSelectModel.JSON_PROPERTY_NAME,
-  ConfigurationSelectModel.JSON_PROPERTY_IS_DELETED,
-  ConfigurationSelectModel.JSON_PROPERTY_GLOBAL_IDS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationSelectModel {
-  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
-  private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private Set<UUID> projectIds = null;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
-  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
-  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
+  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
+  private Set<Long> globalIds = null;
 
-  public ConfigurationSelectModel() { 
+  public ConfigurationSelectModel() {
   }
 
   public ConfigurationSelectModel projectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    
+    this.projectIds = projectIds;
     return this;
   }
 
   public ConfigurationSelectModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null || !this.projectIds.isPresent()) {
-      this.projectIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
     }
-    try {
-      this.projectIds.get().add(projectIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.projectIds.add(projectIdsItem);
     return this;
   }
 
@@ -83,33 +68,22 @@ public class ConfigurationSelectModel {
    * Collection of identifiers of projects from which configurations will be taken
    * @return projectIds
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Collection of identifiers of projects from which configurations will be taken")
-  @JsonIgnore
 
   public Set<UUID> getProjectIds() {
-        return projectIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getProjectIds_JsonNullable() {
     return projectIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  public void setProjectIds_JsonNullable(JsonNullable<Set<UUID>> projectIds) {
-    this.projectIds = projectIds;
-  }
+
 
   public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    this.projectIds = projectIds;
   }
 
 
   public ConfigurationSelectModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -117,33 +91,22 @@ public class ConfigurationSelectModel {
    * Filter to search by name (case-insensitive, partial match)
    * @return name
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Filter to search by name (case-insensitive, partial match)")
-  @JsonIgnore
 
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public ConfigurationSelectModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    
+    this.isDeleted = isDeleted;
     return this;
   }
 
@@ -151,45 +114,30 @@ public class ConfigurationSelectModel {
    * Is configurations deleted or existing
    * @return isDeleted
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Is configurations deleted or existing")
-  @JsonIgnore
 
   public Boolean getIsDeleted() {
-        return isDeleted.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
     return isDeleted;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
-    this.isDeleted = isDeleted;
-  }
+
 
   public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    this.isDeleted = isDeleted;
   }
 
 
   public ConfigurationSelectModel globalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
+    
+    this.globalIds = globalIds;
     return this;
   }
 
   public ConfigurationSelectModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null || !this.globalIds.isPresent()) {
-      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
+    if (this.globalIds == null) {
+      this.globalIds = new LinkedHashSet<>();
     }
-    try {
-      this.globalIds.get().add(globalIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.globalIds.add(globalIdsItem);
     return this;
   }
 
@@ -197,34 +145,20 @@ public class ConfigurationSelectModel {
    * Collection of global (integer) identifiers to filter configurations
    * @return globalIds
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Collection of global (integer) identifiers to filter configurations")
-  @JsonIgnore
 
   public Set<Long> getGlobalIds() {
-        return globalIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
+
+
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
-  }
 
 
-  /**
-   * Return true if this ConfigurationSelectModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -234,10 +168,10 @@ public class ConfigurationSelectModel {
       return false;
     }
     ConfigurationSelectModel configurationSelectModel = (ConfigurationSelectModel) o;
-    return equalsNullable(this.projectIds, configurationSelectModel.projectIds) &&
-        equalsNullable(this.name, configurationSelectModel.name) &&
-        equalsNullable(this.isDeleted, configurationSelectModel.isDeleted) &&
-        equalsNullable(this.globalIds, configurationSelectModel.globalIds);
+    return Objects.equals(this.projectIds, configurationSelectModel.projectIds) &&
+        Objects.equals(this.name, configurationSelectModel.name) &&
+        Objects.equals(this.isDeleted, configurationSelectModel.isDeleted) &&
+        Objects.equals(this.globalIds, configurationSelectModel.globalIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -246,7 +180,7 @@ public class ConfigurationSelectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(isDeleted), hashCodeNullable(globalIds));
+    return Objects.hash(projectIds, name, isDeleted, globalIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -279,5 +213,102 @@ public class ConfigurationSelectModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projectIds");
+    openapiFields.add("name");
+    openapiFields.add("isDeleted");
+    openapiFields.add("globalIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationSelectModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationSelectModel is not found in the empty JSON string", ConfigurationSelectModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ConfigurationSelectModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ConfigurationSelectModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConfigurationSelectModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ConfigurationSelectModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConfigurationSelectModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ConfigurationSelectModel>() {
+           @Override
+           public void write(JsonWriter out, ConfigurationSelectModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ConfigurationSelectModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ConfigurationSelectModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigurationSelectModel
+  * @throws IOException if the JSON string is invalid with respect to ConfigurationSelectModel
+  */
+  public static ConfigurationSelectModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConfigurationSelectModel.class);
+  }
+
+ /**
+  * Convert an instance of ConfigurationSelectModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -13,75 +13,58 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestPlanGroupByStatus;
-import ru.testit.client.model.TestPlanGroupByTestSuite;
-import ru.testit.client.model.TestPlanGroupByTester;
-import ru.testit.client.model.TestPlanGroupByTesterAndStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestPointAnalyticResult
  */
-@JsonPropertyOrder({
-  TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS,
-  TestPointAnalyticResult.JSON_PROPERTY_SUM_GROUP_BY_TESTER,
-  TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER,
-  TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE,
-  TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointAnalyticResult {
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
-  private JsonNullable<List<TestPlanGroupByStatus>> countGroupByStatus = JsonNullable.<List<TestPlanGroupByStatus>>undefined();
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
+  private List<TestPlanGroupByStatus> countGroupByStatus = null;
 
-  public static final String JSON_PROPERTY_SUM_GROUP_BY_TESTER = "sumGroupByTester";
-  private JsonNullable<List<TestPlanGroupByTester>> sumGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>undefined();
+  public static final String SERIALIZED_NAME_SUM_GROUP_BY_TESTER = "sumGroupByTester";
+  @SerializedName(SERIALIZED_NAME_SUM_GROUP_BY_TESTER)
+  private List<TestPlanGroupByTester> sumGroupByTester = null;
 
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER = "countGroupByTester";
-  private JsonNullable<List<TestPlanGroupByTester>> countGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>undefined();
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER = "countGroupByTester";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER)
+  private List<TestPlanGroupByTester> countGroupByTester = null;
 
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
-  private JsonNullable<List<TestPlanGroupByTestSuite>> countGroupByTestSuite = JsonNullable.<List<TestPlanGroupByTestSuite>>undefined();
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE)
+  private List<TestPlanGroupByTestSuite> countGroupByTestSuite = null;
 
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
-  private JsonNullable<List<TestPlanGroupByTesterAndStatus>> countGroupByTesterAndStatus = JsonNullable.<List<TestPlanGroupByTesterAndStatus>>undefined();
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS)
+  private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus = null;
 
-  public TestPointAnalyticResult() { 
+  public TestPointAnalyticResult() {
   }
 
   public TestPointAnalyticResult countGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
-    this.countGroupByStatus = JsonNullable.<List<TestPlanGroupByStatus>>of(countGroupByStatus);
+    
+    this.countGroupByStatus = countGroupByStatus;
     return this;
   }
 
   public TestPointAnalyticResult addCountGroupByStatusItem(TestPlanGroupByStatus countGroupByStatusItem) {
-    if (this.countGroupByStatus == null || !this.countGroupByStatus.isPresent()) {
-      this.countGroupByStatus = JsonNullable.<List<TestPlanGroupByStatus>>of(new ArrayList<>());
+    if (this.countGroupByStatus == null) {
+      this.countGroupByStatus = new ArrayList<>();
     }
-    try {
-      this.countGroupByStatus.get().add(countGroupByStatusItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.countGroupByStatus.add(countGroupByStatusItem);
     return this;
   }
 
@@ -89,45 +72,30 @@ public class TestPointAnalyticResult {
    * Get countGroupByStatus
    * @return countGroupByStatus
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestPlanGroupByStatus> getCountGroupByStatus() {
-        return countGroupByStatus.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestPlanGroupByStatus>> getCountGroupByStatus_JsonNullable() {
     return countGroupByStatus;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
-  public void setCountGroupByStatus_JsonNullable(JsonNullable<List<TestPlanGroupByStatus>> countGroupByStatus) {
-    this.countGroupByStatus = countGroupByStatus;
-  }
+
 
   public void setCountGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
-    this.countGroupByStatus = JsonNullable.<List<TestPlanGroupByStatus>>of(countGroupByStatus);
+    this.countGroupByStatus = countGroupByStatus;
   }
 
 
   public TestPointAnalyticResult sumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
-    this.sumGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(sumGroupByTester);
+    
+    this.sumGroupByTester = sumGroupByTester;
     return this;
   }
 
   public TestPointAnalyticResult addSumGroupByTesterItem(TestPlanGroupByTester sumGroupByTesterItem) {
-    if (this.sumGroupByTester == null || !this.sumGroupByTester.isPresent()) {
-      this.sumGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(new ArrayList<>());
+    if (this.sumGroupByTester == null) {
+      this.sumGroupByTester = new ArrayList<>();
     }
-    try {
-      this.sumGroupByTester.get().add(sumGroupByTesterItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.sumGroupByTester.add(sumGroupByTesterItem);
     return this;
   }
 
@@ -135,45 +103,30 @@ public class TestPointAnalyticResult {
    * Get sumGroupByTester
    * @return sumGroupByTester
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestPlanGroupByTester> getSumGroupByTester() {
-        return sumGroupByTester.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SUM_GROUP_BY_TESTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestPlanGroupByTester>> getSumGroupByTester_JsonNullable() {
     return sumGroupByTester;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SUM_GROUP_BY_TESTER)
-  public void setSumGroupByTester_JsonNullable(JsonNullable<List<TestPlanGroupByTester>> sumGroupByTester) {
-    this.sumGroupByTester = sumGroupByTester;
-  }
+
 
   public void setSumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
-    this.sumGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(sumGroupByTester);
+    this.sumGroupByTester = sumGroupByTester;
   }
 
 
   public TestPointAnalyticResult countGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
-    this.countGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(countGroupByTester);
+    
+    this.countGroupByTester = countGroupByTester;
     return this;
   }
 
   public TestPointAnalyticResult addCountGroupByTesterItem(TestPlanGroupByTester countGroupByTesterItem) {
-    if (this.countGroupByTester == null || !this.countGroupByTester.isPresent()) {
-      this.countGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(new ArrayList<>());
+    if (this.countGroupByTester == null) {
+      this.countGroupByTester = new ArrayList<>();
     }
-    try {
-      this.countGroupByTester.get().add(countGroupByTesterItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.countGroupByTester.add(countGroupByTesterItem);
     return this;
   }
 
@@ -181,45 +134,30 @@ public class TestPointAnalyticResult {
    * Get countGroupByTester
    * @return countGroupByTester
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestPlanGroupByTester> getCountGroupByTester() {
-        return countGroupByTester.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestPlanGroupByTester>> getCountGroupByTester_JsonNullable() {
     return countGroupByTester;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER)
-  public void setCountGroupByTester_JsonNullable(JsonNullable<List<TestPlanGroupByTester>> countGroupByTester) {
-    this.countGroupByTester = countGroupByTester;
-  }
+
 
   public void setCountGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
-    this.countGroupByTester = JsonNullable.<List<TestPlanGroupByTester>>of(countGroupByTester);
+    this.countGroupByTester = countGroupByTester;
   }
 
 
   public TestPointAnalyticResult countGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
-    this.countGroupByTestSuite = JsonNullable.<List<TestPlanGroupByTestSuite>>of(countGroupByTestSuite);
+    
+    this.countGroupByTestSuite = countGroupByTestSuite;
     return this;
   }
 
   public TestPointAnalyticResult addCountGroupByTestSuiteItem(TestPlanGroupByTestSuite countGroupByTestSuiteItem) {
-    if (this.countGroupByTestSuite == null || !this.countGroupByTestSuite.isPresent()) {
-      this.countGroupByTestSuite = JsonNullable.<List<TestPlanGroupByTestSuite>>of(new ArrayList<>());
+    if (this.countGroupByTestSuite == null) {
+      this.countGroupByTestSuite = new ArrayList<>();
     }
-    try {
-      this.countGroupByTestSuite.get().add(countGroupByTestSuiteItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.countGroupByTestSuite.add(countGroupByTestSuiteItem);
     return this;
   }
 
@@ -227,45 +165,30 @@ public class TestPointAnalyticResult {
    * Get countGroupByTestSuite
    * @return countGroupByTestSuite
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestPlanGroupByTestSuite> getCountGroupByTestSuite() {
-        return countGroupByTestSuite.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestPlanGroupByTestSuite>> getCountGroupByTestSuite_JsonNullable() {
     return countGroupByTestSuite;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE)
-  public void setCountGroupByTestSuite_JsonNullable(JsonNullable<List<TestPlanGroupByTestSuite>> countGroupByTestSuite) {
-    this.countGroupByTestSuite = countGroupByTestSuite;
-  }
+
 
   public void setCountGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
-    this.countGroupByTestSuite = JsonNullable.<List<TestPlanGroupByTestSuite>>of(countGroupByTestSuite);
+    this.countGroupByTestSuite = countGroupByTestSuite;
   }
 
 
   public TestPointAnalyticResult countGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
-    this.countGroupByTesterAndStatus = JsonNullable.<List<TestPlanGroupByTesterAndStatus>>of(countGroupByTesterAndStatus);
+    
+    this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
     return this;
   }
 
   public TestPointAnalyticResult addCountGroupByTesterAndStatusItem(TestPlanGroupByTesterAndStatus countGroupByTesterAndStatusItem) {
-    if (this.countGroupByTesterAndStatus == null || !this.countGroupByTesterAndStatus.isPresent()) {
-      this.countGroupByTesterAndStatus = JsonNullable.<List<TestPlanGroupByTesterAndStatus>>of(new ArrayList<>());
+    if (this.countGroupByTesterAndStatus == null) {
+      this.countGroupByTesterAndStatus = new ArrayList<>();
     }
-    try {
-      this.countGroupByTesterAndStatus.get().add(countGroupByTesterAndStatusItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.countGroupByTesterAndStatus.add(countGroupByTesterAndStatusItem);
     return this;
   }
 
@@ -273,34 +196,20 @@ public class TestPointAnalyticResult {
    * Get countGroupByTesterAndStatus
    * @return countGroupByTesterAndStatus
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<TestPlanGroupByTesterAndStatus> getCountGroupByTesterAndStatus() {
-        return countGroupByTesterAndStatus.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestPlanGroupByTesterAndStatus>> getCountGroupByTesterAndStatus_JsonNullable() {
     return countGroupByTesterAndStatus;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
-  public void setCountGroupByTesterAndStatus_JsonNullable(JsonNullable<List<TestPlanGroupByTesterAndStatus>> countGroupByTesterAndStatus) {
+
+
+  public void setCountGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
   }
 
-  public void setCountGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
-    this.countGroupByTesterAndStatus = JsonNullable.<List<TestPlanGroupByTesterAndStatus>>of(countGroupByTesterAndStatus);
-  }
 
 
-  /**
-   * Return true if this TestPointAnalyticResult object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -310,11 +219,11 @@ public class TestPointAnalyticResult {
       return false;
     }
     TestPointAnalyticResult testPointAnalyticResult = (TestPointAnalyticResult) o;
-    return equalsNullable(this.countGroupByStatus, testPointAnalyticResult.countGroupByStatus) &&
-        equalsNullable(this.sumGroupByTester, testPointAnalyticResult.sumGroupByTester) &&
-        equalsNullable(this.countGroupByTester, testPointAnalyticResult.countGroupByTester) &&
-        equalsNullable(this.countGroupByTestSuite, testPointAnalyticResult.countGroupByTestSuite) &&
-        equalsNullable(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus);
+    return Objects.equals(this.countGroupByStatus, testPointAnalyticResult.countGroupByStatus) &&
+        Objects.equals(this.sumGroupByTester, testPointAnalyticResult.sumGroupByTester) &&
+        Objects.equals(this.countGroupByTester, testPointAnalyticResult.countGroupByTester) &&
+        Objects.equals(this.countGroupByTestSuite, testPointAnalyticResult.countGroupByTestSuite) &&
+        Objects.equals(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -323,7 +232,7 @@ public class TestPointAnalyticResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(countGroupByStatus), hashCodeNullable(sumGroupByTester), hashCodeNullable(countGroupByTester), hashCodeNullable(countGroupByTestSuite), hashCodeNullable(countGroupByTesterAndStatus));
+    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTestSuite, countGroupByTesterAndStatus);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -357,5 +266,162 @@ public class TestPointAnalyticResult {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("countGroupByStatus");
+    openapiFields.add("sumGroupByTester");
+    openapiFields.add("countGroupByTester");
+    openapiFields.add("countGroupByTestSuite");
+    openapiFields.add("countGroupByTesterAndStatus");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointAnalyticResult
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointAnalyticResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointAnalyticResult is not found in the empty JSON string", TestPointAnalyticResult.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPointAnalyticResult.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointAnalyticResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("countGroupByStatus") != null && !jsonObj.get("countGroupByStatus").isJsonNull()) {
+        JsonArray jsonArraycountGroupByStatus = jsonObj.getAsJsonArray("countGroupByStatus");
+        if (jsonArraycountGroupByStatus != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("countGroupByStatus").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `countGroupByStatus` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByStatus").toString()));
+          }
+
+          // validate the optional field `countGroupByStatus` (array)
+          for (int i = 0; i < jsonArraycountGroupByStatus.size(); i++) {
+            TestPlanGroupByStatus.validateJsonObject(jsonArraycountGroupByStatus.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("sumGroupByTester") != null && !jsonObj.get("sumGroupByTester").isJsonNull()) {
+        JsonArray jsonArraysumGroupByTester = jsonObj.getAsJsonArray("sumGroupByTester");
+        if (jsonArraysumGroupByTester != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("sumGroupByTester").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `sumGroupByTester` to be an array in the JSON string but got `%s`", jsonObj.get("sumGroupByTester").toString()));
+          }
+
+          // validate the optional field `sumGroupByTester` (array)
+          for (int i = 0; i < jsonArraysumGroupByTester.size(); i++) {
+            TestPlanGroupByTester.validateJsonObject(jsonArraysumGroupByTester.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("countGroupByTester") != null && !jsonObj.get("countGroupByTester").isJsonNull()) {
+        JsonArray jsonArraycountGroupByTester = jsonObj.getAsJsonArray("countGroupByTester");
+        if (jsonArraycountGroupByTester != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("countGroupByTester").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `countGroupByTester` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByTester").toString()));
+          }
+
+          // validate the optional field `countGroupByTester` (array)
+          for (int i = 0; i < jsonArraycountGroupByTester.size(); i++) {
+            TestPlanGroupByTester.validateJsonObject(jsonArraycountGroupByTester.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("countGroupByTestSuite") != null && !jsonObj.get("countGroupByTestSuite").isJsonNull()) {
+        JsonArray jsonArraycountGroupByTestSuite = jsonObj.getAsJsonArray("countGroupByTestSuite");
+        if (jsonArraycountGroupByTestSuite != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("countGroupByTestSuite").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `countGroupByTestSuite` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByTestSuite").toString()));
+          }
+
+          // validate the optional field `countGroupByTestSuite` (array)
+          for (int i = 0; i < jsonArraycountGroupByTestSuite.size(); i++) {
+            TestPlanGroupByTestSuite.validateJsonObject(jsonArraycountGroupByTestSuite.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("countGroupByTesterAndStatus") != null && !jsonObj.get("countGroupByTesterAndStatus").isJsonNull()) {
+        JsonArray jsonArraycountGroupByTesterAndStatus = jsonObj.getAsJsonArray("countGroupByTesterAndStatus");
+        if (jsonArraycountGroupByTesterAndStatus != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("countGroupByTesterAndStatus").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `countGroupByTesterAndStatus` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByTesterAndStatus").toString()));
+          }
+
+          // validate the optional field `countGroupByTesterAndStatus` (array)
+          for (int i = 0; i < jsonArraycountGroupByTesterAndStatus.size(); i++) {
+            TestPlanGroupByTesterAndStatus.validateJsonObject(jsonArraycountGroupByTesterAndStatus.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPointAnalyticResult.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPointAnalyticResult' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPointAnalyticResult> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointAnalyticResult.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPointAnalyticResult>() {
+           @Override
+           public void write(JsonWriter out, TestPointAnalyticResult value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPointAnalyticResult read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPointAnalyticResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointAnalyticResult
+  * @throws IOException if the JSON string is invalid with respect to TestPointAnalyticResult
+  */
+  public static TestPointAnalyticResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPointAnalyticResult.class);
+  }
+
+ /**
+  * Convert an instance of TestPointAnalyticResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

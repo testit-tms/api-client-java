@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**parentId** | **UUID** |  |  [optional] |
-|**testPlanId** | **UUID** |  |  [optional] |
+|**testPlanId** | **UUID** |  |  |
 |**name** | **String** |  |  |
 
 

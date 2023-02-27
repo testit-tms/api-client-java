@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**customAttributeIds** | **Set&lt;UUID&gt;** |  |  [optional] |
-|**name** | **String** |  |  [optional] |
+|**customAttributeIds** | **Set&lt;UUID&gt;** | Collection of attribute IDs |  [optional] |
+|**name** | **String** | Custom attributes template name |  |
 
 
 

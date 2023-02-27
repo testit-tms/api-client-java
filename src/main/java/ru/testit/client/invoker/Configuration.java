@@ -13,7 +13,7 @@
 
 package ru.testit.client.invoker;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

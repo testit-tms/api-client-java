@@ -13,56 +13,45 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.SharedStepResultModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * StepResultModel
  */
-@JsonPropertyOrder({
-  StepResultModel.JSON_PROPERTY_STEP_ID,
-  StepResultModel.JSON_PROPERTY_OUTCOME,
-  StepResultModel.JSON_PROPERTY_SHARED_STEP_VERSION_ID,
-  StepResultModel.JSON_PROPERTY_SHARED_STEP_RESULTS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StepResultModel {
-  public static final String JSON_PROPERTY_STEP_ID = "stepId";
+  public static final String SERIALIZED_NAME_STEP_ID = "stepId";
+  @SerializedName(SERIALIZED_NAME_STEP_ID)
   private UUID stepId;
 
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
-  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private String outcome;
 
-  public static final String JSON_PROPERTY_SHARED_STEP_VERSION_ID = "sharedStepVersionId";
-  private JsonNullable<UUID> sharedStepVersionId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_SHARED_STEP_VERSION_ID = "sharedStepVersionId";
+  @SerializedName(SERIALIZED_NAME_SHARED_STEP_VERSION_ID)
+  private UUID sharedStepVersionId;
 
-  public static final String JSON_PROPERTY_SHARED_STEP_RESULTS = "sharedStepResults";
-  private JsonNullable<List<SharedStepResultModel>> sharedStepResults = JsonNullable.<List<SharedStepResultModel>>undefined();
+  public static final String SERIALIZED_NAME_SHARED_STEP_RESULTS = "sharedStepResults";
+  @SerializedName(SERIALIZED_NAME_SHARED_STEP_RESULTS)
+  private List<SharedStepResultModel> sharedStepResults = null;
 
-  public StepResultModel() { 
+  public StepResultModel() {
   }
 
   public StepResultModel stepId(UUID stepId) {
+    
     this.stepId = stepId;
     return this;
   }
@@ -71,25 +60,22 @@ public class StepResultModel {
    * Get stepId
    * @return stepId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STEP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getStepId() {
     return stepId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STEP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
   public StepResultModel outcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    
+    this.outcome = outcome;
     return this;
   }
 
@@ -97,33 +83,22 @@ public class StepResultModel {
    * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getOutcome() {
-        return outcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOutcome_JsonNullable() {
     return outcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
-    this.outcome = outcome;
-  }
+
 
   public void setOutcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    this.outcome = outcome;
   }
 
 
   public StepResultModel sharedStepVersionId(UUID sharedStepVersionId) {
-    this.sharedStepVersionId = JsonNullable.<UUID>of(sharedStepVersionId);
+    
+    this.sharedStepVersionId = sharedStepVersionId;
     return this;
   }
 
@@ -131,45 +106,30 @@ public class StepResultModel {
    * Get sharedStepVersionId
    * @return sharedStepVersionId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public UUID getSharedStepVersionId() {
-        return sharedStepVersionId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SHARED_STEP_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getSharedStepVersionId_JsonNullable() {
     return sharedStepVersionId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SHARED_STEP_VERSION_ID)
-  public void setSharedStepVersionId_JsonNullable(JsonNullable<UUID> sharedStepVersionId) {
-    this.sharedStepVersionId = sharedStepVersionId;
-  }
+
 
   public void setSharedStepVersionId(UUID sharedStepVersionId) {
-    this.sharedStepVersionId = JsonNullable.<UUID>of(sharedStepVersionId);
+    this.sharedStepVersionId = sharedStepVersionId;
   }
 
 
   public StepResultModel sharedStepResults(List<SharedStepResultModel> sharedStepResults) {
-    this.sharedStepResults = JsonNullable.<List<SharedStepResultModel>>of(sharedStepResults);
+    
+    this.sharedStepResults = sharedStepResults;
     return this;
   }
 
   public StepResultModel addSharedStepResultsItem(SharedStepResultModel sharedStepResultsItem) {
-    if (this.sharedStepResults == null || !this.sharedStepResults.isPresent()) {
-      this.sharedStepResults = JsonNullable.<List<SharedStepResultModel>>of(new ArrayList<>());
+    if (this.sharedStepResults == null) {
+      this.sharedStepResults = new ArrayList<>();
     }
-    try {
-      this.sharedStepResults.get().add(sharedStepResultsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.sharedStepResults.add(sharedStepResultsItem);
     return this;
   }
 
@@ -177,34 +137,20 @@ public class StepResultModel {
    * Get sharedStepResults
    * @return sharedStepResults
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<SharedStepResultModel> getSharedStepResults() {
-        return sharedStepResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SHARED_STEP_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<SharedStepResultModel>> getSharedStepResults_JsonNullable() {
     return sharedStepResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SHARED_STEP_RESULTS)
-  public void setSharedStepResults_JsonNullable(JsonNullable<List<SharedStepResultModel>> sharedStepResults) {
+
+
+  public void setSharedStepResults(List<SharedStepResultModel> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
   }
 
-  public void setSharedStepResults(List<SharedStepResultModel> sharedStepResults) {
-    this.sharedStepResults = JsonNullable.<List<SharedStepResultModel>>of(sharedStepResults);
-  }
 
 
-  /**
-   * Return true if this StepResultModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -215,9 +161,9 @@ public class StepResultModel {
     }
     StepResultModel stepResultModel = (StepResultModel) o;
     return Objects.equals(this.stepId, stepResultModel.stepId) &&
-        equalsNullable(this.outcome, stepResultModel.outcome) &&
-        equalsNullable(this.sharedStepVersionId, stepResultModel.sharedStepVersionId) &&
-        equalsNullable(this.sharedStepResults, stepResultModel.sharedStepResults);
+        Objects.equals(this.outcome, stepResultModel.outcome) &&
+        Objects.equals(this.sharedStepVersionId, stepResultModel.sharedStepVersionId) &&
+        Objects.equals(this.sharedStepResults, stepResultModel.sharedStepResults);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -226,7 +172,7 @@ public class StepResultModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stepId, hashCodeNullable(outcome), hashCodeNullable(sharedStepVersionId), hashCodeNullable(sharedStepResults));
+    return Objects.hash(stepId, outcome, sharedStepVersionId, sharedStepResults);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -259,5 +205,114 @@ public class StepResultModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("stepId");
+    openapiFields.add("outcome");
+    openapiFields.add("sharedStepVersionId");
+    openapiFields.add("sharedStepResults");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to StepResultModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!StepResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StepResultModel is not found in the empty JSON string", StepResultModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!StepResultModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("stepId") != null && !jsonObj.get("stepId").isJsonNull()) && !jsonObj.get("stepId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
+      }
+      if ((jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) && !jsonObj.get("outcome").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
+      }
+      if ((jsonObj.get("sharedStepVersionId") != null && !jsonObj.get("sharedStepVersionId").isJsonNull()) && !jsonObj.get("sharedStepVersionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sharedStepVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sharedStepVersionId").toString()));
+      }
+      if (jsonObj.get("sharedStepResults") != null && !jsonObj.get("sharedStepResults").isJsonNull()) {
+        JsonArray jsonArraysharedStepResults = jsonObj.getAsJsonArray("sharedStepResults");
+        if (jsonArraysharedStepResults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("sharedStepResults").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `sharedStepResults` to be an array in the JSON string but got `%s`", jsonObj.get("sharedStepResults").toString()));
+          }
+
+          // validate the optional field `sharedStepResults` (array)
+          for (int i = 0; i < jsonArraysharedStepResults.size(); i++) {
+            SharedStepResultModel.validateJsonObject(jsonArraysharedStepResults.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!StepResultModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StepResultModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<StepResultModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StepResultModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<StepResultModel>() {
+           @Override
+           public void write(JsonWriter out, StepResultModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public StepResultModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of StepResultModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StepResultModel
+  * @throws IOException if the JSON string is invalid with respect to StepResultModel
+  */
+  public static StepResultModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StepResultModel.class);
+  }
+
+ /**
+  * Convert an instance of StepResultModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

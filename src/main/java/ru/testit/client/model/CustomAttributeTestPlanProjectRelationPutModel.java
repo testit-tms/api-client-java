@@ -13,125 +13,111 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * CustomAttributeTestPlanProjectRelationPutModel
  */
-@JsonPropertyOrder({
-  CustomAttributeTestPlanProjectRelationPutModel.JSON_PROPERTY_ID,
-  CustomAttributeTestPlanProjectRelationPutModel.JSON_PROPERTY_ENABLED,
-  CustomAttributeTestPlanProjectRelationPutModel.JSON_PROPERTY_REQUIRED
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CustomAttributeTestPlanProjectRelationPutModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
+  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  private Boolean isEnabled;
 
-  public static final String JSON_PROPERTY_REQUIRED = "required";
-  private Boolean required;
+  public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
+  @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
+  private Boolean isRequired;
 
-  public CustomAttributeTestPlanProjectRelationPutModel() { 
+  public CustomAttributeTestPlanProjectRelationPutModel() {
   }
 
   public CustomAttributeTestPlanProjectRelationPutModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Custom attribute internal unique identifier
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Custom attribute internal unique identifier")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public CustomAttributeTestPlanProjectRelationPutModel isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
     return this;
   }
 
    /**
-   * Get enabled
-   * @return enabled
+   * Flag that defines if custom attribute is enabled
+   * @return isEnabled
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "true", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Flag that defines if custom attribute is enabled")
 
-  public Boolean getEnabled() {
-    return enabled;
+  public Boolean getIsEnabled() {
+    return isEnabled;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel required(Boolean required) {
-    this.required = required;
+  public CustomAttributeTestPlanProjectRelationPutModel isRequired(Boolean isRequired) {
+    
+    this.isRequired = isRequired;
     return this;
   }
 
    /**
-   * Get required
-   * @return required
+   * Flag that defines if custom attribute is required
+   * @return isRequired
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "true", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Flag that defines if custom attribute is required")
 
-  public Boolean getRequired() {
-    return required;
+  public Boolean getIsRequired() {
+    return isRequired;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequired(Boolean required) {
-    this.required = required;
+  public void setIsRequired(Boolean isRequired) {
+    this.isRequired = isRequired;
   }
 
 
-  /**
-   * Return true if this CustomAttributeTestPlanProjectRelationPutModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,13 +128,13 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     }
     CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = (CustomAttributeTestPlanProjectRelationPutModel) o;
     return Objects.equals(this.id, customAttributeTestPlanProjectRelationPutModel.id) &&
-        Objects.equals(this.enabled, customAttributeTestPlanProjectRelationPutModel.enabled) &&
-        Objects.equals(this.required, customAttributeTestPlanProjectRelationPutModel.required);
+        Objects.equals(this.isEnabled, customAttributeTestPlanProjectRelationPutModel.isEnabled) &&
+        Objects.equals(this.isRequired, customAttributeTestPlanProjectRelationPutModel.isRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, enabled, required);
+    return Objects.hash(id, isEnabled, isRequired);
   }
 
   @Override
@@ -156,8 +142,8 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomAttributeTestPlanProjectRelationPutModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    required: ").append(toIndentedString(required)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -173,5 +159,103 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("isEnabled");
+    openapiFields.add("isRequired");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("isEnabled");
+    openapiRequiredFields.add("isRequired");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeTestPlanProjectRelationPutModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!CustomAttributeTestPlanProjectRelationPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeTestPlanProjectRelationPutModel is not found in the empty JSON string", CustomAttributeTestPlanProjectRelationPutModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!CustomAttributeTestPlanProjectRelationPutModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeTestPlanProjectRelationPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CustomAttributeTestPlanProjectRelationPutModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!CustomAttributeTestPlanProjectRelationPutModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CustomAttributeTestPlanProjectRelationPutModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<CustomAttributeTestPlanProjectRelationPutModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CustomAttributeTestPlanProjectRelationPutModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<CustomAttributeTestPlanProjectRelationPutModel>() {
+           @Override
+           public void write(JsonWriter out, CustomAttributeTestPlanProjectRelationPutModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public CustomAttributeTestPlanProjectRelationPutModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of CustomAttributeTestPlanProjectRelationPutModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CustomAttributeTestPlanProjectRelationPutModel
+  * @throws IOException if the JSON string is invalid with respect to CustomAttributeTestPlanProjectRelationPutModel
+  */
+  public static CustomAttributeTestPlanProjectRelationPutModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CustomAttributeTestPlanProjectRelationPutModel.class);
+  }
+
+ /**
+  * Convert an instance of CustomAttributeTestPlanProjectRelationPutModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

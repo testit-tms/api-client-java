@@ -21,7 +21,7 @@
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**state** | **String** | Property can have one of these values: NeedsWork, NotReady, Ready |  |
+|**state** | **WorkItemStates** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
 |**tagNames** | **List&lt;String&gt;** |  |  [optional] |

@@ -13,43 +13,40 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import ru.testit.client.model.WorkItemExtractionModel;
-import ru.testit.client.model.WorkItemFilterModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Model containing options to filter work items
  */
 @ApiModel(description = "Model containing options to filter work items")
-@JsonPropertyOrder({
-  WorkItemSelectModel.JSON_PROPERTY_FILTER,
-  WorkItemSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemSelectModel {
-  public static final String JSON_PROPERTY_FILTER = "filter";
+  public static final String SERIALIZED_NAME_FILTER = "filter";
+  @SerializedName(SERIALIZED_NAME_FILTER)
   private WorkItemFilterModel filter;
 
-  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
-  private WorkItemExtractionModel extractionModel;
+  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
+  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
+  private WorkItemsExtractionModel extractionModel;
 
-  public WorkItemSelectModel() { 
+  public WorkItemSelectModel() {
   }
 
   public WorkItemSelectModel filter(WorkItemFilterModel filter) {
+    
     this.filter = filter;
     return this;
   }
@@ -58,24 +55,21 @@ public class WorkItemSelectModel {
    * Get filter
    * @return filter
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WorkItemFilterModel getFilter() {
     return filter;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilter(WorkItemFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemSelectModel extractionModel(WorkItemExtractionModel extractionModel) {
+  public WorkItemSelectModel extractionModel(WorkItemsExtractionModel extractionModel) {
+    
     this.extractionModel = extractionModel;
     return this;
   }
@@ -84,26 +78,20 @@ public class WorkItemSelectModel {
    * Get extractionModel
    * @return extractionModel
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WorkItemExtractionModel getExtractionModel() {
+  public WorkItemsExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExtractionModel(WorkItemExtractionModel extractionModel) {
+  public void setExtractionModel(WorkItemsExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
 
-  /**
-   * Return true if this WorkItemSelectModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,5 +131,97 @@ public class WorkItemSelectModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("filter");
+    openapiFields.add("extractionModel");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemSelectModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemSelectModel is not found in the empty JSON string", WorkItemSelectModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemSelectModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `filter`
+      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
+        WorkItemFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+      }
+      // validate the optional field `extractionModel`
+      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
+        WorkItemsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemSelectModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemSelectModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemSelectModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemSelectModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemSelectModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemSelectModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemSelectModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemSelectModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemSelectModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemSelectModel
+  */
+  public static WorkItemSelectModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemSelectModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemSelectModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

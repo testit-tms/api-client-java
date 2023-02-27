@@ -13,80 +13,62 @@
 
 package ru.testit.client.model;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * ValidationProblemDetails
  */
-@JsonPropertyOrder({
-  ValidationProblemDetails.JSON_PROPERTY_ERRORS,
-  ValidationProblemDetails.JSON_PROPERTY_TYPE,
-  ValidationProblemDetails.JSON_PROPERTY_TITLE,
-  ValidationProblemDetails.JSON_PROPERTY_STATUS,
-  ValidationProblemDetails.JSON_PROPERTY_DETAIL,
-  ValidationProblemDetails.JSON_PROPERTY_INSTANCE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValidationProblemDetails {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private JsonNullable<Map<String, List<String>>> errors = JsonNullable.<Map<String, List<String>>>undefined();
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private Map<String, List<String>> errors = null;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<Integer> status = JsonNullable.<Integer>undefined();
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private Integer status;
 
-  public static final String JSON_PROPERTY_DETAIL = "detail";
-  private JsonNullable<String> detail = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DETAIL = "detail";
+  @SerializedName(SERIALIZED_NAME_DETAIL)
+  private String detail;
 
-  public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private JsonNullable<String> instance = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_INSTANCE = "instance";
+  @SerializedName(SERIALIZED_NAME_INSTANCE)
+  private String instance;
 
-  public ValidationProblemDetails() { 
+  public ValidationProblemDetails() {
   }
 
   public ValidationProblemDetails errors(Map<String, List<String>> errors) {
-    this.errors = JsonNullable.<Map<String, List<String>>>of(errors);
+    
+    this.errors = errors;
     return this;
   }
 
   public ValidationProblemDetails putErrorsItem(String key, List<String> errorsItem) {
-    if (this.errors == null || !this.errors.isPresent()) {
-      this.errors = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+    if (this.errors == null) {
+      this.errors = new HashMap<>();
     }
-    try {
-      this.errors.get().put(key, errorsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.errors.put(key, errorsItem);
     return this;
   }
 
@@ -94,33 +76,22 @@ public class ValidationProblemDetails {
    * Get errors
    * @return errors
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Map<String, List<String>> getErrors() {
-        return errors.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, List<String>>> getErrors_JsonNullable() {
     return errors;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  public void setErrors_JsonNullable(JsonNullable<Map<String, List<String>>> errors) {
-    this.errors = errors;
-  }
+
 
   public void setErrors(Map<String, List<String>> errors) {
-    this.errors = JsonNullable.<Map<String, List<String>>>of(errors);
+    this.errors = errors;
   }
 
 
   public ValidationProblemDetails type(String type) {
-    this.type = JsonNullable.<String>of(type);
+    
+    this.type = type;
     return this;
   }
 
@@ -128,33 +99,22 @@ public class ValidationProblemDetails {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<String> type) {
-    this.type = type;
-  }
+
 
   public void setType(String type) {
-    this.type = JsonNullable.<String>of(type);
+    this.type = type;
   }
 
 
   public ValidationProblemDetails title(String title) {
-    this.title = JsonNullable.<String>of(title);
+    
+    this.title = title;
     return this;
   }
 
@@ -162,33 +122,22 @@ public class ValidationProblemDetails {
    * Get title
    * @return title
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
+
 
   public void setTitle(String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
 
   public ValidationProblemDetails status(Integer status) {
-    this.status = JsonNullable.<Integer>of(status);
+    
+    this.status = status;
     return this;
   }
 
@@ -196,33 +145,22 @@ public class ValidationProblemDetails {
    * Get status
    * @return status
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Integer getStatus() {
-        return status.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getStatus_JsonNullable() {
     return status;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<Integer> status) {
-    this.status = status;
-  }
+
 
   public void setStatus(Integer status) {
-    this.status = JsonNullable.<Integer>of(status);
+    this.status = status;
   }
 
 
   public ValidationProblemDetails detail(String detail) {
-    this.detail = JsonNullable.<String>of(detail);
+    
+    this.detail = detail;
     return this;
   }
 
@@ -230,33 +168,22 @@ public class ValidationProblemDetails {
    * Get detail
    * @return detail
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getDetail() {
-        return detail.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDetail_JsonNullable() {
     return detail;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  public void setDetail_JsonNullable(JsonNullable<String> detail) {
-    this.detail = detail;
-  }
+
 
   public void setDetail(String detail) {
-    this.detail = JsonNullable.<String>of(detail);
+    this.detail = detail;
   }
 
 
   public ValidationProblemDetails instance(String instance) {
-    this.instance = JsonNullable.<String>of(instance);
+    
+    this.instance = instance;
     return this;
   }
 
@@ -264,71 +191,20 @@ public class ValidationProblemDetails {
    * Get instance
    * @return instance
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getInstance() {
-        return instance.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getInstance_JsonNullable() {
     return instance;
   }
-  
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  public void setInstance_JsonNullable(JsonNullable<String> instance) {
+
+
+  public void setInstance(String instance) {
     this.instance = instance;
   }
 
-  public void setInstance(String instance) {
-    this.instance = JsonNullable.<String>of(instance);
-  }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   */
-  @JsonAnySetter
-  public ValidationProblemDetails putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /**
-   * Return true if this ValidationProblemDetails object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,13 +214,12 @@ public class ValidationProblemDetails {
       return false;
     }
     ValidationProblemDetails validationProblemDetails = (ValidationProblemDetails) o;
-    return equalsNullable(this.errors, validationProblemDetails.errors) &&
-        equalsNullable(this.type, validationProblemDetails.type) &&
-        equalsNullable(this.title, validationProblemDetails.title) &&
-        equalsNullable(this.status, validationProblemDetails.status) &&
-        equalsNullable(this.detail, validationProblemDetails.detail) &&
-        equalsNullable(this.instance, validationProblemDetails.instance)&&
-        Objects.equals(this.additionalProperties, validationProblemDetails.additionalProperties);
+    return Objects.equals(this.errors, validationProblemDetails.errors) &&
+        Objects.equals(this.type, validationProblemDetails.type) &&
+        Objects.equals(this.title, validationProblemDetails.title) &&
+        Objects.equals(this.status, validationProblemDetails.status) &&
+        Objects.equals(this.detail, validationProblemDetails.detail) &&
+        Objects.equals(this.instance, validationProblemDetails.instance);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -353,7 +228,7 @@ public class ValidationProblemDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(errors), hashCodeNullable(type), hashCodeNullable(title), hashCodeNullable(status), hashCodeNullable(detail), hashCodeNullable(instance), additionalProperties);
+    return Objects.hash(errors, type, title, status, detail, instance);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -373,7 +248,6 @@ public class ValidationProblemDetails {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -389,5 +263,105 @@ public class ValidationProblemDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("errors");
+    openapiFields.add("type");
+    openapiFields.add("title");
+    openapiFields.add("status");
+    openapiFields.add("detail");
+    openapiFields.add("instance");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ValidationProblemDetails
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ValidationProblemDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ValidationProblemDetails is not found in the empty JSON string", ValidationProblemDetails.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ValidationProblemDetails.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ValidationProblemDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull()) && !jsonObj.get("detail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `detail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detail").toString()));
+      }
+      if ((jsonObj.get("instance") != null && !jsonObj.get("instance").isJsonNull()) && !jsonObj.get("instance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `instance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instance").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ValidationProblemDetails.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ValidationProblemDetails' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ValidationProblemDetails> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationProblemDetails.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ValidationProblemDetails>() {
+           @Override
+           public void write(JsonWriter out, ValidationProblemDetails value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ValidationProblemDetails read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ValidationProblemDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ValidationProblemDetails
+  * @throws IOException if the JSON string is invalid with respect to ValidationProblemDetails
+  */
+  public static ValidationProblemDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ValidationProblemDetails.class);
+  }
+
+ /**
+  * Convert an instance of ValidationProblemDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

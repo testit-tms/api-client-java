@@ -13,45 +13,41 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * TestResultChronologyModel
  */
-@JsonPropertyOrder({
-  TestResultChronologyModel.JSON_PROPERTY_OUTCOME,
-  TestResultChronologyModel.JSON_PROPERTY_COUNT
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultChronologyModel {
-  public static final String JSON_PROPERTY_OUTCOME = "outcome";
-  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private String outcome;
 
-  public static final String JSON_PROPERTY_COUNT = "count";
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
 
-  public TestResultChronologyModel() { 
+  public TestResultChronologyModel() {
   }
 
   public TestResultChronologyModel outcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    
+    this.outcome = outcome;
     return this;
   }
 
@@ -59,32 +55,21 @@ public class TestResultChronologyModel {
    * Get outcome
    * @return outcome
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Passed", value = "")
-  @JsonIgnore
 
   public String getOutcome() {
-        return outcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getOutcome_JsonNullable() {
     return outcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OUTCOME)
-  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
-    this.outcome = outcome;
-  }
+
 
   public void setOutcome(String outcome) {
-    this.outcome = JsonNullable.<String>of(outcome);
+    this.outcome = outcome;
   }
 
 
   public TestResultChronologyModel count(Integer count) {
+    
     this.count = count;
     return this;
   }
@@ -93,26 +78,20 @@ public class TestResultChronologyModel {
    * Get count
    * @return count
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCount() {
     return count;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(Integer count) {
     this.count = count;
   }
 
 
-  /**
-   * Return true if this TestResultChronologyModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -122,7 +101,7 @@ public class TestResultChronologyModel {
       return false;
     }
     TestResultChronologyModel testResultChronologyModel = (TestResultChronologyModel) o;
-    return equalsNullable(this.outcome, testResultChronologyModel.outcome) &&
+    return Objects.equals(this.outcome, testResultChronologyModel.outcome) &&
         Objects.equals(this.count, testResultChronologyModel.count);
   }
 
@@ -132,7 +111,7 @@ public class TestResultChronologyModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(outcome), count);
+    return Objects.hash(outcome, count);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -163,5 +142,92 @@ public class TestResultChronologyModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("outcome");
+    openapiFields.add("count");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultChronologyModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultChronologyModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultChronologyModel is not found in the empty JSON string", TestResultChronologyModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultChronologyModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultChronologyModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) && !jsonObj.get("outcome").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultChronologyModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultChronologyModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultChronologyModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultChronologyModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultChronologyModel>() {
+           @Override
+           public void write(JsonWriter out, TestResultChronologyModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultChronologyModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultChronologyModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultChronologyModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultChronologyModel
+  */
+  public static TestResultChronologyModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultChronologyModel.class);
+  }
+
+ /**
+  * Convert an instance of TestResultChronologyModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

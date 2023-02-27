@@ -13,45 +13,41 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * BooleanNullableTestPlanChangedFieldViewModel
  */
-@JsonPropertyOrder({
-  BooleanNullableTestPlanChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
-  BooleanNullableTestPlanChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BooleanNullableTestPlanChangedFieldViewModel {
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
-  private JsonNullable<Boolean> oldValue = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private Boolean oldValue;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
-  private JsonNullable<Boolean> newValue = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  private Boolean newValue;
 
-  public BooleanNullableTestPlanChangedFieldViewModel() { 
+  public BooleanNullableTestPlanChangedFieldViewModel() {
   }
 
   public BooleanNullableTestPlanChangedFieldViewModel oldValue(Boolean oldValue) {
-    this.oldValue = JsonNullable.<Boolean>of(oldValue);
+    
+    this.oldValue = oldValue;
     return this;
   }
 
@@ -59,33 +55,22 @@ public class BooleanNullableTestPlanChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Boolean getOldValue() {
-        return oldValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getOldValue_JsonNullable() {
     return oldValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  public void setOldValue_JsonNullable(JsonNullable<Boolean> oldValue) {
-    this.oldValue = oldValue;
-  }
+
 
   public void setOldValue(Boolean oldValue) {
-    this.oldValue = JsonNullable.<Boolean>of(oldValue);
+    this.oldValue = oldValue;
   }
 
 
   public BooleanNullableTestPlanChangedFieldViewModel newValue(Boolean newValue) {
-    this.newValue = JsonNullable.<Boolean>of(newValue);
+    
+    this.newValue = newValue;
     return this;
   }
 
@@ -93,34 +78,20 @@ public class BooleanNullableTestPlanChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Boolean getNewValue() {
-        return newValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getNewValue_JsonNullable() {
     return newValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  public void setNewValue_JsonNullable(JsonNullable<Boolean> newValue) {
+
+
+  public void setNewValue(Boolean newValue) {
     this.newValue = newValue;
   }
 
-  public void setNewValue(Boolean newValue) {
-    this.newValue = JsonNullable.<Boolean>of(newValue);
-  }
 
 
-  /**
-   * Return true if this BooleanNullableTestPlanChangedFieldViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,8 +101,8 @@ public class BooleanNullableTestPlanChangedFieldViewModel {
       return false;
     }
     BooleanNullableTestPlanChangedFieldViewModel booleanNullableTestPlanChangedFieldViewModel = (BooleanNullableTestPlanChangedFieldViewModel) o;
-    return equalsNullable(this.oldValue, booleanNullableTestPlanChangedFieldViewModel.oldValue) &&
-        equalsNullable(this.newValue, booleanNullableTestPlanChangedFieldViewModel.newValue);
+    return Objects.equals(this.oldValue, booleanNullableTestPlanChangedFieldViewModel.oldValue) &&
+        Objects.equals(this.newValue, booleanNullableTestPlanChangedFieldViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -140,7 +111,7 @@ public class BooleanNullableTestPlanChangedFieldViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(oldValue), hashCodeNullable(newValue));
+    return Objects.hash(oldValue, newValue);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,5 +142,89 @@ public class BooleanNullableTestPlanChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to BooleanNullableTestPlanChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!BooleanNullableTestPlanChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BooleanNullableTestPlanChangedFieldViewModel is not found in the empty JSON string", BooleanNullableTestPlanChangedFieldViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!BooleanNullableTestPlanChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BooleanNullableTestPlanChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!BooleanNullableTestPlanChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BooleanNullableTestPlanChangedFieldViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<BooleanNullableTestPlanChangedFieldViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BooleanNullableTestPlanChangedFieldViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<BooleanNullableTestPlanChangedFieldViewModel>() {
+           @Override
+           public void write(JsonWriter out, BooleanNullableTestPlanChangedFieldViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public BooleanNullableTestPlanChangedFieldViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of BooleanNullableTestPlanChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of BooleanNullableTestPlanChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to BooleanNullableTestPlanChangedFieldViewModel
+  */
+  public static BooleanNullableTestPlanChangedFieldViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BooleanNullableTestPlanChangedFieldViewModel.class);
+  }
+
+ /**
+  * Convert an instance of BooleanNullableTestPlanChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

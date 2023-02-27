@@ -13,72 +13,58 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestSuiteV2TreeModel
  */
-@JsonPropertyOrder({
-  TestSuiteV2TreeModel.JSON_PROPERTY_CHILDREN,
-  TestSuiteV2TreeModel.JSON_PROPERTY_ID,
-  TestSuiteV2TreeModel.JSON_PROPERTY_PARENT_ID,
-  TestSuiteV2TreeModel.JSON_PROPERTY_TEST_PLAN_ID,
-  TestSuiteV2TreeModel.JSON_PROPERTY_NAME
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteV2TreeModel {
-  public static final String JSON_PROPERTY_CHILDREN = "children";
-  private JsonNullable<List<TestSuiteV2TreeModel>> children = JsonNullable.<List<TestSuiteV2TreeModel>>undefined();
+  public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @SerializedName(SERIALIZED_NAME_CHILDREN)
+  private List<TestSuiteV2TreeModel> children = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
-  private JsonNullable<UUID> parentId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  private UUID parentId;
 
-  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
+  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
   private UUID testPlanId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public TestSuiteV2TreeModel() { 
+  public TestSuiteV2TreeModel() {
   }
 
   public TestSuiteV2TreeModel children(List<TestSuiteV2TreeModel> children) {
-    this.children = JsonNullable.<List<TestSuiteV2TreeModel>>of(children);
+    
+    this.children = children;
     return this;
   }
 
   public TestSuiteV2TreeModel addChildrenItem(TestSuiteV2TreeModel childrenItem) {
-    if (this.children == null || !this.children.isPresent()) {
-      this.children = JsonNullable.<List<TestSuiteV2TreeModel>>of(new ArrayList<>());
+    if (this.children == null) {
+      this.children = new ArrayList<>();
     }
-    try {
-      this.children.get().add(childrenItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.children.add(childrenItem);
     return this;
   }
 
@@ -88,32 +74,21 @@ public class TestSuiteV2TreeModel {
    * @deprecated
   **/
   @Deprecated
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "nested enumeration of children is allowed")
-  @JsonIgnore
 
   public List<TestSuiteV2TreeModel> getChildren() {
-        return children.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CHILDREN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestSuiteV2TreeModel>> getChildren_JsonNullable() {
     return children;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CHILDREN)
-  public void setChildren_JsonNullable(JsonNullable<List<TestSuiteV2TreeModel>> children) {
-    this.children = children;
-  }
+
 
   public void setChildren(List<TestSuiteV2TreeModel> children) {
-    this.children = JsonNullable.<List<TestSuiteV2TreeModel>>of(children);
+    this.children = children;
   }
 
 
   public TestSuiteV2TreeModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -122,25 +97,22 @@ public class TestSuiteV2TreeModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestSuiteV2TreeModel parentId(UUID parentId) {
-    this.parentId = JsonNullable.<UUID>of(parentId);
+    
+    this.parentId = parentId;
     return this;
   }
 
@@ -148,32 +120,21 @@ public class TestSuiteV2TreeModel {
    * Get parentId
    * @return parentId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonIgnore
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getParentId() {
-        return parentId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getParentId_JsonNullable() {
     return parentId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  public void setParentId_JsonNullable(JsonNullable<UUID> parentId) {
-    this.parentId = parentId;
-  }
+
 
   public void setParentId(UUID parentId) {
-    this.parentId = JsonNullable.<UUID>of(parentId);
+    this.parentId = parentId;
   }
 
 
   public TestSuiteV2TreeModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -182,24 +143,21 @@ public class TestSuiteV2TreeModel {
    * Get testPlanId
    * @return testPlanId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestSuiteV2TreeModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -208,26 +166,20 @@ public class TestSuiteV2TreeModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nonnull
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "base test suite", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
-  /**
-   * Return true if this TestSuiteV2TreeModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,9 +189,9 @@ public class TestSuiteV2TreeModel {
       return false;
     }
     TestSuiteV2TreeModel testSuiteV2TreeModel = (TestSuiteV2TreeModel) o;
-    return equalsNullable(this.children, testSuiteV2TreeModel.children) &&
+    return Objects.equals(this.children, testSuiteV2TreeModel.children) &&
         Objects.equals(this.id, testSuiteV2TreeModel.id) &&
-        equalsNullable(this.parentId, testSuiteV2TreeModel.parentId) &&
+        Objects.equals(this.parentId, testSuiteV2TreeModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteV2TreeModel.testPlanId) &&
         Objects.equals(this.name, testSuiteV2TreeModel.name);
   }
@@ -250,7 +202,7 @@ public class TestSuiteV2TreeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(children), id, hashCodeNullable(parentId), testPlanId, name);
+    return Objects.hash(children, id, parentId, testPlanId, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -284,5 +236,127 @@ public class TestSuiteV2TreeModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("children");
+    openapiFields.add("id");
+    openapiFields.add("parentId");
+    openapiFields.add("testPlanId");
+    openapiFields.add("name");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("testPlanId");
+    openapiRequiredFields.add("name");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestSuiteV2TreeModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestSuiteV2TreeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteV2TreeModel is not found in the empty JSON string", TestSuiteV2TreeModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestSuiteV2TreeModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2TreeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestSuiteV2TreeModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("children") != null && !jsonObj.get("children").isJsonNull()) {
+        JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
+        if (jsonArraychildren != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("children").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
+          }
+
+          // validate the optional field `children` (array)
+          for (int i = 0; i < jsonArraychildren.size(); i++) {
+            TestSuiteV2TreeModel.validateJsonObject(jsonArraychildren.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
+      }
+      if (!jsonObj.get("testPlanId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestSuiteV2TreeModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestSuiteV2TreeModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestSuiteV2TreeModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteV2TreeModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestSuiteV2TreeModel>() {
+           @Override
+           public void write(JsonWriter out, TestSuiteV2TreeModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestSuiteV2TreeModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestSuiteV2TreeModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestSuiteV2TreeModel
+  * @throws IOException if the JSON string is invalid with respect to TestSuiteV2TreeModel
+  */
+  public static TestSuiteV2TreeModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestSuiteV2TreeModel.class);
+  }
+
+ /**
+  * Convert an instance of TestSuiteV2TreeModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

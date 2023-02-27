@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**isDeleted** | **Boolean** |  |  [optional] |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** | Custom attributes template name |  |
 
 
 

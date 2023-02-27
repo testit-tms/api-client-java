@@ -14,8 +14,8 @@
 |**createdById** | **UUID** |  |  [optional] |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**failureClassRegexes** | [**List&lt;FailureClassRegexModel&gt;**](FailureClassRegexModel.md) |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
+|**id** | **UUID** | Unique ID of the entity |  [optional] |
+|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  [optional] |
 
 
 

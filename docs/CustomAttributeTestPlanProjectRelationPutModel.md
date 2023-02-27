@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  |
-|**enabled** | **Boolean** |  |  |
-|**required** | **Boolean** |  |  |
+|**id** | **UUID** | Custom attribute internal unique identifier |  |
+|**isEnabled** | **Boolean** | Flag that defines if custom attribute is enabled |  |
+|**isRequired** | **Boolean** | Flag that defines if custom attribute is required |  |
 
 
 

@@ -13,14 +13,14 @@
 
 package ru.testit.client.invoker.auth;
 
-import ru.testit.client.invoker.Pair;
 import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Pair;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -58,7 +58,8 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
+                           String payload, String method, URI uri) throws ApiException {
     if (apiKey == null) {
       return;
     }

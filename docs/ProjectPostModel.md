@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** |  |  [optional] |
-|**name** | **String** |  |  |
+|**description** | **String** | Description of the project |  [optional] |
+|**name** | **String** | Name of the project |  |
 
 
 

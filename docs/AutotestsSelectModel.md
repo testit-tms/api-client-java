@@ -1,6 +1,6 @@
 
 
-# SearchAutotestsQueryModel
+# AutotestsSelectModel
 
 
 ## Properties

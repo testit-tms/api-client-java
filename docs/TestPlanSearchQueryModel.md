@@ -21,7 +21,7 @@
 |**startDate** | [**DateRangeModel**](DateRangeModel.md) |  |  [optional] |
 |**endDate** | [**DateRangeModel**](DateRangeModel.md) |  |  [optional] |
 |**tagNames** | **Set&lt;String&gt;** |  |  [optional] |
-|**attributes** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional] |
+|**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** |  |  [optional] |
 |**isDeleted** | **Boolean** |  |  [optional] |
 
 

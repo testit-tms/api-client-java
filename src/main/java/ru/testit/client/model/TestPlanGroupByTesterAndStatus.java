@@ -13,50 +13,42 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * TestPlanGroupByTesterAndStatus
  */
-@JsonPropertyOrder({
-  TestPlanGroupByTesterAndStatus.JSON_PROPERTY_USER_ID,
-  TestPlanGroupByTesterAndStatus.JSON_PROPERTY_STATUS,
-  TestPlanGroupByTesterAndStatus.JSON_PROPERTY_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanGroupByTesterAndStatus {
-  public static final String JSON_PROPERTY_USER_ID = "userId";
-  private JsonNullable<UUID> userId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_USER_ID = "userId";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private UUID userId;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<String> status = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private String status;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
 
-  public TestPlanGroupByTesterAndStatus() { 
+  public TestPlanGroupByTesterAndStatus() {
   }
 
   public TestPlanGroupByTesterAndStatus userId(UUID userId) {
-    this.userId = JsonNullable.<UUID>of(userId);
+    
+    this.userId = userId;
     return this;
   }
 
@@ -64,33 +56,22 @@ public class TestPlanGroupByTesterAndStatus {
    * Get userId
    * @return userId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public UUID getUserId() {
-        return userId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_USER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getUserId_JsonNullable() {
     return userId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_USER_ID)
-  public void setUserId_JsonNullable(JsonNullable<UUID> userId) {
-    this.userId = userId;
-  }
+
 
   public void setUserId(UUID userId) {
-    this.userId = JsonNullable.<UUID>of(userId);
+    this.userId = userId;
   }
 
 
   public TestPlanGroupByTesterAndStatus status(String status) {
-    this.status = JsonNullable.<String>of(status);
+    
+    this.status = status;
     return this;
   }
 
@@ -98,32 +79,21 @@ public class TestPlanGroupByTesterAndStatus {
    * Get status
    * @return status
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getStatus() {
-        return status.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getStatus_JsonNullable() {
     return status;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<String> status) {
-    this.status = status;
-  }
+
 
   public void setStatus(String status) {
-    this.status = JsonNullable.<String>of(status);
+    this.status = status;
   }
 
 
   public TestPlanGroupByTesterAndStatus value(Integer value) {
+    
     this.value = value;
     return this;
   }
@@ -132,26 +102,20 @@ public class TestPlanGroupByTesterAndStatus {
    * Get value
    * @return value
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getValue() {
     return value;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }
 
 
-  /**
-   * Return true if this TestPlanGroupByTesterAndStatus object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,8 +125,8 @@ public class TestPlanGroupByTesterAndStatus {
       return false;
     }
     TestPlanGroupByTesterAndStatus testPlanGroupByTesterAndStatus = (TestPlanGroupByTesterAndStatus) o;
-    return equalsNullable(this.userId, testPlanGroupByTesterAndStatus.userId) &&
-        equalsNullable(this.status, testPlanGroupByTesterAndStatus.status) &&
+    return Objects.equals(this.userId, testPlanGroupByTesterAndStatus.userId) &&
+        Objects.equals(this.status, testPlanGroupByTesterAndStatus.status) &&
         Objects.equals(this.value, testPlanGroupByTesterAndStatus.value);
   }
 
@@ -172,7 +136,7 @@ public class TestPlanGroupByTesterAndStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(userId), hashCodeNullable(status), value);
+    return Objects.hash(userId, status, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -204,5 +168,96 @@ public class TestPlanGroupByTesterAndStatus {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("userId");
+    openapiFields.add("status");
+    openapiFields.add("value");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanGroupByTesterAndStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanGroupByTesterAndStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanGroupByTesterAndStatus is not found in the empty JSON string", TestPlanGroupByTesterAndStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPlanGroupByTesterAndStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanGroupByTesterAndStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPlanGroupByTesterAndStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPlanGroupByTesterAndStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPlanGroupByTesterAndStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanGroupByTesterAndStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPlanGroupByTesterAndStatus>() {
+           @Override
+           public void write(JsonWriter out, TestPlanGroupByTesterAndStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPlanGroupByTesterAndStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPlanGroupByTesterAndStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanGroupByTesterAndStatus
+  * @throws IOException if the JSON string is invalid with respect to TestPlanGroupByTesterAndStatus
+  */
+  public static TestPlanGroupByTesterAndStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPlanGroupByTesterAndStatus.class);
+  }
+
+ /**
+  * Convert an instance of TestPlanGroupByTesterAndStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

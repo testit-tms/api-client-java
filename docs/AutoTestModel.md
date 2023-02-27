@@ -7,32 +7,32 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**globalId** | **Long** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**mustBeApproved** | **Boolean** |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
-|**modifiedById** | **UUID** |  |  [optional] |
-|**lastTestRunId** | **UUID** |  |  [optional] |
-|**lastTestRunName** | **String** |  |  [optional] |
-|**lastTestResultId** | **UUID** |  |  [optional] |
-|**lastTestResultOutcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  [optional] |
-|**stabilityPercentage** | **Integer** |  |  [optional] |
-|**externalId** | **String** | Specifies the ID of your autotest in the external system.&lt;br /&gt;  To test the method, you can use any ID. |  |
-|**links** | [**List&lt;LinkPutModel&gt;**](LinkPutModel.md) | Specifies the links in the autotest. |  [optional] |
-|**projectId** | **UUID** | Specifies the project GUID.&lt;br /&gt;  You can get it using the &#x60;GET /api/v2/projects&#x60; method. |  |
-|**name** | **String** | Specifies autotest name in the test management system. |  |
-|**namespace** | **String** | Specifies the name of the namespace in the test management system. |  [optional] |
-|**classname** | **String** | Specifies the class name in the test management system. |  [optional] |
-|**steps** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Specifies the steps in the autotest. |  [optional] |
-|**setup** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Specifies the setup steps and relates them to the autotest. Supported values are the same as in the &#x60;steps&#x60; parameter. |  [optional] |
-|**teardown** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the &#x60;steps&#x60; parameter. |  [optional] |
-|**title** | **String** | Specifies the name of the autotest in the autotest card.   The &#x60;Name&#x60; parameter is responsible for the name in the table. |  [optional] |
-|**description** | **String** | Specifies the autotest description in the test management system. |  [optional] |
-|**labels** | [**List&lt;LabelShortModel&gt;**](LabelShortModel.md) | Specifies autotest labels. |  [optional] |
-|**isFlaky** | **Boolean** | Marks the autotest as flaky. |  [optional] |
+|**globalId** | **Long** | Global ID of the autotest |  [optional] |
+|**isDeleted** | **Boolean** | Indicates if the autotest is deleted |  [optional] |
+|**mustBeApproved** | **Boolean** | Indicates if the autotest has unapproved changes from linked work items |  [optional] |
+|**id** | **UUID** | Unique ID of the autotest |  [optional] |
+|**createdDate** | **OffsetDateTime** | Creation date of the autotest |  [optional] |
+|**modifiedDate** | **OffsetDateTime** | Last modification date of the project |  [optional] |
+|**createdById** | **UUID** | Unique ID of the project creator |  [optional] |
+|**modifiedById** | **UUID** | Unique ID of the project last editor |  [optional] |
+|**lastTestRunId** | **UUID** | Unique ID of the autotest last test run |  [optional] |
+|**lastTestRunName** | **String** | Name of the autotest last test run |  [optional] |
+|**lastTestResultId** | **UUID** | Unique ID of the autotest last test result |  [optional] |
+|**lastTestResultOutcome** | **String** | Outcome of the autotest last test result |  [optional] |
+|**stabilityPercentage** | **Integer** | Stability percentage of the autotest |  [optional] |
+|**externalId** | **String** | External ID of the autotest |  |
+|**links** | [**List&lt;LinkPutModel&gt;**](LinkPutModel.md) | Collection of the autotest links |  [optional] |
+|**projectId** | **UUID** | Unique ID of the autotest project |  |
+|**name** | **String** | Name of the autotest |  |
+|**namespace** | **String** | Name of the autotest namespace |  [optional] |
+|**classname** | **String** | Name of the autotest class |  [optional] |
+|**steps** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Collection of the autotest steps |  [optional] |
+|**setup** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Collection of the autotest setup steps |  [optional] |
+|**teardown** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) | Collection of the autotest teardown steps |  [optional] |
+|**title** | **String** | Name of the autotest in autotest&#39;s card |  [optional] |
+|**description** | **String** | Description of the autotest in autotest&#39;s card |  [optional] |
+|**labels** | [**List&lt;LabelShortModel&gt;**](LabelShortModel.md) | Collection of the autotest labels |  [optional] |
+|**isFlaky** | **Boolean** | Indicates if the autotest is marked as flaky |  [optional] |
 
 
 

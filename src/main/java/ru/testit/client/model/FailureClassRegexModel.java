@@ -13,54 +13,46 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * FailureClassRegexModel
  */
-@JsonPropertyOrder({
-  FailureClassRegexModel.JSON_PROPERTY_REGEX_TEXT,
-  FailureClassRegexModel.JSON_PROPERTY_FAILURE_CLASS_ID,
-  FailureClassRegexModel.JSON_PROPERTY_ID,
-  FailureClassRegexModel.JSON_PROPERTY_IS_DELETED
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FailureClassRegexModel {
-  public static final String JSON_PROPERTY_REGEX_TEXT = "regexText";
-  private JsonNullable<String> regexText = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_REGEX_TEXT = "regexText";
+  @SerializedName(SERIALIZED_NAME_REGEX_TEXT)
+  private String regexText;
 
-  public static final String JSON_PROPERTY_FAILURE_CLASS_ID = "failureClassId";
-  private JsonNullable<UUID> failureClassId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_CLASS_ID = "failureClassId";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_ID)
+  private UUID failureClassId;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
 
-  public FailureClassRegexModel() { 
+  public FailureClassRegexModel() {
   }
 
   public FailureClassRegexModel regexText(String regexText) {
-    this.regexText = JsonNullable.<String>of(regexText);
+    
+    this.regexText = regexText;
     return this;
   }
 
@@ -68,33 +60,22 @@ public class FailureClassRegexModel {
    * Get regexText
    * @return regexText
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getRegexText() {
-        return regexText.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_REGEX_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getRegexText_JsonNullable() {
     return regexText;
   }
-  
-  @JsonProperty(JSON_PROPERTY_REGEX_TEXT)
-  public void setRegexText_JsonNullable(JsonNullable<String> regexText) {
-    this.regexText = regexText;
-  }
+
 
   public void setRegexText(String regexText) {
-    this.regexText = JsonNullable.<String>of(regexText);
+    this.regexText = regexText;
   }
 
 
   public FailureClassRegexModel failureClassId(UUID failureClassId) {
-    this.failureClassId = JsonNullable.<UUID>of(failureClassId);
+    
+    this.failureClassId = failureClassId;
     return this;
   }
 
@@ -102,86 +83,66 @@ public class FailureClassRegexModel {
    * Get failureClassId
    * @return failureClassId
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public UUID getFailureClassId() {
-        return failureClassId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getFailureClassId_JsonNullable() {
     return failureClassId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_ID)
-  public void setFailureClassId_JsonNullable(JsonNullable<UUID> failureClassId) {
-    this.failureClassId = failureClassId;
-  }
+
 
   public void setFailureClassId(UUID failureClassId) {
-    this.failureClassId = JsonNullable.<UUID>of(failureClassId);
+    this.failureClassId = failureClassId;
   }
 
 
   public FailureClassRegexModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Unique ID of the entity
    * @return id
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3ffdc45d-64c4-4b68-9a42-1744f46625b6", value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public FailureClassRegexModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
    /**
-   * Get isDeleted
+   * Indicates if the entity is deleted
    * @return isDeleted
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  /**
-   * Return true if this FailureClassRegexModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -191,8 +152,8 @@ public class FailureClassRegexModel {
       return false;
     }
     FailureClassRegexModel failureClassRegexModel = (FailureClassRegexModel) o;
-    return equalsNullable(this.regexText, failureClassRegexModel.regexText) &&
-        equalsNullable(this.failureClassId, failureClassRegexModel.failureClassId) &&
+    return Objects.equals(this.regexText, failureClassRegexModel.regexText) &&
+        Objects.equals(this.failureClassId, failureClassRegexModel.failureClassId) &&
         Objects.equals(this.id, failureClassRegexModel.id) &&
         Objects.equals(this.isDeleted, failureClassRegexModel.isDeleted);
   }
@@ -203,7 +164,7 @@ public class FailureClassRegexModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(regexText), hashCodeNullable(failureClassId), id, isDeleted);
+    return Objects.hash(regexText, failureClassId, id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -236,5 +197,100 @@ public class FailureClassRegexModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("regexText");
+    openapiFields.add("failureClassId");
+    openapiFields.add("id");
+    openapiFields.add("isDeleted");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to FailureClassRegexModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!FailureClassRegexModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FailureClassRegexModel is not found in the empty JSON string", FailureClassRegexModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!FailureClassRegexModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FailureClassRegexModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("regexText") != null && !jsonObj.get("regexText").isJsonNull()) && !jsonObj.get("regexText").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `regexText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regexText").toString()));
+      }
+      if ((jsonObj.get("failureClassId") != null && !jsonObj.get("failureClassId").isJsonNull()) && !jsonObj.get("failureClassId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureClassId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failureClassId").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!FailureClassRegexModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FailureClassRegexModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<FailureClassRegexModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FailureClassRegexModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<FailureClassRegexModel>() {
+           @Override
+           public void write(JsonWriter out, FailureClassRegexModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public FailureClassRegexModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of FailureClassRegexModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of FailureClassRegexModel
+  * @throws IOException if the JSON string is invalid with respect to FailureClassRegexModel
+  */
+  public static FailureClassRegexModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FailureClassRegexModel.class);
+  }
+
+ /**
+  * Convert an instance of FailureClassRegexModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

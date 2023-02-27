@@ -13,20 +13,17 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
 
 /**
  * Gets or Sets CustomAttributeTypesEnum
  */
+@JsonAdapter(CustomAttributeTypesEnum.Adapter.class)
 public enum CustomAttributeTypesEnum {
   
   STRING("string"),
@@ -45,7 +42,6 @@ public enum CustomAttributeTypesEnum {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -55,7 +51,6 @@ public enum CustomAttributeTypesEnum {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static CustomAttributeTypesEnum fromValue(String value) {
     for (CustomAttributeTypesEnum b : CustomAttributeTypesEnum.values()) {
       if (b.value.equals(value)) {
@@ -63,6 +58,19 @@ public enum CustomAttributeTypesEnum {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<CustomAttributeTypesEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final CustomAttributeTypesEnum enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public CustomAttributeTypesEnum read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return CustomAttributeTypesEnum.fromValue(value);
+    }
   }
 }
 

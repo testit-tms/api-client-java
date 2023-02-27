@@ -13,41 +13,38 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import ru.testit.client.model.TestSuiteChangeViewModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * TestSuiteChangeViewModelTestPlanChangedFieldViewModel
  */
-@JsonPropertyOrder({
-  TestSuiteChangeViewModelTestPlanChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
-  TestSuiteChangeViewModelTestPlanChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteChangeViewModelTestPlanChangedFieldViewModel {
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
   private TestSuiteChangeViewModel oldValue;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
   private TestSuiteChangeViewModel newValue;
 
-  public TestSuiteChangeViewModelTestPlanChangedFieldViewModel() { 
+  public TestSuiteChangeViewModelTestPlanChangedFieldViewModel() {
   }
 
   public TestSuiteChangeViewModelTestPlanChangedFieldViewModel oldValue(TestSuiteChangeViewModel oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -56,24 +53,21 @@ public class TestSuiteChangeViewModelTestPlanChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TestSuiteChangeViewModel getOldValue() {
     return oldValue;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOldValue(TestSuiteChangeViewModel oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public TestSuiteChangeViewModelTestPlanChangedFieldViewModel newValue(TestSuiteChangeViewModel newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -82,26 +76,20 @@ public class TestSuiteChangeViewModelTestPlanChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TestSuiteChangeViewModel getNewValue() {
     return newValue;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNewValue(TestSuiteChangeViewModel newValue) {
     this.newValue = newValue;
   }
 
 
-  /**
-   * Return true if this TestSuiteChangeViewModelTestPlanChangedFieldViewModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,5 +129,97 @@ public class TestSuiteChangeViewModelTestPlanChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestSuiteChangeViewModelTestPlanChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteChangeViewModelTestPlanChangedFieldViewModel is not found in the empty JSON string", TestSuiteChangeViewModelTestPlanChangedFieldViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestSuiteChangeViewModelTestPlanChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteChangeViewModelTestPlanChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `oldValue`
+      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
+        TestSuiteChangeViewModel.validateJsonObject(jsonObj.getAsJsonObject("oldValue"));
+      }
+      // validate the optional field `newValue`
+      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
+        TestSuiteChangeViewModel.validateJsonObject(jsonObj.getAsJsonObject("newValue"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestSuiteChangeViewModelTestPlanChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestSuiteChangeViewModelTestPlanChangedFieldViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestSuiteChangeViewModelTestPlanChangedFieldViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteChangeViewModelTestPlanChangedFieldViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestSuiteChangeViewModelTestPlanChangedFieldViewModel>() {
+           @Override
+           public void write(JsonWriter out, TestSuiteChangeViewModelTestPlanChangedFieldViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestSuiteChangeViewModelTestPlanChangedFieldViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestSuiteChangeViewModelTestPlanChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+  */
+  public static TestSuiteChangeViewModelTestPlanChangedFieldViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestSuiteChangeViewModelTestPlanChangedFieldViewModel.class);
+  }
+
+ /**
+  * Convert an instance of TestSuiteChangeViewModelTestPlanChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

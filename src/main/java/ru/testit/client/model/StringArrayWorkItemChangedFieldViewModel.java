@@ -13,59 +13,46 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * StringArrayWorkItemChangedFieldViewModel
  */
-@JsonPropertyOrder({
-  StringArrayWorkItemChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
-  StringArrayWorkItemChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StringArrayWorkItemChangedFieldViewModel {
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
-  private JsonNullable<List<String>> oldValue = JsonNullable.<List<String>>undefined();
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private List<String> oldValue = null;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
-  private JsonNullable<List<String>> newValue = JsonNullable.<List<String>>undefined();
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  private List<String> newValue = null;
 
-  public StringArrayWorkItemChangedFieldViewModel() { 
+  public StringArrayWorkItemChangedFieldViewModel() {
   }
 
   public StringArrayWorkItemChangedFieldViewModel oldValue(List<String> oldValue) {
-    this.oldValue = JsonNullable.<List<String>>of(oldValue);
+    
+    this.oldValue = oldValue;
     return this;
   }
 
   public StringArrayWorkItemChangedFieldViewModel addOldValueItem(String oldValueItem) {
-    if (this.oldValue == null || !this.oldValue.isPresent()) {
-      this.oldValue = JsonNullable.<List<String>>of(new ArrayList<>());
+    if (this.oldValue == null) {
+      this.oldValue = new ArrayList<>();
     }
-    try {
-      this.oldValue.get().add(oldValueItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.oldValue.add(oldValueItem);
     return this;
   }
 
@@ -73,45 +60,30 @@ public class StringArrayWorkItemChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<String> getOldValue() {
-        return oldValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<String>> getOldValue_JsonNullable() {
     return oldValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  public void setOldValue_JsonNullable(JsonNullable<List<String>> oldValue) {
-    this.oldValue = oldValue;
-  }
+
 
   public void setOldValue(List<String> oldValue) {
-    this.oldValue = JsonNullable.<List<String>>of(oldValue);
+    this.oldValue = oldValue;
   }
 
 
   public StringArrayWorkItemChangedFieldViewModel newValue(List<String> newValue) {
-    this.newValue = JsonNullable.<List<String>>of(newValue);
+    
+    this.newValue = newValue;
     return this;
   }
 
   public StringArrayWorkItemChangedFieldViewModel addNewValueItem(String newValueItem) {
-    if (this.newValue == null || !this.newValue.isPresent()) {
-      this.newValue = JsonNullable.<List<String>>of(new ArrayList<>());
+    if (this.newValue == null) {
+      this.newValue = new ArrayList<>();
     }
-    try {
-      this.newValue.get().add(newValueItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.newValue.add(newValueItem);
     return this;
   }
 
@@ -119,34 +91,20 @@ public class StringArrayWorkItemChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public List<String> getNewValue() {
-        return newValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<String>> getNewValue_JsonNullable() {
     return newValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  public void setNewValue_JsonNullable(JsonNullable<List<String>> newValue) {
+
+
+  public void setNewValue(List<String> newValue) {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<String> newValue) {
-    this.newValue = JsonNullable.<List<String>>of(newValue);
-  }
 
 
-  /**
-   * Return true if this StringArrayWorkItemChangedFieldViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,8 +114,8 @@ public class StringArrayWorkItemChangedFieldViewModel {
       return false;
     }
     StringArrayWorkItemChangedFieldViewModel stringArrayWorkItemChangedFieldViewModel = (StringArrayWorkItemChangedFieldViewModel) o;
-    return equalsNullable(this.oldValue, stringArrayWorkItemChangedFieldViewModel.oldValue) &&
-        equalsNullable(this.newValue, stringArrayWorkItemChangedFieldViewModel.newValue);
+    return Objects.equals(this.oldValue, stringArrayWorkItemChangedFieldViewModel.oldValue) &&
+        Objects.equals(this.newValue, stringArrayWorkItemChangedFieldViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -166,7 +124,7 @@ public class StringArrayWorkItemChangedFieldViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(oldValue), hashCodeNullable(newValue));
+    return Objects.hash(oldValue, newValue);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -197,5 +155,97 @@ public class StringArrayWorkItemChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to StringArrayWorkItemChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!StringArrayWorkItemChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StringArrayWorkItemChangedFieldViewModel is not found in the empty JSON string", StringArrayWorkItemChangedFieldViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!StringArrayWorkItemChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringArrayWorkItemChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be an array in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `newValue` to be an array in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!StringArrayWorkItemChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StringArrayWorkItemChangedFieldViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<StringArrayWorkItemChangedFieldViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StringArrayWorkItemChangedFieldViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<StringArrayWorkItemChangedFieldViewModel>() {
+           @Override
+           public void write(JsonWriter out, StringArrayWorkItemChangedFieldViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public StringArrayWorkItemChangedFieldViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of StringArrayWorkItemChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StringArrayWorkItemChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to StringArrayWorkItemChangedFieldViewModel
+  */
+  public static StringArrayWorkItemChangedFieldViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StringArrayWorkItemChangedFieldViewModel.class);
+  }
+
+ /**
+  * Convert an instance of StringArrayWorkItemChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

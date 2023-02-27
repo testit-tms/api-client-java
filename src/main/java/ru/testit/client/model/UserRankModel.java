@@ -13,56 +13,54 @@
 
 package ru.testit.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
+import com.google.gson.*;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * UserRankModel
  */
-@JsonPropertyOrder({
-  UserRankModel.JSON_PROPERTY_SCORE,
-  UserRankModel.JSON_PROPERTY_WORK_ITEMS_CREATED,
-  UserRankModel.JSON_PROPERTY_PASSED_TEST_POINTS,
-  UserRankModel.JSON_PROPERTY_FAILED_TEST_POINTS,
-  UserRankModel.JSON_PROPERTY_SKIPPED_TEST_POINTS,
-  UserRankModel.JSON_PROPERTY_BLOCKED_TEST_POINTS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserRankModel {
-  public static final String JSON_PROPERTY_SCORE = "score";
+  public static final String SERIALIZED_NAME_SCORE = "score";
+  @SerializedName(SERIALIZED_NAME_SCORE)
   private Integer score;
 
-  public static final String JSON_PROPERTY_WORK_ITEMS_CREATED = "workItemsCreated";
+  public static final String SERIALIZED_NAME_WORK_ITEMS_CREATED = "workItemsCreated";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEMS_CREATED)
   private Integer workItemsCreated;
 
-  public static final String JSON_PROPERTY_PASSED_TEST_POINTS = "passedTestPoints";
+  public static final String SERIALIZED_NAME_PASSED_TEST_POINTS = "passedTestPoints";
+  @SerializedName(SERIALIZED_NAME_PASSED_TEST_POINTS)
   private Integer passedTestPoints;
 
-  public static final String JSON_PROPERTY_FAILED_TEST_POINTS = "failedTestPoints";
+  public static final String SERIALIZED_NAME_FAILED_TEST_POINTS = "failedTestPoints";
+  @SerializedName(SERIALIZED_NAME_FAILED_TEST_POINTS)
   private Integer failedTestPoints;
 
-  public static final String JSON_PROPERTY_SKIPPED_TEST_POINTS = "skippedTestPoints";
+  public static final String SERIALIZED_NAME_SKIPPED_TEST_POINTS = "skippedTestPoints";
+  @SerializedName(SERIALIZED_NAME_SKIPPED_TEST_POINTS)
   private Integer skippedTestPoints;
 
-  public static final String JSON_PROPERTY_BLOCKED_TEST_POINTS = "blockedTestPoints";
+  public static final String SERIALIZED_NAME_BLOCKED_TEST_POINTS = "blockedTestPoints";
+  @SerializedName(SERIALIZED_NAME_BLOCKED_TEST_POINTS)
   private Integer blockedTestPoints;
 
-  public UserRankModel() { 
+  public UserRankModel() {
   }
 
   public UserRankModel score(Integer score) {
+    
     this.score = score;
     return this;
   }
@@ -71,24 +69,21 @@ public class UserRankModel {
    * Get score
    * @return score
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getScore() {
     return score;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
   }
 
 
   public UserRankModel workItemsCreated(Integer workItemsCreated) {
+    
     this.workItemsCreated = workItemsCreated;
     return this;
   }
@@ -97,24 +92,21 @@ public class UserRankModel {
    * Get workItemsCreated
    * @return workItemsCreated
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getWorkItemsCreated() {
     return workItemsCreated;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkItemsCreated(Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
   }
 
 
   public UserRankModel passedTestPoints(Integer passedTestPoints) {
+    
     this.passedTestPoints = passedTestPoints;
     return this;
   }
@@ -123,24 +115,21 @@ public class UserRankModel {
    * Get passedTestPoints
    * @return passedTestPoints
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PASSED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPassedTestPoints() {
     return passedTestPoints;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PASSED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassedTestPoints(Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
   }
 
 
   public UserRankModel failedTestPoints(Integer failedTestPoints) {
+    
     this.failedTestPoints = failedTestPoints;
     return this;
   }
@@ -149,24 +138,21 @@ public class UserRankModel {
    * Get failedTestPoints
    * @return failedTestPoints
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FAILED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFailedTestPoints() {
     return failedTestPoints;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAILED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFailedTestPoints(Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
   }
 
 
   public UserRankModel skippedTestPoints(Integer skippedTestPoints) {
+    
     this.skippedTestPoints = skippedTestPoints;
     return this;
   }
@@ -175,24 +161,21 @@ public class UserRankModel {
    * Get skippedTestPoints
    * @return skippedTestPoints
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SKIPPED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSkippedTestPoints() {
     return skippedTestPoints;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SKIPPED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkippedTestPoints(Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
   }
 
 
   public UserRankModel blockedTestPoints(Integer blockedTestPoints) {
+    
     this.blockedTestPoints = blockedTestPoints;
     return this;
   }
@@ -201,26 +184,20 @@ public class UserRankModel {
    * Get blockedTestPoints
    * @return blockedTestPoints
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BLOCKED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getBlockedTestPoints() {
     return blockedTestPoints;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLOCKED_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedTestPoints(Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
   }
 
 
-  /**
-   * Return true if this UserRankModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -268,5 +245,93 @@ public class UserRankModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("score");
+    openapiFields.add("workItemsCreated");
+    openapiFields.add("passedTestPoints");
+    openapiFields.add("failedTestPoints");
+    openapiFields.add("skippedTestPoints");
+    openapiFields.add("blockedTestPoints");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UserRankModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!UserRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UserRankModel is not found in the empty JSON string", UserRankModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!UserRankModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRankModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!UserRankModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UserRankModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<UserRankModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UserRankModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<UserRankModel>() {
+           @Override
+           public void write(JsonWriter out, UserRankModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public UserRankModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of UserRankModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UserRankModel
+  * @throws IOException if the JSON string is invalid with respect to UserRankModel
+  */
+  public static UserRankModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UserRankModel.class);
+  }
+
+ /**
+  * Convert an instance of UserRankModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
