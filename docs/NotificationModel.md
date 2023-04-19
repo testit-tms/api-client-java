@@ -11,7 +11,7 @@
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**isRead** | **Boolean** |  |  [optional] |
 |**entityId** | **UUID** |  |  [optional] |
-|**notificationType** | **NotificationTypeModel** |  |  [optional] |
+|**notificationType** | **NotificationTypeModel** |  |  |
 |**projectGlobalId** | **Long** |  |  [optional] |
 |**projectName** | **String** |  |  [optional] |
 |**testPlanGlobalId** | **Long** |  |  [optional] |

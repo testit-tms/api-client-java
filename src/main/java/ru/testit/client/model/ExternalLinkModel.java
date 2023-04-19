@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -80,7 +79,6 @@ public class ExternalLinkModel {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUrl() {
     return url;
@@ -103,7 +101,6 @@ public class ExternalLinkModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTitle() {
     return title;
@@ -126,7 +123,6 @@ public class ExternalLinkModel {
    * @return issueTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getIssueTypeName() {
     return issueTypeName;
@@ -149,7 +145,6 @@ public class ExternalLinkModel {
    * @return issueTypeIconUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getIssueTypeIconUrl() {
     return issueTypeIconUrl;
@@ -172,7 +167,6 @@ public class ExternalLinkModel {
    * @return priorityName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPriorityName() {
     return priorityName;
@@ -195,7 +189,6 @@ public class ExternalLinkModel {
    * @return priorityIconUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPriorityIconUrl() {
     return priorityIconUrl;
@@ -218,7 +211,6 @@ public class ExternalLinkModel {
    * @return statusName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getStatusName() {
     return statusName;
@@ -241,7 +233,6 @@ public class ExternalLinkModel {
    * @return assigneeDisplayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getAssigneeDisplayName() {
     return assigneeDisplayName;

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**webHookName** | **String** |  |  [optional] |
-|**eventType** | **WebHookEventTypeModel** |  |  [optional] |
+|**eventType** | **WebHookEventTypeModel** |  |  |
 |**webHookId** | **UUID** |  |  [optional] |
 |**requestBody** | **String** |  |  [optional] |
 |**requestMeta** | **String** |  |  [optional] |
@@ -17,7 +17,7 @@
 |**responseMeta** | **String** |  |  [optional] |
 |**projectId** | **UUID** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
-|**requestType** | **RequestTypeModel** |  |  [optional] |
+|**requestType** | **RequestTypeModel** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  [optional] |

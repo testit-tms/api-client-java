@@ -13,6 +13,7 @@
 |**entityTypeName** | **String** | Property can have one of these values: CheckLists, SharedSteps, TestCases |  |
 |**projectId** | **UUID** | This property is used to link autotest with project |  |
 |**sectionId** | **UUID** | This property links workitem with section |  |
+|**sectionName** | **String** | Name of the section where work item is located |  |
 |**isAutomated** | **Boolean** |  |  [optional] |
 |**globalId** | **Long** |  |  [optional] |
 |**duration** | **Integer** |  |  [optional] |

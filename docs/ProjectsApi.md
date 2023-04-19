@@ -11,8 +11,11 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#apiV2ProjectsIdFailureClassesGet) | **GET** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses |
 | [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
 | [**apiV2ProjectsIdFiltersGet**](ProjectsApi.md#apiV2ProjectsIdFiltersGet) | **GET** /api/v2/projects/{id}/filters | Get Project filters |
+| [**apiV2ProjectsIdPatch**](ProjectsApi.md#apiV2ProjectsIdPatch) | **PATCH** /api/v2/projects/{id} | Patch project |
 | [**apiV2ProjectsIdTestPlansAnalyticsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansAnalyticsGet) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics |
+| [**apiV2ProjectsIdTestPlansDeleteBulkPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansDeleteBulkPost) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans |
 | [**apiV2ProjectsIdTestPlansNameExistsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansNameExistsGet) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project |
+| [**apiV2ProjectsIdTestPlansRestoreBulkPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansRestoreBulkPost) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans |
 | [**apiV2ProjectsIdTestPlansSearchPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansSearchPost) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics |
 | [**apiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsActiveGet) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns |
 | [**apiV2ProjectsIdTestRunsFullGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsFullGet) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models |
@@ -21,6 +24,10 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsIdWorkItemsTagsGet**](ProjectsApi.md#apiV2ProjectsIdWorkItemsTagsGet) | **GET** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags |
 | [**apiV2ProjectsNameNameExistsGet**](ProjectsApi.md#apiV2ProjectsNameNameExistsGet) | **GET** /api/v2/projects/name/{name}/exists |  |
 | [**apiV2ProjectsSearchPost**](ProjectsApi.md#apiV2ProjectsSearchPost) | **POST** /api/v2/projects/search | Search for projects |
+| [**backgroundImportProject**](ProjectsApi.md#backgroundImportProject) | **POST** /api/v2/projects/import/json | Import project from JSON file in background job |
+| [**backgroundImportToExistingProject**](ProjectsApi.md#backgroundImportToExistingProject) | **POST** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job |
+| [**backgroundImportZipProject**](ProjectsApi.md#backgroundImportZipProject) | **POST** /api/v2/projects/import/zip | Import project from Zip file in background job |
+| [**backgroundImportZipToExistingProject**](ProjectsApi.md#backgroundImportZipToExistingProject) | **POST** /api/v2/projects/{id}/import/zip | Import project from Zip file into existing project in background job |
 | [**callImport**](ProjectsApi.md#callImport) | **POST** /api/v2/projects/import | Import project from JSON file |
 | [**createCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#createCustomAttributeTestPlanProjectRelations) | **POST** /api/v2/projects/{id}/testPlans/attributes | Add attributes to project&#39;s test plans |
 | [**createProject**](ProjectsApi.md#createProject) | **POST** /api/v2/projects | Create project |
@@ -30,6 +37,10 @@ All URIs are relative to *http://localhost*
 | [**deleteProjectAutoTests**](ProjectsApi.md#deleteProjectAutoTests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete project |
 | [**deleteProjectsAttribute**](ProjectsApi.md#deleteProjectsAttribute) | **DELETE** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute |
 | [**export**](ProjectsApi.md#export) | **POST** /api/v2/projects/{id}/export | Export project as JSON file |
+| [**exportProjectJson**](ProjectsApi.md#exportProjectJson) | **POST** /api/v2/projects/{id}/export/json | Export project as JSON file in background job |
+| [**exportProjectWithTestPlansJson**](ProjectsApi.md#exportProjectWithTestPlansJson) | **POST** /api/v2/projects/{id}/export/testPlans/json | Export project as JSON file with test plans in background job |
+| [**exportProjectWithTestPlansZip**](ProjectsApi.md#exportProjectWithTestPlansZip) | **POST** /api/v2/projects/{id}/export/testPlans/zip | Export project as Zip file with test plans in background job |
+| [**exportProjectZip**](ProjectsApi.md#exportProjectZip) | **POST** /api/v2/projects/{id}/export/zip | Export project as Zip file in background job |
 | [**exportWithTestPlansAndConfigurations**](ProjectsApi.md#exportWithTestPlansAndConfigurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file |
 | [**getAllProjects**](ProjectsApi.md#getAllProjects) | **GET** /api/v2/projects | Get all projects |
 | [**getAttributeByProjectId**](ProjectsApi.md#getAttributeByProjectId) | **GET** /api/v2/projects/{id}/attributes/{attributeId} | Get project attribute |
@@ -119,12 +130,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
-| **400** | &lt;br&gt; Attributes must be global  |  -  |
-| **422** | Client Error |  -  |
 | **409** | Conflict |  -  |
+| **422** | Client Error |  -  |
 | **200** | Success |  -  |
+| **400** | &lt;br&gt; Attributes must be global  |  -  |
+| **403** | Project admin permission for project settings is required |  -  |
 
 <a name="apiV2ProjectsIdAttributesTemplatesSearchPost"></a>
 # **apiV2ProjectsIdAttributesTemplatesSearchPost**
@@ -274,9 +285,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
-| **400** | Bad Request |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
 | **403** | Update project settings permission for project required |  -  |
 
 <a name="apiV2ProjectsIdAttributesTemplatesTemplateIdPost"></a>
@@ -347,9 +358,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
 | **403** | Update project settings permission for project required |  -  |
 
 <a name="apiV2ProjectsIdFailureClassesGet"></a>
@@ -488,10 +499,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successful operation |  -  |
-| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **400** | Bad Request |  -  |
+| **204** | Successful operation |  -  |
 
 <a name="apiV2ProjectsIdFiltersGet"></a>
 # **apiV2ProjectsIdFiltersGet**
@@ -560,8 +571,79 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  -  |
+
+<a name="apiV2ProjectsIdPatch"></a>
+# **apiV2ProjectsIdPatch**
+> apiV2ProjectsIdPatch(id, operation)
+
+Patch project
+
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Unique or global Id of project
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2ProjectsIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Unique or global Id of project | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Update permission for projects is required |  -  |
 
 <a name="apiV2ProjectsIdTestPlansAnalyticsGet"></a>
 # **apiV2ProjectsIdTestPlansAnalyticsGet**
@@ -647,6 +729,76 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
+<a name="apiV2ProjectsIdTestPlansDeleteBulkPost"></a>
+# **apiV2ProjectsIdTestPlansDeleteBulkPost**
+> List&lt;UUID&gt; apiV2ProjectsIdTestPlansDeleteBulkPost(id, projectTestPlansFilterModel)
+
+Delete multiple test plans
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the project
+    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    try {
+      List<UUID> result = apiInstance.apiV2ProjectsIdTestPlansDeleteBulkPost(id, projectTestPlansFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansDeleteBulkPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the project | |
+| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;UUID&gt;**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
+
 <a name="apiV2ProjectsIdTestPlansNameExistsGet"></a>
 # **apiV2ProjectsIdTestPlansNameExistsGet**
 > Boolean apiV2ProjectsIdTestPlansNameExistsGet(id, name)
@@ -718,9 +870,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
+<a name="apiV2ProjectsIdTestPlansRestoreBulkPost"></a>
+# **apiV2ProjectsIdTestPlansRestoreBulkPost**
+> apiV2ProjectsIdTestPlansRestoreBulkPost(id, projectTestPlansFilterModel)
+
+Restore multiple test plans
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the project
+    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    try {
+      apiInstance.apiV2ProjectsIdTestPlansRestoreBulkPost(id, projectTestPlansFilterModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansRestoreBulkPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the project | |
+| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | - Read permission for the project is required  - Edit permission for test plans is required |  -  |
+
 <a name="apiV2ProjectsIdTestPlansSearchPost"></a>
 # **apiV2ProjectsIdTestPlansSearchPost**
-> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, testPlanSearchQueryModel)
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel)
 
 Get Project TestPlans with analytics
 
@@ -755,9 +976,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestPlanSearchQueryModel testPlanSearchQueryModel = new TestPlanSearchQueryModel(); // TestPlanSearchQueryModel | 
+    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
     try {
-      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, testPlanSearchQueryModel);
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansSearchPost");
@@ -781,7 +1002,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testPlanSearchQueryModel** | [**TestPlanSearchQueryModel**](TestPlanSearchQueryModel.md)|  | [optional] |
+| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -869,10 +1090,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
 | **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 
 <a name="apiV2ProjectsIdTestRunsFullGet"></a>
 # **apiV2ProjectsIdTestRunsFullGet**
@@ -1347,13 +1568,289 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
+<a name="backgroundImportProject"></a>
+# **backgroundImportProject**
+> UUID backgroundImportProject(_file)
+
+Import project from JSON file in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    File _file = new File("/path/to/file"); // File | 
+    try {
+      UUID result = apiInstance.backgroundImportProject(_file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#backgroundImportProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **_file** | **File**|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for project settings required |  -  |
+
+<a name="backgroundImportToExistingProject"></a>
+# **backgroundImportToExistingProject**
+> UUID backgroundImportToExistingProject(id, _file)
+
+Import project from JSON file into existing project in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      UUID result = apiInstance.backgroundImportToExistingProject(id, _file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#backgroundImportToExistingProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **_file** | **File**| Select file | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for project settings required |  -  |
+
+<a name="backgroundImportZipProject"></a>
+# **backgroundImportZipProject**
+> UUID backgroundImportZipProject(_file)
+
+Import project from Zip file in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    File _file = new File("/path/to/file"); // File | 
+    try {
+      UUID result = apiInstance.backgroundImportZipProject(_file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#backgroundImportZipProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **_file** | **File**|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for project settings required |  -  |
+
+<a name="backgroundImportZipToExistingProject"></a>
+# **backgroundImportZipToExistingProject**
+> UUID backgroundImportZipToExistingProject(id, _file)
+
+Import project from Zip file into existing project in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      UUID result = apiInstance.backgroundImportZipToExistingProject(id, _file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#backgroundImportZipToExistingProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **_file** | **File**| Select file | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for project settings required |  -  |
+
 <a name="callImport"></a>
 # **callImport**
 > callImport(includeAttachments, _file)
 
 Import project from JSON file
 
-&lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &lt;code&gt;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &lt;/code&gt;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+&lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
 
 ### Example
 ```java
@@ -1415,10 +1912,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Project creator or admin system role is required |  -  |
 | **413** | Multipart body length limit exceeded |  -  |
 | **400** | Bad Request |  -  |
-| **204** | Success |  -  |
-| **403** | Project creator or admin system role is required |  -  |
 | **409** | Entity with the same ID was already imported in other project |  -  |
 
 <a name="createCustomAttributeTestPlanProjectRelations"></a>
@@ -1489,8 +1986,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
 | **403** | Update permission for project settings is required |  -  |
+| **204** | No Content |  -  |
 | **400** | &lt;br&gt; Attributes must be global  |  -  |
 
 <a name="createProject"></a>
@@ -1560,8 +2057,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
 | **403** | Project creator or admin system role is required |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Project with the same name already exists |  -  |
 
@@ -1634,12 +2131,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
-| **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
+| **422** | Cannot add new attribute from template which is in use |  -  |
+| **403** | Update permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 | **400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
-| **403** | Update permission for project settings is required |  -  |
-| **422** | Cannot add new attribute from template which is in use |  -  |
+| **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
+| **201** | Created |  -  |
 
 <a name="deleteCustomAttributeTestPlanProjectRelations"></a>
 # **deleteCustomAttributeTestPlanProjectRelations**
@@ -1709,7 +2206,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
 <a name="deleteProject"></a>
@@ -1778,9 +2275,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Delete permission for projects is required |  -  |
 | **404** | Project with provided ID does not exists |  -  |
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
+| **403** | Delete permission for projects is required |  -  |
 
 <a name="deleteProjectAutoTests"></a>
 # **deleteProjectAutoTests**
@@ -1848,7 +2345,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Delete permission for AutoTest required |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
 
@@ -1920,8 +2417,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
 | **204** | Successful operation |  -  |
+| **404** | Project with provided ID was not found |  -  |
 | **400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
@@ -1931,7 +2428,7 @@ null (empty response body)
 
 Export project as JSON file
 
-&lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &lt;code&gt;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &lt;/code&gt;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
+&lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
 
 ### Example
 ```java
@@ -1996,10 +2493,298 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | Not Found |  -  |
 | **200** | Success |  -  |
-| **400** | Root section was not found |  -  |
 | **403** | Update permission for project settings is required |  -  |
-| **404** | Project with provided ID was not found |  -  |
+| **400** | Root section was not found |  -  |
+
+<a name="exportProjectJson"></a>
+# **exportProjectJson**
+> UUID exportProjectJson(id, timeZoneOffsetInMinutes, projectExportQueryModel)
+
+Export project as JSON file in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Long timeZoneOffsetInMinutes = 56L; // Long | 
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    try {
+      UUID result = apiInstance.exportProjectJson(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#exportProjectJson");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **200** | Success |  -  |
+
+<a name="exportProjectWithTestPlansJson"></a>
+# **exportProjectWithTestPlansJson**
+> UUID exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
+
+Export project as JSON file with test plans in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Long timeZoneOffsetInMinutes = 56L; // Long | 
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    try {
+      UUID result = apiInstance.exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#exportProjectWithTestPlansJson");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for project settings is required |  -  |
+
+<a name="exportProjectWithTestPlansZip"></a>
+# **exportProjectWithTestPlansZip**
+> UUID exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
+
+Export project as Zip file with test plans in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Long timeZoneOffsetInMinutes = 56L; // Long | 
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    try {
+      UUID result = apiInstance.exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#exportProjectWithTestPlansZip");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **200** | Success |  -  |
+
+<a name="exportProjectZip"></a>
+# **exportProjectZip**
+> UUID exportProjectZip(id, timeZoneOffsetInMinutes, projectExportQueryModel)
+
+Export project as Zip file in background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Long timeZoneOffsetInMinutes = 56L; // Long | 
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    try {
+      UUID result = apiInstance.exportProjectZip(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#exportProjectZip");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **200** | Success |  -  |
 
 <a name="exportWithTestPlansAndConfigurations"></a>
 # **exportWithTestPlansAndConfigurations**
@@ -2072,10 +2857,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **403** | Update permission for project settings is required |  -  |
-| **400** | Root section was not found |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **400** | Root section was not found |  -  |
+| **403** | Update permission for project settings is required |  -  |
+| **200** | Success |  -  |
 
 <a name="getAllProjects"></a>
 # **getAllProjects**
@@ -2230,8 +3015,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
 | **403** | Read permission for test library is required |  -  |
-| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getAttributesByProjectId"></a>
 # **getAttributesByProjectId**
@@ -2264,7 +3049,7 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-    Boolean isDeleted = false; // Boolean | If result must consist of only actual/deleted work items
+    DeletionState isDeleted = DeletionState.fromValue("Any"); // DeletionState | 
     try {
       List<CustomAttributeModel> result = apiInstance.getAttributesByProjectId(id, isDeleted);
       System.out.println(result);
@@ -2284,7 +3069,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **isDeleted** | **Boolean**| If result must consist of only actual/deleted work items | [optional] [default to false] |
+| **isDeleted** | [**DeletionState**](.md)|  | [optional] [enum: Any, Deleted, NotDeleted] |
 
 ### Return type
 
@@ -2302,9 +3087,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
 
 <a name="getAutoTestsNamespaces"></a>
@@ -2374,8 +3159,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test library is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
 <a name="getConfigurationsByProjectId"></a>
@@ -2445,9 +3230,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Read permission for configurations required |  -  |
 
 <a name="getCustomAttributeTestPlanProjectRelations"></a>
@@ -2517,8 +3302,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | Read permission for project settings is required |  -  |
+| **200** | Success |  -  |
 
 <a name="getProjectById"></a>
 # **getProjectById**
@@ -2587,10 +3372,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Project with provided ID was not found |  -  |
-| **400** | ID is invalid |  -  |
 | **403** | Read permission for projects is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  -  |
+| **400** | ID is invalid |  -  |
 
 <a name="getSectionsByProjectId"></a>
 # **getSectionsByProjectId**
@@ -2669,10 +3454,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
 | **403** | Read permission for test library is required |  -  |
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **404** | Project with provided ID was not found |  -  |
 
 <a name="getTestPlansByProjectId"></a>
 # **getTestPlansByProjectId**
@@ -2743,8 +3528,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | Read permission for test library is required |  -  |
+| **200** | Success |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
 <a name="getTestRunsByProjectId"></a>
@@ -2839,8 +3624,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | Project with provided ID was not found |  -  |
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for test result is required |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 <a name="getWorkItemsByProjectId"></a>
 # **getWorkItemsByProjectId**
@@ -2925,10 +3710,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 | **403** | Read permission for test library is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
 <a name="importToExistingProject"></a>
 # **importToExistingProject**
@@ -3000,10 +3785,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **413** | Multipart body length limit exceeded |  -  |
+| **204** | No Content |  -  |
 | **403** | Update permission for project settings required |  -  |
 | **409** | Entity with same id already imported in other project |  -  |
-| **413** | Multipart body length limit exceeded |  -  |
 | **404** | File not found |  -  |
 
 <a name="restoreProject"></a>
@@ -3072,9 +3857,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
-| **404** | Project with provided ID was not found |  -  |
+| **204** | No Content |  -  |
 | **403** | Update permission for projects is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
 <a name="searchAttributesInProject"></a>
 # **searchAttributesInProject**
@@ -3153,8 +3938,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for project is required |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 <a name="searchTestPlanAttributesInProject"></a>
 # **searchTestPlanAttributesInProject**
@@ -3304,7 +4089,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
 <a name="updateProject"></a>
@@ -3373,11 +4158,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
-| **409** | Project with the same name already exists |  -  |
+| **204** | No Content |  -  |
 | **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required |  -  |
 | **403** | Update permission for projects is required |  -  |
-| **204** | Success |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **409** | Project with the same name already exists |  -  |
 
 <a name="updateProjectsAttribute"></a>
 # **updateProjectsAttribute**
@@ -3445,6 +4230,6 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Update permission for project settings is required |  -  |
 

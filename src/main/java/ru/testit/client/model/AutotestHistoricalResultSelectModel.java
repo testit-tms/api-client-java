@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,19 +32,19 @@ import java.util.Map.Entry;
 public class AutotestHistoricalResultSelectModel {
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private Set<AutotestResultOutcome> outcomes = null;
+  private Set<AutotestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  private Set<UUID> testPlanIds = null;
+  private Set<UUID> testPlanIds;
 
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  private Set<UUID> testRunIds = null;
+  private Set<UUID> testRunIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds = null;
+  private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
@@ -53,7 +52,7 @@ public class AutotestHistoricalResultSelectModel {
 
   public static final String SERIALIZED_NAME_USER_IDS = "userIds";
   @SerializedName(SERIALIZED_NAME_USER_IDS)
-  private Set<UUID> userIds = null;
+  private Set<UUID> userIds;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -69,9 +68,6 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addOutcomesItem(AutotestResultOutcome outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new LinkedHashSet<>();
-    }
     this.outcomes.add(outcomesItem);
     return this;
   }
@@ -81,7 +77,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return outcomes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<AutotestResultOutcome> getOutcomes() {
     return outcomes;
@@ -100,9 +95,6 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addTestPlanIdsItem(UUID testPlanIdsItem) {
-    if (this.testPlanIds == null) {
-      this.testPlanIds = new LinkedHashSet<>();
-    }
     this.testPlanIds.add(testPlanIdsItem);
     return this;
   }
@@ -112,7 +104,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return testPlanIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getTestPlanIds() {
     return testPlanIds;
@@ -131,9 +122,6 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addTestRunIdsItem(UUID testRunIdsItem) {
-    if (this.testRunIds == null) {
-      this.testRunIds = new LinkedHashSet<>();
-    }
     this.testRunIds.add(testRunIdsItem);
     return this;
   }
@@ -143,7 +131,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return testRunIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getTestRunIds() {
     return testRunIds;
@@ -162,9 +149,6 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new LinkedHashSet<>();
-    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -174,7 +158,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
@@ -197,7 +180,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -216,9 +198,6 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addUserIdsItem(UUID userIdsItem) {
-    if (this.userIds == null) {
-      this.userIds = new LinkedHashSet<>();
-    }
     this.userIds.add(userIdsItem);
     return this;
   }
@@ -228,7 +207,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return userIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getUserIds() {
     return userIds;
@@ -251,7 +229,6 @@ public class AutotestHistoricalResultSelectModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int64RangeSelectorModel getDuration() {
     return duration;

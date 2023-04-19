@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -61,7 +60,7 @@ public class ProjectsFilterModel {
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -69,7 +68,7 @@ public class ProjectsFilterModel {
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public ProjectsFilterModel() {
   }
@@ -85,7 +84,6 @@ public class ProjectsFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project name to search for")
 
   public String getName() {
     return name;
@@ -108,7 +106,6 @@ public class ProjectsFilterModel {
    * @return isFavorite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project favorite status to search for")
 
   public Boolean getIsFavorite() {
     return isFavorite;
@@ -131,7 +128,6 @@ public class ProjectsFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project deleted status to search for")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -154,7 +150,6 @@ public class ProjectsFilterModel {
    * @return testCasesCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32RangeSelectorModel getTestCasesCount() {
     return testCasesCount;
@@ -177,7 +172,6 @@ public class ProjectsFilterModel {
    * @return checklistsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32RangeSelectorModel getChecklistsCount() {
     return checklistsCount;
@@ -200,7 +194,6 @@ public class ProjectsFilterModel {
    * @return sharedStepsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32RangeSelectorModel getSharedStepsCount() {
     return sharedStepsCount;
@@ -223,7 +216,6 @@ public class ProjectsFilterModel {
    * @return autotestsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32RangeSelectorModel getAutotestsCount() {
     return autotestsCount;
@@ -242,9 +234,6 @@ public class ProjectsFilterModel {
   }
 
   public ProjectsFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -254,7 +243,6 @@ public class ProjectsFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project global IDs to search for")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -277,7 +265,6 @@ public class ProjectsFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -296,9 +283,6 @@ public class ProjectsFilterModel {
   }
 
   public ProjectsFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -308,7 +292,6 @@ public class ProjectsFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest creator IDs to search for")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;

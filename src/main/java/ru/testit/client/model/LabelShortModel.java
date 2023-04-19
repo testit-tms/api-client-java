@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -54,7 +53,6 @@ public class LabelShortModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -77,7 +75,6 @@ public class LabelShortModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Label name.")
 
   public String getName() {
     return name;

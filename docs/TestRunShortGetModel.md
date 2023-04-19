@@ -15,10 +15,10 @@
 |**modifiedDate** | **OffsetDateTime** | Date when the test run was modified last time |  [optional] |
 |**modifiedById** | **UUID** | Unique ID of user who modified the test run last time |  [optional] |
 |**isDeleted** | **Boolean** | Is the test run is deleted |  [optional] |
-|**state** | **TestRunState** |  |  [optional] |
+|**state** | **TestRunState** |  |  |
 |**startedDate** | **OffsetDateTime** | Date when the test run was started |  [optional] |
 |**autotestsCount** | **Integer** | Number of autotests run in the test run |  [optional] |
-|**statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  |  [optional] |
+|**statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  |  |
 
 
 

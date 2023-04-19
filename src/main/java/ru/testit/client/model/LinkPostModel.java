@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -68,7 +67,6 @@ public class LinkPostModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Link name.")
 
   public String getTitle() {
     return title;
@@ -91,7 +89,6 @@ public class LinkPostModel {
    * @return url
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Address can be specified without protocol, but necessarily with the domain.")
 
   public String getUrl() {
     return url;
@@ -114,7 +111,6 @@ public class LinkPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Link description.")
 
   public String getDescription() {
     return description;
@@ -137,7 +133,6 @@ public class LinkPostModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public LinkType getType() {
     return type;
@@ -160,7 +155,6 @@ public class LinkPostModel {
    * @return hasInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getHasInfo() {
     return hasInfo;

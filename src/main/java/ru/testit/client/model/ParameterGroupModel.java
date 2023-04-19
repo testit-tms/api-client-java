@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -37,7 +36,7 @@ public class ParameterGroupModel {
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  private Map<String, String> values = null;
+  private Map<String, String> values;
 
   public static final String SERIALIZED_NAME_PARAMETER_KEY_ID = "parameterKeyId";
   @SerializedName(SERIALIZED_NAME_PARAMETER_KEY_ID)
@@ -57,7 +56,6 @@ public class ParameterGroupModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -76,9 +74,6 @@ public class ParameterGroupModel {
   }
 
   public ParameterGroupModel putValuesItem(String key, String valuesItem) {
-    if (this.values == null) {
-      this.values = new HashMap<>();
-    }
     this.values.put(key, valuesItem);
     return this;
   }
@@ -88,7 +83,6 @@ public class ParameterGroupModel {
    * @return values
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getValues() {
     return values;
@@ -111,7 +105,6 @@ public class ParameterGroupModel {
    * @return parameterKeyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getParameterKeyId() {
     return parameterKeyId;

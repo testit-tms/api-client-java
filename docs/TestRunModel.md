@@ -23,7 +23,7 @@
 |**completedDate** | **OffsetDateTime** |  |  [optional] |
 |**build** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**stateName** | **TestRunState** |  |  [optional] |
+|**stateName** | **TestRunState** |  |  |
 |**projectId** | **UUID** |  |  [optional] |
 |**testPlanId** | **UUID** |  |  [optional] |
 |**runByUserId** | **UUID** |  |  [optional] |

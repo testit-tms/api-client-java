@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -66,7 +65,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return inProgress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which is running currently")
 
   public Integer getInProgress() {
     return inProgress;
@@ -89,7 +87,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return passed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which successfully passed")
 
   public Integer getPassed() {
     return passed;
@@ -112,7 +109,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return failed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which failed with an error")
 
   public Integer getFailed() {
     return failed;
@@ -135,7 +131,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return skipped
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which did not run and were skipped")
 
   public Integer getSkipped() {
     return skipped;
@@ -158,7 +153,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return blocked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which cannot be launched")
 
   public Integer getBlocked() {
     return blocked;

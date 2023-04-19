@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -81,7 +80,7 @@ public class TestPlanChangedFieldsViewModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, CustomAttributeChangeModel> attributes = null;
+  private Map<String, CustomAttributeChangeModel> attributes;
 
   public TestPlanChangedFieldsViewModel() {
   }
@@ -97,7 +96,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getName() {
     return name;
@@ -120,7 +118,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getDescription() {
     return description;
@@ -143,7 +140,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getProductName() {
     return productName;
@@ -166,7 +162,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getBuild() {
     return build;
@@ -189,7 +184,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return period
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public PeriodViewModelTestPlanChangedFieldViewModel getPeriod() {
     return period;
@@ -212,7 +206,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getStatus() {
     return status;
@@ -235,7 +228,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringArrayTestPlanChangedFieldViewModel getTags() {
     return tags;
@@ -258,7 +250,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return testSuite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestSuiteChangeViewModelTestPlanChangedFieldViewModel getTestSuite() {
     return testSuite;
@@ -281,7 +272,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return testPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestPointChangeViewModelTestPlanChangedFieldViewModel getTestPoints() {
     return testPoints;
@@ -304,7 +294,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestResultChangeViewModelTestPlanChangedFieldViewModel getTestResults() {
     return testResults;
@@ -327,7 +316,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return locking
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public BooleanTestPlanChangedFieldViewModel getLocking() {
     return locking;
@@ -350,7 +338,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return hasAutomaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public BooleanNullableTestPlanChangedFieldViewModel getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
@@ -369,9 +356,6 @@ public class TestPlanChangedFieldsViewModel {
   }
 
   public TestPlanChangedFieldsViewModel putAttributesItem(String key, CustomAttributeChangeModel attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -381,7 +365,6 @@ public class TestPlanChangedFieldsViewModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, CustomAttributeChangeModel> getAttributes() {
     return attributes;

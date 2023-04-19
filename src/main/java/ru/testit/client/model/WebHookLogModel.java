@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -114,7 +113,6 @@ public class WebHookLogModel {
    * @return webHookName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWebHookName() {
     return webHookName;
@@ -136,8 +134,7 @@ public class WebHookLogModel {
    * Get eventType
    * @return eventType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WebHookEventTypeModel getEventType() {
     return eventType;
@@ -160,7 +157,6 @@ public class WebHookLogModel {
    * @return webHookId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWebHookId() {
     return webHookId;
@@ -183,7 +179,6 @@ public class WebHookLogModel {
    * @return requestBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRequestBody() {
     return requestBody;
@@ -206,7 +201,6 @@ public class WebHookLogModel {
    * @return requestMeta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRequestMeta() {
     return requestMeta;
@@ -229,7 +223,6 @@ public class WebHookLogModel {
    * @return responseStatusCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getResponseStatusCode() {
     return responseStatusCode;
@@ -252,7 +245,6 @@ public class WebHookLogModel {
    * @return responseBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getResponseBody() {
     return responseBody;
@@ -275,7 +267,6 @@ public class WebHookLogModel {
    * @return responseMeta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getResponseMeta() {
     return responseMeta;
@@ -298,7 +289,6 @@ public class WebHookLogModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -321,7 +311,6 @@ public class WebHookLogModel {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUrl() {
     return url;
@@ -343,8 +332,7 @@ public class WebHookLogModel {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public RequestTypeModel getRequestType() {
     return requestType;
@@ -367,7 +355,6 @@ public class WebHookLogModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -390,7 +377,6 @@ public class WebHookLogModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -413,7 +399,6 @@ public class WebHookLogModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -436,7 +421,6 @@ public class WebHookLogModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -459,7 +443,6 @@ public class WebHookLogModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -482,7 +465,6 @@ public class WebHookLogModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -602,6 +584,8 @@ public class WebHookLogModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("eventType");
+    openapiRequiredFields.add("requestType");
   }
 
  /**
@@ -622,6 +606,13 @@ public class WebHookLogModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!WebHookLogModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookLogModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WebHookLogModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("webHookName") != null && !jsonObj.get("webHookName").isJsonNull()) && !jsonObj.get("webHookName").isJsonPrimitive()) {

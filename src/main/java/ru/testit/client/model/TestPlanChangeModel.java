@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -66,7 +65,6 @@ public class TestPlanChangeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -89,7 +87,6 @@ public class TestPlanChangeModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -112,7 +109,6 @@ public class TestPlanChangeModel {
    * @return testPlanChangedFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestPlanChangedFieldsViewModel getTestPlanChangedFields() {
     return testPlanChangedFields;
@@ -135,7 +131,6 @@ public class TestPlanChangeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -158,7 +153,6 @@ public class TestPlanChangeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;

@@ -12,7 +12,7 @@
 |**info** | **String** | Extended description of the step result. |  [optional] |
 |**startedOn** | **OffsetDateTime** | Step start date. |  [optional] |
 |**completedOn** | **OffsetDateTime** | Step end date. |  [optional] |
-|**duration** | **Long** | Expected or actual duration of the test run execution in seconds. |  [optional] |
+|**duration** | **Long** | Expected or actual duration of the test run execution in milliseconds. |  [optional] |
 |**outcome** | **AvailableTestResultOutcome** |  |  [optional] |
 |**stepResults** | [**List&lt;AttachmentPutModelAutoTestStepResultsModel&gt;**](AttachmentPutModelAutoTestStepResultsModel.md) | Nested step results. The maximum nesting level is 15. |  [optional] |
 |**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; |  [optional] |

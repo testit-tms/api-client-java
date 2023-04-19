@@ -18,8 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -31,7 +29,6 @@ import java.util.Set;
 /**
  * Rules for different level entities inclusion/exclusion
  */
-@ApiModel(description = "Rules for different level entities inclusion/exclusion")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemsExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
@@ -60,7 +57,6 @@ public class WorkItemsExtractionModel {
    * @return ids
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidExtractionModel getIds() {
     return ids;
@@ -83,7 +79,6 @@ public class WorkItemsExtractionModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidExtractionModel getSectionIds() {
     return sectionIds;
@@ -106,7 +101,6 @@ public class WorkItemsExtractionModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidExtractionModel getProjectIds() {
     return projectIds;

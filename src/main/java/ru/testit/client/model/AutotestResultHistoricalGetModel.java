@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -44,14 +43,6 @@ public class AutotestResultHistoricalGetModel {
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
-
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
   private UUID testRunId;
@@ -59,6 +50,26 @@ public class AutotestResultHistoricalGetModel {
   public static final String SERIALIZED_NAME_TEST_RUN_NAME = "testRunName";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_NAME)
   private String testRunName;
+
+  public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  private UUID configurationId;
+
+  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  private AutotestResultOutcome outcome;
+
+  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
+  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  private String launchSource;
+
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
@@ -72,21 +83,9 @@ public class AutotestResultHistoricalGetModel {
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
   private String testPlanName;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  private UUID configurationId;
-
-  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
-  @SerializedName(SERIALIZED_NAME_OUTCOME)
-  private AutotestResultOutcome outcome;
-
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
   private Long duration;
-
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
 
   public AutotestResultHistoricalGetModel() {
   }
@@ -112,7 +111,6 @@ public class AutotestResultHistoricalGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -135,7 +133,6 @@ public class AutotestResultHistoricalGetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -158,7 +155,6 @@ public class AutotestResultHistoricalGetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -168,34 +164,6 @@ public class AutotestResultHistoricalGetModel {
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
-
-
-   /**
-   * Get modifiedDate
-   * @return modifiedDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-
-
-
-   /**
-   * Get modifiedById
-   * @return modifiedById
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-
 
 
   public AutotestResultHistoricalGetModel testRunId(UUID testRunId) {
@@ -209,7 +177,6 @@ public class AutotestResultHistoricalGetModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -232,7 +199,6 @@ public class AutotestResultHistoricalGetModel {
    * @return testRunName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTestRunName() {
     return testRunName;
@@ -242,6 +208,98 @@ public class AutotestResultHistoricalGetModel {
   public void setTestRunName(String testRunName) {
     this.testRunName = testRunName;
   }
+
+
+  public AutotestResultHistoricalGetModel configurationId(UUID configurationId) {
+    
+    this.configurationId = configurationId;
+    return this;
+  }
+
+   /**
+   * Get configurationId
+   * @return configurationId
+  **/
+  @javax.annotation.Nullable
+
+  public UUID getConfigurationId() {
+    return configurationId;
+  }
+
+
+  public void setConfigurationId(UUID configurationId) {
+    this.configurationId = configurationId;
+  }
+
+
+  public AutotestResultHistoricalGetModel outcome(AutotestResultOutcome outcome) {
+    
+    this.outcome = outcome;
+    return this;
+  }
+
+   /**
+   * Get outcome
+   * @return outcome
+  **/
+  @javax.annotation.Nonnull
+
+  public AutotestResultOutcome getOutcome() {
+    return outcome;
+  }
+
+
+  public void setOutcome(AutotestResultOutcome outcome) {
+    this.outcome = outcome;
+  }
+
+
+  public AutotestResultHistoricalGetModel launchSource(String launchSource) {
+    
+    this.launchSource = launchSource;
+    return this;
+  }
+
+   /**
+   * Get launchSource
+   * @return launchSource
+  **/
+  @javax.annotation.Nullable
+
+  public String getLaunchSource() {
+    return launchSource;
+  }
+
+
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = launchSource;
+  }
+
+
+   /**
+   * Get modifiedDate
+   * @return modifiedDate
+  **/
+  @javax.annotation.Nullable
+
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+
+
+
+   /**
+   * Get modifiedById
+   * @return modifiedById
+  **/
+  @javax.annotation.Nullable
+
+  public UUID getModifiedById() {
+    return modifiedById;
+  }
+
+
 
 
   public AutotestResultHistoricalGetModel testPlanId(UUID testPlanId) {
@@ -255,7 +313,6 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -278,7 +335,6 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
@@ -301,7 +357,6 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTestPlanName() {
     return testPlanName;
@@ -310,52 +365,6 @@ public class AutotestResultHistoricalGetModel {
 
   public void setTestPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
-  }
-
-
-  public AutotestResultHistoricalGetModel configurationId(UUID configurationId) {
-    
-    this.configurationId = configurationId;
-    return this;
-  }
-
-   /**
-   * Get configurationId
-   * @return configurationId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UUID getConfigurationId() {
-    return configurationId;
-  }
-
-
-  public void setConfigurationId(UUID configurationId) {
-    this.configurationId = configurationId;
-  }
-
-
-  public AutotestResultHistoricalGetModel outcome(AutotestResultOutcome outcome) {
-    
-    this.outcome = outcome;
-    return this;
-  }
-
-   /**
-   * Get outcome
-   * @return outcome
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AutotestResultOutcome getOutcome() {
-    return outcome;
-  }
-
-
-  public void setOutcome(AutotestResultOutcome outcome) {
-    this.outcome = outcome;
   }
 
 
@@ -370,7 +379,6 @@ public class AutotestResultHistoricalGetModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getDuration() {
     return duration;
@@ -379,29 +387,6 @@ public class AutotestResultHistoricalGetModel {
 
   public void setDuration(Long duration) {
     this.duration = duration;
-  }
-
-
-  public AutotestResultHistoricalGetModel launchSource(String launchSource) {
-    
-    this.launchSource = launchSource;
-    return this;
-  }
-
-   /**
-   * Get launchSource
-   * @return launchSource
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLaunchSource() {
-    return launchSource;
-  }
-
-
-  public void setLaunchSource(String launchSource) {
-    this.launchSource = launchSource;
   }
 
 
@@ -418,17 +403,17 @@ public class AutotestResultHistoricalGetModel {
     return Objects.equals(this.id, autotestResultHistoricalGetModel.id) &&
         Objects.equals(this.createdDate, autotestResultHistoricalGetModel.createdDate) &&
         Objects.equals(this.createdById, autotestResultHistoricalGetModel.createdById) &&
-        Objects.equals(this.modifiedDate, autotestResultHistoricalGetModel.modifiedDate) &&
-        Objects.equals(this.modifiedById, autotestResultHistoricalGetModel.modifiedById) &&
         Objects.equals(this.testRunId, autotestResultHistoricalGetModel.testRunId) &&
         Objects.equals(this.testRunName, autotestResultHistoricalGetModel.testRunName) &&
+        Objects.equals(this.configurationId, autotestResultHistoricalGetModel.configurationId) &&
+        Objects.equals(this.outcome, autotestResultHistoricalGetModel.outcome) &&
+        Objects.equals(this.launchSource, autotestResultHistoricalGetModel.launchSource) &&
+        Objects.equals(this.modifiedDate, autotestResultHistoricalGetModel.modifiedDate) &&
+        Objects.equals(this.modifiedById, autotestResultHistoricalGetModel.modifiedById) &&
         Objects.equals(this.testPlanId, autotestResultHistoricalGetModel.testPlanId) &&
         Objects.equals(this.testPlanGlobalId, autotestResultHistoricalGetModel.testPlanGlobalId) &&
         Objects.equals(this.testPlanName, autotestResultHistoricalGetModel.testPlanName) &&
-        Objects.equals(this.configurationId, autotestResultHistoricalGetModel.configurationId) &&
-        Objects.equals(this.outcome, autotestResultHistoricalGetModel.outcome) &&
-        Objects.equals(this.duration, autotestResultHistoricalGetModel.duration) &&
-        Objects.equals(this.launchSource, autotestResultHistoricalGetModel.launchSource);
+        Objects.equals(this.duration, autotestResultHistoricalGetModel.duration);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -437,7 +422,7 @@ public class AutotestResultHistoricalGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testRunId, testRunName, testPlanId, testPlanGlobalId, testPlanName, configurationId, outcome, duration, launchSource);
+    return Objects.hash(id, createdDate, createdById, testRunId, testRunName, configurationId, outcome, launchSource, modifiedDate, modifiedById, testPlanId, testPlanGlobalId, testPlanName, duration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,17 +439,17 @@ public class AutotestResultHistoricalGetModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
-    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
-    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    testRunId: ").append(toIndentedString(testRunId)).append("\n");
     sb.append("    testRunName: ").append(toIndentedString(testRunName)).append("\n");
+    sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
+    sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
+    sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    testPlanGlobalId: ").append(toIndentedString(testPlanGlobalId)).append("\n");
     sb.append("    testPlanName: ").append(toIndentedString(testPlanName)).append("\n");
-    sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
-    sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -490,20 +475,21 @@ public class AutotestResultHistoricalGetModel {
     openapiFields.add("id");
     openapiFields.add("createdDate");
     openapiFields.add("createdById");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("modifiedById");
     openapiFields.add("testRunId");
     openapiFields.add("testRunName");
+    openapiFields.add("configurationId");
+    openapiFields.add("outcome");
+    openapiFields.add("launchSource");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("modifiedById");
     openapiFields.add("testPlanId");
     openapiFields.add("testPlanGlobalId");
     openapiFields.add("testPlanName");
-    openapiFields.add("configurationId");
-    openapiFields.add("outcome");
     openapiFields.add("duration");
-    openapiFields.add("launchSource");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("outcome");
   }
 
  /**
@@ -526,14 +512,18 @@ public class AutotestResultHistoricalGetModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultHistoricalGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : AutotestResultHistoricalGetModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
       if ((jsonObj.get("testRunId") != null && !jsonObj.get("testRunId").isJsonNull()) && !jsonObj.get("testRunId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
@@ -541,17 +531,20 @@ public class AutotestResultHistoricalGetModel {
       if ((jsonObj.get("testRunName") != null && !jsonObj.get("testRunName").isJsonNull()) && !jsonObj.get("testRunName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunName").toString()));
       }
-      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if ((jsonObj.get("testPlanName") != null && !jsonObj.get("testPlanName").isJsonNull()) && !jsonObj.get("testPlanName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanName").toString()));
-      }
       if ((jsonObj.get("configurationId") != null && !jsonObj.get("configurationId").isJsonNull()) && !jsonObj.get("configurationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
       }
       if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
+      }
+      if ((jsonObj.get("testPlanName") != null && !jsonObj.get("testPlanName").isJsonNull()) && !jsonObj.get("testPlanName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPlanName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanName").toString()));
       }
   }
 

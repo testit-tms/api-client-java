@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**testPlanIds** | **Set&lt;UUID&gt;** | Specifies a test point test plan IDS to search for |  [optional] |
 |**testSuiteIds** | **Set&lt;UUID&gt;** | Specifies a test point test suite IDs to search for |  [optional] |
 |**workItemGlobalIds** | **Set&lt;Long&gt;** | Specifies a test point work item global IDs to search for |  [optional] |
 |**statuses** | **Set&lt;TestPointStatus&gt;** | Specifies a test point statuses to search for |  [optional] |

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -66,7 +65,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return noAnalytics
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which outcomes were not analyzed")
 
   public Integer getNoAnalytics() {
     return noAnalytics;
@@ -89,7 +87,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return noDefect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which outcomes were not caused by any defect")
 
   public Integer getNoDefect() {
     return noDefect;
@@ -112,7 +109,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return infrastructureDefect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which outcomes were caused by some infrastructure defect")
 
   public Integer getInfrastructureDefect() {
     return infrastructureDefect;
@@ -135,7 +131,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return productDefect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which outcomes were caused by some tested product defect")
 
   public Integer getProductDefect() {
     return productDefect;
@@ -158,7 +153,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return testDefect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which outcomes were caused by test itself")
 
   public Integer getTestDefect() {
     return testDefect;

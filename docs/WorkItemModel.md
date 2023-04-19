@@ -24,7 +24,7 @@
 |**createdById** | **UUID** |  |  [optional] |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**globalId** | **Long** |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**state** | **WorkItemStates** |  |  |

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -27,10 +26,10 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * TestPlanSearchQueryModel
+ * ProjectTestPlansFilterModel
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TestPlanSearchQueryModel {
+public class ProjectTestPlansFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -49,11 +48,11 @@ public class TestPlanSearchQueryModel {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private Set<TestPlanStatusModel> status = null;
+  private Set<TestPlanStatusModel> status;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
   @SerializedName(SERIALIZED_NAME_IS_LOCKED)
@@ -61,44 +60,44 @@ public class TestPlanSearchQueryModel {
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  private DateRangeModel lockedDate;
+  private DateTimeRangeSelectorModel lockedDate;
 
   public static final String SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER)
-  private Set<Boolean> automaticDurationTimer = null;
+  private Set<Boolean> automaticDurationTimer;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateRangeModel createdDate;
+  private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  private DateRangeModel startDate;
+  private DateTimeRangeSelectorModel startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  private DateRangeModel endDate;
+  private DateTimeRangeSelectorModel endDate;
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private Set<String> tagNames = null;
+  private Set<String> tagNames;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes = null;
+  private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
 
-  public TestPlanSearchQueryModel() {
+  public ProjectTestPlansFilterModel() {
   }
 
-  public TestPlanSearchQueryModel name(String name) {
+  public ProjectTestPlansFilterModel name(String name) {
     
     this.name = name;
     return this;
@@ -109,7 +108,6 @@ public class TestPlanSearchQueryModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -121,7 +119,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel description(String description) {
+  public ProjectTestPlansFilterModel description(String description) {
     
     this.description = description;
     return this;
@@ -132,7 +130,6 @@ public class TestPlanSearchQueryModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -144,7 +141,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel build(String build) {
+  public ProjectTestPlansFilterModel build(String build) {
     
     this.build = build;
     return this;
@@ -155,7 +152,6 @@ public class TestPlanSearchQueryModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getBuild() {
     return build;
@@ -167,7 +163,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel productName(String productName) {
+  public ProjectTestPlansFilterModel productName(String productName) {
     
     this.productName = productName;
     return this;
@@ -178,7 +174,6 @@ public class TestPlanSearchQueryModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getProductName() {
     return productName;
@@ -190,16 +185,13 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel status(Set<TestPlanStatusModel> status) {
+  public ProjectTestPlansFilterModel status(Set<TestPlanStatusModel> status) {
     
     this.status = status;
     return this;
   }
 
-  public TestPlanSearchQueryModel addStatusItem(TestPlanStatusModel statusItem) {
-    if (this.status == null) {
-      this.status = new LinkedHashSet<>();
-    }
+  public ProjectTestPlansFilterModel addStatusItem(TestPlanStatusModel statusItem) {
     this.status.add(statusItem);
     return this;
   }
@@ -209,7 +201,6 @@ public class TestPlanSearchQueryModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<TestPlanStatusModel> getStatus() {
     return status;
@@ -221,16 +212,13 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel globalIds(Set<Long> globalIds) {
+  public ProjectTestPlansFilterModel globalIds(Set<Long> globalIds) {
     
     this.globalIds = globalIds;
     return this;
   }
 
-  public TestPlanSearchQueryModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
+  public ProjectTestPlansFilterModel addGlobalIdsItem(Long globalIdsItem) {
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -240,7 +228,6 @@ public class TestPlanSearchQueryModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -252,7 +239,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel isLocked(Boolean isLocked) {
+  public ProjectTestPlansFilterModel isLocked(Boolean isLocked) {
     
     this.isLocked = isLocked;
     return this;
@@ -263,7 +250,6 @@ public class TestPlanSearchQueryModel {
    * @return isLocked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsLocked() {
     return isLocked;
@@ -275,7 +261,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel lockedDate(DateRangeModel lockedDate) {
+  public ProjectTestPlansFilterModel lockedDate(DateTimeRangeSelectorModel lockedDate) {
     
     this.lockedDate = lockedDate;
     return this;
@@ -286,28 +272,24 @@ public class TestPlanSearchQueryModel {
    * @return lockedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public DateRangeModel getLockedDate() {
+  public DateTimeRangeSelectorModel getLockedDate() {
     return lockedDate;
   }
 
 
-  public void setLockedDate(DateRangeModel lockedDate) {
+  public void setLockedDate(DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public TestPlanSearchQueryModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
+  public ProjectTestPlansFilterModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
     
     this.automaticDurationTimer = automaticDurationTimer;
     return this;
   }
 
-  public TestPlanSearchQueryModel addAutomaticDurationTimerItem(Boolean automaticDurationTimerItem) {
-    if (this.automaticDurationTimer == null) {
-      this.automaticDurationTimer = new LinkedHashSet<>();
-    }
+  public ProjectTestPlansFilterModel addAutomaticDurationTimerItem(Boolean automaticDurationTimerItem) {
     this.automaticDurationTimer.add(automaticDurationTimerItem);
     return this;
   }
@@ -317,7 +299,6 @@ public class TestPlanSearchQueryModel {
    * @return automaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<Boolean> getAutomaticDurationTimer() {
     return automaticDurationTimer;
@@ -329,16 +310,13 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel createdByIds(Set<UUID> createdByIds) {
+  public ProjectTestPlansFilterModel createdByIds(Set<UUID> createdByIds) {
     
     this.createdByIds = createdByIds;
     return this;
   }
 
-  public TestPlanSearchQueryModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
+  public ProjectTestPlansFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -348,7 +326,6 @@ public class TestPlanSearchQueryModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -360,7 +337,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel createdDate(DateRangeModel createdDate) {
+  public ProjectTestPlansFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -371,19 +348,18 @@ public class TestPlanSearchQueryModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public DateRangeModel getCreatedDate() {
+  public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateRangeModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPlanSearchQueryModel startDate(DateRangeModel startDate) {
+  public ProjectTestPlansFilterModel startDate(DateTimeRangeSelectorModel startDate) {
     
     this.startDate = startDate;
     return this;
@@ -394,19 +370,18 @@ public class TestPlanSearchQueryModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public DateRangeModel getStartDate() {
+  public DateTimeRangeSelectorModel getStartDate() {
     return startDate;
   }
 
 
-  public void setStartDate(DateRangeModel startDate) {
+  public void setStartDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
   }
 
 
-  public TestPlanSearchQueryModel endDate(DateRangeModel endDate) {
+  public ProjectTestPlansFilterModel endDate(DateTimeRangeSelectorModel endDate) {
     
     this.endDate = endDate;
     return this;
@@ -417,28 +392,24 @@ public class TestPlanSearchQueryModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public DateRangeModel getEndDate() {
+  public DateTimeRangeSelectorModel getEndDate() {
     return endDate;
   }
 
 
-  public void setEndDate(DateRangeModel endDate) {
+  public void setEndDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
   }
 
 
-  public TestPlanSearchQueryModel tagNames(Set<String> tagNames) {
+  public ProjectTestPlansFilterModel tagNames(Set<String> tagNames) {
     
     this.tagNames = tagNames;
     return this;
   }
 
-  public TestPlanSearchQueryModel addTagNamesItem(String tagNamesItem) {
-    if (this.tagNames == null) {
-      this.tagNames = new LinkedHashSet<>();
-    }
+  public ProjectTestPlansFilterModel addTagNamesItem(String tagNamesItem) {
     this.tagNames.add(tagNamesItem);
     return this;
   }
@@ -448,7 +419,6 @@ public class TestPlanSearchQueryModel {
    * @return tagNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<String> getTagNames() {
     return tagNames;
@@ -460,16 +430,13 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel attributes(Map<String, Set<String>> attributes) {
+  public ProjectTestPlansFilterModel attributes(Map<String, Set<String>> attributes) {
     
     this.attributes = attributes;
     return this;
   }
 
-  public TestPlanSearchQueryModel putAttributesItem(String key, Set<String> attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
+  public ProjectTestPlansFilterModel putAttributesItem(String key, Set<String> attributesItem) {
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -479,7 +446,6 @@ public class TestPlanSearchQueryModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Set<String>> getAttributes() {
     return attributes;
@@ -491,7 +457,7 @@ public class TestPlanSearchQueryModel {
   }
 
 
-  public TestPlanSearchQueryModel isDeleted(Boolean isDeleted) {
+  public ProjectTestPlansFilterModel isDeleted(Boolean isDeleted) {
     
     this.isDeleted = isDeleted;
     return this;
@@ -502,7 +468,6 @@ public class TestPlanSearchQueryModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -523,23 +488,23 @@ public class TestPlanSearchQueryModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestPlanSearchQueryModel testPlanSearchQueryModel = (TestPlanSearchQueryModel) o;
-    return Objects.equals(this.name, testPlanSearchQueryModel.name) &&
-        Objects.equals(this.description, testPlanSearchQueryModel.description) &&
-        Objects.equals(this.build, testPlanSearchQueryModel.build) &&
-        Objects.equals(this.productName, testPlanSearchQueryModel.productName) &&
-        Objects.equals(this.status, testPlanSearchQueryModel.status) &&
-        Objects.equals(this.globalIds, testPlanSearchQueryModel.globalIds) &&
-        Objects.equals(this.isLocked, testPlanSearchQueryModel.isLocked) &&
-        Objects.equals(this.lockedDate, testPlanSearchQueryModel.lockedDate) &&
-        Objects.equals(this.automaticDurationTimer, testPlanSearchQueryModel.automaticDurationTimer) &&
-        Objects.equals(this.createdByIds, testPlanSearchQueryModel.createdByIds) &&
-        Objects.equals(this.createdDate, testPlanSearchQueryModel.createdDate) &&
-        Objects.equals(this.startDate, testPlanSearchQueryModel.startDate) &&
-        Objects.equals(this.endDate, testPlanSearchQueryModel.endDate) &&
-        Objects.equals(this.tagNames, testPlanSearchQueryModel.tagNames) &&
-        Objects.equals(this.attributes, testPlanSearchQueryModel.attributes) &&
-        Objects.equals(this.isDeleted, testPlanSearchQueryModel.isDeleted);
+    ProjectTestPlansFilterModel projectTestPlansFilterModel = (ProjectTestPlansFilterModel) o;
+    return Objects.equals(this.name, projectTestPlansFilterModel.name) &&
+        Objects.equals(this.description, projectTestPlansFilterModel.description) &&
+        Objects.equals(this.build, projectTestPlansFilterModel.build) &&
+        Objects.equals(this.productName, projectTestPlansFilterModel.productName) &&
+        Objects.equals(this.status, projectTestPlansFilterModel.status) &&
+        Objects.equals(this.globalIds, projectTestPlansFilterModel.globalIds) &&
+        Objects.equals(this.isLocked, projectTestPlansFilterModel.isLocked) &&
+        Objects.equals(this.lockedDate, projectTestPlansFilterModel.lockedDate) &&
+        Objects.equals(this.automaticDurationTimer, projectTestPlansFilterModel.automaticDurationTimer) &&
+        Objects.equals(this.createdByIds, projectTestPlansFilterModel.createdByIds) &&
+        Objects.equals(this.createdDate, projectTestPlansFilterModel.createdDate) &&
+        Objects.equals(this.startDate, projectTestPlansFilterModel.startDate) &&
+        Objects.equals(this.endDate, projectTestPlansFilterModel.endDate) &&
+        Objects.equals(this.tagNames, projectTestPlansFilterModel.tagNames) &&
+        Objects.equals(this.attributes, projectTestPlansFilterModel.attributes) &&
+        Objects.equals(this.isDeleted, projectTestPlansFilterModel.isDeleted);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -561,7 +526,7 @@ public class TestPlanSearchQueryModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestPlanSearchQueryModel {\n");
+    sb.append("class ProjectTestPlansFilterModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    build: ").append(toIndentedString(build)).append("\n");
@@ -625,20 +590,20 @@ public class TestPlanSearchQueryModel {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanSearchQueryModel
+  * @throws IOException if the JSON Object is invalid with respect to ProjectTestPlansFilterModel
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!TestPlanSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanSearchQueryModel is not found in the empty JSON string", TestPlanSearchQueryModel.openapiRequiredFields.toString()));
+        if (!ProjectTestPlansFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectTestPlansFilterModel is not found in the empty JSON string", ProjectTestPlansFilterModel.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanSearchQueryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ProjectTestPlansFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectTestPlansFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
@@ -663,7 +628,7 @@ public class TestPlanSearchQueryModel {
       }
       // validate the optional field `lockedDate`
       if (jsonObj.get("lockedDate") != null && !jsonObj.get("lockedDate").isJsonNull()) {
-        DateRangeModel.validateJsonObject(jsonObj.getAsJsonObject("lockedDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("lockedDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("automaticDurationTimer") != null && !jsonObj.get("automaticDurationTimer").isJsonArray()) {
@@ -675,15 +640,15 @@ public class TestPlanSearchQueryModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateRangeModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // validate the optional field `startDate`
       if (jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull()) {
-        DateRangeModel.validateJsonObject(jsonObj.getAsJsonObject("startDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("startDate"));
       }
       // validate the optional field `endDate`
       if (jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull()) {
-        DateRangeModel.validateJsonObject(jsonObj.getAsJsonObject("endDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("endDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
@@ -695,22 +660,22 @@ public class TestPlanSearchQueryModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanSearchQueryModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanSearchQueryModel' and its subtypes
+       if (!ProjectTestPlansFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ProjectTestPlansFilterModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanSearchQueryModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanSearchQueryModel.class));
+       final TypeAdapter<ProjectTestPlansFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectTestPlansFilterModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanSearchQueryModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<ProjectTestPlansFilterModel>() {
            @Override
-           public void write(JsonWriter out, TestPlanSearchQueryModel value) throws IOException {
+           public void write(JsonWriter out, ProjectTestPlansFilterModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public TestPlanSearchQueryModel read(JsonReader in) throws IOException {
+           public ProjectTestPlansFilterModel read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -721,18 +686,18 @@ public class TestPlanSearchQueryModel {
   }
 
  /**
-  * Create an instance of TestPlanSearchQueryModel given an JSON string
+  * Create an instance of ProjectTestPlansFilterModel given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TestPlanSearchQueryModel
-  * @throws IOException if the JSON string is invalid with respect to TestPlanSearchQueryModel
+  * @return An instance of ProjectTestPlansFilterModel
+  * @throws IOException if the JSON string is invalid with respect to ProjectTestPlansFilterModel
   */
-  public static TestPlanSearchQueryModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanSearchQueryModel.class);
+  public static ProjectTestPlansFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ProjectTestPlansFilterModel.class);
   }
 
  /**
-  * Convert an instance of TestPlanSearchQueryModel to an JSON string
+  * Convert an instance of ProjectTestPlansFilterModel to an JSON string
   *
   * @return JSON string
   */

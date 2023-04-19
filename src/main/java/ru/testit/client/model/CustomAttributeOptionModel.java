@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -61,7 +60,6 @@ public class CustomAttributeOptionModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the attribute option")
 
   public UUID getId() {
     return id;
@@ -84,7 +82,6 @@ public class CustomAttributeOptionModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attributes option is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -107,7 +104,6 @@ public class CustomAttributeOptionModel {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Value of the attribute option")
 
   public String getValue() {
     return value;
@@ -130,7 +126,6 @@ public class CustomAttributeOptionModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute option is used by default")
 
   public Boolean getIsDefault() {
     return isDefault;

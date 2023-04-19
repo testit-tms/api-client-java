@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -68,7 +67,6 @@ public class WorkItemChangedAttributeViewModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -91,7 +89,6 @@ public class WorkItemChangedAttributeViewModel {
    * @return oldAttributeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOldAttributeName() {
     return oldAttributeName;
@@ -114,7 +111,6 @@ public class WorkItemChangedAttributeViewModel {
    * @return newAttributeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getNewAttributeName() {
     return newAttributeName;
@@ -137,7 +133,6 @@ public class WorkItemChangedAttributeViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getOldValue() {
     return oldValue;
@@ -160,7 +155,6 @@ public class WorkItemChangedAttributeViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getNewValue() {
     return newValue;

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -45,7 +44,7 @@ public class GlobalCustomAttributePostModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionPostModel> options = null;
+  private List<CustomAttributeOptionPostModel> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -65,7 +64,6 @@ public class GlobalCustomAttributePostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of attribute")
 
   public String getName() {
     return name;
@@ -88,7 +86,6 @@ public class GlobalCustomAttributePostModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute is available")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -111,7 +108,6 @@ public class GlobalCustomAttributePostModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;
@@ -130,9 +126,6 @@ public class GlobalCustomAttributePostModel {
   }
 
   public GlobalCustomAttributePostModel addOptionsItem(CustomAttributeOptionPostModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
     this.options.add(optionsItem);
     return this;
   }
@@ -142,7 +135,6 @@ public class GlobalCustomAttributePostModel {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
 
   public List<CustomAttributeOptionPostModel> getOptions() {
     return options;
@@ -165,7 +157,6 @@ public class GlobalCustomAttributePostModel {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public CustomAttributeTypesEnum getType() {
     return type;

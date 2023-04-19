@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -69,7 +68,6 @@ public class StepPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -92,7 +90,6 @@ public class StepPutModel {
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "User press the button", value = "")
 
   public String getAction() {
     return action;
@@ -115,7 +112,6 @@ public class StepPutModel {
    * @return expected
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "System makes a beeeep sound", value = "")
 
   public String getExpected() {
     return expected;
@@ -138,7 +134,6 @@ public class StepPutModel {
    * @return testData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Some variables values", value = "")
 
   public String getTestData() {
     return testData;
@@ -161,7 +156,6 @@ public class StepPutModel {
    * @return comments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Comment on what to look for", value = "")
 
   public String getComments() {
     return comments;
@@ -184,7 +178,6 @@ public class StepPutModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getWorkItemId() {
     return workItemId;

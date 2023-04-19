@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -56,7 +55,6 @@ public class Int32RangeSelectorModel {
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getFrom() {
     return from;
@@ -79,7 +77,6 @@ public class Int32RangeSelectorModel {
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getTo() {
     return to;

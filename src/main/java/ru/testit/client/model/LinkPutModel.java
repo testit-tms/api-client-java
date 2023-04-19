@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -69,7 +68,6 @@ public class LinkPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -92,7 +90,6 @@ public class LinkPutModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Link name.")
 
   public String getTitle() {
     return title;
@@ -115,7 +112,6 @@ public class LinkPutModel {
    * @return url
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Address can be specified without protocol, but necessarily with the domain.")
 
   public String getUrl() {
     return url;
@@ -138,7 +134,6 @@ public class LinkPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Link description.")
 
   public String getDescription() {
     return description;
@@ -161,7 +156,6 @@ public class LinkPutModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public LinkType getType() {
     return type;
@@ -184,7 +178,6 @@ public class LinkPutModel {
    * @return hasInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getHasInfo() {
     return hasInfo;

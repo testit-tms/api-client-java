@@ -16,7 +16,7 @@
 |**traces** | **String** | An extended comment or a stack trace. |  [optional] |
 |**startedOn** | **OffsetDateTime** | Test run start date. |  [optional] |
 |**completedOn** | **OffsetDateTime** | Test run end date. |  [optional] |
-|**duration** | **Long** | Expected or actual duration of the test run execution in seconds. |  [optional] |
+|**duration** | **Long** | Expected or actual duration of the test run execution in milliseconds. |  [optional] |
 |**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) | Specifies an attachment GUID. Multiple values can be sent. |  [optional] |
 |**parameters** | **Map&lt;String, String&gt;** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. |  [optional] |
 |**properties** | **Map&lt;String, String&gt;** | \&quot;&lt;b&gt;property&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom properties. Multiple properties can be sent. |  [optional] |

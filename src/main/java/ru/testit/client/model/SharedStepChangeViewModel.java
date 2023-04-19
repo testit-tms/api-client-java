@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -45,7 +44,7 @@ public class SharedStepChangeViewModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<WorkItemStepChangeViewModel> steps = null;
+  private List<WorkItemStepChangeViewModel> steps;
 
   public SharedStepChangeViewModel() {
   }
@@ -61,7 +60,6 @@ public class SharedStepChangeViewModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -84,7 +82,6 @@ public class SharedStepChangeViewModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -107,7 +104,6 @@ public class SharedStepChangeViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -126,9 +122,6 @@ public class SharedStepChangeViewModel {
   }
 
   public SharedStepChangeViewModel addStepsItem(WorkItemStepChangeViewModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -138,7 +131,6 @@ public class SharedStepChangeViewModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WorkItemStepChangeViewModel> getSteps() {
     return steps;

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -102,7 +101,7 @@ public class SharedStepReferenceModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = null;
+  private List<TagShortModel> tags;
 
   public SharedStepReferenceModel() {
   }
@@ -118,7 +117,6 @@ public class SharedStepReferenceModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -141,7 +139,6 @@ public class SharedStepReferenceModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -164,7 +161,6 @@ public class SharedStepReferenceModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Basic template", value = "")
 
   public String getName() {
     return name;
@@ -187,7 +183,6 @@ public class SharedStepReferenceModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TestCase", value = "")
 
   public String getEntityTypeName() {
     return entityTypeName;
@@ -210,7 +205,6 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsStep
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasThisSharedStepAsStep() {
     return hasThisSharedStepAsStep;
@@ -233,7 +227,6 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsPrecondition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasThisSharedStepAsPrecondition() {
     return hasThisSharedStepAsPrecondition;
@@ -256,7 +249,6 @@ public class SharedStepReferenceModel {
    * @return hasThisSharedStepAsPostcondition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasThisSharedStepAsPostcondition() {
     return hasThisSharedStepAsPostcondition;
@@ -279,7 +271,6 @@ public class SharedStepReferenceModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -302,7 +293,6 @@ public class SharedStepReferenceModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -325,7 +315,6 @@ public class SharedStepReferenceModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -348,7 +337,6 @@ public class SharedStepReferenceModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -371,7 +359,6 @@ public class SharedStepReferenceModel {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Ready", value = "")
 
   public String getState() {
     return state;
@@ -393,8 +380,7 @@ public class SharedStepReferenceModel {
    * Get priority
    * @return priority
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -417,7 +403,6 @@ public class SharedStepReferenceModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -440,7 +425,6 @@ public class SharedStepReferenceModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "used for versioning changes in workitem")
 
   public UUID getVersionId() {
     return versionId;
@@ -463,7 +447,6 @@ public class SharedStepReferenceModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -486,7 +469,6 @@ public class SharedStepReferenceModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -505,9 +487,6 @@ public class SharedStepReferenceModel {
   }
 
   public SharedStepReferenceModel addTagsItem(TagShortModel tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -517,7 +496,6 @@ public class SharedStepReferenceModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -640,6 +618,7 @@ public class SharedStepReferenceModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("priority");
   }
 
  /**
@@ -660,6 +639,13 @@ public class SharedStepReferenceModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!SharedStepReferenceModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferenceModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : SharedStepReferenceModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -58,19 +57,19 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests = null;
+  private List<AutoTestModel> autoTests;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments = null;
+  private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_SECTION_PRECONDITION_STEPS = "sectionPreconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_PRECONDITION_STEPS)
-  private List<StepModel> sectionPreconditionSteps = null;
+  private List<StepModel> sectionPreconditionSteps;
 
   public static final String SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS = "sectionPostconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS)
-  private List<StepModel> sectionPostconditionSteps = null;
+  private List<StepModel> sectionPostconditionSteps;
 
   public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
   @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
@@ -78,7 +77,7 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationModel> iterations = null;
+  private List<IterationModel> iterations;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -166,7 +165,6 @@ public class WorkItemModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "used for versioning changes in workitem")
 
   public UUID getVersionId() {
     return versionId;
@@ -189,7 +187,6 @@ public class WorkItemModel {
    * @return medianDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10000", value = "used for getting a median duration of all autotests related to this workitem")
 
   public Long getMedianDuration() {
     return medianDuration;
@@ -212,7 +209,6 @@ public class WorkItemModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -235,7 +231,6 @@ public class WorkItemModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -258,7 +253,6 @@ public class WorkItemModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemEntityTypes getEntityTypeName() {
     return entityTypeName;
@@ -281,7 +275,6 @@ public class WorkItemModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -300,9 +293,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addAutoTestsItem(AutoTestModel autoTestsItem) {
-    if (this.autoTests == null) {
-      this.autoTests = new ArrayList<>();
-    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -312,7 +302,6 @@ public class WorkItemModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
@@ -331,9 +320,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -343,7 +329,6 @@ public class WorkItemModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;
@@ -362,9 +347,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addSectionPreconditionStepsItem(StepModel sectionPreconditionStepsItem) {
-    if (this.sectionPreconditionSteps == null) {
-      this.sectionPreconditionSteps = new ArrayList<>();
-    }
     this.sectionPreconditionSteps.add(sectionPreconditionStepsItem);
     return this;
   }
@@ -374,7 +356,6 @@ public class WorkItemModel {
    * @return sectionPreconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepModel> getSectionPreconditionSteps() {
     return sectionPreconditionSteps;
@@ -393,9 +374,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addSectionPostconditionStepsItem(StepModel sectionPostconditionStepsItem) {
-    if (this.sectionPostconditionSteps == null) {
-      this.sectionPostconditionSteps = new ArrayList<>();
-    }
     this.sectionPostconditionSteps.add(sectionPostconditionStepsItem);
     return this;
   }
@@ -405,7 +383,6 @@ public class WorkItemModel {
    * @return sectionPostconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepModel> getSectionPostconditionSteps() {
     return sectionPostconditionSteps;
@@ -428,7 +405,6 @@ public class WorkItemModel {
    * @return versionNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "used for define chronology of workitem state in each version")
 
   public Integer getVersionNumber() {
     return versionNumber;
@@ -447,9 +423,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addIterationsItem(IterationModel iterationsItem) {
-    if (this.iterations == null) {
-      this.iterations = new ArrayList<>();
-    }
     this.iterations.add(iterationsItem);
     return this;
   }
@@ -459,7 +432,6 @@ public class WorkItemModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<IterationModel> getIterations() {
     return iterations;
@@ -482,7 +454,6 @@ public class WorkItemModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -505,7 +476,6 @@ public class WorkItemModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -528,7 +498,6 @@ public class WorkItemModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -551,7 +520,6 @@ public class WorkItemModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -574,7 +542,6 @@ public class WorkItemModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -596,8 +563,7 @@ public class WorkItemModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
+  @javax.annotation.Nonnull
 
   public UUID getId() {
     return id;
@@ -620,7 +586,6 @@ public class WorkItemModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -643,7 +608,6 @@ public class WorkItemModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a basic test template", value = "")
 
   public String getDescription() {
     return description;
@@ -666,7 +630,6 @@ public class WorkItemModel {
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemStates getState() {
     return state;
@@ -689,7 +652,6 @@ public class WorkItemModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -717,7 +679,6 @@ public class WorkItemModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getSteps() {
     return steps;
@@ -745,7 +706,6 @@ public class WorkItemModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -773,7 +733,6 @@ public class WorkItemModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getPostconditionSteps() {
     return postconditionSteps;
@@ -798,7 +757,6 @@ public class WorkItemModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10000", value = "")
 
   public Integer getDuration() {
     return duration;
@@ -826,7 +784,6 @@ public class WorkItemModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -854,7 +811,6 @@ public class WorkItemModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -882,7 +838,6 @@ public class WorkItemModel {
    * @return links
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -905,7 +860,6 @@ public class WorkItemModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Basic template", required = true, value = "")
 
   public String getName() {
     return name;
@@ -1065,6 +1019,7 @@ public class WorkItemModel {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("entityTypeName");
+    openapiRequiredFields.add("id");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
     openapiRequiredFields.add("steps");
@@ -1185,7 +1140,7 @@ public class WorkItemModel {
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+      if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("sectionId") != null && !jsonObj.get("sectionId").isJsonNull()) && !jsonObj.get("sectionId").isJsonPrimitive()) {

@@ -18,13 +18,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * NotificationQueryFilterModel
@@ -33,7 +35,7 @@ import java.util.Map.Entry;
 public class NotificationQueryFilterModel {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<NotificationTypeModel> types = null;
+  private Set<NotificationTypeModel> types;
 
   public static final String SERIALIZED_NAME_IS_READ = "isRead";
   @SerializedName(SERIALIZED_NAME_IS_READ)
@@ -53,9 +55,6 @@ public class NotificationQueryFilterModel {
   }
 
   public NotificationQueryFilterModel addTypesItem(NotificationTypeModel typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
-    }
     this.types.add(typesItem);
     return this;
   }
@@ -65,7 +64,6 @@ public class NotificationQueryFilterModel {
    * @return types
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<NotificationTypeModel> getTypes() {
     return types;
@@ -88,7 +86,6 @@ public class NotificationQueryFilterModel {
    * @return isRead
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsRead() {
     return isRead;
@@ -111,7 +108,6 @@ public class NotificationQueryFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;

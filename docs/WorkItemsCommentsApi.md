@@ -77,8 +77,8 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Bad Request |  -  |
-| **204** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **204** | Successful operation |  -  |
 | **403** | System admin permission required |  -  |
 | **404** | WorkItem is not found |  -  |
 
@@ -219,8 +219,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
 | **403** | System administrator role is required |  -  |
+| **204** | No Content |  -  |
 
 <a name="apiV2WorkItemsIdCommentsGet"></a>
 # **apiV2WorkItemsIdCommentsGet**

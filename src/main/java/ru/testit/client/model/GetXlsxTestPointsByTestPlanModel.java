@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -81,11 +80,11 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS)
-  private List<UUID> customAttributesIds = null;
+  private List<UUID> customAttributesIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private List<UUID> configurationIds = null;
+  private List<UUID> configurationIds;
 
   public GetXlsxTestPointsByTestPlanModel() {
   }
@@ -101,7 +100,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeName() {
     return includeName;
@@ -124,7 +122,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeSection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeSection() {
     return includeSection;
@@ -147,7 +144,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includePriority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludePriority() {
     return includePriority;
@@ -170,7 +166,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeAutomated() {
     return includeAutomated;
@@ -193,7 +188,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeStatus() {
     return includeStatus;
@@ -216,7 +210,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeDuration() {
     return includeDuration;
@@ -239,7 +232,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeCreationDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeCreationDate() {
     return includeCreationDate;
@@ -262,7 +254,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeAuthor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeAuthor() {
     return includeAuthor;
@@ -285,7 +276,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeModificationDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeModificationDate() {
     return includeModificationDate;
@@ -308,7 +298,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeModifiedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeModifiedBy() {
     return includeModifiedBy;
@@ -331,7 +320,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeTags() {
     return includeTags;
@@ -354,7 +342,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return includeIterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIncludeIterations() {
     return includeIterations;
@@ -373,9 +360,6 @@ public class GetXlsxTestPointsByTestPlanModel {
   }
 
   public GetXlsxTestPointsByTestPlanModel addCustomAttributesIdsItem(UUID customAttributesIdsItem) {
-    if (this.customAttributesIds == null) {
-      this.customAttributesIds = new ArrayList<>();
-    }
     this.customAttributesIds.add(customAttributesIdsItem);
     return this;
   }
@@ -385,7 +369,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return customAttributesIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<UUID> getCustomAttributesIds() {
     return customAttributesIds;
@@ -404,9 +387,6 @@ public class GetXlsxTestPointsByTestPlanModel {
   }
 
   public GetXlsxTestPointsByTestPlanModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new ArrayList<>();
-    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -416,7 +396,6 @@ public class GetXlsxTestPointsByTestPlanModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<UUID> getConfigurationIds() {
     return configurationIds;

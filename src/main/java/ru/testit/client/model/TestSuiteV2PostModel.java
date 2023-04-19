@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -43,6 +42,14 @@ public class TestSuiteV2PostModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TestSuiteType type;
+
+  public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
+  @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
+  private Boolean saveStructure;
+
   public TestSuiteV2PostModel() {
   }
 
@@ -57,7 +64,6 @@ public class TestSuiteV2PostModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -80,7 +86,6 @@ public class TestSuiteV2PostModel {
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -103,7 +108,6 @@ public class TestSuiteV2PostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "base test suite", required = true, value = "")
 
   public String getName() {
     return name;
@@ -112,6 +116,50 @@ public class TestSuiteV2PostModel {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public TestSuiteV2PostModel type(TestSuiteType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+
+  public TestSuiteType getType() {
+    return type;
+  }
+
+
+  public void setType(TestSuiteType type) {
+    this.type = type;
+  }
+
+
+  public TestSuiteV2PostModel saveStructure(Boolean saveStructure) {
+    
+    this.saveStructure = saveStructure;
+    return this;
+  }
+
+   /**
+   * Get saveStructure
+   * @return saveStructure
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getSaveStructure() {
+    return saveStructure;
+  }
+
+
+  public void setSaveStructure(Boolean saveStructure) {
+    this.saveStructure = saveStructure;
   }
 
 
@@ -127,7 +175,9 @@ public class TestSuiteV2PostModel {
     TestSuiteV2PostModel testSuiteV2PostModel = (TestSuiteV2PostModel) o;
     return Objects.equals(this.parentId, testSuiteV2PostModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteV2PostModel.testPlanId) &&
-        Objects.equals(this.name, testSuiteV2PostModel.name);
+        Objects.equals(this.name, testSuiteV2PostModel.name) &&
+        Objects.equals(this.type, testSuiteV2PostModel.type) &&
+        Objects.equals(this.saveStructure, testSuiteV2PostModel.saveStructure);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -136,7 +186,7 @@ public class TestSuiteV2PostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parentId, testPlanId, name);
+    return Objects.hash(parentId, testPlanId, name, type, saveStructure);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -153,6 +203,8 @@ public class TestSuiteV2PostModel {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    saveStructure: ").append(toIndentedString(saveStructure)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,6 +230,8 @@ public class TestSuiteV2PostModel {
     openapiFields.add("parentId");
     openapiFields.add("testPlanId");
     openapiFields.add("name");
+    openapiFields.add("type");
+    openapiFields.add("saveStructure");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

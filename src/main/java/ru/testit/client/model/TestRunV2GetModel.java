@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -54,7 +53,7 @@ public class TestRunV2GetModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultV2GetModel> testResults = null;
+  private List<TestResultV2GetModel> testResults;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -106,7 +105,6 @@ public class TestRunV2GetModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -129,7 +127,6 @@ public class TestRunV2GetModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -151,8 +148,7 @@ public class TestRunV2GetModel {
    * Get stateName
    * @return stateName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestRunState getStateName() {
     return stateName;
@@ -175,7 +171,6 @@ public class TestRunV2GetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "This property is used to link test run with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -198,7 +193,6 @@ public class TestRunV2GetModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "This property is used to link test run with test plan")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -217,9 +211,6 @@ public class TestRunV2GetModel {
   }
 
   public TestRunV2GetModel addTestResultsItem(TestResultV2GetModel testResultsItem) {
-    if (this.testResults == null) {
-      this.testResults = new ArrayList<>();
-    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -229,7 +220,6 @@ public class TestRunV2GetModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestResultV2GetModel> getTestResults() {
     return testResults;
@@ -252,7 +242,6 @@ public class TestRunV2GetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -275,7 +264,6 @@ public class TestRunV2GetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -298,7 +286,6 @@ public class TestRunV2GetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -321,7 +308,6 @@ public class TestRunV2GetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -344,7 +330,6 @@ public class TestRunV2GetModel {
    * @return createdByUserName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example", value = "")
 
   public String getCreatedByUserName() {
     return createdByUserName;
@@ -367,7 +352,6 @@ public class TestRunV2GetModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -390,7 +374,6 @@ public class TestRunV2GetModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "First run", required = true, value = "")
 
   public String getName() {
     return name;
@@ -413,7 +396,6 @@ public class TestRunV2GetModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -436,7 +418,6 @@ public class TestRunV2GetModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "By user via API", value = "Once launch source is specified it cannot be updated")
 
   public String getLaunchSource() {
     return launchSource;
@@ -550,6 +531,7 @@ public class TestRunV2GetModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("stateName");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
   }

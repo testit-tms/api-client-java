@@ -227,8 +227,8 @@ public class WebhooksLogsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator permissions are required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksLogsIdDeleteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -295,8 +295,8 @@ public class WebhooksLogsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator permissions are required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2WebhooksLogsIdDelete(UUID id) throws ApiException {
@@ -312,8 +312,8 @@ public class WebhooksLogsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator permissions are required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2WebhooksLogsIdDeleteWithHttpInfo(UUID id) throws ApiException {
@@ -331,8 +331,8 @@ public class WebhooksLogsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator permissions are required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksLogsIdDeleteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {

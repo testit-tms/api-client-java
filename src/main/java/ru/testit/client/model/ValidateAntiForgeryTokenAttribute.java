@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -70,7 +69,6 @@ public class ValidateAntiForgeryTokenAttribute {
    * @return order
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getOrder() {
     return order;
@@ -87,7 +85,6 @@ public class ValidateAntiForgeryTokenAttribute {
    * @return isReusable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsReusable() {
     return isReusable;
@@ -101,7 +98,6 @@ public class ValidateAntiForgeryTokenAttribute {
    * @return typeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getTypeId() {
     return typeId;

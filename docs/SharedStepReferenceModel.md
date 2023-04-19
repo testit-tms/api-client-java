@@ -19,7 +19,7 @@
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
-|**priority** | **WorkItemPriorityModel** |  |  [optional] |
+|**priority** | **WorkItemPriorityModel** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
 |**versionId** | **UUID** | used for versioning changes in workitem |  [optional] |
 |**isAutomated** | **Boolean** |  |  [optional] |

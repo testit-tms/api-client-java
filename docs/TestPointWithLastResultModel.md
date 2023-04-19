@@ -27,7 +27,7 @@
 |**attributes** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**tagNames** | **List&lt;String&gt;** |  |  [optional] |
 |**duration** | **Integer** |  |  [optional] |
-|**priority** | **WorkItemPriorityModel** |  |  [optional] |
+|**priority** | **WorkItemPriorityModel** |  |  |
 |**testSuiteNameBreadCrumbs** | **List&lt;String&gt;** |  |  [optional] |
 |**groupCount** | **Integer** |  |  [optional] |
 |**iteration** | [**IterationModel**](IterationModel.md) |  |  [optional] |

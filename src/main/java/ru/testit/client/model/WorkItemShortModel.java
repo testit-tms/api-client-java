@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -56,6 +55,10 @@ public class WorkItemShortModel {
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
   private UUID sectionId;
 
+  public static final String SERIALIZED_NAME_SECTION_NAME = "sectionName";
+  @SerializedName(SERIALIZED_NAME_SECTION_NAME)
+  private String sectionName;
+
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
   private Boolean isAutomated;
@@ -70,7 +73,7 @@ public class WorkItemShortModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = null;
+  private Map<String, Object> attributes;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
@@ -102,11 +105,11 @@ public class WorkItemShortModel {
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private List<String> tagNames = null;
+  private List<String> tagNames;
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationModel> iterations = null;
+  private List<IterationModel> iterations;
 
   public WorkItemShortModel() {
   }
@@ -122,7 +125,6 @@ public class WorkItemShortModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -145,7 +147,6 @@ public class WorkItemShortModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "used for versioning changes in workitem")
 
   public UUID getVersionId() {
     return versionId;
@@ -168,7 +169,6 @@ public class WorkItemShortModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Performance test", required = true, value = "")
 
   public String getName() {
     return name;
@@ -191,7 +191,6 @@ public class WorkItemShortModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "SharedSteps", required = true, value = "Property can have one of these values: CheckLists, SharedSteps, TestCases")
 
   public String getEntityTypeName() {
     return entityTypeName;
@@ -214,7 +213,6 @@ public class WorkItemShortModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property is used to link autotest with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -237,7 +235,6 @@ public class WorkItemShortModel {
    * @return sectionId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property links workitem with section")
 
   public UUID getSectionId() {
     return sectionId;
@@ -246,6 +243,28 @@ public class WorkItemShortModel {
 
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
+  }
+
+
+  public WorkItemShortModel sectionName(String sectionName) {
+    
+    this.sectionName = sectionName;
+    return this;
+  }
+
+   /**
+   * Name of the section where work item is located
+   * @return sectionName
+  **/
+  @javax.annotation.Nonnull
+
+  public String getSectionName() {
+    return sectionName;
+  }
+
+
+  public void setSectionName(String sectionName) {
+    this.sectionName = sectionName;
   }
 
 
@@ -260,7 +279,6 @@ public class WorkItemShortModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -283,7 +301,6 @@ public class WorkItemShortModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -306,7 +323,6 @@ public class WorkItemShortModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Integer getDuration() {
     return duration;
@@ -325,9 +341,6 @@ public class WorkItemShortModel {
   }
 
   public WorkItemShortModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -337,7 +350,6 @@ public class WorkItemShortModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -360,7 +372,6 @@ public class WorkItemShortModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -383,7 +394,6 @@ public class WorkItemShortModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -406,7 +416,6 @@ public class WorkItemShortModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -429,7 +438,6 @@ public class WorkItemShortModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -452,7 +460,6 @@ public class WorkItemShortModel {
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemStates getState() {
     return state;
@@ -475,7 +482,6 @@ public class WorkItemShortModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -498,7 +504,6 @@ public class WorkItemShortModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -517,9 +522,6 @@ public class WorkItemShortModel {
   }
 
   public WorkItemShortModel addTagNamesItem(String tagNamesItem) {
-    if (this.tagNames == null) {
-      this.tagNames = new ArrayList<>();
-    }
     this.tagNames.add(tagNamesItem);
     return this;
   }
@@ -529,7 +531,6 @@ public class WorkItemShortModel {
    * @return tagNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTagNames() {
     return tagNames;
@@ -548,9 +549,6 @@ public class WorkItemShortModel {
   }
 
   public WorkItemShortModel addIterationsItem(IterationModel iterationsItem) {
-    if (this.iterations == null) {
-      this.iterations = new ArrayList<>();
-    }
     this.iterations.add(iterationsItem);
     return this;
   }
@@ -560,7 +558,6 @@ public class WorkItemShortModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<IterationModel> getIterations() {
     return iterations;
@@ -588,6 +585,7 @@ public class WorkItemShortModel {
         Objects.equals(this.entityTypeName, workItemShortModel.entityTypeName) &&
         Objects.equals(this.projectId, workItemShortModel.projectId) &&
         Objects.equals(this.sectionId, workItemShortModel.sectionId) &&
+        Objects.equals(this.sectionName, workItemShortModel.sectionName) &&
         Objects.equals(this.isAutomated, workItemShortModel.isAutomated) &&
         Objects.equals(this.globalId, workItemShortModel.globalId) &&
         Objects.equals(this.duration, workItemShortModel.duration) &&
@@ -609,7 +607,7 @@ public class WorkItemShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versionId, name, entityTypeName, projectId, sectionId, isAutomated, globalId, duration, attributes, createdById, modifiedById, createdDate, modifiedDate, state, priority, isDeleted, tagNames, iterations);
+    return Objects.hash(id, versionId, name, entityTypeName, projectId, sectionId, sectionName, isAutomated, globalId, duration, attributes, createdById, modifiedById, createdDate, modifiedDate, state, priority, isDeleted, tagNames, iterations);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -629,6 +627,7 @@ public class WorkItemShortModel {
     sb.append("    entityTypeName: ").append(toIndentedString(entityTypeName)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
+    sb.append("    sectionName: ").append(toIndentedString(sectionName)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
@@ -670,6 +669,7 @@ public class WorkItemShortModel {
     openapiFields.add("entityTypeName");
     openapiFields.add("projectId");
     openapiFields.add("sectionId");
+    openapiFields.add("sectionName");
     openapiFields.add("isAutomated");
     openapiFields.add("globalId");
     openapiFields.add("duration");
@@ -690,6 +690,7 @@ public class WorkItemShortModel {
     openapiRequiredFields.add("entityTypeName");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("sectionId");
+    openapiRequiredFields.add("sectionName");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
   }
@@ -738,6 +739,9 @@ public class WorkItemShortModel {
       }
       if (!jsonObj.get("sectionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionId").toString()));
+      }
+      if (!jsonObj.get("sectionName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sectionName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionName").toString()));
       }
       if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));

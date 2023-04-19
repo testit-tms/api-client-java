@@ -82,9 +82,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | Not Found |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Not Found |  -  |
 | **403** | Admin system role is required |  -  |
 
 <a name="apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost"></a>
@@ -155,9 +155,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **200** | Success |  -  |
 | **404** | Not Found |  -  |
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Admin system role is required |  -  |
 
 <a name="apiV2CustomAttributesTemplatesIdDelete"></a>
@@ -227,8 +227,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
 | **403** | Admin system role is required |  -  |
 
 <a name="apiV2CustomAttributesTemplatesIdGet"></a>
@@ -298,9 +298,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
 | **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
 
 <a name="apiV2CustomAttributesTemplatesNameGet"></a>
 # **apiV2CustomAttributesTemplatesNameGet**
@@ -438,9 +438,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Admin system role is required |  -  |
-| **201** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Admin system role is required |  -  |
+| **201** | Created |  -  |
 
 <a name="apiV2CustomAttributesTemplatesPut"></a>
 # **apiV2CustomAttributesTemplatesPut**
@@ -586,6 +586,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 

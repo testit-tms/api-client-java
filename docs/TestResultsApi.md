@@ -83,8 +83,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | Read permission for the test result is required |  -  |
+| **200** | Success |  -  |
 
 <a name="apiV2TestResultsIdAttachmentsAttachmentIdPut"></a>
 # **apiV2TestResultsIdAttachmentsAttachmentIdPut**
@@ -357,8 +357,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Only edits from assigned user are allowed |  -  |
 | **200** | Success |  -  |
+| **403** | Only edits from assigned user are allowed |  -  |
 
 <a name="apiV2TestResultsSearchPost"></a>
 # **apiV2TestResultsSearchPost**
@@ -575,10 +575,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **404** |  |  -  |
 | **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
@@ -650,10 +650,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Update permission for test result required |  -  |
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Update permission for test result required |  -  |
 
 <a name="downloadAttachment"></a>
 # **downloadAttachment**
@@ -733,10 +733,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 | **403** | Read permission for test result required |  -  |
 
 <a name="getAttachment"></a>
@@ -808,11 +808,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **404** | File not found |  -  |
-| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Successful operation |  -  |
 | **403** | Read permission for test result required |  -  |
+| **404** | File not found |  -  |
 
 <a name="getAttachments"></a>
 # **getAttachments**
@@ -881,9 +881,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | TestResult not found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | TestResult not found |  -  |
 
