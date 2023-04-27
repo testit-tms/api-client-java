@@ -1,7 +1,7 @@
 name: Publish package to the Maven Central Repository
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -11,7 +11,6 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '8'
-          # distribution: 'adopt'
           distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
