@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -61,7 +60,6 @@ public class TestRunV2PostShortModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "This property is to link test run with a project")
 
   public UUID getProjectId() {
     return projectId;
@@ -84,7 +82,6 @@ public class TestRunV2PostShortModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "First run", value = "")
 
   public String getName() {
     return name;
@@ -107,7 +104,6 @@ public class TestRunV2PostShortModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -130,7 +126,6 @@ public class TestRunV2PostShortModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "By user via API", value = "")
 
   public String getLaunchSource() {
     return launchSource;

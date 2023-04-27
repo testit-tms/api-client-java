@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**apiV2AutoTestsFlakyBulkPost**](AutoTestsApi.md#apiV2AutoTestsFlakyBulkPost) | **POST** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests |
+| [**apiV2AutoTestsIdPatch**](AutoTestsApi.md#apiV2AutoTestsIdPatch) | **PATCH** /api/v2/autoTests/{id} | Patch auto test |
 | [**apiV2AutoTestsIdTestResultsSearchPost**](AutoTestsApi.md#apiV2AutoTestsIdTestResultsSearchPost) | **POST** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest |
 | [**apiV2AutoTestsIdWorkItemsChangedIdGet**](AutoTestsApi.md#apiV2AutoTestsIdWorkItemsChangedIdGet) | **GET** /api/v2/autoTests/{id}/workItems/changed/id | Get identifiers of changed linked work items |
 | [**apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost**](AutoTestsApi.md#apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost) | **POST** /api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve | Approve changes to work items linked to autotest |
@@ -102,8 +103,79 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | Invalid user permissions |  -  |
-| **422** | Autotests with provided identifiers do not belong to the same project |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **422** | Autotests with provided identifiers do not belong to the same project |  -  |
+
+<a name="apiV2AutoTestsIdPatch"></a>
+# **apiV2AutoTestsIdPatch**
+> apiV2AutoTestsIdPatch(id, operation)
+
+Patch auto test
+
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.AutoTestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Global Id of auto test
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2AutoTestsIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Global Id of auto test | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Update permission for auto tests is required |  -  |
 
 <a name="apiV2AutoTestsIdTestResultsSearchPost"></a>
 # **apiV2AutoTestsIdTestResultsSearchPost**
@@ -184,11 +256,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for autotests required |  -  |
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **404** | Autotest with provided ID was not found |  -  |
-| **400** | Bad Request |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Read permission for autotests required |  -  |
 
 <a name="apiV2AutoTestsIdWorkItemsChangedIdGet"></a>
 # **apiV2AutoTestsIdWorkItemsChangedIdGet**
@@ -257,9 +329,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Success |  -  |
 | **403** | Invalid user permissions |  -  |
 | **404** | Autotest with provided ID was not found |  -  |
-| **200** | Success |  -  |
 
 <a name="apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost"></a>
 # **apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost**
@@ -329,9 +401,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Autotest with provided ID was not found |  -  |
-| **403** | Invalid user permissions |  -  |
 | **200** | Success |  -  |
+| **403** | Invalid user permissions |  -  |
+| **404** | Autotest with provided ID was not found |  -  |
 
 <a name="apiV2AutoTestsSearchPost"></a>
 # **apiV2AutoTestsSearchPost**
@@ -408,8 +480,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for autotests library is required |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 <a name="createAutoTest"></a>
 # **createAutoTest**
@@ -478,13 +550,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **409** | Autotest with the same external ID already exists is the project |  -  |
-| **201** | Success |  -  |
-| **403** | Update permission for autotests is required |  -  |
+| **201** | Created |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for autotests is required |  -  |
 | **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
+| **409** | Autotest with the same external ID already exists is the project |  -  |
 
 <a name="createMultiple"></a>
 # **createMultiple**
@@ -553,13 +625,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 | **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
-| **401** | Unauthorized |  -  |
+| **201** | Created |  -  |
 | **403** | Update permission for autotests is required |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-| **201** | Success |  -  |
 
 <a name="deleteAutoTest"></a>
 # **deleteAutoTest**
@@ -627,9 +699,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Autotest with provided ID cannot be found |  -  |
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Autotest with provided ID cannot be found |  -  |
 | **403** | Delete permission for autotests is required |  -  |
 
 <a name="deleteAutoTestLinkFromWorkItem"></a>
@@ -700,11 +772,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Work item ID is invalid |  -  |
-| **204** | Success |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
+| **204** | No Content |  -  |
+| **400** | Work item ID is invalid |  -  |
 
 <a name="getAllAutoTests"></a>
 # **getAllAutoTests**
@@ -819,10 +891,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | Not Found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
 
 <a name="getAutoTestAverageDuration"></a>
 # **getAutoTestAverageDuration**
@@ -892,9 +964,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | Autotest with provided ID was not found |  -  |
-| **401** | Unauthorized |  -  |
 | **200** | Success |  -  |
 | **403** | Read permission for autotests is required |  -  |
+| **401** | Unauthorized |  -  |
 
 <a name="getAutoTestById"></a>
 # **getAutoTestById**
@@ -963,11 +1035,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **403** | Read permission for autotests is required |  -  |
-| **404** | Autotest with provided ID cannot be found |  -  |
-| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
 | **400** | Autotest ID is invalid |  -  |
+| **200** | Success |  -  |
+| **404** | Autotest with provided ID cannot be found |  -  |
 
 <a name="getAutoTestChronology"></a>
 # **getAutoTestChronology**
@@ -1036,10 +1108,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **200** | Success |  -  |
 | **403** | Read permission for autotests is required |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Autotest with provided ID was not found |  -  |
+| **200** | Success |  -  |
 
 <a name="getTestRuns"></a>
 # **getTestRuns**
@@ -1110,8 +1182,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Read permission for autotests is required |  -  |
 | **200** | Success |  -  |
-| **404** | Autotest with provided ID was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Autotest with provided ID was not found |  -  |
 
 <a name="getWorkItemResults"></a>
 # **getWorkItemResults**
@@ -1206,10 +1278,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | Not Found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
 <a name="getWorkItemsLinkedToAutoTest"></a>
 # **getWorkItemsLinkedToAutoTest**
@@ -1283,9 +1355,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for autotests is required |  -  |
 | **200** | Success |  -  |
 | **404** | Autotest with provided ID cannot be found |  -  |
+| **403** | Read permission for autotests is required |  -  |
 
 <a name="linkAutoTestToWorkItem"></a>
 # **linkAutoTestToWorkItem**
@@ -1355,11 +1427,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
-| **400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
+| **400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
+| **204** | No Content |  -  |
 
 <a name="updateAutoTest"></a>
 # **updateAutoTest**
@@ -1427,12 +1499,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
+| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
+| **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
 | **422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 | **204** | Success |  -  |
 
 <a name="updateMultiple"></a>
@@ -1501,11 +1573,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
-| **403** | Update permission for autotests is required |  -  |
-| **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
 | **401** | Unauthorized |  -  |
-| **409** | Autotest with the same external ID already exists is the project |  -  |
 | **422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 | **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
+| **204** | No Content |  -  |
+| **403** | Update permission for autotests is required |  -  |
+| **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
+| **409** | Autotest with the same external ID already exists is the project |  -  |
 

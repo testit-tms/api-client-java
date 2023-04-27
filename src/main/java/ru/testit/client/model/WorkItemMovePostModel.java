@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -61,7 +60,6 @@ public class WorkItemMovePostModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -84,7 +82,6 @@ public class WorkItemMovePostModel {
    * @return newSectionId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public UUID getNewSectionId() {
     return newSectionId;
@@ -107,7 +104,6 @@ public class WorkItemMovePostModel {
    * @return oldSectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getOldSectionId() {
     return oldSectionId;
@@ -130,7 +126,6 @@ public class WorkItemMovePostModel {
    * @return nextWorkItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getNextWorkItemId() {
     return nextWorkItemId;

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -59,7 +58,6 @@ public class CustomAttributeTemplateModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -82,7 +80,6 @@ public class CustomAttributeTemplateModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -105,7 +102,6 @@ public class CustomAttributeTemplateModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Custom attributes template name")
 
   public String getName() {
     return name;

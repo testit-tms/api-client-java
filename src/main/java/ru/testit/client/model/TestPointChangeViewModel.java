@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -57,7 +56,6 @@ public class TestPointChangeViewModel {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getUserId() {
     return userId;
@@ -80,7 +78,6 @@ public class TestPointChangeViewModel {
    * @return userName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUserName() {
     return userName;
@@ -103,7 +100,6 @@ public class TestPointChangeViewModel {
    * @return testPointCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getTestPointCount() {
     return testPointCount;

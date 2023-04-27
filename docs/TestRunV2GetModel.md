@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**startedOn** | **OffsetDateTime** |  |  [optional] |
 |**completedOn** | **OffsetDateTime** |  |  [optional] |
-|**stateName** | **TestRunState** |  |  [optional] |
+|**stateName** | **TestRunState** |  |  |
 |**projectId** | **UUID** | This property is used to link test run with project |  [optional] |
 |**testPlanId** | **UUID** | This property is used to link test run with test plan |  [optional] |
 |**testResults** | [**List&lt;TestResultV2GetModel&gt;**](TestResultV2GetModel.md) |  |  [optional] |

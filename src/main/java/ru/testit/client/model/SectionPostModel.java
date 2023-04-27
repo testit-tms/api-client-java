@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -45,11 +44,11 @@ public class SectionPostModel {
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps = null;
+  private List<StepPutModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps = null;
+  private List<StepPutModel> postconditionSteps;
 
   public SectionPostModel() {
   }
@@ -65,7 +64,6 @@ public class SectionPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public String getName() {
     return name;
@@ -88,7 +86,6 @@ public class SectionPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -111,7 +108,6 @@ public class SectionPostModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -130,9 +126,6 @@ public class SectionPostModel {
   }
 
   public SectionPostModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
-    if (this.preconditionSteps == null) {
-      this.preconditionSteps = new ArrayList<>();
-    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -142,7 +135,6 @@ public class SectionPostModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -161,9 +153,6 @@ public class SectionPostModel {
   }
 
   public SectionPostModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
-    if (this.postconditionSteps == null) {
-      this.postconditionSteps = new ArrayList<>();
-    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -173,7 +162,6 @@ public class SectionPostModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;

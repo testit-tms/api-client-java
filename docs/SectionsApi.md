@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**apiV2SectionsIdPatch**](SectionsApi.md#apiV2SectionsIdPatch) | **PATCH** /api/v2/sections/{id} | Patch section |
 | [**createSection**](SectionsApi.md#createSection) | **POST** /api/v2/sections | Create section |
 | [**deleteSection**](SectionsApi.md#deleteSection) | **DELETE** /api/v2/sections/{id} | Delete section |
 | [**getSectionById**](SectionsApi.md#getSectionById) | **GET** /api/v2/sections/{id} | Get section |
@@ -12,6 +13,77 @@ All URIs are relative to *http://localhost*
 | [**rename**](SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section |
 | [**updateSection**](SectionsApi.md#updateSection) | **PUT** /api/v2/sections | Update section |
 
+
+<a name="apiV2SectionsIdPatch"></a>
+# **apiV2SectionsIdPatch**
+> apiV2SectionsIdPatch(id, operation)
+
+Patch section
+
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.SectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    SectionsApi apiInstance = new SectionsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2SectionsIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SectionsApi#apiV2SectionsIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Section internal (UUID) identifier | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for section is required |  -  |
+| **204** | No Content |  -  |
 
 <a name="createSection"></a>
 # **createSection**
@@ -80,12 +152,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Cannot create section without parent ID |  -  |
+| **403** | Update permission for test library is required |  -  |
 | **404** | Parent section with provided ID was not found |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
-| **201** | Success |  -  |
-| **400** | Cannot create section without parent ID |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test library is required |  -  |
 
 <a name="deleteSection"></a>
 # **deleteSection**
@@ -153,10 +225,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Delete permission for test library is required |  -  |
 | **409** | Conflict |  -  |
-| **204** | Success |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Delete permission for test library is required |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Section with provided ID was not found |  -  |
 | **422** | Cannot delete root section |  -  |
@@ -192,7 +264,7 @@ public class Example {
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
-    Boolean isDeleted = false; // Boolean | Requested section is deleted
+    DeletionState isDeleted = DeletionState.fromValue("Any"); // DeletionState | 
     try {
       SectionWithStepsModel result = apiInstance.getSectionById(id, isDeleted);
       System.out.println(result);
@@ -212,7 +284,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Section internal (UUID) identifier | |
-| **isDeleted** | **Boolean**| Requested section is deleted | [optional] [default to false] |
+| **isDeleted** | [**DeletionState**](.md)|  | [optional] [enum: Any, Deleted, NotDeleted] |
 
 ### Return type
 
@@ -230,11 +302,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for test library is required |  -  |
+| **400** | Bad Request |  -  |
 | **404** | Section with provided ID was not found |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test library is required |  -  |
 
 <a name="getWorkItemsBySectionId"></a>
 # **getWorkItemsBySectionId**
@@ -319,11 +391,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **404** | Section with provided ID was not found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
+| **404** | Section with provided ID was not found |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **401** | Unauthorized |  -  |
+| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 
 <a name="move"></a>
 # **move**
@@ -389,8 +461,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **403** | Update permission for test library is required |  -  |
-| **204** | Success |  -  |
 
 <a name="rename"></a>
 # **rename**
@@ -458,10 +530,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
+| **204** | No Content |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Section with provided ID was not found |  -  |
 | **422** | Root section cannot be renamed |  -  |
 
@@ -531,11 +603,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
+| **409** | Section with the same name already exists in the parent section |  -  |
 | **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
 | **403** | Update permission for test library is required |  -  |
-| **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
-| **409** | Section with the same name already exists in the parent section |  -  |
 | **422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
 

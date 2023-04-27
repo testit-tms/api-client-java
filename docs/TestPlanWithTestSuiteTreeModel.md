@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**testSuites** | [**List&lt;TestSuiteWithChildrenModel&gt;**](TestSuiteWithChildrenModel.md) |  |  [optional] |
-|**status** | **TestPlanStatusModel** |  |  [optional] |
+|**status** | **TestPlanStatusModel** |  |  |
 |**startedOn** | **OffsetDateTime** | Set when test plan is starter (status changed to: In Progress) |  [optional] |
 |**completedOn** | **OffsetDateTime** | set when test plan status is completed (status changed to: Completed) |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |

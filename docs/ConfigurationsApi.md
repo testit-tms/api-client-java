@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**apiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#apiV2ConfigurationsCreateByParametersPost) | **POST** /api/v2/configurations/createByParameters | Create Configurations by parameters |
+| [**apiV2ConfigurationsIdPatch**](ConfigurationsApi.md#apiV2ConfigurationsIdPatch) | **PATCH** /api/v2/configurations/{id} | Patch configuration |
 | [**apiV2ConfigurationsSearchPost**](ConfigurationsApi.md#apiV2ConfigurationsSearchPost) | **POST** /api/v2/configurations/search | Search for configurations |
 | [**createConfiguration**](ConfigurationsApi.md#createConfiguration) | **POST** /api/v2/configurations | Create Configuration |
 | [**getConfigurationById**](ConfigurationsApi.md#getConfigurationById) | **GET** /api/v2/configurations/{id} | Get configuration by internal or global ID |
@@ -78,9 +79,80 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
+| **201** | Created |  -  |
 | **400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
-| **201** | Success |  -  |
 | **200** | Successful operation |  -  |
+
+<a name="apiV2ConfigurationsIdPatch"></a>
+# **apiV2ConfigurationsIdPatch**
+> apiV2ConfigurationsIdPatch(id, operation)
+
+Patch configuration
+
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ConfigurationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Unique ID of the configuration
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2ConfigurationsIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Unique ID of the configuration | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Update permission for configuration is required |  -  |
 
 <a name="apiV2ConfigurationsSearchPost"></a>
 # **apiV2ConfigurationsSearchPost**
@@ -226,12 +298,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Update permission for configuration required |  -  |
 | **401** | Unauthorized |  -  |
+| **409** | Configuration with the same name already exists! |  -  |
+| **404** | Can&#39;t find project |  -  |
 | **400** | Bad Request |  -  |
 | **201** | Successful operation |  -  |
-| **403** | Update permission for configuration required |  -  |
-| **404** | Can&#39;t find project |  -  |
-| **409** | Configuration with the same name already exists! |  -  |
 
 <a name="getConfigurationById"></a>
 # **getConfigurationById**
@@ -263,7 +335,7 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    String id = "id_example"; // String | 
+    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Configuration internal (guid format) or global (integer format) identifier
     try {
       ConfigurationModel result = apiInstance.getConfigurationById(id);
       System.out.println(result);
@@ -282,7 +354,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| Configuration internal (guid format) or global (integer format) identifier | |
 
 ### Return type
 
@@ -300,10 +372,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Can&#39;t find configuration with id |  -  |
-| **403** | Read permission for configuration required |  -  |
-| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Read permission for configuration required |  -  |
+| **404** | Can&#39;t find configuration with id |  -  |
+| **200** | Successful operation |  -  |
 
 <a name="updateConfiguration"></a>
 # **updateConfiguration**
@@ -371,11 +443,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **409** | Configuration with the same name already exists! |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Can&#39;t change projectId |  -  |
+| **400** | Bad Request |  -  |
 | **403** |  |  -  |
 | **404** | Can&#39;t find a Configuration with id |  -  |
-| **422** | Can&#39;t change projectId |  -  |
-| **409** | Configuration with the same name already exists! |  -  |
 | **204** | Successful operation |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
 

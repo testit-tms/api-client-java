@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -69,7 +68,6 @@ public class WorkItemLinkChangeViewModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -92,7 +90,6 @@ public class WorkItemLinkChangeViewModel {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUrl() {
     return url;
@@ -115,7 +112,6 @@ public class WorkItemLinkChangeViewModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTitle() {
     return title;
@@ -138,7 +134,6 @@ public class WorkItemLinkChangeViewModel {
    * @return hasInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getHasInfo() {
     return hasInfo;
@@ -161,7 +156,6 @@ public class WorkItemLinkChangeViewModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -184,7 +178,6 @@ public class WorkItemLinkChangeViewModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;

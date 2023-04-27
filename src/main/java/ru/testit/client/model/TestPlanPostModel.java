@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -34,7 +33,7 @@ import java.util.Map.Entry;
 public class TestPlanPostModel {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = null;
+  private List<TagShortModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,7 +69,7 @@ public class TestPlanPostModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = null;
+  private Map<String, Object> attributes;
 
   public TestPlanPostModel() {
   }
@@ -82,9 +81,6 @@ public class TestPlanPostModel {
   }
 
   public TestPlanPostModel addTagsItem(TagShortModel tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -94,7 +90,6 @@ public class TestPlanPostModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -117,7 +112,6 @@ public class TestPlanPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Base test plan", required = true, value = "")
 
   public String getName() {
     return name;
@@ -140,7 +134,6 @@ public class TestPlanPostModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "Used for analytics")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -163,7 +156,6 @@ public class TestPlanPostModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "Used for analytics")
 
   public OffsetDateTime getEndDate() {
     return endDate;
@@ -186,7 +178,6 @@ public class TestPlanPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a base test plan", value = "")
 
   public String getDescription() {
     return description;
@@ -209,7 +200,6 @@ public class TestPlanPostModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "v.3.0.0-b94f3055", value = "")
 
   public String getBuild() {
     return build;
@@ -232,7 +222,6 @@ public class TestPlanPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -255,7 +244,6 @@ public class TestPlanPostModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Billing service", value = "")
 
   public String getProductName() {
     return productName;
@@ -278,7 +266,6 @@ public class TestPlanPostModel {
    * @return hasAutomaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
@@ -297,9 +284,6 @@ public class TestPlanPostModel {
   }
 
   public TestPlanPostModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -309,7 +293,6 @@ public class TestPlanPostModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;

@@ -18,12 +18,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map.Entry;
@@ -31,64 +29,62 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * DateRangeModel
+ * ParameterFilterModel
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DateRangeModel {
-  public static final String SERIALIZED_NAME_FROM = "from";
-  @SerializedName(SERIALIZED_NAME_FROM)
-  private OffsetDateTime from;
+public class ParameterFilterModel {
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_TO = "to";
-  @SerializedName(SERIALIZED_NAME_TO)
-  private OffsetDateTime to;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public DateRangeModel() {
+  public ParameterFilterModel() {
   }
 
-  public DateRangeModel from(OffsetDateTime from) {
+  public ParameterFilterModel isDeleted(Boolean isDeleted) {
     
-    this.from = from;
+    this.isDeleted = isDeleted;
     return this;
   }
 
    /**
-   * Minimum date and time
-   * @return from
+   * Specifies a parameter deleted status to search for
+   * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum date and time")
 
-  public OffsetDateTime getFrom() {
-    return from;
+  public Boolean getIsDeleted() {
+    return isDeleted;
   }
 
 
-  public void setFrom(OffsetDateTime from) {
-    this.from = from;
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
   }
 
 
-  public DateRangeModel to(OffsetDateTime to) {
+  public ParameterFilterModel name(String name) {
     
-    this.to = to;
+    this.name = name;
     return this;
   }
 
    /**
-   * Maximum date and time
-   * @return to
+   * Specifies a parameter key name to search for
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum date and time")
 
-  public OffsetDateTime getTo() {
-    return to;
+  public String getName() {
+    return name;
   }
 
 
-  public void setTo(OffsetDateTime to) {
-    this.to = to;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -101,9 +97,9 @@ public class DateRangeModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DateRangeModel dateRangeModel = (DateRangeModel) o;
-    return Objects.equals(this.from, dateRangeModel.from) &&
-        Objects.equals(this.to, dateRangeModel.to);
+    ParameterFilterModel parameterFilterModel = (ParameterFilterModel) o;
+    return Objects.equals(this.isDeleted, parameterFilterModel.isDeleted) &&
+        Objects.equals(this.name, parameterFilterModel.name);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -112,7 +108,7 @@ public class DateRangeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to);
+    return Objects.hash(isDeleted, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -125,9 +121,9 @@ public class DateRangeModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DateRangeModel {\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("class ParameterFilterModel {\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,8 +146,8 @@ public class DateRangeModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("from");
-    openapiFields.add("to");
+    openapiFields.add("isDeleted");
+    openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -161,21 +157,24 @@ public class DateRangeModel {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DateRangeModel
+  * @throws IOException if the JSON Object is invalid with respect to ParameterFilterModel
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!DateRangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DateRangeModel is not found in the empty JSON string", DateRangeModel.openapiRequiredFields.toString()));
+        if (!ParameterFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ParameterFilterModel is not found in the empty JSON string", ParameterFilterModel.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!DateRangeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DateRangeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ParameterFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ParameterFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
@@ -183,22 +182,22 @@ public class DateRangeModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DateRangeModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DateRangeModel' and its subtypes
+       if (!ParameterFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ParameterFilterModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DateRangeModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DateRangeModel.class));
+       final TypeAdapter<ParameterFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFilterModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DateRangeModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<ParameterFilterModel>() {
            @Override
-           public void write(JsonWriter out, DateRangeModel value) throws IOException {
+           public void write(JsonWriter out, ParameterFilterModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public DateRangeModel read(JsonReader in) throws IOException {
+           public ParameterFilterModel read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -209,18 +208,18 @@ public class DateRangeModel {
   }
 
  /**
-  * Create an instance of DateRangeModel given an JSON string
+  * Create an instance of ParameterFilterModel given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of DateRangeModel
-  * @throws IOException if the JSON string is invalid with respect to DateRangeModel
+  * @return An instance of ParameterFilterModel
+  * @throws IOException if the JSON string is invalid with respect to ParameterFilterModel
   */
-  public static DateRangeModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DateRangeModel.class);
+  public static ParameterFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ParameterFilterModel.class);
   }
 
  /**
-  * Convert an instance of DateRangeModel to an JSON string
+  * Convert an instance of ParameterFilterModel to an JSON string
   *
   * @return JSON string
   */

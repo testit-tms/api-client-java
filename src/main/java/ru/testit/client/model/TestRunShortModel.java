@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -72,8 +71,7 @@ public class TestRunShortModel {
    * Get stateName
    * @return stateName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestRunState getStateName() {
     return stateName;
@@ -96,7 +94,6 @@ public class TestRunShortModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -119,7 +116,6 @@ public class TestRunShortModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -142,7 +138,6 @@ public class TestRunShortModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Core tests", value = "")
 
   public String getName() {
     return name;
@@ -165,7 +160,6 @@ public class TestRunShortModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -188,7 +182,6 @@ public class TestRunShortModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -211,7 +204,6 @@ public class TestRunShortModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -301,6 +293,7 @@ public class TestRunShortModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("stateName");
   }
 
  /**
@@ -321,6 +314,13 @@ public class TestRunShortModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunShortModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestRunShortModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {

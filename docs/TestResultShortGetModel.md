@@ -13,7 +13,7 @@
 |**testRunId** | **UUID** | Unique ID of test run where test result is located |  [optional] |
 |**configurationId** | **UUID** | Unique ID of configuration which test result uses |  [optional] |
 |**configurationName** | **String** | Name of configuration which test result uses |  [optional] |
-|**outcome** | **TestResultOutcome** |  |  [optional] |
+|**outcome** | **TestResultOutcome** |  |  |
 |**resultReasons** | [**List&lt;AutotestResultReasonSubGetModel&gt;**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which test result have |  [optional] |
 |**comment** | **String** | Comment to test result |  [optional] |
 |**date** | **OffsetDateTime** | Date when test result has been set |  [optional] |

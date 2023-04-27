@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | Unique ID of the attribute |  [optional] |
 |**options** | [**List&lt;CustomAttributeOptionModel&gt;**](CustomAttributeOptionModel.md) | Collection of the attribute options |  [optional] |
-|**type** | **CustomAttributeTypesEnum** |  |  [optional] |
+|**type** | **CustomAttributeTypesEnum** |  |  |
 |**isDeleted** | **Boolean** | Indicates if the attribute is deleted |  [optional] |
 |**name** | **String** | Name of the attribute |  [optional] |
 |**isEnabled** | **Boolean** | Indicates if the attribute is enabled |  [optional] |

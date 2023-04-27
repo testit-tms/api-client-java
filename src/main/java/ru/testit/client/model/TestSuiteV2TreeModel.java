@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,7 +32,7 @@ import java.util.Map.Entry;
 public class TestSuiteV2TreeModel {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TestSuiteV2TreeModel> children = null;
+  private List<TestSuiteV2TreeModel> children;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -51,6 +50,14 @@ public class TestSuiteV2TreeModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TestSuiteType type;
+
+  public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
+  @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
+  private Boolean saveStructure;
+
   public TestSuiteV2TreeModel() {
   }
 
@@ -61,9 +68,6 @@ public class TestSuiteV2TreeModel {
   }
 
   public TestSuiteV2TreeModel addChildrenItem(TestSuiteV2TreeModel childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
-    }
     this.children.add(childrenItem);
     return this;
   }
@@ -75,7 +79,6 @@ public class TestSuiteV2TreeModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "nested enumeration of children is allowed")
 
   public List<TestSuiteV2TreeModel> getChildren() {
     return children;
@@ -98,7 +101,6 @@ public class TestSuiteV2TreeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -121,7 +123,6 @@ public class TestSuiteV2TreeModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -144,7 +145,6 @@ public class TestSuiteV2TreeModel {
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", required = true, value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -167,7 +167,6 @@ public class TestSuiteV2TreeModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "base test suite", required = true, value = "")
 
   public String getName() {
     return name;
@@ -176,6 +175,50 @@ public class TestSuiteV2TreeModel {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public TestSuiteV2TreeModel type(TestSuiteType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+
+  public TestSuiteType getType() {
+    return type;
+  }
+
+
+  public void setType(TestSuiteType type) {
+    this.type = type;
+  }
+
+
+  public TestSuiteV2TreeModel saveStructure(Boolean saveStructure) {
+    
+    this.saveStructure = saveStructure;
+    return this;
+  }
+
+   /**
+   * Get saveStructure
+   * @return saveStructure
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getSaveStructure() {
+    return saveStructure;
+  }
+
+
+  public void setSaveStructure(Boolean saveStructure) {
+    this.saveStructure = saveStructure;
   }
 
 
@@ -193,7 +236,9 @@ public class TestSuiteV2TreeModel {
         Objects.equals(this.id, testSuiteV2TreeModel.id) &&
         Objects.equals(this.parentId, testSuiteV2TreeModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteV2TreeModel.testPlanId) &&
-        Objects.equals(this.name, testSuiteV2TreeModel.name);
+        Objects.equals(this.name, testSuiteV2TreeModel.name) &&
+        Objects.equals(this.type, testSuiteV2TreeModel.type) &&
+        Objects.equals(this.saveStructure, testSuiteV2TreeModel.saveStructure);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -202,7 +247,7 @@ public class TestSuiteV2TreeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(children, id, parentId, testPlanId, name);
+    return Objects.hash(children, id, parentId, testPlanId, name, type, saveStructure);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -221,6 +266,8 @@ public class TestSuiteV2TreeModel {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    saveStructure: ").append(toIndentedString(saveStructure)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -248,6 +295,8 @@ public class TestSuiteV2TreeModel {
     openapiFields.add("parentId");
     openapiFields.add("testPlanId");
     openapiFields.add("name");
+    openapiFields.add("type");
+    openapiFields.add("saveStructure");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

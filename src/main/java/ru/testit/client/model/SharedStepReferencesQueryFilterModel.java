@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -37,31 +36,31 @@ public class SharedStepReferencesQueryFilterModel {
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds = null;
+  private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<WorkItemStates> states = null;
+  private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  private Set<WorkItemPriorityModel> priorities = null;
+  private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
-  private Set<String> entityTypes = null;
+  private Set<String> entityTypes;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -77,7 +76,7 @@ public class SharedStepReferencesQueryFilterModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Set<String> tags = null;
+  private Set<String> tags;
 
   public SharedStepReferencesQueryFilterModel() {
   }
@@ -93,7 +92,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of work item")
 
   public String getName() {
     return name;
@@ -112,9 +110,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -124,7 +119,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of global (integer) identifiers")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -143,9 +137,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
-    }
     this.sectionIds.add(sectionIdsItem);
     return this;
   }
@@ -155,7 +146,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of section identifiers")
 
   public Set<UUID> getSectionIds() {
     return sectionIds;
@@ -174,9 +164,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -186,7 +173,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who created work item")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -205,9 +191,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
-    }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
@@ -217,7 +200,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who applied last modification to work item")
 
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
@@ -236,9 +218,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addStatesItem(WorkItemStates statesItem) {
-    if (this.states == null) {
-      this.states = new LinkedHashSet<>();
-    }
     this.states.add(statesItem);
     return this;
   }
@@ -248,7 +227,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return states
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of states of work item")
 
   public Set<WorkItemStates> getStates() {
     return states;
@@ -267,9 +245,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null) {
-      this.priorities = new LinkedHashSet<>();
-    }
     this.priorities.add(prioritiesItem);
     return this;
   }
@@ -279,7 +254,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return priorities
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of priorities of work item")
 
   public Set<WorkItemPriorityModel> getPriorities() {
     return priorities;
@@ -298,9 +272,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addEntityTypesItem(String entityTypesItem) {
-    if (this.entityTypes == null) {
-      this.entityTypes = new LinkedHashSet<>();
-    }
     this.entityTypes.add(entityTypesItem);
     return this;
   }
@@ -310,7 +281,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return entityTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`")
 
   public Set<String> getEntityTypes() {
     return entityTypes;
@@ -333,7 +303,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -356,7 +325,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
@@ -379,7 +347,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is result must consist of only manual/automated work items")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -398,9 +365,6 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   public SharedStepReferencesQueryFilterModel addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new LinkedHashSet<>();
-    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -410,7 +374,6 @@ public class SharedStepReferencesQueryFilterModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of tags")
 
   public Set<String> getTags() {
     return tags;

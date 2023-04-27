@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -61,7 +60,6 @@ public class AutoTestChangeViewModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -84,7 +82,6 @@ public class AutoTestChangeViewModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -107,7 +104,6 @@ public class AutoTestChangeViewModel {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getExternalId() {
     return externalId;
@@ -130,7 +126,6 @@ public class AutoTestChangeViewModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getGlobalId() {
     return globalId;

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -37,7 +36,7 @@ public class CustomAttributePutModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options = null;
+  private List<CustomAttributeOptionModel> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -77,7 +76,6 @@ public class CustomAttributePutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the attribute")
 
   public UUID getId() {
     return id;
@@ -96,9 +94,6 @@ public class CustomAttributePutModel {
   }
 
   public CustomAttributePutModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
     this.options.add(optionsItem);
     return this;
   }
@@ -108,7 +103,6 @@ public class CustomAttributePutModel {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
 
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
@@ -131,7 +125,6 @@ public class CustomAttributePutModel {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public CustomAttributeTypesEnum getType() {
     return type;
@@ -154,7 +147,6 @@ public class CustomAttributePutModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -177,7 +169,6 @@ public class CustomAttributePutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the attribute")
 
   public String getName() {
     return name;
@@ -200,7 +191,6 @@ public class CustomAttributePutModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is enabled")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -223,7 +213,6 @@ public class CustomAttributePutModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute value is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;
@@ -246,7 +235,6 @@ public class CustomAttributePutModel {
    * @return isGlobal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is available across all projects")
 
   public Boolean getIsGlobal() {
     return isGlobal;

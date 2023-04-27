@@ -75,7 +75,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | System administrator role is required |  -  |
 
 <a name="apiV2CustomAttributesGlobalIdPut"></a>
@@ -214,7 +214,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | System administrator role is required |  -  |
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 
 <a name="apiV2CustomAttributesIdGet"></a>
 # **apiV2CustomAttributesIdGet**

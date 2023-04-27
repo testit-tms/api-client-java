@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -32,13 +31,29 @@ import java.util.Map.Entry;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectModel {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
+  @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
+  private Boolean isFavorite;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES_SCHEME = "attributesScheme";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES_SCHEME)
-  private List<CustomAttributeModel> attributesScheme = null;
+  private List<CustomAttributeModel> attributesScheme;
 
   public static final String SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME = "testPlansAttributesScheme";
   @SerializedName(SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME)
-  private List<CustomAttributeModel> testPlansAttributesScheme = null;
+  private List<CustomAttributeModel> testPlansAttributesScheme;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
@@ -55,10 +70,6 @@ public class ProjectModel {
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
   private Integer autoTestsCount;
-
-  public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
-  @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -84,335 +95,8 @@ public class ProjectModel {
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
   private Long globalId;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private UUID id;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public ProjectModel() {
   }
-
-  public ProjectModel attributesScheme(List<CustomAttributeModel> attributesScheme) {
-    
-    this.attributesScheme = attributesScheme;
-    return this;
-  }
-
-  public ProjectModel addAttributesSchemeItem(CustomAttributeModel attributesSchemeItem) {
-    if (this.attributesScheme == null) {
-      this.attributesScheme = new ArrayList<>();
-    }
-    this.attributesScheme.add(attributesSchemeItem);
-    return this;
-  }
-
-   /**
-   * Collection of the project attributes
-   * @return attributesScheme
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the project attributes")
-
-  public List<CustomAttributeModel> getAttributesScheme() {
-    return attributesScheme;
-  }
-
-
-  public void setAttributesScheme(List<CustomAttributeModel> attributesScheme) {
-    this.attributesScheme = attributesScheme;
-  }
-
-
-  public ProjectModel testPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
-    
-    this.testPlansAttributesScheme = testPlansAttributesScheme;
-    return this;
-  }
-
-  public ProjectModel addTestPlansAttributesSchemeItem(CustomAttributeModel testPlansAttributesSchemeItem) {
-    if (this.testPlansAttributesScheme == null) {
-      this.testPlansAttributesScheme = new ArrayList<>();
-    }
-    this.testPlansAttributesScheme.add(testPlansAttributesSchemeItem);
-    return this;
-  }
-
-   /**
-   * Collection of the project test plans attributes
-   * @return testPlansAttributesScheme
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the project test plans attributes")
-
-  public List<CustomAttributeModel> getTestPlansAttributesScheme() {
-    return testPlansAttributesScheme;
-  }
-
-
-  public void setTestPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
-    this.testPlansAttributesScheme = testPlansAttributesScheme;
-  }
-
-
-  public ProjectModel testCasesCount(Integer testCasesCount) {
-    
-    this.testCasesCount = testCasesCount;
-    return this;
-  }
-
-   /**
-   * Number of test cases in the project
-   * @return testCasesCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test cases in the project")
-
-  public Integer getTestCasesCount() {
-    return testCasesCount;
-  }
-
-
-  public void setTestCasesCount(Integer testCasesCount) {
-    this.testCasesCount = testCasesCount;
-  }
-
-
-  public ProjectModel sharedStepsCount(Integer sharedStepsCount) {
-    
-    this.sharedStepsCount = sharedStepsCount;
-    return this;
-  }
-
-   /**
-   * Number of shared steps in the project
-   * @return sharedStepsCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of shared steps in the project")
-
-  public Integer getSharedStepsCount() {
-    return sharedStepsCount;
-  }
-
-
-  public void setSharedStepsCount(Integer sharedStepsCount) {
-    this.sharedStepsCount = sharedStepsCount;
-  }
-
-
-  public ProjectModel checkListsCount(Integer checkListsCount) {
-    
-    this.checkListsCount = checkListsCount;
-    return this;
-  }
-
-   /**
-   * Number of checklists in the project
-   * @return checkListsCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of checklists in the project")
-
-  public Integer getCheckListsCount() {
-    return checkListsCount;
-  }
-
-
-  public void setCheckListsCount(Integer checkListsCount) {
-    this.checkListsCount = checkListsCount;
-  }
-
-
-  public ProjectModel autoTestsCount(Integer autoTestsCount) {
-    
-    this.autoTestsCount = autoTestsCount;
-    return this;
-  }
-
-   /**
-   * Number of autotests in the project
-   * @return autoTestsCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of autotests in the project")
-
-  public Integer getAutoTestsCount() {
-    return autoTestsCount;
-  }
-
-
-  public void setAutoTestsCount(Integer autoTestsCount) {
-    this.autoTestsCount = autoTestsCount;
-  }
-
-
-  public ProjectModel isFavorite(Boolean isFavorite) {
-    
-    this.isFavorite = isFavorite;
-    return this;
-  }
-
-   /**
-   * Indicates if the project is marked as favorite
-   * @return isFavorite
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the project is marked as favorite")
-
-  public Boolean getIsFavorite() {
-    return isFavorite;
-  }
-
-
-  public void setIsFavorite(Boolean isFavorite) {
-    this.isFavorite = isFavorite;
-  }
-
-
-  public ProjectModel isDeleted(Boolean isDeleted) {
-    
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-   /**
-   * Indicates if the project is deleted
-   * @return isDeleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the project is deleted")
-
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-
-  public ProjectModel createdDate(OffsetDateTime createdDate) {
-    
-    this.createdDate = createdDate;
-    return this;
-  }
-
-   /**
-   * Creation date of the project
-   * @return createdDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the project")
-
-  public OffsetDateTime getCreatedDate() {
-    return createdDate;
-  }
-
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = createdDate;
-  }
-
-
-  public ProjectModel modifiedDate(OffsetDateTime modifiedDate) {
-    
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-   /**
-   * Last modification date of the project
-   * @return modifiedDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last modification date of the project")
-
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
-
-
-  public ProjectModel createdById(UUID createdById) {
-    
-    this.createdById = createdById;
-    return this;
-  }
-
-   /**
-   * Unique ID of the project creator
-   * @return createdById
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project creator")
-
-  public UUID getCreatedById() {
-    return createdById;
-  }
-
-
-  public void setCreatedById(UUID createdById) {
-    this.createdById = createdById;
-  }
-
-
-  public ProjectModel modifiedById(UUID modifiedById) {
-    
-    this.modifiedById = modifiedById;
-    return this;
-  }
-
-   /**
-   * Unique ID of the project last editor
-   * @return modifiedById
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project last editor")
-
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-  }
-
-
-  public ProjectModel globalId(Long globalId) {
-    
-    this.globalId = globalId;
-    return this;
-  }
-
-   /**
-   * Global ID of the project
-   * @return globalId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global ID of the project")
-
-  public Long getGlobalId() {
-    return globalId;
-  }
-
-
-  public void setGlobalId(Long globalId) {
-    this.globalId = globalId;
-  }
-
 
   public ProjectModel id(UUID id) {
     
@@ -424,8 +108,7 @@ public class ProjectModel {
    * Unique ID of the project
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the project")
+  @javax.annotation.Nullable
 
   public UUID getId() {
     return id;
@@ -448,7 +131,6 @@ public class ProjectModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the project")
 
   public String getDescription() {
     return description;
@@ -470,8 +152,7 @@ public class ProjectModel {
    * Name of the project
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the project")
+  @javax.annotation.Nullable
 
   public String getName() {
     return name;
@@ -480,6 +161,302 @@ public class ProjectModel {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public ProjectModel isFavorite(Boolean isFavorite) {
+    
+    this.isFavorite = isFavorite;
+    return this;
+  }
+
+   /**
+   * Indicates if the project is marked as favorite
+   * @return isFavorite
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsFavorite() {
+    return isFavorite;
+  }
+
+
+  public void setIsFavorite(Boolean isFavorite) {
+    this.isFavorite = isFavorite;
+  }
+
+
+  public ProjectModel attributesScheme(List<CustomAttributeModel> attributesScheme) {
+    
+    this.attributesScheme = attributesScheme;
+    return this;
+  }
+
+  public ProjectModel addAttributesSchemeItem(CustomAttributeModel attributesSchemeItem) {
+    this.attributesScheme.add(attributesSchemeItem);
+    return this;
+  }
+
+   /**
+   * Collection of the project attributes
+   * @return attributesScheme
+  **/
+  @javax.annotation.Nullable
+
+  public List<CustomAttributeModel> getAttributesScheme() {
+    return attributesScheme;
+  }
+
+
+  public void setAttributesScheme(List<CustomAttributeModel> attributesScheme) {
+    this.attributesScheme = attributesScheme;
+  }
+
+
+  public ProjectModel testPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
+    
+    this.testPlansAttributesScheme = testPlansAttributesScheme;
+    return this;
+  }
+
+  public ProjectModel addTestPlansAttributesSchemeItem(CustomAttributeModel testPlansAttributesSchemeItem) {
+    this.testPlansAttributesScheme.add(testPlansAttributesSchemeItem);
+    return this;
+  }
+
+   /**
+   * Collection of the project test plans attributes
+   * @return testPlansAttributesScheme
+  **/
+  @javax.annotation.Nullable
+
+  public List<CustomAttributeModel> getTestPlansAttributesScheme() {
+    return testPlansAttributesScheme;
+  }
+
+
+  public void setTestPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
+    this.testPlansAttributesScheme = testPlansAttributesScheme;
+  }
+
+
+  public ProjectModel testCasesCount(Integer testCasesCount) {
+    
+    this.testCasesCount = testCasesCount;
+    return this;
+  }
+
+   /**
+   * Number of test cases in the project
+   * @return testCasesCount
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getTestCasesCount() {
+    return testCasesCount;
+  }
+
+
+  public void setTestCasesCount(Integer testCasesCount) {
+    this.testCasesCount = testCasesCount;
+  }
+
+
+  public ProjectModel sharedStepsCount(Integer sharedStepsCount) {
+    
+    this.sharedStepsCount = sharedStepsCount;
+    return this;
+  }
+
+   /**
+   * Number of shared steps in the project
+   * @return sharedStepsCount
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getSharedStepsCount() {
+    return sharedStepsCount;
+  }
+
+
+  public void setSharedStepsCount(Integer sharedStepsCount) {
+    this.sharedStepsCount = sharedStepsCount;
+  }
+
+
+  public ProjectModel checkListsCount(Integer checkListsCount) {
+    
+    this.checkListsCount = checkListsCount;
+    return this;
+  }
+
+   /**
+   * Number of checklists in the project
+   * @return checkListsCount
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getCheckListsCount() {
+    return checkListsCount;
+  }
+
+
+  public void setCheckListsCount(Integer checkListsCount) {
+    this.checkListsCount = checkListsCount;
+  }
+
+
+  public ProjectModel autoTestsCount(Integer autoTestsCount) {
+    
+    this.autoTestsCount = autoTestsCount;
+    return this;
+  }
+
+   /**
+   * Number of autotests in the project
+   * @return autoTestsCount
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getAutoTestsCount() {
+    return autoTestsCount;
+  }
+
+
+  public void setAutoTestsCount(Integer autoTestsCount) {
+    this.autoTestsCount = autoTestsCount;
+  }
+
+
+  public ProjectModel isDeleted(Boolean isDeleted) {
+    
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+   /**
+   * Indicates if the project is deleted
+   * @return isDeleted
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+
+  public ProjectModel createdDate(OffsetDateTime createdDate) {
+    
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Creation date of the project
+   * @return createdDate
+  **/
+  @javax.annotation.Nullable
+
+  public OffsetDateTime getCreatedDate() {
+    return createdDate;
+  }
+
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public ProjectModel modifiedDate(OffsetDateTime modifiedDate) {
+    
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+   /**
+   * Last modification date of the project
+   * @return modifiedDate
+  **/
+  @javax.annotation.Nullable
+
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public ProjectModel createdById(UUID createdById) {
+    
+    this.createdById = createdById;
+    return this;
+  }
+
+   /**
+   * Unique ID of the project creator
+   * @return createdById
+  **/
+  @javax.annotation.Nullable
+
+  public UUID getCreatedById() {
+    return createdById;
+  }
+
+
+  public void setCreatedById(UUID createdById) {
+    this.createdById = createdById;
+  }
+
+
+  public ProjectModel modifiedById(UUID modifiedById) {
+    
+    this.modifiedById = modifiedById;
+    return this;
+  }
+
+   /**
+   * Unique ID of the project last editor
+   * @return modifiedById
+  **/
+  @javax.annotation.Nullable
+
+  public UUID getModifiedById() {
+    return modifiedById;
+  }
+
+
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+
+  public ProjectModel globalId(Long globalId) {
+    
+    this.globalId = globalId;
+    return this;
+  }
+
+   /**
+   * Global ID of the project
+   * @return globalId
+  **/
+  @javax.annotation.Nullable
+
+  public Long getGlobalId() {
+    return globalId;
+  }
+
+
+  public void setGlobalId(Long globalId) {
+    this.globalId = globalId;
   }
 
 
@@ -493,22 +470,22 @@ public class ProjectModel {
       return false;
     }
     ProjectModel projectModel = (ProjectModel) o;
-    return Objects.equals(this.attributesScheme, projectModel.attributesScheme) &&
+    return Objects.equals(this.id, projectModel.id) &&
+        Objects.equals(this.description, projectModel.description) &&
+        Objects.equals(this.name, projectModel.name) &&
+        Objects.equals(this.isFavorite, projectModel.isFavorite) &&
+        Objects.equals(this.attributesScheme, projectModel.attributesScheme) &&
         Objects.equals(this.testPlansAttributesScheme, projectModel.testPlansAttributesScheme) &&
         Objects.equals(this.testCasesCount, projectModel.testCasesCount) &&
         Objects.equals(this.sharedStepsCount, projectModel.sharedStepsCount) &&
         Objects.equals(this.checkListsCount, projectModel.checkListsCount) &&
         Objects.equals(this.autoTestsCount, projectModel.autoTestsCount) &&
-        Objects.equals(this.isFavorite, projectModel.isFavorite) &&
         Objects.equals(this.isDeleted, projectModel.isDeleted) &&
         Objects.equals(this.createdDate, projectModel.createdDate) &&
         Objects.equals(this.modifiedDate, projectModel.modifiedDate) &&
         Objects.equals(this.createdById, projectModel.createdById) &&
         Objects.equals(this.modifiedById, projectModel.modifiedById) &&
-        Objects.equals(this.globalId, projectModel.globalId) &&
-        Objects.equals(this.id, projectModel.id) &&
-        Objects.equals(this.description, projectModel.description) &&
-        Objects.equals(this.name, projectModel.name);
+        Objects.equals(this.globalId, projectModel.globalId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -517,7 +494,7 @@ public class ProjectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributesScheme, testPlansAttributesScheme, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isFavorite, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, id, description, name);
+    return Objects.hash(id, description, name, isFavorite, attributesScheme, testPlansAttributesScheme, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -531,22 +508,22 @@ public class ProjectModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectModel {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    attributesScheme: ").append(toIndentedString(attributesScheme)).append("\n");
     sb.append("    testPlansAttributesScheme: ").append(toIndentedString(testPlansAttributesScheme)).append("\n");
     sb.append("    testCasesCount: ").append(toIndentedString(testCasesCount)).append("\n");
     sb.append("    sharedStepsCount: ").append(toIndentedString(sharedStepsCount)).append("\n");
     sb.append("    checkListsCount: ").append(toIndentedString(checkListsCount)).append("\n");
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
-    sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -569,27 +546,25 @@ public class ProjectModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("description");
+    openapiFields.add("name");
+    openapiFields.add("isFavorite");
     openapiFields.add("attributesScheme");
     openapiFields.add("testPlansAttributesScheme");
     openapiFields.add("testCasesCount");
     openapiFields.add("sharedStepsCount");
     openapiFields.add("checkListsCount");
     openapiFields.add("autoTestsCount");
-    openapiFields.add("isFavorite");
     openapiFields.add("isDeleted");
     openapiFields.add("createdDate");
     openapiFields.add("modifiedDate");
     openapiFields.add("createdById");
     openapiFields.add("modifiedById");
     openapiFields.add("globalId");
-    openapiFields.add("id");
-    openapiFields.add("description");
-    openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
   }
 
  /**
@@ -612,12 +587,14 @@ public class ProjectModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProjectModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (jsonObj.get("attributesScheme") != null && !jsonObj.get("attributesScheme").isJsonNull()) {
         JsonArray jsonArrayattributesScheme = jsonObj.getAsJsonArray("attributesScheme");
@@ -652,15 +629,6 @@ public class ProjectModel {
       }
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 

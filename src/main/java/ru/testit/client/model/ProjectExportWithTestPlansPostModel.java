@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,7 +32,7 @@ import java.util.Map.Entry;
 public class ProjectExportWithTestPlansPostModel {
   public static final String SERIALIZED_NAME_TEST_PLANS_IDS = "testPlansIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLANS_IDS)
-  private Set<UUID> testPlansIds = null;
+  private Set<UUID> testPlansIds;
 
   public ProjectExportWithTestPlansPostModel() {
   }
@@ -45,9 +44,6 @@ public class ProjectExportWithTestPlansPostModel {
   }
 
   public ProjectExportWithTestPlansPostModel addTestPlansIdsItem(UUID testPlansIdsItem) {
-    if (this.testPlansIds == null) {
-      this.testPlansIds = new LinkedHashSet<>();
-    }
     this.testPlansIds.add(testPlansIdsItem);
     return this;
   }
@@ -57,7 +53,6 @@ public class ProjectExportWithTestPlansPostModel {
    * @return testPlansIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the IDs of test plans to be exported with the project.<br />  In this parameter, \"<b>string</b>\" values are IDs of the test plans.<br />  To get the test plan IDs, use the `GET /api/v2/projects/{projectId}/testPlans` method.")
 
   public Set<UUID> getTestPlansIds() {
     return testPlansIds;

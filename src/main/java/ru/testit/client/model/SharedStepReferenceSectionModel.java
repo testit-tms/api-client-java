@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -82,7 +81,6 @@ public class SharedStepReferenceSectionModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -105,7 +103,6 @@ public class SharedStepReferenceSectionModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Basic template", value = "")
 
   public String getName() {
     return name;
@@ -128,7 +125,6 @@ public class SharedStepReferenceSectionModel {
    * @return hasThisSharedStepAsPrecondition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasThisSharedStepAsPrecondition() {
     return hasThisSharedStepAsPrecondition;
@@ -151,7 +147,6 @@ public class SharedStepReferenceSectionModel {
    * @return hasThisSharedStepAsPostcondition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasThisSharedStepAsPostcondition() {
     return hasThisSharedStepAsPostcondition;
@@ -174,7 +169,6 @@ public class SharedStepReferenceSectionModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -197,7 +191,6 @@ public class SharedStepReferenceSectionModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -220,7 +213,6 @@ public class SharedStepReferenceSectionModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -243,7 +235,6 @@ public class SharedStepReferenceSectionModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-01-17T16:49:51.791323Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -266,7 +257,6 @@ public class SharedStepReferenceSectionModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;

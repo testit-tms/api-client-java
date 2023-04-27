@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -73,7 +72,6 @@ public class TestPointByTestSuiteModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getId() {
     return id;
@@ -96,7 +94,6 @@ public class TestPointByTestSuiteModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getTesterId() {
     return testerId;
@@ -119,7 +116,6 @@ public class TestPointByTestSuiteModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -142,7 +138,6 @@ public class TestPointByTestSuiteModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -165,7 +160,6 @@ public class TestPointByTestSuiteModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "NoResult", value = "Applies one of these values: Blocked, NoResults, Failed, Passed")
 
   public String getStatus() {
     return status;
@@ -188,7 +182,6 @@ public class TestPointByTestSuiteModel {
    * @return lastTestResultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getLastTestResultId() {
     return lastTestResultId;
@@ -211,7 +204,6 @@ public class TestPointByTestSuiteModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "da46bde3-b022-44d3-8b4f-28783aca8944", value = "")
 
   public UUID getIterationId() {
     return iterationId;

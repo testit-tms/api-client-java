@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -37,7 +36,7 @@ public class IterationModel {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private List<ParameterShortModel> parameters = null;
+  private List<ParameterShortModel> parameters;
 
   public IterationModel() {
   }
@@ -53,7 +52,6 @@ public class IterationModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -72,9 +70,6 @@ public class IterationModel {
   }
 
   public IterationModel addParametersItem(ParameterShortModel parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new ArrayList<>();
-    }
     this.parameters.add(parametersItem);
     return this;
   }
@@ -84,7 +79,6 @@ public class IterationModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<ParameterShortModel> getParameters() {
     return parameters;

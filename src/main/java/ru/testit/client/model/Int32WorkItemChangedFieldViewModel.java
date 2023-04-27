@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -54,7 +53,6 @@ public class Int32WorkItemChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getOldValue() {
     return oldValue;
@@ -77,7 +75,6 @@ public class Int32WorkItemChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getNewValue() {
     return newValue;

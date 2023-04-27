@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,11 +32,11 @@ import java.util.Map.Entry;
 public class TestRunAnalyticResultModel {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
-  private List<TestRunGroupByStatusModel> countGroupByStatus = null;
+  private List<TestRunGroupByStatusModel> countGroupByStatus;
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS = "countGroupByFailureClass";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS)
-  private List<TestRunGroupByFailureClassModel> countGroupByFailureClass = null;
+  private List<TestRunGroupByFailureClassModel> countGroupByFailureClass;
 
   public TestRunAnalyticResultModel() {
   }
@@ -49,9 +48,6 @@ public class TestRunAnalyticResultModel {
   }
 
   public TestRunAnalyticResultModel addCountGroupByStatusItem(TestRunGroupByStatusModel countGroupByStatusItem) {
-    if (this.countGroupByStatus == null) {
-      this.countGroupByStatus = new ArrayList<>();
-    }
     this.countGroupByStatus.add(countGroupByStatusItem);
     return this;
   }
@@ -61,7 +57,6 @@ public class TestRunAnalyticResultModel {
    * @return countGroupByStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestRunGroupByStatusModel> getCountGroupByStatus() {
     return countGroupByStatus;
@@ -80,9 +75,6 @@ public class TestRunAnalyticResultModel {
   }
 
   public TestRunAnalyticResultModel addCountGroupByFailureClassItem(TestRunGroupByFailureClassModel countGroupByFailureClassItem) {
-    if (this.countGroupByFailureClass == null) {
-      this.countGroupByFailureClass = new ArrayList<>();
-    }
     this.countGroupByFailureClass.add(countGroupByFailureClassItem);
     return this;
   }
@@ -92,7 +84,6 @@ public class TestRunAnalyticResultModel {
    * @return countGroupByFailureClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestRunGroupByFailureClassModel> getCountGroupByFailureClass() {
     return countGroupByFailureClass;

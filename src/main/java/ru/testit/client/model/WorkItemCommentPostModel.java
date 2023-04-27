@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -55,7 +54,6 @@ public class WorkItemCommentPostModel {
    * @return text
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public String getText() {
     return text;
@@ -78,7 +76,6 @@ public class WorkItemCommentPostModel {
    * @return workItemId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public UUID getWorkItemId() {
     return workItemId;

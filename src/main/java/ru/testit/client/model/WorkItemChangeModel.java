@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -74,7 +73,6 @@ public class WorkItemChangeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -97,7 +95,6 @@ public class WorkItemChangeModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -120,7 +117,6 @@ public class WorkItemChangeModel {
    * @return oldVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getOldVersionId() {
     return oldVersionId;
@@ -143,7 +139,6 @@ public class WorkItemChangeModel {
    * @return newVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getNewVersionId() {
     return newVersionId;
@@ -166,7 +161,6 @@ public class WorkItemChangeModel {
    * @return workItemChangedFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemChangedFieldsViewModel getWorkItemChangedFields() {
     return workItemChangedFields;
@@ -189,7 +183,6 @@ public class WorkItemChangeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -212,7 +205,6 @@ public class WorkItemChangeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import ru.testit.client.invoker.JSON;
 
 import java.io.IOException;
@@ -34,9 +33,9 @@ public class TestPointSelector {
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
   private UUID configurationId;
 
-  public static final String SERIALIZED_NAME_WORKITEM_IDS = "workitemIds";
-  @SerializedName(SERIALIZED_NAME_WORKITEM_IDS)
-  private List<UUID> workitemIds = new ArrayList<>();
+  public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
+  private List<UUID> workItemIds = new ArrayList<>();
 
   public TestPointSelector() {
   }
@@ -52,7 +51,6 @@ public class TestPointSelector {
    * @return configurationId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -64,31 +62,30 @@ public class TestPointSelector {
   }
 
 
-  public TestPointSelector workitemIds(List<UUID> workitemIds) {
+  public TestPointSelector workItemIds(List<UUID> workItemIds) {
     
-    this.workitemIds = workitemIds;
+    this.workItemIds = workItemIds;
     return this;
   }
 
-  public TestPointSelector addWorkitemIdsItem(UUID workitemIdsItem) {
-    this.workitemIds.add(workitemIdsItem);
+  public TestPointSelector addWorkItemIdsItem(UUID workItemIdsItem) {
+    this.workItemIds.add(workItemIdsItem);
     return this;
   }
 
    /**
    * Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
-   * @return workitemIds
+   * @return workItemIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.")
 
-  public List<UUID> getWorkitemIds() {
-    return workitemIds;
+  public List<UUID> getWorkItemIds() {
+    return workItemIds;
   }
 
 
-  public void setWorkitemIds(List<UUID> workitemIds) {
-    this.workitemIds = workitemIds;
+  public void setWorkItemIds(List<UUID> workItemIds) {
+    this.workItemIds = workItemIds;
   }
 
 
@@ -103,12 +100,12 @@ public class TestPointSelector {
     }
     TestPointSelector testPointSelector = (TestPointSelector) o;
     return Objects.equals(this.configurationId, testPointSelector.configurationId) &&
-        Objects.equals(this.workitemIds, testPointSelector.workitemIds);
+        Objects.equals(this.workItemIds, testPointSelector.workItemIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationId, workitemIds);
+    return Objects.hash(configurationId, workItemIds);
   }
 
   @Override
@@ -116,7 +113,7 @@ public class TestPointSelector {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestPointSelector {\n");
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
-    sb.append("    workitemIds: ").append(toIndentedString(workitemIds)).append("\n");
+    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,12 +137,12 @@ public class TestPointSelector {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("configurationId");
-    openapiFields.add("workitemIds");
+    openapiFields.add("workItemIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("configurationId");
-    openapiRequiredFields.add("workitemIds");
+    openapiRequiredFields.add("workItemIds");
   }
 
  /**
@@ -179,10 +176,10 @@ public class TestPointSelector {
         throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
       }
       // ensure the required json array is present
-      if (jsonObj.get("workitemIds") == null) {
+      if (jsonObj.get("workItemIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("workitemIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workitemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workitemIds").toString()));
+      } else if (!jsonObj.get("workItemIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIds").toString()));
       }
   }
 

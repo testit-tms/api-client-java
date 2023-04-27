@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -41,11 +40,11 @@ public class ConfigurationPostModel {
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  private Map<String, String> capabilities = null;
+  private Map<String, String> capabilities;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -73,7 +72,6 @@ public class ConfigurationPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default configuration", value = "")
 
   public String getDescription() {
     return description;
@@ -96,7 +94,6 @@ public class ConfigurationPostModel {
    * @return isActive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsActive() {
     return isActive;
@@ -115,9 +112,6 @@ public class ConfigurationPostModel {
   }
 
   public ConfigurationPostModel putCapabilitiesItem(String key, String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new HashMap<>();
-    }
     this.capabilities.put(key, capabilitiesItem);
     return this;
   }
@@ -129,7 +123,6 @@ public class ConfigurationPostModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getCapabilities() {
     return capabilities;
@@ -148,9 +141,6 @@ public class ConfigurationPostModel {
   }
 
   public ConfigurationPostModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
-    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -160,7 +150,6 @@ public class ConfigurationPostModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -183,7 +172,6 @@ public class ConfigurationPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -206,7 +194,6 @@ public class ConfigurationPostModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDefault() {
     return isDefault;
@@ -229,7 +216,6 @@ public class ConfigurationPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Default", required = true, value = "")
 
   public String getName() {
     return name;

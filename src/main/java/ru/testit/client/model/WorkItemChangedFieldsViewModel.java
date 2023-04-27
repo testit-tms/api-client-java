@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -69,7 +68,7 @@ public class WorkItemChangedFieldsViewModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, WorkItemChangedAttributeViewModel> attributes = null;
+  private Map<String, WorkItemChangedAttributeViewModel> attributes;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
@@ -125,7 +124,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringWorkItemChangedFieldViewModel getName() {
     return name;
@@ -148,7 +146,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public BooleanWorkItemChangedFieldViewModel getIsDeleted() {
     return isDeleted;
@@ -171,7 +168,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidWorkItemChangedFieldViewModel getProjectId() {
     return projectId;
@@ -194,7 +190,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public BooleanWorkItemChangedFieldViewModel getIsAutomated() {
     return isAutomated;
@@ -217,7 +212,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidWorkItemChangedFieldViewModel getSectionId() {
     return sectionId;
@@ -240,7 +234,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringWorkItemChangedFieldViewModel getDescription() {
     return description;
@@ -263,7 +256,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringWorkItemChangedFieldViewModel getState() {
     return state;
@@ -286,7 +278,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return priority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringWorkItemChangedFieldViewModel getPriority() {
     return priority;
@@ -309,7 +300,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32WorkItemChangedFieldViewModel getDuration() {
     return duration;
@@ -328,9 +318,6 @@ public class WorkItemChangedFieldsViewModel {
   }
 
   public WorkItemChangedFieldsViewModel putAttributesItem(String key, WorkItemChangedAttributeViewModel attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -340,7 +327,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, WorkItemChangedAttributeViewModel> getAttributes() {
     return attributes;
@@ -363,7 +349,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel getSteps() {
     return steps;
@@ -386,7 +371,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel getPreconditionSteps() {
     return preconditionSteps;
@@ -409,7 +393,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel getPostconditionSteps() {
     return postconditionSteps;
@@ -432,7 +415,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel getAutoTests() {
     return autoTests;
@@ -455,7 +437,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel getAttachments() {
     return attachments;
@@ -478,7 +459,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringArrayWorkItemChangedFieldViewModel getTags() {
     return tags;
@@ -501,7 +481,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel getLinks() {
     return links;
@@ -524,7 +503,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int64WorkItemChangedFieldViewModel getGlobalId() {
     return globalId;
@@ -547,7 +525,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return versionNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32WorkItemChangedFieldViewModel getVersionNumber() {
     return versionNumber;
@@ -570,7 +547,6 @@ public class WorkItemChangedFieldsViewModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public StringWorkItemChangedFieldViewModel getEntityTypeName() {
     return entityTypeName;

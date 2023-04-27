@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,7 +32,7 @@ import java.util.Map.Entry;
 public class CustomAttributeTemplatePostModel {
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  private Set<UUID> customAttributeIds = null;
+  private Set<UUID> customAttributeIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -49,9 +48,6 @@ public class CustomAttributeTemplatePostModel {
   }
 
   public CustomAttributeTemplatePostModel addCustomAttributeIdsItem(UUID customAttributeIdsItem) {
-    if (this.customAttributeIds == null) {
-      this.customAttributeIds = new LinkedHashSet<>();
-    }
     this.customAttributeIds.add(customAttributeIdsItem);
     return this;
   }
@@ -61,7 +57,6 @@ public class CustomAttributeTemplatePostModel {
    * @return customAttributeIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of attribute IDs")
 
   public Set<UUID> getCustomAttributeIds() {
     return customAttributeIds;
@@ -84,7 +79,6 @@ public class CustomAttributeTemplatePostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Custom attributes template name")
 
   public String getName() {
     return name;

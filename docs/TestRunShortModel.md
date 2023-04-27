@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**stateName** | **TestRunState** |  |  [optional] |
+|**stateName** | **TestRunState** |  |  |
 |**projectId** | **UUID** |  |  [optional] |
 |**testPlanId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  [optional] |

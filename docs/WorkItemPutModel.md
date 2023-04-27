@@ -10,7 +10,7 @@
 |**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) |  |  |
 |**iterations** | [**List&lt;IterationPutModel&gt;**](IterationPutModel.md) |  |  [optional] |
 |**autoTests** | [**List&lt;AutoTestIdModel&gt;**](AutoTestIdModel.md) |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**state** | **WorkItemStates** |  |  |

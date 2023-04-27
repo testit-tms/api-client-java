@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,15 +32,15 @@ import java.util.Map.Entry;
 public class AutotestFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_EXTERNAL_IDS = "externalIds";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_IDS)
-  private Set<String> externalIds = null;
+  private Set<String> externalIds;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -65,7 +64,7 @@ public class AutotestFilterModel {
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
@@ -73,7 +72,7 @@ public class AutotestFilterModel {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -109,9 +108,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
-    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -121,7 +117,6 @@ public class AutotestFilterModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest projects IDs to search for")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -140,9 +135,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel addExternalIdsItem(String externalIdsItem) {
-    if (this.externalIds == null) {
-      this.externalIds = new LinkedHashSet<>();
-    }
     this.externalIds.add(externalIdsItem);
     return this;
   }
@@ -152,7 +144,6 @@ public class AutotestFilterModel {
    * @return externalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest external IDs to search for")
 
   public Set<String> getExternalIds() {
     return externalIds;
@@ -171,9 +162,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -183,7 +171,6 @@ public class AutotestFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest global IDs to search for")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -206,7 +193,6 @@ public class AutotestFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest name to search for")
 
   public String getName() {
     return name;
@@ -229,7 +215,6 @@ public class AutotestFilterModel {
    * @return isFlaky
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest flaky status to search for")
 
   public Boolean getIsFlaky() {
     return isFlaky;
@@ -252,7 +237,6 @@ public class AutotestFilterModel {
    * @return mustBeApproved
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest unapproved changes status to search for")
 
   public Boolean getMustBeApproved() {
     return mustBeApproved;
@@ -275,7 +259,6 @@ public class AutotestFilterModel {
    * @return stabilityPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int64RangeSelectorModel getStabilityPercentage() {
     return stabilityPercentage;
@@ -298,7 +281,6 @@ public class AutotestFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -317,9 +299,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -329,7 +308,6 @@ public class AutotestFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest creator IDs to search for")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -352,7 +330,6 @@ public class AutotestFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
@@ -371,9 +348,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
-    }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
@@ -383,7 +357,6 @@ public class AutotestFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest last editor IDs to search for")
 
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
@@ -406,7 +379,6 @@ public class AutotestFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest deleted status to search for")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -429,7 +401,6 @@ public class AutotestFilterModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest namespace to search for")
 
   public String getNamespace() {
     return namespace;
@@ -452,7 +423,6 @@ public class AutotestFilterModel {
    * @return isEmptyNamespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest namespace name presence status to search for")
 
   public Boolean getIsEmptyNamespace() {
     return isEmptyNamespace;
@@ -475,7 +445,6 @@ public class AutotestFilterModel {
    * @return className
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest class name to search for")
 
   public String getClassName() {
     return className;
@@ -498,7 +467,6 @@ public class AutotestFilterModel {
    * @return isEmptyClassName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest class name presence status to search for")
 
   public Boolean getIsEmptyClassName() {
     return isEmptyClassName;
@@ -521,7 +489,6 @@ public class AutotestFilterModel {
    * @return lastTestResultOutcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public AutotestResultOutcome getLastTestResultOutcome() {
     return lastTestResultOutcome;

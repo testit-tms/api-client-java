@@ -78,8 +78,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for requested project is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for requested project is required |  -  |
 
 <a name="apiV2WebhooksIdDelete"></a>
 # **apiV2WebhooksIdDelete**
@@ -146,7 +146,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | Delete permission for webhooks is required |  -  |
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 
 <a name="apiV2WebhooksIdGet"></a>
 # **apiV2WebhooksIdGet**
@@ -283,8 +283,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for webhooks is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for webhooks is required |  -  |
 
 <a name="apiV2WebhooksPost"></a>
 # **apiV2WebhooksPost**
@@ -351,7 +351,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **403** | Update permission for webhooks is required |  -  |
 
 <a name="apiV2WebhooksSearchPost"></a>
@@ -429,8 +429,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for all requested projects is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for all requested projects is required |  -  |
 
 <a name="apiV2WebhooksSpecialVariablesGet"></a>
 # **apiV2WebhooksSpecialVariablesGet**

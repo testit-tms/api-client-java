@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -33,11 +32,11 @@ import java.util.Map.Entry;
 public class WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<WorkItemStepChangeViewModel> oldValue = null;
+  private List<WorkItemStepChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<WorkItemStepChangeViewModel> newValue = null;
+  private List<WorkItemStepChangeViewModel> newValue;
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel() {
   }
@@ -49,9 +48,6 @@ public class WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel addOldValueItem(WorkItemStepChangeViewModel oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
-    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -61,7 +57,6 @@ public class WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WorkItemStepChangeViewModel> getOldValue() {
     return oldValue;
@@ -80,9 +75,6 @@ public class WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel addNewValueItem(WorkItemStepChangeViewModel newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
-    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -92,7 +84,6 @@ public class WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WorkItemStepChangeViewModel> getNewValue() {
     return newValue;

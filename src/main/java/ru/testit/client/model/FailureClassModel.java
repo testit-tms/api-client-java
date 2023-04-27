@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -58,7 +57,7 @@ public class FailureClassModel {
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_REGEXES = "failureClassRegexes";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_REGEXES)
-  private List<FailureClassRegexModel> failureClassRegexes = null;
+  private List<FailureClassRegexModel> failureClassRegexes;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -82,7 +81,6 @@ public class FailureClassModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -104,8 +102,7 @@ public class FailureClassModel {
    * Get failureCategory
    * @return failureCategory
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public FailureCategoryModel getFailureCategory() {
     return failureCategory;
@@ -128,7 +125,6 @@ public class FailureClassModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -151,7 +147,6 @@ public class FailureClassModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -174,7 +169,6 @@ public class FailureClassModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -197,7 +191,6 @@ public class FailureClassModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -216,9 +209,6 @@ public class FailureClassModel {
   }
 
   public FailureClassModel addFailureClassRegexesItem(FailureClassRegexModel failureClassRegexesItem) {
-    if (this.failureClassRegexes == null) {
-      this.failureClassRegexes = new ArrayList<>();
-    }
     this.failureClassRegexes.add(failureClassRegexesItem);
     return this;
   }
@@ -228,7 +218,6 @@ public class FailureClassModel {
    * @return failureClassRegexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<FailureClassRegexModel> getFailureClassRegexes() {
     return failureClassRegexes;
@@ -251,7 +240,6 @@ public class FailureClassModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -274,7 +262,6 @@ public class FailureClassModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -370,6 +357,7 @@ public class FailureClassModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("failureCategory");
   }
 
  /**
@@ -390,6 +378,13 @@ public class FailureClassModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!FailureClassModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FailureClassModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : FailureClassModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.invoker.JSON;
 
@@ -35,9 +34,9 @@ public class TestRunFillByWorkItemsPostModel {
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
   private List<UUID> configurationIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_WORKITEM_IDS = "workitemIds";
-  @SerializedName(SERIALIZED_NAME_WORKITEM_IDS)
-  private List<UUID> workitemIds = new ArrayList<>();
+  public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
+  private List<UUID> workItemIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -78,7 +77,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return configurationIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
 
   public List<UUID> getConfigurationIds() {
     return configurationIds;
@@ -90,31 +88,30 @@ public class TestRunFillByWorkItemsPostModel {
   }
 
 
-  public TestRunFillByWorkItemsPostModel workitemIds(List<UUID> workitemIds) {
+  public TestRunFillByWorkItemsPostModel workItemIds(List<UUID> workItemIds) {
     
-    this.workitemIds = workitemIds;
+    this.workItemIds = workItemIds;
     return this;
   }
 
-  public TestRunFillByWorkItemsPostModel addWorkitemIdsItem(UUID workitemIdsItem) {
-    this.workitemIds.add(workitemIdsItem);
+  public TestRunFillByWorkItemsPostModel addWorkItemIdsItem(UUID workItemIdsItem) {
+    this.workItemIds.add(workItemIdsItem);
     return this;
   }
 
    /**
    * Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
-   * @return workitemIds
+   * @return workItemIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.")
 
-  public List<UUID> getWorkitemIds() {
-    return workitemIds;
+  public List<UUID> getWorkItemIds() {
+    return workItemIds;
   }
 
 
-  public void setWorkitemIds(List<UUID> workitemIds) {
-    this.workitemIds = workitemIds;
+  public void setWorkItemIds(List<UUID> workItemIds) {
+    this.workItemIds = workItemIds;
   }
 
 
@@ -129,7 +126,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the project, in which a test run will be created.")
 
   public UUID getProjectId() {
     return projectId;
@@ -152,7 +148,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the test plan, within which the test run will be created.")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -175,7 +170,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the name of the test run.")
 
   public String getName() {
     return name;
@@ -198,7 +192,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run description.")
 
   public String getDescription() {
     return description;
@@ -221,7 +214,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run launch source.")
 
   public String getLaunchSource() {
     return launchSource;
@@ -244,7 +236,7 @@ public class TestRunFillByWorkItemsPostModel {
     }
     TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel = (TestRunFillByWorkItemsPostModel) o;
     return Objects.equals(this.configurationIds, testRunFillByWorkItemsPostModel.configurationIds) &&
-        Objects.equals(this.workitemIds, testRunFillByWorkItemsPostModel.workitemIds) &&
+        Objects.equals(this.workItemIds, testRunFillByWorkItemsPostModel.workItemIds) &&
         Objects.equals(this.projectId, testRunFillByWorkItemsPostModel.projectId) &&
         Objects.equals(this.testPlanId, testRunFillByWorkItemsPostModel.testPlanId) &&
         Objects.equals(this.name, testRunFillByWorkItemsPostModel.name) &&
@@ -258,7 +250,7 @@ public class TestRunFillByWorkItemsPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationIds, workitemIds, projectId, testPlanId, name, description, launchSource);
+    return Objects.hash(configurationIds, workItemIds, projectId, testPlanId, name, description, launchSource);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -273,7 +265,7 @@ public class TestRunFillByWorkItemsPostModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestRunFillByWorkItemsPostModel {\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
-    sb.append("    workitemIds: ").append(toIndentedString(workitemIds)).append("\n");
+    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -302,7 +294,7 @@ public class TestRunFillByWorkItemsPostModel {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("configurationIds");
-    openapiFields.add("workitemIds");
+    openapiFields.add("workItemIds");
     openapiFields.add("projectId");
     openapiFields.add("testPlanId");
     openapiFields.add("name");
@@ -312,7 +304,7 @@ public class TestRunFillByWorkItemsPostModel {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("configurationIds");
-    openapiRequiredFields.add("workitemIds");
+    openapiRequiredFields.add("workItemIds");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("testPlanId");
   }
@@ -351,10 +343,10 @@ public class TestRunFillByWorkItemsPostModel {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       // ensure the required json array is present
-      if (jsonObj.get("workitemIds") == null) {
+      if (jsonObj.get("workItemIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("workitemIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workitemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workitemIds").toString()));
+      } else if (!jsonObj.get("workItemIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIds").toString()));
       }
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
