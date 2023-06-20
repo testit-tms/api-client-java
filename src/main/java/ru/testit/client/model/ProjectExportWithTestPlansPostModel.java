@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ProjectExportWithTestPlansPostModel
@@ -32,7 +56,7 @@ import java.util.Map.Entry;
 public class ProjectExportWithTestPlansPostModel {
   public static final String SERIALIZED_NAME_TEST_PLANS_IDS = "testPlansIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLANS_IDS)
-  private Set<UUID> testPlansIds;
+  private Set<UUID> testPlansIds = null;
 
   public ProjectExportWithTestPlansPostModel() {
   }
@@ -44,6 +68,9 @@ public class ProjectExportWithTestPlansPostModel {
   }
 
   public ProjectExportWithTestPlansPostModel addTestPlansIdsItem(UUID testPlansIdsItem) {
+    if (this.testPlansIds == null) {
+      this.testPlansIds = new LinkedHashSet<>();
+    }
     this.testPlansIds.add(testPlansIdsItem);
     return this;
   }
@@ -53,6 +80,7 @@ public class ProjectExportWithTestPlansPostModel {
    * @return testPlansIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the IDs of test plans to be exported with the project.<br />  In this parameter, \"<b>string</b>\" values are IDs of the test plans.<br />  To get the test plan IDs, use the `GET /api/v2/projects/{projectId}/testPlans` method.")
 
   public Set<UUID> getTestPlansIds() {
     return testPlansIds;

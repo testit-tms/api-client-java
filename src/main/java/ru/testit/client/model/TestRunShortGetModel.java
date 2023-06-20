@@ -13,18 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestResultsStatisticsGetModel;
+import ru.testit.client.model.TestRunState;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunShortGetModel
@@ -93,6 +117,7 @@ public class TestRunShortGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test run")
 
   public UUID getId() {
     return id;
@@ -115,6 +140,7 @@ public class TestRunShortGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the test run")
 
   public String getName() {
     return name;
@@ -137,6 +163,7 @@ public class TestRunShortGetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of project where test run is located")
 
   public UUID getProjectId() {
     return projectId;
@@ -159,6 +186,7 @@ public class TestRunShortGetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date when the test run was created")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -181,6 +209,7 @@ public class TestRunShortGetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of user who created the test run")
 
   public UUID getCreatedById() {
     return createdById;
@@ -203,6 +232,7 @@ public class TestRunShortGetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date when the test run was modified last time")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -225,6 +255,7 @@ public class TestRunShortGetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of user who modified the test run last time")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -247,6 +278,7 @@ public class TestRunShortGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Is the test run is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -269,6 +301,7 @@ public class TestRunShortGetModel {
    * @return state
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestRunState getState() {
     return state;
@@ -291,6 +324,7 @@ public class TestRunShortGetModel {
    * @return startedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date when the test run was started")
 
   public OffsetDateTime getStartedDate() {
     return startedDate;
@@ -313,6 +347,7 @@ public class TestRunShortGetModel {
    * @return autotestsCount
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of autotests run in the test run")
 
   public Integer getAutotestsCount() {
     return autotestsCount;
@@ -335,6 +370,7 @@ public class TestRunShortGetModel {
    * @return statistics
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestResultsStatisticsGetModel getStatistics() {
     return statistics;

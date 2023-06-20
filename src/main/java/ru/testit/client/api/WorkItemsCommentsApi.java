@@ -13,14 +13,33 @@
 
 package ru.testit.client.api;
 
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.ProblemDetails;
+import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemCommentModel;
 import ru.testit.client.model.WorkItemCommentPostModel;
 import ru.testit.client.model.WorkItemCommentPutModel;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class WorkItemsCommentsApi {
     private ApiClient localVarApiClient;
@@ -68,10 +87,10 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
      */
@@ -139,10 +158,10 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
      */
@@ -159,10 +178,10 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
      */
@@ -181,10 +200,10 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System admin permission required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
      </table>
      */
@@ -203,11 +222,11 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WorkItemsCommentsPostCall(WorkItemCommentPostModel workItemCommentPostModel, final ApiCallback _callback) throws ApiException {
@@ -270,11 +289,11 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public WorkItemCommentModel apiV2WorkItemsCommentsPost(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
@@ -291,11 +310,11 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WorkItemCommentModel> apiV2WorkItemsCommentsPostWithHttpInfo(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
@@ -314,11 +333,11 @@ public class WorkItemsCommentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> WorkItem is not found </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WorkItemsCommentsPostAsync(WorkItemCommentPostModel workItemCommentPostModel, final ApiCallback<WorkItemCommentModel> _callback) throws ApiException {

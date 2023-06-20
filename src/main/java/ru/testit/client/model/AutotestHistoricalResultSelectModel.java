@@ -13,17 +13,43 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutotestResultOutcome;
+import ru.testit.client.model.Int64RangeSelectorModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AutotestHistoricalResultSelectModel
@@ -32,19 +58,19 @@ import java.util.Map.Entry;
 public class AutotestHistoricalResultSelectModel {
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private Set<AutotestResultOutcome> outcomes;
+  private Set<AutotestResultOutcome> outcomes = null;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  private Set<UUID> testPlanIds;
+  private Set<UUID> testPlanIds = null;
 
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  private Set<UUID> testRunIds;
+  private Set<UUID> testRunIds = null;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds;
+  private Set<UUID> configurationIds = null;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
@@ -52,7 +78,7 @@ public class AutotestHistoricalResultSelectModel {
 
   public static final String SERIALIZED_NAME_USER_IDS = "userIds";
   @SerializedName(SERIALIZED_NAME_USER_IDS)
-  private Set<UUID> userIds;
+  private Set<UUID> userIds = null;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -68,6 +94,9 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addOutcomesItem(AutotestResultOutcome outcomesItem) {
+    if (this.outcomes == null) {
+      this.outcomes = new LinkedHashSet<>();
+    }
     this.outcomes.add(outcomesItem);
     return this;
   }
@@ -77,6 +106,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return outcomes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<AutotestResultOutcome> getOutcomes() {
     return outcomes;
@@ -95,6 +125,9 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addTestPlanIdsItem(UUID testPlanIdsItem) {
+    if (this.testPlanIds == null) {
+      this.testPlanIds = new LinkedHashSet<>();
+    }
     this.testPlanIds.add(testPlanIdsItem);
     return this;
   }
@@ -104,6 +137,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return testPlanIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getTestPlanIds() {
     return testPlanIds;
@@ -122,6 +156,9 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addTestRunIdsItem(UUID testRunIdsItem) {
+    if (this.testRunIds == null) {
+      this.testRunIds = new LinkedHashSet<>();
+    }
     this.testRunIds.add(testRunIdsItem);
     return this;
   }
@@ -131,6 +168,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return testRunIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getTestRunIds() {
     return testRunIds;
@@ -149,6 +187,9 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addConfigurationIdsItem(UUID configurationIdsItem) {
+    if (this.configurationIds == null) {
+      this.configurationIds = new LinkedHashSet<>();
+    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -158,6 +199,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
@@ -180,6 +222,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -198,6 +241,9 @@ public class AutotestHistoricalResultSelectModel {
   }
 
   public AutotestHistoricalResultSelectModel addUserIdsItem(UUID userIdsItem) {
+    if (this.userIds == null) {
+      this.userIds = new LinkedHashSet<>();
+    }
     this.userIds.add(userIdsItem);
     return this;
   }
@@ -207,6 +253,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return userIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getUserIds() {
     return userIds;
@@ -229,6 +276,7 @@ public class AutotestHistoricalResultSelectModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Int64RangeSelectorModel getDuration() {
     return duration;

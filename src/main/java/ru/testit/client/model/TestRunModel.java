@@ -13,18 +13,47 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutoTestModel;
+import ru.testit.client.model.TestPlanModel;
+import ru.testit.client.model.TestResultModel;
+import ru.testit.client.model.TestRunAnalyticResultModel;
+import ru.testit.client.model.TestRunState;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunModel
@@ -33,7 +62,7 @@ import java.util.Map.Entry;
 public class TestRunModel {
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests;
+  private List<AutoTestModel> autoTests = null;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
@@ -41,7 +70,7 @@ public class TestRunModel {
 
   public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  private List<UUID> testSuiteIds;
+  private List<UUID> testSuiteIds = null;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
@@ -53,7 +82,7 @@ public class TestRunModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultModel> testResults;
+  private List<TestResultModel> testResults = null;
 
   public static final String SERIALIZED_NAME_TEST_PLAN = "testPlan";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN)
@@ -141,6 +170,9 @@ public class TestRunModel {
   }
 
   public TestRunModel addAutoTestsItem(AutoTestModel autoTestsItem) {
+    if (this.autoTests == null) {
+      this.autoTests = new ArrayList<>();
+    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -150,6 +182,7 @@ public class TestRunModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
@@ -172,6 +205,7 @@ public class TestRunModel {
    * @return autoTestsCount
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getAutoTestsCount() {
     return autoTestsCount;
@@ -190,6 +224,9 @@ public class TestRunModel {
   }
 
   public TestRunModel addTestSuiteIdsItem(UUID testSuiteIdsItem) {
+    if (this.testSuiteIds == null) {
+      this.testSuiteIds = new ArrayList<>();
+    }
     this.testSuiteIds.add(testSuiteIdsItem);
     return this;
   }
@@ -199,6 +236,7 @@ public class TestRunModel {
    * @return testSuiteIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<UUID> getTestSuiteIds() {
     return testSuiteIds;
@@ -221,6 +259,7 @@ public class TestRunModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -243,6 +282,7 @@ public class TestRunModel {
    * @return analytic
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestRunAnalyticResultModel getAnalytic() {
     return analytic;
@@ -261,6 +301,9 @@ public class TestRunModel {
   }
 
   public TestRunModel addTestResultsItem(TestResultModel testResultsItem) {
+    if (this.testResults == null) {
+      this.testResults = new ArrayList<>();
+    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -270,6 +313,7 @@ public class TestRunModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestResultModel> getTestResults() {
     return testResults;
@@ -292,6 +336,7 @@ public class TestRunModel {
    * @return testPlan
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestPlanModel getTestPlan() {
     return testPlan;
@@ -314,6 +359,7 @@ public class TestRunModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -336,6 +382,7 @@ public class TestRunModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -358,6 +405,7 @@ public class TestRunModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -380,6 +428,7 @@ public class TestRunModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -402,6 +451,7 @@ public class TestRunModel {
    * @return createdByUserName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getCreatedByUserName() {
     return createdByUserName;
@@ -424,6 +474,7 @@ public class TestRunModel {
    * @return startedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getStartedDate() {
     return startedDate;
@@ -446,6 +497,7 @@ public class TestRunModel {
    * @return completedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCompletedDate() {
     return completedDate;
@@ -468,6 +520,7 @@ public class TestRunModel {
    * @return build
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getBuild() {
     return build;
@@ -490,6 +543,7 @@ public class TestRunModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -512,6 +566,7 @@ public class TestRunModel {
    * @return stateName
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestRunState getStateName() {
     return stateName;
@@ -534,6 +589,7 @@ public class TestRunModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -556,6 +612,7 @@ public class TestRunModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -578,6 +635,7 @@ public class TestRunModel {
    * @return runByUserId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getRunByUserId() {
     return runByUserId;
@@ -600,6 +658,7 @@ public class TestRunModel {
    * @return stoppedByUserId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
@@ -622,6 +681,7 @@ public class TestRunModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -644,6 +704,7 @@ public class TestRunModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -666,6 +727,7 @@ public class TestRunModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -688,6 +750,7 @@ public class TestRunModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

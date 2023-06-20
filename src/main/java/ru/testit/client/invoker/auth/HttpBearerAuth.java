@@ -17,8 +17,8 @@ import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Pair;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HttpBearerAuth implements Authentication {

@@ -13,18 +13,45 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.AutoTestShortModel;
+import ru.testit.client.model.TestPointPutModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestResultShortModel
@@ -65,7 +92,7 @@ public class TestResultShortModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments;
+  private List<AttachmentModel> attachments = null;
 
   public TestResultShortModel() {
   }
@@ -81,6 +108,7 @@ public class TestResultShortModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -103,6 +131,7 @@ public class TestResultShortModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getOutcome() {
     return outcome;
@@ -125,6 +154,7 @@ public class TestResultShortModel {
    * @return traces
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getTraces() {
     return traces;
@@ -147,6 +177,7 @@ public class TestResultShortModel {
    * @return failureType
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFailureType() {
     return failureType;
@@ -169,6 +200,7 @@ public class TestResultShortModel {
    * @return message
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getMessage() {
     return message;
@@ -191,6 +223,7 @@ public class TestResultShortModel {
    * @return testPoint
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestPointPutModel getTestPoint() {
     return testPoint;
@@ -213,6 +246,7 @@ public class TestResultShortModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -235,6 +269,7 @@ public class TestResultShortModel {
    * @return autoTest
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public AutoTestShortModel getAutoTest() {
     return autoTest;
@@ -253,6 +288,9 @@ public class TestResultShortModel {
   }
 
   public TestResultShortModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -262,6 +300,7 @@ public class TestResultShortModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;

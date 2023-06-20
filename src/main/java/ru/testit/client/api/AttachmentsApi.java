@@ -13,14 +13,33 @@
 
 package ru.testit.client.api;
 
-import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
-import ru.testit.client.model.AttachmentModel;
-import ru.testit.client.model.ImageResizeType;
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
 
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.AttachmentModel;
 import java.io.File;
+import ru.testit.client.model.ImageResizeType;
+import ru.testit.client.model.ProblemDetails;
+import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
+
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class AttachmentsApi {
     private ApiClient localVarApiClient;
@@ -68,8 +87,8 @@ public class AttachmentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AttachmentsIdDeleteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -138,8 +157,8 @@ public class AttachmentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2AttachmentsIdDelete(UUID id) throws ApiException {
@@ -155,8 +174,8 @@ public class AttachmentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2AttachmentsIdDeleteWithHttpInfo(UUID id) throws ApiException {
@@ -174,8 +193,8 @@ public class AttachmentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Attachment file was deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Attachment file is already in use </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AttachmentsIdDeleteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -470,9 +489,9 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AttachmentsPostCall(File _file, final ApiCallback _callback) throws ApiException {
@@ -532,7 +551,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file
-     * File size is restricted to 1 GB (1 073 741 824 bytes)
+     * File size is restricted to 50 MB (52 428 800 bytes)
      * @param _file  (optional)
      * @return AttachmentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -540,9 +559,9 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public AttachmentModel apiV2AttachmentsPost(File _file) throws ApiException {
@@ -552,7 +571,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file
-     * File size is restricted to 1 GB (1 073 741 824 bytes)
+     * File size is restricted to 50 MB (52 428 800 bytes)
      * @param _file  (optional)
      * @return ApiResponse&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -560,9 +579,9 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AttachmentModel> apiV2AttachmentsPostWithHttpInfo(File _file) throws ApiException {
@@ -573,7 +592,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file (asynchronously)
-     * File size is restricted to 1 GB (1 073 741 824 bytes)
+     * File size is restricted to 50 MB (52 428 800 bytes)
      * @param _file  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -582,9 +601,9 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AttachmentsPostAsync(File _file, final ApiCallback<AttachmentModel> _callback) throws ApiException {

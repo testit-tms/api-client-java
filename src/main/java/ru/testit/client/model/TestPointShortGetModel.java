@@ -13,18 +13,47 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.LastTestResultModel;
+import ru.testit.client.model.TestPointStatus;
+import ru.testit.client.model.WorkItemPriorityModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPointShortGetModel
@@ -57,19 +86,19 @@ public class TestPointShortGetModel {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  private Map<String, String> parameters = null;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes;
+  private Map<String, Object> attributes = null;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags;
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<String> links;
+  private List<String> links = null;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
@@ -145,6 +174,7 @@ public class TestPointShortGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point")
 
   public UUID getId() {
     return id;
@@ -167,6 +197,7 @@ public class TestPointShortGetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Creation date of the test point")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -189,6 +220,7 @@ public class TestPointShortGetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point creator")
 
   public UUID getCreatedById() {
     return createdById;
@@ -211,6 +243,7 @@ public class TestPointShortGetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last modification date of the test point")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -233,6 +266,7 @@ public class TestPointShortGetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point last editor")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -255,6 +289,7 @@ public class TestPointShortGetModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point assigned user")
 
   public UUID getTesterId() {
     return testerId;
@@ -273,6 +308,9 @@ public class TestPointShortGetModel {
   }
 
   public TestPointShortGetModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -282,6 +320,7 @@ public class TestPointShortGetModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of the test point parameters")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -300,6 +339,9 @@ public class TestPointShortGetModel {
   }
 
   public TestPointShortGetModel putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -309,6 +351,7 @@ public class TestPointShortGetModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of attributes of work item the test point represents")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -327,6 +370,9 @@ public class TestPointShortGetModel {
   }
 
   public TestPointShortGetModel addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -336,6 +382,7 @@ public class TestPointShortGetModel {
    * @return tags
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of the test point tags")
 
   public List<String> getTags() {
     return tags;
@@ -354,6 +401,9 @@ public class TestPointShortGetModel {
   }
 
   public TestPointShortGetModel addLinksItem(String linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -363,6 +413,7 @@ public class TestPointShortGetModel {
    * @return links
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of the test point links")
 
   public List<String> getLinks() {
     return links;
@@ -385,6 +436,7 @@ public class TestPointShortGetModel {
    * @return testSuiteId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of test suite the test point assigned to")
 
   public UUID getTestSuiteId() {
     return testSuiteId;
@@ -407,6 +459,7 @@ public class TestPointShortGetModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of work item the test point represents")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -429,6 +482,7 @@ public class TestPointShortGetModel {
    * @return workItemGlobalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Global ID of work item the test point represents")
 
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
@@ -451,6 +505,7 @@ public class TestPointShortGetModel {
    * @return workItemVersionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of work item version the test point represents")
 
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
@@ -473,6 +528,7 @@ public class TestPointShortGetModel {
    * @return status
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestPointStatus getStatus() {
     return status;
@@ -495,6 +551,7 @@ public class TestPointShortGetModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -517,6 +574,7 @@ public class TestPointShortGetModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the test point represents an autotest")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -539,6 +597,7 @@ public class TestPointShortGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the test point")
 
   public String getName() {
     return name;
@@ -561,6 +620,7 @@ public class TestPointShortGetModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point configuration")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -583,6 +643,7 @@ public class TestPointShortGetModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Duration of the test point")
 
   public Integer getDuration() {
     return duration;
@@ -605,6 +666,7 @@ public class TestPointShortGetModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of section where work item the test point represents is located")
 
   public UUID getSectionId() {
     return sectionId;
@@ -627,6 +689,7 @@ public class TestPointShortGetModel {
    * @return sectionName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of section where work item the test point represents is located")
 
   public String getSectionName() {
     return sectionName;
@@ -649,6 +712,7 @@ public class TestPointShortGetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the test point project")
 
   public UUID getProjectId() {
     return projectId;
@@ -671,6 +735,7 @@ public class TestPointShortGetModel {
    * @return lastTestResult
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public LastTestResultModel getLastTestResult() {
     return lastTestResult;
@@ -693,6 +758,7 @@ public class TestPointShortGetModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of work item iteration the test point represents")
 
   public UUID getIterationId() {
     return iterationId;

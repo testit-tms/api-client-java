@@ -13,17 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestRunGroupByFailureClassModel;
+import ru.testit.client.model.TestRunGroupByStatusModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunAnalyticResultModel
@@ -32,11 +57,11 @@ import java.util.Map.Entry;
 public class TestRunAnalyticResultModel {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
-  private List<TestRunGroupByStatusModel> countGroupByStatus;
+  private List<TestRunGroupByStatusModel> countGroupByStatus = null;
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS = "countGroupByFailureClass";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS)
-  private List<TestRunGroupByFailureClassModel> countGroupByFailureClass;
+  private List<TestRunGroupByFailureClassModel> countGroupByFailureClass = null;
 
   public TestRunAnalyticResultModel() {
   }
@@ -48,6 +73,9 @@ public class TestRunAnalyticResultModel {
   }
 
   public TestRunAnalyticResultModel addCountGroupByStatusItem(TestRunGroupByStatusModel countGroupByStatusItem) {
+    if (this.countGroupByStatus == null) {
+      this.countGroupByStatus = new ArrayList<>();
+    }
     this.countGroupByStatus.add(countGroupByStatusItem);
     return this;
   }
@@ -57,6 +85,7 @@ public class TestRunAnalyticResultModel {
    * @return countGroupByStatus
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestRunGroupByStatusModel> getCountGroupByStatus() {
     return countGroupByStatus;
@@ -75,6 +104,9 @@ public class TestRunAnalyticResultModel {
   }
 
   public TestRunAnalyticResultModel addCountGroupByFailureClassItem(TestRunGroupByFailureClassModel countGroupByFailureClassItem) {
+    if (this.countGroupByFailureClass == null) {
+      this.countGroupByFailureClass = new ArrayList<>();
+    }
     this.countGroupByFailureClass.add(countGroupByFailureClassItem);
     return this;
   }
@@ -84,6 +116,7 @@ public class TestRunAnalyticResultModel {
    * @return countGroupByFailureClass
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestRunGroupByFailureClassModel> getCountGroupByFailureClass() {
     return countGroupByFailureClass;

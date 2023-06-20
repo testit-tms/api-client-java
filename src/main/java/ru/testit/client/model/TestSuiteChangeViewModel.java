@@ -13,17 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.ShortConfiguration;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestSuiteChangeViewModel
@@ -40,7 +65,7 @@ public class TestSuiteChangeViewModel {
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  private List<ShortConfiguration> configurations;
+  private List<ShortConfiguration> configurations = null;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_COUNT = "workItemCount";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_COUNT)
@@ -60,6 +85,7 @@ public class TestSuiteChangeViewModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -82,6 +108,7 @@ public class TestSuiteChangeViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -100,6 +127,9 @@ public class TestSuiteChangeViewModel {
   }
 
   public TestSuiteChangeViewModel addConfigurationsItem(ShortConfiguration configurationsItem) {
+    if (this.configurations == null) {
+      this.configurations = new ArrayList<>();
+    }
     this.configurations.add(configurationsItem);
     return this;
   }
@@ -109,6 +139,7 @@ public class TestSuiteChangeViewModel {
    * @return configurations
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<ShortConfiguration> getConfigurations() {
     return configurations;
@@ -131,6 +162,7 @@ public class TestSuiteChangeViewModel {
    * @return workItemCount
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getWorkItemCount() {
     return workItemCount;

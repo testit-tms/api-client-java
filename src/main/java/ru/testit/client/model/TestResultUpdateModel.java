@@ -13,17 +13,46 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentPutModel;
+import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
+import ru.testit.client.model.LinkModel;
+import ru.testit.client.model.StepResultModel;
+import ru.testit.client.model.TestResultStepCommentPutModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestResultUpdateModel
@@ -32,11 +61,11 @@ import java.util.Map.Entry;
 public class TestResultUpdateModel {
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
+  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults = null;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
+  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults = null;
 
   public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
   @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
@@ -44,11 +73,11 @@ public class TestResultUpdateModel {
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  private List<TestResultStepCommentPutModel> stepComments;
+  private List<TestResultStepCommentPutModel> stepComments = null;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
-  private List<UUID> failureClassIds;
+  private List<UUID> failureClassIds = null;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
@@ -60,15 +89,15 @@ public class TestResultUpdateModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links;
+  private List<LinkModel> links = null;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<StepResultModel> stepResults;
+  private List<StepResultModel> stepResults = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments;
+  private List<AttachmentPutModel> attachments = null;
 
   public TestResultUpdateModel() {
   }
@@ -80,6 +109,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addSetupResultsItem(AttachmentPutModelAutoTestStepResultsModel setupResultsItem) {
+    if (this.setupResults == null) {
+      this.setupResults = new ArrayList<>();
+    }
     this.setupResults.add(setupResultsItem);
     return this;
   }
@@ -89,6 +121,7 @@ public class TestResultUpdateModel {
    * @return setupResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
     return setupResults;
@@ -107,6 +140,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addTeardownResultsItem(AttachmentPutModelAutoTestStepResultsModel teardownResultsItem) {
+    if (this.teardownResults == null) {
+      this.teardownResults = new ArrayList<>();
+    }
     this.teardownResults.add(teardownResultsItem);
     return this;
   }
@@ -116,6 +152,7 @@ public class TestResultUpdateModel {
    * @return teardownResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
     return teardownResults;
@@ -139,6 +176,7 @@ public class TestResultUpdateModel {
    * @return durationInMs
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getDurationInMs() {
     return durationInMs;
@@ -157,6 +195,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addStepCommentsItem(TestResultStepCommentPutModel stepCommentsItem) {
+    if (this.stepComments == null) {
+      this.stepComments = new ArrayList<>();
+    }
     this.stepComments.add(stepCommentsItem);
     return this;
   }
@@ -166,6 +207,7 @@ public class TestResultUpdateModel {
    * @return stepComments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestResultStepCommentPutModel> getStepComments() {
     return stepComments;
@@ -184,6 +226,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addFailureClassIdsItem(UUID failureClassIdsItem) {
+    if (this.failureClassIds == null) {
+      this.failureClassIds = new ArrayList<>();
+    }
     this.failureClassIds.add(failureClassIdsItem);
     return this;
   }
@@ -193,6 +238,7 @@ public class TestResultUpdateModel {
    * @return failureClassIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
@@ -215,6 +261,7 @@ public class TestResultUpdateModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getOutcome() {
     return outcome;
@@ -237,6 +284,7 @@ public class TestResultUpdateModel {
    * @return comment
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getComment() {
     return comment;
@@ -255,6 +303,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addLinksItem(LinkModel linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -264,6 +315,7 @@ public class TestResultUpdateModel {
    * @return links
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -282,6 +334,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addStepResultsItem(StepResultModel stepResultsItem) {
+    if (this.stepResults == null) {
+      this.stepResults = new ArrayList<>();
+    }
     this.stepResults.add(stepResultsItem);
     return this;
   }
@@ -291,6 +346,7 @@ public class TestResultUpdateModel {
    * @return stepResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepResultModel> getStepResults() {
     return stepResults;
@@ -309,6 +365,9 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -318,6 +377,7 @@ public class TestResultUpdateModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentPutModel> getAttachments() {
     return attachments;

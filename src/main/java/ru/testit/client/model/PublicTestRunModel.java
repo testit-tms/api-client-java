@@ -13,17 +13,44 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutoTestModel;
+import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.PublicTestPointModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * PublicTestRunModel
@@ -56,15 +83,15 @@ public class PublicTestRunModel {
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  private List<ConfigurationModel> configurations;
+  private List<ConfigurationModel> configurations = null;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests;
+  private List<AutoTestModel> autoTests = null;
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
-  private List<PublicTestPointModel> testPoints;
+  private List<PublicTestPointModel> testPoints = null;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -84,6 +111,7 @@ public class PublicTestRunModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -106,6 +134,7 @@ public class PublicTestRunModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -128,6 +157,7 @@ public class PublicTestRunModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
@@ -150,6 +180,7 @@ public class PublicTestRunModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -172,6 +203,7 @@ public class PublicTestRunModel {
    * @return productName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getProductName() {
     return productName;
@@ -194,6 +226,7 @@ public class PublicTestRunModel {
    * @return build
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getBuild() {
     return build;
@@ -212,6 +245,9 @@ public class PublicTestRunModel {
   }
 
   public PublicTestRunModel addConfigurationsItem(ConfigurationModel configurationsItem) {
+    if (this.configurations == null) {
+      this.configurations = new ArrayList<>();
+    }
     this.configurations.add(configurationsItem);
     return this;
   }
@@ -221,6 +257,7 @@ public class PublicTestRunModel {
    * @return configurations
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<ConfigurationModel> getConfigurations() {
     return configurations;
@@ -239,6 +276,9 @@ public class PublicTestRunModel {
   }
 
   public PublicTestRunModel addAutoTestsItem(AutoTestModel autoTestsItem) {
+    if (this.autoTests == null) {
+      this.autoTests = new ArrayList<>();
+    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -248,6 +288,7 @@ public class PublicTestRunModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
@@ -266,6 +307,9 @@ public class PublicTestRunModel {
   }
 
   public PublicTestRunModel addTestPointsItem(PublicTestPointModel testPointsItem) {
+    if (this.testPoints == null) {
+      this.testPoints = new ArrayList<>();
+    }
     this.testPoints.add(testPointsItem);
     return this;
   }
@@ -275,6 +319,7 @@ public class PublicTestRunModel {
    * @return testPoints
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<PublicTestPointModel> getTestPoints() {
     return testPoints;
@@ -297,6 +342,7 @@ public class PublicTestRunModel {
    * @return status
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getStatus() {
     return status;

@@ -13,18 +13,45 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.AvailableTestResultOutcome;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AttachmentModelAutoTestStepResultsModel
@@ -61,15 +88,15 @@ public class AttachmentModelAutoTestStepResultsModel {
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<AttachmentModelAutoTestStepResultsModel> stepResults;
+  private List<AttachmentModelAutoTestStepResultsModel> stepResults = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments;
+  private List<AttachmentModel> attachments = null;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  private Map<String, String> parameters = null;
 
   public AttachmentModelAutoTestStepResultsModel() {
   }
@@ -85,6 +112,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return title
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the step.")
 
   public String getTitle() {
     return title;
@@ -107,6 +135,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the step result.")
 
   public String getDescription() {
     return description;
@@ -129,6 +158,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return info
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Extended description of the step result.")
 
   public String getInfo() {
     return info;
@@ -151,6 +181,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Step start date.")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -173,6 +204,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Step end date.")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -196,6 +228,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Expected or actual duration of the test run execution in milliseconds.")
 
   public Long getDuration() {
     return duration;
@@ -218,6 +251,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public AvailableTestResultOutcome getOutcome() {
     return outcome;
@@ -236,6 +270,9 @@ public class AttachmentModelAutoTestStepResultsModel {
   }
 
   public AttachmentModelAutoTestStepResultsModel addStepResultsItem(AttachmentModelAutoTestStepResultsModel stepResultsItem) {
+    if (this.stepResults == null) {
+      this.stepResults = new ArrayList<>();
+    }
     this.stepResults.add(stepResultsItem);
     return this;
   }
@@ -245,6 +282,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return stepResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Nested step results. The maximum nesting level is 15.")
 
   public List<AttachmentModelAutoTestStepResultsModel> getStepResults() {
     return stepResults;
@@ -263,6 +301,9 @@ public class AttachmentModelAutoTestStepResultsModel {
   }
 
   public AttachmentModelAutoTestStepResultsModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -272,6 +313,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "/// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;
@@ -290,6 +332,9 @@ public class AttachmentModelAutoTestStepResultsModel {
   }
 
   public AttachmentModelAutoTestStepResultsModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -299,6 +344,7 @@ public class AttachmentModelAutoTestStepResultsModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "\"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.")
 
   public Map<String, String> getParameters() {
     return parameters;

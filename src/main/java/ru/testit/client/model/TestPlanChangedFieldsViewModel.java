@@ -13,17 +13,49 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.BooleanNullableTestPlanChangedFieldViewModel;
+import ru.testit.client.model.BooleanTestPlanChangedFieldViewModel;
+import ru.testit.client.model.CustomAttributeChangeModel;
+import ru.testit.client.model.PeriodViewModelTestPlanChangedFieldViewModel;
+import ru.testit.client.model.StringArrayTestPlanChangedFieldViewModel;
+import ru.testit.client.model.StringTestPlanChangedFieldViewModel;
+import ru.testit.client.model.TestPointChangeViewModelTestPlanChangedFieldViewModel;
+import ru.testit.client.model.TestResultChangeViewModelTestPlanChangedFieldViewModel;
+import ru.testit.client.model.TestSuiteChangeViewModelTestPlanChangedFieldViewModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPlanChangedFieldsViewModel
@@ -80,7 +112,7 @@ public class TestPlanChangedFieldsViewModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, CustomAttributeChangeModel> attributes;
+  private Map<String, CustomAttributeChangeModel> attributes = null;
 
   public TestPlanChangedFieldsViewModel() {
   }
@@ -96,6 +128,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getName() {
     return name;
@@ -118,6 +151,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getDescription() {
     return description;
@@ -140,6 +174,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return productName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getProductName() {
     return productName;
@@ -162,6 +197,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return build
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getBuild() {
     return build;
@@ -184,6 +220,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return period
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public PeriodViewModelTestPlanChangedFieldViewModel getPeriod() {
     return period;
@@ -206,6 +243,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return status
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringTestPlanChangedFieldViewModel getStatus() {
     return status;
@@ -228,6 +266,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return tags
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public StringArrayTestPlanChangedFieldViewModel getTags() {
     return tags;
@@ -250,6 +289,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return testSuite
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestSuiteChangeViewModelTestPlanChangedFieldViewModel getTestSuite() {
     return testSuite;
@@ -272,6 +312,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return testPoints
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestPointChangeViewModelTestPlanChangedFieldViewModel getTestPoints() {
     return testPoints;
@@ -294,6 +335,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestResultChangeViewModelTestPlanChangedFieldViewModel getTestResults() {
     return testResults;
@@ -316,6 +358,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return locking
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public BooleanTestPlanChangedFieldViewModel getLocking() {
     return locking;
@@ -338,6 +381,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return hasAutomaticDurationTimer
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public BooleanNullableTestPlanChangedFieldViewModel getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
@@ -356,6 +400,9 @@ public class TestPlanChangedFieldsViewModel {
   }
 
   public TestPlanChangedFieldsViewModel putAttributesItem(String key, CustomAttributeChangeModel attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -365,6 +412,7 @@ public class TestPlanChangedFieldsViewModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, CustomAttributeChangeModel> getAttributes() {
     return attributes;

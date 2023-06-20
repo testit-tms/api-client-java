@@ -13,17 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.StepPutModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * SectionPutModel
@@ -48,11 +73,11 @@ public class SectionPutModel {
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps;
+  private List<StepPutModel> preconditionSteps = null;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps;
+  private List<StepPutModel> postconditionSteps = null;
 
   public SectionPutModel() {
   }
@@ -68,6 +93,7 @@ public class SectionPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -90,6 +116,7 @@ public class SectionPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public String getName() {
     return name;
@@ -112,6 +139,7 @@ public class SectionPutModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -134,6 +162,7 @@ public class SectionPutModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -152,6 +181,9 @@ public class SectionPutModel {
   }
 
   public SectionPutModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
+    if (this.preconditionSteps == null) {
+      this.preconditionSteps = new ArrayList<>();
+    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -161,6 +193,7 @@ public class SectionPutModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -179,6 +212,9 @@ public class SectionPutModel {
   }
 
   public SectionPutModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
+    if (this.postconditionSteps == null) {
+      this.postconditionSteps = new ArrayList<>();
+    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -188,6 +224,7 @@ public class SectionPutModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;

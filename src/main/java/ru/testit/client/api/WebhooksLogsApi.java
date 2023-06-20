@@ -13,12 +13,30 @@
 
 package ru.testit.client.api;
 
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.ProblemDetails;
+import java.util.UUID;
 import ru.testit.client.model.WebHookLogModel;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class WebhooksLogsApi {
     private ApiClient localVarApiClient;

@@ -13,17 +13,43 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.TestResultShortModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPointResultModel
@@ -52,11 +78,11 @@ public class TestPointResultModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultShortModel> testResults;
+  private List<TestResultShortModel> testResults = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments;
+  private List<AttachmentModel> attachments = null;
 
   public TestPointResultModel() {
   }
@@ -72,6 +98,7 @@ public class TestPointResultModel {
    * @return testPointId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestPointId() {
     return testPointId;
@@ -94,6 +121,7 @@ public class TestPointResultModel {
    * @return aggregatedOutcome
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getAggregatedOutcome() {
     return aggregatedOutcome;
@@ -116,6 +144,7 @@ public class TestPointResultModel {
    * @return workItemGlobalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
@@ -138,6 +167,7 @@ public class TestPointResultModel {
    * @return workItemName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getWorkItemName() {
     return workItemName;
@@ -160,6 +190,7 @@ public class TestPointResultModel {
    * @return configurationName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getConfigurationName() {
     return configurationName;
@@ -178,6 +209,9 @@ public class TestPointResultModel {
   }
 
   public TestPointResultModel addTestResultsItem(TestResultShortModel testResultsItem) {
+    if (this.testResults == null) {
+      this.testResults = new ArrayList<>();
+    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -187,6 +221,7 @@ public class TestPointResultModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestResultShortModel> getTestResults() {
     return testResults;
@@ -205,6 +240,9 @@ public class TestPointResultModel {
   }
 
   public TestPointResultModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -214,6 +252,7 @@ public class TestPointResultModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;

@@ -13,17 +13,43 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.TestRunState;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunFilterModel
@@ -32,11 +58,11 @@ import java.util.Map.Entry;
 public class TestRunFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds;
+  private Set<UUID> projectIds = null;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<TestRunState> states;
+  private Set<TestRunState> states = null;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -44,7 +70,7 @@ public class TestRunFilterModel {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds;
+  private Set<UUID> modifiedByIds = null;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -60,6 +86,9 @@ public class TestRunFilterModel {
   }
 
   public TestRunFilterModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
+    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -69,6 +98,7 @@ public class TestRunFilterModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test run project IDs to search for")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -87,6 +117,9 @@ public class TestRunFilterModel {
   }
 
   public TestRunFilterModel addStatesItem(TestRunState statesItem) {
+    if (this.states == null) {
+      this.states = new LinkedHashSet<>();
+    }
     this.states.add(statesItem);
     return this;
   }
@@ -96,6 +129,7 @@ public class TestRunFilterModel {
    * @return states
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test run states to search for")
 
   public Set<TestRunState> getStates() {
     return states;
@@ -118,6 +152,7 @@ public class TestRunFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -136,6 +171,9 @@ public class TestRunFilterModel {
   }
 
   public TestRunFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
+    if (this.modifiedByIds == null) {
+      this.modifiedByIds = new LinkedHashSet<>();
+    }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
@@ -145,6 +183,7 @@ public class TestRunFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test run last editor IDs to search for")
 
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
@@ -167,6 +206,7 @@ public class TestRunFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies a test run deleted status to search for")
 
   public Boolean getIsDeleted() {
     return isDeleted;

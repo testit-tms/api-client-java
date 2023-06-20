@@ -13,12 +13,36 @@
 
 package ru.testit.client.api;
 
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
-import ru.testit.client.model.*;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.ConfigurationByParametersModel;
+import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.ConfigurationPostModel;
+import ru.testit.client.model.ConfigurationPutModel;
+import ru.testit.client.model.ConfigurationSelectModel;
+import ru.testit.client.model.Operation;
+import ru.testit.client.model.ProblemDetails;
+import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ConfigurationsApi {
     private ApiClient localVarApiClient;
@@ -66,9 +90,9 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -131,9 +155,9 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -150,9 +174,9 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -171,9 +195,9 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -193,8 +217,8 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ConfigurationsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -263,8 +287,8 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ConfigurationsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -281,8 +305,8 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ConfigurationsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -301,8 +325,8 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ConfigurationsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -478,11 +502,11 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -546,11 +570,11 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -568,11 +592,11 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -592,11 +616,11 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for configuration required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find project </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -616,10 +640,10 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -687,10 +711,10 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ConfigurationModel getConfigurationById(String id) throws ApiException {
@@ -707,10 +731,10 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ConfigurationModel> getConfigurationByIdWithHttpInfo(String id) throws ApiException {
@@ -729,10 +753,10 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configuration required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find configuration with id </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationByIdAsync(String id, final ApiCallback<ConfigurationModel> _callback) throws ApiException {
@@ -751,13 +775,13 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateConfigurationCall(ConfigurationPutModel configurationPutModel, final ApiCallback _callback) throws ApiException {
@@ -819,13 +843,13 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
      </table>
      */
     public void updateConfiguration(ConfigurationPutModel configurationPutModel) throws ApiException {
@@ -841,13 +865,13 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateConfigurationWithHttpInfo(ConfigurationPutModel configurationPutModel) throws ApiException {
@@ -865,13 +889,13 @@ public class ConfigurationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Configuration with id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Can&#39;t change projectId </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateConfigurationAsync(ConfigurationPutModel configurationPutModel, final ApiCallback<Void> _callback) throws ApiException {

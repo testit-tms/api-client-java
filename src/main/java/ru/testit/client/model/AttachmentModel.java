@@ -13,18 +13,40 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AttachmentModel
@@ -81,6 +103,7 @@ public class AttachmentModel {
    * @return fileId
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public String getFileId() {
     return fileId;
@@ -103,6 +126,7 @@ public class AttachmentModel {
    * @return type
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "image/jpeg", required = true, value = "")
 
   public String getType() {
     return type;
@@ -125,6 +149,7 @@ public class AttachmentModel {
    * @return size
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "5.555", required = true, value = "")
 
   public Float getSize() {
     return size;
@@ -147,6 +172,7 @@ public class AttachmentModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -169,6 +195,7 @@ public class AttachmentModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -191,6 +218,7 @@ public class AttachmentModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -213,6 +241,7 @@ public class AttachmentModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -235,6 +264,7 @@ public class AttachmentModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "example", required = true, value = "")
 
   public String getName() {
     return name;
@@ -257,6 +287,7 @@ public class AttachmentModel {
    * @return id
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Specifies the GUID of the attachment.")
 
   public UUID getId() {
     return id;

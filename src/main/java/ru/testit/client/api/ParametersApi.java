@@ -13,12 +13,36 @@
 
 package ru.testit.client.api;
 
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
-import ru.testit.client.model.*;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.ParameterFilterModel;
+import ru.testit.client.model.ParameterGroupModel;
+import ru.testit.client.model.ParameterModel;
+import ru.testit.client.model.ParameterPostModel;
+import ru.testit.client.model.ParameterPutModel;
+import ru.testit.client.model.ProblemDetails;
+import java.util.Set;
+import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ParametersApi {
     private ApiClient localVarApiClient;
@@ -188,10 +212,10 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ParametersBulkPutCall(List<ParameterPutModel> parameterPutModel, final ApiCallback _callback) throws ApiException {
@@ -253,10 +277,10 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ParametersBulkPut(List<ParameterPutModel> parameterPutModel) throws ApiException {
@@ -272,10 +296,10 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<ParameterPutModel> parameterPutModel) throws ApiException {
@@ -293,10 +317,10 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Parameter model is not valid </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ParametersBulkPutAsync(List<ParameterPutModel> parameterPutModel, final ApiCallback<Void> _callback) throws ApiException {
@@ -320,8 +344,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ParametersGroupsGetCall(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -417,8 +441,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public List<ParameterGroupModel> apiV2ParametersGroupsGet(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -441,8 +465,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public ApiResponse<List<ParameterGroupModel>> apiV2ParametersGroupsGetWithHttpInfo(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -467,8 +491,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ParametersGroupsGetAsync(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupModel>> _callback) throws ApiException {
@@ -1257,9 +1281,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteByParameterKeyIdCall(UUID keyId, final ApiCallback _callback) throws ApiException {
@@ -1326,9 +1350,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
      */
     public void deleteByParameterKeyId(UUID keyId) throws ApiException {
@@ -1344,9 +1368,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteByParameterKeyIdWithHttpInfo(UUID keyId) throws ApiException {
@@ -1364,9 +1388,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteByParameterKeyIdAsync(UUID keyId, final ApiCallback<Void> _callback) throws ApiException {
@@ -1676,8 +1700,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getParameterByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1745,8 +1769,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ParameterModel getParameterById(UUID id) throws ApiException {
@@ -1763,8 +1787,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ParameterModel> getParameterByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1783,8 +1807,8 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getParameterByIdAsync(UUID id, final ApiCallback<ParameterModel> _callback) throws ApiException {
@@ -1928,9 +1952,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateParameterCall(ParameterPutModel parameterPutModel, final ApiCallback _callback) throws ApiException {
@@ -1992,9 +2016,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
      </table>
      */
     public void updateParameter(ParameterPutModel parameterPutModel) throws ApiException {
@@ -2010,9 +2034,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateParameterWithHttpInfo(ParameterPutModel parameterPutModel) throws ApiException {
@@ -2030,9 +2054,9 @@ public class ParametersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateParameterAsync(ParameterPutModel parameterPutModel, final ApiCallback<Void> _callback) throws ApiException {

@@ -13,18 +13,44 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.FailureCategoryModel;
+import ru.testit.client.model.FailureClassRegexModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * FailureClassModel
@@ -57,7 +83,7 @@ public class FailureClassModel {
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_REGEXES = "failureClassRegexes";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_REGEXES)
-  private List<FailureClassRegexModel> failureClassRegexes;
+  private List<FailureClassRegexModel> failureClassRegexes = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -81,6 +107,7 @@ public class FailureClassModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -103,6 +130,7 @@ public class FailureClassModel {
    * @return failureCategory
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public FailureCategoryModel getFailureCategory() {
     return failureCategory;
@@ -125,6 +153,7 @@ public class FailureClassModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -147,6 +176,7 @@ public class FailureClassModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -169,6 +199,7 @@ public class FailureClassModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -191,6 +222,7 @@ public class FailureClassModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -209,6 +241,9 @@ public class FailureClassModel {
   }
 
   public FailureClassModel addFailureClassRegexesItem(FailureClassRegexModel failureClassRegexesItem) {
+    if (this.failureClassRegexes == null) {
+      this.failureClassRegexes = new ArrayList<>();
+    }
     this.failureClassRegexes.add(failureClassRegexesItem);
     return this;
   }
@@ -218,6 +253,7 @@ public class FailureClassModel {
    * @return failureClassRegexes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<FailureClassRegexModel> getFailureClassRegexes() {
     return failureClassRegexes;
@@ -240,6 +276,7 @@ public class FailureClassModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -262,6 +299,7 @@ public class FailureClassModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

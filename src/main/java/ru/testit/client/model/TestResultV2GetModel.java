@@ -13,18 +13,49 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.AutoTestModelV2GetModel;
+import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.LinkModel;
+import ru.testit.client.model.TestPointShortModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestResultV2GetModel
@@ -101,19 +132,19 @@ public class TestResultV2GetModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links;
+  private List<LinkModel> links = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments;
+  private List<AttachmentModel> attachments = null;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  private Map<String, String> parameters = null;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private Map<String, String> properties;
+  private Map<String, String> properties = null;
 
   public TestResultV2GetModel() {
   }
@@ -129,6 +160,7 @@ public class TestResultV2GetModel {
    * @return _configuration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ConfigurationModel getConfiguration() {
     return _configuration;
@@ -151,6 +183,7 @@ public class TestResultV2GetModel {
    * @return autoTest
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public AutoTestModelV2GetModel getAutoTest() {
     return autoTest;
@@ -173,6 +206,7 @@ public class TestResultV2GetModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getId() {
     return id;
@@ -195,6 +229,7 @@ public class TestResultV2GetModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -217,6 +252,7 @@ public class TestResultV2GetModel {
    * @return workItemVersionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
@@ -239,6 +275,7 @@ public class TestResultV2GetModel {
    * @return autoTestId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getAutoTestId() {
     return autoTestId;
@@ -261,6 +298,7 @@ public class TestResultV2GetModel {
    * @return message
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public String getMessage() {
     return message;
@@ -283,6 +321,7 @@ public class TestResultV2GetModel {
    * @return traces
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Exception in thread main java.lang.NullPointerException at com.example.myproject.MyTest.HealtCheck()", value = "")
 
   public String getTraces() {
     return traces;
@@ -305,6 +344,7 @@ public class TestResultV2GetModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -327,6 +367,7 @@ public class TestResultV2GetModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -349,6 +390,7 @@ public class TestResultV2GetModel {
    * @return runByUserId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getRunByUserId() {
     return runByUserId;
@@ -371,6 +413,7 @@ public class TestResultV2GetModel {
    * @return stoppedByUserId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
@@ -393,6 +436,7 @@ public class TestResultV2GetModel {
    * @return testPointId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getTestPointId() {
     return testPointId;
@@ -415,6 +459,7 @@ public class TestResultV2GetModel {
    * @return testPoint
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TestPointShortModel getTestPoint() {
     return testPoint;
@@ -437,6 +482,7 @@ public class TestResultV2GetModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -459,6 +505,7 @@ public class TestResultV2GetModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Passed", value = "Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped")
 
   public String getOutcome() {
     return outcome;
@@ -481,6 +528,7 @@ public class TestResultV2GetModel {
    * @return comment
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "my first comment", value = "")
 
   public String getComment() {
     return comment;
@@ -499,6 +547,9 @@ public class TestResultV2GetModel {
   }
 
   public TestResultV2GetModel addLinksItem(LinkModel linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -508,6 +559,7 @@ public class TestResultV2GetModel {
    * @return links
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -526,6 +578,9 @@ public class TestResultV2GetModel {
   }
 
   public TestResultV2GetModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -535,6 +590,7 @@ public class TestResultV2GetModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;
@@ -553,6 +609,9 @@ public class TestResultV2GetModel {
   }
 
   public TestResultV2GetModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -562,6 +621,7 @@ public class TestResultV2GetModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -580,6 +640,9 @@ public class TestResultV2GetModel {
   }
 
   public TestResultV2GetModel putPropertiesItem(String key, String propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new HashMap<>();
+    }
     this.properties.put(key, propertiesItem);
     return this;
   }
@@ -589,6 +652,7 @@ public class TestResultV2GetModel {
    * @return properties
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getProperties() {
     return properties;
