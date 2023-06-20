@@ -13,17 +13,39 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * StepPutModel
@@ -68,6 +90,7 @@ public class StepPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getId() {
     return id;
@@ -90,6 +113,7 @@ public class StepPutModel {
    * @return action
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "User press the button", value = "")
 
   public String getAction() {
     return action;
@@ -112,6 +136,7 @@ public class StepPutModel {
    * @return expected
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "System makes a beeeep sound", value = "")
 
   public String getExpected() {
     return expected;
@@ -134,6 +159,7 @@ public class StepPutModel {
    * @return testData
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Some variables values", value = "")
 
   public String getTestData() {
     return testData;
@@ -156,6 +182,7 @@ public class StepPutModel {
    * @return comments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Comment on what to look for", value = "")
 
   public String getComments() {
     return comments;
@@ -178,6 +205,7 @@ public class StepPutModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getWorkItemId() {
     return workItemId;

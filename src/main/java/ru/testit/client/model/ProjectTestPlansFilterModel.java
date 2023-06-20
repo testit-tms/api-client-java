@@ -13,17 +13,45 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.TestPlanStatusModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ProjectTestPlansFilterModel
@@ -48,11 +76,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private Set<TestPlanStatusModel> status;
+  private Set<TestPlanStatusModel> status = null;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds;
+  private Set<Long> globalIds = null;
 
   public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
   @SerializedName(SERIALIZED_NAME_IS_LOCKED)
@@ -64,11 +92,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER)
-  private Set<Boolean> automaticDurationTimer;
+  private Set<Boolean> automaticDurationTimer = null;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  private Set<UUID> createdByIds = null;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -84,11 +112,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private Set<String> tagNames;
+  private Set<String> tagNames = null;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes;
+  private Map<String, Set<String>> attributes = null;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -108,6 +136,7 @@ public class ProjectTestPlansFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -130,6 +159,7 @@ public class ProjectTestPlansFilterModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -152,6 +182,7 @@ public class ProjectTestPlansFilterModel {
    * @return build
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getBuild() {
     return build;
@@ -174,6 +205,7 @@ public class ProjectTestPlansFilterModel {
    * @return productName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getProductName() {
     return productName;
@@ -192,6 +224,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel addStatusItem(TestPlanStatusModel statusItem) {
+    if (this.status == null) {
+      this.status = new LinkedHashSet<>();
+    }
     this.status.add(statusItem);
     return this;
   }
@@ -201,6 +236,7 @@ public class ProjectTestPlansFilterModel {
    * @return status
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<TestPlanStatusModel> getStatus() {
     return status;
@@ -219,6 +255,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel addGlobalIdsItem(Long globalIdsItem) {
+    if (this.globalIds == null) {
+      this.globalIds = new LinkedHashSet<>();
+    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -228,6 +267,7 @@ public class ProjectTestPlansFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -250,6 +290,7 @@ public class ProjectTestPlansFilterModel {
    * @return isLocked
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsLocked() {
     return isLocked;
@@ -272,6 +313,7 @@ public class ProjectTestPlansFilterModel {
    * @return lockedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getLockedDate() {
     return lockedDate;
@@ -290,6 +332,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel addAutomaticDurationTimerItem(Boolean automaticDurationTimerItem) {
+    if (this.automaticDurationTimer == null) {
+      this.automaticDurationTimer = new LinkedHashSet<>();
+    }
     this.automaticDurationTimer.add(automaticDurationTimerItem);
     return this;
   }
@@ -299,6 +344,7 @@ public class ProjectTestPlansFilterModel {
    * @return automaticDurationTimer
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<Boolean> getAutomaticDurationTimer() {
     return automaticDurationTimer;
@@ -317,6 +363,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
+    if (this.createdByIds == null) {
+      this.createdByIds = new LinkedHashSet<>();
+    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -326,6 +375,7 @@ public class ProjectTestPlansFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -348,6 +398,7 @@ public class ProjectTestPlansFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -370,6 +421,7 @@ public class ProjectTestPlansFilterModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getStartDate() {
     return startDate;
@@ -392,6 +444,7 @@ public class ProjectTestPlansFilterModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getEndDate() {
     return endDate;
@@ -410,6 +463,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel addTagNamesItem(String tagNamesItem) {
+    if (this.tagNames == null) {
+      this.tagNames = new LinkedHashSet<>();
+    }
     this.tagNames.add(tagNamesItem);
     return this;
   }
@@ -419,6 +475,7 @@ public class ProjectTestPlansFilterModel {
    * @return tagNames
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<String> getTagNames() {
     return tagNames;
@@ -437,6 +494,9 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel putAttributesItem(String key, Set<String> attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -446,6 +506,7 @@ public class ProjectTestPlansFilterModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, Set<String>> getAttributes() {
     return attributes;
@@ -468,6 +529,7 @@ public class ProjectTestPlansFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;

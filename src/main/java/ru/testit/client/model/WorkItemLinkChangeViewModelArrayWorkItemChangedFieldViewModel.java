@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.WorkItemLinkChangeViewModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel
@@ -32,11 +56,11 @@ import java.util.Map.Entry;
 public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<WorkItemLinkChangeViewModel> oldValue;
+  private List<WorkItemLinkChangeViewModel> oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<WorkItemLinkChangeViewModel> newValue;
+  private List<WorkItemLinkChangeViewModel> newValue = null;
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel() {
   }
@@ -48,6 +72,9 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel addOldValueItem(WorkItemLinkChangeViewModel oldValueItem) {
+    if (this.oldValue == null) {
+      this.oldValue = new ArrayList<>();
+    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -57,6 +84,7 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<WorkItemLinkChangeViewModel> getOldValue() {
     return oldValue;
@@ -75,6 +103,9 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel addNewValueItem(WorkItemLinkChangeViewModel newValueItem) {
+    if (this.newValue == null) {
+      this.newValue = new ArrayList<>();
+    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -84,6 +115,7 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<WorkItemLinkChangeViewModel> getNewValue() {
     return newValue;

@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.CustomAttributeOptionModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * GlobalCustomAttributeUpdateModel
@@ -36,7 +60,7 @@ public class GlobalCustomAttributeUpdateModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options;
+  private List<CustomAttributeOptionModel> options = null;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -60,6 +84,7 @@ public class GlobalCustomAttributeUpdateModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of attribute")
 
   public String getName() {
     return name;
@@ -78,6 +103,9 @@ public class GlobalCustomAttributeUpdateModel {
   }
 
   public GlobalCustomAttributeUpdateModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
+    if (this.options == null) {
+      this.options = new ArrayList<>();
+    }
     this.options.add(optionsItem);
     return this;
   }
@@ -87,6 +115,7 @@ public class GlobalCustomAttributeUpdateModel {
    * @return options
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
 
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
@@ -109,6 +138,7 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether the attribute is available")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -131,6 +161,7 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;

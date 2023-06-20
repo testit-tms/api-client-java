@@ -13,17 +13,39 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPointPutModel
@@ -80,6 +102,7 @@ public class TestPointPutModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTesterId() {
     return testerId;
@@ -102,6 +125,7 @@ public class TestPointPutModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getIterationId() {
     return iterationId;
@@ -124,6 +148,7 @@ public class TestPointPutModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -146,6 +171,7 @@ public class TestPointPutModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -168,6 +194,7 @@ public class TestPointPutModel {
    * @return testSuiteId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestSuiteId() {
     return testSuiteId;
@@ -190,6 +217,7 @@ public class TestPointPutModel {
    * @return status
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getStatus() {
     return status;
@@ -212,6 +240,7 @@ public class TestPointPutModel {
    * @return lastTestResultId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getLastTestResultId() {
     return lastTestResultId;
@@ -234,6 +263,7 @@ public class TestPointPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -256,6 +286,7 @@ public class TestPointPutModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

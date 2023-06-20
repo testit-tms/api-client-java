@@ -13,9 +13,11 @@
 
 package ru.testit.client.model;
 
-import javax.ws.rs.core.GenericType;
-import java.util.Map;
+import ru.testit.client.invoker.ApiException;
 import java.util.Objects;
+import java.lang.reflect.Type;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 //import com.fasterxml.jackson.annotation.JsonValue;
 

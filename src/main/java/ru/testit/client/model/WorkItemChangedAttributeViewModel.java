@@ -13,20 +13,38 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemChangedAttributeViewModel
@@ -67,6 +85,7 @@ public class WorkItemChangedAttributeViewModel {
    * @return type
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -89,6 +108,7 @@ public class WorkItemChangedAttributeViewModel {
    * @return oldAttributeName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getOldAttributeName() {
     return oldAttributeName;
@@ -111,6 +131,7 @@ public class WorkItemChangedAttributeViewModel {
    * @return newAttributeName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getNewAttributeName() {
     return newAttributeName;
@@ -133,6 +154,7 @@ public class WorkItemChangedAttributeViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getOldValue() {
     return oldValue;
@@ -155,6 +177,7 @@ public class WorkItemChangedAttributeViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getNewValue() {
     return newValue;

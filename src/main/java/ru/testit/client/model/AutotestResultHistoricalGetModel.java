@@ -13,18 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutotestResultOutcome;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AutotestResultHistoricalGetModel
@@ -111,6 +134,7 @@ public class AutotestResultHistoricalGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -133,6 +157,7 @@ public class AutotestResultHistoricalGetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -155,6 +180,7 @@ public class AutotestResultHistoricalGetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -177,6 +203,7 @@ public class AutotestResultHistoricalGetModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -199,6 +226,7 @@ public class AutotestResultHistoricalGetModel {
    * @return testRunName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getTestRunName() {
     return testRunName;
@@ -221,6 +249,7 @@ public class AutotestResultHistoricalGetModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -243,6 +272,7 @@ public class AutotestResultHistoricalGetModel {
    * @return outcome
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public AutotestResultOutcome getOutcome() {
     return outcome;
@@ -265,6 +295,7 @@ public class AutotestResultHistoricalGetModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -281,6 +312,7 @@ public class AutotestResultHistoricalGetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -294,6 +326,7 @@ public class AutotestResultHistoricalGetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -313,6 +346,7 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -335,6 +369,7 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
@@ -357,6 +392,7 @@ public class AutotestResultHistoricalGetModel {
    * @return testPlanName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getTestPlanName() {
     return testPlanName;
@@ -379,6 +415,7 @@ public class AutotestResultHistoricalGetModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getDuration() {
     return duration;

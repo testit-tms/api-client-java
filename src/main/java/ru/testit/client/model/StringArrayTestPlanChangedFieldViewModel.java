@@ -13,17 +13,40 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * StringArrayTestPlanChangedFieldViewModel
@@ -32,11 +55,11 @@ import java.util.Map.Entry;
 public class StringArrayTestPlanChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<String> oldValue;
+  private List<String> oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<String> newValue;
+  private List<String> newValue = null;
 
   public StringArrayTestPlanChangedFieldViewModel() {
   }
@@ -48,6 +71,9 @@ public class StringArrayTestPlanChangedFieldViewModel {
   }
 
   public StringArrayTestPlanChangedFieldViewModel addOldValueItem(String oldValueItem) {
+    if (this.oldValue == null) {
+      this.oldValue = new ArrayList<>();
+    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -57,6 +83,7 @@ public class StringArrayTestPlanChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getOldValue() {
     return oldValue;
@@ -75,6 +102,9 @@ public class StringArrayTestPlanChangedFieldViewModel {
   }
 
   public StringArrayTestPlanChangedFieldViewModel addNewValueItem(String newValueItem) {
+    if (this.newValue == null) {
+      this.newValue = new ArrayList<>();
+    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -84,6 +114,7 @@ public class StringArrayTestPlanChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getNewValue() {
     return newValue;

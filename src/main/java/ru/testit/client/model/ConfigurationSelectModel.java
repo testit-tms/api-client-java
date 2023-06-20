@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ConfigurationSelectModel
@@ -32,7 +56,7 @@ import java.util.Map.Entry;
 public class ConfigurationSelectModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds;
+  private Set<UUID> projectIds = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -44,7 +68,7 @@ public class ConfigurationSelectModel {
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds;
+  private Set<Long> globalIds = null;
 
   public ConfigurationSelectModel() {
   }
@@ -56,6 +80,9 @@ public class ConfigurationSelectModel {
   }
 
   public ConfigurationSelectModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
+    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -65,6 +92,7 @@ public class ConfigurationSelectModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of identifiers of projects from which configurations will be taken")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -87,6 +115,7 @@ public class ConfigurationSelectModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter to search by name (case-insensitive, partial match)")
 
   public String getName() {
     return name;
@@ -109,6 +138,7 @@ public class ConfigurationSelectModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Is configurations deleted or existing")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -127,6 +157,9 @@ public class ConfigurationSelectModel {
   }
 
   public ConfigurationSelectModel addGlobalIdsItem(Long globalIdsItem) {
+    if (this.globalIds == null) {
+      this.globalIds = new LinkedHashSet<>();
+    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -136,6 +169,7 @@ public class ConfigurationSelectModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of global (integer) identifiers to filter configurations")
 
   public Set<Long> getGlobalIds() {
     return globalIds;

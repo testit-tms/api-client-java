@@ -13,18 +13,46 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentSubGetModel;
+import ru.testit.client.model.AutotestResultReasonSubGetModel;
+import ru.testit.client.model.LinkSubGetModel;
+import ru.testit.client.model.TestResultOutcome;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestResultShortGetModel
@@ -61,7 +89,7 @@ public class TestResultShortGetModel {
 
   public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
   @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
-  private List<AutotestResultReasonSubGetModel> resultReasons;
+  private List<AutotestResultReasonSubGetModel> resultReasons = null;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -77,11 +105,11 @@ public class TestResultShortGetModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkSubGetModel> links;
+  private List<LinkSubGetModel> links = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentSubGetModel> attachments;
+  private List<AttachmentSubGetModel> attachments = null;
 
   public TestResultShortGetModel() {
   }
@@ -97,6 +125,7 @@ public class TestResultShortGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of test result")
 
   public UUID getId() {
     return id;
@@ -119,6 +148,7 @@ public class TestResultShortGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of autotest represented by the test result")
 
   public String getName() {
     return name;
@@ -141,6 +171,7 @@ public class TestResultShortGetModel {
    * @return autotestGlobalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Global ID of autotest represented by test result")
 
   public Long getAutotestGlobalId() {
     return autotestGlobalId;
@@ -163,6 +194,7 @@ public class TestResultShortGetModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of test run where test result is located")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -185,6 +217,7 @@ public class TestResultShortGetModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of configuration which test result uses")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -207,6 +240,7 @@ public class TestResultShortGetModel {
    * @return configurationName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of configuration which test result uses")
 
   public String getConfigurationName() {
     return configurationName;
@@ -229,6 +263,7 @@ public class TestResultShortGetModel {
    * @return outcome
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestResultOutcome getOutcome() {
     return outcome;
@@ -247,6 +282,9 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addResultReasonsItem(AutotestResultReasonSubGetModel resultReasonsItem) {
+    if (this.resultReasons == null) {
+      this.resultReasons = new ArrayList<>();
+    }
     this.resultReasons.add(resultReasonsItem);
     return this;
   }
@@ -256,6 +294,7 @@ public class TestResultShortGetModel {
    * @return resultReasons
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of result reasons which test result have")
 
   public List<AutotestResultReasonSubGetModel> getResultReasons() {
     return resultReasons;
@@ -278,6 +317,7 @@ public class TestResultShortGetModel {
    * @return comment
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comment to test result")
 
   public String getComment() {
     return comment;
@@ -300,6 +340,7 @@ public class TestResultShortGetModel {
    * @return date
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date when test result has been set")
 
   public OffsetDateTime getDate() {
     return date;
@@ -322,6 +363,7 @@ public class TestResultShortGetModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time which it took to run the test")
 
   public Long getDuration() {
     return duration;
@@ -340,6 +382,9 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addLinksItem(LinkSubGetModel linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -349,6 +394,7 @@ public class TestResultShortGetModel {
    * @return links
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of links attached to test result")
 
   public List<LinkSubGetModel> getLinks() {
     return links;
@@ -367,6 +413,9 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addAttachmentsItem(AttachmentSubGetModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -376,6 +425,7 @@ public class TestResultShortGetModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of files attached to test result")
 
   public List<AttachmentSubGetModel> getAttachments() {
     return attachments;

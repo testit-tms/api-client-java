@@ -13,17 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.CustomAttributeTypesEnum;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * CustomAttributeTemplateSearchQueryModel
@@ -36,11 +61,11 @@ public class CustomAttributeTemplateSearchQueryModel {
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds;
+  private Set<UUID> projectIds = null;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  private Set<CustomAttributeTypesEnum> customAttributeTypes;
+  private Set<CustomAttributeTypesEnum> customAttributeTypes = null;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -60,6 +85,7 @@ public class CustomAttributeTemplateSearchQueryModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -78,6 +104,9 @@ public class CustomAttributeTemplateSearchQueryModel {
   }
 
   public CustomAttributeTemplateSearchQueryModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
+    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -87,6 +116,7 @@ public class CustomAttributeTemplateSearchQueryModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -105,6 +135,9 @@ public class CustomAttributeTemplateSearchQueryModel {
   }
 
   public CustomAttributeTemplateSearchQueryModel addCustomAttributeTypesItem(CustomAttributeTypesEnum customAttributeTypesItem) {
+    if (this.customAttributeTypes == null) {
+      this.customAttributeTypes = new LinkedHashSet<>();
+    }
     this.customAttributeTypes.add(customAttributeTypesItem);
     return this;
   }
@@ -114,6 +147,7 @@ public class CustomAttributeTemplateSearchQueryModel {
    * @return customAttributeTypes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
     return customAttributeTypes;
@@ -136,6 +170,7 @@ public class CustomAttributeTemplateSearchQueryModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;

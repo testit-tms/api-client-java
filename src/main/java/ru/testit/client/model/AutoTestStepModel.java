@@ -13,17 +13,40 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AutoTestStepModel
@@ -40,7 +63,7 @@ public class AutoTestStepModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<AutoTestStepModel> steps;
+  private List<AutoTestStepModel> steps = null;
 
   public AutoTestStepModel() {
   }
@@ -56,6 +79,7 @@ public class AutoTestStepModel {
    * @return title
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Step name.")
 
   public String getTitle() {
     return title;
@@ -78,6 +102,7 @@ public class AutoTestStepModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Detailed step description. It appears when the step is unfolded.")
 
   public String getDescription() {
     return description;
@@ -96,6 +121,9 @@ public class AutoTestStepModel {
   }
 
   public AutoTestStepModel addStepsItem(AutoTestStepModel stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -105,6 +133,7 @@ public class AutoTestStepModel {
    * @return steps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Includes a nested step inside another step. The maximum nesting level is 15.")
 
   public List<AutoTestStepModel> getSteps() {
     return steps;

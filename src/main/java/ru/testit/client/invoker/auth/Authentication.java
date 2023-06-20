@@ -13,12 +13,12 @@
 
 package ru.testit.client.invoker.auth;
 
-import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ApiException;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
     /**

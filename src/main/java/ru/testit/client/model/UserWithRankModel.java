@@ -13,17 +13,40 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.UserRankModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * UserWithRankModel
@@ -100,6 +123,7 @@ public class UserWithRankModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -122,6 +146,7 @@ public class UserWithRankModel {
    * @return firstName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFirstName() {
     return firstName;
@@ -144,6 +169,7 @@ public class UserWithRankModel {
    * @return lastName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLastName() {
     return lastName;
@@ -166,6 +192,7 @@ public class UserWithRankModel {
    * @return middleName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getMiddleName() {
     return middleName;
@@ -188,6 +215,7 @@ public class UserWithRankModel {
    * @return userName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getUserName() {
     return userName;
@@ -210,6 +238,7 @@ public class UserWithRankModel {
    * @return displayName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDisplayName() {
     return displayName;
@@ -232,6 +261,7 @@ public class UserWithRankModel {
    * @return userType
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getUserType() {
     return userType;
@@ -254,6 +284,7 @@ public class UserWithRankModel {
    * @return avatarUrl
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getAvatarUrl() {
     return avatarUrl;
@@ -276,6 +307,7 @@ public class UserWithRankModel {
    * @return avatarMetadata
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getAvatarMetadata() {
     return avatarMetadata;
@@ -298,6 +330,7 @@ public class UserWithRankModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -320,6 +353,7 @@ public class UserWithRankModel {
    * @return isDisabled
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsDisabled() {
     return isDisabled;
@@ -342,6 +376,7 @@ public class UserWithRankModel {
    * @return providerId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getProviderId() {
     return providerId;
@@ -364,6 +399,7 @@ public class UserWithRankModel {
    * @return isActiveStatusByEntity
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsActiveStatusByEntity() {
     return isActiveStatusByEntity;
@@ -386,6 +422,7 @@ public class UserWithRankModel {
    * @return userRank
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UserRankModel getUserRank() {
     return userRank;

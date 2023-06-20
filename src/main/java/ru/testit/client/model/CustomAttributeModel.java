@@ -13,17 +13,43 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.CustomAttributeOptionModel;
+import ru.testit.client.model.CustomAttributeTypesEnum;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * CustomAttributeModel
@@ -36,7 +62,7 @@ public class CustomAttributeModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options;
+  private List<CustomAttributeOptionModel> options = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -76,6 +102,7 @@ public class CustomAttributeModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the attribute")
 
   public UUID getId() {
     return id;
@@ -94,6 +121,9 @@ public class CustomAttributeModel {
   }
 
   public CustomAttributeModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
+    if (this.options == null) {
+      this.options = new ArrayList<>();
+    }
     this.options.add(optionsItem);
     return this;
   }
@@ -103,6 +133,7 @@ public class CustomAttributeModel {
    * @return options
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
 
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
@@ -125,6 +156,7 @@ public class CustomAttributeModel {
    * @return type
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public CustomAttributeTypesEnum getType() {
     return type;
@@ -147,6 +179,7 @@ public class CustomAttributeModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the attribute is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -169,6 +202,7 @@ public class CustomAttributeModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of the attribute")
 
   public String getName() {
     return name;
@@ -191,6 +225,7 @@ public class CustomAttributeModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the attribute is enabled")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -213,6 +248,7 @@ public class CustomAttributeModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the attribute value is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;
@@ -235,6 +271,7 @@ public class CustomAttributeModel {
    * @return isGlobal
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the attribute is available across all projects")
 
   public Boolean getIsGlobal() {
     return isGlobal;

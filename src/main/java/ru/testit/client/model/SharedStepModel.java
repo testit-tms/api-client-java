@@ -13,17 +13,42 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.StepModel;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * SharedStepModel
@@ -44,7 +69,7 @@ public class SharedStepModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<StepModel> steps;
+  private List<StepModel> steps = null;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -64,6 +89,7 @@ public class SharedStepModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getVersionId() {
     return versionId;
@@ -86,6 +112,7 @@ public class SharedStepModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -108,6 +135,7 @@ public class SharedStepModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "First step", value = "")
 
   public String getName() {
     return name;
@@ -126,6 +154,9 @@ public class SharedStepModel {
   }
 
   public SharedStepModel addStepsItem(StepModel stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -137,6 +168,7 @@ public class SharedStepModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepModel> getSteps() {
     return steps;
@@ -159,6 +191,7 @@ public class SharedStepModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;

@@ -13,13 +13,16 @@
 
 package ru.testit.client.invoker.auth;
 
-import okhttp3.Credentials;
-import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ApiException;
+
+import okhttp3.Credentials;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
+
+import java.io.UnsupportedEncodingException;
 
 public class HttpBasicAuth implements Authentication {
     private String username;

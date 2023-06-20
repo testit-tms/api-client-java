@@ -13,18 +13,44 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestResultV2GetModel;
+import ru.testit.client.model.TestRunState;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunV2GetModel
@@ -53,7 +79,7 @@ public class TestRunV2GetModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultV2GetModel> testResults;
+  private List<TestResultV2GetModel> testResults = null;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -105,6 +131,7 @@ public class TestRunV2GetModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -127,6 +154,7 @@ public class TestRunV2GetModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -149,6 +177,7 @@ public class TestRunV2GetModel {
    * @return stateName
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestRunState getStateName() {
     return stateName;
@@ -171,6 +200,7 @@ public class TestRunV2GetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "This property is used to link test run with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -193,6 +223,7 @@ public class TestRunV2GetModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "This property is used to link test run with test plan")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -211,6 +242,9 @@ public class TestRunV2GetModel {
   }
 
   public TestRunV2GetModel addTestResultsItem(TestResultV2GetModel testResultsItem) {
+    if (this.testResults == null) {
+      this.testResults = new ArrayList<>();
+    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -220,6 +254,7 @@ public class TestRunV2GetModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<TestResultV2GetModel> getTestResults() {
     return testResults;
@@ -242,6 +277,7 @@ public class TestRunV2GetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -264,6 +300,7 @@ public class TestRunV2GetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -286,6 +323,7 @@ public class TestRunV2GetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -308,6 +346,7 @@ public class TestRunV2GetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -330,6 +369,7 @@ public class TestRunV2GetModel {
    * @return createdByUserName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "example", value = "")
 
   public String getCreatedByUserName() {
     return createdByUserName;
@@ -352,6 +392,7 @@ public class TestRunV2GetModel {
    * @return id
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -374,6 +415,7 @@ public class TestRunV2GetModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "First run", required = true, value = "")
 
   public String getName() {
     return name;
@@ -396,6 +438,7 @@ public class TestRunV2GetModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -418,6 +461,7 @@ public class TestRunV2GetModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "By user via API", value = "Once launch source is specified it cannot be updated")
 
   public String getLaunchSource() {
     return launchSource;

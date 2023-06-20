@@ -13,15 +13,33 @@
 
 package ru.testit.client.api;
 
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.SearchWebhooksQueryModel;
+import java.util.UUID;
 import ru.testit.client.model.WebHookEventType;
 import ru.testit.client.model.WebHookModel;
 import ru.testit.client.model.WebHookPostModel;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class WebhooksApi {
     private ApiClient localVarApiClient;
@@ -69,8 +87,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksGetCall(UUID projectId, final ApiCallback _callback) throws ApiException {
@@ -136,8 +154,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public List<WebHookModel> apiV2WebhooksGet(UUID projectId) throws ApiException {
@@ -154,8 +172,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WebHookModel>> apiV2WebhooksGetWithHttpInfo(UUID projectId) throws ApiException {
@@ -174,8 +192,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksGetAsync(UUID projectId, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
@@ -194,8 +212,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksIdDeleteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -262,8 +280,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2WebhooksIdDelete(UUID id) throws ApiException {
@@ -279,8 +297,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2WebhooksIdDeleteWithHttpInfo(UUID id) throws ApiException {
@@ -298,8 +316,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Delete permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksIdDeleteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -576,8 +594,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksPostCall(WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
@@ -640,8 +658,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public WebHookModel apiV2WebhooksPost(WebHookPostModel webHookPostModel) throws ApiException {
@@ -658,8 +676,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(WebHookPostModel webHookPostModel) throws ApiException {
@@ -678,8 +696,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksPostAsync(WebHookPostModel webHookPostModel, final ApiCallback<WebHookModel> _callback) throws ApiException {

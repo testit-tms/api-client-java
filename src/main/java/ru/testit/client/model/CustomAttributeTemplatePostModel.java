@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * CustomAttributeTemplatePostModel
@@ -32,7 +56,7 @@ import java.util.Map.Entry;
 public class CustomAttributeTemplatePostModel {
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  private Set<UUID> customAttributeIds;
+  private Set<UUID> customAttributeIds = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -48,6 +72,9 @@ public class CustomAttributeTemplatePostModel {
   }
 
   public CustomAttributeTemplatePostModel addCustomAttributeIdsItem(UUID customAttributeIdsItem) {
+    if (this.customAttributeIds == null) {
+      this.customAttributeIds = new LinkedHashSet<>();
+    }
     this.customAttributeIds.add(customAttributeIdsItem);
     return this;
   }
@@ -57,6 +84,7 @@ public class CustomAttributeTemplatePostModel {
    * @return customAttributeIds
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Collection of attribute IDs")
 
   public Set<UUID> getCustomAttributeIds() {
     return customAttributeIds;
@@ -79,6 +107,7 @@ public class CustomAttributeTemplatePostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Custom attributes template name")
 
   public String getName() {
     return name;

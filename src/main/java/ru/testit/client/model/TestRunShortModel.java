@@ -13,17 +13,40 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestRunState;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunShortModel
@@ -72,6 +95,7 @@ public class TestRunShortModel {
    * @return stateName
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public TestRunState getStateName() {
     return stateName;
@@ -94,6 +118,7 @@ public class TestRunShortModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -116,6 +141,7 @@ public class TestRunShortModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -138,6 +164,7 @@ public class TestRunShortModel {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Core tests", value = "")
 
   public String getName() {
     return name;
@@ -160,6 +187,7 @@ public class TestRunShortModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -182,6 +210,7 @@ public class TestRunShortModel {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -204,6 +233,7 @@ public class TestRunShortModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

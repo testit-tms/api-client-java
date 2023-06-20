@@ -13,14 +13,63 @@
 
 package ru.testit.client.api;
 
-import com.google.gson.reflect.TypeToken;
-import ru.testit.client.invoker.*;
-import ru.testit.client.model.*;
+import ru.testit.client.invoker.ApiCallback;
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.ApiResponse;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.Pair;
+import ru.testit.client.invoker.ProgressRequestBody;
+import ru.testit.client.invoker.ProgressResponseBody;
 
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
+import ru.testit.client.model.AutoTestNamespaceModel;
+import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.CustomAttributeGetModel;
+import ru.testit.client.model.CustomAttributeModel;
+import ru.testit.client.model.CustomAttributePostModel;
+import ru.testit.client.model.CustomAttributePutModel;
+import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
+import ru.testit.client.model.DeletionState;
+import ru.testit.client.model.FailureClassModel;
 import java.io.File;
-import java.lang.reflect.Type;
+import ru.testit.client.model.FilterModel;
 import java.time.OffsetDateTime;
-import java.util.*;
+import ru.testit.client.model.Operation;
+import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.ProjectAttributesFilterModel;
+import ru.testit.client.model.ProjectCustomAttributeTemplateGetModel;
+import ru.testit.client.model.ProjectCustomAttributesTemplatesFilterModel;
+import ru.testit.client.model.ProjectExportQueryModel;
+import ru.testit.client.model.ProjectExportWithTestPlansPostModel;
+import ru.testit.client.model.ProjectModel;
+import ru.testit.client.model.ProjectPostModel;
+import ru.testit.client.model.ProjectPutModel;
+import ru.testit.client.model.ProjectTestPlansFilterModel;
+import ru.testit.client.model.ProjectsFilterModel;
+import ru.testit.client.model.PublicTestRunModel;
+import ru.testit.client.model.SectionModel;
+import java.util.Set;
+import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TestPlanModel;
+import ru.testit.client.model.TestPlanWithAnalyticModel;
+import ru.testit.client.model.TestRunModel;
+import ru.testit.client.model.TestRunV2GetModel;
+import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
+import ru.testit.client.model.WorkItemSelectModel;
+import ru.testit.client.model.WorkItemShortModel;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectsApi {
     private ApiClient localVarApiClient;
@@ -69,12 +118,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addGlobaAttributesToProjectCall(String id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -143,12 +192,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
      */
     public void addGlobaAttributesToProject(String id, Set<UUID> UUID) throws ApiException {
@@ -165,12 +214,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> addGlobaAttributesToProjectWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
@@ -189,12 +238,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addGlobaAttributesToProjectAsync(String id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
@@ -218,8 +267,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel, final ApiCallback _callback) throws ApiException {
@@ -314,8 +363,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public List<ProjectCustomAttributeTemplateGetModel> apiV2ProjectsIdAttributesTemplatesSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel) throws ApiException {
@@ -338,8 +387,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ProjectCustomAttributeTemplateGetModel>> apiV2ProjectsIdAttributesTemplatesSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel) throws ApiException {
@@ -364,8 +413,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel, final ApiCallback<List<ProjectCustomAttributeTemplateGetModel>> _callback) throws ApiException {
@@ -385,9 +434,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -462,9 +511,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -482,9 +531,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -504,9 +553,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -526,9 +575,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -603,9 +652,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -623,9 +672,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -645,9 +694,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with identifier </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update project settings permission for project required </td><td>  -  </td></tr>
      </table>
      */
@@ -667,8 +716,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFailureClassesGetCall(String id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -741,8 +790,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public List<FailureClassModel> apiV2ProjectsIdFailureClassesGet(String id, Boolean isDeleted) throws ApiException {
@@ -760,8 +809,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FailureClassModel>> apiV2ProjectsIdFailureClassesGetWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -781,8 +830,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFailureClassesGetAsync(String id, Boolean isDeleted, final ApiCallback<List<FailureClassModel>> _callback) throws ApiException {
@@ -801,9 +850,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -871,9 +920,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -890,9 +939,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -911,9 +960,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
@@ -932,8 +981,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFiltersGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -1001,8 +1050,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public List<FilterModel> apiV2ProjectsIdFiltersGet(String id) throws ApiException {
@@ -1019,8 +1068,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FilterModel>> apiV2ProjectsIdFiltersGetWithHttpInfo(String id) throws ApiException {
@@ -1039,8 +1088,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFiltersGetAsync(String id, final ApiCallback<List<FilterModel>> _callback) throws ApiException {
@@ -1060,8 +1109,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -1130,8 +1179,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -1148,8 +1197,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -1168,8 +1217,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -1943,10 +1992,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2014,10 +2063,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public List<PublicTestRunModel> apiV2ProjectsIdTestRunsActiveGet(String id) throws ApiException {
@@ -2034,10 +2083,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<PublicTestRunModel>> apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(String id) throws ApiException {
@@ -2056,10 +2105,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetAsync(String id, final ApiCallback<List<PublicTestRunModel>> _callback) throws ApiException {
@@ -2319,8 +2368,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
@@ -2415,8 +2464,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public List<UUID> apiV2ProjectsIdWorkItemsSearchIdPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -2439,8 +2488,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UUID>> apiV2ProjectsIdWorkItemsSearchIdPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -2465,8 +2514,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
@@ -2491,8 +2540,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
@@ -2587,8 +2636,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public List<WorkItemShortModel> apiV2ProjectsIdWorkItemsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -2611,8 +2660,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WorkItemShortModel>> apiV2ProjectsIdWorkItemsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
@@ -2637,8 +2686,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
@@ -2658,8 +2707,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsTagsGetCall(UUID id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -2732,8 +2781,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public List<TagShortModel> apiV2ProjectsIdWorkItemsTagsGet(UUID id, Boolean isDeleted) throws ApiException {
@@ -2751,8 +2800,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TagShortModel>> apiV2ProjectsIdWorkItemsTagsGetWithHttpInfo(UUID id, Boolean isDeleted) throws ApiException {
@@ -2772,8 +2821,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsTagsGetAsync(UUID id, Boolean isDeleted, final ApiCallback<List<TagShortModel>> _callback) throws ApiException {
@@ -3601,10 +3650,10 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3679,10 +3728,10 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3702,10 +3751,10 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3727,10 +3776,10 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3751,8 +3800,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
      */
@@ -3822,8 +3871,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
      */
@@ -3841,8 +3890,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
      */
@@ -3862,8 +3911,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
      </table>
      */
@@ -3882,10 +3931,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createProjectCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
@@ -3948,10 +3997,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
     public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
@@ -3968,10 +4017,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
@@ -3990,10 +4039,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createProjectAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
@@ -4013,12 +4062,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createProjectsAttributeCall(String id, CustomAttributePostModel customAttributePostModel, final ApiCallback _callback) throws ApiException {
@@ -4088,12 +4137,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
     public CustomAttributeModel createProjectsAttribute(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
@@ -4111,12 +4160,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
@@ -4136,12 +4185,12 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createProjectsAttributeAsync(String id, CustomAttributePostModel customAttributePostModel, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
@@ -4161,8 +4210,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomAttributeTestPlanProjectRelationsCall(String id, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -4236,8 +4285,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public void deleteCustomAttributeTestPlanProjectRelations(String id, UUID attributeId) throws ApiException {
@@ -4254,8 +4303,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -4274,8 +4323,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomAttributeTestPlanProjectRelationsAsync(String id, UUID attributeId, final ApiCallback<Void> _callback) throws ApiException {
@@ -4549,9 +4598,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectsAttributeCall(String id, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -4626,9 +4675,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public void deleteProjectsAttribute(String id, UUID attributeId) throws ApiException {
@@ -4646,9 +4695,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteProjectsAttributeWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -4668,9 +4717,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectsAttributeAsync(String id, UUID attributeId, final ApiCallback<Void> _callback) throws ApiException {
@@ -4690,9 +4739,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
@@ -4771,9 +4820,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
@@ -4795,9 +4844,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
@@ -4821,9 +4870,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
@@ -4847,8 +4896,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectJsonCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
@@ -4923,8 +4972,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public UUID exportProjectJson(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -4943,8 +4992,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> exportProjectJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -4965,8 +5014,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectJsonAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
@@ -4987,8 +5036,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectWithTestPlansJsonCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
@@ -5063,8 +5112,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public UUID exportProjectWithTestPlansJson(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -5083,8 +5132,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> exportProjectWithTestPlansJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -5105,8 +5154,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectWithTestPlansJsonAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
@@ -5127,8 +5176,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectWithTestPlansZipCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
@@ -5203,8 +5252,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public UUID exportProjectWithTestPlansZip(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -5223,8 +5272,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> exportProjectWithTestPlansZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
@@ -5245,8 +5294,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectWithTestPlansZipAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
@@ -5267,8 +5316,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectZipCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
@@ -5343,8 +5392,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public UUID exportProjectZip(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -5363,8 +5412,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> exportProjectZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
@@ -5385,8 +5434,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportProjectZipAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
@@ -5408,9 +5457,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -5489,9 +5538,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -5513,9 +5562,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -5539,9 +5588,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -5745,10 +5794,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributeByProjectIdCall(String id, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -5823,10 +5872,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public CustomAttributeModel getAttributeByProjectId(String id, UUID attributeId) throws ApiException {
@@ -5844,10 +5893,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomAttributeModel> getAttributeByProjectIdWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -5867,10 +5916,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributeByProjectIdAsync(String id, UUID attributeId, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
@@ -5891,9 +5940,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributesByProjectIdCall(String id, DeletionState isDeleted, final ApiCallback _callback) throws ApiException {
@@ -5967,9 +6016,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<CustomAttributeModel> getAttributesByProjectId(String id, DeletionState isDeleted) throws ApiException {
@@ -5988,9 +6037,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CustomAttributeModel>> getAttributesByProjectIdWithHttpInfo(String id, DeletionState isDeleted) throws ApiException {
@@ -6011,9 +6060,9 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributesByProjectIdAsync(String id, DeletionState isDeleted, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
@@ -6032,9 +6081,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesCall(String id, final ApiCallback _callback) throws ApiException {
@@ -6102,9 +6151,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<AutoTestNamespaceModel> getAutoTestsNamespaces(String id) throws ApiException {
@@ -6121,9 +6170,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AutoTestNamespaceModel>> getAutoTestsNamespacesWithHttpInfo(String id) throws ApiException {
@@ -6142,9 +6191,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesAsync(String id, final ApiCallback<List<AutoTestNamespaceModel>> _callback) throws ApiException {
@@ -6163,8 +6212,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
      </table>
@@ -6234,8 +6283,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
      </table>
@@ -6254,8 +6303,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
      </table>
@@ -6276,8 +6325,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
      </table>
@@ -6298,8 +6347,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCustomAttributeTestPlanProjectRelationsCall(String id, final ApiCallback _callback) throws ApiException {
@@ -6367,8 +6416,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public List<CustomAttributeModel> getCustomAttributeTestPlanProjectRelations(String id) throws ApiException {
@@ -6385,8 +6434,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CustomAttributeModel>> getCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id) throws ApiException {
@@ -6405,8 +6454,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCustomAttributeTestPlanProjectRelationsAsync(String id, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
@@ -6565,10 +6614,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionsByProjectIdCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -6661,10 +6710,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<SectionModel> getSectionsByProjectId(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -6686,10 +6735,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<SectionModel>> getSectionsByProjectIdWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -6713,10 +6762,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionsByProjectIdAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<SectionModel>> _callback) throws ApiException {
@@ -6736,9 +6785,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdCall(String id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -6811,9 +6860,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanModel> getTestPlansByProjectId(String id, Boolean isDeleted) throws ApiException {
@@ -6831,9 +6880,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -6853,9 +6902,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdAsync(String id, Boolean isDeleted, final ApiCallback<List<TestPlanModel>> _callback) throws ApiException {
@@ -6886,9 +6935,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunsByProjectIdCall(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -7016,9 +7065,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<TestRunV2GetModel> getTestRunsByProjectId(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7047,9 +7096,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestRunV2GetModel>> getTestRunsByProjectIdWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7080,9 +7129,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunsByProjectIdAsync(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunV2GetModel>> _callback) throws ApiException {
@@ -7109,10 +7158,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsByProjectIdCall(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -7220,10 +7269,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<WorkItemShortModel> getWorkItemsByProjectId(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7248,10 +7297,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WorkItemShortModel>> getWorkItemsByProjectIdWithHttpInfo(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7278,10 +7327,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsByProjectIdAsync(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
@@ -7302,11 +7351,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -7387,11 +7436,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -7411,11 +7460,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -7437,11 +7486,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -7594,8 +7643,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
@@ -7690,8 +7739,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
     public List<CustomAttributeGetModel> searchAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
@@ -7714,8 +7763,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
@@ -7740,8 +7789,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
@@ -7766,8 +7815,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call searchTestPlanAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
@@ -7862,8 +7911,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
@@ -7886,8 +7935,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
@@ -7912,8 +7961,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call searchTestPlanAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
@@ -8060,11 +8109,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateProjectCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
@@ -8126,11 +8175,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
@@ -8146,11 +8195,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
@@ -8168,11 +8217,11 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateProjectAsync(ProjectPutModel projectPutModel, final ApiCallback<Void> _callback) throws ApiException {

@@ -13,17 +13,51 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentPutModel;
+import ru.testit.client.model.AutoTestIdModel;
+import ru.testit.client.model.IterationPutModel;
+import ru.testit.client.model.LinkPutModel;
+import ru.testit.client.model.StepPutModel;
+import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemStates;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemPutModel
@@ -36,11 +70,11 @@ public class WorkItemPutModel {
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationPutModel> iterations;
+  private List<IterationPutModel> iterations = null;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestIdModel> autoTests;
+  private List<AutoTestIdModel> autoTests = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -113,6 +147,7 @@ public class WorkItemPutModel {
    * @return attachments
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
@@ -131,6 +166,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addIterationsItem(IterationPutModel iterationsItem) {
+    if (this.iterations == null) {
+      this.iterations = new ArrayList<>();
+    }
     this.iterations.add(iterationsItem);
     return this;
   }
@@ -140,6 +178,7 @@ public class WorkItemPutModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<IterationPutModel> getIterations() {
     return iterations;
@@ -158,6 +197,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addAutoTestsItem(AutoTestIdModel autoTestsItem) {
+    if (this.autoTests == null) {
+      this.autoTests = new ArrayList<>();
+    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -167,6 +209,7 @@ public class WorkItemPutModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
@@ -189,6 +232,7 @@ public class WorkItemPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -211,6 +255,7 @@ public class WorkItemPutModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -233,6 +278,7 @@ public class WorkItemPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "This is a basic test template", value = "")
 
   public String getDescription() {
     return description;
@@ -255,6 +301,7 @@ public class WorkItemPutModel {
    * @return state
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemStates getState() {
     return state;
@@ -277,6 +324,7 @@ public class WorkItemPutModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -304,6 +352,7 @@ public class WorkItemPutModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getSteps() {
     return steps;
@@ -331,6 +380,7 @@ public class WorkItemPutModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -358,6 +408,7 @@ public class WorkItemPutModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
@@ -382,6 +433,7 @@ public class WorkItemPutModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "10000", value = "")
 
   public Integer getDuration() {
     return duration;
@@ -409,6 +461,7 @@ public class WorkItemPutModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -436,6 +489,7 @@ public class WorkItemPutModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -463,6 +517,7 @@ public class WorkItemPutModel {
    * @return links
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<LinkPutModel> getLinks() {
     return links;
@@ -485,6 +540,7 @@ public class WorkItemPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "Basic template", required = true, value = "")
 
   public String getName() {
     return name;

@@ -13,18 +13,37 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunStatisticsErrorCategoriesGetModel
@@ -65,6 +84,7 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return noAnalytics
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of test results which outcomes were not analyzed")
 
   public Integer getNoAnalytics() {
     return noAnalytics;
@@ -87,6 +107,7 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return noDefect
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of test results which outcomes were not caused by any defect")
 
   public Integer getNoDefect() {
     return noDefect;
@@ -109,6 +130,7 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return infrastructureDefect
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of test results which outcomes were caused by some infrastructure defect")
 
   public Integer getInfrastructureDefect() {
     return infrastructureDefect;
@@ -131,6 +153,7 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return productDefect
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of test results which outcomes were caused by some tested product defect")
 
   public Integer getProductDefect() {
     return productDefect;
@@ -153,6 +176,7 @@ public class TestRunStatisticsErrorCategoriesGetModel {
    * @return testDefect
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of test results which outcomes were caused by test itself")
 
   public Integer getTestDefect() {
     return testDefect;

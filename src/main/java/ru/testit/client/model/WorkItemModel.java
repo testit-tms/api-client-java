@@ -13,18 +13,53 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.AutoTestModel;
+import ru.testit.client.model.IterationModel;
+import ru.testit.client.model.LinkModel;
+import ru.testit.client.model.StepModel;
+import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemStates;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemModel
@@ -57,19 +92,19 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests;
+  private List<AutoTestModel> autoTests = null;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments;
+  private List<AttachmentModel> attachments = null;
 
   public static final String SERIALIZED_NAME_SECTION_PRECONDITION_STEPS = "sectionPreconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_PRECONDITION_STEPS)
-  private List<StepModel> sectionPreconditionSteps;
+  private List<StepModel> sectionPreconditionSteps = null;
 
   public static final String SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS = "sectionPostconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS)
-  private List<StepModel> sectionPostconditionSteps;
+  private List<StepModel> sectionPostconditionSteps = null;
 
   public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
   @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
@@ -77,7 +112,7 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationModel> iterations;
+  private List<IterationModel> iterations = null;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -165,6 +200,7 @@ public class WorkItemModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "used for versioning changes in workitem")
 
   public UUID getVersionId() {
     return versionId;
@@ -187,6 +223,7 @@ public class WorkItemModel {
    * @return medianDuration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "10000", value = "used for getting a median duration of all autotests related to this workitem")
 
   public Long getMedianDuration() {
     return medianDuration;
@@ -209,6 +246,7 @@ public class WorkItemModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -231,6 +269,7 @@ public class WorkItemModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -253,6 +292,7 @@ public class WorkItemModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemEntityTypes getEntityTypeName() {
     return entityTypeName;
@@ -275,6 +315,7 @@ public class WorkItemModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -293,6 +334,9 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addAutoTestsItem(AutoTestModel autoTestsItem) {
+    if (this.autoTests == null) {
+      this.autoTests = new ArrayList<>();
+    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -302,6 +346,7 @@ public class WorkItemModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
@@ -320,6 +365,9 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -329,6 +377,7 @@ public class WorkItemModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;
@@ -347,6 +396,9 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addSectionPreconditionStepsItem(StepModel sectionPreconditionStepsItem) {
+    if (this.sectionPreconditionSteps == null) {
+      this.sectionPreconditionSteps = new ArrayList<>();
+    }
     this.sectionPreconditionSteps.add(sectionPreconditionStepsItem);
     return this;
   }
@@ -356,6 +408,7 @@ public class WorkItemModel {
    * @return sectionPreconditionSteps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepModel> getSectionPreconditionSteps() {
     return sectionPreconditionSteps;
@@ -374,6 +427,9 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addSectionPostconditionStepsItem(StepModel sectionPostconditionStepsItem) {
+    if (this.sectionPostconditionSteps == null) {
+      this.sectionPostconditionSteps = new ArrayList<>();
+    }
     this.sectionPostconditionSteps.add(sectionPostconditionStepsItem);
     return this;
   }
@@ -383,6 +439,7 @@ public class WorkItemModel {
    * @return sectionPostconditionSteps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<StepModel> getSectionPostconditionSteps() {
     return sectionPostconditionSteps;
@@ -405,6 +462,7 @@ public class WorkItemModel {
    * @return versionNumber
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "10", value = "used for define chronology of workitem state in each version")
 
   public Integer getVersionNumber() {
     return versionNumber;
@@ -423,6 +481,9 @@ public class WorkItemModel {
   }
 
   public WorkItemModel addIterationsItem(IterationModel iterationsItem) {
+    if (this.iterations == null) {
+      this.iterations = new ArrayList<>();
+    }
     this.iterations.add(iterationsItem);
     return this;
   }
@@ -432,6 +493,7 @@ public class WorkItemModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<IterationModel> getIterations() {
     return iterations;
@@ -454,6 +516,7 @@ public class WorkItemModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -476,6 +539,7 @@ public class WorkItemModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -498,6 +562,7 @@ public class WorkItemModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -520,6 +585,7 @@ public class WorkItemModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -542,6 +608,7 @@ public class WorkItemModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -564,6 +631,7 @@ public class WorkItemModel {
    * @return id
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -586,6 +654,7 @@ public class WorkItemModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -608,6 +677,7 @@ public class WorkItemModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "This is a basic test template", value = "")
 
   public String getDescription() {
     return description;
@@ -630,6 +700,7 @@ public class WorkItemModel {
    * @return state
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemStates getState() {
     return state;
@@ -652,6 +723,7 @@ public class WorkItemModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -679,6 +751,7 @@ public class WorkItemModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getSteps() {
     return steps;
@@ -706,6 +779,7 @@ public class WorkItemModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -733,6 +807,7 @@ public class WorkItemModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<StepModel> getPostconditionSteps() {
     return postconditionSteps;
@@ -757,6 +832,7 @@ public class WorkItemModel {
    * @return duration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "10000", value = "")
 
   public Integer getDuration() {
     return duration;
@@ -784,6 +860,7 @@ public class WorkItemModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -811,6 +888,7 @@ public class WorkItemModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -838,6 +916,7 @@ public class WorkItemModel {
    * @return links
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -860,6 +939,7 @@ public class WorkItemModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "Basic template", required = true, value = "")
 
   public String getName() {
     return name;

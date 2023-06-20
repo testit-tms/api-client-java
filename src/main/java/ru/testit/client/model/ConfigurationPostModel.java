@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ConfigurationPostModel
@@ -40,11 +64,11 @@ public class ConfigurationPostModel {
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  private Map<String, String> capabilities;
+  private Map<String, String> capabilities = null;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  private Map<String, String> parameters = null;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -72,6 +96,7 @@ public class ConfigurationPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "Default configuration", value = "")
 
   public String getDescription() {
     return description;
@@ -94,6 +119,7 @@ public class ConfigurationPostModel {
    * @return isActive
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsActive() {
     return isActive;
@@ -112,6 +138,9 @@ public class ConfigurationPostModel {
   }
 
   public ConfigurationPostModel putCapabilitiesItem(String key, String capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new HashMap<>();
+    }
     this.capabilities.put(key, capabilitiesItem);
     return this;
   }
@@ -123,6 +152,7 @@ public class ConfigurationPostModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getCapabilities() {
     return capabilities;
@@ -141,6 +171,9 @@ public class ConfigurationPostModel {
   }
 
   public ConfigurationPostModel putParametersItem(String key, String parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -150,6 +183,7 @@ public class ConfigurationPostModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -172,6 +206,7 @@ public class ConfigurationPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -194,6 +229,7 @@ public class ConfigurationPostModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDefault() {
     return isDefault;
@@ -216,6 +252,7 @@ public class ConfigurationPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(example = "Default", required = true, value = "")
 
   public String getName() {
     return name;

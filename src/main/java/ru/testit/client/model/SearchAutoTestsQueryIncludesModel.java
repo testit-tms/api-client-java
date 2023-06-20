@@ -13,18 +13,37 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * SearchAutoTestsQueryIncludesModel
@@ -57,6 +76,7 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeSteps
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "If autotest steps will be included")
 
   public Boolean getIncludeSteps() {
     return includeSteps;
@@ -79,6 +99,7 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeLinks
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "If autotest links will be included")
 
   public Boolean getIncludeLinks() {
     return includeLinks;
@@ -101,6 +122,7 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeLabels
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "If autotest labels will be included")
 
   public Boolean getIncludeLabels() {
     return includeLabels;

@@ -13,17 +13,41 @@
 
 package ru.testit.client.model;
 
-import com.google.gson.*;
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.invoker.JSON;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * GuidExtractionModel
@@ -32,11 +56,11 @@ import java.util.Map.Entry;
 public class GuidExtractionModel {
   public static final String SERIALIZED_NAME_INCLUDE = "include";
   @SerializedName(SERIALIZED_NAME_INCLUDE)
-  private Set<UUID> include;
+  private Set<UUID> include = null;
 
   public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
   @SerializedName(SERIALIZED_NAME_EXCLUDE)
-  private Set<UUID> exclude;
+  private Set<UUID> exclude = null;
 
   public GuidExtractionModel() {
   }
@@ -48,6 +72,9 @@ public class GuidExtractionModel {
   }
 
   public GuidExtractionModel addIncludeItem(UUID includeItem) {
+    if (this.include == null) {
+      this.include = new LinkedHashSet<>();
+    }
     this.include.add(includeItem);
     return this;
   }
@@ -57,6 +84,7 @@ public class GuidExtractionModel {
    * @return include
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getInclude() {
     return include;
@@ -75,6 +103,9 @@ public class GuidExtractionModel {
   }
 
   public GuidExtractionModel addExcludeItem(UUID excludeItem) {
+    if (this.exclude == null) {
+      this.exclude = new LinkedHashSet<>();
+    }
     this.exclude.add(excludeItem);
     return this;
   }
@@ -84,6 +115,7 @@ public class GuidExtractionModel {
    * @return exclude
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<UUID> getExclude() {
     return exclude;
