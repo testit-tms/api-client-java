@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2WorkItemsIdCommentsGet**](WorkItemsCommentsApi.md#apiV2WorkItemsIdCommentsGet) | **GET** /api/v2/workItems/{id}/comments | Get work item comments |
 
 
-<a name="apiV2WorkItemsCommentsCommentIdDelete"></a>
+<a id="apiV2WorkItemsCommentsCommentIdDelete"></a>
 # **apiV2WorkItemsCommentsCommentIdDelete**
 > apiV2WorkItemsCommentsCommentIdDelete(commentId)
 
@@ -40,7 +40,7 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Comment internal (guid format) identifier
     try {
       apiInstance.apiV2WorkItemsCommentsCommentIdDelete(commentId);
     } catch (ApiException e) {
@@ -58,7 +58,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **commentId** | **UUID**|  | |
+| **commentId** | **UUID**| Comment internal (guid format) identifier | |
 
 ### Return type
 
@@ -76,15 +76,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **204** | Successful operation |  -  |
 | **403** | System admin permission required |  -  |
 | **404** | WorkItem is not found |  -  |
 
-<a name="apiV2WorkItemsCommentsPost"></a>
+<a id="apiV2WorkItemsCommentsPost"></a>
 # **apiV2WorkItemsCommentsPost**
-> WorkItemCommentModel apiV2WorkItemsCommentsPost(workItemCommentPostModel)
+> WorkItemCommentModel apiV2WorkItemsCommentsPost(apiV2WorkItemsCommentsPostRequest)
 
 Create WorkItem comment
 
@@ -112,9 +112,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-    WorkItemCommentPostModel workItemCommentPostModel = new WorkItemCommentPostModel(); // WorkItemCommentPostModel | 
+    ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest = new ApiV2WorkItemsCommentsPostRequest(); // ApiV2WorkItemsCommentsPostRequest | 
     try {
-      WorkItemCommentModel result = apiInstance.apiV2WorkItemsCommentsPost(workItemCommentPostModel);
+      WorkItemCommentModel result = apiInstance.apiV2WorkItemsCommentsPost(apiV2WorkItemsCommentsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPost");
@@ -131,7 +131,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional] |
+| **apiV2WorkItemsCommentsPostRequest** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -155,9 +155,9 @@ public class Example {
 | **403** | Read permission for test library required |  -  |
 | **404** | WorkItem is not found |  -  |
 
-<a name="apiV2WorkItemsCommentsPut"></a>
+<a id="apiV2WorkItemsCommentsPut"></a>
 # **apiV2WorkItemsCommentsPut**
-> apiV2WorkItemsCommentsPut(workItemCommentPutModel)
+> apiV2WorkItemsCommentsPut(apiV2WorkItemsCommentsPutRequest)
 
 Update work item comment
 
@@ -183,9 +183,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-    WorkItemCommentPutModel workItemCommentPutModel = new WorkItemCommentPutModel(); // WorkItemCommentPutModel | 
+    ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest = new ApiV2WorkItemsCommentsPutRequest(); // ApiV2WorkItemsCommentsPutRequest | 
     try {
-      apiInstance.apiV2WorkItemsCommentsPut(workItemCommentPutModel);
+      apiInstance.apiV2WorkItemsCommentsPut(apiV2WorkItemsCommentsPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPut");
       System.err.println("Status code: " + e.getCode());
@@ -201,7 +201,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional] |
+| **apiV2WorkItemsCommentsPutRequest** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -219,10 +219,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | System administrator role is required |  -  |
 | **204** | No Content |  -  |
+| **403** | System administrator role is required |  -  |
 
-<a name="apiV2WorkItemsIdCommentsGet"></a>
+<a id="apiV2WorkItemsIdCommentsGet"></a>
 # **apiV2WorkItemsIdCommentsGet**
 > List&lt;WorkItemCommentModel&gt; apiV2WorkItemsIdCommentsGet(id)
 

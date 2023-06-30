@@ -27,12 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2WebhooksPostRequest;
+import ru.testit.client.model.ApiV2WebhooksSearchPostRequest;
+import ru.testit.client.model.ApiV2WebhooksTestPostRequest;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SearchWebhooksQueryModel;
+import ru.testit.client.model.RequestData;
 import java.util.UUID;
 import ru.testit.client.model.WebHookEventType;
 import ru.testit.client.model.WebHookModel;
-import ru.testit.client.model.WebHookPostModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -87,8 +89,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksGetCall(UUID projectId, final ApiCallback _callback) throws ApiException {
@@ -154,8 +156,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
      </table>
      */
     public List<WebHookModel> apiV2WebhooksGet(UUID projectId) throws ApiException {
@@ -172,8 +174,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WebHookModel>> apiV2WebhooksGetWithHttpInfo(UUID projectId) throws ApiException {
@@ -192,8 +194,8 @@ public class WebhooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for requested project is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2WebhooksGetAsync(UUID projectId, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
@@ -456,7 +458,7 @@ public class WebhooksApi {
     /**
      * Build call for apiV2WebhooksIdPut
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -467,7 +469,7 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksIdPutCall(UUID id, WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksIdPutCall(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -481,7 +483,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webHookPostModel;
+        Object localVarPostBody = apiV2WebhooksPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks/{id}"
@@ -514,13 +516,13 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksIdPutValidateBeforeCall(UUID id, WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2WebhooksIdPutValidateBeforeCall(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2WebhooksIdPut(Async)");
         }
 
-        return apiV2WebhooksIdPutCall(id, webHookPostModel, _callback);
+        return apiV2WebhooksIdPutCall(id, apiV2WebhooksPostRequest, _callback);
 
     }
 
@@ -528,7 +530,7 @@ public class WebhooksApi {
      * Edit webhook by ID
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return WebHookModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -538,8 +540,8 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public WebHookModel apiV2WebhooksIdPut(UUID id, WebHookPostModel webHookPostModel) throws ApiException {
-        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksIdPutWithHttpInfo(id, webHookPostModel);
+    public WebHookModel apiV2WebhooksIdPut(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksIdPutWithHttpInfo(id, apiV2WebhooksPostRequest);
         return localVarResp.getData();
     }
 
@@ -547,7 +549,7 @@ public class WebhooksApi {
      * Edit webhook by ID
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return ApiResponse&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -557,8 +559,8 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebHookModel> apiV2WebhooksIdPutWithHttpInfo(UUID id, WebHookPostModel webHookPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, webHookPostModel, null);
+    public ApiResponse<WebHookModel> apiV2WebhooksIdPutWithHttpInfo(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, apiV2WebhooksPostRequest, null);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -567,7 +569,7 @@ public class WebhooksApi {
      * Edit webhook by ID (asynchronously)
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -578,27 +580,27 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksIdPutAsync(UUID id, WebHookPostModel webHookPostModel, final ApiCallback<WebHookModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksIdPutAsync(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback<WebHookModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, webHookPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, apiV2WebhooksPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2WebhooksPost
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPostCall(WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPostCall(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -612,7 +614,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webHookPostModel;
+        Object localVarPostBody = apiV2WebhooksPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -644,44 +646,44 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksPostValidateBeforeCall(WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksPostCall(webHookPostModel, _callback);
+    private okhttp3.Call apiV2WebhooksPostValidateBeforeCall(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksPostCall(apiV2WebhooksPostRequest, _callback);
 
     }
 
     /**
      * Create webhook
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return WebHookModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public WebHookModel apiV2WebhooksPost(WebHookPostModel webHookPostModel) throws ApiException {
-        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksPostWithHttpInfo(webHookPostModel);
+    public WebHookModel apiV2WebhooksPost(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksPostWithHttpInfo(apiV2WebhooksPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create webhook
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return ApiResponse&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(WebHookPostModel webHookPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(webHookPostModel, null);
+    public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(apiV2WebhooksPostRequest, null);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -689,20 +691,20 @@ public class WebhooksApi {
     /**
      * Create webhook (asynchronously)
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPostAsync(WebHookPostModel webHookPostModel, final ApiCallback<WebHookModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPostAsync(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback<WebHookModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(webHookPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(apiV2WebhooksPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -714,7 +716,7 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -725,7 +727,7 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -739,7 +741,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = searchWebhooksQueryModel;
+        Object localVarPostBody = apiV2WebhooksSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks/search";
@@ -791,8 +793,8 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksSearchPostCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, _callback);
+    private okhttp3.Call apiV2WebhooksSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, _callback);
 
     }
 
@@ -804,7 +806,7 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @return List&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +816,8 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<WebHookModel> apiV2WebhooksSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel) throws ApiException {
-        ApiResponse<List<WebHookModel>> localVarResp = apiV2WebhooksSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel);
+    public List<WebHookModel> apiV2WebhooksSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest) throws ApiException {
+        ApiResponse<List<WebHookModel>> localVarResp = apiV2WebhooksSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -827,7 +829,7 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;WebHookModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -837,8 +839,8 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WebHookModel>> apiV2WebhooksSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, null);
+    public ApiResponse<List<WebHookModel>> apiV2WebhooksSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<WebHookModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -851,7 +853,7 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -862,9 +864,9 @@ public class WebhooksApi {
         <tr><td> 403 </td><td> Read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<WebHookModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -987,6 +989,128 @@ public class WebhooksApi {
 
         okhttp3.Call localVarCall = apiV2WebhooksSpecialVariablesGetValidateBeforeCall(eventType, _callback);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2WebhooksTestPost
+     * @param apiV2WebhooksTestPostRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2WebhooksTestPostCall(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2WebhooksTestPostRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/webhooks/test";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2WebhooksTestPostValidateBeforeCall(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksTestPostCall(apiV2WebhooksTestPostRequest, _callback);
+
+    }
+
+    /**
+     * Test webhook&#39;s url
+     * 
+     * @param apiV2WebhooksTestPostRequest  (optional)
+     * @return RequestData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public RequestData apiV2WebhooksTestPost(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest) throws ApiException {
+        ApiResponse<RequestData> localVarResp = apiV2WebhooksTestPostWithHttpInfo(apiV2WebhooksTestPostRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Test webhook&#39;s url
+     * 
+     * @param apiV2WebhooksTestPostRequest  (optional)
+     * @return ApiResponse&lt;RequestData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RequestData> apiV2WebhooksTestPostWithHttpInfo(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(apiV2WebhooksTestPostRequest, null);
+        Type localVarReturnType = new TypeToken<RequestData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Test webhook&#39;s url (asynchronously)
+     * 
+     * @param apiV2WebhooksTestPostRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for webhooks is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2WebhooksTestPostAsync(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback<RequestData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(apiV2WebhooksTestPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<RequestData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

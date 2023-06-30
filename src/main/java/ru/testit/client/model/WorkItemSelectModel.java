@@ -20,11 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.WorkItemFilterModel;
-import ru.testit.client.model.WorkItemsExtractionModel;
+import ru.testit.client.model.WorkItemSelectModelExtractionModel;
+import ru.testit.client.model.WorkItemSelectModelFilter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -50,21 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Model containing options to filter work items
  */
-@ApiModel(description = "Model containing options to filter work items")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private WorkItemFilterModel filter;
+  private WorkItemSelectModelFilter filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private WorkItemsExtractionModel extractionModel;
+  private WorkItemSelectModelExtractionModel extractionModel;
 
   public WorkItemSelectModel() {
   }
 
-  public WorkItemSelectModel filter(WorkItemFilterModel filter) {
+  public WorkItemSelectModel filter(WorkItemSelectModelFilter filter) {
     
     this.filter = filter;
     return this;
@@ -75,19 +76,17 @@ public class WorkItemSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public WorkItemFilterModel getFilter() {
+  public WorkItemSelectModelFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(WorkItemFilterModel filter) {
+  public void setFilter(WorkItemSelectModelFilter filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemSelectModel extractionModel(WorkItemsExtractionModel extractionModel) {
+  public WorkItemSelectModel extractionModel(WorkItemSelectModelExtractionModel extractionModel) {
     
     this.extractionModel = extractionModel;
     return this;
@@ -98,14 +97,12 @@ public class WorkItemSelectModel {
    * @return extractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public WorkItemsExtractionModel getExtractionModel() {
+  public WorkItemSelectModelExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
 
-  public void setExtractionModel(WorkItemsExtractionModel extractionModel) {
+  public void setExtractionModel(WorkItemSelectModelExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -186,11 +183,11 @@ public class WorkItemSelectModel {
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        WorkItemFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        WorkItemSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        WorkItemsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+        WorkItemSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 

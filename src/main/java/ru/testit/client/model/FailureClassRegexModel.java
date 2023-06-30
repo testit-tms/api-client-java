@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -82,8 +84,6 @@ public class FailureClassRegexModel {
    * @return regexText
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getRegexText() {
     return regexText;
   }
@@ -105,8 +105,6 @@ public class FailureClassRegexModel {
    * @return failureClassId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getFailureClassId() {
     return failureClassId;
   }
@@ -128,8 +126,6 @@ public class FailureClassRegexModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
-
   public UUID getId() {
     return id;
   }
@@ -151,8 +147,6 @@ public class FailureClassRegexModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }

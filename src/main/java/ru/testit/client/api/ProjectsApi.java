@@ -27,31 +27,30 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsIdAttributesTemplatesSearchPostRequest;
+import ru.testit.client.model.ApiV2ProjectsIdTestPlansDeleteBulkPostRequest;
+import ru.testit.client.model.ApiV2ProjectsIdTestPlansSearchPostRequest;
+import ru.testit.client.model.ApiV2ProjectsIdWorkItemsSearchPostRequest;
+import ru.testit.client.model.ApiV2ProjectsSearchPostRequest;
 import ru.testit.client.model.AutoTestNamespaceModel;
 import ru.testit.client.model.ConfigurationModel;
+import ru.testit.client.model.CreateProjectRequest;
+import ru.testit.client.model.CreateProjectsAttributeRequest;
 import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
-import ru.testit.client.model.CustomAttributePostModel;
-import ru.testit.client.model.CustomAttributePutModel;
-import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.DeletionState;
+import ru.testit.client.model.ExportProjectJsonRequest;
+import ru.testit.client.model.ExportProjectWithTestPlansJsonRequest;
 import ru.testit.client.model.FailureClassModel;
 import java.io.File;
 import ru.testit.client.model.FilterModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.ProjectAttributesFilterModel;
 import ru.testit.client.model.ProjectCustomAttributeTemplateGetModel;
-import ru.testit.client.model.ProjectCustomAttributesTemplatesFilterModel;
-import ru.testit.client.model.ProjectExportQueryModel;
-import ru.testit.client.model.ProjectExportWithTestPlansPostModel;
 import ru.testit.client.model.ProjectModel;
-import ru.testit.client.model.ProjectPostModel;
-import ru.testit.client.model.ProjectPutModel;
-import ru.testit.client.model.ProjectTestPlansFilterModel;
-import ru.testit.client.model.ProjectsFilterModel;
 import ru.testit.client.model.PublicTestRunModel;
+import ru.testit.client.model.SearchAttributesInProjectRequest;
 import ru.testit.client.model.SectionModel;
 import java.util.Set;
 import ru.testit.client.model.TagShortModel;
@@ -60,8 +59,10 @@ import ru.testit.client.model.TestPlanWithAnalyticModel;
 import ru.testit.client.model.TestRunModel;
 import ru.testit.client.model.TestRunV2GetModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateCustomAttributeTestPlanProjectRelationsRequest;
+import ru.testit.client.model.UpdateProjectRequest;
+import ru.testit.client.model.UpdateProjectsAttributeRequest;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -260,7 +261,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectCustomAttributesTemplatesFilterModel  (optional)
+     * @param apiV2ProjectsIdAttributesTemplatesSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -271,7 +272,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -285,7 +286,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectCustomAttributesTemplatesFilterModel;
+        Object localVarPostBody = apiV2ProjectsIdAttributesTemplatesSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/attributes/templates/search"
@@ -338,13 +339,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdAttributesTemplatesSearchPost(Async)");
         }
 
-        return apiV2ProjectsIdAttributesTemplatesSearchPostCall(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel, _callback);
+        return apiV2ProjectsIdAttributesTemplatesSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest, _callback);
 
     }
 
@@ -357,7 +358,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectCustomAttributesTemplatesFilterModel  (optional)
+     * @param apiV2ProjectsIdAttributesTemplatesSearchPostRequest  (optional)
      * @return List&lt;ProjectCustomAttributeTemplateGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -367,8 +368,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<ProjectCustomAttributeTemplateGetModel> apiV2ProjectsIdAttributesTemplatesSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel) throws ApiException {
-        ApiResponse<List<ProjectCustomAttributeTemplateGetModel>> localVarResp = apiV2ProjectsIdAttributesTemplatesSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+    public List<ProjectCustomAttributeTemplateGetModel> apiV2ProjectsIdAttributesTemplatesSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest) throws ApiException {
+        ApiResponse<List<ProjectCustomAttributeTemplateGetModel>> localVarResp = apiV2ProjectsIdAttributesTemplatesSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -381,7 +382,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectCustomAttributesTemplatesFilterModel  (optional)
+     * @param apiV2ProjectsIdAttributesTemplatesSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;ProjectCustomAttributeTemplateGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -391,8 +392,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ProjectCustomAttributeTemplateGetModel>> apiV2ProjectsIdAttributesTemplatesSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel, null);
+    public ApiResponse<List<ProjectCustomAttributeTemplateGetModel>> apiV2ProjectsIdAttributesTemplatesSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<ProjectCustomAttributeTemplateGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -406,7 +407,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectCustomAttributesTemplatesFilterModel  (optional)
+     * @param apiV2ProjectsIdAttributesTemplatesSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -417,9 +418,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel, final ApiCallback<List<ProjectCustomAttributeTemplateGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdAttributesTemplatesSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest, final ApiCallback<List<ProjectCustomAttributeTemplateGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdAttributesTemplatesSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<ProjectCustomAttributeTemplateGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -850,10 +851,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFavoritePutCall(String id, final ApiCallback _callback) throws ApiException {
@@ -920,10 +921,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdFavoritePut(String id) throws ApiException {
@@ -939,10 +940,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdFavoritePutWithHttpInfo(String id) throws ApiException {
@@ -960,10 +961,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFavoritePutAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1109,8 +1110,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -1179,8 +1180,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -1197,8 +1198,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -1217,8 +1218,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -1243,8 +1244,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestPlansAnalyticsGetCall(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -1347,8 +1348,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanWithAnalyticModel> apiV2ProjectsIdTestPlansAnalyticsGet(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1372,8 +1373,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsIdTestPlansAnalyticsGetWithHttpInfo(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1399,8 +1400,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestPlansAnalyticsGetAsync(UUID id, Boolean isDeleted, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestPlanWithAnalyticModel>> _callback) throws ApiException {
@@ -1413,7 +1414,7 @@ public class ProjectsApi {
     /**
      * Build call for apiV2ProjectsIdTestPlansDeleteBulkPost
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1424,7 +1425,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostCall(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1438,7 +1439,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectTestPlansFilterModel;
+        Object localVarPostBody = apiV2ProjectsIdTestPlansDeleteBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/delete/bulk"
@@ -1471,13 +1472,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansDeleteBulkPost(Async)");
         }
 
-        return apiV2ProjectsIdTestPlansDeleteBulkPostCall(id, projectTestPlansFilterModel, _callback);
+        return apiV2ProjectsIdTestPlansDeleteBulkPostCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
 
     }
 
@@ -1485,7 +1486,7 @@ public class ProjectsApi {
      * Delete multiple test plans
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1495,8 +1496,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ProjectsIdTestPlansDeleteBulkPost(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsIdTestPlansDeleteBulkPostWithHttpInfo(id, projectTestPlansFilterModel);
+    public List<UUID> apiV2ProjectsIdTestPlansDeleteBulkPost(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsIdTestPlansDeleteBulkPostWithHttpInfo(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
         return localVarResp.getData();
     }
 
@@ -1504,7 +1505,7 @@ public class ProjectsApi {
      * Delete multiple test plans
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1514,8 +1515,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ProjectsIdTestPlansDeleteBulkPostWithHttpInfo(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(id, projectTestPlansFilterModel, null);
+    public ApiResponse<List<UUID>> apiV2ProjectsIdTestPlansDeleteBulkPostWithHttpInfo(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1524,7 +1525,7 @@ public class ProjectsApi {
      * Delete multiple test plans (asynchronously)
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1535,9 +1536,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostAsync(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansDeleteBulkPostAsync(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(id, projectTestPlansFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansDeleteBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1676,20 +1677,20 @@ public class ProjectsApi {
         return localVarCall;
     }
     /**
-     * Build call for apiV2ProjectsIdTestPlansRestoreBulkPost
+     * Build call for apiV2ProjectsIdTestPlansPurgeBulkPost
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> - Read permission for the project is required  - Edit permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostCall(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansPurgeBulkPostCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1703,7 +1704,135 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectTestPlansFilterModel;
+        Object localVarPostBody = apiV2ProjectsIdTestPlansDeleteBulkPostRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/{id}/testPlans/purge/bulk"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2ProjectsIdTestPlansPurgeBulkPostValidateBeforeCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansPurgeBulkPost(Async)");
+        }
+
+        return apiV2ProjectsIdTestPlansPurgeBulkPostCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
+
+    }
+
+    /**
+     * Permanently delete multiple archived test plans
+     * 
+     * @param id Unique or global ID of the project (required)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public void apiV2ProjectsIdTestPlansPurgeBulkPost(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        apiV2ProjectsIdTestPlansPurgeBulkPostWithHttpInfo(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
+    }
+
+    /**
+     * Permanently delete multiple archived test plans
+     * 
+     * @param id Unique or global ID of the project (required)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> apiV2ProjectsIdTestPlansPurgeBulkPostWithHttpInfo(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansPurgeBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Permanently delete multiple archived test plans (asynchronously)
+     * 
+     * @param id Unique or global ID of the project (required)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2ProjectsIdTestPlansPurgeBulkPostAsync(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansPurgeBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2ProjectsIdTestPlansRestoreBulkPost
+     * @param id Unique or global ID of the project (required)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for the archive is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2ProjectsIdTestPlansDeleteBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/restore/bulk"
@@ -1736,13 +1865,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansRestoreBulkPost(Async)");
         }
 
-        return apiV2ProjectsIdTestPlansRestoreBulkPostCall(id, projectTestPlansFilterModel, _callback);
+        return apiV2ProjectsIdTestPlansRestoreBulkPostCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
 
     }
 
@@ -1750,35 +1879,35 @@ public class ProjectsApi {
      * Restore multiple test plans
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> - Read permission for the project is required  - Edit permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ProjectsIdTestPlansRestoreBulkPost(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        apiV2ProjectsIdTestPlansRestoreBulkPostWithHttpInfo(id, projectTestPlansFilterModel);
+    public void apiV2ProjectsIdTestPlansRestoreBulkPost(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        apiV2ProjectsIdTestPlansRestoreBulkPostWithHttpInfo(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
     }
 
     /**
      * Restore multiple test plans
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> - Read permission for the project is required  - Edit permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ProjectsIdTestPlansRestoreBulkPostWithHttpInfo(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(id, projectTestPlansFilterModel, null);
+    public ApiResponse<Void> apiV2ProjectsIdTestPlansRestoreBulkPostWithHttpInfo(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1786,7 +1915,7 @@ public class ProjectsApi {
      * Restore multiple test plans (asynchronously)
      * 
      * @param id Unique or global ID of the project (required)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansDeleteBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1794,12 +1923,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> - Read permission for the project is required  - Edit permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostAsync(String id, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansRestoreBulkPostAsync(String id, ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(id, projectTestPlansFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansRestoreBulkPostValidateBeforeCall(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1812,7 +1941,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1823,7 +1952,7 @@ public class ProjectsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansSearchPostCall(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansSearchPostCall(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1837,7 +1966,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectTestPlansFilterModel;
+        Object localVarPostBody = apiV2ProjectsIdTestPlansSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/search"
@@ -1894,13 +2023,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansSearchPost(Async)");
         }
 
-        return apiV2ProjectsIdTestPlansSearchPostCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, _callback);
+        return apiV2ProjectsIdTestPlansSearchPostCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest, _callback);
 
     }
 
@@ -1914,7 +2043,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansSearchPostRequest  (optional)
      * @return List&lt;TestPlanWithAnalyticModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1924,8 +2053,8 @@ public class ProjectsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestPlanWithAnalyticModel> apiV2ProjectsIdTestPlansSearchPost(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        ApiResponse<List<TestPlanWithAnalyticModel>> localVarResp = apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
+    public List<TestPlanWithAnalyticModel> apiV2ProjectsIdTestPlansSearchPost(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestPlanWithAnalyticModel>> localVarResp = apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1939,7 +2068,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1949,8 +2078,8 @@ public class ProjectsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, null);
+    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsIdTestPlansSearchPostWithHttpInfo(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1965,7 +2094,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectTestPlansFilterModel  (optional)
+     * @param apiV2ProjectsIdTestPlansSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1976,9 +2105,9 @@ public class ProjectsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdTestPlansSearchPostAsync(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback<List<TestPlanWithAnalyticModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansSearchPostAsync(String id, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest, final ApiCallback<List<TestPlanWithAnalyticModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansSearchPostValidateBeforeCall(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1992,10 +2121,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2063,10 +2192,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public List<PublicTestRunModel> apiV2ProjectsIdTestRunsActiveGet(String id) throws ApiException {
@@ -2083,10 +2212,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<PublicTestRunModel>> apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(String id) throws ApiException {
@@ -2105,10 +2234,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetAsync(String id, final ApiCallback<List<PublicTestRunModel>> _callback) throws ApiException {
@@ -2361,7 +2490,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2372,7 +2501,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2386,7 +2515,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = apiV2ProjectsIdWorkItemsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/workItems/search/id"
@@ -2439,13 +2568,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdWorkItemsSearchIdPost(Async)");
         }
 
-        return apiV2ProjectsIdWorkItemsSearchIdPostCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
+        return apiV2ProjectsIdWorkItemsSearchIdPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
 
     }
 
@@ -2458,7 +2587,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2468,8 +2597,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ProjectsIdWorkItemsSearchIdPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsIdWorkItemsSearchIdPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+    public List<UUID> apiV2ProjectsIdWorkItemsSearchIdPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsIdWorkItemsSearchIdPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -2482,7 +2611,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2492,8 +2621,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ProjectsIdWorkItemsSearchIdPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
+    public ApiResponse<List<UUID>> apiV2ProjectsIdWorkItemsSearchIdPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2507,7 +2636,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2518,9 +2647,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchIdPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchIdPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2533,7 +2662,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2544,7 +2673,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2558,7 +2687,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = apiV2ProjectsIdWorkItemsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/workItems/search"
@@ -2611,13 +2740,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdWorkItemsSearchPost(Async)");
         }
 
-        return apiV2ProjectsIdWorkItemsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
+        return apiV2ProjectsIdWorkItemsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
 
     }
 
@@ -2630,7 +2759,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2640,8 +2769,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemShortModel> apiV2ProjectsIdWorkItemsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2ProjectsIdWorkItemsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+    public List<WorkItemShortModel> apiV2ProjectsIdWorkItemsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2ProjectsIdWorkItemsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -2654,7 +2783,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2664,8 +2793,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemShortModel>> apiV2ProjectsIdWorkItemsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
+    public ApiResponse<List<WorkItemShortModel>> apiV2ProjectsIdWorkItemsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2679,7 +2808,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2690,9 +2819,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdWorkItemsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdWorkItemsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2707,8 +2836,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsTagsGetCall(UUID id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -2781,8 +2910,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public List<TagShortModel> apiV2ProjectsIdWorkItemsTagsGet(UUID id, Boolean isDeleted) throws ApiException {
@@ -2800,8 +2929,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TagShortModel>> apiV2ProjectsIdWorkItemsTagsGetWithHttpInfo(UUID id, Boolean isDeleted) throws ApiException {
@@ -2821,8 +2950,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdWorkItemsTagsGetAsync(UUID id, Boolean isDeleted, final ApiCallback<List<TagShortModel>> _callback) throws ApiException {
@@ -2962,7 +3091,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2972,7 +3101,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2986,7 +3115,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectsFilterModel;
+        Object localVarPostBody = apiV2ProjectsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/search";
@@ -3038,8 +3167,8 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
+    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
 
     }
 
@@ -3051,7 +3180,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @return List&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3060,8 +3189,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
-        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
+    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
+        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -3073,7 +3202,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;ProjectModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3082,8 +3211,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, null);
+    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3096,7 +3225,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3106,9 +3235,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3924,20 +4053,20 @@ public class ProjectsApi {
     }
     /**
      * Build call for createProject
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3951,7 +4080,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPostModel;
+        Object localVarPostBody = createProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -3983,48 +4112,48 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
-        return createProjectCall(projectPostModel, _callback);
+    private okhttp3.Call createProjectValidateBeforeCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
+        return createProjectCall(createProjectRequest, _callback);
 
     }
 
     /**
      * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(projectPostModel);
+    public ProjectModel createProject(CreateProjectRequest createProjectRequest) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(createProjectRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, null);
+    public ApiResponse<ProjectModel> createProjectWithHttpInfo(CreateProjectRequest createProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4032,22 +4161,22 @@ public class ProjectsApi {
     /**
      * Create project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectAsync(CreateProjectRequest createProjectRequest, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, _callback);
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4055,7 +4184,7 @@ public class ProjectsApi {
     /**
      * Build call for createProjectsAttribute
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4070,7 +4199,7 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectsAttributeCall(String id, CustomAttributePostModel customAttributePostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectsAttributeCall(String id, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4084,7 +4213,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributePostModel;
+        Object localVarPostBody = createProjectsAttributeRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/attributes"
@@ -4117,13 +4246,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectsAttributeValidateBeforeCall(String id, CustomAttributePostModel customAttributePostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createProjectsAttributeValidateBeforeCall(String id, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createProjectsAttribute(Async)");
         }
 
-        return createProjectsAttributeCall(id, customAttributePostModel, _callback);
+        return createProjectsAttributeCall(id, createProjectsAttributeRequest, _callback);
 
     }
 
@@ -4131,7 +4260,7 @@ public class ProjectsApi {
      * Create project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4145,8 +4274,8 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public CustomAttributeModel createProjectsAttribute(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
-        ApiResponse<CustomAttributeModel> localVarResp = createProjectsAttributeWithHttpInfo(id, customAttributePostModel);
+    public CustomAttributeModel createProjectsAttribute(String id, CreateProjectsAttributeRequest createProjectsAttributeRequest) throws ApiException {
+        ApiResponse<CustomAttributeModel> localVarResp = createProjectsAttributeWithHttpInfo(id, createProjectsAttributeRequest);
         return localVarResp.getData();
     }
 
@@ -4154,7 +4283,7 @@ public class ProjectsApi {
      * Create project attribute
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4168,8 +4297,8 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String id, CustomAttributePostModel customAttributePostModel) throws ApiException {
-        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(id, customAttributePostModel, null);
+    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String id, CreateProjectsAttributeRequest createProjectsAttributeRequest) throws ApiException {
+        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(id, createProjectsAttributeRequest, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4178,7 +4307,7 @@ public class ProjectsApi {
      * Create project attribute (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4193,9 +4322,9 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectsAttributeAsync(String id, CustomAttributePostModel customAttributePostModel, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectsAttributeAsync(String id, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(id, customAttributePostModel, _callback);
+        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(id, createProjectsAttributeRequest, _callback);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4210,8 +4339,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomAttributeTestPlanProjectRelationsCall(String id, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -4285,8 +4414,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public void deleteCustomAttributeTestPlanProjectRelations(String id, UUID attributeId) throws ApiException {
@@ -4303,8 +4432,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, UUID attributeId) throws ApiException {
@@ -4323,8 +4452,8 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomAttributeTestPlanProjectRelationsAsync(String id, UUID attributeId, final ApiCallback<Void> _callback) throws ApiException {
@@ -4342,9 +4471,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectCall(String id, final ApiCallback _callback) throws ApiException {
@@ -4411,9 +4540,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
      */
     public void deleteProject(String id) throws ApiException {
@@ -4429,9 +4558,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteProjectWithHttpInfo(String id) throws ApiException {
@@ -4449,9 +4578,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID does not exists </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -4732,22 +4861,22 @@ public class ProjectsApi {
      * Build call for export
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportCall(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCall(String id, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4761,7 +4890,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportQueryModel;
+        Object localVarPostBody = exportProjectJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export"
@@ -4799,13 +4928,13 @@ public class ProjectsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportValidateBeforeCall(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportValidateBeforeCall(String id, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling export(Async)");
         }
 
-        return exportCall(id, includeAttachments, projectExportQueryModel, _callback);
+        return exportCall(id, includeAttachments, exportProjectJsonRequest, _callback);
 
     }
 
@@ -4814,22 +4943,22 @@ public class ProjectsApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public File export(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        ApiResponse<File> localVarResp = exportWithHttpInfo(id, includeAttachments, projectExportQueryModel);
+    public File export(String id, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        ApiResponse<File> localVarResp = exportWithHttpInfo(id, includeAttachments, exportProjectJsonRequest);
         return localVarResp.getData();
     }
 
@@ -4838,22 +4967,22 @@ public class ProjectsApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<File> exportWithHttpInfo(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = exportValidateBeforeCall(id, includeAttachments, projectExportQueryModel, null);
+    public ApiResponse<File> exportWithHttpInfo(String id, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportValidateBeforeCall(id, includeAttachments, exportProjectJsonRequest, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4863,24 +4992,24 @@ public class ProjectsApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportAsync(String id, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call exportAsync(String id, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportValidateBeforeCall(id, includeAttachments, projectExportQueryModel, _callback);
+        okhttp3.Call localVarCall = exportValidateBeforeCall(id, includeAttachments, exportProjectJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4889,7 +5018,7 @@ public class ProjectsApi {
      * Build call for exportProjectJson
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4900,7 +5029,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectJsonCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectJsonCall(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4914,7 +5043,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportQueryModel;
+        Object localVarPostBody = exportProjectJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export/json"
@@ -4951,13 +5080,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectJsonValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectJsonValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportProjectJson(Async)");
         }
 
-        return exportProjectJsonCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
+        return exportProjectJsonCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
 
     }
 
@@ -4966,7 +5095,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4976,8 +5105,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectJson(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectJsonWithHttpInfo(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+    public UUID exportProjectJson(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectJsonWithHttpInfo(id, timeZoneOffsetInMinutes, exportProjectJsonRequest);
         return localVarResp.getData();
     }
 
@@ -4986,7 +5115,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4996,8 +5125,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, null);
+    public ApiResponse<UUID> exportProjectJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5007,7 +5136,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5018,9 +5147,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectJsonAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectJsonAsync(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
+        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5029,18 +5158,18 @@ public class ProjectsApi {
      * Build call for exportProjectWithTestPlansJson
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansJsonCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansJsonCall(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5054,7 +5183,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportWithTestPlansPostModel;
+        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export/testPlans/json"
@@ -5091,13 +5220,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectWithTestPlansJsonValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectWithTestPlansJsonValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportProjectWithTestPlansJson(Async)");
         }
 
-        return exportProjectWithTestPlansJsonCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
+        return exportProjectWithTestPlansJsonCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
 
     }
 
@@ -5106,18 +5235,18 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectWithTestPlansJson(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansJsonWithHttpInfo(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+    public UUID exportProjectWithTestPlansJson(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansJsonWithHttpInfo(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
         return localVarResp.getData();
     }
 
@@ -5126,18 +5255,18 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectWithTestPlansJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, null);
+    public ApiResponse<UUID> exportProjectWithTestPlansJsonWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5147,20 +5276,20 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansJsonAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansJsonAsync(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
+        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5169,7 +5298,7 @@ public class ProjectsApi {
      * Build call for exportProjectWithTestPlansZip
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5180,7 +5309,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansZipCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansZipCall(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5194,7 +5323,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportWithTestPlansPostModel;
+        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export/testPlans/zip"
@@ -5231,13 +5360,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectWithTestPlansZipValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectWithTestPlansZipValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportProjectWithTestPlansZip(Async)");
         }
 
-        return exportProjectWithTestPlansZipCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
+        return exportProjectWithTestPlansZipCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
 
     }
 
@@ -5246,7 +5375,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5256,8 +5385,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectWithTestPlansZip(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansZipWithHttpInfo(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+    public UUID exportProjectWithTestPlansZip(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansZipWithHttpInfo(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
         return localVarResp.getData();
     }
 
@@ -5266,7 +5395,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5276,8 +5405,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectWithTestPlansZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, null);
+    public ApiResponse<UUID> exportProjectWithTestPlansZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5287,7 +5416,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5298,9 +5427,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansZipAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansZipAsync(String id, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
+        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5309,7 +5438,7 @@ public class ProjectsApi {
      * Build call for exportProjectZip
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5320,7 +5449,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectZipCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectZipCall(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5334,7 +5463,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportQueryModel;
+        Object localVarPostBody = exportProjectJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export/zip"
@@ -5371,13 +5500,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectZipValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectZipValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportProjectZip(Async)");
         }
 
-        return exportProjectZipCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
+        return exportProjectZipCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
 
     }
 
@@ -5386,7 +5515,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5396,8 +5525,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectZip(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectZipWithHttpInfo(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+    public UUID exportProjectZip(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectZipWithHttpInfo(id, timeZoneOffsetInMinutes, exportProjectJsonRequest);
         return localVarResp.getData();
     }
 
@@ -5406,7 +5535,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5416,8 +5545,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, null);
+    public ApiResponse<UUID> exportProjectZipWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5427,7 +5556,7 @@ public class ProjectsApi {
      * 
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param projectExportQueryModel  (optional)
+     * @param exportProjectJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5438,9 +5567,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectZipAsync(String id, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectZipAsync(String id, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(id, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
+        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(id, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5449,22 +5578,22 @@ public class ProjectsApi {
      * Build call for exportWithTestPlansAndConfigurations
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportWithTestPlansAndConfigurationsCall(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5478,7 +5607,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectExportWithTestPlansPostModel;
+        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export-by-testPlans"
@@ -5516,13 +5645,13 @@ public class ProjectsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportWithTestPlansAndConfigurations(Async)");
         }
 
-        return exportWithTestPlansAndConfigurationsCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
+        return exportWithTestPlansAndConfigurationsCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, _callback);
 
     }
 
@@ -5531,22 +5660,22 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        ApiResponse<File> localVarResp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, includeAttachments, projectExportWithTestPlansPostModel);
+    public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        ApiResponse<File> localVarResp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, includeAttachments, exportProjectWithTestPlansJsonRequest);
         return localVarResp.getData();
     }
 
@@ -5555,22 +5684,22 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, null);
+    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5580,24 +5709,24 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
+     * @param exportProjectWithTestPlansJsonRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsAsync(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call exportWithTestPlansAndConfigurationsAsync(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
+        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5932,16 +6061,16 @@ public class ProjectsApi {
     /**
      * Build call for getAttributesByProjectId
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param isDeleted  (optional)
+     * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -6009,15 +6138,15 @@ public class ProjectsApi {
      * Get project attributes
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param isDeleted  (optional)
+     * @param isDeleted  (optional, default to NotDeleted)
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -6030,15 +6159,15 @@ public class ProjectsApi {
      * Get project attributes
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param isDeleted  (optional)
+     * @param isDeleted  (optional, default to NotDeleted)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -6052,16 +6181,16 @@ public class ProjectsApi {
      * Get project attributes (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param isDeleted  (optional)
+     * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -6081,9 +6210,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesCall(String id, final ApiCallback _callback) throws ApiException {
@@ -6151,9 +6280,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<AutoTestNamespaceModel> getAutoTestsNamespaces(String id) throws ApiException {
@@ -6170,9 +6299,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AutoTestNamespaceModel>> getAutoTestsNamespacesWithHttpInfo(String id) throws ApiException {
@@ -6191,9 +6320,9 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesAsync(String id, final ApiCallback<List<AutoTestNamespaceModel>> _callback) throws ApiException {
@@ -6212,10 +6341,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByProjectIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -6283,10 +6412,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<ConfigurationModel> getConfigurationsByProjectId(String id) throws ApiException {
@@ -6303,10 +6432,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ConfigurationModel>> getConfigurationsByProjectIdWithHttpInfo(String id) throws ApiException {
@@ -6325,10 +6454,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for configurations required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByProjectIdAsync(String id, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
@@ -6474,10 +6603,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -6545,10 +6674,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ProjectModel getProjectById(String id) throws ApiException {
@@ -6565,10 +6694,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ProjectModel> getProjectByIdWithHttpInfo(String id) throws ApiException {
@@ -6587,10 +6716,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdAsync(String id, final ApiCallback<ProjectModel> _callback) throws ApiException {
@@ -6614,10 +6743,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionsByProjectIdCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -6710,10 +6839,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<SectionModel> getSectionsByProjectId(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -6735,10 +6864,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<SectionModel>> getSectionsByProjectIdWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -6762,10 +6891,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionsByProjectIdAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<SectionModel>> _callback) throws ApiException {
@@ -6786,8 +6915,8 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdCall(String id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -6861,8 +6990,8 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanModel> getTestPlansByProjectId(String id, Boolean isDeleted) throws ApiException {
@@ -6881,8 +7010,8 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -6903,8 +7032,8 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdAsync(String id, Boolean isDeleted, final ApiCallback<List<TestPlanModel>> _callback) throws ApiException {
@@ -7158,10 +7287,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsByProjectIdCall(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -7269,10 +7398,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<WorkItemShortModel> getWorkItemsByProjectId(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7297,10 +7426,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WorkItemShortModel>> getWorkItemsByProjectIdWithHttpInfo(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -7327,10 +7456,10 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsByProjectIdAsync(String id, Boolean isDeleted, List<String> tagNames, Boolean includeIterations, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
@@ -7636,7 +7765,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7647,7 +7776,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7661,7 +7790,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectAttributesFilterModel;
+        Object localVarPostBody = searchAttributesInProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/attributes/search"
@@ -7714,13 +7843,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAttributesInProjectValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchAttributesInProjectValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling searchAttributesInProject(Async)");
         }
 
-        return searchAttributesInProjectCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        return searchAttributesInProjectCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
 
     }
 
@@ -7733,7 +7862,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return List&lt;CustomAttributeGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7743,8 +7872,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeGetModel> searchAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+    public List<CustomAttributeGetModel> searchAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
         return localVarResp.getData();
     }
 
@@ -7757,7 +7886,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7767,8 +7896,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, null);
+    public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7782,7 +7911,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7793,9 +7922,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
+    public okhttp3.Call searchAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7808,18 +7937,18 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7833,7 +7962,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectAttributesFilterModel;
+        Object localVarPostBody = searchAttributesInProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/attributes/search"
@@ -7886,13 +8015,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling searchTestPlanAttributesInProject(Async)");
         }
 
-        return searchTestPlanAttributesInProjectCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        return searchTestPlanAttributesInProjectCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
 
     }
 
@@ -7905,18 +8034,18 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return List&lt;CustomAttributeGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
         return localVarResp.getData();
     }
 
@@ -7929,18 +8058,18 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, null);
+    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7954,20 +8083,20 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7975,7 +8104,7 @@ public class ProjectsApi {
     /**
      * Build call for updateCustomAttributeTestPlanProjectRelations
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7986,7 +8115,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8000,7 +8129,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTestPlanProjectRelationPutModel;
+        Object localVarPostBody = updateCustomAttributeTestPlanProjectRelationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/attribute"
@@ -8033,13 +8162,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateCustomAttributeTestPlanProjectRelations(Async)");
         }
 
-        return updateCustomAttributeTestPlanProjectRelationsCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
+        return updateCustomAttributeTestPlanProjectRelationsCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
 
     }
 
@@ -8047,7 +8176,7 @@ public class ProjectsApi {
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8056,15 +8185,15 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public void updateCustomAttributeTestPlanProjectRelations(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, customAttributeTestPlanProjectRelationPutModel);
+    public void updateCustomAttributeTestPlanProjectRelations(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(id, updateCustomAttributeTestPlanProjectRelationsRequest);
     }
 
     /**
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8074,8 +8203,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, null);
+    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -8083,7 +8212,7 @@ public class ProjectsApi {
      * Update attribute of project&#39;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8094,29 +8223,29 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateProject
-     * @param projectPutModel  (optional)
+     * @param updateProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8130,7 +8259,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPutModel;
+        Object localVarPostBody = updateProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -8162,78 +8291,78 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectValidateBeforeCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
-        return updateProjectCall(projectPutModel, _callback);
+    private okhttp3.Call updateProjectValidateBeforeCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
+        return updateProjectCall(updateProjectRequest, _callback);
 
     }
 
     /**
      * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
-        updateProjectWithHttpInfo(projectPutModel);
+    public void updateProject(UpdateProjectRequest updateProjectRequest) throws ApiException {
+        updateProjectWithHttpInfo(updateProjectRequest);
     }
 
     /**
      * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, null);
+    public ApiResponse<Void> updateProjectWithHttpInfo(UpdateProjectRequest updateProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectAsync(ProjectPutModel projectPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectAsync(UpdateProjectRequest updateProjectRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, _callback);
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateProjectsAttribute
      * @param id Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8244,7 +8373,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectsAttributeCall(String id, CustomAttributePutModel customAttributePutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectsAttributeCall(String id, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8258,7 +8387,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributePutModel;
+        Object localVarPostBody = updateProjectsAttributeRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/attributes"
@@ -8291,13 +8420,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectsAttributeValidateBeforeCall(String id, CustomAttributePutModel customAttributePutModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateProjectsAttributeValidateBeforeCall(String id, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateProjectsAttribute(Async)");
         }
 
-        return updateProjectsAttributeCall(id, customAttributePutModel, _callback);
+        return updateProjectsAttributeCall(id, updateProjectsAttributeRequest, _callback);
 
     }
 
@@ -8305,7 +8434,7 @@ public class ProjectsApi {
      * Edit attribute of the project
      * 
      * @param id Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8314,15 +8443,15 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProjectsAttribute(String id, CustomAttributePutModel customAttributePutModel) throws ApiException {
-        updateProjectsAttributeWithHttpInfo(id, customAttributePutModel);
+    public void updateProjectsAttribute(String id, UpdateProjectsAttributeRequest updateProjectsAttributeRequest) throws ApiException {
+        updateProjectsAttributeWithHttpInfo(id, updateProjectsAttributeRequest);
     }
 
     /**
      * Edit attribute of the project
      * 
      * @param id Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8332,8 +8461,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String id, CustomAttributePutModel customAttributePutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(id, customAttributePutModel, null);
+    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String id, UpdateProjectsAttributeRequest updateProjectsAttributeRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(id, updateProjectsAttributeRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -8341,7 +8470,7 @@ public class ProjectsApi {
      * Edit attribute of the project (asynchronously)
      * 
      * @param id Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8352,9 +8481,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectsAttributeAsync(String id, CustomAttributePutModel customAttributePutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectsAttributeAsync(String id, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(id, customAttributePutModel, _callback);
+        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(id, updateProjectsAttributeRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

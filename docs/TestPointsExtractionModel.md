@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
+|**ids** | [**TestPointsExtractionModelIds**](TestPointsExtractionModelIds.md) |  |  [optional] |
 
 
 

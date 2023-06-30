@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -82,8 +84,6 @@ public class TestRunV2PostShortModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "This property is to link test run with a project")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -105,8 +105,6 @@ public class TestRunV2PostShortModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "First run", value = "")
-
   public String getName() {
     return name;
   }
@@ -128,8 +126,6 @@ public class TestRunV2PostShortModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDescription() {
     return description;
   }
@@ -151,8 +147,6 @@ public class TestRunV2PostShortModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "By user via API", value = "")
-
   public String getLaunchSource() {
     return launchSource;
   }

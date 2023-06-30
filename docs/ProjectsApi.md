@@ -15,6 +15,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsIdTestPlansAnalyticsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansAnalyticsGet) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics |
 | [**apiV2ProjectsIdTestPlansDeleteBulkPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansDeleteBulkPost) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans |
 | [**apiV2ProjectsIdTestPlansNameExistsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansNameExistsGet) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project |
+| [**apiV2ProjectsIdTestPlansPurgeBulkPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansPurgeBulkPost) | **POST** /api/v2/projects/{id}/testPlans/purge/bulk | Permanently delete multiple archived test plans |
 | [**apiV2ProjectsIdTestPlansRestoreBulkPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansRestoreBulkPost) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans |
 | [**apiV2ProjectsIdTestPlansSearchPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansSearchPost) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics |
 | [**apiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsActiveGet) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns |
@@ -62,7 +63,7 @@ All URIs are relative to *http://localhost*
 | [**updateProjectsAttribute**](ProjectsApi.md#updateProjectsAttribute) | **PUT** /api/v2/projects/{id}/attributes | Edit attribute of the project |
 
 
-<a name="addGlobaAttributesToProject"></a>
+<a id="addGlobaAttributesToProject"></a>
 # **addGlobaAttributesToProject**
 > addGlobaAttributesToProject(id, UUID)
 
@@ -130,16 +131,16 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Client Error |  -  |
 | **200** | Success |  -  |
 | **400** | &lt;br&gt; Attributes must be global  |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Client Error |  -  |
 
-<a name="apiV2ProjectsIdAttributesTemplatesSearchPost"></a>
+<a id="apiV2ProjectsIdAttributesTemplatesSearchPost"></a>
 # **apiV2ProjectsIdAttributesTemplatesSearchPost**
-> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel)
+> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest)
 
 Search for custom attributes templates
 
@@ -171,9 +172,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
+    ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest = new ApiV2ProjectsIdAttributesTemplatesSearchPostRequest(); // ApiV2ProjectsIdAttributesTemplatesSearchPostRequest | 
     try {
-      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdAttributesTemplatesSearchPost");
@@ -196,7 +197,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md)|  | [optional] |
+| **apiV2ProjectsIdAttributesTemplatesSearchPostRequest** | [**ApiV2ProjectsIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -214,10 +215,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Project admin permission for project settings is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Project admin permission for project settings is required |  -  |
 
-<a name="apiV2ProjectsIdAttributesTemplatesTemplateIdDelete"></a>
+<a id="apiV2ProjectsIdAttributesTemplatesTemplateIdDelete"></a>
 # **apiV2ProjectsIdAttributesTemplatesTemplateIdDelete**
 > apiV2ProjectsIdAttributesTemplatesTemplateIdDelete(id, templateId)
 
@@ -285,12 +286,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Can&#39;t find a Project with identifier |  -  |
-| **400** | Bad Request |  -  |
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Can&#39;t find a Project with identifier |  -  |
 | **403** | Update project settings permission for project required |  -  |
 
-<a name="apiV2ProjectsIdAttributesTemplatesTemplateIdPost"></a>
+<a id="apiV2ProjectsIdAttributesTemplatesTemplateIdPost"></a>
 # **apiV2ProjectsIdAttributesTemplatesTemplateIdPost**
 > apiV2ProjectsIdAttributesTemplatesTemplateIdPost(id, templateId)
 
@@ -358,12 +359,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Can&#39;t find a Project with identifier |  -  |
-| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Can&#39;t find a Project with identifier |  -  |
 | **403** | Update project settings permission for project required |  -  |
 
-<a name="apiV2ProjectsIdFailureClassesGet"></a>
+<a id="apiV2ProjectsIdFailureClassesGet"></a>
 # **apiV2ProjectsIdFailureClassesGet**
 > List&lt;FailureClassModel&gt; apiV2ProjectsIdFailureClassesGet(id, isDeleted)
 
@@ -432,10 +433,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 
-<a name="apiV2ProjectsIdFavoritePut"></a>
+<a id="apiV2ProjectsIdFavoritePut"></a>
 # **apiV2ProjectsIdFavoritePut**
 > apiV2ProjectsIdFavoritePut(id)
 
@@ -499,12 +500,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-| **400** | Bad Request |  -  |
-| **204** | Successful operation |  -  |
 
-<a name="apiV2ProjectsIdFiltersGet"></a>
+<a id="apiV2ProjectsIdFiltersGet"></a>
 # **apiV2ProjectsIdFiltersGet**
 > List&lt;FilterModel&gt; apiV2ProjectsIdFiltersGet(id)
 
@@ -571,10 +572,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 
-<a name="apiV2ProjectsIdPatch"></a>
+<a id="apiV2ProjectsIdPatch"></a>
 # **apiV2ProjectsIdPatch**
 > apiV2ProjectsIdPatch(id, operation)
 
@@ -645,7 +646,7 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for projects is required |  -  |
 
-<a name="apiV2ProjectsIdTestPlansAnalyticsGet"></a>
+<a id="apiV2ProjectsIdTestPlansAnalyticsGet"></a>
 # **apiV2ProjectsIdTestPlansAnalyticsGet**
 > List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansAnalyticsGet(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue)
 
@@ -726,12 +727,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 
-<a name="apiV2ProjectsIdTestPlansDeleteBulkPost"></a>
+<a id="apiV2ProjectsIdTestPlansDeleteBulkPost"></a>
 # **apiV2ProjectsIdTestPlansDeleteBulkPost**
-> List&lt;UUID&gt; apiV2ProjectsIdTestPlansDeleteBulkPost(id, projectTestPlansFilterModel)
+> List&lt;UUID&gt; apiV2ProjectsIdTestPlansDeleteBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest)
 
 Delete multiple test plans
 
@@ -758,9 +759,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the project
-    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsIdTestPlansDeleteBulkPost(id, projectTestPlansFilterModel);
+      List<UUID> result = apiInstance.apiV2ProjectsIdTestPlansDeleteBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansDeleteBulkPost");
@@ -778,7 +779,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the project | |
-| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+| **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -799,7 +800,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
 
-<a name="apiV2ProjectsIdTestPlansNameExistsGet"></a>
+<a id="apiV2ProjectsIdTestPlansNameExistsGet"></a>
 # **apiV2ProjectsIdTestPlansNameExistsGet**
 > Boolean apiV2ProjectsIdTestPlansNameExistsGet(id, name)
 
@@ -870,9 +871,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a name="apiV2ProjectsIdTestPlansRestoreBulkPost"></a>
+<a id="apiV2ProjectsIdTestPlansPurgeBulkPost"></a>
+# **apiV2ProjectsIdTestPlansPurgeBulkPost**
+> apiV2ProjectsIdTestPlansPurgeBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest)
+
+Permanently delete multiple archived test plans
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the project
+    ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest | 
+    try {
+      apiInstance.apiV2ProjectsIdTestPlansPurgeBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansPurgeBulkPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the project | |
+| **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Full access permission for the archive is required |  -  |
+
+<a id="apiV2ProjectsIdTestPlansRestoreBulkPost"></a>
 # **apiV2ProjectsIdTestPlansRestoreBulkPost**
-> apiV2ProjectsIdTestPlansRestoreBulkPost(id, projectTestPlansFilterModel)
+> apiV2ProjectsIdTestPlansRestoreBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest)
 
 Restore multiple test plans
 
@@ -899,9 +969,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the project
-    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    ApiV2ProjectsIdTestPlansDeleteBulkPostRequest apiV2ProjectsIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest | 
     try {
-      apiInstance.apiV2ProjectsIdTestPlansRestoreBulkPost(id, projectTestPlansFilterModel);
+      apiInstance.apiV2ProjectsIdTestPlansRestoreBulkPost(id, apiV2ProjectsIdTestPlansDeleteBulkPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansRestoreBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -918,7 +988,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the project | |
-| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+| **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -937,11 +1007,11 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | - Read permission for the project is required  - Edit permission for test plans is required |  -  |
+| **403** | Read permission for the archive is required |  -  |
 
-<a name="apiV2ProjectsIdTestPlansSearchPost"></a>
+<a id="apiV2ProjectsIdTestPlansSearchPost"></a>
 # **apiV2ProjectsIdTestPlansSearchPost**
-> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel)
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest)
 
 Get Project TestPlans with analytics
 
@@ -976,9 +1046,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    ApiV2ProjectsIdTestPlansSearchPostRequest apiV2ProjectsIdTestPlansSearchPostRequest = new ApiV2ProjectsIdTestPlansSearchPostRequest(); // ApiV2ProjectsIdTestPlansSearchPostRequest | 
     try {
-      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdTestPlansSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansSearchPost");
@@ -1002,7 +1072,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+| **apiV2ProjectsIdTestPlansSearchPostRequest** | [**ApiV2ProjectsIdTestPlansSearchPostRequest**](ApiV2ProjectsIdTestPlansSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1023,7 +1093,7 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
 
-<a name="apiV2ProjectsIdTestRunsActiveGet"></a>
+<a id="apiV2ProjectsIdTestRunsActiveGet"></a>
 # **apiV2ProjectsIdTestRunsActiveGet**
 > List&lt;PublicTestRunModel&gt; apiV2ProjectsIdTestRunsActiveGet(id)
 
@@ -1091,11 +1161,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
-<a name="apiV2ProjectsIdTestRunsFullGet"></a>
+<a id="apiV2ProjectsIdTestRunsFullGet"></a>
 # **apiV2ProjectsIdTestRunsFullGet**
 > List&lt;TestRunModel&gt; apiV2ProjectsIdTestRunsFullGet(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue)
 
@@ -1192,9 +1262,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
-<a name="apiV2ProjectsIdWorkItemsSearchIdPost"></a>
+<a id="apiV2ProjectsIdWorkItemsSearchIdPost"></a>
 # **apiV2ProjectsIdWorkItemsSearchIdPost**
-> List&lt;UUID&gt; apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+> List&lt;UUID&gt; apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest)
 
 Search for work items and extract IDs only
 
@@ -1226,9 +1296,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest = new ApiV2ProjectsIdWorkItemsSearchPostRequest(); // ApiV2ProjectsIdWorkItemsSearchPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      List<UUID> result = apiInstance.apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdWorkItemsSearchIdPost");
@@ -1251,7 +1321,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+| **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1269,12 +1339,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test library is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test library is required |  -  |
 
-<a name="apiV2ProjectsIdWorkItemsSearchPost"></a>
+<a id="apiV2ProjectsIdWorkItemsSearchPost"></a>
 # **apiV2ProjectsIdWorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+> List&lt;WorkItemShortModel&gt; apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest)
 
 Search for work items
 
@@ -1306,9 +1376,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest = new ApiV2ProjectsIdWorkItemsSearchPostRequest(); // ApiV2ProjectsIdWorkItemsSearchPostRequest | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2ProjectsIdWorkItemsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdWorkItemsSearchPost");
@@ -1331,7 +1401,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+| **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1349,10 +1419,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test library is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test library is required |  -  |
 
-<a name="apiV2ProjectsIdWorkItemsTagsGet"></a>
+<a id="apiV2ProjectsIdWorkItemsTagsGet"></a>
 # **apiV2ProjectsIdWorkItemsTagsGet**
 > List&lt;TagShortModel&gt; apiV2ProjectsIdWorkItemsTagsGet(id, isDeleted)
 
@@ -1424,7 +1494,7 @@ public class Example {
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 
-<a name="apiV2ProjectsNameNameExistsGet"></a>
+<a id="apiV2ProjectsNameNameExistsGet"></a>
 # **apiV2ProjectsNameNameExistsGet**
 > Boolean apiV2ProjectsNameNameExistsGet(name)
 
@@ -1491,9 +1561,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a name="apiV2ProjectsSearchPost"></a>
+<a id="apiV2ProjectsSearchPost"></a>
 # **apiV2ProjectsSearchPost**
-> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel)
+> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest)
 
 Search for projects
 
@@ -1524,9 +1594,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectsFilterModel projectsFilterModel = new ProjectsFilterModel(); // ProjectsFilterModel | 
+    ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest = new ApiV2ProjectsSearchPostRequest(); // ApiV2ProjectsSearchPostRequest | 
     try {
-      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
+      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsSearchPost");
@@ -1548,7 +1618,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md)|  | [optional] |
+| **apiV2ProjectsSearchPostRequest** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1568,7 +1638,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
-<a name="backgroundImportProject"></a>
+<a id="backgroundImportProject"></a>
 # **backgroundImportProject**
 > UUID backgroundImportProject(_file)
 
@@ -1636,7 +1706,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for project settings required |  -  |
 
-<a name="backgroundImportToExistingProject"></a>
+<a id="backgroundImportToExistingProject"></a>
 # **backgroundImportToExistingProject**
 > UUID backgroundImportToExistingProject(id, _file)
 
@@ -1706,7 +1776,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for project settings required |  -  |
 
-<a name="backgroundImportZipProject"></a>
+<a id="backgroundImportZipProject"></a>
 # **backgroundImportZipProject**
 > UUID backgroundImportZipProject(_file)
 
@@ -1774,7 +1844,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for project settings required |  -  |
 
-<a name="backgroundImportZipToExistingProject"></a>
+<a id="backgroundImportZipToExistingProject"></a>
 # **backgroundImportZipToExistingProject**
 > UUID backgroundImportZipToExistingProject(id, _file)
 
@@ -1844,7 +1914,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for project settings required |  -  |
 
-<a name="callImport"></a>
+<a id="callImport"></a>
 # **callImport**
 > callImport(includeAttachments, _file)
 
@@ -1913,12 +1983,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Project creator or admin system role is required |  -  |
-| **413** | Multipart body length limit exceeded |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Project creator or admin system role is required |  -  |
 | **409** | Entity with the same ID was already imported in other project |  -  |
+| **413** | Multipart body length limit exceeded |  -  |
 
-<a name="createCustomAttributeTestPlanProjectRelations"></a>
+<a id="createCustomAttributeTestPlanProjectRelations"></a>
 # **createCustomAttributeTestPlanProjectRelations**
 > createCustomAttributeTestPlanProjectRelations(id, UUID)
 
@@ -1986,13 +2056,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for project settings is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Update permission for project settings is required |  -  |
 | **400** | &lt;br&gt; Attributes must be global  |  -  |
 
-<a name="createProject"></a>
+<a id="createProject"></a>
 # **createProject**
-> ProjectModel createProject(projectPostModel)
+> ProjectModel createProject(createProjectRequest)
 
 Create project
 
@@ -2020,9 +2090,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    CreateProjectRequest createProjectRequest = new CreateProjectRequest(); // CreateProjectRequest | 
     try {
-      ProjectModel result = apiInstance.createProject(projectPostModel);
+      ProjectModel result = apiInstance.createProject(createProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProject");
@@ -2039,7 +2109,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
+| **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2057,14 +2127,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Project creator or admin system role is required |  -  |
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Project creator or admin system role is required |  -  |
 | **409** | Project with the same name already exists |  -  |
 
-<a name="createProjectsAttribute"></a>
+<a id="createProjectsAttribute"></a>
 # **createProjectsAttribute**
-> CustomAttributeModel createProjectsAttribute(id, customAttributePostModel)
+> CustomAttributeModel createProjectsAttribute(id, createProjectsAttributeRequest)
 
 Create project attribute
 
@@ -2093,9 +2163,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-    CustomAttributePostModel customAttributePostModel = new CustomAttributePostModel(); // CustomAttributePostModel | 
+    CreateProjectsAttributeRequest createProjectsAttributeRequest = new CreateProjectsAttributeRequest(); // CreateProjectsAttributeRequest | 
     try {
-      CustomAttributeModel result = apiInstance.createProjectsAttribute(id, customAttributePostModel);
+      CustomAttributeModel result = apiInstance.createProjectsAttribute(id, createProjectsAttributeRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProjectsAttribute");
@@ -2113,7 +2183,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **customAttributePostModel** | [**CustomAttributePostModel**](CustomAttributePostModel.md)|  | [optional] |
+| **createProjectsAttributeRequest** | [**CreateProjectsAttributeRequest**](CreateProjectsAttributeRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2131,14 +2201,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **422** | Cannot add new attribute from template which is in use |  -  |
+| **201** | Created |  -  |
+| **400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
 | **403** | Update permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
-| **400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
 | **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
-| **201** | Created |  -  |
+| **422** | Cannot add new attribute from template which is in use |  -  |
 
-<a name="deleteCustomAttributeTestPlanProjectRelations"></a>
+<a id="deleteCustomAttributeTestPlanProjectRelations"></a>
 # **deleteCustomAttributeTestPlanProjectRelations**
 > deleteCustomAttributeTestPlanProjectRelations(id, attributeId)
 
@@ -2209,7 +2279,7 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
-<a name="deleteProject"></a>
+<a id="deleteProject"></a>
 # **deleteProject**
 > deleteProject(id)
 
@@ -2275,11 +2345,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID does not exists |  -  |
 | **204** | No Content |  -  |
 | **403** | Delete permission for projects is required |  -  |
+| **404** | Project with provided ID does not exists |  -  |
 
-<a name="deleteProjectAutoTests"></a>
+<a id="deleteProjectAutoTests"></a>
 # **deleteProjectAutoTests**
 > deleteProjectAutoTests(id)
 
@@ -2349,7 +2419,7 @@ null (empty response body)
 | **403** | Delete permission for AutoTest required |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
 
-<a name="deleteProjectsAttribute"></a>
+<a id="deleteProjectsAttribute"></a>
 # **deleteProjectsAttribute**
 > deleteProjectsAttribute(id, attributeId)
 
@@ -2418,13 +2488,13 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **404** | Project with provided ID was not found |  -  |
 | **400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
 | **403** | Update permission for project settings is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
-<a name="export"></a>
+<a id="export"></a>
 # **export**
-> File export(id, includeAttachments, projectExportQueryModel)
+> File export(id, includeAttachments, exportProjectJsonRequest)
 
 Export project as JSON file
 
@@ -2454,9 +2524,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Specifies the ID of the project you want to export.
     Boolean includeAttachments = false; // Boolean | Enables attachment export.
-    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
     try {
-      File result = apiInstance.export(id, includeAttachments, projectExportQueryModel);
+      File result = apiInstance.export(id, includeAttachments, exportProjectJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#export");
@@ -2475,7 +2545,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Specifies the ID of the project you want to export. | |
 | **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
-| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
+| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2493,14 +2563,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | Success |  -  |
-| **403** | Update permission for project settings is required |  -  |
 | **400** | Root section was not found |  -  |
+| **403** | Update permission for project settings is required |  -  |
+| **404** | Not Found |  -  |
 
-<a name="exportProjectJson"></a>
+<a id="exportProjectJson"></a>
 # **exportProjectJson**
-> UUID exportProjectJson(id, timeZoneOffsetInMinutes, projectExportQueryModel)
+> UUID exportProjectJson(id, timeZoneOffsetInMinutes, exportProjectJsonRequest)
 
 Export project as JSON file in background job
 
@@ -2528,9 +2598,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
     try {
-      UUID result = apiInstance.exportProjectJson(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+      UUID result = apiInstance.exportProjectJson(id, timeZoneOffsetInMinutes, exportProjectJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportProjectJson");
@@ -2549,7 +2619,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
+| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2567,12 +2637,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for project settings is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for project settings is required |  -  |
 
-<a name="exportProjectWithTestPlansJson"></a>
+<a id="exportProjectWithTestPlansJson"></a>
 # **exportProjectWithTestPlansJson**
-> UUID exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
+> UUID exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest)
 
 Export project as JSON file with test plans in background job
 
@@ -2600,9 +2670,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
     try {
-      UUID result = apiInstance.exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+      UUID result = apiInstance.exportProjectWithTestPlansJson(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportProjectWithTestPlansJson");
@@ -2621,7 +2691,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
+| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2642,9 +2712,9 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
-<a name="exportProjectWithTestPlansZip"></a>
+<a id="exportProjectWithTestPlansZip"></a>
 # **exportProjectWithTestPlansZip**
-> UUID exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
+> UUID exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest)
 
 Export project as Zip file with test plans in background job
 
@@ -2672,9 +2742,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
     try {
-      UUID result = apiInstance.exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
+      UUID result = apiInstance.exportProjectWithTestPlansZip(id, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportProjectWithTestPlansZip");
@@ -2693,7 +2763,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
+| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2711,12 +2781,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for project settings is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for project settings is required |  -  |
 
-<a name="exportProjectZip"></a>
+<a id="exportProjectZip"></a>
 # **exportProjectZip**
-> UUID exportProjectZip(id, timeZoneOffsetInMinutes, projectExportQueryModel)
+> UUID exportProjectZip(id, timeZoneOffsetInMinutes, exportProjectJsonRequest)
 
 Export project as Zip file in background job
 
@@ -2744,9 +2814,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
     try {
-      UUID result = apiInstance.exportProjectZip(id, timeZoneOffsetInMinutes, projectExportQueryModel);
+      UUID result = apiInstance.exportProjectZip(id, timeZoneOffsetInMinutes, exportProjectJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportProjectZip");
@@ -2765,7 +2835,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
+| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2783,12 +2853,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for project settings is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for project settings is required |  -  |
 
-<a name="exportWithTestPlansAndConfigurations"></a>
+<a id="exportWithTestPlansAndConfigurations"></a>
 # **exportWithTestPlansAndConfigurations**
-> File exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel)
+> File exportWithTestPlansAndConfigurations(id, includeAttachments, exportProjectWithTestPlansJsonRequest)
 
 Export project with test plans, test suites and test points as JSON file
 
@@ -2818,9 +2888,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Specifies the ID of the project you want to export.
     Boolean includeAttachments = false; // Boolean | Enables attachment export.
-    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
     try {
-      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel);
+      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, exportProjectWithTestPlansJsonRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportWithTestPlansAndConfigurations");
@@ -2839,7 +2909,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Specifies the ID of the project you want to export. | |
 | **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
-| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
+| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2857,12 +2927,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  -  |
 | **400** | Root section was not found |  -  |
 | **403** | Update permission for project settings is required |  -  |
-| **200** | Success |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
-<a name="getAllProjects"></a>
+<a id="getAllProjects"></a>
 # **getAllProjects**
 > List&lt;ProjectModel&gt; getAllProjects(isDeleted, projectName, skip, take, orderBy, searchField, searchValue)
 
@@ -2944,7 +3014,7 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Invalid user permissions |  -  |
 
-<a name="getAttributeByProjectId"></a>
+<a id="getAttributeByProjectId"></a>
 # **getAttributeByProjectId**
 > CustomAttributeModel getAttributeByProjectId(id, attributeId)
 
@@ -3013,12 +3083,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
-| **403** | Read permission for test library is required |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Read permission for test library is required |  -  |
+| **404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
 
-<a name="getAttributesByProjectId"></a>
+<a id="getAttributesByProjectId"></a>
 # **getAttributesByProjectId**
 > List&lt;CustomAttributeModel&gt; getAttributesByProjectId(id, isDeleted)
 
@@ -3069,7 +3139,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **isDeleted** | [**DeletionState**](.md)|  | [optional] [enum: Any, Deleted, NotDeleted] |
+| **isDeleted** | [**DeletionState**](.md)|  | [optional] [default to NotDeleted] [enum: Any, Deleted, NotDeleted] |
 
 ### Return type
 
@@ -3087,12 +3157,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
-| **400** | Bad Request |  -  |
-| **200** | Success |  -  |
 
-<a name="getAutoTestsNamespaces"></a>
+<a id="getAutoTestsNamespaces"></a>
 # **getAutoTestsNamespaces**
 > List&lt;AutoTestNamespaceModel&gt; getAutoTestsNamespaces(id)
 
@@ -3163,7 +3233,7 @@ public class Example {
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
-<a name="getConfigurationsByProjectId"></a>
+<a id="getConfigurationsByProjectId"></a>
 # **getConfigurationsByProjectId**
 > List&lt;ConfigurationModel&gt; getConfigurationsByProjectId(id)
 
@@ -3231,11 +3301,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **404** | Project with provided ID was not found |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Read permission for configurations required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
-<a name="getCustomAttributeTestPlanProjectRelations"></a>
+<a id="getCustomAttributeTestPlanProjectRelations"></a>
 # **getCustomAttributeTestPlanProjectRelations**
 > List&lt;CustomAttributeModel&gt; getCustomAttributeTestPlanProjectRelations(id)
 
@@ -3302,10 +3372,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for project settings is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for project settings is required |  -  |
 
-<a name="getProjectById"></a>
+<a id="getProjectById"></a>
 # **getProjectById**
 > ProjectModel getProjectById(id)
 
@@ -3372,12 +3442,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for projects is required |  -  |
-| **404** | Project with provided ID was not found |  -  |
 | **200** | Success |  -  |
 | **400** | ID is invalid |  -  |
+| **403** | Read permission for projects is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
-<a name="getSectionsByProjectId"></a>
+<a id="getSectionsByProjectId"></a>
 # **getSectionsByProjectId**
 > List&lt;SectionModel&gt; getSectionsByProjectId(id, skip, take, orderBy, searchField, searchValue)
 
@@ -3459,7 +3529,7 @@ public class Example {
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
-<a name="getTestPlansByProjectId"></a>
+<a id="getTestPlansByProjectId"></a>
 # **getTestPlansByProjectId**
 > List&lt;TestPlanModel&gt; getTestPlansByProjectId(id, isDeleted)
 
@@ -3528,11 +3598,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test library is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
-<a name="getTestRunsByProjectId"></a>
+<a id="getTestRunsByProjectId"></a>
 # **getTestRunsByProjectId**
 > List&lt;TestRunV2GetModel&gt; getTestRunsByProjectId(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue)
 
@@ -3623,11 +3693,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Project with provided ID was not found |  -  |
-| **403** | Read permission for test result is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test result is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
-<a name="getWorkItemsByProjectId"></a>
+<a id="getWorkItemsByProjectId"></a>
 # **getWorkItemsByProjectId**
 > List&lt;WorkItemShortModel&gt; getWorkItemsByProjectId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue)
 
@@ -3715,7 +3785,7 @@ public class Example {
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
-<a name="importToExistingProject"></a>
+<a id="importToExistingProject"></a>
 # **importToExistingProject**
 > importToExistingProject(id, includeAttachments, _file)
 
@@ -3785,13 +3855,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **413** | Multipart body length limit exceeded |  -  |
 | **204** | No Content |  -  |
 | **403** | Update permission for project settings required |  -  |
-| **409** | Entity with same id already imported in other project |  -  |
 | **404** | File not found |  -  |
+| **409** | Entity with same id already imported in other project |  -  |
+| **413** | Multipart body length limit exceeded |  -  |
 
-<a name="restoreProject"></a>
+<a id="restoreProject"></a>
 # **restoreProject**
 > restoreProject(id)
 
@@ -3861,9 +3931,9 @@ null (empty response body)
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 
-<a name="searchAttributesInProject"></a>
+<a id="searchAttributesInProject"></a>
 # **searchAttributesInProject**
-> List&lt;CustomAttributeGetModel&gt; searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+> List&lt;CustomAttributeGetModel&gt; searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest)
 
 Search for attributes used in the project
 
@@ -3895,9 +3965,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    SearchAttributesInProjectRequest searchAttributesInProjectRequest = new SearchAttributesInProjectRequest(); // SearchAttributesInProjectRequest | 
     try {
-      List<CustomAttributeGetModel> result = apiInstance.searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      List<CustomAttributeGetModel> result = apiInstance.searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#searchAttributesInProject");
@@ -3920,7 +3990,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+| **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3938,12 +4008,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for project is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for project is required |  -  |
 
-<a name="searchTestPlanAttributesInProject"></a>
+<a id="searchTestPlanAttributesInProject"></a>
 # **searchTestPlanAttributesInProject**
-> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest)
 
 Search for attributes used in the project test plans
 
@@ -3975,9 +4045,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    SearchAttributesInProjectRequest searchAttributesInProjectRequest = new SearchAttributesInProjectRequest(); // SearchAttributesInProjectRequest | 
     try {
-      List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#searchTestPlanAttributesInProject");
@@ -4000,7 +4070,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+| **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4021,9 +4091,9 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for project is required |  -  |
 
-<a name="updateCustomAttributeTestPlanProjectRelations"></a>
+<a id="updateCustomAttributeTestPlanProjectRelations"></a>
 # **updateCustomAttributeTestPlanProjectRelations**
-> updateCustomAttributeTestPlanProjectRelations(id, customAttributeTestPlanProjectRelationPutModel)
+> updateCustomAttributeTestPlanProjectRelations(id, updateCustomAttributeTestPlanProjectRelationsRequest)
 
 Update attribute of project&#39;s test plans
 
@@ -4052,9 +4122,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-    CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
+    UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest = new UpdateCustomAttributeTestPlanProjectRelationsRequest(); // UpdateCustomAttributeTestPlanProjectRelationsRequest | 
     try {
-      apiInstance.updateCustomAttributeTestPlanProjectRelations(id, customAttributeTestPlanProjectRelationPutModel);
+      apiInstance.updateCustomAttributeTestPlanProjectRelations(id, updateCustomAttributeTestPlanProjectRelationsRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateCustomAttributeTestPlanProjectRelations");
       System.err.println("Status code: " + e.getCode());
@@ -4071,7 +4141,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional] |
+| **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4092,9 +4162,9 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for project settings is required |  -  |
 
-<a name="updateProject"></a>
+<a id="updateProject"></a>
 # **updateProject**
-> updateProject(projectPutModel)
+> updateProject(updateProjectRequest)
 
 Update project
 
@@ -4122,9 +4192,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPutModel projectPutModel = new ProjectPutModel(); // ProjectPutModel | 
+    UpdateProjectRequest updateProjectRequest = new UpdateProjectRequest(); // UpdateProjectRequest | 
     try {
-      apiInstance.updateProject(projectPutModel);
+      apiInstance.updateProject(updateProjectRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateProject");
       System.err.println("Status code: " + e.getCode());
@@ -4140,7 +4210,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] |
+| **updateProjectRequest** | [**UpdateProjectRequest**](UpdateProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4164,9 +4234,9 @@ null (empty response body)
 | **404** | Project with provided ID was not found |  -  |
 | **409** | Project with the same name already exists |  -  |
 
-<a name="updateProjectsAttribute"></a>
+<a id="updateProjectsAttribute"></a>
 # **updateProjectsAttribute**
-> updateProjectsAttribute(id, customAttributePutModel)
+> updateProjectsAttribute(id, updateProjectsAttributeRequest)
 
 Edit attribute of the project
 
@@ -4193,9 +4263,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Unique or global project ID
-    CustomAttributePutModel customAttributePutModel = new CustomAttributePutModel(); // CustomAttributePutModel | 
+    UpdateProjectsAttributeRequest updateProjectsAttributeRequest = new UpdateProjectsAttributeRequest(); // UpdateProjectsAttributeRequest | 
     try {
-      apiInstance.updateProjectsAttribute(id, customAttributePutModel);
+      apiInstance.updateProjectsAttribute(id, updateProjectsAttributeRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateProjectsAttribute");
       System.err.println("Status code: " + e.getCode());
@@ -4212,7 +4282,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global project ID | |
-| **customAttributePutModel** | [**CustomAttributePutModel**](CustomAttributePutModel.md)|  | [optional] |
+| **updateProjectsAttributeRequest** | [**UpdateProjectsAttributeRequest**](UpdateProjectsAttributeRequest.md)|  | [optional] |
 
 ### Return type
 

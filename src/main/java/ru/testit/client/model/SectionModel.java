@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -37,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -103,8 +105,6 @@ public class SectionModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -126,8 +126,6 @@ public class SectionModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -149,8 +147,6 @@ public class SectionModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -172,8 +168,6 @@ public class SectionModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -195,8 +189,6 @@ public class SectionModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -218,8 +210,6 @@ public class SectionModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -241,8 +231,6 @@ public class SectionModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -264,8 +252,6 @@ public class SectionModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -287,8 +273,6 @@ public class SectionModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Root section", required = true, value = "")
-
   public String getName() {
     return name;
   }

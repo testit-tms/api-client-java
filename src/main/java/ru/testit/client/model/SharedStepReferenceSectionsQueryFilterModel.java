@@ -20,14 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelCreatedDate;
+import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelModifiedDate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -61,19 +64,19 @@ public class SharedStepReferenceSectionsQueryFilterModel {
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  private SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private DateTimeRangeSelectorModel modifiedDate;
+  private SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate;
 
   public SharedStepReferenceSectionsQueryFilterModel() {
   }
@@ -89,8 +92,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of section")
-
   public String getName() {
     return name;
   }
@@ -120,8 +121,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who created work item")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -151,8 +150,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who applied last modification to work item")
-
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
@@ -163,7 +160,7 @@ public class SharedStepReferenceSectionsQueryFilterModel {
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public SharedStepReferenceSectionsQueryFilterModel createdDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -174,19 +171,17 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public SharedStepReferenceSectionsQueryFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
     
     this.modifiedDate = modifiedDate;
     return this;
@@ -197,14 +192,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getModifiedDate() {
+  public SharedStepReferenceSectionsQueryFilterModelModifiedDate getModifiedDate() {
     return modifiedDate;
   }
 
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
@@ -316,11 +309,11 @@ public class SharedStepReferenceSectionsQueryFilterModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        SharedStepReferenceSectionsQueryFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        SharedStepReferenceSectionsQueryFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
       }
   }
 

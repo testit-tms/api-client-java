@@ -20,13 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.UserWithRankModel;
+import ru.testit.client.model.WorkItemCommentModelUser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -64,7 +66,7 @@ public class WorkItemCommentModel {
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  private UserWithRankModel user;
+  private WorkItemCommentModelUser user;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
@@ -96,8 +98,6 @@ public class WorkItemCommentModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -119,8 +119,6 @@ public class WorkItemCommentModel {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getText() {
     return text;
   }
@@ -131,7 +129,7 @@ public class WorkItemCommentModel {
   }
 
 
-  public WorkItemCommentModel user(UserWithRankModel user) {
+  public WorkItemCommentModel user(WorkItemCommentModelUser user) {
     
     this.user = user;
     return this;
@@ -142,14 +140,12 @@ public class WorkItemCommentModel {
    * @return user
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserWithRankModel getUser() {
+  public WorkItemCommentModelUser getUser() {
     return user;
   }
 
 
-  public void setUser(UserWithRankModel user) {
+  public void setUser(WorkItemCommentModelUser user) {
     this.user = user;
   }
 
@@ -165,8 +161,6 @@ public class WorkItemCommentModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -188,8 +182,6 @@ public class WorkItemCommentModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -211,8 +203,6 @@ public class WorkItemCommentModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -234,8 +224,6 @@ public class WorkItemCommentModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -354,7 +342,7 @@ public class WorkItemCommentModel {
       }
       // validate the optional field `user`
       if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
-        UserWithRankModel.validateJsonObject(jsonObj.getAsJsonObject("user"));
+        WorkItemCommentModelUser.validateJsonObject(jsonObj.getAsJsonObject("user"));
       }
       if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));

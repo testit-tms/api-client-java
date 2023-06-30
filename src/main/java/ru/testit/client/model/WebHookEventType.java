@@ -31,7 +31,33 @@ public enum WebHookEventType {
   
   AUTOMATEDTESTRUNCREATED("AutomatedTestRunCreated"),
   
-  TESTPLANSSTATUSCHANGED("TestPlansStatusChanged");
+  TESTPLANSSTATUSCHANGED("TestPlansStatusChanged"),
+  
+  TESTRUNSTOPPED("TestRunStopped"),
+  
+  TESTPOINTASSIGNED("TestPointAssigned"),
+  
+  TESTRESULTJIRAISSUECREATED("TestResultJiraIssueCreated"),
+  
+  AUTOTESTFINISHED("AutoTestFinished"),
+  
+  USERMENTIONEDINCOMMENT("UserMentionedInComment"),
+  
+  USERSELECTEDINWORKITEMATTRIBUTE("UserSelectedInWorkItemAttribute"),
+  
+  ALLTESTPOINTSFINISHED("AllTestPointsFinished"),
+  
+  ALLAUTOTESTSFINISHED("AllAutoTestsFinished"),
+  
+  AUTOTESTCHANGED("AutoTestChanged"),
+  
+  WORKITEMAUTOTESTRELATIONCHANGED("WorkItemAutoTestRelationChanged"),
+  
+  WORKITEMATTRIBUTECHANGED("WorkItemAttributeChanged"),
+  
+  WORKITEMCHANGED("WorkItemChanged"),
+  
+  CONFIGURATIONCHANGED("ConfigurationChanged");
 
   private String value;
 

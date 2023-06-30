@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -46,6 +44,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -68,11 +70,11 @@ public class AutoTestResultsForTestRunModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkPostModel> links = null;
+  private List<LinkPostModel> links;
 
   public static final String SERIALIZED_NAME_FAILURE_REASON_NAMES = "failureReasonNames";
   @SerializedName(SERIALIZED_NAME_FAILURE_REASON_NAMES)
-  private List<FailureCategoryModel> failureReasonNames = null;
+  private List<FailureCategoryModel> failureReasonNames;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_EXTERNAL_ID = "autoTestExternalId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_EXTERNAL_ID)
@@ -104,27 +106,27 @@ public class AutoTestResultsForTestRunModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments = null;
+  private List<AttachmentPutModel> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private Map<String, String> properties = null;
+  private Map<String, String> properties;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> stepResults = null;
+  private List<AttachmentPutModelAutoTestStepResultsModel> stepResults;
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults = null;
+  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults = null;
+  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
 
   public AutoTestResultsForTestRunModel() {
   }
@@ -140,8 +142,6 @@ public class AutoTestResultsForTestRunModel {
    * @return configurationId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the autotest configuration, which was specified when the test run was created.")
-
   public UUID getConfigurationId() {
     return configurationId;
   }
@@ -171,8 +171,6 @@ public class AutoTestResultsForTestRunModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the links in the autotest.")
-
   public List<LinkPostModel> getLinks() {
     return links;
   }
@@ -202,8 +200,6 @@ public class AutoTestResultsForTestRunModel {
    * @return failureReasonNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the cause of autotest failure.")
-
   public List<FailureCategoryModel> getFailureReasonNames() {
     return failureReasonNames;
   }
@@ -225,8 +221,6 @@ public class AutoTestResultsForTestRunModel {
    * @return autoTestExternalId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the external ID of the autotest, which was specified when the test run was created.")
-
   public String getAutoTestExternalId() {
     return autoTestExternalId;
   }
@@ -248,8 +242,6 @@ public class AutoTestResultsForTestRunModel {
    * @return outcome
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public AvailableTestResultOutcome getOutcome() {
     return outcome;
   }
@@ -271,8 +263,6 @@ public class AutoTestResultsForTestRunModel {
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comment for the result.")
-
   public String getMessage() {
     return message;
   }
@@ -294,8 +284,6 @@ public class AutoTestResultsForTestRunModel {
    * @return traces
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An extended comment or a stack trace.")
-
   public String getTraces() {
     return traces;
   }
@@ -317,8 +305,6 @@ public class AutoTestResultsForTestRunModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Test run start date.")
-
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
@@ -340,8 +326,6 @@ public class AutoTestResultsForTestRunModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Test run end date.")
-
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
@@ -361,11 +345,10 @@ public class AutoTestResultsForTestRunModel {
    /**
    * Expected or actual duration of the test run execution in milliseconds.
    * minimum: 0
+   * maximum: 43200000000
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Expected or actual duration of the test run execution in milliseconds.")
-
   public Long getDuration() {
     return duration;
   }
@@ -395,8 +378,6 @@ public class AutoTestResultsForTestRunModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attachment GUID. Multiple values can be sent.")
-
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
@@ -426,8 +407,6 @@ public class AutoTestResultsForTestRunModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "\"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.")
-
   public Map<String, String> getParameters() {
     return parameters;
   }
@@ -457,8 +436,6 @@ public class AutoTestResultsForTestRunModel {
    * @return properties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "\"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.")
-
   public Map<String, String> getProperties() {
     return properties;
   }
@@ -488,8 +465,6 @@ public class AutoTestResultsForTestRunModel {
    * @return stepResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the results of individual steps.")
-
   public List<AttachmentPutModelAutoTestStepResultsModel> getStepResults() {
     return stepResults;
   }
@@ -519,8 +494,6 @@ public class AutoTestResultsForTestRunModel {
    * @return setupResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the results of setup steps. For information on supported values, see the `stepResults` parameter above.")
-
   public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
     return setupResults;
   }
@@ -550,8 +523,6 @@ public class AutoTestResultsForTestRunModel {
    * @return teardownResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the results of the teardown steps. For information on supported values, see the `stepResults` parameter above.")
-
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
     return teardownResults;
   }

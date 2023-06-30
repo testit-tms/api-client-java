@@ -11,6 +11,7 @@
 |**parentId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
+|**autoRefresh** | **Boolean** |  |  [optional] |
 
 
 

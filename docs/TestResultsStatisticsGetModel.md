@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**statuses** | [**TestRunStatisticsStatusesGetModel**](TestRunStatisticsStatusesGetModel.md) |  |  [optional] |
-|**failureCategories** | [**TestRunStatisticsErrorCategoriesGetModel**](TestRunStatisticsErrorCategoriesGetModel.md) |  |  [optional] |
+|**statuses** | [**TestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  |  [optional] |
+|**failureCategories** | [**TestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  |  [optional] |
 
 
 

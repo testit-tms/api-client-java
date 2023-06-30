@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -58,7 +60,7 @@ public class TestPlanGroupByTester {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private Integer value;
+  private Long value;
 
   public TestPlanGroupByTester() {
   }
@@ -74,8 +76,6 @@ public class TestPlanGroupByTester {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getUserId() {
     return userId;
   }
@@ -86,7 +86,7 @@ public class TestPlanGroupByTester {
   }
 
 
-  public TestPlanGroupByTester value(Integer value) {
+  public TestPlanGroupByTester value(Long value) {
     
     this.value = value;
     return this;
@@ -97,14 +97,12 @@ public class TestPlanGroupByTester {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
 
-  public void setValue(Integer value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

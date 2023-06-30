@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -42,6 +40,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -116,7 +118,7 @@ public class AutoTestModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkPutModel> links = null;
+  private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -136,15 +138,15 @@ public class AutoTestModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<AutoTestStepModel> steps = null;
+  private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  private List<AutoTestStepModel> setup = null;
+  private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  private List<AutoTestStepModel> teardown = null;
+  private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -156,7 +158,7 @@ public class AutoTestModel {
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private List<LabelShortModel> labels = null;
+  private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
@@ -176,8 +178,6 @@ public class AutoTestModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global ID of the autotest")
-
   public Long getGlobalId() {
     return globalId;
   }
@@ -199,8 +199,6 @@ public class AutoTestModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the autotest is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -222,8 +220,6 @@ public class AutoTestModel {
    * @return mustBeApproved
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the autotest has unapproved changes from linked work items")
-
   public Boolean getMustBeApproved() {
     return mustBeApproved;
   }
@@ -245,8 +241,6 @@ public class AutoTestModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the autotest")
-
   public UUID getId() {
     return id;
   }
@@ -268,8 +262,6 @@ public class AutoTestModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the autotest")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -291,8 +283,6 @@ public class AutoTestModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last modification date of the project")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -314,8 +304,6 @@ public class AutoTestModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project creator")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -337,8 +325,6 @@ public class AutoTestModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project last editor")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -360,8 +346,6 @@ public class AutoTestModel {
    * @return lastTestRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the autotest last test run")
-
   public UUID getLastTestRunId() {
     return lastTestRunId;
   }
@@ -383,8 +367,6 @@ public class AutoTestModel {
    * @return lastTestRunName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest last test run")
-
   public String getLastTestRunName() {
     return lastTestRunName;
   }
@@ -406,8 +388,6 @@ public class AutoTestModel {
    * @return lastTestResultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the autotest last test result")
-
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
@@ -429,8 +409,6 @@ public class AutoTestModel {
    * @return lastTestResultOutcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Outcome of the autotest last test result")
-
   public String getLastTestResultOutcome() {
     return lastTestResultOutcome;
   }
@@ -452,8 +430,6 @@ public class AutoTestModel {
    * @return stabilityPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Stability percentage of the autotest")
-
   public Integer getStabilityPercentage() {
     return stabilityPercentage;
   }
@@ -475,8 +451,6 @@ public class AutoTestModel {
    * @return externalId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "External ID of the autotest")
-
   public String getExternalId() {
     return externalId;
   }
@@ -506,8 +480,6 @@ public class AutoTestModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest links")
-
   public List<LinkPutModel> getLinks() {
     return links;
   }
@@ -529,8 +501,6 @@ public class AutoTestModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the autotest project")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -552,8 +522,6 @@ public class AutoTestModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the autotest")
-
   public String getName() {
     return name;
   }
@@ -575,8 +543,6 @@ public class AutoTestModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest namespace")
-
   public String getNamespace() {
     return namespace;
   }
@@ -598,8 +564,6 @@ public class AutoTestModel {
    * @return classname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest class")
-
   public String getClassname() {
     return classname;
   }
@@ -629,8 +593,6 @@ public class AutoTestModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest steps")
-
   public List<AutoTestStepModel> getSteps() {
     return steps;
   }
@@ -660,8 +622,6 @@ public class AutoTestModel {
    * @return setup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest setup steps")
-
   public List<AutoTestStepModel> getSetup() {
     return setup;
   }
@@ -691,8 +651,6 @@ public class AutoTestModel {
    * @return teardown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest teardown steps")
-
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
   }
@@ -714,8 +672,6 @@ public class AutoTestModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest in autotest's card")
-
   public String getTitle() {
     return title;
   }
@@ -737,8 +693,6 @@ public class AutoTestModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the autotest in autotest's card")
-
   public String getDescription() {
     return description;
   }
@@ -768,8 +722,6 @@ public class AutoTestModel {
    * @return labels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest labels")
-
   public List<LabelShortModel> getLabels() {
     return labels;
   }
@@ -791,8 +743,6 @@ public class AutoTestModel {
    * @return isFlaky
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the autotest is marked as flaky")
-
   public Boolean getIsFlaky() {
     return isFlaky;
   }

@@ -5,9 +5,10 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**apiV2BackgroundJobsGet**](BackgroundJobsApi.md#apiV2BackgroundJobsGet) | **GET** /api/v2/backgroundJobs | Get current user background jobs |
+| [**apiV2BackgroundJobsIdCancelPost**](BackgroundJobsApi.md#apiV2BackgroundJobsIdCancelPost) | **POST** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job |
 
 
-<a name="apiV2BackgroundJobsGet"></a>
+<a id="apiV2BackgroundJobsGet"></a>
 # **apiV2BackgroundJobsGet**
 > List&lt;BackgroundJobModel&gt; apiV2BackgroundJobsGet(skip, take, orderBy, searchField, searchValue)
 
@@ -81,4 +82,70 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+<a id="apiV2BackgroundJobsIdCancelPost"></a>
+# **apiV2BackgroundJobsIdCancelPost**
+> apiV2BackgroundJobsIdCancelPost(id)
+
+Cancel current user background job
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.BackgroundJobsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    BackgroundJobsApi apiInstance = new BackgroundJobsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    try {
+      apiInstance.apiV2BackgroundJobsIdCancelPost(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BackgroundJobsApi#apiV2BackgroundJobsIdCancelPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 

@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestPlanGroupByStatus;
 import ru.testit.client.model.TestPlanGroupByTestSuite;
 import ru.testit.client.model.TestPlanGroupByTester;
@@ -41,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -59,23 +60,23 @@ import ru.testit.client.invoker.JSON;
 public class TestPointAnalyticResult {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
-  private List<TestPlanGroupByStatus> countGroupByStatus = null;
+  private List<TestPlanGroupByStatus> countGroupByStatus;
 
   public static final String SERIALIZED_NAME_SUM_GROUP_BY_TESTER = "sumGroupByTester";
   @SerializedName(SERIALIZED_NAME_SUM_GROUP_BY_TESTER)
-  private List<TestPlanGroupByTester> sumGroupByTester = null;
+  private List<TestPlanGroupByTester> sumGroupByTester;
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER = "countGroupByTester";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER)
-  private List<TestPlanGroupByTester> countGroupByTester = null;
+  private List<TestPlanGroupByTester> countGroupByTester;
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE)
-  private List<TestPlanGroupByTestSuite> countGroupByTestSuite = null;
+  private List<TestPlanGroupByTestSuite> countGroupByTestSuite;
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS)
-  private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus = null;
+  private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus;
 
   public TestPointAnalyticResult() {
   }
@@ -99,8 +100,6 @@ public class TestPointAnalyticResult {
    * @return countGroupByStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestPlanGroupByStatus> getCountGroupByStatus() {
     return countGroupByStatus;
   }
@@ -130,8 +129,6 @@ public class TestPointAnalyticResult {
    * @return sumGroupByTester
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestPlanGroupByTester> getSumGroupByTester() {
     return sumGroupByTester;
   }
@@ -161,8 +158,6 @@ public class TestPointAnalyticResult {
    * @return countGroupByTester
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestPlanGroupByTester> getCountGroupByTester() {
     return countGroupByTester;
   }
@@ -192,8 +187,6 @@ public class TestPointAnalyticResult {
    * @return countGroupByTestSuite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestPlanGroupByTestSuite> getCountGroupByTestSuite() {
     return countGroupByTestSuite;
   }
@@ -223,8 +216,6 @@ public class TestPointAnalyticResult {
    * @return countGroupByTesterAndStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestPlanGroupByTesterAndStatus> getCountGroupByTesterAndStatus() {
     return countGroupByTesterAndStatus;
   }
@@ -252,20 +243,9 @@ public class TestPointAnalyticResult {
         Objects.equals(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTestSuite, countGroupByTesterAndStatus);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

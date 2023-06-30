@@ -26,9 +26,9 @@ All URIs are relative to *http://localhost*
 | [**updateMultiple**](AutoTestsApi.md#updateMultiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests |
 
 
-<a name="apiV2AutoTestsFlakyBulkPost"></a>
+<a id="apiV2AutoTestsFlakyBulkPost"></a>
 # **apiV2AutoTestsFlakyBulkPost**
-> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel)
+> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest)
 
 Set \&quot;Flaky\&quot; status for multiple autotests
 
@@ -61,9 +61,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    FlakyBulkModel flakyBulkModel = new FlakyBulkModel(); // FlakyBulkModel | 
+    ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest = new ApiV2AutoTestsFlakyBulkPostRequest(); // ApiV2AutoTestsFlakyBulkPostRequest | 
     try {
-      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
+      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsFlakyBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -84,7 +84,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] |
+| **apiV2AutoTestsFlakyBulkPostRequest** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -102,11 +102,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Invalid user permissions |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Invalid user permissions |  -  |
 | **422** | Autotests with provided identifiers do not belong to the same project |  -  |
 
-<a name="apiV2AutoTestsIdPatch"></a>
+<a id="apiV2AutoTestsIdPatch"></a>
 # **apiV2AutoTestsIdPatch**
 > apiV2AutoTestsIdPatch(id, operation)
 
@@ -177,9 +177,9 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for auto tests is required |  -  |
 
-<a name="apiV2AutoTestsIdTestResultsSearchPost"></a>
+<a id="apiV2AutoTestsIdTestResultsSearchPost"></a>
 # **apiV2AutoTestsIdTestResultsSearchPost**
-> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel)
+> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest)
 
 Get test results history for autotest
 
@@ -213,9 +213,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel = new AutotestHistoricalResultSelectModel(); // AutotestHistoricalResultSelectModel | 
+    ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest = new ApiV2AutoTestsIdTestResultsSearchPostRequest(); // ApiV2AutoTestsIdTestResultsSearchPostRequest | 
     try {
-      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
+      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsIdTestResultsSearchPost");
@@ -238,7 +238,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] |
+| **apiV2AutoTestsIdTestResultsSearchPostRequest** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -256,13 +256,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Autotest with provided ID was not found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for autotests required |  -  |
+| **404** | Autotest with provided ID was not found |  -  |
 
-<a name="apiV2AutoTestsIdWorkItemsChangedIdGet"></a>
+<a id="apiV2AutoTestsIdWorkItemsChangedIdGet"></a>
 # **apiV2AutoTestsIdWorkItemsChangedIdGet**
 > List&lt;UUID&gt; apiV2AutoTestsIdWorkItemsChangedIdGet(id)
 
@@ -333,7 +333,7 @@ public class Example {
 | **403** | Invalid user permissions |  -  |
 | **404** | Autotest with provided ID was not found |  -  |
 
-<a name="apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost"></a>
+<a id="apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost"></a>
 # **apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost**
 > apiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(id, workItemId)
 
@@ -405,9 +405,9 @@ null (empty response body)
 | **403** | Invalid user permissions |  -  |
 | **404** | Autotest with provided ID was not found |  -  |
 
-<a name="apiV2AutoTestsSearchPost"></a>
+<a id="apiV2AutoTestsSearchPost"></a>
 # **apiV2AutoTestsSearchPost**
-> List&lt;AutoTestModel&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autotestsSelectModel)
+> List&lt;AutoTestModel&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest)
 
 Search for autotests
 
@@ -438,9 +438,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    AutotestsSelectModel autotestsSelectModel = new AutotestsSelectModel(); // AutotestsSelectModel | 
+    ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest = new ApiV2AutoTestsSearchPostRequest(); // ApiV2AutoTestsSearchPostRequest | 
     try {
-      List<AutoTestModel> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autotestsSelectModel);
+      List<AutoTestModel> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsSearchPost");
@@ -462,7 +462,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **autotestsSelectModel** | [**AutotestsSelectModel**](AutotestsSelectModel.md)|  | [optional] |
+| **apiV2AutoTestsSearchPostRequest** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -480,12 +480,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for autotests library is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for autotests library is required |  -  |
 
-<a name="createAutoTest"></a>
+<a id="createAutoTest"></a>
 # **createAutoTest**
-> AutoTestModel createAutoTest(autoTestPostModel)
+> AutoTestModel createAutoTest(createAutoTestRequest)
 
 Create autotest
 
@@ -513,9 +513,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    AutoTestPostModel autoTestPostModel = new AutoTestPostModel(); // AutoTestPostModel | 
+    CreateAutoTestRequest createAutoTestRequest = new CreateAutoTestRequest(); // CreateAutoTestRequest | 
     try {
-      AutoTestModel result = apiInstance.createAutoTest(autoTestPostModel);
+      AutoTestModel result = apiInstance.createAutoTest(createAutoTestRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#createAutoTest");
@@ -532,7 +532,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] |
+| **createAutoTestRequest** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -551,14 +551,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **404** | Project with provided ID cannot be found |  -  |
 | **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
+| **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
+| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 
-<a name="createMultiple"></a>
+<a id="createMultiple"></a>
 # **createMultiple**
 > List&lt;AutoTestModel&gt; createMultiple(autoTestPostModel)
 
@@ -625,15 +625,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 | **201** | Created |  -  |
-| **403** | Update permission for autotests is required |  -  |
+| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for autotests is required |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
+| **422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 
-<a name="deleteAutoTest"></a>
+<a id="deleteAutoTest"></a>
 # **deleteAutoTest**
 > deleteAutoTest(id)
 
@@ -701,10 +701,10 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Autotest with provided ID cannot be found |  -  |
 | **403** | Delete permission for autotests is required |  -  |
+| **404** | Autotest with provided ID cannot be found |  -  |
 
-<a name="deleteAutoTestLinkFromWorkItem"></a>
+<a id="deleteAutoTestLinkFromWorkItem"></a>
 # **deleteAutoTestLinkFromWorkItem**
 > deleteAutoTestLinkFromWorkItem(id, workItemId)
 
@@ -772,13 +772,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for autotests is required |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
 | **204** | No Content |  -  |
 | **400** | Work item ID is invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for autotests is required |  -  |
+| **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
 
-<a name="getAllAutoTests"></a>
+<a id="getAllAutoTests"></a>
 # **getAllAutoTests**
 > List&lt;AutoTestModel&gt; getAllAutoTests(projectId, externalId, globalId, namespace, isNamespaceNull, includeEmptyNamespaces, className, isClassnameNull, includeEmptyClassNames, isDeleted, deleted, labels, stabilityMinimal, minStability, stabilityMaximal, maxStability, isFlaky, flaky, includeSteps, includeLabels, skip, take, orderBy, searchField, searchValue)
 
@@ -891,12 +891,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-<a name="getAutoTestAverageDuration"></a>
+<a id="getAutoTestAverageDuration"></a>
 # **getAutoTestAverageDuration**
 > AutoTestAverageDurationModel getAutoTestAverageDuration(id)
 
@@ -963,12 +963,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Autotest with provided ID was not found |  -  |
 | **200** | Success |  -  |
-| **403** | Read permission for autotests is required |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Read permission for autotests is required |  -  |
+| **404** | Autotest with provided ID was not found |  -  |
 
-<a name="getAutoTestById"></a>
+<a id="getAutoTestById"></a>
 # **getAutoTestById**
 > AutoTestModel getAutoTestById(id)
 
@@ -1035,13 +1035,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for autotests is required |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Autotest ID is invalid |  -  |
 | **200** | Success |  -  |
+| **400** | Autotest ID is invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for autotests is required |  -  |
 | **404** | Autotest with provided ID cannot be found |  -  |
 
-<a name="getAutoTestChronology"></a>
+<a id="getAutoTestChronology"></a>
 # **getAutoTestChronology**
 > List&lt;TestResultChronologyModel&gt; getAutoTestChronology(id)
 
@@ -1108,12 +1108,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for autotests is required |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Autotest with provided ID was not found |  -  |
 | **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for autotests is required |  -  |
+| **404** | Autotest with provided ID was not found |  -  |
 
-<a name="getTestRuns"></a>
+<a id="getTestRuns"></a>
 # **getTestRuns**
 > List&lt;TestRunShortModel&gt; getTestRuns(id)
 
@@ -1180,12 +1180,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for autotests is required |  -  |
 | **200** | Success |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Read permission for autotests is required |  -  |
 | **404** | Autotest with provided ID was not found |  -  |
 
-<a name="getWorkItemResults"></a>
+<a id="getWorkItemResults"></a>
 # **getWorkItemResults**
 > List&lt;TestResultHistoryReportModel&gt; getWorkItemResults(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue)
 
@@ -1278,12 +1278,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-<a name="getWorkItemsLinkedToAutoTest"></a>
+<a id="getWorkItemsLinkedToAutoTest"></a>
 # **getWorkItemsLinkedToAutoTest**
 > List&lt;WorkItemIdentifierModel&gt; getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted)
 
@@ -1354,14 +1354,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **200** | Success |  -  |
-| **404** | Autotest with provided ID cannot be found |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for autotests is required |  -  |
+| **404** | Autotest with provided ID cannot be found |  -  |
 
-<a name="linkAutoTestToWorkItem"></a>
+<a id="linkAutoTestToWorkItem"></a>
 # **linkAutoTestToWorkItem**
-> linkAutoTestToWorkItem(id, workItemIdModel)
+> linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest)
 
 Link autotest with work items
 
@@ -1390,9 +1390,9 @@ public class Example {
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
     String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
-    WorkItemIdModel workItemIdModel = new WorkItemIdModel(); // WorkItemIdModel | 
+    LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest = new LinkAutoTestToWorkItemRequest(); // LinkAutoTestToWorkItemRequest | 
     try {
-      apiInstance.linkAutoTestToWorkItem(id, workItemIdModel);
+      apiInstance.linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#linkAutoTestToWorkItem");
       System.err.println("Status code: " + e.getCode());
@@ -1409,7 +1409,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Autotest internal (UUID) or global (integer) identifier | |
-| **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional] |
+| **linkAutoTestToWorkItemRequest** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1427,15 +1427,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
-| **400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
-| **204** | No Content |  -  |
 
-<a name="updateAutoTest"></a>
+<a id="updateAutoTest"></a>
 # **updateAutoTest**
-> updateAutoTest(autoTestPutModel)
+> updateAutoTest(updateAutoTestRequest)
 
 Update autotest
 
@@ -1463,9 +1463,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    AutoTestPutModel autoTestPutModel = new AutoTestPutModel(); // AutoTestPutModel | 
+    UpdateAutoTestRequest updateAutoTestRequest = new UpdateAutoTestRequest(); // UpdateAutoTestRequest | 
     try {
-      apiInstance.updateAutoTest(autoTestPutModel);
+      apiInstance.updateAutoTest(updateAutoTestRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#updateAutoTest");
       System.err.println("Status code: " + e.getCode());
@@ -1481,7 +1481,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] |
+| **updateAutoTestRequest** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,7 +1507,7 @@ null (empty response body)
 | **422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 | **204** | Success |  -  |
 
-<a name="updateMultiple"></a>
+<a id="updateMultiple"></a>
 # **updateMultiple**
 > updateMultiple(autoTestPutModel)
 
@@ -1573,11 +1573,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 | **204** | No Content |  -  |
+| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
+| **422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 

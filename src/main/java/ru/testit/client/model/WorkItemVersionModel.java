@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -37,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -83,8 +85,6 @@ public class WorkItemVersionModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "used for versioning changes in workitem")
-
   public UUID getVersionId() {
     return versionId;
   }
@@ -106,8 +106,6 @@ public class WorkItemVersionModel {
    * @return versionNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "used for define chronology of workitem state in each version")
-
   public Integer getVersionNumber() {
     return versionNumber;
   }
@@ -129,8 +127,6 @@ public class WorkItemVersionModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -152,8 +148,6 @@ public class WorkItemVersionModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }

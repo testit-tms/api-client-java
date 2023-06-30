@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -44,6 +42,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -62,7 +64,7 @@ import ru.testit.client.invoker.JSON;
 public class TestPlanWithTestSuiteTreeModel {
   public static final String SERIALIZED_NAME_TEST_SUITES = "testSuites";
   @SerializedName(SERIALIZED_NAME_TEST_SUITES)
-  private List<TestSuiteWithChildrenModel> testSuites = null;
+  private List<TestSuiteWithChildrenModel> testSuites;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -114,7 +116,7 @@ public class TestPlanWithTestSuiteTreeModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = null;
+  private List<TagShortModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -150,7 +152,7 @@ public class TestPlanWithTestSuiteTreeModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = null;
+  private Map<String, Object> attributes = new HashMap<>();
 
   public TestPlanWithTestSuiteTreeModel() {
   }
@@ -174,8 +176,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return testSuites
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestSuiteWithChildrenModel> getTestSuites() {
     return testSuites;
   }
@@ -197,8 +197,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public TestPlanStatusModel getStatus() {
     return status;
   }
@@ -220,8 +218,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "Set when test plan is starter (status changed to: In Progress)")
-
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
@@ -243,8 +239,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "set when test plan status is completed (status changed to: Completed)")
-
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
@@ -266,8 +260,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -289,8 +281,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -312,8 +302,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -335,8 +323,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -358,8 +344,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100000", value = "Used for search Test plan")
-
   public Long getGlobalId() {
     return globalId;
   }
@@ -381,8 +365,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -404,8 +386,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return lockedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getLockedDate() {
     return lockedDate;
   }
@@ -427,8 +407,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getId() {
     return id;
   }
@@ -450,8 +428,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return lockedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getLockedById() {
     return lockedById;
   }
@@ -481,8 +457,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TagShortModel> getTags() {
     return tags;
   }
@@ -504,8 +478,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Base test plan", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -527,8 +499,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "Used for analytics")
-
   public OffsetDateTime getStartDate() {
     return startDate;
   }
@@ -550,8 +520,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "Used for analytics")
-
   public OffsetDateTime getEndDate() {
     return endDate;
   }
@@ -573,8 +541,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a base test plan", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -596,8 +562,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "v.3.0.0-b94f3055", value = "")
-
   public String getBuild() {
     return build;
   }
@@ -619,8 +583,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -642,8 +604,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Billing service", value = "")
-
   public String getProductName() {
     return productName;
   }
@@ -665,8 +625,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return hasAutomaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
   }
@@ -696,8 +654,6 @@ public class TestPlanWithTestSuiteTreeModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Map<String, Object> getAttributes() {
     return attributes;
   }

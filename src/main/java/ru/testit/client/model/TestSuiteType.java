@@ -31,7 +31,9 @@ public enum TestSuiteType {
   
   CUSTOM("Custom"),
   
-  DYNAMIC("Dynamic");
+  DYNAMIC("Dynamic"),
+  
+  TREE("Tree");
 
   private String value;
 

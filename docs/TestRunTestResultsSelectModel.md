@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md) |  |  [optional] |
-|**testResultIdsExtractionModel** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
+|**filter** | [**TestRunTestResultsSelectModelFilter**](TestRunTestResultsSelectModelFilter.md) |  |  [optional] |
+|**testResultIdsExtractionModel** | [**TestRunTestResultsSelectModelTestResultIdsExtractionModel**](TestRunTestResultsSelectModelTestResultIdsExtractionModel.md) |  |  [optional] |
 
 
 

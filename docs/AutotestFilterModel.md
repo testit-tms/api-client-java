@@ -13,10 +13,10 @@
 |**name** | **String** | Specifies an autotest name to search for |  [optional] |
 |**isFlaky** | **Boolean** | Specifies an autotest flaky status to search for |  [optional] |
 |**mustBeApproved** | **Boolean** | Specifies an autotest unapproved changes status to search for |  [optional] |
-|**stabilityPercentage** | [**Int64RangeSelectorModel**](Int64RangeSelectorModel.md) |  |  [optional] |
-|**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**stabilityPercentage** | [**AutotestFilterModelStabilityPercentage**](AutotestFilterModelStabilityPercentage.md) |  |  [optional] |
+|**createdDate** | [**AutotestFilterModelCreatedDate**](AutotestFilterModelCreatedDate.md) |  |  [optional] |
 |**createdByIds** | **Set&lt;UUID&gt;** | Specifies an autotest creator IDs to search for |  [optional] |
-|**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**modifiedDate** | [**AutotestFilterModelModifiedDate**](AutotestFilterModelModifiedDate.md) |  |  [optional] |
 |**modifiedByIds** | **Set&lt;UUID&gt;** | Specifies an autotest last editor IDs to search for |  [optional] |
 |**isDeleted** | **Boolean** | Specifies an autotest deleted status to search for |  [optional] |
 |**namespace** | **String** | Specifies an autotest namespace to search for |  [optional] |

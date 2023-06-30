@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**workItem** | [**SharedStepModel**](SharedStepModel.md) |  |  [optional] |
+|**workItem** | [**SectionSharedStep**](SectionSharedStep.md) |  |  [optional] |
 |**id** | **UUID** |  |  [optional] |
 |**action** | **String** |  |  [optional] |
 |**expected** | **String** |  |  [optional] |

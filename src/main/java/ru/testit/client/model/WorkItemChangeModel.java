@@ -20,13 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.WorkItemChangedFieldsViewModel;
+import ru.testit.client.model.WorkItemChangeModelWorkItemChangedFields;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -72,7 +74,7 @@ public class WorkItemChangeModel {
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CHANGED_FIELDS = "workItemChangedFields";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CHANGED_FIELDS)
-  private WorkItemChangedFieldsViewModel workItemChangedFields;
+  private WorkItemChangeModelWorkItemChangedFields workItemChangedFields;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
@@ -96,8 +98,6 @@ public class WorkItemChangeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -119,8 +119,6 @@ public class WorkItemChangeModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getWorkItemId() {
     return workItemId;
   }
@@ -142,8 +140,6 @@ public class WorkItemChangeModel {
    * @return oldVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getOldVersionId() {
     return oldVersionId;
   }
@@ -165,8 +161,6 @@ public class WorkItemChangeModel {
    * @return newVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getNewVersionId() {
     return newVersionId;
   }
@@ -177,7 +171,7 @@ public class WorkItemChangeModel {
   }
 
 
-  public WorkItemChangeModel workItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public WorkItemChangeModel workItemChangedFields(WorkItemChangeModelWorkItemChangedFields workItemChangedFields) {
     
     this.workItemChangedFields = workItemChangedFields;
     return this;
@@ -188,14 +182,12 @@ public class WorkItemChangeModel {
    * @return workItemChangedFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public WorkItemChangedFieldsViewModel getWorkItemChangedFields() {
+  public WorkItemChangeModelWorkItemChangedFields getWorkItemChangedFields() {
     return workItemChangedFields;
   }
 
 
-  public void setWorkItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public void setWorkItemChangedFields(WorkItemChangeModelWorkItemChangedFields workItemChangedFields) {
     this.workItemChangedFields = workItemChangedFields;
   }
 
@@ -211,8 +203,6 @@ public class WorkItemChangeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -234,8 +224,6 @@ public class WorkItemChangeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -360,7 +348,7 @@ public class WorkItemChangeModel {
       }
       // validate the optional field `workItemChangedFields`
       if (jsonObj.get("workItemChangedFields") != null && !jsonObj.get("workItemChangedFields").isJsonNull()) {
-        WorkItemChangedFieldsViewModel.validateJsonObject(jsonObj.getAsJsonObject("workItemChangedFields"));
+        WorkItemChangeModelWorkItemChangedFields.validateJsonObject(jsonObj.getAsJsonObject("workItemChangedFields"));
       }
       if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));

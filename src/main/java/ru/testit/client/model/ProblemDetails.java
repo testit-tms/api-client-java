@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -35,6 +33,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -85,8 +87,6 @@ public class ProblemDetails {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getType() {
     return type;
   }
@@ -108,8 +108,6 @@ public class ProblemDetails {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getTitle() {
     return title;
   }
@@ -131,8 +129,6 @@ public class ProblemDetails {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getStatus() {
     return status;
   }
@@ -154,8 +150,6 @@ public class ProblemDetails {
    * @return detail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDetail() {
     return detail;
   }
@@ -177,8 +171,6 @@ public class ProblemDetails {
    * @return instance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getInstance() {
     return instance;
   }

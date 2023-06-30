@@ -20,13 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.ConfigurationSelectModelExtractionModel;
+import ru.testit.client.model.ConfigurationSelectModelFilter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,130 +55,56 @@ import ru.testit.client.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationSelectModel {
-  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
-  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  public static final String SERIALIZED_NAME_FILTER = "filter";
+  @SerializedName(SERIALIZED_NAME_FILTER)
+  private ConfigurationSelectModelFilter filter;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private Boolean isDeleted;
-
-  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
+  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
+  private ConfigurationSelectModelExtractionModel extractionModel;
 
   public ConfigurationSelectModel() {
   }
 
-  public ConfigurationSelectModel projectIds(Set<UUID> projectIds) {
+  public ConfigurationSelectModel filter(ConfigurationSelectModelFilter filter) {
     
-    this.projectIds = projectIds;
-    return this;
-  }
-
-  public ConfigurationSelectModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
-    }
-    this.projectIds.add(projectIdsItem);
+    this.filter = filter;
     return this;
   }
 
    /**
-   * Collection of identifiers of projects from which configurations will be taken
-   * @return projectIds
+   * Get filter
+   * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of projects from which configurations will be taken")
-
-  public Set<UUID> getProjectIds() {
-    return projectIds;
+  public ConfigurationSelectModelFilter getFilter() {
+    return filter;
   }
 
 
-  public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = projectIds;
+  public void setFilter(ConfigurationSelectModelFilter filter) {
+    this.filter = filter;
   }
 
 
-  public ConfigurationSelectModel name(String name) {
+  public ConfigurationSelectModel extractionModel(ConfigurationSelectModelExtractionModel extractionModel) {
     
-    this.name = name;
+    this.extractionModel = extractionModel;
     return this;
   }
 
    /**
-   * Filter to search by name (case-insensitive, partial match)
-   * @return name
+   * Get extractionModel
+   * @return extractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter to search by name (case-insensitive, partial match)")
-
-  public String getName() {
-    return name;
+  public ConfigurationSelectModelExtractionModel getExtractionModel() {
+    return extractionModel;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ConfigurationSelectModel isDeleted(Boolean isDeleted) {
-    
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-   /**
-   * Is configurations deleted or existing
-   * @return isDeleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is configurations deleted or existing")
-
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-
-  public ConfigurationSelectModel globalIds(Set<Long> globalIds) {
-    
-    this.globalIds = globalIds;
-    return this;
-  }
-
-  public ConfigurationSelectModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
-    this.globalIds.add(globalIdsItem);
-    return this;
-  }
-
-   /**
-   * Collection of global (integer) identifiers to filter configurations
-   * @return globalIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of global (integer) identifiers to filter configurations")
-
-  public Set<Long> getGlobalIds() {
-    return globalIds;
-  }
-
-
-  public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+  public void setExtractionModel(ConfigurationSelectModelExtractionModel extractionModel) {
+    this.extractionModel = extractionModel;
   }
 
 
@@ -191,10 +118,8 @@ public class ConfigurationSelectModel {
       return false;
     }
     ConfigurationSelectModel configurationSelectModel = (ConfigurationSelectModel) o;
-    return Objects.equals(this.projectIds, configurationSelectModel.projectIds) &&
-        Objects.equals(this.name, configurationSelectModel.name) &&
-        Objects.equals(this.isDeleted, configurationSelectModel.isDeleted) &&
-        Objects.equals(this.globalIds, configurationSelectModel.globalIds);
+    return Objects.equals(this.filter, configurationSelectModel.filter) &&
+        Objects.equals(this.extractionModel, configurationSelectModel.extractionModel);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -203,7 +128,7 @@ public class ConfigurationSelectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, name, isDeleted, globalIds);
+    return Objects.hash(filter, extractionModel);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -217,10 +142,8 @@ public class ConfigurationSelectModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigurationSelectModel {\n");
-    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
-    sb.append("    globalIds: ").append(toIndentedString(globalIds)).append("\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -243,10 +166,8 @@ public class ConfigurationSelectModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("projectIds");
-    openapiFields.add("name");
-    openapiFields.add("isDeleted");
-    openapiFields.add("globalIds");
+    openapiFields.add("filter");
+    openapiFields.add("extractionModel");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -272,16 +193,13 @@ public class ConfigurationSelectModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      // validate the optional field `filter`
+      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
+        ConfigurationSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
+      // validate the optional field `extractionModel`
+      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
+        ConfigurationSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 

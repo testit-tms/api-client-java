@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2CustomAttributesTemplatesPostRequest;
+import ru.testit.client.model.ApiV2CustomAttributesTemplatesPutRequest;
+import ru.testit.client.model.ApiV2CustomAttributesTemplatesSearchPostRequest;
 import ru.testit.client.model.CustomAttributeTemplateModel;
-import ru.testit.client.model.CustomAttributeTemplatePostModel;
-import ru.testit.client.model.CustomAttributeTemplatePutModel;
-import ru.testit.client.model.CustomAttributeTemplateSearchQueryModel;
 import ru.testit.client.model.NoContentResult;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.SearchCustomAttributeTemplateGetModel;
@@ -93,8 +93,8 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
@@ -165,8 +165,8 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
@@ -185,8 +185,8 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
@@ -207,8 +207,8 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
@@ -229,9 +229,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
@@ -301,9 +301,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
@@ -321,9 +321,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
@@ -343,9 +343,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
@@ -495,9 +495,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2CustomAttributesTemplatesIdGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -565,9 +565,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
      </table>
      */
     public CustomAttributeTemplateModel apiV2CustomAttributesTemplatesIdGet(UUID id) throws ApiException {
@@ -584,9 +584,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesIdGetWithHttpInfo(UUID id) throws ApiException {
@@ -605,9 +605,9 @@ public class CustomAttributeTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a CustomAttributeTemplate with identifier </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2CustomAttributesTemplatesIdGetAsync(UUID id, final ApiCallback<CustomAttributeTemplateModel> _callback) throws ApiException {
@@ -742,19 +742,19 @@ public class CustomAttributeTemplatesApi {
     }
     /**
      * Build call for apiV2CustomAttributesTemplatesPost
-     * @param customAttributeTemplatePostModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesPostCall(CustomAttributeTemplatePostModel customAttributeTemplatePostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesPostCall(ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -768,7 +768,7 @@ public class CustomAttributeTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTemplatePostModel;
+        Object localVarPostBody = apiV2CustomAttributesTemplatesPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/templates";
@@ -800,46 +800,46 @@ public class CustomAttributeTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesTemplatesPostValidateBeforeCall(CustomAttributeTemplatePostModel customAttributeTemplatePostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2CustomAttributesTemplatesPostCall(customAttributeTemplatePostModel, _callback);
+    private okhttp3.Call apiV2CustomAttributesTemplatesPostValidateBeforeCall(ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesTemplatesPostCall(apiV2CustomAttributesTemplatesPostRequest, _callback);
 
     }
 
     /**
      * Create CustomAttributeTemplate
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute template parameters (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates attribute template  &lt;br&gt;System returns attribute template model (example listed in response parameters)
-     * @param customAttributeTemplatePostModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPostRequest  (optional)
      * @return CustomAttributeTemplateModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
-        ApiResponse<CustomAttributeTemplateModel> localVarResp = apiV2CustomAttributesTemplatesPostWithHttpInfo(customAttributeTemplatePostModel);
+    public CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest) throws ApiException {
+        ApiResponse<CustomAttributeTemplateModel> localVarResp = apiV2CustomAttributesTemplatesPostWithHttpInfo(apiV2CustomAttributesTemplatesPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create CustomAttributeTemplate
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute template parameters (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates attribute template  &lt;br&gt;System returns attribute template model (example listed in response parameters)
-     * @param customAttributeTemplatePostModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPostRequest  (optional)
      * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesPostWithHttpInfo(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPostValidateBeforeCall(customAttributeTemplatePostModel, null);
+    public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesPostWithHttpInfo(ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPostValidateBeforeCall(apiV2CustomAttributesTemplatesPostRequest, null);
         Type localVarReturnType = new TypeToken<CustomAttributeTemplateModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -847,28 +847,28 @@ public class CustomAttributeTemplatesApi {
     /**
      * Create CustomAttributeTemplate (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets attribute template parameters (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates attribute template  &lt;br&gt;System returns attribute template model (example listed in response parameters)
-     * @param customAttributeTemplatePostModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesPostAsync(CustomAttributeTemplatePostModel customAttributeTemplatePostModel, final ApiCallback<CustomAttributeTemplateModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesPostAsync(ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest, final ApiCallback<CustomAttributeTemplateModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPostValidateBeforeCall(customAttributeTemplatePostModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPostValidateBeforeCall(apiV2CustomAttributesTemplatesPostRequest, _callback);
         Type localVarReturnType = new TypeToken<CustomAttributeTemplateModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2CustomAttributesTemplatesPut
-     * @param customAttributeTemplatePutModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +879,7 @@ public class CustomAttributeTemplatesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesPutCall(CustomAttributeTemplatePutModel customAttributeTemplatePutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesPutCall(ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +893,7 @@ public class CustomAttributeTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTemplatePutModel;
+        Object localVarPostBody = apiV2CustomAttributesTemplatesPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/templates";
@@ -925,15 +925,15 @@ public class CustomAttributeTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesTemplatesPutValidateBeforeCall(CustomAttributeTemplatePutModel customAttributeTemplatePutModel, final ApiCallback _callback) throws ApiException {
-        return apiV2CustomAttributesTemplatesPutCall(customAttributeTemplatePutModel, _callback);
+    private okhttp3.Call apiV2CustomAttributesTemplatesPutValidateBeforeCall(ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesTemplatesPutCall(apiV2CustomAttributesTemplatesPutRequest, _callback);
 
     }
 
     /**
      * Update custom attributes template
      * 
-     * @param customAttributeTemplatePutModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -942,14 +942,14 @@ public class CustomAttributeTemplatesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2CustomAttributesTemplatesPut(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
-        apiV2CustomAttributesTemplatesPutWithHttpInfo(customAttributeTemplatePutModel);
+    public void apiV2CustomAttributesTemplatesPut(ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest) throws ApiException {
+        apiV2CustomAttributesTemplatesPutWithHttpInfo(apiV2CustomAttributesTemplatesPutRequest);
     }
 
     /**
      * Update custom attributes template
      * 
-     * @param customAttributeTemplatePutModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -959,15 +959,15 @@ public class CustomAttributeTemplatesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2CustomAttributesTemplatesPutWithHttpInfo(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPutValidateBeforeCall(customAttributeTemplatePutModel, null);
+    public ApiResponse<Void> apiV2CustomAttributesTemplatesPutWithHttpInfo(ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPutValidateBeforeCall(apiV2CustomAttributesTemplatesPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update custom attributes template (asynchronously)
      * 
-     * @param customAttributeTemplatePutModel  (optional)
+     * @param apiV2CustomAttributesTemplatesPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -978,9 +978,9 @@ public class CustomAttributeTemplatesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesPutAsync(CustomAttributeTemplatePutModel customAttributeTemplatePutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesPutAsync(ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPutValidateBeforeCall(customAttributeTemplatePutModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesPutValidateBeforeCall(apiV2CustomAttributesTemplatesPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -991,18 +991,18 @@ public class CustomAttributeTemplatesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeTemplateSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesTemplatesSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1016,7 +1016,7 @@ public class CustomAttributeTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTemplateSearchQueryModel;
+        Object localVarPostBody = apiV2CustomAttributesTemplatesSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/templates/search";
@@ -1068,8 +1068,8 @@ public class CustomAttributeTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel, final ApiCallback _callback) throws ApiException {
-        return apiV2CustomAttributesTemplatesSearchPostCall(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel, _callback);
+    private okhttp3.Call apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesTemplatesSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest, _callback);
 
     }
 
@@ -1081,18 +1081,18 @@ public class CustomAttributeTemplatesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeTemplateSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesTemplatesSearchPostRequest  (optional)
      * @return List&lt;SearchCustomAttributeTemplateGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public List<SearchCustomAttributeTemplateGetModel> apiV2CustomAttributesTemplatesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
-        ApiResponse<List<SearchCustomAttributeTemplateGetModel>> localVarResp = apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel);
+    public List<SearchCustomAttributeTemplateGetModel> apiV2CustomAttributesTemplatesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest) throws ApiException {
+        ApiResponse<List<SearchCustomAttributeTemplateGetModel>> localVarResp = apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1104,18 +1104,18 @@ public class CustomAttributeTemplatesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeTemplateSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesTemplatesSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;SearchCustomAttributeTemplateGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<SearchCustomAttributeTemplateGetModel>> apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel, null);
+    public ApiResponse<List<SearchCustomAttributeTemplateGetModel>> apiV2CustomAttributesTemplatesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<SearchCustomAttributeTemplateGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1128,20 +1128,20 @@ public class CustomAttributeTemplatesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeTemplateSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesTemplatesSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesTemplatesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel, final ApiCallback<List<SearchCustomAttributeTemplateGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesTemplatesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest, final ApiCallback<List<SearchCustomAttributeTemplateGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesTemplatesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<SearchCustomAttributeTemplateGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

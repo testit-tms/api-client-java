@@ -20,11 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +33,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class TestPlanGroupByTestSuite {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private Integer value;
+  private Long value;
 
   public TestPlanGroupByTestSuite() {
   }
@@ -78,8 +79,6 @@ public class TestPlanGroupByTestSuite {
    * @return testSuiteId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
@@ -101,8 +100,6 @@ public class TestPlanGroupByTestSuite {
    * @return testSuiteName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getTestSuiteName() {
     return testSuiteName;
   }
@@ -113,7 +110,7 @@ public class TestPlanGroupByTestSuite {
   }
 
 
-  public TestPlanGroupByTestSuite value(Integer value) {
+  public TestPlanGroupByTestSuite value(Long value) {
     
     this.value = value;
     return this;
@@ -124,14 +121,12 @@ public class TestPlanGroupByTestSuite {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
 
-  public void setValue(Integer value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 
@@ -151,20 +146,9 @@ public class TestPlanGroupByTestSuite {
         Objects.equals(this.value, testPlanGroupByTestSuite.value);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(testSuiteId, testSuiteName, value);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

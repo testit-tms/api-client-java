@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2CustomAttributesGlobalIdPutRequest;
+import ru.testit.client.model.ApiV2CustomAttributesGlobalPostRequest;
+import ru.testit.client.model.ApiV2CustomAttributesSearchPostRequest;
 import ru.testit.client.model.CustomAttributeModel;
-import ru.testit.client.model.CustomAttributeSearchQueryModel;
-import ru.testit.client.model.GlobalCustomAttributePostModel;
-import ru.testit.client.model.GlobalCustomAttributeUpdateModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
 
@@ -204,7 +204,7 @@ public class CustomAttributesApi {
     /**
      * Build call for apiV2CustomAttributesGlobalIdPut
      * @param id Unique ID of attribute (required)
-     * @param globalCustomAttributeUpdateModel  (optional)
+     * @param apiV2CustomAttributesGlobalIdPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -215,7 +215,7 @@ public class CustomAttributesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesGlobalIdPutCall(UUID id, GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesGlobalIdPutCall(UUID id, ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -229,7 +229,7 @@ public class CustomAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = globalCustomAttributeUpdateModel;
+        Object localVarPostBody = apiV2CustomAttributesGlobalIdPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/global/{id}"
@@ -262,13 +262,13 @@ public class CustomAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesGlobalIdPutValidateBeforeCall(UUID id, GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2CustomAttributesGlobalIdPutValidateBeforeCall(UUID id, ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2CustomAttributesGlobalIdPut(Async)");
         }
 
-        return apiV2CustomAttributesGlobalIdPutCall(id, globalCustomAttributeUpdateModel, _callback);
+        return apiV2CustomAttributesGlobalIdPutCall(id, apiV2CustomAttributesGlobalIdPutRequest, _callback);
 
     }
 
@@ -276,7 +276,7 @@ public class CustomAttributesApi {
      * Edit global attribute
      * 
      * @param id Unique ID of attribute (required)
-     * @param globalCustomAttributeUpdateModel  (optional)
+     * @param apiV2CustomAttributesGlobalIdPutRequest  (optional)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -286,8 +286,8 @@ public class CustomAttributesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public CustomAttributeModel apiV2CustomAttributesGlobalIdPut(UUID id, GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel) throws ApiException {
-        ApiResponse<CustomAttributeModel> localVarResp = apiV2CustomAttributesGlobalIdPutWithHttpInfo(id, globalCustomAttributeUpdateModel);
+    public CustomAttributeModel apiV2CustomAttributesGlobalIdPut(UUID id, ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest) throws ApiException {
+        ApiResponse<CustomAttributeModel> localVarResp = apiV2CustomAttributesGlobalIdPutWithHttpInfo(id, apiV2CustomAttributesGlobalIdPutRequest);
         return localVarResp.getData();
     }
 
@@ -295,7 +295,7 @@ public class CustomAttributesApi {
      * Edit global attribute
      * 
      * @param id Unique ID of attribute (required)
-     * @param globalCustomAttributeUpdateModel  (optional)
+     * @param apiV2CustomAttributesGlobalIdPutRequest  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -305,8 +305,8 @@ public class CustomAttributesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomAttributeModel> apiV2CustomAttributesGlobalIdPutWithHttpInfo(UUID id, GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalIdPutValidateBeforeCall(id, globalCustomAttributeUpdateModel, null);
+    public ApiResponse<CustomAttributeModel> apiV2CustomAttributesGlobalIdPutWithHttpInfo(UUID id, ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalIdPutValidateBeforeCall(id, apiV2CustomAttributesGlobalIdPutRequest, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -315,7 +315,7 @@ public class CustomAttributesApi {
      * Edit global attribute (asynchronously)
      * 
      * @param id Unique ID of attribute (required)
-     * @param globalCustomAttributeUpdateModel  (optional)
+     * @param apiV2CustomAttributesGlobalIdPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -326,27 +326,27 @@ public class CustomAttributesApi {
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesGlobalIdPutAsync(UUID id, GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesGlobalIdPutAsync(UUID id, ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalIdPutValidateBeforeCall(id, globalCustomAttributeUpdateModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalIdPutValidateBeforeCall(id, apiV2CustomAttributesGlobalIdPutRequest, _callback);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2CustomAttributesGlobalPost
-     * @param globalCustomAttributePostModel  (optional)
+     * @param apiV2CustomAttributesGlobalPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesGlobalPostCall(GlobalCustomAttributePostModel globalCustomAttributePostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesGlobalPostCall(ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -360,7 +360,7 @@ public class CustomAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = globalCustomAttributePostModel;
+        Object localVarPostBody = apiV2CustomAttributesGlobalPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/global";
@@ -392,44 +392,44 @@ public class CustomAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesGlobalPostValidateBeforeCall(GlobalCustomAttributePostModel globalCustomAttributePostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2CustomAttributesGlobalPostCall(globalCustomAttributePostModel, _callback);
+    private okhttp3.Call apiV2CustomAttributesGlobalPostValidateBeforeCall(ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesGlobalPostCall(apiV2CustomAttributesGlobalPostRequest, _callback);
 
     }
 
     /**
      * Create global attribute
      * 
-     * @param globalCustomAttributePostModel  (optional)
+     * @param apiV2CustomAttributesGlobalPostRequest  (optional)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public CustomAttributeModel apiV2CustomAttributesGlobalPost(GlobalCustomAttributePostModel globalCustomAttributePostModel) throws ApiException {
-        ApiResponse<CustomAttributeModel> localVarResp = apiV2CustomAttributesGlobalPostWithHttpInfo(globalCustomAttributePostModel);
+    public CustomAttributeModel apiV2CustomAttributesGlobalPost(ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest) throws ApiException {
+        ApiResponse<CustomAttributeModel> localVarResp = apiV2CustomAttributesGlobalPostWithHttpInfo(apiV2CustomAttributesGlobalPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create global attribute
      * 
-     * @param globalCustomAttributePostModel  (optional)
+     * @param apiV2CustomAttributesGlobalPostRequest  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomAttributeModel> apiV2CustomAttributesGlobalPostWithHttpInfo(GlobalCustomAttributePostModel globalCustomAttributePostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalPostValidateBeforeCall(globalCustomAttributePostModel, null);
+    public ApiResponse<CustomAttributeModel> apiV2CustomAttributesGlobalPostWithHttpInfo(ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalPostValidateBeforeCall(apiV2CustomAttributesGlobalPostRequest, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -437,20 +437,20 @@ public class CustomAttributesApi {
     /**
      * Create global attribute (asynchronously)
      * 
-     * @param globalCustomAttributePostModel  (optional)
+     * @param apiV2CustomAttributesGlobalPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesGlobalPostAsync(GlobalCustomAttributePostModel globalCustomAttributePostModel, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesGlobalPostAsync(ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalPostValidateBeforeCall(globalCustomAttributePostModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesGlobalPostValidateBeforeCall(apiV2CustomAttributesGlobalPostRequest, _callback);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -585,7 +585,7 @@ public class CustomAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -595,7 +595,7 @@ public class CustomAttributesApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -609,7 +609,7 @@ public class CustomAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeSearchQueryModel;
+        Object localVarPostBody = apiV2CustomAttributesSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/customAttributes/search";
@@ -661,8 +661,8 @@ public class CustomAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2CustomAttributesSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel, final ApiCallback _callback) throws ApiException {
-        return apiV2CustomAttributesSearchPostCall(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel, _callback);
+    private okhttp3.Call apiV2CustomAttributesSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest, _callback);
 
     }
 
@@ -674,7 +674,7 @@ public class CustomAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesSearchPostRequest  (optional)
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -683,8 +683,8 @@ public class CustomAttributesApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public List<CustomAttributeModel> apiV2CustomAttributesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
-        ApiResponse<List<CustomAttributeModel>> localVarResp = apiV2CustomAttributesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
+    public List<CustomAttributeModel> apiV2CustomAttributesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest) throws ApiException {
+        ApiResponse<List<CustomAttributeModel>> localVarResp = apiV2CustomAttributesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -696,7 +696,7 @@ public class CustomAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -705,8 +705,8 @@ public class CustomAttributesApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeModel>> apiV2CustomAttributesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel, null);
+    public ApiResponse<List<CustomAttributeModel>> apiV2CustomAttributesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -719,7 +719,7 @@ public class CustomAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param customAttributeSearchQueryModel  (optional)
+     * @param apiV2CustomAttributesSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -729,9 +729,9 @@ public class CustomAttributesApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel, _callback);
+        okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

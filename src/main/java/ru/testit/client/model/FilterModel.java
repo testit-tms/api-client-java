@@ -20,13 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.WorkItemSearchQueryModel;
+import ru.testit.client.model.FilterModelData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -72,7 +74,7 @@ public class FilterModel {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private WorkItemSearchQueryModel data;
+  private FilterModelData data;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -108,8 +110,6 @@ public class FilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -131,8 +131,6 @@ public class FilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -154,8 +152,6 @@ public class FilterModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -177,8 +173,6 @@ public class FilterModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -189,7 +183,7 @@ public class FilterModel {
   }
 
 
-  public FilterModel data(WorkItemSearchQueryModel data) {
+  public FilterModel data(FilterModelData data) {
     
     this.data = data;
     return this;
@@ -200,14 +194,12 @@ public class FilterModel {
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public WorkItemSearchQueryModel getData() {
+  public FilterModelData getData() {
     return data;
   }
 
 
-  public void setData(WorkItemSearchQueryModel data) {
+  public void setData(FilterModelData data) {
     this.data = data;
   }
 
@@ -223,8 +215,6 @@ public class FilterModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -246,8 +236,6 @@ public class FilterModel {
    * @return fieldsToShow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getFieldsToShow() {
     return fieldsToShow;
   }
@@ -269,8 +257,6 @@ public class FilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -292,8 +278,6 @@ public class FilterModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
-
   public UUID getId() {
     return id;
   }
@@ -315,8 +299,6 @@ public class FilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -444,7 +426,7 @@ public class FilterModel {
       }
       // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        WorkItemSearchQueryModel.validateJsonObject(jsonObj.getAsJsonObject("data"));
+        FilterModelData.validateJsonObject(jsonObj.getAsJsonObject("data"));
       }
       if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));

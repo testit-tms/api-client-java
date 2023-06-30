@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -68,7 +70,7 @@ public class ProjectAttributesFilterModel {
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<CustomAttributeTypesEnum> types = null;
+  private Set<CustomAttributeTypesEnum> types;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -88,8 +90,6 @@ public class ProjectAttributesFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attribute name to search for")
-
   public String getName() {
     return name;
   }
@@ -111,8 +111,6 @@ public class ProjectAttributesFilterModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attribute mandatory status to search for")
-
   public Boolean getIsRequired() {
     return isRequired;
   }
@@ -134,8 +132,6 @@ public class ProjectAttributesFilterModel {
    * @return isGlobal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attribute global status to search for")
-
   public Boolean getIsGlobal() {
     return isGlobal;
   }
@@ -165,8 +161,6 @@ public class ProjectAttributesFilterModel {
    * @return types
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attribute types to search for")
-
   public Set<CustomAttributeTypesEnum> getTypes() {
     return types;
   }
@@ -188,8 +182,6 @@ public class ProjectAttributesFilterModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an attribute enabled status to search for")
-
   public Boolean getIsEnabled() {
     return isEnabled;
   }

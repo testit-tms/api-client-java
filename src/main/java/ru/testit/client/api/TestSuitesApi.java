@@ -27,19 +27,19 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsIdWorkItemsSearchPostRequest;
+import ru.testit.client.model.ApiV2TestSuitesPostRequest;
+import ru.testit.client.model.ApiV2TestSuitesPutRequest;
 import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.SearchWorkItemsRequest;
 import java.util.Set;
 import ru.testit.client.model.TestPointByTestSuiteModel;
 import ru.testit.client.model.TestResultV2ShortModel;
 import ru.testit.client.model.TestSuiteV2GetModel;
-import ru.testit.client.model.TestSuiteV2PostModel;
-import ru.testit.client.model.TestSuiteV2PutModel;
-import ru.testit.client.model.TestSuiteWorkItemsSearchModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -89,22 +89,22 @@ public class TestSuitesApi {
     /**
      * Build call for addTestPointsToTestSuite
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,7 +118,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = apiV2ProjectsIdWorkItemsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/test-points"
@@ -151,13 +151,13 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsToTestSuite(Async)");
         }
 
-        return addTestPointsToTestSuiteCall(id, workItemSelectModel, _callback);
+        return addTestPointsToTestSuiteCall(id, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
 
     }
 
@@ -165,43 +165,43 @@ public class TestSuitesApi {
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsToTestSuite(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        addTestPointsToTestSuiteWithHttpInfo(id, workItemSelectModel);
+    public void addTestPointsToTestSuite(UUID id, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        addTestPointsToTestSuiteWithHttpInfo(id, apiV2ProjectsIdWorkItemsSearchPostRequest);
     }
 
     /**
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, null);
+    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsIdWorkItemsSearchPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -209,24 +209,24 @@ public class TestSuitesApi {
      * Add test-points to test suite (asynchronously)
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, _callback);
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsIdWorkItemsSearchPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -482,22 +482,20 @@ public class TestSuitesApi {
         return localVarCall;
     }
     /**
-     * Build call for createTestSuite
-     * @param testSuiteV2PostModel  (optional)
+     * Build call for apiV2TestSuitesIdWorkItemsPost
+     * @param id Unique ID of the test suite (required)
+     * @param UUID  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestSuiteCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesIdWorkItemsPostCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -511,7 +509,134 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testSuiteV2PostModel;
+        Object localVarPostBody = UUID;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/testSuites/{id}/workItems"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2TestSuitesIdWorkItemsPostValidateBeforeCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2TestSuitesIdWorkItemsPost(Async)");
+        }
+
+        return apiV2TestSuitesIdWorkItemsPostCall(id, UUID, _callback);
+
+    }
+
+    /**
+     * Set work items for test suite
+     * 
+     * @param id Unique ID of the test suite (required)
+     * @param UUID  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public void apiV2TestSuitesIdWorkItemsPost(UUID id, Set<UUID> UUID) throws ApiException {
+        apiV2TestSuitesIdWorkItemsPostWithHttpInfo(id, UUID);
+    }
+
+    /**
+     * Set work items for test suite
+     * 
+     * @param id Unique ID of the test suite (required)
+     * @param UUID  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> apiV2TestSuitesIdWorkItemsPostWithHttpInfo(UUID id, Set<UUID> UUID) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesIdWorkItemsPostValidateBeforeCall(id, UUID, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Set work items for test suite (asynchronously)
+     * 
+     * @param id Unique ID of the test suite (required)
+     * @param UUID  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestSuitesIdWorkItemsPostAsync(UUID id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2TestSuitesIdWorkItemsPostValidateBeforeCall(id, UUID, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2TestSuitesPost
+     * @param apiV2TestSuitesPostRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestSuitesPostCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2TestSuitesPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites";
@@ -543,76 +668,185 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTestSuiteValidateBeforeCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
-        return createTestSuiteCall(testSuiteV2PostModel, _callback);
+    private okhttp3.Call apiV2TestSuitesPostValidateBeforeCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPostCall(apiV2TestSuitesPostRequest, _callback);
 
     }
 
     /**
-     * Create TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PostModel  (optional)
+     * Create test suite
+     * 
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public TestSuiteV2GetModel createTestSuite(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
-        ApiResponse<TestSuiteV2GetModel> localVarResp = createTestSuiteWithHttpInfo(testSuiteV2PostModel);
+    public TestSuiteV2GetModel apiV2TestSuitesPost(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
+        ApiResponse<TestSuiteV2GetModel> localVarResp = apiV2TestSuitesPostWithHttpInfo(apiV2TestSuitesPostRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Create TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PostModel  (optional)
+     * Create test suite
+     * 
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestSuiteV2GetModel> createTestSuiteWithHttpInfo(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
-        okhttp3.Call localVarCall = createTestSuiteValidateBeforeCall(testSuiteV2PostModel, null);
+    public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, null);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create TestSuite (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PostModel  (optional)
+     * Create test suite (asynchronously)
+     * 
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestSuiteAsync(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPostAsync(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTestSuiteValidateBeforeCall(testSuiteV2PostModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, _callback);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2TestSuitesPut
+     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestSuitesPutCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2TestSuitesPutRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/testSuites";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2TestSuitesPutValidateBeforeCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPutCall(apiV2TestSuitesPutRequest, _callback);
+
+    }
+
+    /**
+     * Edit test suite
+     * 
+     * @param apiV2TestSuitesPutRequest  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public void apiV2TestSuitesPut(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
+        apiV2TestSuitesPutWithHttpInfo(apiV2TestSuitesPutRequest);
+    }
+
+    /**
+     * Edit test suite
+     * 
+     * @param apiV2TestSuitesPutRequest  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Edit test suite (asynchronously)
+     * 
+     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestSuitesPutAsync(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -624,10 +858,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestSuiteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -694,10 +928,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public void deleteTestSuite(UUID id) throws ApiException {
@@ -713,10 +947,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteTestSuiteWithHttpInfo(UUID id) throws ApiException {
@@ -734,10 +968,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestSuiteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -756,9 +990,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByTestSuiteIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -827,9 +1061,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public List<ConfigurationModel> getConfigurationsByTestSuiteId(UUID id) throws ApiException {
@@ -847,9 +1081,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ConfigurationModel>> getConfigurationsByTestSuiteIdWithHttpInfo(UUID id) throws ApiException {
@@ -869,9 +1103,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByTestSuiteIdAsync(UUID id, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
@@ -891,9 +1125,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPointsByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -962,9 +1196,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPointByTestSuiteModel> getTestPointsById(UUID id) throws ApiException {
@@ -982,9 +1216,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPointByTestSuiteModel>> getTestPointsByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1004,9 +1238,9 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPointsByIdAsync(UUID id, final ApiCallback<List<TestPointByTestSuiteModel>> _callback) throws ApiException {
@@ -1025,10 +1259,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestResultsByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1096,10 +1330,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public List<TestResultV2ShortModel> getTestResultsById(UUID id) throws ApiException {
@@ -1116,10 +1350,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestResultV2ShortModel>> getTestResultsByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1138,10 +1372,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestResultsByIdAsync(UUID id, final ApiCallback<List<TestResultV2ShortModel>> _callback) throws ApiException {
@@ -1160,9 +1394,9 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1231,9 +1465,9 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1251,9 +1485,9 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1273,9 +1507,9 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1302,10 +1536,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1411,10 +1645,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1440,10 +1674,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1471,10 +1705,10 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1494,7 +1728,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1502,13 +1736,13 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1522,7 +1756,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testSuiteWorkItemsSearchModel;
+        Object localVarPostBody = searchWorkItemsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/workItems/search"
@@ -1575,13 +1809,13 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling searchWorkItems(Async)");
         }
 
-        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
+        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
 
     }
 
@@ -1594,21 +1828,21 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel);
+    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
         return localVarResp.getData();
     }
 
@@ -1621,21 +1855,21 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, null);
+    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1649,7 +1883,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1657,15 +1891,15 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1680,11 +1914,11 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setConfigurationsByTestSuiteIdCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -1753,11 +1987,11 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public void setConfigurationsByTestSuiteId(UUID id, Set<UUID> UUID) throws ApiException {
@@ -1774,11 +2008,11 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> setConfigurationsByTestSuiteIdWithHttpInfo(UUID id, Set<UUID> UUID) throws ApiException {
@@ -1797,290 +2031,16 @@ public class TestSuitesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setConfigurationsByTestSuiteIdAsync(UUID id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = setConfigurationsByTestSuiteIdValidateBeforeCall(id, UUID, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for setWorkItemsByTestSuiteId
-     * @param id Test suite internal (guid format) identifier\&quot; (required)
-     * @param UUID Collection of work item identifiers\&quot; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call setWorkItemsByTestSuiteIdCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = UUID;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/testSuites/{id}/workItems"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call setWorkItemsByTestSuiteIdValidateBeforeCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling setWorkItemsByTestSuiteId(Async)");
-        }
-
-        return setWorkItemsByTestSuiteIdCall(id, UUID, _callback);
-
-    }
-
-    /**
-     * Set WorkItems By TestSuite Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of work items identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items  &lt;br&gt;System restores(if exist) or creates test points with listed work items  &lt;br&gt;System returns no content response
-     * @param id Test suite internal (guid format) identifier\&quot; (required)
-     * @param UUID Collection of work item identifiers\&quot; (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public void setWorkItemsByTestSuiteId(UUID id, Set<UUID> UUID) throws ApiException {
-        setWorkItemsByTestSuiteIdWithHttpInfo(id, UUID);
-    }
-
-    /**
-     * Set WorkItems By TestSuite Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of work items identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items  &lt;br&gt;System restores(if exist) or creates test points with listed work items  &lt;br&gt;System returns no content response
-     * @param id Test suite internal (guid format) identifier\&quot; (required)
-     * @param UUID Collection of work item identifiers\&quot; (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> setWorkItemsByTestSuiteIdWithHttpInfo(UUID id, Set<UUID> UUID) throws ApiException {
-        okhttp3.Call localVarCall = setWorkItemsByTestSuiteIdValidateBeforeCall(id, UUID, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Set WorkItems By TestSuite Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of work items identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items  &lt;br&gt;System restores(if exist) or creates test points with listed work items  &lt;br&gt;System returns no content response
-     * @param id Test suite internal (guid format) identifier\&quot; (required)
-     * @param UUID Collection of work item identifiers\&quot; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call setWorkItemsByTestSuiteIdAsync(UUID id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = setWorkItemsByTestSuiteIdValidateBeforeCall(id, UUID, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateTestSuite
-     * @param testSuiteV2PutModel  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateTestSuiteCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = testSuiteV2PutModel;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/testSuites";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTestSuiteValidateBeforeCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
-        return updateTestSuiteCall(testSuiteV2PutModel, _callback);
-
-    }
-
-    /**
-     * Update TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PutModel  (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-     </table>
-     */
-    public void updateTestSuite(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
-        updateTestSuiteWithHttpInfo(testSuiteV2PutModel);
-    }
-
-    /**
-     * Update TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PutModel  (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> updateTestSuiteWithHttpInfo(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateTestSuiteValidateBeforeCall(testSuiteV2PutModel, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Update TestSuite (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite model (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test suite  &lt;br&gt;System returns test suite
-     * @param testSuiteV2PutModel  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateTestSuiteAsync(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateTestSuiteValidateBeforeCall(testSuiteV2PutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

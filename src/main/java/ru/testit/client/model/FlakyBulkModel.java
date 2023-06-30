@@ -20,10 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.AutotestSelectModel;
+import ru.testit.client.model.FlakyBulkModelAutotestSelect;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,6 +33,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -53,7 +55,7 @@ import ru.testit.client.invoker.JSON;
 public class FlakyBulkModel {
   public static final String SERIALIZED_NAME_AUTOTEST_SELECT = "autotestSelect";
   @SerializedName(SERIALIZED_NAME_AUTOTEST_SELECT)
-  private AutotestSelectModel autotestSelect;
+  private FlakyBulkModelAutotestSelect autotestSelect;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -62,7 +64,7 @@ public class FlakyBulkModel {
   public FlakyBulkModel() {
   }
 
-  public FlakyBulkModel autotestSelect(AutotestSelectModel autotestSelect) {
+  public FlakyBulkModel autotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
     
     this.autotestSelect = autotestSelect;
     return this;
@@ -73,14 +75,12 @@ public class FlakyBulkModel {
    * @return autotestSelect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AutotestSelectModel getAutotestSelect() {
+  public FlakyBulkModelAutotestSelect getAutotestSelect() {
     return autotestSelect;
   }
 
 
-  public void setAutotestSelect(AutotestSelectModel autotestSelect) {
+  public void setAutotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
     this.autotestSelect = autotestSelect;
   }
 
@@ -96,8 +96,6 @@ public class FlakyBulkModel {
    * @return value
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Are autotests flaky")
-
   public Boolean getValue() {
     return value;
   }
@@ -192,7 +190,7 @@ public class FlakyBulkModel {
       }
       // validate the optional field `autotestSelect`
       if (jsonObj.get("autotestSelect") != null && !jsonObj.get("autotestSelect").isJsonNull()) {
-        AutotestSelectModel.validateJsonObject(jsonObj.getAsJsonObject("autotestSelect"));
+        FlakyBulkModelAutotestSelect.validateJsonObject(jsonObj.getAsJsonObject("autotestSelect"));
       }
   }
 

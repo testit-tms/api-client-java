@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -90,8 +92,6 @@ public class StepPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -113,8 +113,6 @@ public class StepPutModel {
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "User press the button", value = "")
-
   public String getAction() {
     return action;
   }
@@ -136,8 +134,6 @@ public class StepPutModel {
    * @return expected
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "System makes a beeeep sound", value = "")
-
   public String getExpected() {
     return expected;
   }
@@ -159,8 +155,6 @@ public class StepPutModel {
    * @return testData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Some variables values", value = "")
-
   public String getTestData() {
     return testData;
   }
@@ -182,8 +176,6 @@ public class StepPutModel {
    * @return comments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Comment on what to look for", value = "")
-
   public String getComments() {
     return comments;
   }
@@ -205,8 +197,6 @@ public class StepPutModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getWorkItemId() {
     return workItemId;
   }

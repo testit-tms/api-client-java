@@ -20,11 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.GuidExtractionModel;
-import ru.testit.client.model.TestResultsLocalFilterModel;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestRunTestResultsSelectModelFilter;
+import ru.testit.client.model.TestRunTestResultsSelectModelTestResultIdsExtractionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,16 +57,16 @@ import ru.testit.client.invoker.JSON;
 public class TestRunTestResultsSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private TestResultsLocalFilterModel filter;
+  private TestRunTestResultsSelectModelFilter filter;
 
   public static final String SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL = "testResultIdsExtractionModel";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL)
-  private GuidExtractionModel testResultIdsExtractionModel;
+  private TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel;
 
   public TestRunTestResultsSelectModel() {
   }
 
-  public TestRunTestResultsSelectModel filter(TestResultsLocalFilterModel filter) {
+  public TestRunTestResultsSelectModel filter(TestRunTestResultsSelectModelFilter filter) {
     
     this.filter = filter;
     return this;
@@ -74,19 +77,17 @@ public class TestRunTestResultsSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestResultsLocalFilterModel getFilter() {
+  public TestRunTestResultsSelectModelFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(TestResultsLocalFilterModel filter) {
+  public void setFilter(TestRunTestResultsSelectModelFilter filter) {
     this.filter = filter;
   }
 
 
-  public TestRunTestResultsSelectModel testResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
+  public TestRunTestResultsSelectModel testResultIdsExtractionModel(TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel) {
     
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
     return this;
@@ -97,14 +98,12 @@ public class TestRunTestResultsSelectModel {
    * @return testResultIdsExtractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public GuidExtractionModel getTestResultIdsExtractionModel() {
+  public TestRunTestResultsSelectModelTestResultIdsExtractionModel getTestResultIdsExtractionModel() {
     return testResultIdsExtractionModel;
   }
 
 
-  public void setTestResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
+  public void setTestResultIdsExtractionModel(TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
   }
 
@@ -123,9 +122,20 @@ public class TestRunTestResultsSelectModel {
         Objects.equals(this.testResultIdsExtractionModel, testRunTestResultsSelectModel.testResultIdsExtractionModel);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(filter, testResultIdsExtractionModel);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -185,11 +195,11 @@ public class TestRunTestResultsSelectModel {
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TestResultsLocalFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        TestRunTestResultsSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `testResultIdsExtractionModel`
       if (jsonObj.get("testResultIdsExtractionModel") != null && !jsonObj.get("testResultIdsExtractionModel").isJsonNull()) {
-        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("testResultIdsExtractionModel"));
+        TestRunTestResultsSelectModelTestResultIdsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("testResultIdsExtractionModel"));
       }
   }
 

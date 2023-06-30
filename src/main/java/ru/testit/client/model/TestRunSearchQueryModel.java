@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -62,7 +64,7 @@ public class TestRunSearchQueryModel {
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<TestRunState> states = null;
+  private Set<TestRunState> states;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
@@ -74,11 +76,11 @@ public class TestRunSearchQueryModel {
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public TestRunSearchQueryModel() {
   }
@@ -94,8 +96,6 @@ public class TestRunSearchQueryModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -125,8 +125,6 @@ public class TestRunSearchQueryModel {
    * @return states
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<TestRunState> getStates() {
     return states;
   }
@@ -148,8 +146,6 @@ public class TestRunSearchQueryModel {
    * @return startedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getStartedDate() {
     return startedDate;
   }
@@ -171,8 +167,6 @@ public class TestRunSearchQueryModel {
    * @return completedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getCompletedDate() {
     return completedDate;
   }
@@ -202,8 +196,6 @@ public class TestRunSearchQueryModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -233,8 +225,6 @@ public class TestRunSearchQueryModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }

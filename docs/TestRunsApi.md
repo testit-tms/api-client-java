@@ -21,9 +21,9 @@ All URIs are relative to *http://localhost*
 | [**updateEmpty**](TestRunsApi.md#updateEmpty) | **PUT** /api/v2/testRuns | Update empty TestRun |
 
 
-<a name="apiV2TestRunsIdStatisticsFilterPost"></a>
+<a id="apiV2TestRunsIdStatisticsFilterPost"></a>
 # **apiV2TestRunsIdStatisticsFilterPost**
-> TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(id, testResultsLocalFilterModel)
+> TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(id, apiV2TestRunsIdStatisticsFilterPostRequest)
 
 Search for the test run test results and build statistics
 
@@ -50,9 +50,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test run unique ID
-    TestResultsLocalFilterModel testResultsLocalFilterModel = new TestResultsLocalFilterModel(); // TestResultsLocalFilterModel | 
+    ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest = new ApiV2TestRunsIdStatisticsFilterPostRequest(); // ApiV2TestRunsIdStatisticsFilterPostRequest | 
     try {
-      TestResultsStatisticsGetModel result = apiInstance.apiV2TestRunsIdStatisticsFilterPost(id, testResultsLocalFilterModel);
+      TestResultsStatisticsGetModel result = apiInstance.apiV2TestRunsIdStatisticsFilterPost(id, apiV2TestRunsIdStatisticsFilterPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdStatisticsFilterPost");
@@ -70,7 +70,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test run unique ID | |
-| **testResultsLocalFilterModel** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md)|  | [optional] |
+| **apiV2TestRunsIdStatisticsFilterPostRequest** | [**ApiV2TestRunsIdStatisticsFilterPostRequest**](ApiV2TestRunsIdStatisticsFilterPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -88,10 +88,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test runs is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test runs is required |  -  |
 
-<a name="apiV2TestRunsIdTestPointsResultsGet"></a>
+<a id="apiV2TestRunsIdTestPointsResultsGet"></a>
 # **apiV2TestRunsIdTestPointsResultsGet**
 > List&lt;TestPointResultModel&gt; apiV2TestRunsIdTestPointsResultsGet(id)
 
@@ -159,9 +159,9 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for test runs is required |  -  |
 
-<a name="apiV2TestRunsIdTestResultsBulkPut"></a>
+<a id="apiV2TestRunsIdTestResultsBulkPut"></a>
 # **apiV2TestRunsIdTestResultsBulkPut**
-> apiV2TestRunsIdTestResultsBulkPut(id, testRunTestResultsPartialBulkSetModel)
+> apiV2TestRunsIdTestResultsBulkPut(id, apiV2TestRunsIdTestResultsBulkPutRequest)
 
 Partial edit of multiple test results in the test run
 
@@ -188,9 +188,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test run unique ID
-    TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel = new TestRunTestResultsPartialBulkSetModel(); // TestRunTestResultsPartialBulkSetModel | 
+    ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest = new ApiV2TestRunsIdTestResultsBulkPutRequest(); // ApiV2TestRunsIdTestResultsBulkPutRequest | 
     try {
-      apiInstance.apiV2TestRunsIdTestResultsBulkPut(id, testRunTestResultsPartialBulkSetModel);
+      apiInstance.apiV2TestRunsIdTestResultsBulkPut(id, apiV2TestRunsIdTestResultsBulkPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdTestResultsBulkPut");
       System.err.println("Status code: " + e.getCode());
@@ -207,7 +207,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test run unique ID | |
-| **testRunTestResultsPartialBulkSetModel** | [**TestRunTestResultsPartialBulkSetModel**](TestRunTestResultsPartialBulkSetModel.md)|  | [optional] |
+| **apiV2TestRunsIdTestResultsBulkPutRequest** | [**ApiV2TestRunsIdTestResultsBulkPutRequest**](ApiV2TestRunsIdTestResultsBulkPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -225,10 +225,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test runs is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Update permission for test runs is required |  -  |
 
-<a name="apiV2TestRunsIdTestResultsLastModifiedModificationDateGet"></a>
+<a id="apiV2TestRunsIdTestResultsLastModifiedModificationDateGet"></a>
 # **apiV2TestRunsIdTestResultsLastModifiedModificationDateGet**
 > OffsetDateTime apiV2TestRunsIdTestResultsLastModifiedModificationDateGet(id)
 
@@ -296,9 +296,9 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for test runs is required |  -  |
 
-<a name="apiV2TestRunsSearchPost"></a>
+<a id="apiV2TestRunsSearchPost"></a>
 # **apiV2TestRunsSearchPost**
-> List&lt;TestRunShortGetModel&gt; apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, testRunFilterModel)
+> List&lt;TestRunShortGetModel&gt; apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest)
 
 Search for test runs
 
@@ -329,9 +329,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestRunFilterModel testRunFilterModel = new TestRunFilterModel(); // TestRunFilterModel | 
+    ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest = new ApiV2TestRunsSearchPostRequest(); // ApiV2TestRunsSearchPostRequest | 
     try {
-      List<TestRunShortGetModel> result = apiInstance.apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, testRunFilterModel);
+      List<TestRunShortGetModel> result = apiInstance.apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsSearchPost");
@@ -353,7 +353,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testRunFilterModel** | [**TestRunFilterModel**](TestRunFilterModel.md)|  | [optional] |
+| **apiV2TestRunsSearchPostRequest** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -374,7 +374,7 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for autotests library is required |  -  |
 
-<a name="completeTestRun"></a>
+<a id="completeTestRun"></a>
 # **completeTestRun**
 > completeTestRun(id)
 
@@ -440,15 +440,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test result required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
-<a name="createAndFillByAutoTests"></a>
+<a id="createAndFillByAutoTests"></a>
 # **createAndFillByAutoTests**
-> TestRunV2GetModel createAndFillByAutoTests(testRunFillByAutoTestsPostModel)
+> TestRunV2GetModel createAndFillByAutoTests(createAndFillByAutoTestsRequest)
 
 Create test runs based on autotests and configurations
 
@@ -476,9 +476,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel = new TestRunFillByAutoTestsPostModel(); // TestRunFillByAutoTestsPostModel | 
+    CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest = new CreateAndFillByAutoTestsRequest(); // CreateAndFillByAutoTestsRequest | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByAutoTests(testRunFillByAutoTestsPostModel);
+      TestRunV2GetModel result = apiInstance.createAndFillByAutoTests(createAndFillByAutoTestsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByAutoTests");
@@ -495,7 +495,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunFillByAutoTestsPostModel** | [**TestRunFillByAutoTestsPostModel**](TestRunFillByAutoTestsPostModel.md)|  | [optional] |
+| **createAndFillByAutoTestsRequest** | [**CreateAndFillByAutoTestsRequest**](CreateAndFillByAutoTestsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -513,15 +513,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Some autotests do not exist |  -  |
 | **201** | Created |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test results is required |  -  |
+| **404** | Some autotests do not exist |  -  |
 
-<a name="createAndFillByConfigurations"></a>
+<a id="createAndFillByConfigurations"></a>
 # **createAndFillByConfigurations**
-> TestRunV2GetModel createAndFillByConfigurations(testRunFillByConfigurationsPostModel)
+> TestRunV2GetModel createAndFillByConfigurations(createAndFillByConfigurationsRequest)
 
 Create test runs picking the needed test points
 
@@ -549,9 +549,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel = new TestRunFillByConfigurationsPostModel(); // TestRunFillByConfigurationsPostModel | 
+    CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest = new CreateAndFillByConfigurationsRequest(); // CreateAndFillByConfigurationsRequest | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByConfigurations(testRunFillByConfigurationsPostModel);
+      TestRunV2GetModel result = apiInstance.createAndFillByConfigurations(createAndFillByConfigurationsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByConfigurations");
@@ -568,7 +568,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunFillByConfigurationsPostModel** | [**TestRunFillByConfigurationsPostModel**](TestRunFillByConfigurationsPostModel.md)|  | [optional] |
+| **createAndFillByConfigurationsRequest** | [**CreateAndFillByConfigurationsRequest**](CreateAndFillByConfigurationsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -587,14 +587,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **403** | Update permission for test results is required |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
 | **404** | Some test points do not exists |  -  |
 
-<a name="createAndFillByWorkItems"></a>
+<a id="createAndFillByWorkItems"></a>
 # **createAndFillByWorkItems**
-> TestRunV2GetModel createAndFillByWorkItems(testRunFillByWorkItemsPostModel)
+> TestRunV2GetModel createAndFillByWorkItems(createAndFillByWorkItemsRequest)
 
 Create test run based on configurations and work items
 
@@ -622,9 +622,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel = new TestRunFillByWorkItemsPostModel(); // TestRunFillByWorkItemsPostModel | 
+    CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest = new CreateAndFillByWorkItemsRequest(); // CreateAndFillByWorkItemsRequest | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByWorkItems(testRunFillByWorkItemsPostModel);
+      TestRunV2GetModel result = apiInstance.createAndFillByWorkItems(createAndFillByWorkItemsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByWorkItems");
@@ -641,7 +641,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunFillByWorkItemsPostModel** | [**TestRunFillByWorkItemsPostModel**](TestRunFillByWorkItemsPostModel.md)|  | [optional] |
+| **createAndFillByWorkItemsRequest** | [**CreateAndFillByWorkItemsRequest**](CreateAndFillByWorkItemsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -665,9 +665,9 @@ public class Example {
 | **403** | Update permission for test results is required |  -  |
 | **404** | Some test points, work items or configurations do not exist |  -  |
 
-<a name="createEmpty"></a>
+<a id="createEmpty"></a>
 # **createEmpty**
-> TestRunV2GetModel createEmpty(testRunV2PostShortModel)
+> TestRunV2GetModel createEmpty(createEmptyRequest)
 
 Create empty TestRun
 
@@ -695,9 +695,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunV2PostShortModel testRunV2PostShortModel = new TestRunV2PostShortModel(); // TestRunV2PostShortModel | 
+    CreateEmptyRequest createEmptyRequest = new CreateEmptyRequest(); // CreateEmptyRequest | 
     try {
-      TestRunV2GetModel result = apiInstance.createEmpty(testRunV2PostShortModel);
+      TestRunV2GetModel result = apiInstance.createEmpty(createEmptyRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createEmpty");
@@ -714,7 +714,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunV2PostShortModel** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional] |
+| **createEmptyRequest** | [**CreateEmptyRequest**](CreateEmptyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -732,13 +732,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test result required |  -  |
-| **401** | TestRunTesterRequirement permission required |  -  |
 | **201** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! |  -  |
+| **401** | TestRunTesterRequirement permission required |  -  |
+| **403** | Update permission for test result required |  -  |
 | **404** | Can&#39;t find a TestRun with id &#x3D; testRunId |  -  |
 
-<a name="getTestRunById"></a>
+<a id="getTestRunById"></a>
 # **getTestRunById**
 > TestRunV2GetModel getTestRunById(id)
 
@@ -805,12 +805,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | Successful operation |  -  |
 
-<a name="setAutoTestResultsForTestRun"></a>
+<a id="setAutoTestResultsForTestRun"></a>
 # **setAutoTestResultsForTestRun**
 > List&lt;UUID&gt; setAutoTestResultsForTestRun(id, autoTestResultsForTestRunModel)
 
@@ -879,14 +879,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
 | **200** | Successful operation |  -  |
-| **422** | &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped |  -  |
-| **403** | Update permission for test results is required |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
+| **404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
+| **422** | &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found |  -  |
 
-<a name="startTestRun"></a>
+<a id="startTestRun"></a>
 # **startTestRun**
 > startTestRun(id)
 
@@ -952,13 +952,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test result required |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
-<a name="stopTestRun"></a>
+<a id="stopTestRun"></a>
 # **stopTestRun**
 > stopTestRun(id)
 
@@ -1024,15 +1024,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
-<a name="updateEmpty"></a>
+<a id="updateEmpty"></a>
 # **updateEmpty**
-> updateEmpty(testRunV2PutModel)
+> updateEmpty(updateEmptyRequest)
 
 Update empty TestRun
 
@@ -1060,9 +1060,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunV2PutModel testRunV2PutModel = new TestRunV2PutModel(); // TestRunV2PutModel | 
+    UpdateEmptyRequest updateEmptyRequest = new UpdateEmptyRequest(); // UpdateEmptyRequest | 
     try {
-      apiInstance.updateEmpty(testRunV2PutModel);
+      apiInstance.updateEmpty(updateEmptyRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#updateEmpty");
       System.err.println("Status code: " + e.getCode());
@@ -1078,7 +1078,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunV2PutModel** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional] |
+| **updateEmptyRequest** | [**UpdateEmptyRequest**](UpdateEmptyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1096,9 +1096,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;Name is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Name is not valid |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
-| **204** | Successful operation |  -  |
 

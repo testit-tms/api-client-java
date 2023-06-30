@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +46,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -70,11 +72,11 @@ public class WorkItemPutModel {
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationPutModel> iterations = null;
+  private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestIdModel> autoTests = null;
+  private List<AutoTestIdModel> autoTests;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -138,6 +140,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -147,8 +152,6 @@ public class WorkItemPutModel {
    * @return attachments
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
@@ -178,8 +181,6 @@ public class WorkItemPutModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<IterationPutModel> getIterations() {
     return iterations;
   }
@@ -209,8 +210,6 @@ public class WorkItemPutModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
   }
@@ -232,8 +231,6 @@ public class WorkItemPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getId() {
     return id;
   }
@@ -255,8 +252,6 @@ public class WorkItemPutModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getSectionId() {
     return sectionId;
   }
@@ -278,8 +273,6 @@ public class WorkItemPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a basic test template", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -301,8 +294,6 @@ public class WorkItemPutModel {
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public WorkItemStates getState() {
     return state;
   }
@@ -324,8 +315,6 @@ public class WorkItemPutModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
@@ -343,6 +332,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addStepsItem(StepPutModel stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -352,8 +344,6 @@ public class WorkItemPutModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getSteps() {
     return steps;
   }
@@ -371,6 +361,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
+    if (this.preconditionSteps == null) {
+      this.preconditionSteps = new ArrayList<>();
+    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -380,8 +373,6 @@ public class WorkItemPutModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
   }
@@ -399,6 +390,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
+    if (this.postconditionSteps == null) {
+      this.postconditionSteps = new ArrayList<>();
+    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -408,8 +402,6 @@ public class WorkItemPutModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
   }
@@ -429,12 +421,10 @@ public class WorkItemPutModel {
    /**
    * Get duration
    * minimum: 0
-   * maximum: 86400
+   * maximum: 86400000
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10000", value = "")
-
   public Integer getDuration() {
     return duration;
   }
@@ -452,6 +442,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -461,8 +454,6 @@ public class WorkItemPutModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Map<String, Object> getAttributes() {
     return attributes;
   }
@@ -480,6 +471,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addTagsItem(TagShortModel tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -489,8 +483,6 @@ public class WorkItemPutModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<TagShortModel> getTags() {
     return tags;
   }
@@ -508,6 +500,9 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addLinksItem(LinkPutModel linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -517,8 +512,6 @@ public class WorkItemPutModel {
    * @return links
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<LinkPutModel> getLinks() {
     return links;
   }
@@ -540,8 +533,6 @@ public class WorkItemPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Basic template", required = true, value = "")
-
   public String getName() {
     return name;
   }

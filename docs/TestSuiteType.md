@@ -9,5 +9,7 @@
 
 * `DYNAMIC` (value: `"Dynamic"`)
 
+* `TREE` (value: `"Tree"`)
+
 
 

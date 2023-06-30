@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -58,11 +60,11 @@ import ru.testit.client.invoker.JSON;
 public class SectionWithStepsModel {
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepModel> preconditionSteps = null;
+  private List<StepModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepModel> postconditionSteps = null;
+  private List<StepModel> postconditionSteps;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -122,8 +124,6 @@ public class SectionWithStepsModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StepModel> getPreconditionSteps() {
     return preconditionSteps;
   }
@@ -153,8 +153,6 @@ public class SectionWithStepsModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StepModel> getPostconditionSteps() {
     return postconditionSteps;
   }
@@ -176,8 +174,6 @@ public class SectionWithStepsModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -199,8 +195,6 @@ public class SectionWithStepsModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -222,8 +216,6 @@ public class SectionWithStepsModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -245,8 +237,6 @@ public class SectionWithStepsModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -268,8 +258,6 @@ public class SectionWithStepsModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -291,8 +279,6 @@ public class SectionWithStepsModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-06-13T10:03:12.146320900Z", value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -314,8 +300,6 @@ public class SectionWithStepsModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -337,8 +321,6 @@ public class SectionWithStepsModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -360,8 +342,6 @@ public class SectionWithStepsModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Root section", required = true, value = "")
-
   public String getName() {
     return name;
   }

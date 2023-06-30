@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -73,6 +75,10 @@ public class TestSuiteV2PostModel {
   @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
   private Boolean saveStructure;
 
+  public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
+  @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
+  private Boolean autoRefresh;
+
   public TestSuiteV2PostModel() {
   }
 
@@ -83,12 +89,10 @@ public class TestSuiteV2PostModel {
   }
 
    /**
-   * Get parentId
+   * Unique ID of the parent test suite in hierarchy
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -106,12 +110,10 @@ public class TestSuiteV2PostModel {
   }
 
    /**
-   * Get testPlanId
+   * Unique ID of test plan to which the test suite belongs
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -129,12 +131,10 @@ public class TestSuiteV2PostModel {
   }
 
    /**
-   * Get name
+   * Name of the test suite
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "base test suite", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -156,8 +156,6 @@ public class TestSuiteV2PostModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TestSuiteType getType() {
     return type;
   }
@@ -175,12 +173,10 @@ public class TestSuiteV2PostModel {
   }
 
    /**
-   * Get saveStructure
+   * Indicates if the test suite retains section tree structure
    * @return saveStructure
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getSaveStructure() {
     return saveStructure;
   }
@@ -188,6 +184,27 @@ public class TestSuiteV2PostModel {
 
   public void setSaveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
+  }
+
+
+  public TestSuiteV2PostModel autoRefresh(Boolean autoRefresh) {
+    
+    this.autoRefresh = autoRefresh;
+    return this;
+  }
+
+   /**
+   * Indicates if scheduled auto refresh is enabled for the test suite
+   * @return autoRefresh
+  **/
+  @javax.annotation.Nullable
+  public Boolean getAutoRefresh() {
+    return autoRefresh;
+  }
+
+
+  public void setAutoRefresh(Boolean autoRefresh) {
+    this.autoRefresh = autoRefresh;
   }
 
 
@@ -205,7 +222,8 @@ public class TestSuiteV2PostModel {
         Objects.equals(this.testPlanId, testSuiteV2PostModel.testPlanId) &&
         Objects.equals(this.name, testSuiteV2PostModel.name) &&
         Objects.equals(this.type, testSuiteV2PostModel.type) &&
-        Objects.equals(this.saveStructure, testSuiteV2PostModel.saveStructure);
+        Objects.equals(this.saveStructure, testSuiteV2PostModel.saveStructure) &&
+        Objects.equals(this.autoRefresh, testSuiteV2PostModel.autoRefresh);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -214,7 +232,7 @@ public class TestSuiteV2PostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parentId, testPlanId, name, type, saveStructure);
+    return Objects.hash(parentId, testPlanId, name, type, saveStructure, autoRefresh);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,6 +251,7 @@ public class TestSuiteV2PostModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    saveStructure: ").append(toIndentedString(saveStructure)).append("\n");
+    sb.append("    autoRefresh: ").append(toIndentedString(autoRefresh)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -260,6 +279,7 @@ public class TestSuiteV2PostModel {
     openapiFields.add("name");
     openapiFields.add("type");
     openapiFields.add("saveStructure");
+    openapiFields.add("autoRefresh");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -42,6 +40,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -96,7 +98,7 @@ public class BackgroundJobModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<BackgroundJobAttachmentModel> attachments = null;
+  private List<BackgroundJobAttachmentModel> attachments;
 
   public BackgroundJobModel() {
   }
@@ -112,8 +114,6 @@ public class BackgroundJobModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -135,8 +135,6 @@ public class BackgroundJobModel {
    * @return jobId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getJobId() {
     return jobId;
   }
@@ -158,8 +156,6 @@ public class BackgroundJobModel {
    * @return jobType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackgroundJobType getJobType() {
     return jobType;
   }
@@ -181,8 +177,6 @@ public class BackgroundJobModel {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackgroundJobState getState() {
     return state;
   }
@@ -204,8 +198,6 @@ public class BackgroundJobModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -227,8 +219,6 @@ public class BackgroundJobModel {
    * @return progress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getProgress() {
     return progress;
   }
@@ -250,8 +240,6 @@ public class BackgroundJobModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getStartDate() {
     return startDate;
   }
@@ -273,8 +261,6 @@ public class BackgroundJobModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getEndDate() {
     return endDate;
   }
@@ -296,8 +282,6 @@ public class BackgroundJobModel {
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getError() {
     return error;
   }
@@ -327,8 +311,6 @@ public class BackgroundJobModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<BackgroundJobAttachmentModel> getAttachments() {
     return attachments;
   }

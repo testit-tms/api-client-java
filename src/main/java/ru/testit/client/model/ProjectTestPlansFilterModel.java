@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -42,6 +40,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -76,11 +78,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private Set<TestPlanStatusModel> status = null;
+  private Set<TestPlanStatusModel> status;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
   @SerializedName(SERIALIZED_NAME_IS_LOCKED)
@@ -92,11 +94,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER)
-  private Set<Boolean> automaticDurationTimer = null;
+  private Set<Boolean> automaticDurationTimer;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -112,11 +114,11 @@ public class ProjectTestPlansFilterModel {
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private Set<String> tagNames = null;
+  private Set<String> tagNames;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes = null;
+  private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -136,8 +138,6 @@ public class ProjectTestPlansFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -159,8 +159,6 @@ public class ProjectTestPlansFilterModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDescription() {
     return description;
   }
@@ -182,8 +180,6 @@ public class ProjectTestPlansFilterModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBuild() {
     return build;
   }
@@ -205,8 +201,6 @@ public class ProjectTestPlansFilterModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getProductName() {
     return productName;
   }
@@ -236,8 +230,6 @@ public class ProjectTestPlansFilterModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<TestPlanStatusModel> getStatus() {
     return status;
   }
@@ -267,8 +259,6 @@ public class ProjectTestPlansFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
@@ -290,8 +280,6 @@ public class ProjectTestPlansFilterModel {
    * @return isLocked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsLocked() {
     return isLocked;
   }
@@ -313,8 +301,6 @@ public class ProjectTestPlansFilterModel {
    * @return lockedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getLockedDate() {
     return lockedDate;
   }
@@ -344,8 +330,6 @@ public class ProjectTestPlansFilterModel {
    * @return automaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<Boolean> getAutomaticDurationTimer() {
     return automaticDurationTimer;
   }
@@ -375,8 +359,6 @@ public class ProjectTestPlansFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -398,8 +380,6 @@ public class ProjectTestPlansFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
@@ -421,8 +401,6 @@ public class ProjectTestPlansFilterModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getStartDate() {
     return startDate;
   }
@@ -444,8 +422,6 @@ public class ProjectTestPlansFilterModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DateTimeRangeSelectorModel getEndDate() {
     return endDate;
   }
@@ -475,8 +451,6 @@ public class ProjectTestPlansFilterModel {
    * @return tagNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<String> getTagNames() {
     return tagNames;
   }
@@ -506,8 +480,6 @@ public class ProjectTestPlansFilterModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Map<String, Set<String>> getAttributes() {
     return attributes;
   }
@@ -529,8 +501,6 @@ public class ProjectTestPlansFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }

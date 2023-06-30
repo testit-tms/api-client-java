@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +37,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -69,11 +71,11 @@ public class SectionPostModel {
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps = null;
+  private List<StepPutModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps = null;
+  private List<StepPutModel> postconditionSteps;
 
   public SectionPostModel() {
   }
@@ -89,8 +91,6 @@ public class SectionPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -112,8 +112,6 @@ public class SectionPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -135,8 +133,6 @@ public class SectionPostModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -166,8 +162,6 @@ public class SectionPostModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
   }
@@ -197,8 +191,6 @@ public class SectionPostModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
   }

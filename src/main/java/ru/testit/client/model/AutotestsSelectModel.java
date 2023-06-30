@@ -20,11 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.AutotestFilterModel;
-import ru.testit.client.model.SearchAutoTestsQueryIncludesModel;
+import ru.testit.client.model.AutotestsSelectModelFilter;
+import ru.testit.client.model.AutotestsSelectModelIncludes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,16 +56,16 @@ import ru.testit.client.invoker.JSON;
 public class AutotestsSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private AutotestFilterModel filter;
+  private AutotestsSelectModelFilter filter;
 
   public static final String SERIALIZED_NAME_INCLUDES = "includes";
   @SerializedName(SERIALIZED_NAME_INCLUDES)
-  private SearchAutoTestsQueryIncludesModel includes;
+  private AutotestsSelectModelIncludes includes;
 
   public AutotestsSelectModel() {
   }
 
-  public AutotestsSelectModel filter(AutotestFilterModel filter) {
+  public AutotestsSelectModel filter(AutotestsSelectModelFilter filter) {
     
     this.filter = filter;
     return this;
@@ -74,19 +76,17 @@ public class AutotestsSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AutotestFilterModel getFilter() {
+  public AutotestsSelectModelFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(AutotestFilterModel filter) {
+  public void setFilter(AutotestsSelectModelFilter filter) {
     this.filter = filter;
   }
 
 
-  public AutotestsSelectModel includes(SearchAutoTestsQueryIncludesModel includes) {
+  public AutotestsSelectModel includes(AutotestsSelectModelIncludes includes) {
     
     this.includes = includes;
     return this;
@@ -97,14 +97,12 @@ public class AutotestsSelectModel {
    * @return includes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public SearchAutoTestsQueryIncludesModel getIncludes() {
+  public AutotestsSelectModelIncludes getIncludes() {
     return includes;
   }
 
 
-  public void setIncludes(SearchAutoTestsQueryIncludesModel includes) {
+  public void setIncludes(AutotestsSelectModelIncludes includes) {
     this.includes = includes;
   }
 
@@ -185,11 +183,11 @@ public class AutotestsSelectModel {
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        AutotestFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        AutotestsSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `includes`
       if (jsonObj.get("includes") != null && !jsonObj.get("includes").isJsonNull()) {
-        SearchAutoTestsQueryIncludesModel.validateJsonObject(jsonObj.getAsJsonObject("includes"));
+        AutotestsSelectModelIncludes.validateJsonObject(jsonObj.getAsJsonObject("includes"));
       }
   }
 

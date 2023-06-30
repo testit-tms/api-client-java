@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -82,8 +84,6 @@ public class SectionMoveModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the section")
-
   public UUID getId() {
     return id;
   }
@@ -105,8 +105,6 @@ public class SectionMoveModel {
    * @return oldParentId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the section's current parent section")
-
   public UUID getOldParentId() {
     return oldParentId;
   }
@@ -128,8 +126,6 @@ public class SectionMoveModel {
    * @return parentId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the section's target parent section")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -151,8 +147,6 @@ public class SectionMoveModel {
    * @return nextSectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the section's following section")
-
   public UUID getNextSectionId() {
     return nextSectionId;
   }

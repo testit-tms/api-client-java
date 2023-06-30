@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +47,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -107,11 +109,11 @@ public class WorkItemPostModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments = null;
+  private List<AttachmentPutModel> attachments;
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationPutModel> iterations = null;
+  private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -131,7 +133,7 @@ public class WorkItemPostModel {
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestIdModel> autoTests = null;
+  private List<AutoTestIdModel> autoTests;
 
   public WorkItemPostModel() {
   }
@@ -147,8 +149,6 @@ public class WorkItemPostModel {
    * @return entityTypeName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public WorkItemEntityTypes getEntityTypeName() {
     return entityTypeName;
   }
@@ -170,8 +170,6 @@ public class WorkItemPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a basic test template", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -193,8 +191,6 @@ public class WorkItemPostModel {
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public WorkItemStates getState() {
     return state;
   }
@@ -216,8 +212,6 @@ public class WorkItemPostModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
@@ -235,6 +229,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel addStepsItem(StepPutModel stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -244,8 +241,6 @@ public class WorkItemPostModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getSteps() {
     return steps;
   }
@@ -263,6 +258,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
+    if (this.preconditionSteps == null) {
+      this.preconditionSteps = new ArrayList<>();
+    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -272,8 +270,6 @@ public class WorkItemPostModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
   }
@@ -291,6 +287,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
+    if (this.postconditionSteps == null) {
+      this.postconditionSteps = new ArrayList<>();
+    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -300,8 +299,6 @@ public class WorkItemPostModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
   }
@@ -321,12 +318,10 @@ public class WorkItemPostModel {
    /**
    * Must be 0 for shared steps and greater than 0 for the other types of work items
    * minimum: 0
-   * maximum: 86400
+   * maximum: 86400000
    * @return duration
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "10000", required = true, value = "Must be 0 for shared steps and greater than 0 for the other types of work items")
-
   public Integer getDuration() {
     return duration;
   }
@@ -344,6 +339,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -353,8 +351,6 @@ public class WorkItemPostModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Map<String, Object> getAttributes() {
     return attributes;
   }
@@ -372,6 +368,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel addTagsItem(TagShortModel tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -381,8 +380,6 @@ public class WorkItemPostModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<TagShortModel> getTags() {
     return tags;
   }
@@ -412,8 +409,6 @@ public class WorkItemPostModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
@@ -443,8 +438,6 @@ public class WorkItemPostModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<IterationPutModel> getIterations() {
     return iterations;
   }
@@ -462,6 +455,9 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel addLinksItem(LinkPostModel linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
     this.links.add(linksItem);
     return this;
   }
@@ -471,8 +467,6 @@ public class WorkItemPostModel {
    * @return links
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<LinkPostModel> getLinks() {
     return links;
   }
@@ -494,8 +488,6 @@ public class WorkItemPostModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Basic template", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -517,8 +509,6 @@ public class WorkItemPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "This property is used to link workitem with project")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -540,8 +530,6 @@ public class WorkItemPostModel {
    * @return sectionId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getSectionId() {
     return sectionId;
   }
@@ -571,8 +559,6 @@ public class WorkItemPostModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
   }

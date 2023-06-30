@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -70,7 +72,7 @@ public class StepResultModel {
 
   public static final String SERIALIZED_NAME_SHARED_STEP_RESULTS = "sharedStepResults";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_RESULTS)
-  private List<SharedStepResultModel> sharedStepResults = null;
+  private List<SharedStepResultModel> sharedStepResults;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -90,8 +92,6 @@ public class StepResultModel {
    * @return stepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getStepId() {
     return stepId;
   }
@@ -113,8 +113,6 @@ public class StepResultModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOutcome() {
     return outcome;
   }
@@ -136,8 +134,6 @@ public class StepResultModel {
    * @return sharedStepVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getSharedStepVersionId() {
     return sharedStepVersionId;
   }
@@ -167,8 +163,6 @@ public class StepResultModel {
    * @return sharedStepResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<SharedStepResultModel> getSharedStepResults() {
     return sharedStepResults;
   }
@@ -190,8 +184,6 @@ public class StepResultModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public StepCommentModel getComment() {
     return comment;
   }

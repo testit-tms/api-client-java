@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +41,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -61,11 +63,11 @@ import ru.testit.client.invoker.JSON;
 public class TestResultUpdateModel {
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults = null;
+  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults = null;
+  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
 
   public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
   @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
@@ -73,11 +75,11 @@ public class TestResultUpdateModel {
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  private List<TestResultStepCommentPutModel> stepComments = null;
+  private List<TestResultStepCommentPutModel> stepComments;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
-  private List<UUID> failureClassIds = null;
+  private List<UUID> failureClassIds;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
@@ -89,15 +91,15 @@ public class TestResultUpdateModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links = null;
+  private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<StepResultModel> stepResults = null;
+  private List<StepResultModel> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments = null;
+  private List<AttachmentPutModel> attachments;
 
   public TestResultUpdateModel() {
   }
@@ -121,8 +123,6 @@ public class TestResultUpdateModel {
    * @return setupResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
     return setupResults;
   }
@@ -152,8 +152,6 @@ public class TestResultUpdateModel {
    * @return teardownResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
     return teardownResults;
   }
@@ -176,8 +174,6 @@ public class TestResultUpdateModel {
    * @return durationInMs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getDurationInMs() {
     return durationInMs;
   }
@@ -207,8 +203,6 @@ public class TestResultUpdateModel {
    * @return stepComments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TestResultStepCommentPutModel> getStepComments() {
     return stepComments;
   }
@@ -238,8 +232,6 @@ public class TestResultUpdateModel {
    * @return failureClassIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
   }
@@ -261,8 +253,6 @@ public class TestResultUpdateModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOutcome() {
     return outcome;
   }
@@ -284,8 +274,6 @@ public class TestResultUpdateModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getComment() {
     return comment;
   }
@@ -315,8 +303,6 @@ public class TestResultUpdateModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<LinkModel> getLinks() {
     return links;
   }
@@ -346,8 +332,6 @@ public class TestResultUpdateModel {
    * @return stepResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StepResultModel> getStepResults() {
     return stepResults;
   }
@@ -377,8 +361,6 @@ public class TestResultUpdateModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }

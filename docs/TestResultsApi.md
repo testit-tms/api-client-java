@@ -18,7 +18,7 @@ All URIs are relative to *http://localhost*
 | [**getAttachments**](TestResultsApi.md#getAttachments) | **GET** /api/v2/testResults/{id}/attachments | Get all attachments of TestResult |
 
 
-<a name="apiV2TestResultsIdAggregatedGet"></a>
+<a id="apiV2TestResultsIdAggregatedGet"></a>
 # **apiV2TestResultsIdAggregatedGet**
 > TestResultModel apiV2TestResultsIdAggregatedGet(id)
 
@@ -83,10 +83,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for the test result is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for the test result is required |  -  |
 
-<a name="apiV2TestResultsIdAttachmentsAttachmentIdPut"></a>
+<a id="apiV2TestResultsIdAttachmentsAttachmentIdPut"></a>
 # **apiV2TestResultsIdAttachmentsAttachmentIdPut**
 > apiV2TestResultsIdAttachmentsAttachmentIdPut(id, attachmentId)
 
@@ -155,7 +155,7 @@ null (empty response body)
 | **200** | Success |  -  |
 | **403** | Only edits from assigned user are allowed |  -  |
 
-<a name="apiV2TestResultsIdAttachmentsInfoGet"></a>
+<a id="apiV2TestResultsIdAttachmentsInfoGet"></a>
 # **apiV2TestResultsIdAttachmentsInfoGet**
 > List&lt;AttachmentModel&gt; apiV2TestResultsIdAttachmentsInfoGet(id)
 
@@ -223,7 +223,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for the test result is required |  -  |
 
-<a name="apiV2TestResultsIdGet"></a>
+<a id="apiV2TestResultsIdGet"></a>
 # **apiV2TestResultsIdGet**
 > TestResultModel apiV2TestResultsIdGet(id)
 
@@ -291,9 +291,9 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for the test result is required |  -  |
 
-<a name="apiV2TestResultsIdPut"></a>
+<a id="apiV2TestResultsIdPut"></a>
 # **apiV2TestResultsIdPut**
-> apiV2TestResultsIdPut(id, testResultUpdateModel)
+> apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest)
 
 Edit test result by ID
 
@@ -320,9 +320,9 @@ public class Example {
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test result unique ID
-    TestResultUpdateModel testResultUpdateModel = new TestResultUpdateModel(); // TestResultUpdateModel | 
+    ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest = new ApiV2TestResultsIdPutRequest(); // ApiV2TestResultsIdPutRequest | 
     try {
-      apiInstance.apiV2TestResultsIdPut(id, testResultUpdateModel);
+      apiInstance.apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdPut");
       System.err.println("Status code: " + e.getCode());
@@ -339,7 +339,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test result unique ID | |
-| **testResultUpdateModel** | [**TestResultUpdateModel**](TestResultUpdateModel.md)|  | [optional] |
+| **apiV2TestResultsIdPutRequest** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -360,9 +360,9 @@ null (empty response body)
 | **200** | Success |  -  |
 | **403** | Only edits from assigned user are allowed |  -  |
 
-<a name="apiV2TestResultsSearchPost"></a>
+<a id="apiV2TestResultsSearchPost"></a>
 # **apiV2TestResultsSearchPost**
-> List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel)
+> List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest)
 
 Search for test results
 
@@ -393,9 +393,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
+    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
+      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
@@ -417,7 +417,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional] |
+| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -438,9 +438,9 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for all requested test runs is required |  -  |
 
-<a name="apiV2TestResultsStatisticsFilterPost"></a>
+<a id="apiV2TestResultsStatisticsFilterPost"></a>
 # **apiV2TestResultsStatisticsFilterPost**
-> TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(testResultsFilterModel)
+> TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest)
 
 Search for test results and extract statistics
 
@@ -466,9 +466,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
+    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(testResultsFilterModel);
+      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
@@ -485,7 +485,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional] |
+| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -506,7 +506,7 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for all requested test runs is required |  -  |
 
-<a name="createAttachment"></a>
+<a id="createAttachment"></a>
 # **createAttachment**
 > UUID createAttachment(id, _file)
 
@@ -575,14 +575,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test result required |  -  |
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
 | **404** |  |  -  |
 | **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
-<a name="deleteAttachment"></a>
+<a id="deleteAttachment"></a>
 # **deleteAttachment**
 > deleteAttachment(id, attachmentId)
 
@@ -650,12 +650,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test result required |  -  |
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
 
-<a name="downloadAttachment"></a>
+<a id="downloadAttachment"></a>
 # **downloadAttachment**
 > downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview)
 
@@ -736,10 +736,10 @@ null (empty response body)
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 | **403** | Read permission for test result required |  -  |
+| **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 
-<a name="getAttachment"></a>
+<a id="getAttachment"></a>
 # **getAttachment**
 > AttachmentModel getAttachment(id, attachmentId)
 
@@ -808,13 +808,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
 | **404** | File not found |  -  |
 
-<a name="getAttachments"></a>
+<a id="getAttachments"></a>
 # **getAttachments**
 > List&lt;AttachmentModel&gt; getAttachments(id)
 
@@ -881,9 +881,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test result required |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Read permission for test result required |  -  |
 | **404** | TestResult not found |  -  |
 

@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**testSuiteId** | **UUID** |  |  [optional] |
 |**testSuiteName** | **String** |  |  [optional] |
-|**value** | **Integer** |  |  [optional] |
+|**value** | **Long** |  |  [optional] |
 
 
 

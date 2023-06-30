@@ -20,13 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.ProjectShortestModel;
 
@@ -40,6 +37,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -70,11 +71,11 @@ public class SearchCustomAttributeTemplateGetModel {
 
   public static final String SERIALIZED_NAME_PROJECT_SHORTEST_MODELS = "projectShortestModels";
   @SerializedName(SERIALIZED_NAME_PROJECT_SHORTEST_MODELS)
-  private List<ProjectShortestModel> projectShortestModels = null;
+  private List<ProjectShortestModel> projectShortestModels;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
-  private List<CustomAttributeModel> customAttributeModels = null;
+  private List<CustomAttributeModel> customAttributeModels;
 
   public SearchCustomAttributeTemplateGetModel() {
   }
@@ -90,8 +91,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -113,8 +112,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -136,8 +133,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -167,8 +162,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return projectShortestModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ProjectShortestModel> getProjectShortestModels() {
     return projectShortestModels;
   }
@@ -198,8 +191,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return customAttributeModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<CustomAttributeModel> getCustomAttributeModels() {
     return customAttributeModels;
   }
@@ -227,20 +218,9 @@ public class SearchCustomAttributeTemplateGetModel {
         Objects.equals(this.customAttributeModels, searchCustomAttributeTemplateGetModel.customAttributeModels);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, isDeleted, name, projectShortestModels, customAttributeModels);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

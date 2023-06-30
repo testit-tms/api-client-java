@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -56,7 +58,7 @@ import ru.testit.client.invoker.JSON;
 public class ProjectExportWithTestPlansPostModel {
   public static final String SERIALIZED_NAME_TEST_PLANS_IDS = "testPlansIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLANS_IDS)
-  private Set<UUID> testPlansIds = null;
+  private Set<UUID> testPlansIds;
 
   public ProjectExportWithTestPlansPostModel() {
   }
@@ -80,8 +82,6 @@ public class ProjectExportWithTestPlansPostModel {
    * @return testPlansIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the IDs of test plans to be exported with the project.<br />  In this parameter, \"<b>string</b>\" values are IDs of the test plans.<br />  To get the test plan IDs, use the `GET /api/v2/projects/{projectId}/testPlans` method.")
-
   public Set<UUID> getTestPlansIds() {
     return testPlansIds;
   }

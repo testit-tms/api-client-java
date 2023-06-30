@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2TestPointsSearchPost**](TestPointsApi.md#apiV2TestPointsSearchPost) | **POST** /api/v2/testPoints/search | Search for test points |
 
 
-<a name="apiV2TestPointsIdTestRunsGet"></a>
+<a id="apiV2TestPointsIdTestRunsGet"></a>
 # **apiV2TestPointsIdTestRunsGet**
 > List&lt;TestRunModel&gt; apiV2TestPointsIdTestRunsGet(id)
 
@@ -75,10 +75,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test points is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test points is required |  -  |
 
-<a name="apiV2TestPointsIdWorkItemGet"></a>
+<a id="apiV2TestPointsIdWorkItemGet"></a>
 # **apiV2TestPointsIdWorkItemGet**
 > WorkItemModel apiV2TestPointsIdWorkItemGet(id)
 
@@ -143,12 +143,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test points is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test points is required |  -  |
 
-<a name="apiV2TestPointsSearchIdPost"></a>
+<a id="apiV2TestPointsSearchIdPost"></a>
 # **apiV2TestPointsSearchIdPost**
-> List&lt;UUID&gt; apiV2TestPointsSearchIdPost(skip, take, orderBy, searchField, searchValue, testPointFilterModel)
+> List&lt;UUID&gt; apiV2TestPointsSearchIdPost(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest)
 
 Search for test points and extract IDs only
 
@@ -179,9 +179,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestPointFilterModel testPointFilterModel = new TestPointFilterModel(); // TestPointFilterModel | 
+    ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest = new ApiV2TestPointsSearchPostRequest(); // ApiV2TestPointsSearchPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2TestPointsSearchIdPost(skip, take, orderBy, searchField, searchValue, testPointFilterModel);
+      List<UUID> result = apiInstance.apiV2TestPointsSearchIdPost(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPointsApi#apiV2TestPointsSearchIdPost");
@@ -203,7 +203,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional] |
+| **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -221,12 +221,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for all requested test plans is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for all requested test plans is required |  -  |
 
-<a name="apiV2TestPointsSearchPost"></a>
+<a id="apiV2TestPointsSearchPost"></a>
 # **apiV2TestPointsSearchPost**
-> List&lt;TestPointShortGetModel&gt; apiV2TestPointsSearchPost(skip, take, orderBy, searchField, searchValue, testPointFilterModel)
+> List&lt;TestPointShortGetModel&gt; apiV2TestPointsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest)
 
 Search for test points
 
@@ -257,9 +257,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestPointFilterModel testPointFilterModel = new TestPointFilterModel(); // TestPointFilterModel | 
+    ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest = new ApiV2TestPointsSearchPostRequest(); // ApiV2TestPointsSearchPostRequest | 
     try {
-      List<TestPointShortGetModel> result = apiInstance.apiV2TestPointsSearchPost(skip, take, orderBy, searchField, searchValue, testPointFilterModel);
+      List<TestPointShortGetModel> result = apiInstance.apiV2TestPointsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPointsApi#apiV2TestPointsSearchPost");
@@ -281,7 +281,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional] |
+| **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

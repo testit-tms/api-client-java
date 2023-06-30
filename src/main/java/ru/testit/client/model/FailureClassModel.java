@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -41,6 +39,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -83,7 +85,7 @@ public class FailureClassModel {
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_REGEXES = "failureClassRegexes";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_REGEXES)
-  private List<FailureClassRegexModel> failureClassRegexes = null;
+  private List<FailureClassRegexModel> failureClassRegexes;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -107,8 +109,6 @@ public class FailureClassModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -130,8 +130,6 @@ public class FailureClassModel {
    * @return failureCategory
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public FailureCategoryModel getFailureCategory() {
     return failureCategory;
   }
@@ -153,8 +151,6 @@ public class FailureClassModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -176,8 +172,6 @@ public class FailureClassModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -199,8 +193,6 @@ public class FailureClassModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -222,8 +214,6 @@ public class FailureClassModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -253,8 +243,6 @@ public class FailureClassModel {
    * @return failureClassRegexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<FailureClassRegexModel> getFailureClassRegexes() {
     return failureClassRegexes;
   }
@@ -276,8 +264,6 @@ public class FailureClassModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
-
   public UUID getId() {
     return id;
   }
@@ -299,8 +285,6 @@ public class FailureClassModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }

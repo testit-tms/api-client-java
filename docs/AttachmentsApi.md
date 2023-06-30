@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2AttachmentsPost**](AttachmentsApi.md#apiV2AttachmentsPost) | **POST** /api/v2/attachments | Upload new attachment file |
 
 
-<a name="apiV2AttachmentsIdDelete"></a>
+<a id="apiV2AttachmentsIdDelete"></a>
 # **apiV2AttachmentsIdDelete**
 > apiV2AttachmentsIdDelete(id)
 
@@ -74,10 +74,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **422** | Attachment file is already in use |  -  |
 | **204** | Attachment file was deleted successfully |  -  |
+| **422** | Attachment file is already in use |  -  |
 
-<a name="apiV2AttachmentsIdGet"></a>
+<a id="apiV2AttachmentsIdGet"></a>
 # **apiV2AttachmentsIdGet**
 > File apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview)
 
@@ -154,7 +154,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a name="apiV2AttachmentsOccupiedFileStorageSizeGet"></a>
+<a id="apiV2AttachmentsOccupiedFileStorageSizeGet"></a>
 # **apiV2AttachmentsOccupiedFileStorageSizeGet**
 > Long apiV2AttachmentsOccupiedFileStorageSizeGet()
 
@@ -217,7 +217,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a name="apiV2AttachmentsPost"></a>
+<a id="apiV2AttachmentsPost"></a>
 # **apiV2AttachmentsPost**
 > AttachmentModel apiV2AttachmentsPost(_file)
 
@@ -284,8 +284,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
 | **201** | Created |  -  |
-| **403** | Forbidden |  -  |
+| **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 

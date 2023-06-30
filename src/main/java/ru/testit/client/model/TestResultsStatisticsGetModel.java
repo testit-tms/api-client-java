@@ -20,11 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.TestRunStatisticsErrorCategoriesGetModel;
-import ru.testit.client.model.TestRunStatisticsStatusesGetModel;
+import ru.testit.client.model.TestResultsStatisticsGetModelFailureCategories;
+import ru.testit.client.model.TestResultsStatisticsGetModelStatuses;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,16 +56,16 @@ import ru.testit.client.invoker.JSON;
 public class TestResultsStatisticsGetModel {
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
   @SerializedName(SERIALIZED_NAME_STATUSES)
-  private TestRunStatisticsStatusesGetModel statuses;
+  private TestResultsStatisticsGetModelStatuses statuses;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  private TestRunStatisticsErrorCategoriesGetModel failureCategories;
+  private TestResultsStatisticsGetModelFailureCategories failureCategories;
 
   public TestResultsStatisticsGetModel() {
   }
 
-  public TestResultsStatisticsGetModel statuses(TestRunStatisticsStatusesGetModel statuses) {
+  public TestResultsStatisticsGetModel statuses(TestResultsStatisticsGetModelStatuses statuses) {
     
     this.statuses = statuses;
     return this;
@@ -74,19 +76,17 @@ public class TestResultsStatisticsGetModel {
    * @return statuses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestRunStatisticsStatusesGetModel getStatuses() {
+  public TestResultsStatisticsGetModelStatuses getStatuses() {
     return statuses;
   }
 
 
-  public void setStatuses(TestRunStatisticsStatusesGetModel statuses) {
+  public void setStatuses(TestResultsStatisticsGetModelStatuses statuses) {
     this.statuses = statuses;
   }
 
 
-  public TestResultsStatisticsGetModel failureCategories(TestRunStatisticsErrorCategoriesGetModel failureCategories) {
+  public TestResultsStatisticsGetModel failureCategories(TestResultsStatisticsGetModelFailureCategories failureCategories) {
     
     this.failureCategories = failureCategories;
     return this;
@@ -97,14 +97,12 @@ public class TestResultsStatisticsGetModel {
    * @return failureCategories
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestRunStatisticsErrorCategoriesGetModel getFailureCategories() {
+  public TestResultsStatisticsGetModelFailureCategories getFailureCategories() {
     return failureCategories;
   }
 
 
-  public void setFailureCategories(TestRunStatisticsErrorCategoriesGetModel failureCategories) {
+  public void setFailureCategories(TestResultsStatisticsGetModelFailureCategories failureCategories) {
     this.failureCategories = failureCategories;
   }
 
@@ -185,11 +183,11 @@ public class TestResultsStatisticsGetModel {
       }
       // validate the optional field `statuses`
       if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonNull()) {
-        TestRunStatisticsStatusesGetModel.validateJsonObject(jsonObj.getAsJsonObject("statuses"));
+        TestResultsStatisticsGetModelStatuses.validateJsonObject(jsonObj.getAsJsonObject("statuses"));
       }
       // validate the optional field `failureCategories`
       if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonNull()) {
-        TestRunStatisticsErrorCategoriesGetModel.validateJsonObject(jsonObj.getAsJsonObject("failureCategories"));
+        TestResultsStatisticsGetModelFailureCategories.validateJsonObject(jsonObj.getAsJsonObject("failureCategories"));
       }
   }
 
