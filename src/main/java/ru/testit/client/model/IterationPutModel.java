@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -72,6 +74,9 @@ public class IterationPutModel {
   }
 
   public IterationPutModel addParametersItem(ParameterIterationModel parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
     this.parameters.add(parametersItem);
     return this;
   }
@@ -81,8 +86,6 @@ public class IterationPutModel {
    * @return parameters
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<ParameterIterationModel> getParameters() {
     return parameters;
   }
@@ -104,8 +107,6 @@ public class IterationPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", value = "")
-
   public UUID getId() {
     return id;
   }

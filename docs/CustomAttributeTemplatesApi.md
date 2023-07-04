@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2CustomAttributesTemplatesSearchPost**](CustomAttributeTemplatesApi.md#apiV2CustomAttributesTemplatesSearchPost) | **POST** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates |
 
 
-<a name="apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost"></a>
+<a id="apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost"></a>
 # **apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**
 > apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(id, UUID)
 
@@ -82,12 +82,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a name="apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost"></a>
+<a id="apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost"></a>
 # **apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**
 > apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(id, UUID)
 
@@ -155,12 +155,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a name="apiV2CustomAttributesTemplatesIdDelete"></a>
+<a id="apiV2CustomAttributesTemplatesIdDelete"></a>
 # **apiV2CustomAttributesTemplatesIdDelete**
 > NoContentResult apiV2CustomAttributesTemplatesIdDelete(id)
 
@@ -227,11 +227,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a name="apiV2CustomAttributesTemplatesIdGet"></a>
+<a id="apiV2CustomAttributesTemplatesIdGet"></a>
 # **apiV2CustomAttributesTemplatesIdGet**
 > CustomAttributeTemplateModel apiV2CustomAttributesTemplatesIdGet(id)
 
@@ -298,11 +298,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
-| **200** | Success |  -  |
 
-<a name="apiV2CustomAttributesTemplatesNameGet"></a>
+<a id="apiV2CustomAttributesTemplatesNameGet"></a>
 # **apiV2CustomAttributesTemplatesNameGet**
 > CustomAttributeTemplateModel apiV2CustomAttributesTemplatesNameGet(name)
 
@@ -371,9 +371,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a name="apiV2CustomAttributesTemplatesPost"></a>
+<a id="apiV2CustomAttributesTemplatesPost"></a>
 # **apiV2CustomAttributesTemplatesPost**
-> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel)
+> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest)
 
 Create CustomAttributeTemplate
 
@@ -401,9 +401,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePostModel customAttributeTemplatePostModel = new CustomAttributeTemplatePostModel(); // CustomAttributeTemplatePostModel | 
+    ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest = new ApiV2CustomAttributesTemplatesPostRequest(); // ApiV2CustomAttributesTemplatesPostRequest | 
     try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel);
+      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPost");
@@ -420,7 +420,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePostModel** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPostRequest** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -438,13 +438,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Admin system role is required |  -  |
-| **201** | Created |  -  |
 
-<a name="apiV2CustomAttributesTemplatesPut"></a>
+<a id="apiV2CustomAttributesTemplatesPut"></a>
 # **apiV2CustomAttributesTemplatesPut**
-> apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel)
+> apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest)
 
 Update custom attributes template
 
@@ -470,9 +470,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePutModel customAttributeTemplatePutModel = new CustomAttributeTemplatePutModel(); // CustomAttributeTemplatePutModel | 
+    ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest = new ApiV2CustomAttributesTemplatesPutRequest(); // ApiV2CustomAttributesTemplatesPutRequest | 
     try {
-      apiInstance.apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel);
+      apiInstance.apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPut");
       System.err.println("Status code: " + e.getCode());
@@ -488,7 +488,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePutModel** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPutRequest** | [**ApiV2CustomAttributesTemplatesPutRequest**](ApiV2CustomAttributesTemplatesPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -506,12 +506,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | System administrator role is required |  -  |
 | **200** | Success |  -  |
+| **403** | System administrator role is required |  -  |
 
-<a name="apiV2CustomAttributesTemplatesSearchPost"></a>
+<a id="apiV2CustomAttributesTemplatesSearchPost"></a>
 # **apiV2CustomAttributesTemplatesSearchPost**
-> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel)
+> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest)
 
 Search CustomAttributeTemplates
 
@@ -544,9 +544,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel = new CustomAttributeTemplateSearchQueryModel(); // CustomAttributeTemplateSearchQueryModel | 
+    ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest = new ApiV2CustomAttributesTemplatesSearchPostRequest(); // ApiV2CustomAttributesTemplatesSearchPostRequest | 
     try {
-      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel);
+      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesSearchPost");
@@ -568,7 +568,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **customAttributeTemplateSearchQueryModel** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesSearchPostRequest** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -586,6 +586,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 

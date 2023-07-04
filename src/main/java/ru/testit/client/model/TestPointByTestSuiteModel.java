@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -94,8 +96,6 @@ public class TestPointByTestSuiteModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -117,8 +117,6 @@ public class TestPointByTestSuiteModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getTesterId() {
     return testerId;
   }
@@ -140,8 +138,6 @@ public class TestPointByTestSuiteModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getWorkItemId() {
     return workItemId;
   }
@@ -163,8 +159,6 @@ public class TestPointByTestSuiteModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getConfigurationId() {
     return configurationId;
   }
@@ -186,8 +180,6 @@ public class TestPointByTestSuiteModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "NoResult", value = "Applies one of these values: Blocked, NoResults, Failed, Passed")
-
   public String getStatus() {
     return status;
   }
@@ -209,8 +201,6 @@ public class TestPointByTestSuiteModel {
    * @return lastTestResultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
@@ -232,8 +222,6 @@ public class TestPointByTestSuiteModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getIterationId() {
     return iterationId;
   }

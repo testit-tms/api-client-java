@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2WebhooksLogsIdGet**](WebhooksLogsApi.md#apiV2WebhooksLogsIdGet) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID |
 
 
-<a name="apiV2WebhooksLogsGet"></a>
+<a id="apiV2WebhooksLogsGet"></a>
 # **apiV2WebhooksLogsGet**
 > List&lt;WebHookLogModel&gt; apiV2WebhooksLogsGet(projectId, skip, take, orderBy, searchField, searchValue)
 
@@ -86,7 +86,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
-<a name="apiV2WebhooksLogsIdDelete"></a>
+<a id="apiV2WebhooksLogsIdDelete"></a>
 # **apiV2WebhooksLogsIdDelete**
 > apiV2WebhooksLogsIdDelete(id)
 
@@ -153,7 +153,7 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | System administrator permissions are required |  -  |
 
-<a name="apiV2WebhooksLogsIdGet"></a>
+<a id="apiV2WebhooksLogsIdGet"></a>
 # **apiV2WebhooksLogsIdGet**
 > WebHookLogModel apiV2WebhooksLogsIdGet(id)
 

@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2NotificationsSearchPost**](NotificationsApi.md#apiV2NotificationsSearchPost) | **POST** /api/v2/notifications/search | Search Notifications for current User |
 
 
-<a name="apiV2NotificationsCountGet"></a>
+<a id="apiV2NotificationsCountGet"></a>
 # **apiV2NotificationsCountGet**
 > Integer apiV2NotificationsCountGet(isRead)
 
@@ -81,7 +81,7 @@ public class Example {
 | **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 
-<a name="apiV2NotificationsGet"></a>
+<a id="apiV2NotificationsGet"></a>
 # **apiV2NotificationsGet**
 > List&lt;NotificationModel&gt; apiV2NotificationsGet(notificationType, skip, take, orderBy, searchField, searchValue)
 
@@ -158,11 +158,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
 | **401** | Unauthorized |  -  |
-| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
-<a name="apiV2NotificationsIdReadPost"></a>
+<a id="apiV2NotificationsIdReadPost"></a>
 # **apiV2NotificationsIdReadPost**
 > apiV2NotificationsIdReadPost(id)
 
@@ -228,11 +228,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Can&#39;t find notification with notificationId |  -  |
-| **204** | Successful operation |  -  |
 
-<a name="apiV2NotificationsReadPost"></a>
+<a id="apiV2NotificationsReadPost"></a>
 # **apiV2NotificationsReadPost**
 > apiV2NotificationsReadPost()
 
@@ -294,12 +294,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="apiV2NotificationsSearchPost"></a>
+<a id="apiV2NotificationsSearchPost"></a>
 # **apiV2NotificationsSearchPost**
-> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel)
+> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest)
 
 Search Notifications for current User
 
@@ -332,9 +332,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    NotificationQueryFilterModel notificationQueryFilterModel = new NotificationQueryFilterModel(); // NotificationQueryFilterModel | 
+    ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest = new ApiV2NotificationsSearchPostRequest(); // ApiV2NotificationsSearchPostRequest | 
     try {
-      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel);
+      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NotificationsApi#apiV2NotificationsSearchPost");
@@ -356,7 +356,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **notificationQueryFilterModel** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional] |
+| **apiV2NotificationsSearchPostRequest** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -374,7 +374,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 

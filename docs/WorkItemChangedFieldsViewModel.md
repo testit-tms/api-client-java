@@ -7,26 +7,26 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | [**StringWorkItemChangedFieldViewModel**](StringWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**isDeleted** | [**BooleanWorkItemChangedFieldViewModel**](BooleanWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**projectId** | [**GuidWorkItemChangedFieldViewModel**](GuidWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**isAutomated** | [**BooleanWorkItemChangedFieldViewModel**](BooleanWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**sectionId** | [**GuidWorkItemChangedFieldViewModel**](GuidWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**description** | [**StringWorkItemChangedFieldViewModel**](StringWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**state** | [**StringWorkItemChangedFieldViewModel**](StringWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**priority** | [**StringWorkItemChangedFieldViewModel**](StringWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**duration** | [**Int32WorkItemChangedFieldViewModel**](Int32WorkItemChangedFieldViewModel.md) |  |  [optional] |
+|**name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**isDeleted** | [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  |  [optional] |
+|**projectId** | [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  |  [optional] |
+|**isAutomated** | [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  |  [optional] |
+|**sectionId** | [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  |  [optional] |
+|**description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**state** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
+|**priority** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
+|**duration** | [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  |  [optional] |
 |**attributes** | [**Map&lt;String, WorkItemChangedAttributeViewModel&gt;**](WorkItemChangedAttributeViewModel.md) |  |  [optional] |
-|**steps** | [**WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel**](WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**preconditionSteps** | [**WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel**](WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**postconditionSteps** | [**WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel**](WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**autoTests** | [**AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel**](AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**attachments** | [**AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel**](AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**tags** | [**StringArrayWorkItemChangedFieldViewModel**](StringArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**links** | [**WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel**](WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**globalId** | [**Int64WorkItemChangedFieldViewModel**](Int64WorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**versionNumber** | [**Int32WorkItemChangedFieldViewModel**](Int32WorkItemChangedFieldViewModel.md) |  |  [optional] |
-|**entityTypeName** | [**StringWorkItemChangedFieldViewModel**](StringWorkItemChangedFieldViewModel.md) |  |  [optional] |
+|**steps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
+|**preconditionSteps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
+|**postconditionSteps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
+|**autoTests** | [**WorkItemChangedFieldsViewModelAutoTests**](WorkItemChangedFieldsViewModelAutoTests.md) |  |  [optional] |
+|**attachments** | [**WorkItemChangedFieldsViewModelAttachments**](WorkItemChangedFieldsViewModelAttachments.md) |  |  [optional] |
+|**tags** | [**WorkItemChangedFieldsViewModelTags**](WorkItemChangedFieldsViewModelTags.md) |  |  [optional] |
+|**links** | [**WorkItemChangedFieldsViewModelLinks**](WorkItemChangedFieldsViewModelLinks.md) |  |  [optional] |
+|**globalId** | [**WorkItemChangedFieldsViewModelGlobalId**](WorkItemChangedFieldsViewModelGlobalId.md) |  |  [optional] |
+|**versionNumber** | [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  |  [optional] |
+|**entityTypeName** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
 
 
 

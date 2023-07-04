@@ -20,14 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.TestRunFilterModelCreatedDate;
 import ru.testit.client.model.TestRunState;
 
 import com.google.gson.Gson;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -58,19 +60,19 @@ import ru.testit.client.invoker.JSON;
 public class TestRunFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<TestRunState> states = null;
+  private Set<TestRunState> states;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  private TestRunFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -98,8 +100,6 @@ public class TestRunFilterModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test run project IDs to search for")
-
   public Set<UUID> getProjectIds() {
     return projectIds;
   }
@@ -129,8 +129,6 @@ public class TestRunFilterModel {
    * @return states
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test run states to search for")
-
   public Set<TestRunState> getStates() {
     return states;
   }
@@ -141,7 +139,7 @@ public class TestRunFilterModel {
   }
 
 
-  public TestRunFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestRunFilterModel createdDate(TestRunFilterModelCreatedDate createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -152,14 +150,12 @@ public class TestRunFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public TestRunFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(TestRunFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -183,8 +179,6 @@ public class TestRunFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test run last editor IDs to search for")
-
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
@@ -206,8 +200,6 @@ public class TestRunFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test run deleted status to search for")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -322,7 +314,7 @@ public class TestRunFilterModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        TestRunFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {

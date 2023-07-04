@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -34,6 +32,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -84,8 +86,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return inProgress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which is running currently")
-
   public Integer getInProgress() {
     return inProgress;
   }
@@ -107,8 +107,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return passed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which successfully passed")
-
   public Integer getPassed() {
     return passed;
   }
@@ -130,8 +128,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return failed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which failed with an error")
-
   public Integer getFailed() {
     return failed;
   }
@@ -153,8 +149,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return skipped
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which did not run and were skipped")
-
   public Integer getSkipped() {
     return skipped;
   }
@@ -176,8 +170,6 @@ public class TestRunStatisticsStatusesGetModel {
    * @return blocked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test results which cannot be launched")
-
   public Integer getBlocked() {
     return blocked;
   }

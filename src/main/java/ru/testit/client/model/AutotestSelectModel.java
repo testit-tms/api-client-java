@@ -20,11 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.AutotestFilterModel;
-import ru.testit.client.model.AutotestsExtractionModel;
+import ru.testit.client.model.AutotestSelectModelExtractionModel;
+import ru.testit.client.model.AutotestSelectModelFilter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,16 +56,16 @@ import ru.testit.client.invoker.JSON;
 public class AutotestSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private AutotestFilterModel filter;
+  private AutotestSelectModelFilter filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private AutotestsExtractionModel extractionModel;
+  private AutotestSelectModelExtractionModel extractionModel;
 
   public AutotestSelectModel() {
   }
 
-  public AutotestSelectModel filter(AutotestFilterModel filter) {
+  public AutotestSelectModel filter(AutotestSelectModelFilter filter) {
     
     this.filter = filter;
     return this;
@@ -74,19 +76,17 @@ public class AutotestSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AutotestFilterModel getFilter() {
+  public AutotestSelectModelFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(AutotestFilterModel filter) {
+  public void setFilter(AutotestSelectModelFilter filter) {
     this.filter = filter;
   }
 
 
-  public AutotestSelectModel extractionModel(AutotestsExtractionModel extractionModel) {
+  public AutotestSelectModel extractionModel(AutotestSelectModelExtractionModel extractionModel) {
     
     this.extractionModel = extractionModel;
     return this;
@@ -97,14 +97,12 @@ public class AutotestSelectModel {
    * @return extractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AutotestsExtractionModel getExtractionModel() {
+  public AutotestSelectModelExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
 
-  public void setExtractionModel(AutotestsExtractionModel extractionModel) {
+  public void setExtractionModel(AutotestSelectModelExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -185,11 +183,11 @@ public class AutotestSelectModel {
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        AutotestFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        AutotestSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        AutotestsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+        AutotestSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 

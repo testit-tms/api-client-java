@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +35,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -75,8 +77,6 @@ public class TestPointSelector {
    * @return configurationId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
-
   public UUID getConfigurationId() {
     return configurationId;
   }
@@ -94,6 +94,9 @@ public class TestPointSelector {
   }
 
   public TestPointSelector addWorkItemIdsItem(UUID workItemIdsItem) {
+    if (this.workItemIds == null) {
+      this.workItemIds = new ArrayList<>();
+    }
     this.workItemIds.add(workItemIdsItem);
     return this;
   }
@@ -103,8 +106,6 @@ public class TestPointSelector {
    * @return workItemIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.")
-
   public List<UUID> getWorkItemIds() {
     return workItemIds;
   }

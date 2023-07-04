@@ -27,14 +27,16 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2AutoTestsFlakyBulkPostRequest;
+import ru.testit.client.model.ApiV2AutoTestsIdTestResultsSearchPostRequest;
+import ru.testit.client.model.ApiV2AutoTestsSearchPostRequest;
 import ru.testit.client.model.AutoTestAverageDurationModel;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.AutoTestPostModel;
 import ru.testit.client.model.AutoTestPutModel;
-import ru.testit.client.model.AutotestHistoricalResultSelectModel;
 import ru.testit.client.model.AutotestResultHistoricalGetModel;
-import ru.testit.client.model.AutotestsSelectModel;
-import ru.testit.client.model.FlakyBulkModel;
+import ru.testit.client.model.CreateAutoTestRequest;
+import ru.testit.client.model.LinkAutoTestToWorkItemRequest;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
@@ -42,8 +44,8 @@ import ru.testit.client.model.TestResultChronologyModel;
 import ru.testit.client.model.TestResultHistoryReportModel;
 import ru.testit.client.model.TestRunShortModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateAutoTestRequest;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemIdModel;
 import ru.testit.client.model.WorkItemIdentifierModel;
 
 import java.lang.reflect.Type;
@@ -97,19 +99,19 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param flakyBulkModel  (optional)
+     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -123,7 +125,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = flakyBulkModel;
+        Object localVarPostBody = apiV2AutoTestsFlakyBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/flaky/bulk";
@@ -175,8 +177,8 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
+    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, _callback);
 
     }
 
@@ -188,18 +190,18 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param flakyBulkModel  (optional)
+     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
-        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
+    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest) throws ApiException {
+        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest);
     }
 
     /**
@@ -210,19 +212,19 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param flakyBulkModel  (optional)
+     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, null);
+    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -234,21 +236,21 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param flakyBulkModel  (optional)
+     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -262,8 +264,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AutoTestsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -332,8 +334,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2AutoTestsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -350,8 +352,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2AutoTestsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -370,8 +372,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for auto tests is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AutoTestsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -388,21 +390,21 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -416,7 +418,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autotestHistoricalResultSelectModel;
+        Object localVarPostBody = apiV2AutoTestsIdTestResultsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/{id}/testResults/search"
@@ -469,13 +471,13 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2AutoTestsIdTestResultsSearchPost(Async)");
         }
 
-        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
+        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, _callback);
 
     }
 
@@ -488,21 +490,21 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
      * @return List&lt;AutotestResultHistoricalGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public List<AutotestResultHistoricalGetModel> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
-        ApiResponse<List<AutotestResultHistoricalGetModel>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
+    public List<AutotestResultHistoricalGetModel> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest) throws ApiException {
+        ApiResponse<List<AutotestResultHistoricalGetModel>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -515,21 +517,21 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;AutotestResultHistoricalGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public ApiResponse<List<AutotestResultHistoricalGetModel>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, null);
+    public ApiResponse<List<AutotestResultHistoricalGetModel>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -543,23 +545,23 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback<List<AutotestResultHistoricalGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback<List<AutotestResultHistoricalGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -573,9 +575,9 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AutoTestsIdWorkItemsChangedIdGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -643,9 +645,9 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public List<UUID> apiV2AutoTestsIdWorkItemsChangedIdGet(UUID id) throws ApiException {
@@ -662,9 +664,9 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UUID>> apiV2AutoTestsIdWorkItemsChangedIdGetWithHttpInfo(UUID id) throws ApiException {
@@ -683,9 +685,9 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2AutoTestsIdWorkItemsChangedIdGetAsync(UUID id, final ApiCallback<List<UUID>> _callback) throws ApiException {
@@ -705,8 +707,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -781,8 +783,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -800,8 +802,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -821,8 +823,8 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
@@ -839,7 +841,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestsSelectModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -850,7 +852,7 @@ public class AutoTestsApi {
         <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestsSelectModel autotestsSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -864,7 +866,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autotestsSelectModel;
+        Object localVarPostBody = apiV2AutoTestsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/search";
@@ -916,8 +918,8 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestsSelectModel autotestsSelectModel, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsSearchPostCall(skip, take, orderBy, searchField, searchValue, autotestsSelectModel, _callback);
+    private okhttp3.Call apiV2AutoTestsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2AutoTestsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, _callback);
 
     }
 
@@ -929,7 +931,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestsSelectModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -939,8 +941,8 @@ public class AutoTestsApi {
         <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<AutoTestModel> apiV2AutoTestsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestsSelectModel autotestsSelectModel) throws ApiException {
-        ApiResponse<List<AutoTestModel>> localVarResp = apiV2AutoTestsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, autotestsSelectModel);
+    public List<AutoTestModel> apiV2AutoTestsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest) throws ApiException {
+        ApiResponse<List<AutoTestModel>> localVarResp = apiV2AutoTestsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -952,7 +954,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestsSelectModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -962,8 +964,8 @@ public class AutoTestsApi {
         <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AutoTestModel>> apiV2AutoTestsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestsSelectModel autotestsSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autotestsSelectModel, null);
+    public ApiResponse<List<AutoTestModel>> apiV2AutoTestsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -976,7 +978,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestsSelectModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -987,32 +989,32 @@ public class AutoTestsApi {
         <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestsSelectModel autotestsSelectModel, final ApiCallback<List<AutoTestModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback<List<AutoTestModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autotestsSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAutoTest
-     * @param autoTestPostModel  (optional)
+     * @param createAutoTestRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAutoTestCall(AutoTestPostModel autoTestPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAutoTestCall(CreateAutoTestRequest createAutoTestRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1026,7 +1028,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autoTestPostModel;
+        Object localVarPostBody = createAutoTestRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests";
@@ -1058,54 +1060,54 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAutoTestValidateBeforeCall(AutoTestPostModel autoTestPostModel, final ApiCallback _callback) throws ApiException {
-        return createAutoTestCall(autoTestPostModel, _callback);
+    private okhttp3.Call createAutoTestValidateBeforeCall(CreateAutoTestRequest createAutoTestRequest, final ApiCallback _callback) throws ApiException {
+        return createAutoTestCall(createAutoTestRequest, _callback);
 
     }
 
     /**
      * Create autotest
      * &lt;br&gt;This method creates a new autotest.  &lt;br&gt;To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.  &lt;br&gt;Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param autoTestPostModel  (optional)
+     * @param createAutoTestRequest  (optional)
      * @return AutoTestModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public AutoTestModel createAutoTest(AutoTestPostModel autoTestPostModel) throws ApiException {
-        ApiResponse<AutoTestModel> localVarResp = createAutoTestWithHttpInfo(autoTestPostModel);
+    public AutoTestModel createAutoTest(CreateAutoTestRequest createAutoTestRequest) throws ApiException {
+        ApiResponse<AutoTestModel> localVarResp = createAutoTestWithHttpInfo(createAutoTestRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create autotest
      * &lt;br&gt;This method creates a new autotest.  &lt;br&gt;To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.  &lt;br&gt;Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param autoTestPostModel  (optional)
+     * @param createAutoTestRequest  (optional)
      * @return ApiResponse&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoTestModel> createAutoTestWithHttpInfo(AutoTestPostModel autoTestPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(autoTestPostModel, null);
+    public ApiResponse<AutoTestModel> createAutoTestWithHttpInfo(CreateAutoTestRequest createAutoTestRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(createAutoTestRequest, null);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1113,25 +1115,25 @@ public class AutoTestsApi {
     /**
      * Create autotest (asynchronously)
      * &lt;br&gt;This method creates a new autotest.  &lt;br&gt;To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.  &lt;br&gt;Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param autoTestPostModel  (optional)
+     * @param createAutoTestRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAutoTestAsync(AutoTestPostModel autoTestPostModel, final ApiCallback<AutoTestModel> _callback) throws ApiException {
+    public okhttp3.Call createAutoTestAsync(CreateAutoTestRequest createAutoTestRequest, final ApiCallback<AutoTestModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(autoTestPostModel, _callback);
+        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(createAutoTestRequest, _callback);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1145,13 +1147,13 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createMultipleCall(List<AutoTestPostModel> autoTestPostModel, final ApiCallback _callback) throws ApiException {
@@ -1214,13 +1216,13 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
     public List<AutoTestModel> createMultiple(List<AutoTestPostModel> autoTestPostModel) throws ApiException {
@@ -1237,13 +1239,13 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AutoTestModel>> createMultipleWithHttpInfo(List<AutoTestPostModel> autoTestPostModel) throws ApiException {
@@ -1262,13 +1264,13 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createMultipleAsync(List<AutoTestPostModel> autoTestPostModel, final ApiCallback<List<AutoTestModel>> _callback) throws ApiException {
@@ -1420,10 +1422,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAutoTestLinkFromWorkItemCall(String id, String workItemId, final ApiCallback _callback) throws ApiException {
@@ -1496,10 +1498,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public void deleteAutoTestLinkFromWorkItem(String id, String workItemId) throws ApiException {
@@ -1517,10 +1519,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteAutoTestLinkFromWorkItemWithHttpInfo(String id, String workItemId) throws ApiException {
@@ -1540,10 +1542,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAutoTestLinkFromWorkItemAsync(String id, String workItemId, final ApiCallback<Void> _callback) throws ApiException {
@@ -1585,10 +1587,10 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      * @deprecated
      */
@@ -1777,10 +1779,10 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      * @deprecated
      */
@@ -1823,10 +1825,10 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      * @deprecated
      */
@@ -1871,10 +1873,10 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      * @deprecated
      */
@@ -2031,10 +2033,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Autotest ID is invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2103,10 +2105,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Autotest ID is invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public AutoTestModel getAutoTestById(String id) throws ApiException {
@@ -2124,10 +2126,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Autotest ID is invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AutoTestModel> getAutoTestByIdWithHttpInfo(String id) throws ApiException {
@@ -2147,10 +2149,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Autotest ID is invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestByIdAsync(String id, final ApiCallback<AutoTestModel> _callback) throws ApiException {
@@ -2170,9 +2172,9 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestChronologyCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2241,9 +2243,9 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<TestResultChronologyModel> getAutoTestChronology(String id) throws ApiException {
@@ -2261,9 +2263,9 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestResultChronologyModel>> getAutoTestChronologyWithHttpInfo(String id) throws ApiException {
@@ -2283,9 +2285,9 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestChronologyAsync(String id, final ApiCallback<List<TestResultChronologyModel>> _callback) throws ApiException {
@@ -2455,8 +2457,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2599,8 +2601,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2635,8 +2637,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2673,8 +2675,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2699,8 +2701,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsLinkedToAutoTestCall(String id, Boolean isDeleted, Boolean isWorkItemDeleted, final ApiCallback _callback) throws ApiException {
@@ -2780,8 +2782,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public List<WorkItemIdentifierModel> getWorkItemsLinkedToAutoTest(String id, Boolean isDeleted, Boolean isWorkItemDeleted) throws ApiException {
@@ -2802,8 +2804,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<WorkItemIdentifierModel>> getWorkItemsLinkedToAutoTestWithHttpInfo(String id, Boolean isDeleted, Boolean isWorkItemDeleted) throws ApiException {
@@ -2826,8 +2828,8 @@ public class AutoTestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWorkItemsLinkedToAutoTestAsync(String id, Boolean isDeleted, Boolean isWorkItemDeleted, final ApiCallback<List<WorkItemIdentifierModel>> _callback) throws ApiException {
@@ -2840,21 +2842,21 @@ public class AutoTestsApi {
     /**
      * Build call for linkAutoTestToWorkItem
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param workItemIdModel  (optional)
+     * @param linkAutoTestToWorkItemRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkAutoTestToWorkItemCall(String id, WorkItemIdModel workItemIdModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call linkAutoTestToWorkItemCall(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2868,7 +2870,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemIdModel;
+        Object localVarPostBody = linkAutoTestToWorkItemRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/{id}/workItems"
@@ -2901,13 +2903,13 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call linkAutoTestToWorkItemValidateBeforeCall(String id, WorkItemIdModel workItemIdModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call linkAutoTestToWorkItemValidateBeforeCall(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling linkAutoTestToWorkItem(Async)");
         }
 
-        return linkAutoTestToWorkItemCall(id, workItemIdModel, _callback);
+        return linkAutoTestToWorkItemCall(id, linkAutoTestToWorkItemRequest, _callback);
 
     }
 
@@ -2915,41 +2917,41 @@ public class AutoTestsApi {
      * Link autotest with work items
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param workItemIdModel  (optional)
+     * @param linkAutoTestToWorkItemRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void linkAutoTestToWorkItem(String id, WorkItemIdModel workItemIdModel) throws ApiException {
-        linkAutoTestToWorkItemWithHttpInfo(id, workItemIdModel);
+    public void linkAutoTestToWorkItem(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest) throws ApiException {
+        linkAutoTestToWorkItemWithHttpInfo(id, linkAutoTestToWorkItemRequest);
     }
 
     /**
      * Link autotest with work items
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param workItemIdModel  (optional)
+     * @param linkAutoTestToWorkItemRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String id, WorkItemIdModel workItemIdModel) throws ApiException {
-        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, workItemIdModel, null);
+    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest) throws ApiException {
+        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, linkAutoTestToWorkItemRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -2957,45 +2959,45 @@ public class AutoTestsApi {
      * Link autotest with work items (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest internal (guid format) or global (integer format) identifier  &lt;br&gt;User sets work item internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds the autotest by the autotest identifier  &lt;br&gt;System finds the work item by the work item identifier  &lt;br&gt;System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param workItemIdModel  (optional)
+     * @param linkAutoTestToWorkItemRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkAutoTestToWorkItemAsync(String id, WorkItemIdModel workItemIdModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call linkAutoTestToWorkItemAsync(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, workItemIdModel, _callback);
+        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, linkAutoTestToWorkItemRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAutoTest
-     * @param autoTestPutModel  (optional)
+     * @param updateAutoTestRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoTestCall(AutoTestPutModel autoTestPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAutoTestCall(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3009,7 +3011,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autoTestPutModel;
+        Object localVarPostBody = updateAutoTestRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests";
@@ -3041,77 +3043,77 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAutoTestValidateBeforeCall(AutoTestPutModel autoTestPutModel, final ApiCallback _callback) throws ApiException {
-        return updateAutoTestCall(autoTestPutModel, _callback);
+    private okhttp3.Call updateAutoTestValidateBeforeCall(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback _callback) throws ApiException {
+        return updateAutoTestCall(updateAutoTestRequest, _callback);
 
     }
 
     /**
      * Update autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
-     * @param autoTestPutModel  (optional)
+     * @param updateAutoTestRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void updateAutoTest(AutoTestPutModel autoTestPutModel) throws ApiException {
-        updateAutoTestWithHttpInfo(autoTestPutModel);
+    public void updateAutoTest(UpdateAutoTestRequest updateAutoTestRequest) throws ApiException {
+        updateAutoTestWithHttpInfo(updateAutoTestRequest);
     }
 
     /**
      * Update autotest
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
-     * @param autoTestPutModel  (optional)
+     * @param updateAutoTestRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateAutoTestWithHttpInfo(AutoTestPutModel autoTestPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(autoTestPutModel, null);
+    public ApiResponse<Void> updateAutoTestWithHttpInfo(UpdateAutoTestRequest updateAutoTestRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(updateAutoTestRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update autotest (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets autotest updated parameters values (listed in the example) and runs method execution  &lt;br&gt;System finds the autotest by the identifier  &lt;br&gt;System updates autotest parameters   &lt;br&gt;              [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                &lt;br&gt;              [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                &lt;br&gt;              [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                &lt;br&gt;              [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                &lt;br&gt;              [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                &lt;br&gt;System updates autotest and returns no content response
-     * @param autoTestPutModel  (optional)
+     * @param updateAutoTestRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoTestAsync(AutoTestPutModel autoTestPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateAutoTestAsync(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(autoTestPutModel, _callback);
+        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(updateAutoTestRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -3124,11 +3126,11 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
@@ -3192,11 +3194,11 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
@@ -3214,11 +3216,11 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
@@ -3238,11 +3240,11 @@ public class AutoTestsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values </td><td>  -  </td></tr>
      </table>

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -74,11 +76,11 @@ public class ProjectModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES_SCHEME = "attributesScheme";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES_SCHEME)
-  private List<CustomAttributeModel> attributesScheme = null;
+  private List<CustomAttributeModel> attributesScheme;
 
   public static final String SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME = "testPlansAttributesScheme";
   @SerializedName(SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME)
-  private List<CustomAttributeModel> testPlansAttributesScheme = null;
+  private List<CustomAttributeModel> testPlansAttributesScheme;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
@@ -134,8 +136,6 @@ public class ProjectModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project")
-
   public UUID getId() {
     return id;
   }
@@ -157,8 +157,6 @@ public class ProjectModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the project")
-
   public String getDescription() {
     return description;
   }
@@ -180,8 +178,6 @@ public class ProjectModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the project")
-
   public String getName() {
     return name;
   }
@@ -203,8 +199,6 @@ public class ProjectModel {
    * @return isFavorite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the project is marked as favorite")
-
   public Boolean getIsFavorite() {
     return isFavorite;
   }
@@ -234,8 +228,6 @@ public class ProjectModel {
    * @return attributesScheme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the project attributes")
-
   public List<CustomAttributeModel> getAttributesScheme() {
     return attributesScheme;
   }
@@ -265,8 +257,6 @@ public class ProjectModel {
    * @return testPlansAttributesScheme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the project test plans attributes")
-
   public List<CustomAttributeModel> getTestPlansAttributesScheme() {
     return testPlansAttributesScheme;
   }
@@ -288,8 +278,6 @@ public class ProjectModel {
    * @return testCasesCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of test cases in the project")
-
   public Integer getTestCasesCount() {
     return testCasesCount;
   }
@@ -311,8 +299,6 @@ public class ProjectModel {
    * @return sharedStepsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of shared steps in the project")
-
   public Integer getSharedStepsCount() {
     return sharedStepsCount;
   }
@@ -334,8 +320,6 @@ public class ProjectModel {
    * @return checkListsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of checklists in the project")
-
   public Integer getCheckListsCount() {
     return checkListsCount;
   }
@@ -357,8 +341,6 @@ public class ProjectModel {
    * @return autoTestsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of autotests in the project")
-
   public Integer getAutoTestsCount() {
     return autoTestsCount;
   }
@@ -380,8 +362,6 @@ public class ProjectModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the project is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -403,8 +383,6 @@ public class ProjectModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the project")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -426,8 +404,6 @@ public class ProjectModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last modification date of the project")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
@@ -449,8 +425,6 @@ public class ProjectModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project creator")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -472,8 +446,6 @@ public class ProjectModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the project last editor")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -495,8 +467,6 @@ public class ProjectModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global ID of the project")
-
   public Long getGlobalId() {
     return globalId;
   }

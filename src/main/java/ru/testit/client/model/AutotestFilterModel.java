@@ -20,16 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutotestFilterModelCreatedDate;
+import ru.testit.client.model.AutotestFilterModelModifiedDate;
+import ru.testit.client.model.AutotestFilterModelStabilityPercentage;
 import ru.testit.client.model.AutotestResultOutcome;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int64RangeSelectorModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,6 +40,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -59,15 +62,15 @@ import ru.testit.client.invoker.JSON;
 public class AutotestFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_EXTERNAL_IDS = "externalIds";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_IDS)
-  private Set<String> externalIds = null;
+  private Set<String> externalIds;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -83,23 +86,23 @@ public class AutotestFilterModel {
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
-  private Int64RangeSelectorModel stabilityPercentage;
+  private AutotestFilterModelStabilityPercentage stabilityPercentage;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  private AutotestFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private DateTimeRangeSelectorModel modifiedDate;
+  private AutotestFilterModelModifiedDate modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -147,8 +150,6 @@ public class AutotestFilterModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest projects IDs to search for")
-
   public Set<UUID> getProjectIds() {
     return projectIds;
   }
@@ -178,8 +179,6 @@ public class AutotestFilterModel {
    * @return externalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest external IDs to search for")
-
   public Set<String> getExternalIds() {
     return externalIds;
   }
@@ -209,8 +208,6 @@ public class AutotestFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest global IDs to search for")
-
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
@@ -232,8 +229,6 @@ public class AutotestFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest name to search for")
-
   public String getName() {
     return name;
   }
@@ -255,8 +250,6 @@ public class AutotestFilterModel {
    * @return isFlaky
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest flaky status to search for")
-
   public Boolean getIsFlaky() {
     return isFlaky;
   }
@@ -278,8 +271,6 @@ public class AutotestFilterModel {
    * @return mustBeApproved
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest unapproved changes status to search for")
-
   public Boolean getMustBeApproved() {
     return mustBeApproved;
   }
@@ -290,7 +281,7 @@ public class AutotestFilterModel {
   }
 
 
-  public AutotestFilterModel stabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
+  public AutotestFilterModel stabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
     
     this.stabilityPercentage = stabilityPercentage;
     return this;
@@ -301,19 +292,17 @@ public class AutotestFilterModel {
    * @return stabilityPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int64RangeSelectorModel getStabilityPercentage() {
+  public AutotestFilterModelStabilityPercentage getStabilityPercentage() {
     return stabilityPercentage;
   }
 
 
-  public void setStabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
+  public void setStabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
-  public AutotestFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public AutotestFilterModel createdDate(AutotestFilterModelCreatedDate createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -324,14 +313,12 @@ public class AutotestFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public AutotestFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(AutotestFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -355,8 +342,6 @@ public class AutotestFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest creator IDs to search for")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -367,7 +352,7 @@ public class AutotestFilterModel {
   }
 
 
-  public AutotestFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public AutotestFilterModel modifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
     
     this.modifiedDate = modifiedDate;
     return this;
@@ -378,14 +363,12 @@ public class AutotestFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getModifiedDate() {
+  public AutotestFilterModelModifiedDate getModifiedDate() {
     return modifiedDate;
   }
 
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
@@ -409,8 +392,6 @@ public class AutotestFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest last editor IDs to search for")
-
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
@@ -432,8 +413,6 @@ public class AutotestFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest deleted status to search for")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -455,8 +434,6 @@ public class AutotestFilterModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest namespace to search for")
-
   public String getNamespace() {
     return namespace;
   }
@@ -478,8 +455,6 @@ public class AutotestFilterModel {
    * @return isEmptyNamespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest namespace name presence status to search for")
-
   public Boolean getIsEmptyNamespace() {
     return isEmptyNamespace;
   }
@@ -501,8 +476,6 @@ public class AutotestFilterModel {
    * @return className
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest class name to search for")
-
   public String getClassName() {
     return className;
   }
@@ -524,8 +497,6 @@ public class AutotestFilterModel {
    * @return isEmptyClassName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest class name presence status to search for")
-
   public Boolean getIsEmptyClassName() {
     return isEmptyClassName;
   }
@@ -547,8 +518,6 @@ public class AutotestFilterModel {
    * @return lastTestResultOutcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public AutotestResultOutcome getLastTestResultOutcome() {
     return lastTestResultOutcome;
   }
@@ -706,11 +675,11 @@ public class AutotestFilterModel {
       }
       // validate the optional field `stabilityPercentage`
       if (jsonObj.get("stabilityPercentage") != null && !jsonObj.get("stabilityPercentage").isJsonNull()) {
-        Int64RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("stabilityPercentage"));
+        AutotestFilterModelStabilityPercentage.validateJsonObject(jsonObj.getAsJsonObject("stabilityPercentage"));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        AutotestFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
@@ -718,7 +687,7 @@ public class AutotestFilterModel {
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        AutotestFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {

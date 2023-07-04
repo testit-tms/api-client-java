@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -35,6 +33,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -81,8 +83,6 @@ public class Operation {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getValue() {
     return value;
   }
@@ -104,8 +104,6 @@ public class Operation {
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPath() {
     return path;
   }
@@ -127,8 +125,6 @@ public class Operation {
    * @return op
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOp() {
     return op;
   }
@@ -150,8 +146,6 @@ public class Operation {
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getFrom() {
     return from;
   }

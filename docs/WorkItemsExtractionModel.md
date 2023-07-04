@@ -8,9 +8,9 @@ Rules for different level entities inclusion/exclusion
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
-|**sectionIds** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
-|**projectIds** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
+|**ids** | [**WorkItemsExtractionModelIds**](WorkItemsExtractionModelIds.md) |  |  [optional] |
+|**sectionIds** | [**WorkItemsExtractionModelSectionIds**](WorkItemsExtractionModelSectionIds.md) |  |  [optional] |
+|**projectIds** | [**ConfigurationExtractionModelProjectIds**](ConfigurationExtractionModelProjectIds.md) |  |  [optional] |
 
 
 

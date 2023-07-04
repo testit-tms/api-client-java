@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +39,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -83,15 +85,15 @@ public class PublicTestRunModel {
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  private List<ConfigurationModel> configurations = null;
+  private List<ConfigurationModel> configurations;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests = null;
+  private List<AutoTestModel> autoTests;
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
-  private List<PublicTestPointModel> testPoints = null;
+  private List<PublicTestPointModel> testPoints;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -111,8 +113,6 @@ public class PublicTestRunModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getTestRunId() {
     return testRunId;
   }
@@ -134,8 +134,6 @@ public class PublicTestRunModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -157,8 +155,6 @@ public class PublicTestRunModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
@@ -180,8 +176,6 @@ public class PublicTestRunModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
@@ -203,8 +197,6 @@ public class PublicTestRunModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getProductName() {
     return productName;
   }
@@ -226,8 +218,6 @@ public class PublicTestRunModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBuild() {
     return build;
   }
@@ -257,8 +247,6 @@ public class PublicTestRunModel {
    * @return configurations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ConfigurationModel> getConfigurations() {
     return configurations;
   }
@@ -288,8 +276,6 @@ public class PublicTestRunModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
   }
@@ -319,8 +305,6 @@ public class PublicTestRunModel {
    * @return testPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<PublicTestPointModel> getTestPoints() {
     return testPoints;
   }
@@ -342,8 +326,6 @@ public class PublicTestRunModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getStatus() {
     return status;
   }

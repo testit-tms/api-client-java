@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 | [**updateSection**](SectionsApi.md#updateSection) | **PUT** /api/v2/sections | Update section |
 
 
-<a name="apiV2SectionsIdPatch"></a>
+<a id="apiV2SectionsIdPatch"></a>
 # **apiV2SectionsIdPatch**
 > apiV2SectionsIdPatch(id, operation)
 
@@ -82,12 +82,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for section is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Update permission for section is required |  -  |
 
-<a name="createSection"></a>
+<a id="createSection"></a>
 # **createSection**
-> SectionWithStepsModel createSection(sectionPostModel)
+> SectionWithStepsModel createSection(createSectionRequest)
 
 Create section
 
@@ -115,9 +115,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPostModel sectionPostModel = new SectionPostModel(); // SectionPostModel | 
+    CreateSectionRequest createSectionRequest = new CreateSectionRequest(); // CreateSectionRequest | 
     try {
-      SectionWithStepsModel result = apiInstance.createSection(sectionPostModel);
+      SectionWithStepsModel result = apiInstance.createSection(createSectionRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#createSection");
@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionPostModel** | [**SectionPostModel**](SectionPostModel.md)|  | [optional] |
+| **createSectionRequest** | [**CreateSectionRequest**](CreateSectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -153,13 +153,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **401** | Unauthorized |  -  |
 | **400** | Cannot create section without parent ID |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
 | **404** | Parent section with provided ID was not found |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
 
-<a name="deleteSection"></a>
+<a id="deleteSection"></a>
 # **deleteSection**
 > deleteSection(id)
 
@@ -225,15 +225,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **409** | Conflict |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Delete permission for test library is required |  -  |
 | **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Delete permission for test library is required |  -  |
+| **409** | Conflict |  -  |
 | **404** | Section with provided ID was not found |  -  |
 | **422** | Cannot delete root section |  -  |
 
-<a name="getSectionById"></a>
+<a id="getSectionById"></a>
 # **getSectionById**
 > SectionWithStepsModel getSectionById(id, isDeleted)
 
@@ -284,7 +284,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Section internal (UUID) identifier | |
-| **isDeleted** | [**DeletionState**](.md)|  | [optional] [enum: Any, Deleted, NotDeleted] |
+| **isDeleted** | [**DeletionState**](.md)|  | [optional] [default to NotDeleted] [enum: Any, Deleted, NotDeleted] |
 
 ### Return type
 
@@ -302,13 +302,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **404** | Section with provided ID was not found |  -  |
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
+| **404** | Section with provided ID was not found |  -  |
 
-<a name="getWorkItemsBySectionId"></a>
+<a id="getWorkItemsBySectionId"></a>
 # **getWorkItemsBySectionId**
 > List&lt;WorkItemShortModel&gt; getWorkItemsBySectionId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue)
 
@@ -391,15 +391,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **401** | Unauthorized |  -  |
-| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 
-<a name="move"></a>
+<a id="move"></a>
 # **move**
-> move(sectionMoveModel)
+> move(moveRequest)
 
 Move section with all work items into another section
 
@@ -425,9 +425,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionMoveModel sectionMoveModel = new SectionMoveModel(); // SectionMoveModel | 
+    MoveRequest moveRequest = new MoveRequest(); // MoveRequest | 
     try {
-      apiInstance.move(sectionMoveModel);
+      apiInstance.move(moveRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#move");
       System.err.println("Status code: " + e.getCode());
@@ -443,7 +443,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionMoveModel** | [**SectionMoveModel**](SectionMoveModel.md)|  | [optional] |
+| **moveRequest** | [**MoveRequest**](MoveRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -464,9 +464,9 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for test library is required |  -  |
 
-<a name="rename"></a>
+<a id="rename"></a>
 # **rename**
-> rename(sectionRenameModel)
+> rename(renameRequest)
 
 Rename section
 
@@ -494,9 +494,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionRenameModel sectionRenameModel = new SectionRenameModel(); // SectionRenameModel | 
+    RenameRequest renameRequest = new RenameRequest(); // RenameRequest | 
     try {
-      apiInstance.rename(sectionRenameModel);
+      apiInstance.rename(renameRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#rename");
       System.err.println("Status code: " + e.getCode());
@@ -512,7 +512,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionRenameModel** | [**SectionRenameModel**](SectionRenameModel.md)|  | [optional] |
+| **renameRequest** | [**RenameRequest**](RenameRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -530,16 +530,16 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test library is required |  -  |
 | **204** | No Content |  -  |
-| **409** | Section with the same name already exists in the parent section |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
+| **409** | Section with the same name already exists in the parent section |  -  |
 | **422** | Root section cannot be renamed |  -  |
 
-<a name="updateSection"></a>
+<a id="updateSection"></a>
 # **updateSection**
-> updateSection(sectionPutModel)
+> updateSection(updateSectionRequest)
 
 Update section
 
@@ -567,9 +567,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPutModel sectionPutModel = new SectionPutModel(); // SectionPutModel | 
+    UpdateSectionRequest updateSectionRequest = new UpdateSectionRequest(); // UpdateSectionRequest | 
     try {
-      apiInstance.updateSection(sectionPutModel);
+      apiInstance.updateSection(updateSectionRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#updateSection");
       System.err.println("Status code: " + e.getCode());
@@ -585,7 +585,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionPutModel** | [**SectionPutModel**](SectionPutModel.md)|  | [optional] |
+| **updateSectionRequest** | [**UpdateSectionRequest**](UpdateSectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -604,10 +604,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **409** | Section with the same name already exists in the parent section |  -  |
 | **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
-| **403** | Update permission for test library is required |  -  |
-| **422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test library is required |  -  |
 | **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
+| **409** | Section with the same name already exists in the parent section |  -  |
+| **422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
 

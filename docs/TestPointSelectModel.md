@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**TestPointFilterModel**](TestPointFilterModel.md) |  |  [optional] |
-|**extractionModel** | [**TestPointsExtractionModel**](TestPointsExtractionModel.md) |  |  [optional] |
+|**filter** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  |  [optional] |
+|**extractionModel** | [**TestPointSelectModelExtractionModel**](TestPointSelectModelExtractionModel.md) |  |  [optional] |
 
 
 

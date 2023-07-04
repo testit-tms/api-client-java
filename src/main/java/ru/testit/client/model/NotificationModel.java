@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -124,8 +126,6 @@ public class NotificationModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -147,8 +147,6 @@ public class NotificationModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -170,8 +168,6 @@ public class NotificationModel {
    * @return isRead
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsRead() {
     return isRead;
   }
@@ -193,8 +189,6 @@ public class NotificationModel {
    * @return entityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getEntityId() {
     return entityId;
   }
@@ -216,8 +210,6 @@ public class NotificationModel {
    * @return notificationType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public NotificationTypeModel getNotificationType() {
     return notificationType;
   }
@@ -239,8 +231,6 @@ public class NotificationModel {
    * @return projectGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getProjectGlobalId() {
     return projectGlobalId;
   }
@@ -262,8 +252,6 @@ public class NotificationModel {
    * @return projectName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getProjectName() {
     return projectName;
   }
@@ -285,8 +273,6 @@ public class NotificationModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
@@ -308,8 +294,6 @@ public class NotificationModel {
    * @return testPlanName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getTestPlanName() {
     return testPlanName;
   }
@@ -331,8 +315,6 @@ public class NotificationModel {
    * @return workitemGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Long getWorkitemGlobalId() {
     return workitemGlobalId;
   }
@@ -354,8 +336,6 @@ public class NotificationModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getComment() {
     return comment;
   }
@@ -377,8 +357,6 @@ public class NotificationModel {
    * @return workItemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getWorkItemName() {
     return workItemName;
   }
@@ -400,8 +378,6 @@ public class NotificationModel {
    * @return attributeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getAttributeName() {
     return attributeName;
   }
@@ -423,8 +399,6 @@ public class NotificationModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }

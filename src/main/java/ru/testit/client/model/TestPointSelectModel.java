@@ -20,11 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.TestPointFilterModel;
-import ru.testit.client.model.TestPointsExtractionModel;
+import ru.testit.client.model.ApiV2TestPointsSearchPostRequest;
+import ru.testit.client.model.TestPointSelectModelExtractionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -54,16 +56,16 @@ import ru.testit.client.invoker.JSON;
 public class TestPointSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private TestPointFilterModel filter;
+  private ApiV2TestPointsSearchPostRequest filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private TestPointsExtractionModel extractionModel;
+  private TestPointSelectModelExtractionModel extractionModel;
 
   public TestPointSelectModel() {
   }
 
-  public TestPointSelectModel filter(TestPointFilterModel filter) {
+  public TestPointSelectModel filter(ApiV2TestPointsSearchPostRequest filter) {
     
     this.filter = filter;
     return this;
@@ -74,19 +76,17 @@ public class TestPointSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestPointFilterModel getFilter() {
+  public ApiV2TestPointsSearchPostRequest getFilter() {
     return filter;
   }
 
 
-  public void setFilter(TestPointFilterModel filter) {
+  public void setFilter(ApiV2TestPointsSearchPostRequest filter) {
     this.filter = filter;
   }
 
 
-  public TestPointSelectModel extractionModel(TestPointsExtractionModel extractionModel) {
+  public TestPointSelectModel extractionModel(TestPointSelectModelExtractionModel extractionModel) {
     
     this.extractionModel = extractionModel;
     return this;
@@ -97,14 +97,12 @@ public class TestPointSelectModel {
    * @return extractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestPointsExtractionModel getExtractionModel() {
+  public TestPointSelectModelExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
 
-  public void setExtractionModel(TestPointsExtractionModel extractionModel) {
+  public void setExtractionModel(TestPointSelectModelExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -185,11 +183,11 @@ public class TestPointSelectModel {
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TestPointFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        ApiV2TestPointsSearchPostRequest.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        TestPointsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+        TestPointSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 

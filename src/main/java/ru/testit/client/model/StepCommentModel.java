@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -40,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -74,7 +76,7 @@ public class StepCommentModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments = null;
+  private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_TEST_RESULT_ID = "testResultId";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_ID)
@@ -110,8 +112,6 @@ public class StepCommentModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -133,8 +133,6 @@ public class StepCommentModel {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getText() {
     return text;
   }
@@ -156,8 +154,6 @@ public class StepCommentModel {
    * @return stepId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public UUID getStepId() {
     return stepId;
   }
@@ -179,8 +175,6 @@ public class StepCommentModel {
    * @return parentStepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getParentStepId() {
     return parentStepId;
   }
@@ -210,8 +204,6 @@ public class StepCommentModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
@@ -233,8 +225,6 @@ public class StepCommentModel {
    * @return testResultId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public UUID getTestResultId() {
     return testResultId;
   }
@@ -256,8 +246,6 @@ public class StepCommentModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -279,8 +267,6 @@ public class StepCommentModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getModifiedById() {
     return modifiedById;
   }
@@ -302,8 +288,6 @@ public class StepCommentModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -325,8 +309,6 @@ public class StepCommentModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }

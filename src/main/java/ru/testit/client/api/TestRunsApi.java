@@ -27,22 +27,22 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2TestRunsIdStatisticsFilterPostRequest;
+import ru.testit.client.model.ApiV2TestRunsIdTestResultsBulkPutRequest;
+import ru.testit.client.model.ApiV2TestRunsSearchPostRequest;
 import ru.testit.client.model.AutoTestResultsForTestRunModel;
+import ru.testit.client.model.CreateAndFillByAutoTestsRequest;
+import ru.testit.client.model.CreateAndFillByConfigurationsRequest;
+import ru.testit.client.model.CreateAndFillByWorkItemsRequest;
+import ru.testit.client.model.CreateEmptyRequest;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestPointResultModel;
-import ru.testit.client.model.TestResultsLocalFilterModel;
 import ru.testit.client.model.TestResultsStatisticsGetModel;
-import ru.testit.client.model.TestRunFillByAutoTestsPostModel;
-import ru.testit.client.model.TestRunFillByConfigurationsPostModel;
-import ru.testit.client.model.TestRunFillByWorkItemsPostModel;
-import ru.testit.client.model.TestRunFilterModel;
 import ru.testit.client.model.TestRunShortGetModel;
-import ru.testit.client.model.TestRunTestResultsPartialBulkSetModel;
 import ru.testit.client.model.TestRunV2GetModel;
-import ru.testit.client.model.TestRunV2PostShortModel;
-import ru.testit.client.model.TestRunV2PutModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateEmptyRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -92,18 +92,18 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdStatisticsFilterPost
      * @param id Test run unique ID (required)
-     * @param testResultsLocalFilterModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostCall(UUID id, TestResultsLocalFilterModel testResultsLocalFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostCall(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,7 +117,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testResultsLocalFilterModel;
+        Object localVarPostBody = apiV2TestRunsIdStatisticsFilterPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/statistics/filter"
@@ -150,13 +150,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(UUID id, TestResultsLocalFilterModel testResultsLocalFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdStatisticsFilterPost(Async)");
         }
 
-        return apiV2TestRunsIdStatisticsFilterPostCall(id, testResultsLocalFilterModel, _callback);
+        return apiV2TestRunsIdStatisticsFilterPostCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, _callback);
 
     }
 
@@ -164,18 +164,18 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics
      * 
      * @param id Test run unique ID (required)
-     * @param testResultsLocalFilterModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @return TestResultsStatisticsGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(UUID id, TestResultsLocalFilterModel testResultsLocalFilterModel) throws ApiException {
-        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(id, testResultsLocalFilterModel);
+    public TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest) throws ApiException {
+        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(id, apiV2TestRunsIdStatisticsFilterPostRequest);
         return localVarResp.getData();
     }
 
@@ -183,18 +183,18 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics
      * 
      * @param id Test run unique ID (required)
-     * @param testResultsLocalFilterModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(UUID id, TestResultsLocalFilterModel testResultsLocalFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, testResultsLocalFilterModel, null);
+    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, null);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -203,20 +203,20 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics (asynchronously)
      * 
      * @param id Test run unique ID (required)
-     * @param testResultsLocalFilterModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostAsync(UUID id, TestResultsLocalFilterModel testResultsLocalFilterModel, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostAsync(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, testResultsLocalFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, _callback);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -230,8 +230,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestPointsResultsGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -299,8 +299,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPointResultModel> apiV2TestRunsIdTestPointsResultsGet(UUID id) throws ApiException {
@@ -317,8 +317,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPointResultModel>> apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(UUID id) throws ApiException {
@@ -337,8 +337,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestPointsResultsGetAsync(UUID id, final ApiCallback<List<TestPointResultModel>> _callback) throws ApiException {
@@ -351,18 +351,18 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdTestResultsBulkPut
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutCall(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutCall(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -376,7 +376,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunTestResultsPartialBulkSetModel;
+        Object localVarPostBody = apiV2TestRunsIdTestResultsBulkPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/testResults/bulk"
@@ -409,13 +409,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdTestResultsBulkPut(Async)");
         }
 
-        return apiV2TestRunsIdTestResultsBulkPutCall(id, testRunTestResultsPartialBulkSetModel, _callback);
+        return apiV2TestRunsIdTestResultsBulkPutCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, _callback);
 
     }
 
@@ -423,35 +423,35 @@ public class TestRunsApi {
      * Partial edit of multiple test results in the test run
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestRunsIdTestResultsBulkPut(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
-        apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(id, testRunTestResultsPartialBulkSetModel);
+    public void apiV2TestRunsIdTestResultsBulkPut(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest) throws ApiException {
+        apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(id, apiV2TestRunsIdTestResultsBulkPutRequest);
     }
 
     /**
      * Partial edit of multiple test results in the test run
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, testRunTestResultsPartialBulkSetModel, null);
+    public ApiResponse<Void> apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -459,20 +459,20 @@ public class TestRunsApi {
      * Partial edit of multiple test results in the test run (asynchronously)
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutAsync(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutAsync(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, testRunTestResultsPartialBulkSetModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -610,18 +610,18 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterModel testRunFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -635,7 +635,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunFilterModel;
+        Object localVarPostBody = apiV2TestRunsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/search";
@@ -687,8 +687,8 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterModel testRunFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsSearchPostCall(skip, take, orderBy, searchField, searchValue, testRunFilterModel, _callback);
+    private okhttp3.Call apiV2TestRunsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, _callback);
 
     }
 
@@ -700,18 +700,18 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @return List&lt;TestRunShortGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestRunShortGetModel> apiV2TestRunsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterModel testRunFilterModel) throws ApiException {
-        ApiResponse<List<TestRunShortGetModel>> localVarResp = apiV2TestRunsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testRunFilterModel);
+    public List<TestRunShortGetModel> apiV2TestRunsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestRunShortGetModel>> localVarResp = apiV2TestRunsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -723,18 +723,18 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;TestRunShortGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestRunShortGetModel>> apiV2TestRunsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterModel testRunFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testRunFilterModel, null);
+    public ApiResponse<List<TestRunShortGetModel>> apiV2TestRunsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<TestRunShortGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -747,20 +747,20 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 403 </td><td> Read permission for autotests library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterModel testRunFilterModel, final ApiCallback<List<TestRunShortGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback<List<TestRunShortGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testRunFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<TestRunShortGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -774,11 +774,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeTestRunCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -845,11 +845,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public void completeTestRun(UUID id) throws ApiException {
@@ -865,11 +865,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> completeTestRunWithHttpInfo(UUID id) throws ApiException {
@@ -887,11 +887,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeTestRunAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -902,21 +902,21 @@ public class TestRunsApi {
     }
     /**
      * Build call for createAndFillByAutoTests
-     * @param testRunFillByAutoTestsPostModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByAutoTestsCall(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByAutoTestsCall(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -930,7 +930,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunFillByAutoTestsPostModel;
+        Object localVarPostBody = createAndFillByAutoTestsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byAutoTests";
@@ -962,50 +962,50 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByAutoTestsValidateBeforeCall(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByAutoTestsCall(testRunFillByAutoTestsPostModel, _callback);
+    private okhttp3.Call createAndFillByAutoTestsValidateBeforeCall(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByAutoTestsCall(createAndFillByAutoTestsRequest, _callback);
 
     }
 
     /**
      * Create test runs based on autotests and configurations
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param testRunFillByAutoTestsPostModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2GetModel createAndFillByAutoTests(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel) throws ApiException {
-        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByAutoTestsWithHttpInfo(testRunFillByAutoTestsPostModel);
+    public TestRunV2GetModel createAndFillByAutoTests(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByAutoTestsWithHttpInfo(createAndFillByAutoTestsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test runs based on autotests and configurations
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param testRunFillByAutoTestsPostModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2GetModel> createAndFillByAutoTestsWithHttpInfo(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(testRunFillByAutoTestsPostModel, null);
+    public ApiResponse<TestRunV2GetModel> createAndFillByAutoTestsWithHttpInfo(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createAndFillByAutoTestsRequest, null);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1013,44 +1013,44 @@ public class TestRunsApi {
     /**
      * Create test runs based on autotests and configurations (asynchronously)
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param testRunFillByAutoTestsPostModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByAutoTestsAsync(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByAutoTestsAsync(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(testRunFillByAutoTestsPostModel, _callback);
+        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createAndFillByAutoTestsRequest, _callback);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAndFillByConfigurations
-     * @param testRunFillByConfigurationsPostModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByConfigurationsCall(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByConfigurationsCall(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1064,7 +1064,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunFillByConfigurationsPostModel;
+        Object localVarPostBody = createAndFillByConfigurationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byConfigurations";
@@ -1096,50 +1096,50 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByConfigurationsValidateBeforeCall(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByConfigurationsCall(testRunFillByConfigurationsPostModel, _callback);
+    private okhttp3.Call createAndFillByConfigurationsValidateBeforeCall(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByConfigurationsCall(createAndFillByConfigurationsRequest, _callback);
 
     }
 
     /**
      * Create test runs picking the needed test points
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param testRunFillByConfigurationsPostModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2GetModel createAndFillByConfigurations(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel) throws ApiException {
-        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByConfigurationsWithHttpInfo(testRunFillByConfigurationsPostModel);
+    public TestRunV2GetModel createAndFillByConfigurations(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByConfigurationsWithHttpInfo(createAndFillByConfigurationsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test runs picking the needed test points
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param testRunFillByConfigurationsPostModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2GetModel> createAndFillByConfigurationsWithHttpInfo(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(testRunFillByConfigurationsPostModel, null);
+    public ApiResponse<TestRunV2GetModel> createAndFillByConfigurationsWithHttpInfo(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createAndFillByConfigurationsRequest, null);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1147,30 +1147,30 @@ public class TestRunsApi {
     /**
      * Create test runs picking the needed test points (asynchronously)
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param testRunFillByConfigurationsPostModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByConfigurationsAsync(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByConfigurationsAsync(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(testRunFillByConfigurationsPostModel, _callback);
+        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createAndFillByConfigurationsRequest, _callback);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAndFillByWorkItems
-     * @param testRunFillByWorkItemsPostModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1184,7 +1184,7 @@ public class TestRunsApi {
         <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByWorkItemsCall(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByWorkItemsCall(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1198,7 +1198,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunFillByWorkItemsPostModel;
+        Object localVarPostBody = createAndFillByWorkItemsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byWorkItems";
@@ -1230,15 +1230,15 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByWorkItemsValidateBeforeCall(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByWorkItemsCall(testRunFillByWorkItemsPostModel, _callback);
+    private okhttp3.Call createAndFillByWorkItemsValidateBeforeCall(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByWorkItemsCall(createAndFillByWorkItemsRequest, _callback);
 
     }
 
     /**
      * Create test run based on configurations and work items
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param testRunFillByWorkItemsPostModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1251,15 +1251,15 @@ public class TestRunsApi {
         <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2GetModel createAndFillByWorkItems(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel) throws ApiException {
-        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByWorkItemsWithHttpInfo(testRunFillByWorkItemsPostModel);
+    public TestRunV2GetModel createAndFillByWorkItems(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByWorkItemsWithHttpInfo(createAndFillByWorkItemsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test run based on configurations and work items
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param testRunFillByWorkItemsPostModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1272,8 +1272,8 @@ public class TestRunsApi {
         <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2GetModel> createAndFillByWorkItemsWithHttpInfo(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(testRunFillByWorkItemsPostModel, null);
+    public ApiResponse<TestRunV2GetModel> createAndFillByWorkItemsWithHttpInfo(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createAndFillByWorkItemsRequest, null);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1281,7 +1281,7 @@ public class TestRunsApi {
     /**
      * Create test run based on configurations and work items (asynchronously)
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param testRunFillByWorkItemsPostModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1295,30 +1295,30 @@ public class TestRunsApi {
         <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByWorkItemsAsync(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByWorkItemsAsync(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(testRunFillByWorkItemsPostModel, _callback);
+        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createAndFillByWorkItemsRequest, _callback);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createEmpty
-     * @param testRunV2PostShortModel  (optional)
+     * @param createEmptyRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmptyCall(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEmptyCall(CreateEmptyRequest createEmptyRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1332,7 +1332,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunV2PostShortModel;
+        Object localVarPostBody = createEmptyRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns";
@@ -1364,50 +1364,50 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEmptyValidateBeforeCall(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback _callback) throws ApiException {
-        return createEmptyCall(testRunV2PostShortModel, _callback);
+    private okhttp3.Call createEmptyValidateBeforeCall(CreateEmptyRequest createEmptyRequest, final ApiCallback _callback) throws ApiException {
+        return createEmptyCall(createEmptyRequest, _callback);
 
     }
 
     /**
      * Create empty TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test run  &lt;br&gt;System returns test run model
-     * @param testRunV2PostShortModel  (optional)
+     * @param createEmptyRequest  (optional)
      * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2GetModel createEmpty(TestRunV2PostShortModel testRunV2PostShortModel) throws ApiException {
-        ApiResponse<TestRunV2GetModel> localVarResp = createEmptyWithHttpInfo(testRunV2PostShortModel);
+    public TestRunV2GetModel createEmpty(CreateEmptyRequest createEmptyRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createEmptyWithHttpInfo(createEmptyRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create empty TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test run  &lt;br&gt;System returns test run model
-     * @param testRunV2PostShortModel  (optional)
+     * @param createEmptyRequest  (optional)
      * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2GetModel> createEmptyWithHttpInfo(TestRunV2PostShortModel testRunV2PostShortModel) throws ApiException {
-        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(testRunV2PostShortModel, null);
+    public ApiResponse<TestRunV2GetModel> createEmptyWithHttpInfo(CreateEmptyRequest createEmptyRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(createEmptyRequest, null);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1415,23 +1415,23 @@ public class TestRunsApi {
     /**
      * Create empty TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test run  &lt;br&gt;System returns test run model
-     * @param testRunV2PostShortModel  (optional)
+     * @param createEmptyRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmptyAsync(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call createEmptyAsync(CreateEmptyRequest createEmptyRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(testRunV2PostShortModel, _callback);
+        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(createEmptyRequest, _callback);
         Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1447,8 +1447,8 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1518,8 +1518,8 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public TestRunV2GetModel getTestRunById(UUID id) throws ApiException {
@@ -1538,8 +1538,8 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestRunV2GetModel> getTestRunByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1560,8 +1560,8 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunByIdAsync(UUID id, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
@@ -1581,12 +1581,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoTestResultsForTestRunCall(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel, final ApiCallback _callback) throws ApiException {
@@ -1656,12 +1656,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public List<UUID> setAutoTestResultsForTestRun(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1679,12 +1679,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UUID>> setAutoTestResultsForTestRunWithHttpInfo(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1704,12 +1704,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoTestResultsForTestRunAsync(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
@@ -1728,11 +1728,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startTestRunCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1799,11 +1799,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public void startTestRun(UUID id) throws ApiException {
@@ -1819,11 +1819,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> startTestRunWithHttpInfo(UUID id) throws ApiException {
@@ -1841,11 +1841,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startTestRunAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1865,9 +1865,9 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call stopTestRunCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1936,9 +1936,9 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public void stopTestRun(UUID id) throws ApiException {
@@ -1956,9 +1956,9 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> stopTestRunWithHttpInfo(UUID id) throws ApiException {
@@ -1978,9 +1978,9 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call stopTestRunAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1991,7 +1991,7 @@ public class TestRunsApi {
     }
     /**
      * Build call for updateEmpty
-     * @param testRunV2PutModel  (optional)
+     * @param updateEmptyRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2000,12 +2000,12 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmptyCall(TestRunV2PutModel testRunV2PutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateEmptyCall(UpdateEmptyRequest updateEmptyRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2019,7 +2019,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunV2PutModel;
+        Object localVarPostBody = updateEmptyRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns";
@@ -2051,34 +2051,34 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEmptyValidateBeforeCall(TestRunV2PutModel testRunV2PutModel, final ApiCallback _callback) throws ApiException {
-        return updateEmptyCall(testRunV2PutModel, _callback);
+    private okhttp3.Call updateEmptyValidateBeforeCall(UpdateEmptyRequest updateEmptyRequest, final ApiCallback _callback) throws ApiException {
+        return updateEmptyCall(updateEmptyRequest, _callback);
 
     }
 
     /**
      * Update empty TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run properties (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test run  &lt;br&gt;System returns returns no content response
-     * @param testRunV2PutModel  (optional)
+     * @param updateEmptyRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void updateEmpty(TestRunV2PutModel testRunV2PutModel) throws ApiException {
-        updateEmptyWithHttpInfo(testRunV2PutModel);
+    public void updateEmpty(UpdateEmptyRequest updateEmptyRequest) throws ApiException {
+        updateEmptyWithHttpInfo(updateEmptyRequest);
     }
 
     /**
      * Update empty TestRun
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run properties (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test run  &lt;br&gt;System returns returns no content response
-     * @param testRunV2PutModel  (optional)
+     * @param updateEmptyRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2086,20 +2086,20 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateEmptyWithHttpInfo(TestRunV2PutModel testRunV2PutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(testRunV2PutModel, null);
+    public ApiResponse<Void> updateEmptyWithHttpInfo(UpdateEmptyRequest updateEmptyRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(updateEmptyRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update empty TestRun (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test run properties (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test run  &lt;br&gt;System returns returns no content response
-     * @param testRunV2PutModel  (optional)
+     * @param updateEmptyRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2108,14 +2108,14 @@ public class TestRunsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmptyAsync(TestRunV2PutModel testRunV2PutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateEmptyAsync(UpdateEmptyRequest updateEmptyRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(testRunV2PutModel, _callback);
+        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(updateEmptyRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

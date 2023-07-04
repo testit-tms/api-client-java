@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -29,8 +27,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int64RangeSelectorModel;
+import ru.testit.client.model.TestPointFilterModelCreatedDate;
+import ru.testit.client.model.TestPointFilterModelDuration;
+import ru.testit.client.model.TestPointFilterModelModifiedDate;
+import ru.testit.client.model.TestPointFilterModelWorkItemCreatedDate;
+import ru.testit.client.model.TestPointFilterModelWorkItemModifiedDate;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
 
@@ -44,6 +45,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -62,23 +67,23 @@ import ru.testit.client.invoker.JSON;
 public class TestPointFilterModel {
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  private Set<UUID> testPlanIds = null;
+  private Set<UUID> testPlanIds;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  private Set<UUID> testSuiteIds = null;
+  private Set<UUID> testSuiteIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS)
-  private Set<Long> workItemGlobalIds = null;
+  private Set<Long> workItemGlobalIds;
 
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
   @SerializedName(SERIALIZED_NAME_STATUSES)
-  private Set<TestPointStatus> statuses = null;
+  private Set<TestPointStatus> statuses;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  private Set<WorkItemPriorityModel> priorities = null;
+  private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
@@ -90,43 +95,59 @@ public class TestPointFilterModel {
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds = null;
+  private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_TESTER_IDS = "testerIds";
   @SerializedName(SERIALIZED_NAME_TESTER_IDS)
-  private Set<UUID> testerIds = null;
+  private Set<UUID> testerIds;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  private Int64RangeSelectorModel duration;
+  private TestPointFilterModelDuration duration;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds = null;
+  private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  private TestPointFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private DateTimeRangeSelectorModel modifiedDate;
+  private TestPointFilterModelModifiedDate modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Set<String> tags = null;
+  private Set<String> tags;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes = null;
+  private Map<String, Set<String>> attributes;
+
+  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_DATE)
+  private TestPointFilterModelWorkItemCreatedDate workItemCreatedDate;
+
+  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS = "workItemCreatedByIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS)
+  private Set<UUID> workItemCreatedByIds;
+
+  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE)
+  private TestPointFilterModelWorkItemModifiedDate workItemModifiedDate;
+
+  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS = "workItemModifiedByIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS)
+  private Set<UUID> workItemModifiedByIds;
 
   public TestPointFilterModel() {
   }
@@ -150,8 +171,6 @@ public class TestPointFilterModel {
    * @return testPlanIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point test plan IDS to search for")
-
   public Set<UUID> getTestPlanIds() {
     return testPlanIds;
   }
@@ -181,8 +200,6 @@ public class TestPointFilterModel {
    * @return testSuiteIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point test suite IDs to search for")
-
   public Set<UUID> getTestSuiteIds() {
     return testSuiteIds;
   }
@@ -212,8 +229,6 @@ public class TestPointFilterModel {
    * @return workItemGlobalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point work item global IDs to search for")
-
   public Set<Long> getWorkItemGlobalIds() {
     return workItemGlobalIds;
   }
@@ -243,8 +258,6 @@ public class TestPointFilterModel {
    * @return statuses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point statuses to search for")
-
   public Set<TestPointStatus> getStatuses() {
     return statuses;
   }
@@ -274,8 +287,6 @@ public class TestPointFilterModel {
    * @return priorities
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point priorities to search for")
-
   public Set<WorkItemPriorityModel> getPriorities() {
     return priorities;
   }
@@ -297,8 +308,6 @@ public class TestPointFilterModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point automation status to search for")
-
   public Boolean getIsAutomated() {
     return isAutomated;
   }
@@ -320,8 +329,6 @@ public class TestPointFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point name to search for")
-
   public String getName() {
     return name;
   }
@@ -351,8 +358,6 @@ public class TestPointFilterModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point configuration IDs to search for")
-
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
   }
@@ -382,8 +387,6 @@ public class TestPointFilterModel {
    * @return testerIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point assigned user IDs to search for")
-
   public Set<UUID> getTesterIds() {
     return testerIds;
   }
@@ -394,7 +397,7 @@ public class TestPointFilterModel {
   }
 
 
-  public TestPointFilterModel duration(Int64RangeSelectorModel duration) {
+  public TestPointFilterModel duration(TestPointFilterModelDuration duration) {
     
     this.duration = duration;
     return this;
@@ -405,14 +408,12 @@ public class TestPointFilterModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int64RangeSelectorModel getDuration() {
+  public TestPointFilterModelDuration getDuration() {
     return duration;
   }
 
 
-  public void setDuration(Int64RangeSelectorModel duration) {
+  public void setDuration(TestPointFilterModelDuration duration) {
     this.duration = duration;
   }
 
@@ -436,8 +437,6 @@ public class TestPointFilterModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point work item section IDs to search for")
-
   public Set<UUID> getSectionIds() {
     return sectionIds;
   }
@@ -448,7 +447,7 @@ public class TestPointFilterModel {
   }
 
 
-  public TestPointFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestPointFilterModel createdDate(TestPointFilterModelCreatedDate createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -459,14 +458,12 @@ public class TestPointFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public TestPointFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(TestPointFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -490,8 +487,6 @@ public class TestPointFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point creator IDs to search for")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -502,7 +497,7 @@ public class TestPointFilterModel {
   }
 
 
-  public TestPointFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public TestPointFilterModel modifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
     
     this.modifiedDate = modifiedDate;
     return this;
@@ -513,14 +508,12 @@ public class TestPointFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getModifiedDate() {
+  public TestPointFilterModelModifiedDate getModifiedDate() {
     return modifiedDate;
   }
 
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
@@ -544,8 +537,6 @@ public class TestPointFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point last editor IDs to search for")
-
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
@@ -575,8 +566,6 @@ public class TestPointFilterModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point tags to search for")
-
   public Set<String> getTags() {
     return tags;
   }
@@ -606,8 +595,6 @@ public class TestPointFilterModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test point attributes to search for")
-
   public Map<String, Set<String>> getAttributes() {
     return attributes;
   }
@@ -615,6 +602,106 @@ public class TestPointFilterModel {
 
   public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public TestPointFilterModel workItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
+    
+    this.workItemCreatedDate = workItemCreatedDate;
+    return this;
+  }
+
+   /**
+   * Get workItemCreatedDate
+   * @return workItemCreatedDate
+  **/
+  @javax.annotation.Nullable
+  public TestPointFilterModelWorkItemCreatedDate getWorkItemCreatedDate() {
+    return workItemCreatedDate;
+  }
+
+
+  public void setWorkItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
+    this.workItemCreatedDate = workItemCreatedDate;
+  }
+
+
+  public TestPointFilterModel workItemCreatedByIds(Set<UUID> workItemCreatedByIds) {
+    
+    this.workItemCreatedByIds = workItemCreatedByIds;
+    return this;
+  }
+
+  public TestPointFilterModel addWorkItemCreatedByIdsItem(UUID workItemCreatedByIdsItem) {
+    if (this.workItemCreatedByIds == null) {
+      this.workItemCreatedByIds = new LinkedHashSet<>();
+    }
+    this.workItemCreatedByIds.add(workItemCreatedByIdsItem);
+    return this;
+  }
+
+   /**
+   * Specifies a work item creator IDs to search for
+   * @return workItemCreatedByIds
+  **/
+  @javax.annotation.Nullable
+  public Set<UUID> getWorkItemCreatedByIds() {
+    return workItemCreatedByIds;
+  }
+
+
+  public void setWorkItemCreatedByIds(Set<UUID> workItemCreatedByIds) {
+    this.workItemCreatedByIds = workItemCreatedByIds;
+  }
+
+
+  public TestPointFilterModel workItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
+    
+    this.workItemModifiedDate = workItemModifiedDate;
+    return this;
+  }
+
+   /**
+   * Get workItemModifiedDate
+   * @return workItemModifiedDate
+  **/
+  @javax.annotation.Nullable
+  public TestPointFilterModelWorkItemModifiedDate getWorkItemModifiedDate() {
+    return workItemModifiedDate;
+  }
+
+
+  public void setWorkItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
+    this.workItemModifiedDate = workItemModifiedDate;
+  }
+
+
+  public TestPointFilterModel workItemModifiedByIds(Set<UUID> workItemModifiedByIds) {
+    
+    this.workItemModifiedByIds = workItemModifiedByIds;
+    return this;
+  }
+
+  public TestPointFilterModel addWorkItemModifiedByIdsItem(UUID workItemModifiedByIdsItem) {
+    if (this.workItemModifiedByIds == null) {
+      this.workItemModifiedByIds = new LinkedHashSet<>();
+    }
+    this.workItemModifiedByIds.add(workItemModifiedByIdsItem);
+    return this;
+  }
+
+   /**
+   * Specifies a work item last editor IDs to search for
+   * @return workItemModifiedByIds
+  **/
+  @javax.annotation.Nullable
+  public Set<UUID> getWorkItemModifiedByIds() {
+    return workItemModifiedByIds;
+  }
+
+
+  public void setWorkItemModifiedByIds(Set<UUID> workItemModifiedByIds) {
+    this.workItemModifiedByIds = workItemModifiedByIds;
   }
 
 
@@ -644,7 +731,11 @@ public class TestPointFilterModel {
         Objects.equals(this.modifiedDate, testPointFilterModel.modifiedDate) &&
         Objects.equals(this.modifiedByIds, testPointFilterModel.modifiedByIds) &&
         Objects.equals(this.tags, testPointFilterModel.tags) &&
-        Objects.equals(this.attributes, testPointFilterModel.attributes);
+        Objects.equals(this.attributes, testPointFilterModel.attributes) &&
+        Objects.equals(this.workItemCreatedDate, testPointFilterModel.workItemCreatedDate) &&
+        Objects.equals(this.workItemCreatedByIds, testPointFilterModel.workItemCreatedByIds) &&
+        Objects.equals(this.workItemModifiedDate, testPointFilterModel.workItemModifiedDate) &&
+        Objects.equals(this.workItemModifiedByIds, testPointFilterModel.workItemModifiedByIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -653,7 +744,7 @@ public class TestPointFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes);
+    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -684,6 +775,10 @@ public class TestPointFilterModel {
     sb.append("    modifiedByIds: ").append(toIndentedString(modifiedByIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    workItemCreatedDate: ").append(toIndentedString(workItemCreatedDate)).append("\n");
+    sb.append("    workItemCreatedByIds: ").append(toIndentedString(workItemCreatedByIds)).append("\n");
+    sb.append("    workItemModifiedDate: ").append(toIndentedString(workItemModifiedDate)).append("\n");
+    sb.append("    workItemModifiedByIds: ").append(toIndentedString(workItemModifiedByIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -723,6 +818,10 @@ public class TestPointFilterModel {
     openapiFields.add("modifiedByIds");
     openapiFields.add("tags");
     openapiFields.add("attributes");
+    openapiFields.add("workItemCreatedDate");
+    openapiFields.add("workItemCreatedByIds");
+    openapiFields.add("workItemModifiedDate");
+    openapiFields.add("workItemModifiedByIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -781,7 +880,7 @@ public class TestPointFilterModel {
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        Int64RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+        TestPointFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
@@ -789,7 +888,7 @@ public class TestPointFilterModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        TestPointFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
@@ -797,7 +896,7 @@ public class TestPointFilterModel {
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        TestPointFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
@@ -806,6 +905,22 @@ public class TestPointFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // validate the optional field `workItemCreatedDate`
+      if (jsonObj.get("workItemCreatedDate") != null && !jsonObj.get("workItemCreatedDate").isJsonNull()) {
+        TestPointFilterModelWorkItemCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemCreatedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("workItemCreatedByIds") != null && !jsonObj.get("workItemCreatedByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemCreatedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemCreatedByIds").toString()));
+      }
+      // validate the optional field `workItemModifiedDate`
+      if (jsonObj.get("workItemModifiedDate") != null && !jsonObj.get("workItemModifiedDate").isJsonNull()) {
+        TestPointFilterModelWorkItemModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemModifiedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("workItemModifiedByIds") != null && !jsonObj.get("workItemModifiedByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemModifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemModifiedByIds").toString()));
       }
   }
 

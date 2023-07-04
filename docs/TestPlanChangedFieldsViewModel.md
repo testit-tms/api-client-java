@@ -7,18 +7,18 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | [**StringTestPlanChangedFieldViewModel**](StringTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**description** | [**StringTestPlanChangedFieldViewModel**](StringTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**productName** | [**StringTestPlanChangedFieldViewModel**](StringTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**build** | [**StringTestPlanChangedFieldViewModel**](StringTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**period** | [**PeriodViewModelTestPlanChangedFieldViewModel**](PeriodViewModelTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**status** | [**StringTestPlanChangedFieldViewModel**](StringTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**tags** | [**StringArrayTestPlanChangedFieldViewModel**](StringArrayTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**testSuite** | [**TestSuiteChangeViewModelTestPlanChangedFieldViewModel**](TestSuiteChangeViewModelTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**testPoints** | [**TestPointChangeViewModelTestPlanChangedFieldViewModel**](TestPointChangeViewModelTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**testResults** | [**TestResultChangeViewModelTestPlanChangedFieldViewModel**](TestResultChangeViewModelTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**locking** | [**BooleanTestPlanChangedFieldViewModel**](BooleanTestPlanChangedFieldViewModel.md) |  |  [optional] |
-|**hasAutomaticDurationTimer** | [**BooleanNullableTestPlanChangedFieldViewModel**](BooleanNullableTestPlanChangedFieldViewModel.md) |  |  [optional] |
+|**name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**productName** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**build** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**period** | [**PeriodViewModelChangedFieldViewModel**](PeriodViewModelChangedFieldViewModel.md) |  |  [optional] |
+|**status** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**tags** | [**StringArrayChangedFieldViewModel**](StringArrayChangedFieldViewModel.md) |  |  [optional] |
+|**testSuite** | [**TestSuiteChangeViewModelChangedFieldViewModel**](TestSuiteChangeViewModelChangedFieldViewModel.md) |  |  [optional] |
+|**testPoints** | [**TestPointChangeViewModelChangedFieldViewModel**](TestPointChangeViewModelChangedFieldViewModel.md) |  |  [optional] |
+|**testResults** | [**TestResultChangeViewModelChangedFieldViewModel**](TestResultChangeViewModelChangedFieldViewModel.md) |  |  [optional] |
+|**locking** | [**BooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  |  [optional] |
+|**hasAutomaticDurationTimer** | [**BooleanNullableChangedFieldViewModel**](BooleanNullableChangedFieldViewModel.md) |  |  [optional] |
 |**attributes** | [**Map&lt;String, CustomAttributeChangeModel&gt;**](CustomAttributeChangeModel.md) |  |  [optional] |
 
 

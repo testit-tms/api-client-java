@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +37,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -73,7 +75,7 @@ public class TestResultStepCommentPutModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments = null;
+  private List<AttachmentPutModel> attachments;
 
   public TestResultStepCommentPutModel() {
   }
@@ -89,8 +91,6 @@ public class TestResultStepCommentPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -112,8 +112,6 @@ public class TestResultStepCommentPutModel {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getText() {
     return text;
   }
@@ -135,8 +133,6 @@ public class TestResultStepCommentPutModel {
    * @return stepId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public UUID getStepId() {
     return stepId;
   }
@@ -158,8 +154,6 @@ public class TestResultStepCommentPutModel {
    * @return parentStepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getParentStepId() {
     return parentStepId;
   }
@@ -189,8 +183,6 @@ public class TestResultStepCommentPutModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }

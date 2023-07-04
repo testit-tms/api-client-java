@@ -20,9 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,6 +38,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -56,12 +59,17 @@ import ru.testit.client.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteV2TreeModel {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TestSuiteV2TreeModel> children = null;
+  private List<TestSuiteV2TreeModel> children;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
+
+  public static final String SERIALIZED_NAME_REFRESH_DATE = "refreshDate";
+  @SerializedName(SERIALIZED_NAME_REFRESH_DATE)
+  private OffsetDateTime refreshDate;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
@@ -83,9 +91,14 @@ public class TestSuiteV2TreeModel {
   @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
   private Boolean saveStructure;
 
+  public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
+  @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
+  private Boolean autoRefresh;
+
   public TestSuiteV2TreeModel() {
   }
 
+  @Deprecated
   public TestSuiteV2TreeModel children(List<TestSuiteV2TreeModel> children) {
     
     this.children = children;
@@ -107,13 +120,12 @@ public class TestSuiteV2TreeModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "nested enumeration of children is allowed")
-
   public List<TestSuiteV2TreeModel> getChildren() {
     return children;
   }
 
 
+  @Deprecated
   public void setChildren(List<TestSuiteV2TreeModel> children) {
     this.children = children;
   }
@@ -126,12 +138,10 @@ public class TestSuiteV2TreeModel {
   }
 
    /**
-   * Get id
+   * Unique ID of the test suite
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getId() {
     return id;
   }
@@ -142,6 +152,27 @@ public class TestSuiteV2TreeModel {
   }
 
 
+  public TestSuiteV2TreeModel refreshDate(OffsetDateTime refreshDate) {
+    
+    this.refreshDate = refreshDate;
+    return this;
+  }
+
+   /**
+   * Date of the last refresh of the test suite
+   * @return refreshDate
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getRefreshDate() {
+    return refreshDate;
+  }
+
+
+  public void setRefreshDate(OffsetDateTime refreshDate) {
+    this.refreshDate = refreshDate;
+  }
+
+
   public TestSuiteV2TreeModel parentId(UUID parentId) {
     
     this.parentId = parentId;
@@ -149,12 +180,10 @@ public class TestSuiteV2TreeModel {
   }
 
    /**
-   * Get parentId
+   * Unique ID of the parent test suite in hierarchy
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -172,12 +201,10 @@ public class TestSuiteV2TreeModel {
   }
 
    /**
-   * Get testPlanId
+   * Unique ID of test plan to which the test suite belongs
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -195,12 +222,10 @@ public class TestSuiteV2TreeModel {
   }
 
    /**
-   * Get name
+   * Name of the test suite
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "base test suite", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -222,8 +247,6 @@ public class TestSuiteV2TreeModel {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TestSuiteType getType() {
     return type;
   }
@@ -241,12 +264,10 @@ public class TestSuiteV2TreeModel {
   }
 
    /**
-   * Get saveStructure
+   * Indicates if the test suite retains section tree structure
    * @return saveStructure
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getSaveStructure() {
     return saveStructure;
   }
@@ -254,6 +275,27 @@ public class TestSuiteV2TreeModel {
 
   public void setSaveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
+  }
+
+
+  public TestSuiteV2TreeModel autoRefresh(Boolean autoRefresh) {
+    
+    this.autoRefresh = autoRefresh;
+    return this;
+  }
+
+   /**
+   * Indicates if scheduled auto refresh is enabled for the test suite
+   * @return autoRefresh
+  **/
+  @javax.annotation.Nullable
+  public Boolean getAutoRefresh() {
+    return autoRefresh;
+  }
+
+
+  public void setAutoRefresh(Boolean autoRefresh) {
+    this.autoRefresh = autoRefresh;
   }
 
 
@@ -269,11 +311,13 @@ public class TestSuiteV2TreeModel {
     TestSuiteV2TreeModel testSuiteV2TreeModel = (TestSuiteV2TreeModel) o;
     return Objects.equals(this.children, testSuiteV2TreeModel.children) &&
         Objects.equals(this.id, testSuiteV2TreeModel.id) &&
+        Objects.equals(this.refreshDate, testSuiteV2TreeModel.refreshDate) &&
         Objects.equals(this.parentId, testSuiteV2TreeModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteV2TreeModel.testPlanId) &&
         Objects.equals(this.name, testSuiteV2TreeModel.name) &&
         Objects.equals(this.type, testSuiteV2TreeModel.type) &&
-        Objects.equals(this.saveStructure, testSuiteV2TreeModel.saveStructure);
+        Objects.equals(this.saveStructure, testSuiteV2TreeModel.saveStructure) &&
+        Objects.equals(this.autoRefresh, testSuiteV2TreeModel.autoRefresh);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -282,7 +326,7 @@ public class TestSuiteV2TreeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(children, id, parentId, testPlanId, name, type, saveStructure);
+    return Objects.hash(children, id, refreshDate, parentId, testPlanId, name, type, saveStructure, autoRefresh);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -298,11 +342,13 @@ public class TestSuiteV2TreeModel {
     sb.append("class TestSuiteV2TreeModel {\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    refreshDate: ").append(toIndentedString(refreshDate)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    saveStructure: ").append(toIndentedString(saveStructure)).append("\n");
+    sb.append("    autoRefresh: ").append(toIndentedString(autoRefresh)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -327,11 +373,13 @@ public class TestSuiteV2TreeModel {
     openapiFields = new HashSet<String>();
     openapiFields.add("children");
     openapiFields.add("id");
+    openapiFields.add("refreshDate");
     openapiFields.add("parentId");
     openapiFields.add("testPlanId");
     openapiFields.add("name");
     openapiFields.add("type");
     openapiFields.add("saveStructure");
+    openapiFields.add("autoRefresh");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

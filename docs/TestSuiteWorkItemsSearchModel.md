@@ -13,9 +13,9 @@
 |**priorities** | **Set&lt;WorkItemPriorityModel&gt;** | Collection of priorities of work item |  [optional] |
 |**isAutomated** | **Boolean** | Is result must consist of only manual/automated work items |  [optional] |
 |**states** | **Set&lt;WorkItemStates&gt;** | Collection of states of work item |  [optional] |
-|**duration** | [**Int32RangeSelectorModel**](Int32RangeSelectorModel.md) |  |  [optional] |
-|**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
-|**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**duration** | [**TestSuiteWorkItemsSearchModelDuration**](TestSuiteWorkItemsSearchModelDuration.md) |  |  [optional] |
+|**createdDate** | [**TestSuiteWorkItemsSearchModelCreatedDate**](TestSuiteWorkItemsSearchModelCreatedDate.md) |  |  [optional] |
+|**modifiedDate** | [**TestSuiteWorkItemsSearchModelModifiedDate**](TestSuiteWorkItemsSearchModelModifiedDate.md) |  |  [optional] |
 |**createdByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who created work item |  [optional] |
 |**modifiedByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who applied last modification to work item |  [optional] |
 |**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** | Custom attributes of work item |  [optional] |

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -92,6 +94,9 @@ public class TestRunFillByWorkItemsPostModel {
   }
 
   public TestRunFillByWorkItemsPostModel addConfigurationIdsItem(UUID configurationIdsItem) {
+    if (this.configurationIds == null) {
+      this.configurationIds = new ArrayList<>();
+    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -101,8 +106,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return configurationIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
-
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
@@ -120,6 +123,9 @@ public class TestRunFillByWorkItemsPostModel {
   }
 
   public TestRunFillByWorkItemsPostModel addWorkItemIdsItem(UUID workItemIdsItem) {
+    if (this.workItemIds == null) {
+      this.workItemIds = new ArrayList<>();
+    }
     this.workItemIds.add(workItemIdsItem);
     return this;
   }
@@ -129,8 +135,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return workItemIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.")
-
   public List<UUID> getWorkItemIds() {
     return workItemIds;
   }
@@ -152,8 +156,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the project, in which a test run will be created.")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -175,8 +177,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the test plan, within which the test run will be created.")
-
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -198,8 +198,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the name of the test run.")
-
   public String getName() {
     return name;
   }
@@ -221,8 +219,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run description.")
-
   public String getDescription() {
     return description;
   }
@@ -244,8 +240,6 @@ public class TestRunFillByWorkItemsPostModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run launch source.")
-
   public String getLaunchSource() {
     return launchSource;
   }

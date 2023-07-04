@@ -18,7 +18,7 @@
 |**state** | **TestRunState** |  |  |
 |**startedDate** | **OffsetDateTime** | Date when the test run was started |  [optional] |
 |**autotestsCount** | **Integer** | Number of autotests run in the test run |  [optional] |
-|**statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  |  |
+|**statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  |  |
 
 
 

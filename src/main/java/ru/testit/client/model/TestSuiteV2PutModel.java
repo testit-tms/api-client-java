@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -36,6 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -68,6 +70,10 @@ public class TestSuiteV2PutModel {
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
 
+  public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
+  @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
+  private Boolean autoRefresh;
+
   public TestSuiteV2PutModel() {
   }
 
@@ -82,8 +88,6 @@ public class TestSuiteV2PutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public UUID getId() {
     return id;
   }
@@ -105,8 +109,6 @@ public class TestSuiteV2PutModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getParentId() {
     return parentId;
   }
@@ -128,8 +130,6 @@ public class TestSuiteV2PutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -151,8 +151,6 @@ public class TestSuiteV2PutModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -160,6 +158,27 @@ public class TestSuiteV2PutModel {
 
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
+  }
+
+
+  public TestSuiteV2PutModel autoRefresh(Boolean autoRefresh) {
+    
+    this.autoRefresh = autoRefresh;
+    return this;
+  }
+
+   /**
+   * Get autoRefresh
+   * @return autoRefresh
+  **/
+  @javax.annotation.Nullable
+  public Boolean getAutoRefresh() {
+    return autoRefresh;
+  }
+
+
+  public void setAutoRefresh(Boolean autoRefresh) {
+    this.autoRefresh = autoRefresh;
   }
 
 
@@ -176,7 +195,8 @@ public class TestSuiteV2PutModel {
     return Objects.equals(this.id, testSuiteV2PutModel.id) &&
         Objects.equals(this.parentId, testSuiteV2PutModel.parentId) &&
         Objects.equals(this.name, testSuiteV2PutModel.name) &&
-        Objects.equals(this.isDeleted, testSuiteV2PutModel.isDeleted);
+        Objects.equals(this.isDeleted, testSuiteV2PutModel.isDeleted) &&
+        Objects.equals(this.autoRefresh, testSuiteV2PutModel.autoRefresh);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -185,7 +205,7 @@ public class TestSuiteV2PutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, name, isDeleted);
+    return Objects.hash(id, parentId, name, isDeleted, autoRefresh);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -203,6 +223,7 @@ public class TestSuiteV2PutModel {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    autoRefresh: ").append(toIndentedString(autoRefresh)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,6 +250,7 @@ public class TestSuiteV2PutModel {
     openapiFields.add("parentId");
     openapiFields.add("name");
     openapiFields.add("isDeleted");
+    openapiFields.add("autoRefresh");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

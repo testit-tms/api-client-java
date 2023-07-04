@@ -20,10 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import ru.testit.client.model.GuidExtractionModel;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.ConfigurationExtractionModelProjectIds;
+import ru.testit.client.model.WorkItemsExtractionModelIds;
+import ru.testit.client.model.WorkItemsExtractionModelSectionIds;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -49,25 +54,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * Rules for different level entities inclusion/exclusion
  */
-@ApiModel(description = "Rules for different level entities inclusion/exclusion")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemsExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  private GuidExtractionModel ids;
+  private WorkItemsExtractionModelIds ids;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private GuidExtractionModel sectionIds;
+  private WorkItemsExtractionModelSectionIds sectionIds;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private GuidExtractionModel projectIds;
+  private ConfigurationExtractionModelProjectIds projectIds;
 
   public WorkItemsExtractionModel() {
   }
 
-  public WorkItemsExtractionModel ids(GuidExtractionModel ids) {
+  public WorkItemsExtractionModel ids(WorkItemsExtractionModelIds ids) {
     
     this.ids = ids;
     return this;
@@ -78,19 +82,17 @@ public class WorkItemsExtractionModel {
    * @return ids
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public GuidExtractionModel getIds() {
+  public WorkItemsExtractionModelIds getIds() {
     return ids;
   }
 
 
-  public void setIds(GuidExtractionModel ids) {
+  public void setIds(WorkItemsExtractionModelIds ids) {
     this.ids = ids;
   }
 
 
-  public WorkItemsExtractionModel sectionIds(GuidExtractionModel sectionIds) {
+  public WorkItemsExtractionModel sectionIds(WorkItemsExtractionModelSectionIds sectionIds) {
     
     this.sectionIds = sectionIds;
     return this;
@@ -101,19 +103,17 @@ public class WorkItemsExtractionModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public GuidExtractionModel getSectionIds() {
+  public WorkItemsExtractionModelSectionIds getSectionIds() {
     return sectionIds;
   }
 
 
-  public void setSectionIds(GuidExtractionModel sectionIds) {
+  public void setSectionIds(WorkItemsExtractionModelSectionIds sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public WorkItemsExtractionModel projectIds(GuidExtractionModel projectIds) {
+  public WorkItemsExtractionModel projectIds(ConfigurationExtractionModelProjectIds projectIds) {
     
     this.projectIds = projectIds;
     return this;
@@ -124,14 +124,12 @@ public class WorkItemsExtractionModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public GuidExtractionModel getProjectIds() {
+  public ConfigurationExtractionModelProjectIds getProjectIds() {
     return projectIds;
   }
 
 
-  public void setProjectIds(GuidExtractionModel projectIds) {
+  public void setProjectIds(ConfigurationExtractionModelProjectIds projectIds) {
     this.projectIds = projectIds;
   }
 
@@ -151,9 +149,20 @@ public class WorkItemsExtractionModel {
         Objects.equals(this.projectIds, workItemsExtractionModel.projectIds);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(ids, sectionIds, projectIds);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -215,15 +224,15 @@ public class WorkItemsExtractionModel {
       }
       // validate the optional field `ids`
       if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("ids"));
+        WorkItemsExtractionModelIds.validateJsonObject(jsonObj.getAsJsonObject("ids"));
       }
       // validate the optional field `sectionIds`
       if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull()) {
-        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("sectionIds"));
+        WorkItemsExtractionModelSectionIds.validateJsonObject(jsonObj.getAsJsonObject("sectionIds"));
       }
       // validate the optional field `projectIds`
       if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull()) {
-        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("projectIds"));
+        ConfigurationExtractionModelProjectIds.validateJsonObject(jsonObj.getAsJsonObject("projectIds"));
       }
   }
 

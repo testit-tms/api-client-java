@@ -20,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int32RangeSelectorModel;
+import ru.testit.client.model.ProjectsFilterModelAutotestsCount;
+import ru.testit.client.model.ProjectsFilterModelChecklistsCount;
+import ru.testit.client.model.ProjectsFilterModelCreatedDate;
+import ru.testit.client.model.ProjectsFilterModelSharedStepsCount;
+import ru.testit.client.model.ProjectsFilterModelTestCasesCount;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,6 +41,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -70,31 +75,31 @@ public class ProjectsFilterModel {
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
-  private Int32RangeSelectorModel testCasesCount;
+  private ProjectsFilterModelTestCasesCount testCasesCount;
 
   public static final String SERIALIZED_NAME_CHECKLISTS_COUNT = "checklistsCount";
   @SerializedName(SERIALIZED_NAME_CHECKLISTS_COUNT)
-  private Int32RangeSelectorModel checklistsCount;
+  private ProjectsFilterModelChecklistsCount checklistsCount;
 
   public static final String SERIALIZED_NAME_SHARED_STEPS_COUNT = "sharedStepsCount";
   @SerializedName(SERIALIZED_NAME_SHARED_STEPS_COUNT)
-  private Int32RangeSelectorModel sharedStepsCount;
+  private ProjectsFilterModelSharedStepsCount sharedStepsCount;
 
   public static final String SERIALIZED_NAME_AUTOTESTS_COUNT = "autotestsCount";
   @SerializedName(SERIALIZED_NAME_AUTOTESTS_COUNT)
-  private Int32RangeSelectorModel autotestsCount;
+  private ProjectsFilterModelAutotestsCount autotestsCount;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  private ProjectsFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public ProjectsFilterModel() {
   }
@@ -110,8 +115,6 @@ public class ProjectsFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project name to search for")
-
   public String getName() {
     return name;
   }
@@ -133,8 +136,6 @@ public class ProjectsFilterModel {
    * @return isFavorite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project favorite status to search for")
-
   public Boolean getIsFavorite() {
     return isFavorite;
   }
@@ -156,8 +157,6 @@ public class ProjectsFilterModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project deleted status to search for")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -168,7 +167,7 @@ public class ProjectsFilterModel {
   }
 
 
-  public ProjectsFilterModel testCasesCount(Int32RangeSelectorModel testCasesCount) {
+  public ProjectsFilterModel testCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
     
     this.testCasesCount = testCasesCount;
     return this;
@@ -179,19 +178,17 @@ public class ProjectsFilterModel {
    * @return testCasesCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int32RangeSelectorModel getTestCasesCount() {
+  public ProjectsFilterModelTestCasesCount getTestCasesCount() {
     return testCasesCount;
   }
 
 
-  public void setTestCasesCount(Int32RangeSelectorModel testCasesCount) {
+  public void setTestCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
-  public ProjectsFilterModel checklistsCount(Int32RangeSelectorModel checklistsCount) {
+  public ProjectsFilterModel checklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
     
     this.checklistsCount = checklistsCount;
     return this;
@@ -202,19 +199,17 @@ public class ProjectsFilterModel {
    * @return checklistsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int32RangeSelectorModel getChecklistsCount() {
+  public ProjectsFilterModelChecklistsCount getChecklistsCount() {
     return checklistsCount;
   }
 
 
-  public void setChecklistsCount(Int32RangeSelectorModel checklistsCount) {
+  public void setChecklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
     this.checklistsCount = checklistsCount;
   }
 
 
-  public ProjectsFilterModel sharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+  public ProjectsFilterModel sharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
     
     this.sharedStepsCount = sharedStepsCount;
     return this;
@@ -225,19 +220,17 @@ public class ProjectsFilterModel {
    * @return sharedStepsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int32RangeSelectorModel getSharedStepsCount() {
+  public ProjectsFilterModelSharedStepsCount getSharedStepsCount() {
     return sharedStepsCount;
   }
 
 
-  public void setSharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+  public void setSharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
-  public ProjectsFilterModel autotestsCount(Int32RangeSelectorModel autotestsCount) {
+  public ProjectsFilterModel autotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
     
     this.autotestsCount = autotestsCount;
     return this;
@@ -248,14 +241,12 @@ public class ProjectsFilterModel {
    * @return autotestsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Int32RangeSelectorModel getAutotestsCount() {
+  public ProjectsFilterModelAutotestsCount getAutotestsCount() {
     return autotestsCount;
   }
 
 
-  public void setAutotestsCount(Int32RangeSelectorModel autotestsCount) {
+  public void setAutotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
     this.autotestsCount = autotestsCount;
   }
 
@@ -279,8 +270,6 @@ public class ProjectsFilterModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a project global IDs to search for")
-
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
@@ -291,7 +280,7 @@ public class ProjectsFilterModel {
   }
 
 
-  public ProjectsFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public ProjectsFilterModel createdDate(ProjectsFilterModelCreatedDate createdDate) {
     
     this.createdDate = createdDate;
     return this;
@@ -302,14 +291,12 @@ public class ProjectsFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public ProjectsFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(ProjectsFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -333,8 +320,6 @@ public class ProjectsFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies an autotest creator IDs to search for")
-
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
@@ -459,19 +444,19 @@ public class ProjectsFilterModel {
       }
       // validate the optional field `testCasesCount`
       if (jsonObj.get("testCasesCount") != null && !jsonObj.get("testCasesCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("testCasesCount"));
+        ProjectsFilterModelTestCasesCount.validateJsonObject(jsonObj.getAsJsonObject("testCasesCount"));
       }
       // validate the optional field `checklistsCount`
       if (jsonObj.get("checklistsCount") != null && !jsonObj.get("checklistsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("checklistsCount"));
+        ProjectsFilterModelChecklistsCount.validateJsonObject(jsonObj.getAsJsonObject("checklistsCount"));
       }
       // validate the optional field `sharedStepsCount`
       if (jsonObj.get("sharedStepsCount") != null && !jsonObj.get("sharedStepsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("sharedStepsCount"));
+        ProjectsFilterModelSharedStepsCount.validateJsonObject(jsonObj.getAsJsonObject("sharedStepsCount"));
       }
       // validate the optional field `autotestsCount`
       if (jsonObj.get("autotestsCount") != null && !jsonObj.get("autotestsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("autotestsCount"));
+        ProjectsFilterModelAutotestsCount.validateJsonObject(jsonObj.getAsJsonObject("autotestsCount"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
@@ -479,7 +464,7 @@ public class ProjectsFilterModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        ProjectsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {

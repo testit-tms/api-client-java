@@ -17,11 +17,10 @@ All URIs are relative to *http://localhost*
 | [**deleteParameter**](ParametersApi.md#deleteParameter) | **DELETE** /api/v2/parameters/{id} | Delete parameter |
 | [**getAllParameters**](ParametersApi.md#getAllParameters) | **GET** /api/v2/parameters | Get all parameters |
 | [**getParameterById**](ParametersApi.md#getParameterById) | **GET** /api/v2/parameters/{id} | Get parameter by ID |
-| [**obsoleteDeleteByName**](ParametersApi.md#obsoleteDeleteByName) | **POST** /api/v2/parameters/deleteByName |  |
 | [**updateParameter**](ParametersApi.md#updateParameter) | **PUT** /api/v2/parameters | Update parameter |
 
 
-<a name="apiV2ParametersBulkPost"></a>
+<a id="apiV2ParametersBulkPost"></a>
 # **apiV2ParametersBulkPost**
 > List&lt;ParameterModel&gt; apiV2ParametersBulkPost(parameterPostModel)
 
@@ -91,7 +90,7 @@ public class Example {
 | **201** | Created |  -  |
 | **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 
-<a name="apiV2ParametersBulkPut"></a>
+<a id="apiV2ParametersBulkPut"></a>
 # **apiV2ParametersBulkPut**
 > apiV2ParametersBulkPut(parameterPutModel)
 
@@ -157,12 +156,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 | **204** | No Content |  -  |
+| **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 | **403** | Invalid user permissions |  -  |
 | **422** | Client Error |  -  |
 
-<a name="apiV2ParametersGroupsGet"></a>
+<a id="apiV2ParametersGroupsGet"></a>
 # **apiV2ParametersGroupsGet**
 > List&lt;ParameterGroupModel&gt; apiV2ParametersGroupsGet(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue)
 
@@ -244,7 +243,7 @@ public class Example {
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **401** | Unauthorized |  -  |
 
-<a name="apiV2ParametersKeyNameNameExistsGet"></a>
+<a id="apiV2ParametersKeyNameNameExistsGet"></a>
 # **apiV2ParametersKeyNameNameExistsGet**
 > Boolean apiV2ParametersKeyNameNameExistsGet(name)
 
@@ -314,7 +313,7 @@ public class Example {
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 
-<a name="apiV2ParametersKeyValuesGet"></a>
+<a id="apiV2ParametersKeyValuesGet"></a>
 # **apiV2ParametersKeyValuesGet**
 > List&lt;String&gt; apiV2ParametersKeyValuesGet(key)
 
@@ -383,7 +382,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 
-<a name="apiV2ParametersKeysGet"></a>
+<a id="apiV2ParametersKeysGet"></a>
 # **apiV2ParametersKeysGet**
 > List&lt;String&gt; apiV2ParametersKeysGet()
 
@@ -448,9 +447,9 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 
-<a name="apiV2ParametersSearchPost"></a>
+<a id="apiV2ParametersSearchPost"></a>
 # **apiV2ParametersSearchPost**
-> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest)
 
 Search for parameters
 
@@ -481,9 +480,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest = new ApiV2ParametersSearchPostRequest(); // ApiV2ParametersSearchPostRequest | 
     try {
-      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
@@ -505,7 +504,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+| **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -525,9 +524,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
-<a name="createParameter"></a>
+<a id="createParameter"></a>
 # **createParameter**
-> ParameterModel createParameter(parameterPostModel)
+> ParameterModel createParameter(createParameterRequest)
 
 Create parameter
 
@@ -555,9 +554,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPostModel parameterPostModel = new ParameterPostModel(); // ParameterPostModel | 
+    CreateParameterRequest createParameterRequest = new CreateParameterRequest(); // CreateParameterRequest | 
     try {
-      ParameterModel result = apiInstance.createParameter(parameterPostModel);
+      ParameterModel result = apiInstance.createParameter(createParameterRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#createParameter");
@@ -574,7 +573,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional] |
+| **createParameterRequest** | [**CreateParameterRequest**](CreateParameterRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -595,7 +594,7 @@ public class Example {
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 
-<a name="deleteByName"></a>
+<a id="deleteByName"></a>
 # **deleteByName**
 > deleteByName(name)
 
@@ -665,7 +664,7 @@ null (empty response body)
 | **400** | Provided name either is empty or contains only white spaces |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a name="deleteByParameterKeyId"></a>
+<a id="deleteByParameterKeyId"></a>
 # **deleteByParameterKeyId**
 > deleteByParameterKeyId(keyId)
 
@@ -731,11 +730,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Invalid user permissions |  -  |
 | **204** | No Content |  -  |
+| **403** | Invalid user permissions |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a name="deleteParameter"></a>
+<a id="deleteParameter"></a>
 # **deleteParameter**
 > deleteParameter(id)
 
@@ -805,7 +804,7 @@ null (empty response body)
 | **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a name="getAllParameters"></a>
+<a id="getAllParameters"></a>
 # **getAllParameters**
 > ParameterModel getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue)
 
@@ -885,7 +884,7 @@ public class Example {
 | **201** | Created |  -  |
 | **403** | Invalid user permissions |  -  |
 
-<a name="getParameterById"></a>
+<a id="getParameterById"></a>
 # **getParameterById**
 > ParameterModel getParameterById(id)
 
@@ -952,78 +951,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Success |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
-| **200** | Success |  -  |
 
-<a name="obsoleteDeleteByName"></a>
-# **obsoleteDeleteByName**
-> obsoleteDeleteByName(name)
-
-
-
-### Example
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
-import ru.testit.client.api.ParametersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    String name = "name_example"; // String | 
-    try {
-      apiInstance.obsoleteDeleteByName(name);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#obsoleteDeleteByName");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**|  | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-<a name="updateParameter"></a>
+<a id="updateParameter"></a>
 # **updateParameter**
-> updateParameter(parameterPutModel)
+> updateParameter(updateParameterRequest)
 
 Update parameter
 
@@ -1051,9 +984,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPutModel parameterPutModel = new ParameterPutModel(); // ParameterPutModel | 
+    UpdateParameterRequest updateParameterRequest = new UpdateParameterRequest(); // UpdateParameterRequest | 
     try {
-      apiInstance.updateParameter(parameterPutModel);
+      apiInstance.updateParameter(updateParameterRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#updateParameter");
       System.err.println("Status code: " + e.getCode());
@@ -1069,7 +1002,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional] |
+| **updateParameterRequest** | [**UpdateParameterRequest**](UpdateParameterRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1087,7 +1020,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **204** | No Content |  -  |
+| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
 

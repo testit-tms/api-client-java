@@ -20,13 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeModel;
 
 import com.google.gson.Gson;
@@ -39,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -69,7 +70,7 @@ public class ProjectCustomAttributeTemplateGetModel {
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
-  private List<CustomAttributeModel> customAttributeModels = null;
+  private List<CustomAttributeModel> customAttributeModels;
 
   public ProjectCustomAttributeTemplateGetModel() {
   }
@@ -85,8 +86,6 @@ public class ProjectCustomAttributeTemplateGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the custom attributes template")
-
   public UUID getId() {
     return id;
   }
@@ -108,8 +107,6 @@ public class ProjectCustomAttributeTemplateGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the custom attribute template is deleted")
-
   public Boolean getIsDeleted() {
     return isDeleted;
   }
@@ -131,8 +128,6 @@ public class ProjectCustomAttributeTemplateGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the custom attribute template")
-
   public String getName() {
     return name;
   }
@@ -162,8 +157,6 @@ public class ProjectCustomAttributeTemplateGetModel {
    * @return customAttributeModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Attributes of the template")
-
   public List<CustomAttributeModel> getCustomAttributeModels() {
     return customAttributeModels;
   }
@@ -190,20 +183,9 @@ public class ProjectCustomAttributeTemplateGetModel {
         Objects.equals(this.customAttributeModels, projectCustomAttributeTemplateGetModel.customAttributeModels);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, isDeleted, name, customAttributeModels);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

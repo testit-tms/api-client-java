@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -62,17 +64,9 @@ public class ConfigurationPutModel {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_IS_ACTIVE = "isActive";
-  @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
-  private Boolean isActive;
-
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  private Map<String, String> capabilities = null;
-
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -100,8 +94,6 @@ public class ConfigurationPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "9f19cda3-c1e5-4922-8e26-50dd59f8b0b7", required = true, value = "")
-
   public UUID getId() {
     return id;
   }
@@ -123,8 +115,6 @@ public class ConfigurationPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default configuration", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -132,62 +122,6 @@ public class ConfigurationPutModel {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public ConfigurationPutModel isActive(Boolean isActive) {
-    
-    this.isActive = isActive;
-    return this;
-  }
-
-   /**
-   * Get isActive
-   * @return isActive
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
-  public Boolean getIsActive() {
-    return isActive;
-  }
-
-
-  public void setIsActive(Boolean isActive) {
-    this.isActive = isActive;
-  }
-
-
-  public ConfigurationPutModel capabilities(Map<String, String> capabilities) {
-    
-    this.capabilities = capabilities;
-    return this;
-  }
-
-  public ConfigurationPutModel putCapabilitiesItem(String key, String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new HashMap<>();
-    }
-    this.capabilities.put(key, capabilitiesItem);
-    return this;
-  }
-
-   /**
-   * Get capabilities
-   * @return capabilities
-   * @deprecated
-  **/
-  @Deprecated
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Map<String, String> getCapabilities() {
-    return capabilities;
-  }
-
-
-  public void setCapabilities(Map<String, String> capabilities) {
-    this.capabilities = capabilities;
   }
 
 
@@ -209,9 +143,7 @@ public class ConfigurationPutModel {
    * Get parameters
    * @return parameters
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @javax.annotation.Nonnull
   public Map<String, String> getParameters() {
     return parameters;
   }
@@ -233,8 +165,6 @@ public class ConfigurationPutModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "This property is used to link configuration with project")
-
   public UUID getProjectId() {
     return projectId;
   }
@@ -256,8 +186,6 @@ public class ConfigurationPutModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsDefault() {
     return isDefault;
   }
@@ -279,8 +207,6 @@ public class ConfigurationPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Default", required = true, value = "")
-
   public String getName() {
     return name;
   }
@@ -303,8 +229,6 @@ public class ConfigurationPutModel {
     ConfigurationPutModel configurationPutModel = (ConfigurationPutModel) o;
     return Objects.equals(this.id, configurationPutModel.id) &&
         Objects.equals(this.description, configurationPutModel.description) &&
-        Objects.equals(this.isActive, configurationPutModel.isActive) &&
-        Objects.equals(this.capabilities, configurationPutModel.capabilities) &&
         Objects.equals(this.parameters, configurationPutModel.parameters) &&
         Objects.equals(this.projectId, configurationPutModel.projectId) &&
         Objects.equals(this.isDefault, configurationPutModel.isDefault) &&
@@ -317,7 +241,7 @@ public class ConfigurationPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, isActive, capabilities, parameters, projectId, isDefault, name);
+    return Objects.hash(id, description, parameters, projectId, isDefault, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -333,8 +257,6 @@ public class ConfigurationPutModel {
     sb.append("class ConfigurationPutModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
@@ -363,8 +285,6 @@ public class ConfigurationPutModel {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("description");
-    openapiFields.add("isActive");
-    openapiFields.add("capabilities");
     openapiFields.add("parameters");
     openapiFields.add("projectId");
     openapiFields.add("isDefault");
@@ -373,6 +293,7 @@ public class ConfigurationPutModel {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
+    openapiRequiredFields.add("parameters");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("name");
   }

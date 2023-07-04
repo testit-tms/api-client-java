@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -60,7 +62,7 @@ public class GlobalCustomAttributeUpdateModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options = null;
+  private List<CustomAttributeOptionModel> options;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -84,8 +86,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of attribute")
-
   public String getName() {
     return name;
   }
@@ -115,8 +115,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
-
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
   }
@@ -138,8 +136,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute is available")
-
   public Boolean getIsEnabled() {
     return isEnabled;
   }
@@ -161,8 +157,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
-
   public Boolean getIsRequired() {
     return isRequired;
   }

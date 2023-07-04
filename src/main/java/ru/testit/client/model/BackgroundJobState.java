@@ -35,7 +35,9 @@ public enum BackgroundJobState {
   
   COMPLETED("Completed"),
   
-  FAILED("Failed");
+  FAILED("Failed"),
+  
+  CANCELED("Canceled");
 
   private String value;
 

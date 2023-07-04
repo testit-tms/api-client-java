@@ -20,13 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestPlanChangedFieldsViewModel;
+import ru.testit.client.model.TestPlanChangeModelTestPlanChangedFields;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -64,7 +66,7 @@ public class TestPlanChangeModel {
 
   public static final String SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS = "testPlanChangedFields";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS)
-  private TestPlanChangedFieldsViewModel testPlanChangedFields;
+  private TestPlanChangeModelTestPlanChangedFields testPlanChangedFields;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
@@ -88,8 +90,6 @@ public class TestPlanChangeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getId() {
     return id;
   }
@@ -111,8 +111,6 @@ public class TestPlanChangeModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getTestPlanId() {
     return testPlanId;
   }
@@ -123,7 +121,7 @@ public class TestPlanChangeModel {
   }
 
 
-  public TestPlanChangeModel testPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public TestPlanChangeModel testPlanChangedFields(TestPlanChangeModelTestPlanChangedFields testPlanChangedFields) {
     
     this.testPlanChangedFields = testPlanChangedFields;
     return this;
@@ -134,14 +132,12 @@ public class TestPlanChangeModel {
    * @return testPlanChangedFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TestPlanChangedFieldsViewModel getTestPlanChangedFields() {
+  public TestPlanChangeModelTestPlanChangedFields getTestPlanChangedFields() {
     return testPlanChangedFields;
   }
 
 
-  public void setTestPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public void setTestPlanChangedFields(TestPlanChangeModelTestPlanChangedFields testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
   }
 
@@ -157,8 +153,6 @@ public class TestPlanChangeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UUID getCreatedById() {
     return createdById;
   }
@@ -180,8 +174,6 @@ public class TestPlanChangeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -294,7 +286,7 @@ public class TestPlanChangeModel {
       }
       // validate the optional field `testPlanChangedFields`
       if (jsonObj.get("testPlanChangedFields") != null && !jsonObj.get("testPlanChangedFields").isJsonNull()) {
-        TestPlanChangedFieldsViewModel.validateJsonObject(jsonObj.getAsJsonObject("testPlanChangedFields"));
+        TestPlanChangeModelTestPlanChangedFields.validateJsonObject(jsonObj.getAsJsonObject("testPlanChangedFields"));
       }
       if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
