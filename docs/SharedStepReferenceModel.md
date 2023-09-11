@@ -7,23 +7,23 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**globalId** | **Long** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**globalId** | **Long** |  |  |
 |**name** | **String** |  |  [optional] |
 |**entityTypeName** | **String** |  |  [optional] |
-|**hasThisSharedStepAsStep** | **Boolean** |  |  [optional] |
-|**hasThisSharedStepAsPrecondition** | **Boolean** |  |  [optional] |
-|**hasThisSharedStepAsPostcondition** | **Boolean** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**hasThisSharedStepAsStep** | **Boolean** |  |  |
+|**hasThisSharedStepAsPrecondition** | **Boolean** |  |  |
+|**hasThisSharedStepAsPostcondition** | **Boolean** |  |  |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**priority** | **WorkItemPriorityModel** |  |  |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**versionId** | **UUID** | used for versioning changes in workitem |  [optional] |
-|**isAutomated** | **Boolean** |  |  [optional] |
-|**sectionId** | **UUID** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  |
+|**versionId** | **UUID** | used for versioning changes in workitem |  |
+|**isAutomated** | **Boolean** |  |  |
+|**sectionId** | **UUID** |  |  |
 |**tags** | [**List&lt;TagShortModel&gt;**](TagShortModel.md) |  |  [optional] |
 
 

@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**workItemId** | **UUID** |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**workItemId** | **UUID** |  |  |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**id** | **UUID** | Unique ID of the entity |  [optional] |
-|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  [optional] |
+|**id** | **UUID** | Unique ID of the entity |  |
+|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 
 
 

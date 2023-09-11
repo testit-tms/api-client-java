@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userId** | **UUID** |  |  [optional] |
+|**userId** | **UUID** |  |  |
 |**userName** | **String** |  |  [optional] |
-|**testPointCount** | **Long** |  |  [optional] |
+|**testPointCount** | **Long** |  |  |
 
 
 

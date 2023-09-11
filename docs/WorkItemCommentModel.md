@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**text** | **String** |  |  [optional] |
-|**user** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**user** | [**UserWithRankModel**](UserWithRankModel.md) |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 
 

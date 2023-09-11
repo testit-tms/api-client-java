@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**projectId** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**projectId** | **UUID** |  |  |
 |**name** | **String** |  |  [optional] |
 
 

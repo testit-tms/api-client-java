@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**workItem** | [**SectionSharedStep**](SectionSharedStep.md) |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**action** | **String** |  |  [optional] |
 |**expected** | **String** |  |  [optional] |
 |**testData** | **String** |  |  [optional] |

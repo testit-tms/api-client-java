@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**userId** | **UUID** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
-|**value** | **Long** |  |  [optional] |
+|**value** | **Long** |  |  |
 
 
 

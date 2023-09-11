@@ -12,10 +12,10 @@
 |**completedOn** | **OffsetDateTime** | set when test plan status is completed (status changed to: Completed) |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**globalId** | **Long** | Used for search Test plan |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
+|**globalId** | **Long** | Used for search Test plan |  |
+|**isDeleted** | **Boolean** |  |  |
 |**lockedDate** | **OffsetDateTime** |  |  [optional] |
 |**id** | **UUID** |  |  |
 |**lockedById** | **UUID** |  |  [optional] |

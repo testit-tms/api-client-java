@@ -25,6 +25,7 @@ Object containing different filters to adjust search
 |**className** | **String** | Specifies an autotest class name to search for |  [optional] |
 |**isEmptyClassName** | **Boolean** | Specifies an autotest class name presence status to search for |  [optional] |
 |**lastTestResultOutcome** | **AutotestResultOutcome** |  |  [optional] |
+|**externalKey** | **String** | Specifies an autotest external key to search for |  [optional] |
 
 
 

@@ -15,76 +15,70 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import ru.testit.client.model.AttachmentPutModel;
+import ru.testit.client.model.LinkPostModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CreateAndFillByAutoTestsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_PROJECT_ID,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_NAME,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_CONFIGURATION_IDS,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_LAUNCH_SOURCE,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_ATTACHMENTS,
+  CreateAndFillByAutoTestsRequest.JSON_PROPERTY_LINKS
+})
+@JsonTypeName("CreateAndFillByAutoTests_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAndFillByAutoTestsRequest {
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
   private List<UUID> configurationIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_AUTO_TEST_EXTERNAL_IDS = "autoTestExternalIds";
-  @SerializedName(SERIALIZED_NAME_AUTO_TEST_EXTERNAL_IDS)
+  public static final String JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS = "autoTestExternalIds";
   private List<String> autoTestExternalIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
 
-  public CreateAndFillByAutoTestsRequest() {
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private JsonNullable<List<AttachmentPutModel>> attachments = JsonNullable.<List<AttachmentPutModel>>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<LinkPostModel>> links = JsonNullable.<List<LinkPostModel>>undefined();
+
+  public CreateAndFillByAutoTestsRequest() { 
   }
 
   public CreateAndFillByAutoTestsRequest projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -93,20 +87,24 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the GUID of the project, in which a test run will be created.
    * @return projectId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public CreateAndFillByAutoTestsRequest name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -114,19 +112,31 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the name of the test run.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public CreateAndFillByAutoTestsRequest configurationIds(List<UUID> configurationIds) {
-    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -143,19 +153,23 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
    * @return configurationIds
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
   public CreateAndFillByAutoTestsRequest autoTestExternalIds(List<String> autoTestExternalIds) {
-    
     this.autoTestExternalIds = autoTestExternalIds;
     return this;
   }
@@ -172,20 +186,24 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the external ID of the autotest. You can specify several IDs.
    * @return autoTestExternalIds
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getAutoTestExternalIds() {
     return autoTestExternalIds;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAutoTestExternalIds(List<String> autoTestExternalIds) {
     this.autoTestExternalIds = autoTestExternalIds;
   }
 
 
   public CreateAndFillByAutoTestsRequest description(String description) {
-    
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -193,20 +211,32 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the test run description.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public CreateAndFillByAutoTestsRequest launchSource(String launchSource) {
-    
-    this.launchSource = launchSource;
+    this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
 
@@ -214,18 +244,123 @@ public class CreateAndFillByAutoTestsRequest {
    * Specifies the test run launch source.
    * @return launchSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getLaunchSource() {
-    return launchSource;
+        return launchSource.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setLaunchSource(String launchSource) {
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
+    return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
     this.launchSource = launchSource;
   }
 
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+  }
 
 
+  public CreateAndFillByAutoTestsRequest attachments(List<AttachmentPutModel> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+    return this;
+  }
+
+  public CreateAndFillByAutoTestsRequest addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null || !this.attachments.isPresent()) {
+      this.attachments = JsonNullable.<List<AttachmentPutModel>>of(new ArrayList<>());
+    }
+    try {
+      this.attachments.get().add(attachmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Collection of attachment ids to relate to the test run
+   * @return attachments
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<AttachmentPutModel> getAttachments() {
+        return attachments.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AttachmentPutModel>> getAttachments_JsonNullable() {
+    return attachments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentPutModel>> attachments) {
+    this.attachments = attachments;
+  }
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+  }
+
+
+  public CreateAndFillByAutoTestsRequest links(List<LinkPostModel> links) {
+    this.links = JsonNullable.<List<LinkPostModel>>of(links);
+    return this;
+  }
+
+  public CreateAndFillByAutoTestsRequest addLinksItem(LinkPostModel linksItem) {
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<LinkPostModel>>of(new ArrayList<>());
+    }
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Collection of links to relate to the test run
+   * @return links
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<LinkPostModel> getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<LinkPostModel>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<LinkPostModel>> links) {
+    this.links = links;
+  }
+
+  public void setLinks(List<LinkPostModel> links) {
+    this.links = JsonNullable.<List<LinkPostModel>>of(links);
+  }
+
+
+  /**
+   * Return true if this CreateAndFillByAutoTests_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -236,11 +371,13 @@ public class CreateAndFillByAutoTestsRequest {
     }
     CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest = (CreateAndFillByAutoTestsRequest) o;
     return Objects.equals(this.projectId, createAndFillByAutoTestsRequest.projectId) &&
-        Objects.equals(this.name, createAndFillByAutoTestsRequest.name) &&
+        equalsNullable(this.name, createAndFillByAutoTestsRequest.name) &&
         Objects.equals(this.configurationIds, createAndFillByAutoTestsRequest.configurationIds) &&
         Objects.equals(this.autoTestExternalIds, createAndFillByAutoTestsRequest.autoTestExternalIds) &&
-        Objects.equals(this.description, createAndFillByAutoTestsRequest.description) &&
-        Objects.equals(this.launchSource, createAndFillByAutoTestsRequest.launchSource);
+        equalsNullable(this.description, createAndFillByAutoTestsRequest.description) &&
+        equalsNullable(this.launchSource, createAndFillByAutoTestsRequest.launchSource) &&
+        equalsNullable(this.attachments, createAndFillByAutoTestsRequest.attachments) &&
+        equalsNullable(this.links, createAndFillByAutoTestsRequest.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -249,7 +386,7 @@ public class CreateAndFillByAutoTestsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, name, configurationIds, autoTestExternalIds, description, launchSource);
+    return Objects.hash(projectId, hashCodeNullable(name), configurationIds, autoTestExternalIds, hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -269,6 +406,8 @@ public class CreateAndFillByAutoTestsRequest {
     sb.append("    autoTestExternalIds: ").append(toIndentedString(autoTestExternalIds)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -284,127 +423,5 @@ public class CreateAndFillByAutoTestsRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("projectId");
-    openapiFields.add("name");
-    openapiFields.add("configurationIds");
-    openapiFields.add("autoTestExternalIds");
-    openapiFields.add("description");
-    openapiFields.add("launchSource");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("projectId");
-    openapiRequiredFields.add("configurationIds");
-    openapiRequiredFields.add("autoTestExternalIds");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateAndFillByAutoTestsRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CreateAndFillByAutoTestsRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateAndFillByAutoTestsRequest is not found in the empty JSON string", CreateAndFillByAutoTestsRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateAndFillByAutoTestsRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateAndFillByAutoTestsRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateAndFillByAutoTestsRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("configurationIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("configurationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("autoTestExternalIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("autoTestExternalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `autoTestExternalIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestExternalIds").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateAndFillByAutoTestsRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateAndFillByAutoTestsRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateAndFillByAutoTestsRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateAndFillByAutoTestsRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateAndFillByAutoTestsRequest>() {
-           @Override
-           public void write(JsonWriter out, CreateAndFillByAutoTestsRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateAndFillByAutoTestsRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreateAndFillByAutoTestsRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateAndFillByAutoTestsRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateAndFillByAutoTestsRequest
-  */
-  public static CreateAndFillByAutoTestsRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateAndFillByAutoTestsRequest.class);
-  }
-
- /**
-  * Convert an instance of CreateAndFillByAutoTestsRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

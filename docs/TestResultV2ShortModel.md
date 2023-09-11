@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**configurationId** | **UUID** |  |  [optional] |
-|**workItemVersionId** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**configurationId** | **UUID** |  |  |
+|**workItemVersionId** | **UUID** |  |  |
 |**autoTestId** | **UUID** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
 |**traces** | **String** |  |  [optional] |
@@ -19,7 +19,7 @@
 |**stoppedByUserId** | **UUID** |  |  [optional] |
 |**testPointId** | **UUID** |  |  [optional] |
 |**testPoint** | [**TestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  |  [optional] |
-|**testRunId** | **UUID** |  |  [optional] |
+|**testRunId** | **UUID** |  |  |
 |**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |

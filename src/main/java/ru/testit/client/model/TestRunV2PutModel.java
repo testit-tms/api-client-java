@@ -15,66 +15,61 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import ru.testit.client.model.AttachmentPutModel;
+import ru.testit.client.model.LinkPutModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestRunV2PutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestRunV2PutModel.JSON_PROPERTY_ID,
+  TestRunV2PutModel.JSON_PROPERTY_NAME,
+  TestRunV2PutModel.JSON_PROPERTY_DESCRIPTION,
+  TestRunV2PutModel.JSON_PROPERTY_LAUNCH_SOURCE,
+  TestRunV2PutModel.JSON_PROPERTY_ATTACHMENTS,
+  TestRunV2PutModel.JSON_PROPERTY_LINKS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunV2PutModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
 
-  public TestRunV2PutModel() {
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private JsonNullable<List<AttachmentPutModel>> attachments = JsonNullable.<List<AttachmentPutModel>>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<LinkPutModel>> links = JsonNullable.<List<LinkPutModel>>undefined();
+
+  public TestRunV2PutModel() { 
   }
 
   public TestRunV2PutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -83,19 +78,23 @@ public class TestRunV2PutModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestRunV2PutModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -104,20 +103,24 @@ public class TestRunV2PutModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunV2PutModel description(String description) {
-    
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -125,20 +128,32 @@ public class TestRunV2PutModel {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public TestRunV2PutModel launchSource(String launchSource) {
-    
-    this.launchSource = launchSource;
+    this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
 
@@ -146,18 +161,123 @@ public class TestRunV2PutModel {
    * Once launch source is specified it cannot be updated
    * @return launchSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getLaunchSource() {
-    return launchSource;
+        return launchSource.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setLaunchSource(String launchSource) {
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
+    return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
     this.launchSource = launchSource;
   }
 
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+  }
 
 
+  public TestRunV2PutModel attachments(List<AttachmentPutModel> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+    return this;
+  }
+
+  public TestRunV2PutModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null || !this.attachments.isPresent()) {
+      this.attachments = JsonNullable.<List<AttachmentPutModel>>of(new ArrayList<>());
+    }
+    try {
+      this.attachments.get().add(attachmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<AttachmentPutModel> getAttachments() {
+        return attachments.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AttachmentPutModel>> getAttachments_JsonNullable() {
+    return attachments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentPutModel>> attachments) {
+    this.attachments = attachments;
+  }
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+  }
+
+
+  public TestRunV2PutModel links(List<LinkPutModel> links) {
+    this.links = JsonNullable.<List<LinkPutModel>>of(links);
+    return this;
+  }
+
+  public TestRunV2PutModel addLinksItem(LinkPutModel linksItem) {
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<LinkPutModel>>of(new ArrayList<>());
+    }
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get links
+   * @return links
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<LinkPutModel> getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<LinkPutModel>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<LinkPutModel>> links) {
+    this.links = links;
+  }
+
+  public void setLinks(List<LinkPutModel> links) {
+    this.links = JsonNullable.<List<LinkPutModel>>of(links);
+  }
+
+
+  /**
+   * Return true if this TestRunV2PutModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,8 +289,10 @@ public class TestRunV2PutModel {
     TestRunV2PutModel testRunV2PutModel = (TestRunV2PutModel) o;
     return Objects.equals(this.id, testRunV2PutModel.id) &&
         Objects.equals(this.name, testRunV2PutModel.name) &&
-        Objects.equals(this.description, testRunV2PutModel.description) &&
-        Objects.equals(this.launchSource, testRunV2PutModel.launchSource);
+        equalsNullable(this.description, testRunV2PutModel.description) &&
+        equalsNullable(this.launchSource, testRunV2PutModel.launchSource) &&
+        equalsNullable(this.attachments, testRunV2PutModel.attachments) &&
+        equalsNullable(this.links, testRunV2PutModel.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -179,7 +301,7 @@ public class TestRunV2PutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, launchSource);
+    return Objects.hash(id, name, hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -197,6 +319,8 @@ public class TestRunV2PutModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -212,112 +336,5 @@ public class TestRunV2PutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("launchSource");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunV2PutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunV2PutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunV2PutModel is not found in the empty JSON string", TestRunV2PutModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestRunV2PutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2PutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestRunV2PutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestRunV2PutModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestRunV2PutModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestRunV2PutModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunV2PutModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestRunV2PutModel>() {
-           @Override
-           public void write(JsonWriter out, TestRunV2PutModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestRunV2PutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestRunV2PutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestRunV2PutModel
-  * @throws IOException if the JSON string is invalid with respect to TestRunV2PutModel
-  */
-  public static TestRunV2PutModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestRunV2PutModel.class);
-  }
-
- /**
-  * Convert an instance of TestRunV2PutModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

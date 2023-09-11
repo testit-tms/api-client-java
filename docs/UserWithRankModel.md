@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**middleName** | **String** |  |  [optional] |
@@ -16,11 +16,11 @@
 |**userType** | **String** |  |  [optional] |
 |**avatarUrl** | **String** |  |  [optional] |
 |**avatarMetadata** | **String** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**isDisabled** | **Boolean** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  |
+|**isDisabled** | **Boolean** |  |  |
 |**providerId** | **UUID** |  |  [optional] |
-|**isActiveStatusByEntity** | **Boolean** |  |  [optional] |
-|**userRank** | [**UserWithRankModelUserRank**](UserWithRankModelUserRank.md) |  |  [optional] |
+|**isActiveStatusByEntity** | **Boolean** |  |  |
+|**userRank** | [**UserRankModel**](UserRankModel.md) |  |  [optional] |
 
 
 

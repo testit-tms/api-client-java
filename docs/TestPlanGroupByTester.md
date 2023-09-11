@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**userId** | **UUID** |  |  [optional] |
-|**value** | **Long** |  |  [optional] |
+|**value** | **Long** |  |  |
 
 
 

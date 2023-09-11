@@ -15,5 +15,7 @@
 
 * `MULTIPLEOPTIONS` (value: `"multipleOptions"`)
 
+* `CHECKBOX` (value: `"checkbox"`)
+
 
 

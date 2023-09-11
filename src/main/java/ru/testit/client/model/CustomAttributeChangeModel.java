@@ -15,70 +15,53 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CustomAttributeChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  CustomAttributeChangeModel.JSON_PROPERTY_TYPE,
+  CustomAttributeChangeModel.JSON_PROPERTY_OLD_ATTRIBUTE_NAME,
+  CustomAttributeChangeModel.JSON_PROPERTY_NEW_ATTRIBUTE_NAME,
+  CustomAttributeChangeModel.JSON_PROPERTY_OLD_VALUE,
+  CustomAttributeChangeModel.JSON_PROPERTY_NEW_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CustomAttributeChangeModel {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
-  @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
-  private String oldAttributeName;
+  public static final String JSON_PROPERTY_OLD_ATTRIBUTE_NAME = "oldAttributeName";
+  private JsonNullable<String> oldAttributeName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
-  @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
-  private String newAttributeName;
+  public static final String JSON_PROPERTY_NEW_ATTRIBUTE_NAME = "newAttributeName";
+  private JsonNullable<String> newAttributeName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private Object oldValue = null;
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  private JsonNullable<Object> oldValue = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
-  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private Object newValue = null;
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  private JsonNullable<Object> newValue = JsonNullable.<Object>of(null);
 
-  public CustomAttributeChangeModel() {
+  public CustomAttributeChangeModel() { 
   }
 
   public CustomAttributeChangeModel type(String type) {
-    
-    this.type = type;
+    this.type = JsonNullable.<String>of(type);
     return this;
   }
 
@@ -86,20 +69,32 @@ public class CustomAttributeChangeModel {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getType() {
-    return type;
+        return type.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
 
   public void setType(String type) {
-    this.type = type;
+    this.type = JsonNullable.<String>of(type);
   }
 
 
   public CustomAttributeChangeModel oldAttributeName(String oldAttributeName) {
-    
-    this.oldAttributeName = oldAttributeName;
+    this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
     return this;
   }
 
@@ -107,20 +102,32 @@ public class CustomAttributeChangeModel {
    * Get oldAttributeName
    * @return oldAttributeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getOldAttributeName() {
-    return oldAttributeName;
+        return oldAttributeName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_OLD_ATTRIBUTE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getOldAttributeName_JsonNullable() {
+    return oldAttributeName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_ATTRIBUTE_NAME)
+  public void setOldAttributeName_JsonNullable(JsonNullable<String> oldAttributeName) {
+    this.oldAttributeName = oldAttributeName;
+  }
 
   public void setOldAttributeName(String oldAttributeName) {
-    this.oldAttributeName = oldAttributeName;
+    this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
   }
 
 
   public CustomAttributeChangeModel newAttributeName(String newAttributeName) {
-    
-    this.newAttributeName = newAttributeName;
+    this.newAttributeName = JsonNullable.<String>of(newAttributeName);
     return this;
   }
 
@@ -128,20 +135,32 @@ public class CustomAttributeChangeModel {
    * Get newAttributeName
    * @return newAttributeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getNewAttributeName() {
-    return newAttributeName;
+        return newAttributeName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NEW_ATTRIBUTE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getNewAttributeName_JsonNullable() {
+    return newAttributeName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEW_ATTRIBUTE_NAME)
+  public void setNewAttributeName_JsonNullable(JsonNullable<String> newAttributeName) {
+    this.newAttributeName = newAttributeName;
+  }
 
   public void setNewAttributeName(String newAttributeName) {
-    this.newAttributeName = newAttributeName;
+    this.newAttributeName = JsonNullable.<String>of(newAttributeName);
   }
 
 
   public CustomAttributeChangeModel oldValue(Object oldValue) {
-    
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<Object>of(oldValue);
     return this;
   }
 
@@ -149,20 +168,32 @@ public class CustomAttributeChangeModel {
    * Get oldValue
    * @return oldValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Object getOldValue() {
-    return oldValue;
+        return oldValue.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getOldValue_JsonNullable() {
+    return oldValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  public void setOldValue_JsonNullable(JsonNullable<Object> oldValue) {
+    this.oldValue = oldValue;
+  }
 
   public void setOldValue(Object oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<Object>of(oldValue);
   }
 
 
   public CustomAttributeChangeModel newValue(Object newValue) {
-    
-    this.newValue = newValue;
+    this.newValue = JsonNullable.<Object>of(newValue);
     return this;
   }
 
@@ -170,18 +201,33 @@ public class CustomAttributeChangeModel {
    * Get newValue
    * @return newValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Object getNewValue() {
-    return newValue;
+        return newValue.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setNewValue(Object newValue) {
+  public JsonNullable<Object> getNewValue_JsonNullable() {
+    return newValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  public void setNewValue_JsonNullable(JsonNullable<Object> newValue) {
     this.newValue = newValue;
   }
 
+  public void setNewValue(Object newValue) {
+    this.newValue = JsonNullable.<Object>of(newValue);
+  }
 
 
+  /**
+   * Return true if this CustomAttributeChangeModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -191,11 +237,11 @@ public class CustomAttributeChangeModel {
       return false;
     }
     CustomAttributeChangeModel customAttributeChangeModel = (CustomAttributeChangeModel) o;
-    return Objects.equals(this.type, customAttributeChangeModel.type) &&
-        Objects.equals(this.oldAttributeName, customAttributeChangeModel.oldAttributeName) &&
-        Objects.equals(this.newAttributeName, customAttributeChangeModel.newAttributeName) &&
-        Objects.equals(this.oldValue, customAttributeChangeModel.oldValue) &&
-        Objects.equals(this.newValue, customAttributeChangeModel.newValue);
+    return equalsNullable(this.type, customAttributeChangeModel.type) &&
+        equalsNullable(this.oldAttributeName, customAttributeChangeModel.oldAttributeName) &&
+        equalsNullable(this.newAttributeName, customAttributeChangeModel.newAttributeName) &&
+        equalsNullable(this.oldValue, customAttributeChangeModel.oldValue) &&
+        equalsNullable(this.newValue, customAttributeChangeModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -204,7 +250,7 @@ public class CustomAttributeChangeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, oldAttributeName, newAttributeName, oldValue, newValue);
+    return Objects.hash(hashCodeNullable(type), hashCodeNullable(oldAttributeName), hashCodeNullable(newAttributeName), hashCodeNullable(oldValue), hashCodeNullable(newValue));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -238,101 +284,5 @@ public class CustomAttributeChangeModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("oldAttributeName");
-    openapiFields.add("newAttributeName");
-    openapiFields.add("oldValue");
-    openapiFields.add("newValue");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeChangeModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CustomAttributeChangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeChangeModel is not found in the empty JSON string", CustomAttributeChangeModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CustomAttributeChangeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeChangeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("oldAttributeName") != null && !jsonObj.get("oldAttributeName").isJsonNull()) && !jsonObj.get("oldAttributeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldAttributeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldAttributeName").toString()));
-      }
-      if ((jsonObj.get("newAttributeName") != null && !jsonObj.get("newAttributeName").isJsonNull()) && !jsonObj.get("newAttributeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newAttributeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newAttributeName").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomAttributeChangeModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomAttributeChangeModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomAttributeChangeModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomAttributeChangeModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CustomAttributeChangeModel>() {
-           @Override
-           public void write(JsonWriter out, CustomAttributeChangeModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CustomAttributeChangeModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CustomAttributeChangeModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomAttributeChangeModel
-  * @throws IOException if the JSON string is invalid with respect to CustomAttributeChangeModel
-  */
-  public static CustomAttributeChangeModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomAttributeChangeModel.class);
-  }
-
- /**
-  * Convert an instance of CustomAttributeChangeModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**outcome** | **String** |  |  [optional] |
 |**traces** | **String** |  |  [optional] |
 |**failureType** | **String** |  |  [optional] |

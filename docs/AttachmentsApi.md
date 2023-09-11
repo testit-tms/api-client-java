@@ -10,49 +10,53 @@ All URIs are relative to *http://localhost*
 | [**apiV2AttachmentsPost**](AttachmentsApi.md#apiV2AttachmentsPost) | **POST** /api/v2/attachments | Upload new attachment file |
 
 
-<a id="apiV2AttachmentsIdDelete"></a>
-# **apiV2AttachmentsIdDelete**
+
+## apiV2AttachmentsIdDelete
+
 > apiV2AttachmentsIdDelete(id)
 
 Delete attachment file
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.AttachmentsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      apiInstance.apiV2AttachmentsIdDelete(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            apiInstance.apiV2AttachmentsIdDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -68,71 +72,75 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Attachment file was deleted successfully |  -  |
 | **422** | Attachment file is already in use |  -  |
+| **204** | Attachment file was deleted successfully |  -  |
 
-<a id="apiV2AttachmentsIdGet"></a>
-# **apiV2AttachmentsIdGet**
+
+## apiV2AttachmentsIdGet
+
 > File apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview)
 
 Download attachment file
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.AttachmentsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    Integer width = 56; // Integer | Width of the result image
-    Integer height = 56; // Integer | Height of the result image
-    ImageResizeType resizeType = ImageResizeType.fromValue("Crop"); // ImageResizeType | Type of resizing to apply to the result image
-    String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
-    Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
-    try {
-      File result = apiInstance.apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        Integer width = 56; // Integer | Width of the result image
+        Integer height = 56; // Integer | Height of the result image
+        ImageResizeType resizeType = ImageResizeType.fromValue("Crop"); // ImageResizeType | Type of resizing to apply to the result image
+        String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
+        Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
+        try {
+            File result = apiInstance.apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **width** | **Integer**| Width of the result image | [optional] |
 | **height** | **Integer**| Height of the result image | [optional] |
-| **resizeType** | [**ImageResizeType**](.md)| Type of resizing to apply to the result image | [optional] [enum: Crop, AddBackgroundStripes] |
+| **resizeType** | **ImageResizeType**| Type of resizing to apply to the result image | [optional] [enum: Crop, AddBackgroundStripes] |
 | **backgroundColor** | **String**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional] |
 | **preview** | **Boolean**| If image must be converted to a preview (lower quality, no animation) | [optional] |
 
@@ -146,57 +154,60 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a id="apiV2AttachmentsOccupiedFileStorageSizeGet"></a>
-# **apiV2AttachmentsOccupiedFileStorageSizeGet**
+
+## apiV2AttachmentsOccupiedFileStorageSizeGet
+
 > Long apiV2AttachmentsOccupiedFileStorageSizeGet()
 
 Get size of attachments storage in bytes
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.AttachmentsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-    try {
-      Long result = apiInstance.apiV2AttachmentsOccupiedFileStorageSizeGet();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsOccupiedFileStorageSizeGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        try {
+            Long result = apiInstance.apiV2AttachmentsOccupiedFileStorageSizeGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsOccupiedFileStorageSizeGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -209,16 +220,17 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a id="apiV2AttachmentsPost"></a>
-# **apiV2AttachmentsPost**
+
+## apiV2AttachmentsPost
+
 > AttachmentModel apiV2AttachmentsPost(_file)
 
 Upload new attachment file
@@ -226,43 +238,46 @@ Upload new attachment file
 File size is restricted to 1 GB (1 073 741 824 bytes)
 
 ### Example
+
 ```java
+import java.io.File;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.AttachmentsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-    File _file = new File("/path/to/file"); // File | 
-    try {
-      AttachmentModel result = apiInstance.apiV2AttachmentsPost(_file);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        File _file = new File("/path/to/file"); // File | 
+        try {
+            AttachmentModel result = apiInstance.apiV2AttachmentsPost(_file);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -278,14 +293,14 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
+| **201** | Created |  -  |
 

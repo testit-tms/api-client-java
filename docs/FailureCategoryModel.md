@@ -13,5 +13,7 @@
 
 * `NODEFECT` (value: `"NoDefect"`)
 
+* `NOANALYTICS` (value: `"NoAnalytics"`)
+
 
 

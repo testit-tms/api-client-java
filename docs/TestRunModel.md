@@ -8,15 +8,15 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  [optional] |
-|**autoTestsCount** | **Integer** |  |  [optional] |
+|**autoTestsCount** | **Integer** |  |  |
 |**testSuiteIds** | **List&lt;UUID&gt;** |  |  [optional] |
-|**isAutomated** | **Boolean** |  |  [optional] |
-|**analytic** | [**TestRunModelAnalytic**](TestRunModelAnalytic.md) |  |  [optional] |
+|**isAutomated** | **Boolean** |  |  |
+|**analytic** | [**TestRunAnalyticResultModel**](TestRunAnalyticResultModel.md) |  |  [optional] |
 |**testResults** | [**List&lt;TestResultModel&gt;**](TestResultModel.md) |  |  [optional] |
 |**testPlan** | [**TestPlanModel**](TestPlanModel.md) |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdByUserName** | **String** |  |  [optional] |
 |**startedDate** | **OffsetDateTime** |  |  [optional] |
@@ -24,14 +24,14 @@
 |**build** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**stateName** | **TestRunState** |  |  |
-|**projectId** | **UUID** |  |  [optional] |
+|**projectId** | **UUID** |  |  |
 |**testPlanId** | **UUID** |  |  [optional] |
 |**runByUserId** | **UUID** |  |  [optional] |
 |**stoppedByUserId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**launchSource** | **String** |  |  [optional] |
-|**id** | **UUID** | Unique ID of the entity |  [optional] |
-|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  [optional] |
+|**id** | **UUID** | Unique ID of the entity |  |
+|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 
 
 

@@ -15,56 +15,36 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Int64ChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  Int64ChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
+  Int64ChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Int64ChangedFieldViewModel {
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private Long oldValue;
 
-  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
-  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
   private Long newValue;
 
-  public Int64ChangedFieldViewModel() {
+  public Int64ChangedFieldViewModel() { 
   }
 
   public Int64ChangedFieldViewModel oldValue(Long oldValue) {
-    
     this.oldValue = oldValue;
     return this;
   }
@@ -73,19 +53,23 @@ public class Int64ChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getOldValue() {
     return oldValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOldValue(Long oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public Int64ChangedFieldViewModel newValue(Long newValue) {
-    
     this.newValue = newValue;
     return this;
   }
@@ -94,18 +78,25 @@ public class Int64ChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getNewValue() {
     return newValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNewValue(Long newValue) {
     this.newValue = newValue;
   }
 
 
-
+  /**
+   * Return true if this Int64ChangedFieldViewModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,89 +136,5 @@ public class Int64ChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("oldValue");
-    openapiFields.add("newValue");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Int64ChangedFieldViewModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Int64ChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Int64ChangedFieldViewModel is not found in the empty JSON string", Int64ChangedFieldViewModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Int64ChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Int64ChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Int64ChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Int64ChangedFieldViewModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Int64ChangedFieldViewModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Int64ChangedFieldViewModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Int64ChangedFieldViewModel>() {
-           @Override
-           public void write(JsonWriter out, Int64ChangedFieldViewModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Int64ChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Int64ChangedFieldViewModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Int64ChangedFieldViewModel
-  * @throws IOException if the JSON string is invalid with respect to Int64ChangedFieldViewModel
-  */
-  public static Int64ChangedFieldViewModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Int64ChangedFieldViewModel.class);
-  }
-
- /**
-  * Convert an instance of Int64ChangedFieldViewModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

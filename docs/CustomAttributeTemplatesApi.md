@@ -14,57 +14,65 @@ All URIs are relative to *http://localhost*
 | [**apiV2CustomAttributesTemplatesSearchPost**](CustomAttributeTemplatesApi.md#apiV2CustomAttributesTemplatesSearchPost) | **POST** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates |
 
 
-<a id="apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost"></a>
-# **apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**
+
+## apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost
+
 > apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(id, UUID)
 
 Exclude CustomAttributes from CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User sets attribute internal identifiers   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attributes from attributes tempalte
+<br>Use case
+<br>User sets attribute template internal identifier
+<br>User sets attribute internal identifiers 
+<br>User runs method execution
+<br>System delete attributes from attributes tempalte
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
-    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
-    try {
-      apiInstance.apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(id, UUID);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
+        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+        try {
+            apiInstance.apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(id, UUID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Attribute template internal (UUID) identifier | |
-| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
 
 ### Return type
 
@@ -76,68 +84,76 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | Not Found |  -  |
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Not Found |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a id="apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost"></a>
-# **apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**
+
+## apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost
+
 > apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(id, UUID)
 
 Include CustomAttributes to CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User sets attribute internal identifiers   &lt;br&gt;User runs method execution  &lt;br&gt;System add attributes to attributes tempalte
+<br>Use case
+<br>User sets attribute template internal identifier
+<br>User sets attribute internal identifiers 
+<br>User runs method execution
+<br>System add attributes to attributes tempalte
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
-    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
-    try {
-      apiInstance.apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(id, UUID);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
+        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+        try {
+            apiInstance.apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(id, UUID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Attribute template internal (UUID) identifier | |
-| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
 
 ### Return type
 
@@ -149,63 +165,71 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  -  |
 | **404** | Not Found |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a id="apiV2CustomAttributesTemplatesIdDelete"></a>
-# **apiV2CustomAttributesTemplatesIdDelete**
+
+## apiV2CustomAttributesTemplatesIdDelete
+
 > NoContentResult apiV2CustomAttributesTemplatesIdDelete(id)
 
 Delete CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search and delete attribute template  &lt;br&gt;System returns no content response
+<br>Use case
+<br>User sets attribute template internal identifier
+<br>User runs method execution
+<br>System search and delete attribute template
+<br>System returns no content response
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
-    try {
-      NoContentResult result = apiInstance.apiV2CustomAttributesTemplatesIdDelete(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
+        try {
+            NoContentResult result = apiInstance.apiV2CustomAttributesTemplatesIdDelete(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -221,62 +245,69 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
 | **403** | Admin system role is required |  -  |
 
-<a id="apiV2CustomAttributesTemplatesIdGet"></a>
-# **apiV2CustomAttributesTemplatesIdGet**
+
+## apiV2CustomAttributesTemplatesIdGet
+
 > CustomAttributeTemplateModel apiV2CustomAttributesTemplatesIdGet(id)
 
 Get CustomAttributeTemplate by ID
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute template (listed in response example)
+<br>Use case
+<br>User sets attribute template internal identifier 
+<br>User runs method execution
+<br>System return attribute template (listed in response example)
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
-    try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesIdGet(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
+        try {
+            CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesIdGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -292,62 +323,68 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  -  |
 | **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
 
-<a id="apiV2CustomAttributesTemplatesNameGet"></a>
-# **apiV2CustomAttributesTemplatesNameGet**
+
+## apiV2CustomAttributesTemplatesNameGet
+
 > CustomAttributeTemplateModel apiV2CustomAttributesTemplatesNameGet(name)
 
 Get CustomAttributeTemplate by name
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template name  &lt;br&gt;User runs method execution  &lt;br&gt;System search and return list of attribute templates (listed in response example)
+<br>Use case
+<br>User sets attribute template name
+<br>User runs method execution
+<br>System search and return list of attribute templates (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    String name = "name_example"; // String | CustomAttributeTemplate name for search
-    try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesNameGet(name);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesNameGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        String name = "name_example"; // String | CustomAttributeTemplate name for search
+        try {
+            CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesNameGet(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesNameGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -363,60 +400,67 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a id="apiV2CustomAttributesTemplatesPost"></a>
-# **apiV2CustomAttributesTemplatesPost**
+
+## apiV2CustomAttributesTemplatesPost
+
 > CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest)
 
 Create CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template parameters (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates attribute template  &lt;br&gt;System returns attribute template model (example listed in response parameters)
+<br>Use case
+<br>User sets attribute template parameters (listed in request example)
+<br>User runs method execution
+<br>System creates attribute template
+<br>System returns attribute template model (example listed in response parameters)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest = new ApiV2CustomAttributesTemplatesPostRequest(); // ApiV2CustomAttributesTemplatesPostRequest | 
-    try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest = new ApiV2CustomAttributesTemplatesPostRequest(); // ApiV2CustomAttributesTemplatesPostRequest | 
+        try {
+            CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -432,59 +476,62 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Admin system role is required |  -  |
+| **201** | Created |  -  |
 
-<a id="apiV2CustomAttributesTemplatesPut"></a>
-# **apiV2CustomAttributesTemplatesPut**
+
+## apiV2CustomAttributesTemplatesPut
+
 > apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest)
 
 Update custom attributes template
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest = new ApiV2CustomAttributesTemplatesPutRequest(); // ApiV2CustomAttributesTemplatesPutRequest | 
-    try {
-      apiInstance.apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest = new ApiV2CustomAttributesTemplatesPutRequest(); // ApiV2CustomAttributesTemplatesPutRequest | 
+        try {
+            apiInstance.apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPut");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -500,66 +547,72 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | System administrator role is required |  -  |
+| **200** | Success |  -  |
 
-<a id="apiV2CustomAttributesTemplatesSearchPost"></a>
-# **apiV2CustomAttributesTemplatesSearchPost**
+
+## apiV2CustomAttributesTemplatesSearchPost
+
 > List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest)
 
 Search CustomAttributeTemplates
 
-&lt;br&gt;Use case  &lt;br&gt;User sets search params model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute templates (listed in response example)
+<br>Use case
+<br>User sets search params model (listed in request example)
+<br>User runs method execution
+<br>System return attribute templates (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.CustomAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest = new ApiV2CustomAttributesTemplatesSearchPostRequest(); // ApiV2CustomAttributesTemplatesSearchPostRequest | 
-    try {
-      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesSearchPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest = new ApiV2CustomAttributesTemplatesSearchPostRequest(); // ApiV2CustomAttributesTemplatesSearchPostRequest | 
+        try {
+            List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -580,12 +633,12 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 

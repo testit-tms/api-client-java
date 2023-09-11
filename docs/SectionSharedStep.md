@@ -8,11 +8,11 @@ Nested shared steps are allowed
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**versionId** | **UUID** |  |  [optional] |
-|**globalId** | **Long** |  |  [optional] |
+|**versionId** | **UUID** |  |  |
+|**globalId** | **Long** |  |  |
 |**name** | **String** |  |  [optional] |
 |**steps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  |
 
 
 

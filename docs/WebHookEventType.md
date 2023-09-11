@@ -35,5 +35,9 @@
 
 * `CONFIGURATIONCHANGED` (value: `"ConfigurationChanged"`)
 
+* `PROJECTCHANGED` (value: `"ProjectChanged"`)
+
+* `TESTPLANCHANGED` (value: `"TestPlanChanged"`)
+
 
 

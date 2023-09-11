@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**value** | **String** |  |  |
 |**name** | **String** |  |  |
 

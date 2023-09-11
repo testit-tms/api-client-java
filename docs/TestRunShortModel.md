@@ -8,12 +8,12 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**stateName** | **TestRunState** |  |  |
-|**projectId** | **UUID** |  |  [optional] |
+|**projectId** | **UUID** |  |  |
 |**testPlanId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**id** | **UUID** | Unique ID of the entity |  [optional] |
-|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  [optional] |
+|**id** | **UUID** | Unique ID of the entity |  |
+|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 
 
 

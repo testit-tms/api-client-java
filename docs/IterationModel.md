@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**parameters** | [**List&lt;ParameterShortModel&gt;**](ParameterShortModel.md) |  |  [optional] |
 
 

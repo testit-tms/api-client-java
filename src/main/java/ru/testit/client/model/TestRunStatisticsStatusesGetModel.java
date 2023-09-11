@@ -15,68 +15,48 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestRunStatisticsStatusesGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestRunStatisticsStatusesGetModel.JSON_PROPERTY_IN_PROGRESS,
+  TestRunStatisticsStatusesGetModel.JSON_PROPERTY_PASSED,
+  TestRunStatisticsStatusesGetModel.JSON_PROPERTY_FAILED,
+  TestRunStatisticsStatusesGetModel.JSON_PROPERTY_SKIPPED,
+  TestRunStatisticsStatusesGetModel.JSON_PROPERTY_BLOCKED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunStatisticsStatusesGetModel {
-  public static final String SERIALIZED_NAME_IN_PROGRESS = "inProgress";
-  @SerializedName(SERIALIZED_NAME_IN_PROGRESS)
+  public static final String JSON_PROPERTY_IN_PROGRESS = "inProgress";
   private Integer inProgress;
 
-  public static final String SERIALIZED_NAME_PASSED = "passed";
-  @SerializedName(SERIALIZED_NAME_PASSED)
+  public static final String JSON_PROPERTY_PASSED = "passed";
   private Integer passed;
 
-  public static final String SERIALIZED_NAME_FAILED = "failed";
-  @SerializedName(SERIALIZED_NAME_FAILED)
+  public static final String JSON_PROPERTY_FAILED = "failed";
   private Integer failed;
 
-  public static final String SERIALIZED_NAME_SKIPPED = "skipped";
-  @SerializedName(SERIALIZED_NAME_SKIPPED)
+  public static final String JSON_PROPERTY_SKIPPED = "skipped";
   private Integer skipped;
 
-  public static final String SERIALIZED_NAME_BLOCKED = "blocked";
-  @SerializedName(SERIALIZED_NAME_BLOCKED)
+  public static final String JSON_PROPERTY_BLOCKED = "blocked";
   private Integer blocked;
 
-  public TestRunStatisticsStatusesGetModel() {
+  public TestRunStatisticsStatusesGetModel() { 
   }
 
   public TestRunStatisticsStatusesGetModel inProgress(Integer inProgress) {
-    
     this.inProgress = inProgress;
     return this;
   }
@@ -85,19 +65,23 @@ public class TestRunStatisticsStatusesGetModel {
    * Number of test results which is running currently
    * @return inProgress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IN_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getInProgress() {
     return inProgress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IN_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInProgress(Integer inProgress) {
     this.inProgress = inProgress;
   }
 
 
   public TestRunStatisticsStatusesGetModel passed(Integer passed) {
-    
     this.passed = passed;
     return this;
   }
@@ -106,19 +90,23 @@ public class TestRunStatisticsStatusesGetModel {
    * Number of test results which successfully passed
    * @return passed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PASSED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getPassed() {
     return passed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PASSED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPassed(Integer passed) {
     this.passed = passed;
   }
 
 
   public TestRunStatisticsStatusesGetModel failed(Integer failed) {
-    
     this.failed = failed;
     return this;
   }
@@ -127,19 +115,23 @@ public class TestRunStatisticsStatusesGetModel {
    * Number of test results which failed with an error
    * @return failed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FAILED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getFailed() {
     return failed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FAILED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFailed(Integer failed) {
     this.failed = failed;
   }
 
 
   public TestRunStatisticsStatusesGetModel skipped(Integer skipped) {
-    
     this.skipped = skipped;
     return this;
   }
@@ -148,19 +140,23 @@ public class TestRunStatisticsStatusesGetModel {
    * Number of test results which did not run and were skipped
    * @return skipped
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SKIPPED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getSkipped() {
     return skipped;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SKIPPED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSkipped(Integer skipped) {
     this.skipped = skipped;
   }
 
 
   public TestRunStatisticsStatusesGetModel blocked(Integer blocked) {
-    
     this.blocked = blocked;
     return this;
   }
@@ -169,18 +165,25 @@ public class TestRunStatisticsStatusesGetModel {
    * Number of test results which cannot be launched
    * @return blocked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_BLOCKED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getBlocked() {
     return blocked;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BLOCKED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBlocked(Integer blocked) {
     this.blocked = blocked;
   }
 
 
-
+  /**
+   * Return true if this TestRunStatisticsStatusesGetModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -226,92 +229,5 @@ public class TestRunStatisticsStatusesGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("inProgress");
-    openapiFields.add("passed");
-    openapiFields.add("failed");
-    openapiFields.add("skipped");
-    openapiFields.add("blocked");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunStatisticsStatusesGetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunStatisticsStatusesGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunStatisticsStatusesGetModel is not found in the empty JSON string", TestRunStatisticsStatusesGetModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestRunStatisticsStatusesGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunStatisticsStatusesGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestRunStatisticsStatusesGetModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestRunStatisticsStatusesGetModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestRunStatisticsStatusesGetModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunStatisticsStatusesGetModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestRunStatisticsStatusesGetModel>() {
-           @Override
-           public void write(JsonWriter out, TestRunStatisticsStatusesGetModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestRunStatisticsStatusesGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestRunStatisticsStatusesGetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestRunStatisticsStatusesGetModel
-  * @throws IOException if the JSON string is invalid with respect to TestRunStatisticsStatusesGetModel
-  */
-  public static TestRunStatisticsStatusesGetModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestRunStatisticsStatusesGetModel.class);
-  }
-
- /**
-  * Convert an instance of TestRunStatisticsStatusesGetModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

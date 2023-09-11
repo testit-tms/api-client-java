@@ -15,55 +15,38 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.GuidExtractionModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestPlanExtractionModel.JSON_PROPERTY_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanExtractionModel {
-  public static final String SERIALIZED_NAME_IDS = "ids";
-  @SerializedName(SERIALIZED_NAME_IDS)
-  private GuidExtractionModel ids;
+  public static final String JSON_PROPERTY_IDS = "ids";
+  private JsonNullable<GuidExtractionModel> ids = JsonNullable.<GuidExtractionModel>undefined();
 
-  public TestPlanExtractionModel() {
+  public TestPlanExtractionModel() { 
   }
 
   public TestPlanExtractionModel ids(GuidExtractionModel ids) {
-    
-    this.ids = ids;
+    this.ids = JsonNullable.<GuidExtractionModel>of(ids);
     return this;
   }
 
@@ -71,18 +54,33 @@ public class TestPlanExtractionModel {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public GuidExtractionModel getIds() {
-    return ids;
+        return ids.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setIds(GuidExtractionModel ids) {
+  public JsonNullable<GuidExtractionModel> getIds_JsonNullable() {
+    return ids;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDS)
+  public void setIds_JsonNullable(JsonNullable<GuidExtractionModel> ids) {
     this.ids = ids;
   }
 
+  public void setIds(GuidExtractionModel ids) {
+    this.ids = JsonNullable.<GuidExtractionModel>of(ids);
+  }
 
 
+  /**
+   * Return true if this TestPlanExtractionModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -92,7 +90,7 @@ public class TestPlanExtractionModel {
       return false;
     }
     TestPlanExtractionModel testPlanExtractionModel = (TestPlanExtractionModel) o;
-    return Objects.equals(this.ids, testPlanExtractionModel.ids);
+    return equalsNullable(this.ids, testPlanExtractionModel.ids);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -101,7 +99,7 @@ public class TestPlanExtractionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids);
+    return Objects.hash(hashCodeNullable(ids));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -131,92 +129,5 @@ public class TestPlanExtractionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ids");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanExtractionModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanExtractionModel is not found in the empty JSON string", TestPlanExtractionModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `ids`
-      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("ids"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanExtractionModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanExtractionModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanExtractionModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanExtractionModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanExtractionModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanExtractionModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanExtractionModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestPlanExtractionModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPlanExtractionModel
-  * @throws IOException if the JSON string is invalid with respect to TestPlanExtractionModel
-  */
-  public static TestPlanExtractionModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanExtractionModel.class);
-  }
-
- /**
-  * Convert an instance of TestPlanExtractionModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

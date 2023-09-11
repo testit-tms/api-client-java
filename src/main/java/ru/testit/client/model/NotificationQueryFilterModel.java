@@ -15,74 +15,61 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.NotificationTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * NotificationQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  NotificationQueryFilterModel.JSON_PROPERTY_TYPES,
+  NotificationQueryFilterModel.JSON_PROPERTY_IS_READ,
+  NotificationQueryFilterModel.JSON_PROPERTY_CREATED_DATE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotificationQueryFilterModel {
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<NotificationTypeModel> types;
+  public static final String JSON_PROPERTY_TYPES = "types";
+  private JsonNullable<Set<NotificationTypeModel>> types = JsonNullable.<Set<NotificationTypeModel>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_READ = "isRead";
-  @SerializedName(SERIALIZED_NAME_IS_READ)
-  private Boolean isRead;
+  public static final String JSON_PROPERTY_IS_READ = "isRead";
+  private JsonNullable<Boolean> isRead = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public NotificationQueryFilterModel() {
+  public NotificationQueryFilterModel() { 
   }
 
   public NotificationQueryFilterModel types(Set<NotificationTypeModel> types) {
-    
-    this.types = types;
+    this.types = JsonNullable.<Set<NotificationTypeModel>>of(types);
     return this;
   }
 
   public NotificationQueryFilterModel addTypesItem(NotificationTypeModel typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
+    if (this.types == null || !this.types.isPresent()) {
+      this.types = JsonNullable.<Set<NotificationTypeModel>>of(new LinkedHashSet<>());
     }
-    this.types.add(typesItem);
+    try {
+      this.types.get().add(typesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -90,20 +77,32 @@ public class NotificationQueryFilterModel {
    * Get types
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<NotificationTypeModel> getTypes() {
-    return types;
+        return types.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<NotificationTypeModel>> getTypes_JsonNullable() {
+    return types;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  public void setTypes_JsonNullable(JsonNullable<Set<NotificationTypeModel>> types) {
+    this.types = types;
+  }
 
   public void setTypes(Set<NotificationTypeModel> types) {
-    this.types = types;
+    this.types = JsonNullable.<Set<NotificationTypeModel>>of(types);
   }
 
 
   public NotificationQueryFilterModel isRead(Boolean isRead) {
-    
-    this.isRead = isRead;
+    this.isRead = JsonNullable.<Boolean>of(isRead);
     return this;
   }
 
@@ -111,20 +110,32 @@ public class NotificationQueryFilterModel {
    * Get isRead
    * @return isRead
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsRead() {
-    return isRead;
+        return isRead.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_READ)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsRead_JsonNullable() {
+    return isRead;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_READ)
+  public void setIsRead_JsonNullable(JsonNullable<Boolean> isRead) {
+    this.isRead = isRead;
+  }
 
   public void setIsRead(Boolean isRead) {
-    this.isRead = isRead;
+    this.isRead = JsonNullable.<Boolean>of(isRead);
   }
 
 
   public NotificationQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
 
@@ -132,18 +143,33 @@ public class NotificationQueryFilterModel {
    * Get createdDate
    * @return createdDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getCreatedDate() {
-    return createdDate;
+        return createdDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public JsonNullable<DateTimeRangeSelectorModel> getCreatedDate_JsonNullable() {
+    return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> createdDate) {
     this.createdDate = createdDate;
   }
 
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
+  }
 
 
+  /**
+   * Return true if this NotificationQueryFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,9 +179,9 @@ public class NotificationQueryFilterModel {
       return false;
     }
     NotificationQueryFilterModel notificationQueryFilterModel = (NotificationQueryFilterModel) o;
-    return Objects.equals(this.types, notificationQueryFilterModel.types) &&
-        Objects.equals(this.isRead, notificationQueryFilterModel.isRead) &&
-        Objects.equals(this.createdDate, notificationQueryFilterModel.createdDate);
+    return equalsNullable(this.types, notificationQueryFilterModel.types) &&
+        equalsNullable(this.isRead, notificationQueryFilterModel.isRead) &&
+        equalsNullable(this.createdDate, notificationQueryFilterModel.createdDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -164,7 +190,7 @@ public class NotificationQueryFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(types, isRead, createdDate);
+    return Objects.hash(hashCodeNullable(types), hashCodeNullable(isRead), hashCodeNullable(createdDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -196,98 +222,5 @@ public class NotificationQueryFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("types");
-    openapiFields.add("isRead");
-    openapiFields.add("createdDate");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to NotificationQueryFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!NotificationQueryFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NotificationQueryFilterModel is not found in the empty JSON string", NotificationQueryFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!NotificationQueryFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationQueryFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!NotificationQueryFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NotificationQueryFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<NotificationQueryFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(NotificationQueryFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<NotificationQueryFilterModel>() {
-           @Override
-           public void write(JsonWriter out, NotificationQueryFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public NotificationQueryFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of NotificationQueryFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of NotificationQueryFilterModel
-  * @throws IOException if the JSON string is invalid with respect to NotificationQueryFilterModel
-  */
-  public static NotificationQueryFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, NotificationQueryFilterModel.class);
-  }
-
- /**
-  * Convert an instance of NotificationQueryFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

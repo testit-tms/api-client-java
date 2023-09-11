@@ -15,12 +15,13 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,162 +33,148 @@ import ru.testit.client.model.TestPointShortGetModelLastTestResult;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemState;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPointShortGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestPointShortGetModel.JSON_PROPERTY_ID,
+  TestPointShortGetModel.JSON_PROPERTY_CREATED_DATE,
+  TestPointShortGetModel.JSON_PROPERTY_CREATED_BY_ID,
+  TestPointShortGetModel.JSON_PROPERTY_MODIFIED_DATE,
+  TestPointShortGetModel.JSON_PROPERTY_MODIFIED_BY_ID,
+  TestPointShortGetModel.JSON_PROPERTY_TESTER_ID,
+  TestPointShortGetModel.JSON_PROPERTY_PARAMETERS,
+  TestPointShortGetModel.JSON_PROPERTY_ATTRIBUTES,
+  TestPointShortGetModel.JSON_PROPERTY_TAGS,
+  TestPointShortGetModel.JSON_PROPERTY_LINKS,
+  TestPointShortGetModel.JSON_PROPERTY_TEST_SUITE_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_GLOBAL_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_VERSION_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION,
+  TestPointShortGetModel.JSON_PROPERTY_STATUS,
+  TestPointShortGetModel.JSON_PROPERTY_PRIORITY,
+  TestPointShortGetModel.JSON_PROPERTY_IS_AUTOMATED,
+  TestPointShortGetModel.JSON_PROPERTY_NAME,
+  TestPointShortGetModel.JSON_PROPERTY_CONFIGURATION_ID,
+  TestPointShortGetModel.JSON_PROPERTY_DURATION,
+  TestPointShortGetModel.JSON_PROPERTY_SECTION_ID,
+  TestPointShortGetModel.JSON_PROPERTY_SECTION_NAME,
+  TestPointShortGetModel.JSON_PROPERTY_PROJECT_ID,
+  TestPointShortGetModel.JSON_PROPERTY_LAST_TEST_RESULT,
+  TestPointShortGetModel.JSON_PROPERTY_ITERATION_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_STATE,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_CREATED_DATE,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_ID,
+  TestPointShortGetModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointShortGetModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
-  @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  private UUID testerId;
+  public static final String JSON_PROPERTY_TESTER_ID = "testerId";
+  private JsonNullable<UUID> testerId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private JsonNullable<Map<String, String>> parameters = JsonNullable.<Map<String, String>>undefined();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = new HashMap<>();
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<String> links;
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<String>> links = JsonNullable.<List<String>>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
-  @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
+  public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
   private UUID testSuiteId;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
+  public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
   private UUID workItemId;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
+  public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   private Long workItemGlobalId;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
+  public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
   private UUID workItemVersionId;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
+  private JsonNullable<Long> workItemMedianDuration = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_STATUS = "status";
   private TestPointStatus status;
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
   private WorkItemPriorityModel priority;
 
-  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
-  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
   private Boolean isAutomated;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
   private UUID configurationId;
 
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
+  public static final String JSON_PROPERTY_DURATION = "duration";
   private Integer duration;
 
-  public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
-  @SerializedName(SERIALIZED_NAME_SECTION_ID)
+  public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
   private UUID sectionId;
 
-  public static final String SERIALIZED_NAME_SECTION_NAME = "sectionName";
-  @SerializedName(SERIALIZED_NAME_SECTION_NAME)
-  private String sectionName;
+  public static final String JSON_PROPERTY_SECTION_NAME = "sectionName";
+  private JsonNullable<String> sectionName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_LAST_TEST_RESULT = "lastTestResult";
-  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT)
+  public static final String JSON_PROPERTY_LAST_TEST_RESULT = "lastTestResult";
   private TestPointShortGetModelLastTestResult lastTestResult;
 
-  public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
-  @SerializedName(SERIALIZED_NAME_ITERATION_ID)
+  public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
   private UUID iterationId;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_STATE = "workItemState";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_STATE)
+  public static final String JSON_PROPERTY_WORK_ITEM_STATE = "workItemState";
   private WorkItemState workItemState;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_BY_ID = "workItemCreatedById";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID = "workItemCreatedById";
   private UUID workItemCreatedById;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_DATE)
+  public static final String JSON_PROPERTY_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
   private OffsetDateTime workItemCreatedDate;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_ID = "workItemModifiedById";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_ID)
-  private UUID workItemModifiedById;
+  public static final String JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_ID = "workItemModifiedById";
+  private JsonNullable<UUID> workItemModifiedById = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE)
-  private OffsetDateTime workItemModifiedDate;
+  public static final String JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
+  private JsonNullable<OffsetDateTime> workItemModifiedDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public TestPointShortGetModel() {
+  public TestPointShortGetModel() { 
   }
 
   public TestPointShortGetModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -196,19 +183,23 @@ public class TestPointShortGetModel {
    * Unique ID of the test point
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPointShortGetModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -217,19 +208,23 @@ public class TestPointShortGetModel {
    * Creation date of the test point
    * @return createdDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPointShortGetModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -238,20 +233,24 @@ public class TestPointShortGetModel {
    * Unique ID of the test point creator
    * @return createdById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPointShortGetModel modifiedDate(OffsetDateTime modifiedDate) {
-    
-    this.modifiedDate = modifiedDate;
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
 
@@ -259,20 +258,32 @@ public class TestPointShortGetModel {
    * Last modification date of the test point
    * @return modifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
+        return modifiedDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
 
   public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
   public TestPointShortGetModel modifiedById(UUID modifiedById) {
-    
-    this.modifiedById = modifiedById;
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
 
@@ -280,20 +291,32 @@ public class TestPointShortGetModel {
    * Unique ID of the test point last editor
    * @return modifiedById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getModifiedById() {
-    return modifiedById;
+        return modifiedById.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
 
   public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
   public TestPointShortGetModel testerId(UUID testerId) {
-    
-    this.testerId = testerId;
+    this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
 
@@ -301,28 +324,44 @@ public class TestPointShortGetModel {
    * Unique ID of the test point assigned user
    * @return testerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getTesterId() {
-    return testerId;
+        return testerId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TESTER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTesterId_JsonNullable() {
+    return testerId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TESTER_ID)
+  public void setTesterId_JsonNullable(JsonNullable<UUID> testerId) {
+    this.testerId = testerId;
+  }
 
   public void setTesterId(UUID testerId) {
-    this.testerId = testerId;
+    this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
   public TestPointShortGetModel parameters(Map<String, String> parameters) {
-    
-    this.parameters = parameters;
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
 
   public TestPointShortGetModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
+    if (this.parameters == null || !this.parameters.isPresent()) {
+      this.parameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
     }
-    this.parameters.put(key, parametersItem);
+    try {
+      this.parameters.get().put(key, parametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -330,28 +369,44 @@ public class TestPointShortGetModel {
    * Collection of the test point parameters
    * @return parameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, String> getParameters() {
-    return parameters;
+        return parameters.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getParameters_JsonNullable() {
+    return parameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  public void setParameters_JsonNullable(JsonNullable<Map<String, String>> parameters) {
+    this.parameters = parameters;
+  }
 
   public void setParameters(Map<String, String> parameters) {
-    this.parameters = parameters;
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
   public TestPointShortGetModel attributes(Map<String, Object> attributes) {
-    
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
 
   public TestPointShortGetModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
     }
-    this.attributes.put(key, attributesItem);
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -359,28 +414,44 @@ public class TestPointShortGetModel {
    * Collection of attributes of work item the test point represents
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, Object> getAttributes() {
-    return attributes;
+        return attributes.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
+    return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
+    this.attributes = attributes;
+  }
 
   public void setAttributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
   public TestPointShortGetModel tags(List<String> tags) {
-    
-    this.tags = tags;
+    this.tags = JsonNullable.<List<String>>of(tags);
     return this;
   }
 
   public TestPointShortGetModel addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.tags.add(tagsItem);
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -388,28 +459,44 @@ public class TestPointShortGetModel {
    * Collection of the test point tags
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<String> getTags() {
-    return tags;
+        return tags.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
 
   public void setTags(List<String> tags) {
-    this.tags = tags;
+    this.tags = JsonNullable.<List<String>>of(tags);
   }
 
 
   public TestPointShortGetModel links(List<String> links) {
-    
-    this.links = links;
+    this.links = JsonNullable.<List<String>>of(links);
     return this;
   }
 
   public TestPointShortGetModel addLinksItem(String linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.links.add(linksItem);
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -417,19 +504,31 @@ public class TestPointShortGetModel {
    * Collection of the test point links
    * @return links
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<String> getLinks() {
-    return links;
+        return links.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<String>> links) {
+    this.links = links;
+  }
 
   public void setLinks(List<String> links) {
-    this.links = links;
+    this.links = JsonNullable.<List<String>>of(links);
   }
 
 
   public TestPointShortGetModel testSuiteId(UUID testSuiteId) {
-    
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -438,19 +537,23 @@ public class TestPointShortGetModel {
    * Unique ID of test suite the test point assigned to
    * @return testSuiteId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
   public TestPointShortGetModel workItemId(UUID workItemId) {
-    
     this.workItemId = workItemId;
     return this;
   }
@@ -459,19 +562,23 @@ public class TestPointShortGetModel {
    * Unique ID of work item the test point represents
    * @return workItemId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getWorkItemId() {
     return workItemId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
   public TestPointShortGetModel workItemGlobalId(Long workItemGlobalId) {
-    
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -480,19 +587,23 @@ public class TestPointShortGetModel {
    * Global ID of work item the test point represents
    * @return workItemGlobalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
   public TestPointShortGetModel workItemVersionId(UUID workItemVersionId) {
-    
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -501,19 +612,56 @@ public class TestPointShortGetModel {
    * Unique ID of work item version the test point represents
    * @return workItemVersionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
+  public TestPointShortGetModel workItemMedianDuration(Long workItemMedianDuration) {
+    this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
+    return this;
+  }
+
+   /**
+   * Median duration of work item the test point represents
+   * @return workItemMedianDuration
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Long getWorkItemMedianDuration() {
+        return workItemMedianDuration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getWorkItemMedianDuration_JsonNullable() {
+    return workItemMedianDuration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION)
+  public void setWorkItemMedianDuration_JsonNullable(JsonNullable<Long> workItemMedianDuration) {
+    this.workItemMedianDuration = workItemMedianDuration;
+  }
+
+  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
+    this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
+  }
+
+
   public TestPointShortGetModel status(TestPointStatus status) {
-    
     this.status = status;
     return this;
   }
@@ -522,19 +670,23 @@ public class TestPointShortGetModel {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPointStatus getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(TestPointStatus status) {
     this.status = status;
   }
 
 
   public TestPointShortGetModel priority(WorkItemPriorityModel priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -543,19 +695,23 @@ public class TestPointShortGetModel {
    * Get priority
    * @return priority
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public TestPointShortGetModel isAutomated(Boolean isAutomated) {
-    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -564,20 +720,24 @@ public class TestPointShortGetModel {
    * Indicates if the test point represents an autotest
    * @return isAutomated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public TestPointShortGetModel name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -585,19 +745,31 @@ public class TestPointShortGetModel {
    * Name of the test point
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public TestPointShortGetModel configurationId(UUID configurationId) {
-    
     this.configurationId = configurationId;
     return this;
   }
@@ -606,19 +778,23 @@ public class TestPointShortGetModel {
    * Unique ID of the test point configuration
    * @return configurationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getConfigurationId() {
     return configurationId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestPointShortGetModel duration(Integer duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -627,19 +803,23 @@ public class TestPointShortGetModel {
    * Duration of the test point
    * @return duration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getDuration() {
     return duration;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public TestPointShortGetModel sectionId(UUID sectionId) {
-    
     this.sectionId = sectionId;
     return this;
   }
@@ -648,20 +828,24 @@ public class TestPointShortGetModel {
    * Unique ID of section where work item the test point represents is located
    * @return sectionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getSectionId() {
     return sectionId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public TestPointShortGetModel sectionName(String sectionName) {
-    
-    this.sectionName = sectionName;
+    this.sectionName = JsonNullable.<String>of(sectionName);
     return this;
   }
 
@@ -669,19 +853,31 @@ public class TestPointShortGetModel {
    * Name of section where work item the test point represents is located
    * @return sectionName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getSectionName() {
-    return sectionName;
+        return sectionName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_SECTION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSectionName_JsonNullable() {
+    return sectionName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION_NAME)
+  public void setSectionName_JsonNullable(JsonNullable<String> sectionName) {
+    this.sectionName = sectionName;
+  }
 
   public void setSectionName(String sectionName) {
-    this.sectionName = sectionName;
+    this.sectionName = JsonNullable.<String>of(sectionName);
   }
 
 
   public TestPointShortGetModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -690,19 +886,23 @@ public class TestPointShortGetModel {
    * Unique ID of the test point project
    * @return projectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPointShortGetModel lastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
-    
     this.lastTestResult = lastTestResult;
     return this;
   }
@@ -711,19 +911,23 @@ public class TestPointShortGetModel {
    * Get lastTestResult
    * @return lastTestResult
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPointShortGetModelLastTestResult getLastTestResult() {
     return lastTestResult;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
 
   public TestPointShortGetModel iterationId(UUID iterationId) {
-    
     this.iterationId = iterationId;
     return this;
   }
@@ -732,19 +936,23 @@ public class TestPointShortGetModel {
    * Unique ID of work item iteration the test point represents
    * @return iterationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ITERATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getIterationId() {
     return iterationId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ITERATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
   public TestPointShortGetModel workItemState(WorkItemState workItemState) {
-    
     this.workItemState = workItemState;
     return this;
   }
@@ -753,19 +961,23 @@ public class TestPointShortGetModel {
    * Get workItemState
    * @return workItemState
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemState getWorkItemState() {
     return workItemState;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemState(WorkItemState workItemState) {
     this.workItemState = workItemState;
   }
 
 
   public TestPointShortGetModel workItemCreatedById(UUID workItemCreatedById) {
-    
     this.workItemCreatedById = workItemCreatedById;
     return this;
   }
@@ -774,19 +986,23 @@ public class TestPointShortGetModel {
    * Unique ID of the work item creator
    * @return workItemCreatedById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getWorkItemCreatedById() {
     return workItemCreatedById;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemCreatedById(UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
   }
 
 
   public TestPointShortGetModel workItemCreatedDate(OffsetDateTime workItemCreatedDate) {
-    
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -795,20 +1011,24 @@ public class TestPointShortGetModel {
    * Creation date of work item
    * @return workItemCreatedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getWorkItemCreatedDate() {
     return workItemCreatedDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemCreatedDate(OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
   public TestPointShortGetModel workItemModifiedById(UUID workItemModifiedById) {
-    
-    this.workItemModifiedById = workItemModifiedById;
+    this.workItemModifiedById = JsonNullable.<UUID>of(workItemModifiedById);
     return this;
   }
 
@@ -816,20 +1036,32 @@ public class TestPointShortGetModel {
    * Unique ID of the work item last editor
    * @return workItemModifiedById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getWorkItemModifiedById() {
-    return workItemModifiedById;
+        return workItemModifiedById.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getWorkItemModifiedById_JsonNullable() {
+    return workItemModifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_ID)
+  public void setWorkItemModifiedById_JsonNullable(JsonNullable<UUID> workItemModifiedById) {
+    this.workItemModifiedById = workItemModifiedById;
+  }
 
   public void setWorkItemModifiedById(UUID workItemModifiedById) {
-    this.workItemModifiedById = workItemModifiedById;
+    this.workItemModifiedById = JsonNullable.<UUID>of(workItemModifiedById);
   }
 
 
   public TestPointShortGetModel workItemModifiedDate(OffsetDateTime workItemModifiedDate) {
-    
-    this.workItemModifiedDate = workItemModifiedDate;
+    this.workItemModifiedDate = JsonNullable.<OffsetDateTime>of(workItemModifiedDate);
     return this;
   }
 
@@ -837,18 +1069,33 @@ public class TestPointShortGetModel {
    * Modified date of work item
    * @return workItemModifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getWorkItemModifiedDate() {
-    return workItemModifiedDate;
+        return workItemModifiedDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemModifiedDate(OffsetDateTime workItemModifiedDate) {
+  public JsonNullable<OffsetDateTime> getWorkItemModifiedDate_JsonNullable() {
+    return workItemModifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE)
+  public void setWorkItemModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
+  public void setWorkItemModifiedDate(OffsetDateTime workItemModifiedDate) {
+    this.workItemModifiedDate = JsonNullable.<OffsetDateTime>of(workItemModifiedDate);
+  }
 
 
+  /**
+   * Return true if this TestPointShortGetModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -861,33 +1108,34 @@ public class TestPointShortGetModel {
     return Objects.equals(this.id, testPointShortGetModel.id) &&
         Objects.equals(this.createdDate, testPointShortGetModel.createdDate) &&
         Objects.equals(this.createdById, testPointShortGetModel.createdById) &&
-        Objects.equals(this.modifiedDate, testPointShortGetModel.modifiedDate) &&
-        Objects.equals(this.modifiedById, testPointShortGetModel.modifiedById) &&
-        Objects.equals(this.testerId, testPointShortGetModel.testerId) &&
-        Objects.equals(this.parameters, testPointShortGetModel.parameters) &&
-        Objects.equals(this.attributes, testPointShortGetModel.attributes) &&
-        Objects.equals(this.tags, testPointShortGetModel.tags) &&
-        Objects.equals(this.links, testPointShortGetModel.links) &&
+        equalsNullable(this.modifiedDate, testPointShortGetModel.modifiedDate) &&
+        equalsNullable(this.modifiedById, testPointShortGetModel.modifiedById) &&
+        equalsNullable(this.testerId, testPointShortGetModel.testerId) &&
+        equalsNullable(this.parameters, testPointShortGetModel.parameters) &&
+        equalsNullable(this.attributes, testPointShortGetModel.attributes) &&
+        equalsNullable(this.tags, testPointShortGetModel.tags) &&
+        equalsNullable(this.links, testPointShortGetModel.links) &&
         Objects.equals(this.testSuiteId, testPointShortGetModel.testSuiteId) &&
         Objects.equals(this.workItemId, testPointShortGetModel.workItemId) &&
         Objects.equals(this.workItemGlobalId, testPointShortGetModel.workItemGlobalId) &&
         Objects.equals(this.workItemVersionId, testPointShortGetModel.workItemVersionId) &&
+        equalsNullable(this.workItemMedianDuration, testPointShortGetModel.workItemMedianDuration) &&
         Objects.equals(this.status, testPointShortGetModel.status) &&
         Objects.equals(this.priority, testPointShortGetModel.priority) &&
         Objects.equals(this.isAutomated, testPointShortGetModel.isAutomated) &&
-        Objects.equals(this.name, testPointShortGetModel.name) &&
+        equalsNullable(this.name, testPointShortGetModel.name) &&
         Objects.equals(this.configurationId, testPointShortGetModel.configurationId) &&
         Objects.equals(this.duration, testPointShortGetModel.duration) &&
         Objects.equals(this.sectionId, testPointShortGetModel.sectionId) &&
-        Objects.equals(this.sectionName, testPointShortGetModel.sectionName) &&
+        equalsNullable(this.sectionName, testPointShortGetModel.sectionName) &&
         Objects.equals(this.projectId, testPointShortGetModel.projectId) &&
         Objects.equals(this.lastTestResult, testPointShortGetModel.lastTestResult) &&
         Objects.equals(this.iterationId, testPointShortGetModel.iterationId) &&
         Objects.equals(this.workItemState, testPointShortGetModel.workItemState) &&
         Objects.equals(this.workItemCreatedById, testPointShortGetModel.workItemCreatedById) &&
         Objects.equals(this.workItemCreatedDate, testPointShortGetModel.workItemCreatedDate) &&
-        Objects.equals(this.workItemModifiedById, testPointShortGetModel.workItemModifiedById) &&
-        Objects.equals(this.workItemModifiedDate, testPointShortGetModel.workItemModifiedDate);
+        equalsNullable(this.workItemModifiedById, testPointShortGetModel.workItemModifiedById) &&
+        equalsNullable(this.workItemModifiedDate, testPointShortGetModel.workItemModifiedDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -896,7 +1144,7 @@ public class TestPointShortGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testerId, parameters, attributes, tags, links, testSuiteId, workItemId, workItemGlobalId, workItemVersionId, status, priority, isAutomated, name, configurationId, duration, sectionId, sectionName, projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, workItemModifiedById, workItemModifiedDate);
+    return Objects.hash(id, createdDate, createdById, hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(testerId), hashCodeNullable(parameters), hashCodeNullable(attributes), hashCodeNullable(tags), hashCodeNullable(links), testSuiteId, workItemId, workItemGlobalId, workItemVersionId, hashCodeNullable(workItemMedianDuration), status, priority, isAutomated, hashCodeNullable(name), configurationId, duration, sectionId, hashCodeNullable(sectionName), projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, hashCodeNullable(workItemModifiedById), hashCodeNullable(workItemModifiedDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -924,6 +1172,7 @@ public class TestPointShortGetModel {
     sb.append("    workItemId: ").append(toIndentedString(workItemId)).append("\n");
     sb.append("    workItemGlobalId: ").append(toIndentedString(workItemGlobalId)).append("\n");
     sb.append("    workItemVersionId: ").append(toIndentedString(workItemVersionId)).append("\n");
+    sb.append("    workItemMedianDuration: ").append(toIndentedString(workItemMedianDuration)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
@@ -955,182 +1204,5 @@ public class TestPointShortGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("createdDate");
-    openapiFields.add("createdById");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("modifiedById");
-    openapiFields.add("testerId");
-    openapiFields.add("parameters");
-    openapiFields.add("attributes");
-    openapiFields.add("tags");
-    openapiFields.add("links");
-    openapiFields.add("testSuiteId");
-    openapiFields.add("workItemId");
-    openapiFields.add("workItemGlobalId");
-    openapiFields.add("workItemVersionId");
-    openapiFields.add("status");
-    openapiFields.add("priority");
-    openapiFields.add("isAutomated");
-    openapiFields.add("name");
-    openapiFields.add("configurationId");
-    openapiFields.add("duration");
-    openapiFields.add("sectionId");
-    openapiFields.add("sectionName");
-    openapiFields.add("projectId");
-    openapiFields.add("lastTestResult");
-    openapiFields.add("iterationId");
-    openapiFields.add("workItemState");
-    openapiFields.add("workItemCreatedById");
-    openapiFields.add("workItemCreatedDate");
-    openapiFields.add("workItemModifiedById");
-    openapiFields.add("workItemModifiedDate");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("priority");
-    openapiRequiredFields.add("lastTestResult");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPointShortGetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPointShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointShortGetModel is not found in the empty JSON string", TestPointShortGetModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestPointShortGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPointShortGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if ((jsonObj.get("testerId") != null && !jsonObj.get("testerId").isJsonNull()) && !jsonObj.get("testerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testerId").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-      }
-      if ((jsonObj.get("testSuiteId") != null && !jsonObj.get("testSuiteId").isJsonNull()) && !jsonObj.get("testSuiteId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testSuiteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteId").toString()));
-      }
-      if ((jsonObj.get("workItemId") != null && !jsonObj.get("workItemId").isJsonNull()) && !jsonObj.get("workItemId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemId").toString()));
-      }
-      if ((jsonObj.get("workItemVersionId") != null && !jsonObj.get("workItemVersionId").isJsonNull()) && !jsonObj.get("workItemVersionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemVersionId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("configurationId") != null && !jsonObj.get("configurationId").isJsonNull()) && !jsonObj.get("configurationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
-      }
-      if ((jsonObj.get("sectionId") != null && !jsonObj.get("sectionId").isJsonNull()) && !jsonObj.get("sectionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionId").toString()));
-      }
-      if ((jsonObj.get("sectionName") != null && !jsonObj.get("sectionName").isJsonNull()) && !jsonObj.get("sectionName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionName").toString()));
-      }
-      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      // validate the required field `lastTestResult`
-      TestPointShortGetModelLastTestResult.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
-      if ((jsonObj.get("iterationId") != null && !jsonObj.get("iterationId").isJsonNull()) && !jsonObj.get("iterationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `iterationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iterationId").toString()));
-      }
-      if ((jsonObj.get("workItemCreatedById") != null && !jsonObj.get("workItemCreatedById").isJsonNull()) && !jsonObj.get("workItemCreatedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemCreatedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemCreatedById").toString()));
-      }
-      if ((jsonObj.get("workItemModifiedById") != null && !jsonObj.get("workItemModifiedById").isJsonNull()) && !jsonObj.get("workItemModifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemModifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemModifiedById").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPointShortGetModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPointShortGetModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPointShortGetModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointShortGetModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPointShortGetModel>() {
-           @Override
-           public void write(JsonWriter out, TestPointShortGetModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPointShortGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestPointShortGetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPointShortGetModel
-  * @throws IOException if the JSON string is invalid with respect to TestPointShortGetModel
-  */
-  public static TestPointShortGetModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPointShortGetModel.class);
-  }
-
- /**
-  * Convert an instance of TestPointShortGetModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**isDeleted** | **Boolean** |  |  |
 |**name** | **String** | Custom attributes template name |  |
 
 

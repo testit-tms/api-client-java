@@ -117,17 +117,26 @@ publishing.publications.named<MavenPublication>("maven") {
 }
 
 val okhttpVersion = "4.10.0"
+val swagger_annotations_version = "1.6.5"
+val jackson_version = "2.13.4"
+val jackson_databind_version = "2.13.4.2"
+val jackson_databind_nullable_version = "0.2.6"
+val jakarta_annotation_version = "2.1.0"
+val jersey_version = "3.0.4"
+val junit_version = "5.8.2"
 
 dependencies {
-    implementation("io.swagger:swagger-annotations:1.6.8")
+    implementation("io.swagger:swagger-annotations:$swagger_annotations_version")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
-    implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
-    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("io.gsonfire:gson-fire:1.8.5")
-    implementation("javax.ws.rs:jsr311-api:1.1.1")
-    implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
-    implementation("org.openapitools:jackson-databind-nullable:0.2.4")
-    implementation("org.apache.commons:commons-lang3:3.12.0")
-    implementation("jakarta.annotation:jakarta.annotation-api:1.3.5")
+    implementation("org.glassfish.jersey.core:jersey-client:$jersey_version")
+    implementation("org.glassfish.jersey.inject:jersey-hk2:$jersey_version")
+    implementation("org.glassfish.jersey.media:jersey-media-multipart:$jersey_version")
+    implementation("org.glassfish.jersey.media:jersey-media-json-jackson:$jersey_version")
+    implementation("org.glassfish.jersey.connectors:jersey-apache-connector:$jersey_version")
+    implementation("com.fasterxml.jackson.core:jackson-core:$jackson_version")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_databind_version")
+    implementation("org.openapitools:jackson-databind-nullable:$jackson_databind_nullable_version")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version")
+    implementation("jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version")
 }

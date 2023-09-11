@@ -10,8 +10,8 @@
 |**description** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
-|**hasInfo** | **Boolean** |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
+|**hasInfo** | **Boolean** |  |  |
+|**id** | **UUID** |  |  |
 |**type** | **String** |  |  [optional] |
 
 

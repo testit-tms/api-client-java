@@ -7,19 +7,19 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Unique ID of test result |  [optional] |
+|**id** | **UUID** | Unique ID of the test result |  |
 |**name** | **String** | Name of autotest represented by the test result |  [optional] |
-|**autotestGlobalId** | **Long** | Global ID of autotest represented by test result |  [optional] |
-|**testRunId** | **UUID** | Unique ID of test run where test result is located |  [optional] |
-|**configurationId** | **UUID** | Unique ID of configuration which test result uses |  [optional] |
-|**configurationName** | **String** | Name of configuration which test result uses |  [optional] |
-|**outcome** | **TestResultOutcome** |  |  |
-|**resultReasons** | [**List&lt;AutotestResultReasonSubGetModel&gt;**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which test result have |  [optional] |
-|**comment** | **String** | Comment to test result |  [optional] |
-|**date** | **OffsetDateTime** | Date when test result has been set |  [optional] |
+|**autotestGlobalId** | **Long** | Global ID of autotest represented by the test result |  |
+|**testRunId** | **UUID** | Unique ID of test run where the test result is located |  |
+|**configurationId** | **UUID** | Unique ID of configuration which the test result uses |  |
+|**configurationName** | **String** | Name of configuration which the test result uses |  [optional] |
+|**outcome** | **String** | Outcome of the test result |  [optional] |
+|**resultReasons** | [**List&lt;AutotestResultReasonSubGetModel&gt;**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which the test result have |  [optional] |
+|**comment** | **String** | Comment to the test result |  [optional] |
+|**date** | **OffsetDateTime** | Date when the test result has been set |  |
 |**duration** | **Long** | Time which it took to run the test |  [optional] |
-|**links** | [**List&lt;LinkSubGetModel&gt;**](LinkSubGetModel.md) | Collection of links attached to test result |  [optional] |
-|**attachments** | [**List&lt;AttachmentSubGetModel&gt;**](AttachmentSubGetModel.md) | Collection of files attached to test result |  [optional] |
+|**links** | [**List&lt;LinkSubGetModel&gt;**](LinkSubGetModel.md) | Collection of links attached to the test result |  [optional] |
+|**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) | Collection of files attached to the test result |  [optional] |
 
 
 

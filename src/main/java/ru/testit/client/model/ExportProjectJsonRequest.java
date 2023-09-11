@@ -15,69 +15,57 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ExportProjectJsonRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ExportProjectJsonRequest.JSON_PROPERTY_SECTION_IDS,
+  ExportProjectJsonRequest.JSON_PROPERTY_WORK_ITEM_IDS
+})
+@JsonTypeName("ExportProjectJson_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportProjectJsonRequest {
-  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
-  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds;
+  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
+  private JsonNullable<Set<UUID>> sectionIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
-  private Set<UUID> workItemIds;
+  public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
+  private JsonNullable<Set<UUID>> workItemIds = JsonNullable.<Set<UUID>>undefined();
 
-  public ExportProjectJsonRequest() {
+  public ExportProjectJsonRequest() { 
   }
 
   public ExportProjectJsonRequest sectionIds(Set<UUID> sectionIds) {
-    
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
     return this;
   }
 
   public ExportProjectJsonRequest addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
+    if (this.sectionIds == null || !this.sectionIds.isPresent()) {
+      this.sectionIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.sectionIds.add(sectionIdsItem);
+    try {
+      this.sectionIds.get().add(sectionIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -85,28 +73,44 @@ public class ExportProjectJsonRequest {
    * Specifies the IDs of the sections you want to export.&lt;br /&gt;  Use this parameter if you want to export certain parts of the project.&lt;br /&gt;  In this parameter, \&quot;&lt;b&gt;string&lt;/b&gt;\&quot; values are IDs of the test library sections.
    * @return sectionIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getSectionIds() {
-    return sectionIds;
+        return sectionIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getSectionIds_JsonNullable() {
+    return sectionIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  public void setSectionIds_JsonNullable(JsonNullable<Set<UUID>> sectionIds) {
+    this.sectionIds = sectionIds;
+  }
 
   public void setSectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
   }
 
 
   public ExportProjectJsonRequest workItemIds(Set<UUID> workItemIds) {
-    
-    this.workItemIds = workItemIds;
+    this.workItemIds = JsonNullable.<Set<UUID>>of(workItemIds);
     return this;
   }
 
   public ExportProjectJsonRequest addWorkItemIdsItem(UUID workItemIdsItem) {
-    if (this.workItemIds == null) {
-      this.workItemIds = new LinkedHashSet<>();
+    if (this.workItemIds == null || !this.workItemIds.isPresent()) {
+      this.workItemIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.workItemIds.add(workItemIdsItem);
+    try {
+      this.workItemIds.get().add(workItemIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -114,18 +118,33 @@ public class ExportProjectJsonRequest {
    * Specifies the work items you want to export from a project.&lt;br /&gt;  Use this parameter if you want to export certain work items.&lt;br /&gt;  In this parameter, \&quot;&lt;b&gt;string&lt;/b&gt;\&quot; values are IDs of the work items.
    * @return workItemIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getWorkItemIds() {
-    return workItemIds;
+        return workItemIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemIds(Set<UUID> workItemIds) {
+  public JsonNullable<Set<UUID>> getWorkItemIds_JsonNullable() {
+    return workItemIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  public void setWorkItemIds_JsonNullable(JsonNullable<Set<UUID>> workItemIds) {
     this.workItemIds = workItemIds;
   }
 
+  public void setWorkItemIds(Set<UUID> workItemIds) {
+    this.workItemIds = JsonNullable.<Set<UUID>>of(workItemIds);
+  }
 
 
+  /**
+   * Return true if this ExportProjectJson_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,8 +154,8 @@ public class ExportProjectJsonRequest {
       return false;
     }
     ExportProjectJsonRequest exportProjectJsonRequest = (ExportProjectJsonRequest) o;
-    return Objects.equals(this.sectionIds, exportProjectJsonRequest.sectionIds) &&
-        Objects.equals(this.workItemIds, exportProjectJsonRequest.workItemIds);
+    return equalsNullable(this.sectionIds, exportProjectJsonRequest.sectionIds) &&
+        equalsNullable(this.workItemIds, exportProjectJsonRequest.workItemIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -145,7 +164,7 @@ public class ExportProjectJsonRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sectionIds, workItemIds);
+    return Objects.hash(hashCodeNullable(sectionIds), hashCodeNullable(workItemIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -176,97 +195,5 @@ public class ExportProjectJsonRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sectionIds");
-    openapiFields.add("workItemIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ExportProjectJsonRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ExportProjectJsonRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExportProjectJsonRequest is not found in the empty JSON string", ExportProjectJsonRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ExportProjectJsonRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExportProjectJsonRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemIds") != null && !jsonObj.get("workItemIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ExportProjectJsonRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExportProjectJsonRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ExportProjectJsonRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ExportProjectJsonRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ExportProjectJsonRequest>() {
-           @Override
-           public void write(JsonWriter out, ExportProjectJsonRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ExportProjectJsonRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ExportProjectJsonRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ExportProjectJsonRequest
-  * @throws IOException if the JSON string is invalid with respect to ExportProjectJsonRequest
-  */
-  public static ExportProjectJsonRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ExportProjectJsonRequest.class);
-  }
-
- /**
-  * Convert an instance of ExportProjectJsonRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

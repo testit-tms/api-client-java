@@ -15,64 +15,47 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CustomAttributeTemplatePutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  CustomAttributeTemplatePutModel.JSON_PROPERTY_ID,
+  CustomAttributeTemplatePutModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS,
+  CustomAttributeTemplatePutModel.JSON_PROPERTY_NAME
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CustomAttributeTemplatePutModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  private Set<UUID> customAttributeIds;
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
+  private JsonNullable<Set<UUID>> customAttributeIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public CustomAttributeTemplatePutModel() {
+  public CustomAttributeTemplatePutModel() { 
   }
 
   public CustomAttributeTemplatePutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -81,28 +64,36 @@ public class CustomAttributeTemplatePutModel {
    * Unique ID of the attribute template
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public CustomAttributeTemplatePutModel customAttributeIds(Set<UUID> customAttributeIds) {
-    
-    this.customAttributeIds = customAttributeIds;
+    this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
     return this;
   }
 
   public CustomAttributeTemplatePutModel addCustomAttributeIdsItem(UUID customAttributeIdsItem) {
-    if (this.customAttributeIds == null) {
-      this.customAttributeIds = new LinkedHashSet<>();
+    if (this.customAttributeIds == null || !this.customAttributeIds.isPresent()) {
+      this.customAttributeIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.customAttributeIds.add(customAttributeIdsItem);
+    try {
+      this.customAttributeIds.get().add(customAttributeIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -110,19 +101,31 @@ public class CustomAttributeTemplatePutModel {
    * Collection of attribute IDs
    * @return customAttributeIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCustomAttributeIds() {
-    return customAttributeIds;
+        return customAttributeIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCustomAttributeIds_JsonNullable() {
+    return customAttributeIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS)
+  public void setCustomAttributeIds_JsonNullable(JsonNullable<Set<UUID>> customAttributeIds) {
+    this.customAttributeIds = customAttributeIds;
+  }
 
   public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
-    this.customAttributeIds = customAttributeIds;
+    this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
   }
 
 
   public CustomAttributeTemplatePutModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -131,18 +134,25 @@ public class CustomAttributeTemplatePutModel {
    * Custom attributes template name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
-
+  /**
+   * Return true if this CustomAttributeTemplatePutModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,7 +163,7 @@ public class CustomAttributeTemplatePutModel {
     }
     CustomAttributeTemplatePutModel customAttributeTemplatePutModel = (CustomAttributeTemplatePutModel) o;
     return Objects.equals(this.id, customAttributeTemplatePutModel.id) &&
-        Objects.equals(this.customAttributeIds, customAttributeTemplatePutModel.customAttributeIds) &&
+        equalsNullable(this.customAttributeIds, customAttributeTemplatePutModel.customAttributeIds) &&
         Objects.equals(this.name, customAttributeTemplatePutModel.name);
   }
 
@@ -163,7 +173,7 @@ public class CustomAttributeTemplatePutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, customAttributeIds, name);
+    return Objects.hash(id, hashCodeNullable(customAttributeIds), name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -195,109 +205,5 @@ public class CustomAttributeTemplatePutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("customAttributeIds");
-    openapiFields.add("name");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeTemplatePutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CustomAttributeTemplatePutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeTemplatePutModel is not found in the empty JSON string", CustomAttributeTemplatePutModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CustomAttributeTemplatePutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeTemplatePutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CustomAttributeTemplatePutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeIds").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomAttributeTemplatePutModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomAttributeTemplatePutModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomAttributeTemplatePutModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomAttributeTemplatePutModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CustomAttributeTemplatePutModel>() {
-           @Override
-           public void write(JsonWriter out, CustomAttributeTemplatePutModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CustomAttributeTemplatePutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CustomAttributeTemplatePutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomAttributeTemplatePutModel
-  * @throws IOException if the JSON string is invalid with respect to CustomAttributeTemplatePutModel
-  */
-  public static CustomAttributeTemplatePutModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomAttributeTemplatePutModel.class);
-  }
-
- /**
-  * Convert an instance of CustomAttributeTemplatePutModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

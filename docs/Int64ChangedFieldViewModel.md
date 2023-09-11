@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**oldValue** | **Long** |  |  [optional] |
-|**newValue** | **Long** |  |  [optional] |
+|**oldValue** | **Long** |  |  |
+|**newValue** | **Long** |  |  |
 
 
 

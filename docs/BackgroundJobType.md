@@ -27,5 +27,7 @@
 
 * `IMPORTTESTRAILXMLPROJECT` (value: `"ImportTestRailXmlProject"`)
 
+* `PURGEPROJECT` (value: `"PurgeProject"`)
+
 
 

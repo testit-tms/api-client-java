@@ -15,12 +15,13 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -28,82 +29,64 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.PublicTestPointModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * PublicTestRunModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  PublicTestRunModel.JSON_PROPERTY_TEST_RUN_ID,
+  PublicTestRunModel.JSON_PROPERTY_TEST_PLAN_ID,
+  PublicTestRunModel.JSON_PROPERTY_TEST_PLAN_GLOBAL_ID,
+  PublicTestRunModel.JSON_PROPERTY_NAME,
+  PublicTestRunModel.JSON_PROPERTY_PRODUCT_NAME,
+  PublicTestRunModel.JSON_PROPERTY_BUILD,
+  PublicTestRunModel.JSON_PROPERTY_CONFIGURATIONS,
+  PublicTestRunModel.JSON_PROPERTY_AUTO_TESTS,
+  PublicTestRunModel.JSON_PROPERTY_TEST_POINTS,
+  PublicTestRunModel.JSON_PROPERTY_STATUS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PublicTestRunModel {
-  public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
   private UUID testRunId;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  private UUID testPlanId;
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  private JsonNullable<UUID> testPlanId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
+  public static final String JSON_PROPERTY_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   private Long testPlanGlobalId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
-  @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  private String productName;
+  public static final String JSON_PROPERTY_PRODUCT_NAME = "productName";
+  private JsonNullable<String> productName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_BUILD = "build";
-  @SerializedName(SERIALIZED_NAME_BUILD)
-  private String build;
+  public static final String JSON_PROPERTY_BUILD = "build";
+  private JsonNullable<String> build = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  private List<ConfigurationModel> configurations;
+  public static final String JSON_PROPERTY_CONFIGURATIONS = "configurations";
+  private JsonNullable<List<ConfigurationModel>> configurations = JsonNullable.<List<ConfigurationModel>>undefined();
 
-  public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
-  @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests;
+  public static final String JSON_PROPERTY_AUTO_TESTS = "autoTests";
+  private JsonNullable<List<AutoTestModel>> autoTests = JsonNullable.<List<AutoTestModel>>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
-  @SerializedName(SERIALIZED_NAME_TEST_POINTS)
-  private List<PublicTestPointModel> testPoints;
+  public static final String JSON_PROPERTY_TEST_POINTS = "testPoints";
+  private JsonNullable<List<PublicTestPointModel>> testPoints = JsonNullable.<List<PublicTestPointModel>>undefined();
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private JsonNullable<String> status = JsonNullable.<String>undefined();
 
-  public PublicTestRunModel() {
+  public PublicTestRunModel() { 
   }
 
   public PublicTestRunModel testRunId(UUID testRunId) {
-    
     this.testRunId = testRunId;
     return this;
   }
@@ -112,20 +95,24 @@ public class PublicTestRunModel {
    * Get testRunId
    * @return testRunId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestRunId() {
     return testRunId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public PublicTestRunModel testPlanId(UUID testPlanId) {
-    
-    this.testPlanId = testPlanId;
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
     return this;
   }
 
@@ -133,19 +120,31 @@ public class PublicTestRunModel {
    * Get testPlanId
    * @return testPlanId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getTestPlanId() {
-    return testPlanId;
+        return testPlanId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTestPlanId_JsonNullable() {
+    return testPlanId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  public void setTestPlanId_JsonNullable(JsonNullable<UUID> testPlanId) {
+    this.testPlanId = testPlanId;
+  }
 
   public void setTestPlanId(UUID testPlanId) {
-    this.testPlanId = testPlanId;
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
   }
 
 
   public PublicTestRunModel testPlanGlobalId(Long testPlanGlobalId) {
-    
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -154,20 +153,24 @@ public class PublicTestRunModel {
    * Get testPlanGlobalId
    * @return testPlanGlobalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
   public PublicTestRunModel name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -175,20 +178,32 @@ public class PublicTestRunModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public PublicTestRunModel productName(String productName) {
-    
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
     return this;
   }
 
@@ -196,20 +211,32 @@ public class PublicTestRunModel {
    * Get productName
    * @return productName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getProductName() {
-    return productName;
+        return productName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getProductName_JsonNullable() {
+    return productName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  public void setProductName_JsonNullable(JsonNullable<String> productName) {
+    this.productName = productName;
+  }
 
   public void setProductName(String productName) {
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
   }
 
 
   public PublicTestRunModel build(String build) {
-    
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
     return this;
   }
 
@@ -217,28 +244,44 @@ public class PublicTestRunModel {
    * Get build
    * @return build
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getBuild() {
-    return build;
+        return build.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getBuild_JsonNullable() {
+    return build;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  public void setBuild_JsonNullable(JsonNullable<String> build) {
+    this.build = build;
+  }
 
   public void setBuild(String build) {
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
   }
 
 
   public PublicTestRunModel configurations(List<ConfigurationModel> configurations) {
-    
-    this.configurations = configurations;
+    this.configurations = JsonNullable.<List<ConfigurationModel>>of(configurations);
     return this;
   }
 
   public PublicTestRunModel addConfigurationsItem(ConfigurationModel configurationsItem) {
-    if (this.configurations == null) {
-      this.configurations = new ArrayList<>();
+    if (this.configurations == null || !this.configurations.isPresent()) {
+      this.configurations = JsonNullable.<List<ConfigurationModel>>of(new ArrayList<>());
     }
-    this.configurations.add(configurationsItem);
+    try {
+      this.configurations.get().add(configurationsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -246,28 +289,44 @@ public class PublicTestRunModel {
    * Get configurations
    * @return configurations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<ConfigurationModel> getConfigurations() {
-    return configurations;
+        return configurations.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<ConfigurationModel>> getConfigurations_JsonNullable() {
+    return configurations;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
+  public void setConfigurations_JsonNullable(JsonNullable<List<ConfigurationModel>> configurations) {
+    this.configurations = configurations;
+  }
 
   public void setConfigurations(List<ConfigurationModel> configurations) {
-    this.configurations = configurations;
+    this.configurations = JsonNullable.<List<ConfigurationModel>>of(configurations);
   }
 
 
   public PublicTestRunModel autoTests(List<AutoTestModel> autoTests) {
-    
-    this.autoTests = autoTests;
+    this.autoTests = JsonNullable.<List<AutoTestModel>>of(autoTests);
     return this;
   }
 
   public PublicTestRunModel addAutoTestsItem(AutoTestModel autoTestsItem) {
-    if (this.autoTests == null) {
-      this.autoTests = new ArrayList<>();
+    if (this.autoTests == null || !this.autoTests.isPresent()) {
+      this.autoTests = JsonNullable.<List<AutoTestModel>>of(new ArrayList<>());
     }
-    this.autoTests.add(autoTestsItem);
+    try {
+      this.autoTests.get().add(autoTestsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -275,28 +334,44 @@ public class PublicTestRunModel {
    * Get autoTests
    * @return autoTests
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<AutoTestModel> getAutoTests() {
-    return autoTests;
+        return autoTests.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_AUTO_TESTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AutoTestModel>> getAutoTests_JsonNullable() {
+    return autoTests;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_TESTS)
+  public void setAutoTests_JsonNullable(JsonNullable<List<AutoTestModel>> autoTests) {
+    this.autoTests = autoTests;
+  }
 
   public void setAutoTests(List<AutoTestModel> autoTests) {
-    this.autoTests = autoTests;
+    this.autoTests = JsonNullable.<List<AutoTestModel>>of(autoTests);
   }
 
 
   public PublicTestRunModel testPoints(List<PublicTestPointModel> testPoints) {
-    
-    this.testPoints = testPoints;
+    this.testPoints = JsonNullable.<List<PublicTestPointModel>>of(testPoints);
     return this;
   }
 
   public PublicTestRunModel addTestPointsItem(PublicTestPointModel testPointsItem) {
-    if (this.testPoints == null) {
-      this.testPoints = new ArrayList<>();
+    if (this.testPoints == null || !this.testPoints.isPresent()) {
+      this.testPoints = JsonNullable.<List<PublicTestPointModel>>of(new ArrayList<>());
     }
-    this.testPoints.add(testPointsItem);
+    try {
+      this.testPoints.get().add(testPointsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -304,20 +379,32 @@ public class PublicTestRunModel {
    * Get testPoints
    * @return testPoints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<PublicTestPointModel> getTestPoints() {
-    return testPoints;
+        return testPoints.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_POINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<PublicTestPointModel>> getTestPoints_JsonNullable() {
+    return testPoints;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_POINTS)
+  public void setTestPoints_JsonNullable(JsonNullable<List<PublicTestPointModel>> testPoints) {
+    this.testPoints = testPoints;
+  }
 
   public void setTestPoints(List<PublicTestPointModel> testPoints) {
-    this.testPoints = testPoints;
+    this.testPoints = JsonNullable.<List<PublicTestPointModel>>of(testPoints);
   }
 
 
   public PublicTestRunModel status(String status) {
-    
-    this.status = status;
+    this.status = JsonNullable.<String>of(status);
     return this;
   }
 
@@ -325,18 +412,33 @@ public class PublicTestRunModel {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getStatus() {
-    return status;
+        return status.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setStatus(String status) {
+  public JsonNullable<String> getStatus_JsonNullable() {
+    return status;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  public void setStatus_JsonNullable(JsonNullable<String> status) {
     this.status = status;
   }
 
+  public void setStatus(String status) {
+    this.status = JsonNullable.<String>of(status);
+  }
 
 
+  /**
+   * Return true if this PublicTestRunModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -347,15 +449,15 @@ public class PublicTestRunModel {
     }
     PublicTestRunModel publicTestRunModel = (PublicTestRunModel) o;
     return Objects.equals(this.testRunId, publicTestRunModel.testRunId) &&
-        Objects.equals(this.testPlanId, publicTestRunModel.testPlanId) &&
+        equalsNullable(this.testPlanId, publicTestRunModel.testPlanId) &&
         Objects.equals(this.testPlanGlobalId, publicTestRunModel.testPlanGlobalId) &&
-        Objects.equals(this.name, publicTestRunModel.name) &&
-        Objects.equals(this.productName, publicTestRunModel.productName) &&
-        Objects.equals(this.build, publicTestRunModel.build) &&
-        Objects.equals(this.configurations, publicTestRunModel.configurations) &&
-        Objects.equals(this.autoTests, publicTestRunModel.autoTests) &&
-        Objects.equals(this.testPoints, publicTestRunModel.testPoints) &&
-        Objects.equals(this.status, publicTestRunModel.status);
+        equalsNullable(this.name, publicTestRunModel.name) &&
+        equalsNullable(this.productName, publicTestRunModel.productName) &&
+        equalsNullable(this.build, publicTestRunModel.build) &&
+        equalsNullable(this.configurations, publicTestRunModel.configurations) &&
+        equalsNullable(this.autoTests, publicTestRunModel.autoTests) &&
+        equalsNullable(this.testPoints, publicTestRunModel.testPoints) &&
+        equalsNullable(this.status, publicTestRunModel.status);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -364,7 +466,7 @@ public class PublicTestRunModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunId, testPlanId, testPlanGlobalId, name, productName, build, configurations, autoTests, testPoints, status);
+    return Objects.hash(testRunId, hashCodeNullable(testPlanId), testPlanGlobalId, hashCodeNullable(name), hashCodeNullable(productName), hashCodeNullable(build), hashCodeNullable(configurations), hashCodeNullable(autoTests), hashCodeNullable(testPoints), hashCodeNullable(status));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -403,157 +505,5 @@ public class PublicTestRunModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testRunId");
-    openapiFields.add("testPlanId");
-    openapiFields.add("testPlanGlobalId");
-    openapiFields.add("name");
-    openapiFields.add("productName");
-    openapiFields.add("build");
-    openapiFields.add("configurations");
-    openapiFields.add("autoTests");
-    openapiFields.add("testPoints");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PublicTestRunModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!PublicTestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PublicTestRunModel is not found in the empty JSON string", PublicTestRunModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PublicTestRunModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestRunModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("testRunId") != null && !jsonObj.get("testRunId").isJsonNull()) && !jsonObj.get("testRunId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
-      }
-      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) && !jsonObj.get("productName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `productName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productName").toString()));
-      }
-      if ((jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) && !jsonObj.get("build").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `build` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build").toString()));
-      }
-      if (jsonObj.get("configurations") != null && !jsonObj.get("configurations").isJsonNull()) {
-        JsonArray jsonArrayconfigurations = jsonObj.getAsJsonArray("configurations");
-        if (jsonArrayconfigurations != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("configurations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `configurations` to be an array in the JSON string but got `%s`", jsonObj.get("configurations").toString()));
-          }
-
-          // validate the optional field `configurations` (array)
-          for (int i = 0; i < jsonArrayconfigurations.size(); i++) {
-            ConfigurationModel.validateJsonObject(jsonArrayconfigurations.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if (jsonObj.get("autoTests") != null && !jsonObj.get("autoTests").isJsonNull()) {
-        JsonArray jsonArrayautoTests = jsonObj.getAsJsonArray("autoTests");
-        if (jsonArrayautoTests != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("autoTests").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `autoTests` to be an array in the JSON string but got `%s`", jsonObj.get("autoTests").toString()));
-          }
-
-          // validate the optional field `autoTests` (array)
-          for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-            AutoTestModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if (jsonObj.get("testPoints") != null && !jsonObj.get("testPoints").isJsonNull()) {
-        JsonArray jsonArraytestPoints = jsonObj.getAsJsonArray("testPoints");
-        if (jsonArraytestPoints != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("testPoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `testPoints` to be an array in the JSON string but got `%s`", jsonObj.get("testPoints").toString()));
-          }
-
-          // validate the optional field `testPoints` (array)
-          for (int i = 0; i < jsonArraytestPoints.size(); i++) {
-            PublicTestPointModel.validateJsonObject(jsonArraytestPoints.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PublicTestRunModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PublicTestRunModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PublicTestRunModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PublicTestRunModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PublicTestRunModel>() {
-           @Override
-           public void write(JsonWriter out, PublicTestRunModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PublicTestRunModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PublicTestRunModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PublicTestRunModel
-  * @throws IOException if the JSON string is invalid with respect to PublicTestRunModel
-  */
-  public static PublicTestRunModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PublicTestRunModel.class);
-  }
-
- /**
-  * Convert an instance of PublicTestRunModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -15,59 +15,44 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import ru.testit.client.model.ApiV2TestPointsSearchPostRequest;
-import ru.testit.client.model.TestPointSelectModelExtractionModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestPointFilterModel;
+import ru.testit.client.model.TestPointsExtractionModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.JSON_PROPERTY_FILTER,
+  ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@JsonTypeName("_api_v2_testPlans__id__testPoints_tester__userId__post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
-  private ApiV2TestPointsSearchPostRequest filter;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private JsonNullable<TestPointFilterModel> filter = JsonNullable.<TestPointFilterModel>undefined();
 
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private TestPointSelectModelExtractionModel extractionModel;
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  private JsonNullable<TestPointsExtractionModel> extractionModel = JsonNullable.<TestPointsExtractionModel>undefined();
 
-  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest() {
+  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest() { 
   }
 
-  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest filter(ApiV2TestPointsSearchPostRequest filter) {
-    
-    this.filter = filter;
+  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest filter(TestPointFilterModel filter) {
+    this.filter = JsonNullable.<TestPointFilterModel>of(filter);
     return this;
   }
 
@@ -75,20 +60,32 @@ public class ApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
-  public ApiV2TestPointsSearchPostRequest getFilter() {
-    return filter;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPointFilterModel getFilter() {
+        return filter.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setFilter(ApiV2TestPointsSearchPostRequest filter) {
+  public JsonNullable<TestPointFilterModel> getFilter_JsonNullable() {
+    return filter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  public void setFilter_JsonNullable(JsonNullable<TestPointFilterModel> filter) {
     this.filter = filter;
   }
 
+  public void setFilter(TestPointFilterModel filter) {
+    this.filter = JsonNullable.<TestPointFilterModel>of(filter);
+  }
 
-  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest extractionModel(TestPointSelectModelExtractionModel extractionModel) {
-    
-    this.extractionModel = extractionModel;
+
+  public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest extractionModel(TestPointsExtractionModel extractionModel) {
+    this.extractionModel = JsonNullable.<TestPointsExtractionModel>of(extractionModel);
     return this;
   }
 
@@ -96,18 +93,33 @@ public class ApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
    * Get extractionModel
    * @return extractionModel
   **/
-  @javax.annotation.Nullable
-  public TestPointSelectModelExtractionModel getExtractionModel() {
-    return extractionModel;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPointsExtractionModel getExtractionModel() {
+        return extractionModel.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setExtractionModel(TestPointSelectModelExtractionModel extractionModel) {
+  public JsonNullable<TestPointsExtractionModel> getExtractionModel_JsonNullable() {
+    return extractionModel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  public void setExtractionModel_JsonNullable(JsonNullable<TestPointsExtractionModel> extractionModel) {
     this.extractionModel = extractionModel;
   }
 
+  public void setExtractionModel(TestPointsExtractionModel extractionModel) {
+    this.extractionModel = JsonNullable.<TestPointsExtractionModel>of(extractionModel);
+  }
 
 
+  /**
+   * Return true if this _api_v2_testPlans__id__testPoints_tester__userId__post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,13 +129,24 @@ public class ApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
       return false;
     }
     ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest = (ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) o;
-    return Objects.equals(this.filter, apiV2TestPlansIdTestPointsTesterUserIdPostRequest.filter) &&
-        Objects.equals(this.extractionModel, apiV2TestPlansIdTestPointsTesterUserIdPostRequest.extractionModel);
+    return equalsNullable(this.filter, apiV2TestPlansIdTestPointsTesterUserIdPostRequest.filter) &&
+        equalsNullable(this.extractionModel, apiV2TestPlansIdTestPointsTesterUserIdPostRequest.extractionModel);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, extractionModel);
+    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -147,97 +170,5 @@ public class ApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2TestPlansIdTestPointsTesterUserIdPostRequest is not found in the empty JSON string", ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2TestPlansIdTestPointsTesterUserIdPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `filter`
-      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        ApiV2TestPointsSearchPostRequest.validateJsonObject(jsonObj.getAsJsonObject("filter"));
-      }
-      // validate the optional field `extractionModel`
-      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        TestPointSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2TestPlansIdTestPointsTesterUserIdPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2TestPlansIdTestPointsTesterUserIdPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2TestPlansIdTestPointsTesterUserIdPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2TestPlansIdTestPointsTesterUserIdPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2TestPlansIdTestPointsTesterUserIdPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
-  */
-  public static ApiV2TestPlansIdTestPointsTesterUserIdPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2TestPlansIdTestPointsTesterUserIdPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

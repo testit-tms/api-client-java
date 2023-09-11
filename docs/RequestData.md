@@ -8,11 +8,11 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**uri** | **String** |  |  [optional] |
-|**statusCode** | **Integer** |  |  [optional] |
+|**statusCode** | **Integer** |  |  |
 |**requestBody** | **String** |  |  [optional] |
-|**requestMeta** | **String** |  |  [optional] |
-|**responseBody** | **String** |  |  [optional] |
-|**responseMeta** | **String** |  |  [optional] |
+|**requestMeta** | **String** |  |  |
+|**responseBody** | **String** |  |  |
+|**responseMeta** | **String** |  |  |
 
 
 

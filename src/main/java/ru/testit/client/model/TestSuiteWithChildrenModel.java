@@ -15,89 +15,76 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestSuiteWithChildrenModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestSuiteWithChildrenModel.JSON_PROPERTY_CHILDREN,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_TESTER_ID,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_PARENT_ID,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_TEST_PLAN_ID,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_NAME,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_ID,
+  TestSuiteWithChildrenModel.JSON_PROPERTY_IS_DELETED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteWithChildrenModel {
-  public static final String SERIALIZED_NAME_CHILDREN = "children";
-  @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TestSuiteWithChildrenModel> children;
+  public static final String JSON_PROPERTY_CHILDREN = "children";
+  private JsonNullable<List<TestSuiteWithChildrenModel>> children = JsonNullable.<List<TestSuiteWithChildrenModel>>undefined();
 
-  public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
-  @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  private UUID testerId;
+  public static final String JSON_PROPERTY_TESTER_ID = "testerId";
+  private JsonNullable<UUID> testerId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
-  @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  private UUID parentId;
+  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  private JsonNullable<UUID> parentId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
   private UUID testPlanId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public TestSuiteWithChildrenModel() {
+  public TestSuiteWithChildrenModel() { 
   }
 
   public TestSuiteWithChildrenModel children(List<TestSuiteWithChildrenModel> children) {
-    
-    this.children = children;
+    this.children = JsonNullable.<List<TestSuiteWithChildrenModel>>of(children);
     return this;
   }
 
   public TestSuiteWithChildrenModel addChildrenItem(TestSuiteWithChildrenModel childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
+    if (this.children == null || !this.children.isPresent()) {
+      this.children = JsonNullable.<List<TestSuiteWithChildrenModel>>of(new ArrayList<>());
     }
-    this.children.add(childrenItem);
+    try {
+      this.children.get().add(childrenItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -105,20 +92,32 @@ public class TestSuiteWithChildrenModel {
    * Get children
    * @return children
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<TestSuiteWithChildrenModel> getChildren() {
-    return children;
+        return children.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CHILDREN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TestSuiteWithChildrenModel>> getChildren_JsonNullable() {
+    return children;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CHILDREN)
+  public void setChildren_JsonNullable(JsonNullable<List<TestSuiteWithChildrenModel>> children) {
+    this.children = children;
+  }
 
   public void setChildren(List<TestSuiteWithChildrenModel> children) {
-    this.children = children;
+    this.children = JsonNullable.<List<TestSuiteWithChildrenModel>>of(children);
   }
 
 
   public TestSuiteWithChildrenModel testerId(UUID testerId) {
-    
-    this.testerId = testerId;
+    this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
 
@@ -126,20 +125,32 @@ public class TestSuiteWithChildrenModel {
    * Get testerId
    * @return testerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getTesterId() {
-    return testerId;
+        return testerId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TESTER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTesterId_JsonNullable() {
+    return testerId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TESTER_ID)
+  public void setTesterId_JsonNullable(JsonNullable<UUID> testerId) {
+    this.testerId = testerId;
+  }
 
   public void setTesterId(UUID testerId) {
-    this.testerId = testerId;
+    this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
   public TestSuiteWithChildrenModel parentId(UUID parentId) {
-    
-    this.parentId = parentId;
+    this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
 
@@ -147,19 +158,31 @@ public class TestSuiteWithChildrenModel {
    * Get parentId
    * @return parentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getParentId() {
-    return parentId;
+        return parentId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getParentId_JsonNullable() {
+    return parentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  public void setParentId_JsonNullable(JsonNullable<UUID> parentId) {
+    this.parentId = parentId;
+  }
 
   public void setParentId(UUID parentId) {
-    this.parentId = parentId;
+    this.parentId = JsonNullable.<UUID>of(parentId);
   }
 
 
   public TestSuiteWithChildrenModel testPlanId(UUID testPlanId) {
-    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -168,20 +191,24 @@ public class TestSuiteWithChildrenModel {
    * Get testPlanId
    * @return testPlanId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestSuiteWithChildrenModel name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -189,19 +216,31 @@ public class TestSuiteWithChildrenModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public TestSuiteWithChildrenModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -210,19 +249,23 @@ public class TestSuiteWithChildrenModel {
    * Unique ID of the entity
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestSuiteWithChildrenModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -231,18 +274,25 @@ public class TestSuiteWithChildrenModel {
    * Indicates if the entity is deleted
    * @return isDeleted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-
+  /**
+   * Return true if this TestSuiteWithChildrenModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -252,11 +302,11 @@ public class TestSuiteWithChildrenModel {
       return false;
     }
     TestSuiteWithChildrenModel testSuiteWithChildrenModel = (TestSuiteWithChildrenModel) o;
-    return Objects.equals(this.children, testSuiteWithChildrenModel.children) &&
-        Objects.equals(this.testerId, testSuiteWithChildrenModel.testerId) &&
-        Objects.equals(this.parentId, testSuiteWithChildrenModel.parentId) &&
+    return equalsNullable(this.children, testSuiteWithChildrenModel.children) &&
+        equalsNullable(this.testerId, testSuiteWithChildrenModel.testerId) &&
+        equalsNullable(this.parentId, testSuiteWithChildrenModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteWithChildrenModel.testPlanId) &&
-        Objects.equals(this.name, testSuiteWithChildrenModel.name) &&
+        equalsNullable(this.name, testSuiteWithChildrenModel.name) &&
         Objects.equals(this.id, testSuiteWithChildrenModel.id) &&
         Objects.equals(this.isDeleted, testSuiteWithChildrenModel.isDeleted);
   }
@@ -267,7 +317,7 @@ public class TestSuiteWithChildrenModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(children, testerId, parentId, testPlanId, name, id, isDeleted);
+    return Objects.hash(hashCodeNullable(children), hashCodeNullable(testerId), hashCodeNullable(parentId), testPlanId, hashCodeNullable(name), id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -303,123 +353,5 @@ public class TestSuiteWithChildrenModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("children");
-    openapiFields.add("testerId");
-    openapiFields.add("parentId");
-    openapiFields.add("testPlanId");
-    openapiFields.add("name");
-    openapiFields.add("id");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestSuiteWithChildrenModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestSuiteWithChildrenModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteWithChildrenModel is not found in the empty JSON string", TestSuiteWithChildrenModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestSuiteWithChildrenModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteWithChildrenModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("children") != null && !jsonObj.get("children").isJsonNull()) {
-        JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
-        if (jsonArraychildren != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("children").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
-          }
-
-          // validate the optional field `children` (array)
-          for (int i = 0; i < jsonArraychildren.size(); i++) {
-            TestSuiteWithChildrenModel.validateJsonObject(jsonArraychildren.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if ((jsonObj.get("testerId") != null && !jsonObj.get("testerId").isJsonNull()) && !jsonObj.get("testerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testerId").toString()));
-      }
-      if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
-      }
-      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestSuiteWithChildrenModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestSuiteWithChildrenModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestSuiteWithChildrenModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteWithChildrenModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestSuiteWithChildrenModel>() {
-           @Override
-           public void write(JsonWriter out, TestSuiteWithChildrenModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestSuiteWithChildrenModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestSuiteWithChildrenModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestSuiteWithChildrenModel
-  * @throws IOException if the JSON string is invalid with respect to TestSuiteWithChildrenModel
-  */
-  public static TestSuiteWithChildrenModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestSuiteWithChildrenModel.class);
-  }
-
- /**
-  * Convert an instance of TestSuiteWithChildrenModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

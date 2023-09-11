@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**score** | **Integer** |  |  [optional] |
-|**workItemsCreated** | **Integer** |  |  [optional] |
-|**passedTestPoints** | **Integer** |  |  [optional] |
-|**failedTestPoints** | **Integer** |  |  [optional] |
-|**skippedTestPoints** | **Integer** |  |  [optional] |
-|**blockedTestPoints** | **Integer** |  |  [optional] |
+|**score** | **Integer** |  |  |
+|**workItemsCreated** | **Integer** |  |  |
+|**passedTestPoints** | **Integer** |  |  |
+|**failedTestPoints** | **Integer** |  |  |
+|**skippedTestPoints** | **Integer** |  |  |
+|**blockedTestPoints** | **Integer** |  |  |
 
 
 

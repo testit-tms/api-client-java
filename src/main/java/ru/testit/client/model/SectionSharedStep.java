@@ -15,73 +15,57 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.StepModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Nested shared steps are allowed
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  SectionSharedStep.JSON_PROPERTY_VERSION_ID,
+  SectionSharedStep.JSON_PROPERTY_GLOBAL_ID,
+  SectionSharedStep.JSON_PROPERTY_NAME,
+  SectionSharedStep.JSON_PROPERTY_STEPS,
+  SectionSharedStep.JSON_PROPERTY_IS_DELETED
+})
+@JsonTypeName("Section_shared_step")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionSharedStep {
-  public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
-  @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  public static final String JSON_PROPERTY_VERSION_ID = "versionId";
   private UUID versionId;
 
-  public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
   private Long globalId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_STEPS = "steps";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<StepModel> steps;
+  public static final String JSON_PROPERTY_STEPS = "steps";
+  private JsonNullable<List<StepModel>> steps = JsonNullable.<List<StepModel>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public SectionSharedStep() {
+  public SectionSharedStep() { 
   }
 
   public SectionSharedStep versionId(UUID versionId) {
-    
     this.versionId = versionId;
     return this;
   }
@@ -90,19 +74,23 @@ public class SectionSharedStep {
    * Get versionId
    * @return versionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getVersionId() {
     return versionId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public SectionSharedStep globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -111,20 +99,24 @@ public class SectionSharedStep {
    * Get globalId
    * @return globalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getGlobalId() {
     return globalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public SectionSharedStep name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -132,29 +124,44 @@ public class SectionSharedStep {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setName(String name) {
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
   }
 
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
 
-  @Deprecated
+
   public SectionSharedStep steps(List<StepModel> steps) {
-    
-    this.steps = steps;
+    this.steps = JsonNullable.<List<StepModel>>of(steps);
     return this;
   }
 
   public SectionSharedStep addStepsItem(StepModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
+    if (this.steps == null || !this.steps.isPresent()) {
+      this.steps = JsonNullable.<List<StepModel>>of(new ArrayList<>());
     }
-    this.steps.add(stepsItem);
+    try {
+      this.steps.get().add(stepsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -164,20 +171,31 @@ public class SectionSharedStep {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<StepModel> getSteps() {
-    return steps;
+        return steps.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  @Deprecated
-  public void setSteps(List<StepModel> steps) {
+  public JsonNullable<List<StepModel>> getSteps_JsonNullable() {
+    return steps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  public void setSteps_JsonNullable(JsonNullable<List<StepModel>> steps) {
     this.steps = steps;
+  }
+
+  public void setSteps(List<StepModel> steps) {
+    this.steps = JsonNullable.<List<StepModel>>of(steps);
   }
 
 
   public SectionSharedStep isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -186,18 +204,25 @@ public class SectionSharedStep {
    * Get isDeleted
    * @return isDeleted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-
+  /**
+   * Return true if this Section_shared_step object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,14 +234,25 @@ public class SectionSharedStep {
     SectionSharedStep sectionSharedStep = (SectionSharedStep) o;
     return Objects.equals(this.versionId, sectionSharedStep.versionId) &&
         Objects.equals(this.globalId, sectionSharedStep.globalId) &&
-        Objects.equals(this.name, sectionSharedStep.name) &&
-        Objects.equals(this.steps, sectionSharedStep.steps) &&
+        equalsNullable(this.name, sectionSharedStep.name) &&
+        equalsNullable(this.steps, sectionSharedStep.steps) &&
         Objects.equals(this.isDeleted, sectionSharedStep.isDeleted);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, globalId, name, steps, isDeleted);
+    return Objects.hash(versionId, globalId, hashCodeNullable(name), hashCodeNullable(steps), isDeleted);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -243,112 +279,5 @@ public class SectionSharedStep {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("versionId");
-    openapiFields.add("globalId");
-    openapiFields.add("name");
-    openapiFields.add("steps");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SectionSharedStep
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SectionSharedStep.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SectionSharedStep is not found in the empty JSON string", SectionSharedStep.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SectionSharedStep.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionSharedStep` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("versionId") != null && !jsonObj.get("versionId").isJsonNull()) && !jsonObj.get("versionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("steps") != null && !jsonObj.get("steps").isJsonNull()) {
-        JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
-        if (jsonArraysteps != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("steps").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `steps` to be an array in the JSON string but got `%s`", jsonObj.get("steps").toString()));
-          }
-
-          // validate the optional field `steps` (array)
-          for (int i = 0; i < jsonArraysteps.size(); i++) {
-            StepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
-          };
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SectionSharedStep.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SectionSharedStep' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SectionSharedStep> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SectionSharedStep.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SectionSharedStep>() {
-           @Override
-           public void write(JsonWriter out, SectionSharedStep value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SectionSharedStep read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SectionSharedStep given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SectionSharedStep
-  * @throws IOException if the JSON string is invalid with respect to SectionSharedStep
-  */
-  public static SectionSharedStep fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SectionSharedStep.class);
-  }
-
- /**
-  * Convert an instance of SectionSharedStep to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

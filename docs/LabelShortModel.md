@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**globalId** | **Long** |  |  [optional] |
-|**name** | **String** | Label name. |  |
+|**globalId** | **Long** | Global ID of the label |  |
+|**name** | **String** | Name of the label |  |
 
 
 

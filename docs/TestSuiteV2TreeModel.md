@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**children** | [**List&lt;TestSuiteV2TreeModel&gt;**](TestSuiteV2TreeModel.md) | nested enumeration of children is allowed |  [optional] |
-|**id** | **UUID** | Unique ID of the test suite |  [optional] |
+|**id** | **UUID** | Unique ID of the test suite |  |
 |**refreshDate** | **OffsetDateTime** | Date of the last refresh of the test suite |  [optional] |
 |**parentId** | **UUID** | Unique ID of the parent test suite in hierarchy |  [optional] |
 |**testPlanId** | **UUID** | Unique ID of test plan to which the test suite belongs |  |
