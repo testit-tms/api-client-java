@@ -15,59 +15,44 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestResultsStatisticsGetModelFailureCategories;
 import ru.testit.client.model.TestResultsStatisticsGetModelStatuses;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Statistics of the test run
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestRunShortGetModelStatistics.JSON_PROPERTY_STATUSES,
+  TestRunShortGetModelStatistics.JSON_PROPERTY_FAILURE_CATEGORIES
+})
+@JsonTypeName("TestRunShortGetModel_statistics")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunShortGetModelStatistics {
-  public static final String SERIALIZED_NAME_STATUSES = "statuses";
-  @SerializedName(SERIALIZED_NAME_STATUSES)
-  private TestResultsStatisticsGetModelStatuses statuses;
+  public static final String JSON_PROPERTY_STATUSES = "statuses";
+  private JsonNullable<TestResultsStatisticsGetModelStatuses> statuses = JsonNullable.<TestResultsStatisticsGetModelStatuses>undefined();
 
-  public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
-  @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  private TestResultsStatisticsGetModelFailureCategories failureCategories;
+  public static final String JSON_PROPERTY_FAILURE_CATEGORIES = "failureCategories";
+  private JsonNullable<TestResultsStatisticsGetModelFailureCategories> failureCategories = JsonNullable.<TestResultsStatisticsGetModelFailureCategories>undefined();
 
-  public TestRunShortGetModelStatistics() {
+  public TestRunShortGetModelStatistics() { 
   }
 
   public TestRunShortGetModelStatistics statuses(TestResultsStatisticsGetModelStatuses statuses) {
-    
-    this.statuses = statuses;
+    this.statuses = JsonNullable.<TestResultsStatisticsGetModelStatuses>of(statuses);
     return this;
   }
 
@@ -75,20 +60,32 @@ public class TestRunShortGetModelStatistics {
    * Get statuses
    * @return statuses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestResultsStatisticsGetModelStatuses getStatuses() {
-    return statuses;
+        return statuses.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_STATUSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestResultsStatisticsGetModelStatuses> getStatuses_JsonNullable() {
+    return statuses;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUSES)
+  public void setStatuses_JsonNullable(JsonNullable<TestResultsStatisticsGetModelStatuses> statuses) {
+    this.statuses = statuses;
+  }
 
   public void setStatuses(TestResultsStatisticsGetModelStatuses statuses) {
-    this.statuses = statuses;
+    this.statuses = JsonNullable.<TestResultsStatisticsGetModelStatuses>of(statuses);
   }
 
 
   public TestRunShortGetModelStatistics failureCategories(TestResultsStatisticsGetModelFailureCategories failureCategories) {
-    
-    this.failureCategories = failureCategories;
+    this.failureCategories = JsonNullable.<TestResultsStatisticsGetModelFailureCategories>of(failureCategories);
     return this;
   }
 
@@ -96,18 +93,33 @@ public class TestRunShortGetModelStatistics {
    * Get failureCategories
    * @return failureCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestResultsStatisticsGetModelFailureCategories getFailureCategories() {
-    return failureCategories;
+        return failureCategories.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setFailureCategories(TestResultsStatisticsGetModelFailureCategories failureCategories) {
+  public JsonNullable<TestResultsStatisticsGetModelFailureCategories> getFailureCategories_JsonNullable() {
+    return failureCategories;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORIES)
+  public void setFailureCategories_JsonNullable(JsonNullable<TestResultsStatisticsGetModelFailureCategories> failureCategories) {
     this.failureCategories = failureCategories;
   }
 
+  public void setFailureCategories(TestResultsStatisticsGetModelFailureCategories failureCategories) {
+    this.failureCategories = JsonNullable.<TestResultsStatisticsGetModelFailureCategories>of(failureCategories);
+  }
 
 
+  /**
+   * Return true if this TestRunShortGetModel_statistics object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,13 +129,24 @@ public class TestRunShortGetModelStatistics {
       return false;
     }
     TestRunShortGetModelStatistics testRunShortGetModelStatistics = (TestRunShortGetModelStatistics) o;
-    return Objects.equals(this.statuses, testRunShortGetModelStatistics.statuses) &&
-        Objects.equals(this.failureCategories, testRunShortGetModelStatistics.failureCategories);
+    return equalsNullable(this.statuses, testRunShortGetModelStatistics.statuses) &&
+        equalsNullable(this.failureCategories, testRunShortGetModelStatistics.failureCategories);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statuses, failureCategories);
+    return Objects.hash(hashCodeNullable(statuses), hashCodeNullable(failureCategories));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -147,97 +170,5 @@ public class TestRunShortGetModelStatistics {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("statuses");
-    openapiFields.add("failureCategories");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunShortGetModelStatistics
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunShortGetModelStatistics.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunShortGetModelStatistics is not found in the empty JSON string", TestRunShortGetModelStatistics.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestRunShortGetModelStatistics.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunShortGetModelStatistics` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `statuses`
-      if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonNull()) {
-        TestResultsStatisticsGetModelStatuses.validateJsonObject(jsonObj.getAsJsonObject("statuses"));
-      }
-      // validate the optional field `failureCategories`
-      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonNull()) {
-        TestResultsStatisticsGetModelFailureCategories.validateJsonObject(jsonObj.getAsJsonObject("failureCategories"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestRunShortGetModelStatistics.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestRunShortGetModelStatistics' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestRunShortGetModelStatistics> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunShortGetModelStatistics.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestRunShortGetModelStatistics>() {
-           @Override
-           public void write(JsonWriter out, TestRunShortGetModelStatistics value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestRunShortGetModelStatistics read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestRunShortGetModelStatistics given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestRunShortGetModelStatistics
-  * @throws IOException if the JSON string is invalid with respect to TestRunShortGetModelStatistics
-  */
-  public static TestRunShortGetModelStatistics fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestRunShortGetModelStatistics.class);
-  }
-
- /**
-  * Convert an instance of TestRunShortGetModelStatistics to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

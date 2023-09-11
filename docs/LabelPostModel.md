@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Label name. |  |
+|**name** | **String** | Name of the label |  |
 
 
 

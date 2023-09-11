@@ -15,65 +15,53 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ExportProjectWithTestPlansJsonRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ExportProjectWithTestPlansJsonRequest.JSON_PROPERTY_TEST_PLANS_IDS
+})
+@JsonTypeName("ExportProjectWithTestPlansJson_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportProjectWithTestPlansJsonRequest {
-  public static final String SERIALIZED_NAME_TEST_PLANS_IDS = "testPlansIds";
-  @SerializedName(SERIALIZED_NAME_TEST_PLANS_IDS)
-  private Set<UUID> testPlansIds;
+  public static final String JSON_PROPERTY_TEST_PLANS_IDS = "testPlansIds";
+  private JsonNullable<Set<UUID>> testPlansIds = JsonNullable.<Set<UUID>>undefined();
 
-  public ExportProjectWithTestPlansJsonRequest() {
+  public ExportProjectWithTestPlansJsonRequest() { 
   }
 
   public ExportProjectWithTestPlansJsonRequest testPlansIds(Set<UUID> testPlansIds) {
-    
-    this.testPlansIds = testPlansIds;
+    this.testPlansIds = JsonNullable.<Set<UUID>>of(testPlansIds);
     return this;
   }
 
   public ExportProjectWithTestPlansJsonRequest addTestPlansIdsItem(UUID testPlansIdsItem) {
-    if (this.testPlansIds == null) {
-      this.testPlansIds = new LinkedHashSet<>();
+    if (this.testPlansIds == null || !this.testPlansIds.isPresent()) {
+      this.testPlansIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.testPlansIds.add(testPlansIdsItem);
+    try {
+      this.testPlansIds.get().add(testPlansIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -81,18 +69,33 @@ public class ExportProjectWithTestPlansJsonRequest {
    * Specifies the IDs of test plans to be exported with the project.&lt;br /&gt;  In this parameter, \&quot;&lt;b&gt;string&lt;/b&gt;\&quot; values are IDs of the test plans.&lt;br /&gt;  To get the test plan IDs, use the &#x60;GET /api/v2/projects/{projectId}/testPlans&#x60; method.
    * @return testPlansIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getTestPlansIds() {
-    return testPlansIds;
+        return testPlansIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLANS_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTestPlansIds(Set<UUID> testPlansIds) {
+  public JsonNullable<Set<UUID>> getTestPlansIds_JsonNullable() {
+    return testPlansIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLANS_IDS)
+  public void setTestPlansIds_JsonNullable(JsonNullable<Set<UUID>> testPlansIds) {
     this.testPlansIds = testPlansIds;
   }
 
+  public void setTestPlansIds(Set<UUID> testPlansIds) {
+    this.testPlansIds = JsonNullable.<Set<UUID>>of(testPlansIds);
+  }
 
 
+  /**
+   * Return true if this ExportProjectWithTestPlansJson_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,7 +105,7 @@ public class ExportProjectWithTestPlansJsonRequest {
       return false;
     }
     ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = (ExportProjectWithTestPlansJsonRequest) o;
-    return Objects.equals(this.testPlansIds, exportProjectWithTestPlansJsonRequest.testPlansIds);
+    return equalsNullable(this.testPlansIds, exportProjectWithTestPlansJsonRequest.testPlansIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -111,7 +114,7 @@ public class ExportProjectWithTestPlansJsonRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPlansIds);
+    return Objects.hash(hashCodeNullable(testPlansIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,92 +144,5 @@ public class ExportProjectWithTestPlansJsonRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testPlansIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ExportProjectWithTestPlansJsonRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ExportProjectWithTestPlansJsonRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExportProjectWithTestPlansJsonRequest is not found in the empty JSON string", ExportProjectWithTestPlansJsonRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ExportProjectWithTestPlansJsonRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExportProjectWithTestPlansJsonRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testPlansIds") != null && !jsonObj.get("testPlansIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlansIds` to be an array in the JSON string but got `%s`", jsonObj.get("testPlansIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ExportProjectWithTestPlansJsonRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExportProjectWithTestPlansJsonRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ExportProjectWithTestPlansJsonRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ExportProjectWithTestPlansJsonRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ExportProjectWithTestPlansJsonRequest>() {
-           @Override
-           public void write(JsonWriter out, ExportProjectWithTestPlansJsonRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ExportProjectWithTestPlansJsonRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ExportProjectWithTestPlansJsonRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ExportProjectWithTestPlansJsonRequest
-  * @throws IOException if the JSON string is invalid with respect to ExportProjectWithTestPlansJsonRequest
-  */
-  public static ExportProjectWithTestPlansJsonRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ExportProjectWithTestPlansJsonRequest.class);
-  }
-
- /**
-  * Convert an instance of ExportProjectWithTestPlansJsonRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

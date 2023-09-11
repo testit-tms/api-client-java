@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**testPointCount** | **Long** |  |  [optional] |
+|**testPointCount** | **Long** |  |  |
 
 
 

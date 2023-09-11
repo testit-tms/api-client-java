@@ -15,73 +15,56 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentPutModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestResultStepCommentPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestResultStepCommentPutModel.JSON_PROPERTY_ID,
+  TestResultStepCommentPutModel.JSON_PROPERTY_TEXT,
+  TestResultStepCommentPutModel.JSON_PROPERTY_STEP_ID,
+  TestResultStepCommentPutModel.JSON_PROPERTY_PARENT_STEP_ID,
+  TestResultStepCommentPutModel.JSON_PROPERTY_ATTACHMENTS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultStepCommentPutModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+  public static final String JSON_PROPERTY_TEXT = "text";
+  private JsonNullable<String> text = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_STEP_ID = "stepId";
-  @SerializedName(SERIALIZED_NAME_STEP_ID)
+  public static final String JSON_PROPERTY_STEP_ID = "stepId";
   private UUID stepId;
 
-  public static final String SERIALIZED_NAME_PARENT_STEP_ID = "parentStepId";
-  @SerializedName(SERIALIZED_NAME_PARENT_STEP_ID)
-  private UUID parentStepId;
+  public static final String JSON_PROPERTY_PARENT_STEP_ID = "parentStepId";
+  private JsonNullable<UUID> parentStepId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentPutModel> attachments;
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private JsonNullable<List<AttachmentPutModel>> attachments = JsonNullable.<List<AttachmentPutModel>>undefined();
 
-  public TestResultStepCommentPutModel() {
+  public TestResultStepCommentPutModel() { 
   }
 
   public TestResultStepCommentPutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -90,20 +73,24 @@ public class TestResultStepCommentPutModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultStepCommentPutModel text(String text) {
-    
-    this.text = text;
+    this.text = JsonNullable.<String>of(text);
     return this;
   }
 
@@ -111,19 +98,31 @@ public class TestResultStepCommentPutModel {
    * Get text
    * @return text
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getText() {
-    return text;
+        return text.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getText_JsonNullable() {
+    return text;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEXT)
+  public void setText_JsonNullable(JsonNullable<String> text) {
+    this.text = text;
+  }
 
   public void setText(String text) {
-    this.text = text;
+    this.text = JsonNullable.<String>of(text);
   }
 
 
   public TestResultStepCommentPutModel stepId(UUID stepId) {
-    
     this.stepId = stepId;
     return this;
   }
@@ -132,20 +131,24 @@ public class TestResultStepCommentPutModel {
    * Get stepId
    * @return stepId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getStepId() {
     return stepId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
   public TestResultStepCommentPutModel parentStepId(UUID parentStepId) {
-    
-    this.parentStepId = parentStepId;
+    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
     return this;
   }
 
@@ -153,28 +156,44 @@ public class TestResultStepCommentPutModel {
    * Get parentStepId
    * @return parentStepId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getParentStepId() {
-    return parentStepId;
+        return parentStepId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getParentStepId_JsonNullable() {
+    return parentStepId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
+  public void setParentStepId_JsonNullable(JsonNullable<UUID> parentStepId) {
+    this.parentStepId = parentStepId;
+  }
 
   public void setParentStepId(UUID parentStepId) {
-    this.parentStepId = parentStepId;
+    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
   }
 
 
   public TestResultStepCommentPutModel attachments(List<AttachmentPutModel> attachments) {
-    
-    this.attachments = attachments;
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
     return this;
   }
 
   public TestResultStepCommentPutModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
+    if (this.attachments == null || !this.attachments.isPresent()) {
+      this.attachments = JsonNullable.<List<AttachmentPutModel>>of(new ArrayList<>());
     }
-    this.attachments.add(attachmentsItem);
+    try {
+      this.attachments.get().add(attachmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -182,18 +201,33 @@ public class TestResultStepCommentPutModel {
    * Get attachments
    * @return attachments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<AttachmentPutModel> getAttachments() {
-    return attachments;
+        return attachments.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setAttachments(List<AttachmentPutModel> attachments) {
+  public JsonNullable<List<AttachmentPutModel>> getAttachments_JsonNullable() {
+    return attachments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentPutModel>> attachments) {
     this.attachments = attachments;
   }
 
+  public void setAttachments(List<AttachmentPutModel> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+  }
 
 
+  /**
+   * Return true if this TestResultStepCommentPutModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,10 +238,10 @@ public class TestResultStepCommentPutModel {
     }
     TestResultStepCommentPutModel testResultStepCommentPutModel = (TestResultStepCommentPutModel) o;
     return Objects.equals(this.id, testResultStepCommentPutModel.id) &&
-        Objects.equals(this.text, testResultStepCommentPutModel.text) &&
+        equalsNullable(this.text, testResultStepCommentPutModel.text) &&
         Objects.equals(this.stepId, testResultStepCommentPutModel.stepId) &&
-        Objects.equals(this.parentStepId, testResultStepCommentPutModel.parentStepId) &&
-        Objects.equals(this.attachments, testResultStepCommentPutModel.attachments);
+        equalsNullable(this.parentStepId, testResultStepCommentPutModel.parentStepId) &&
+        equalsNullable(this.attachments, testResultStepCommentPutModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -216,7 +250,7 @@ public class TestResultStepCommentPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, stepId, parentStepId, attachments);
+    return Objects.hash(id, hashCodeNullable(text), stepId, hashCodeNullable(parentStepId), hashCodeNullable(attachments));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -250,126 +284,5 @@ public class TestResultStepCommentPutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("text");
-    openapiFields.add("stepId");
-    openapiFields.add("parentStepId");
-    openapiFields.add("attachments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("stepId");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultStepCommentPutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultStepCommentPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultStepCommentPutModel is not found in the empty JSON string", TestResultStepCommentPutModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestResultStepCommentPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultStepCommentPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestResultStepCommentPutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
-      }
-      if (!jsonObj.get("stepId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
-      }
-      if ((jsonObj.get("parentStepId") != null && !jsonObj.get("parentStepId").isJsonNull()) && !jsonObj.get("parentStepId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentStepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentStepId").toString()));
-      }
-      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
-        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-        if (jsonArrayattachments != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("attachments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-          }
-
-          // validate the optional field `attachments` (array)
-          for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
-          };
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestResultStepCommentPutModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestResultStepCommentPutModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestResultStepCommentPutModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultStepCommentPutModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestResultStepCommentPutModel>() {
-           @Override
-           public void write(JsonWriter out, TestResultStepCommentPutModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestResultStepCommentPutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestResultStepCommentPutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestResultStepCommentPutModel
-  * @throws IOException if the JSON string is invalid with respect to TestResultStepCommentPutModel
-  */
-  public static TestResultStepCommentPutModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestResultStepCommentPutModel.class);
-  }
-
- /**
-  * Convert an instance of TestResultStepCommentPutModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

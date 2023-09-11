@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**ApiV2ProjectsIdTestPlansSearchPostRequest**](ApiV2ProjectsIdTestPlansSearchPostRequest.md) |  |  [optional] |
+|**filter** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  |  [optional] |
 |**extractionModel** | [**TestPlanExtractionModel**](TestPlanExtractionModel.md) |  |  [optional] |
 
 

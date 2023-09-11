@@ -15,60 +15,40 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SearchAutoTestsQueryIncludesModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  SearchAutoTestsQueryIncludesModel.JSON_PROPERTY_INCLUDE_STEPS,
+  SearchAutoTestsQueryIncludesModel.JSON_PROPERTY_INCLUDE_LINKS,
+  SearchAutoTestsQueryIncludesModel.JSON_PROPERTY_INCLUDE_LABELS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SearchAutoTestsQueryIncludesModel {
-  public static final String SERIALIZED_NAME_INCLUDE_STEPS = "includeSteps";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_STEPS)
+  public static final String JSON_PROPERTY_INCLUDE_STEPS = "includeSteps";
   private Boolean includeSteps;
 
-  public static final String SERIALIZED_NAME_INCLUDE_LINKS = "includeLinks";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_LINKS)
+  public static final String JSON_PROPERTY_INCLUDE_LINKS = "includeLinks";
   private Boolean includeLinks;
 
-  public static final String SERIALIZED_NAME_INCLUDE_LABELS = "includeLabels";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_LABELS)
+  public static final String JSON_PROPERTY_INCLUDE_LABELS = "includeLabels";
   private Boolean includeLabels;
 
-  public SearchAutoTestsQueryIncludesModel() {
+  public SearchAutoTestsQueryIncludesModel() { 
   }
 
   public SearchAutoTestsQueryIncludesModel includeSteps(Boolean includeSteps) {
-    
     this.includeSteps = includeSteps;
     return this;
   }
@@ -77,19 +57,23 @@ public class SearchAutoTestsQueryIncludesModel {
    * If autotest steps will be included
    * @return includeSteps
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_INCLUDE_STEPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIncludeSteps() {
     return includeSteps;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INCLUDE_STEPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeSteps(Boolean includeSteps) {
     this.includeSteps = includeSteps;
   }
 
 
   public SearchAutoTestsQueryIncludesModel includeLinks(Boolean includeLinks) {
-    
     this.includeLinks = includeLinks;
     return this;
   }
@@ -98,19 +82,23 @@ public class SearchAutoTestsQueryIncludesModel {
    * If autotest links will be included
    * @return includeLinks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIncludeLinks() {
     return includeLinks;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeLinks(Boolean includeLinks) {
     this.includeLinks = includeLinks;
   }
 
 
   public SearchAutoTestsQueryIncludesModel includeLabels(Boolean includeLabels) {
-    
     this.includeLabels = includeLabels;
     return this;
   }
@@ -119,18 +107,25 @@ public class SearchAutoTestsQueryIncludesModel {
    * If autotest labels will be included
    * @return includeLabels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LABELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIncludeLabels() {
     return includeLabels;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LABELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeLabels(Boolean includeLabels) {
     this.includeLabels = includeLabels;
   }
 
 
-
+  /**
+   * Return true if this SearchAutoTestsQueryIncludesModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -172,90 +167,5 @@ public class SearchAutoTestsQueryIncludesModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("includeSteps");
-    openapiFields.add("includeLinks");
-    openapiFields.add("includeLabels");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchAutoTestsQueryIncludesModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SearchAutoTestsQueryIncludesModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchAutoTestsQueryIncludesModel is not found in the empty JSON string", SearchAutoTestsQueryIncludesModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SearchAutoTestsQueryIncludesModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAutoTestsQueryIncludesModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchAutoTestsQueryIncludesModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchAutoTestsQueryIncludesModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchAutoTestsQueryIncludesModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchAutoTestsQueryIncludesModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SearchAutoTestsQueryIncludesModel>() {
-           @Override
-           public void write(JsonWriter out, SearchAutoTestsQueryIncludesModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SearchAutoTestsQueryIncludesModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SearchAutoTestsQueryIncludesModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchAutoTestsQueryIncludesModel
-  * @throws IOException if the JSON string is invalid with respect to SearchAutoTestsQueryIncludesModel
-  */
-  public static SearchAutoTestsQueryIncludesModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchAutoTestsQueryIncludesModel.class);
-  }
-
- /**
-  * Convert an instance of SearchAutoTestsQueryIncludesModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

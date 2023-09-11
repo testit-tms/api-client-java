@@ -15,58 +15,42 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Specifies a project range of shared steps count to search for
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ProjectsFilterModelSharedStepsCount.JSON_PROPERTY_FROM,
+  ProjectsFilterModelSharedStepsCount.JSON_PROPERTY_TO
+})
+@JsonTypeName("ProjectsFilterModel_sharedStepsCount")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectsFilterModelSharedStepsCount {
-  public static final String SERIALIZED_NAME_FROM = "from";
-  @SerializedName(SERIALIZED_NAME_FROM)
-  private Integer from;
+  public static final String JSON_PROPERTY_FROM = "from";
+  private JsonNullable<Integer> from = JsonNullable.<Integer>undefined();
 
-  public static final String SERIALIZED_NAME_TO = "to";
-  @SerializedName(SERIALIZED_NAME_TO)
-  private Integer to;
+  public static final String JSON_PROPERTY_TO = "to";
+  private JsonNullable<Integer> to = JsonNullable.<Integer>undefined();
 
-  public ProjectsFilterModelSharedStepsCount() {
+  public ProjectsFilterModelSharedStepsCount() { 
   }
 
   public ProjectsFilterModelSharedStepsCount from(Integer from) {
-    
-    this.from = from;
+    this.from = JsonNullable.<Integer>of(from);
     return this;
   }
 
@@ -74,20 +58,32 @@ public class ProjectsFilterModelSharedStepsCount {
    * Get from
    * @return from
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Integer getFrom() {
-    return from;
+        return from.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getFrom_JsonNullable() {
+    return from;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FROM)
+  public void setFrom_JsonNullable(JsonNullable<Integer> from) {
+    this.from = from;
+  }
 
   public void setFrom(Integer from) {
-    this.from = from;
+    this.from = JsonNullable.<Integer>of(from);
   }
 
 
   public ProjectsFilterModelSharedStepsCount to(Integer to) {
-    
-    this.to = to;
+    this.to = JsonNullable.<Integer>of(to);
     return this;
   }
 
@@ -95,18 +91,33 @@ public class ProjectsFilterModelSharedStepsCount {
    * Get to
    * @return to
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Integer getTo() {
-    return to;
+        return to.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTo(Integer to) {
+  public JsonNullable<Integer> getTo_JsonNullable() {
+    return to;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TO)
+  public void setTo_JsonNullable(JsonNullable<Integer> to) {
     this.to = to;
   }
 
+  public void setTo(Integer to) {
+    this.to = JsonNullable.<Integer>of(to);
+  }
 
 
+  /**
+   * Return true if this ProjectsFilterModel_sharedStepsCount object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,8 +127,8 @@ public class ProjectsFilterModelSharedStepsCount {
       return false;
     }
     ProjectsFilterModelSharedStepsCount projectsFilterModelSharedStepsCount = (ProjectsFilterModelSharedStepsCount) o;
-    return Objects.equals(this.from, projectsFilterModelSharedStepsCount.from) &&
-        Objects.equals(this.to, projectsFilterModelSharedStepsCount.to);
+    return equalsNullable(this.from, projectsFilterModelSharedStepsCount.from) &&
+        equalsNullable(this.to, projectsFilterModelSharedStepsCount.to);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -126,7 +137,7 @@ public class ProjectsFilterModelSharedStepsCount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to);
+    return Objects.hash(hashCodeNullable(from), hashCodeNullable(to));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -157,89 +168,5 @@ public class ProjectsFilterModelSharedStepsCount {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("from");
-    openapiFields.add("to");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectsFilterModelSharedStepsCount
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectsFilterModelSharedStepsCount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModelSharedStepsCount is not found in the empty JSON string", ProjectsFilterModelSharedStepsCount.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProjectsFilterModelSharedStepsCount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModelSharedStepsCount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectsFilterModelSharedStepsCount.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectsFilterModelSharedStepsCount' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectsFilterModelSharedStepsCount> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectsFilterModelSharedStepsCount.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectsFilterModelSharedStepsCount>() {
-           @Override
-           public void write(JsonWriter out, ProjectsFilterModelSharedStepsCount value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectsFilterModelSharedStepsCount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ProjectsFilterModelSharedStepsCount given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectsFilterModelSharedStepsCount
-  * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModelSharedStepsCount
-  */
-  public static ProjectsFilterModelSharedStepsCount fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectsFilterModelSharedStepsCount.class);
-  }
-
- /**
-  * Convert an instance of ProjectsFilterModelSharedStepsCount to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

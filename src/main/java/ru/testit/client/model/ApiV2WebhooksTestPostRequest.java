@@ -15,57 +15,38 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import ru.testit.client.model.RequestTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import ru.testit.client.model.RequestTypeModel;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2WebhooksTestPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2WebhooksTestPostRequest.JSON_PROPERTY_REQUEST_TYPE,
+  ApiV2WebhooksTestPostRequest.JSON_PROPERTY_URL
+})
+@JsonTypeName("_api_v2_webhooks_test_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2WebhooksTestPostRequest {
-  public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
-  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
   private RequestTypeModel requestType;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public ApiV2WebhooksTestPostRequest() {
+  public ApiV2WebhooksTestPostRequest() { 
   }
 
   public ApiV2WebhooksTestPostRequest requestType(RequestTypeModel requestType) {
-    
     this.requestType = requestType;
     return this;
   }
@@ -74,19 +55,23 @@ public class ApiV2WebhooksTestPostRequest {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public RequestTypeModel getRequestType() {
     return requestType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
   public ApiV2WebhooksTestPostRequest url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -95,18 +80,25 @@ public class ApiV2WebhooksTestPostRequest {
    * Request URL of the webhook
    * @return url
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUrl() {
     return url;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(String url) {
     this.url = url;
   }
 
 
-
+  /**
+   * Return true if this _api_v2_webhooks_test_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,101 +138,5 @@ public class ApiV2WebhooksTestPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("requestType");
-    openapiFields.add("url");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("requestType");
-    openapiRequiredFields.add("url");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2WebhooksTestPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2WebhooksTestPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2WebhooksTestPostRequest is not found in the empty JSON string", ApiV2WebhooksTestPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2WebhooksTestPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2WebhooksTestPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiV2WebhooksTestPostRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2WebhooksTestPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2WebhooksTestPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2WebhooksTestPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2WebhooksTestPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2WebhooksTestPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2WebhooksTestPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2WebhooksTestPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2WebhooksTestPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2WebhooksTestPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2WebhooksTestPostRequest
-  */
-  public static ApiV2WebhooksTestPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2WebhooksTestPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2WebhooksTestPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -13,6 +13,8 @@
 |**name** | **String** | Specifies the name of the test run. |  [optional] |
 |**description** | **String** | Specifies the test run description. |  [optional] |
 |**launchSource** | **String** | Specifies the test run launch source. |  [optional] |
+|**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) | Collection of attachment ids to relate to the test run |  [optional] |
+|**links** | [**List&lt;LinkPostModel&gt;**](LinkPostModel.md) | Collection of links to relate to the test run |  [optional] |
 
 
 

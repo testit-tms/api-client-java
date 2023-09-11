@@ -15,108 +15,91 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.NotificationTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * NotificationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  NotificationModel.JSON_PROPERTY_ID,
+  NotificationModel.JSON_PROPERTY_CREATED_DATE,
+  NotificationModel.JSON_PROPERTY_IS_READ,
+  NotificationModel.JSON_PROPERTY_ENTITY_ID,
+  NotificationModel.JSON_PROPERTY_NOTIFICATION_TYPE,
+  NotificationModel.JSON_PROPERTY_PROJECT_GLOBAL_ID,
+  NotificationModel.JSON_PROPERTY_PROJECT_NAME,
+  NotificationModel.JSON_PROPERTY_TEST_PLAN_GLOBAL_ID,
+  NotificationModel.JSON_PROPERTY_TEST_PLAN_NAME,
+  NotificationModel.JSON_PROPERTY_WORKITEM_GLOBAL_ID,
+  NotificationModel.JSON_PROPERTY_COMMENT,
+  NotificationModel.JSON_PROPERTY_WORK_ITEM_NAME,
+  NotificationModel.JSON_PROPERTY_ATTRIBUTE_NAME,
+  NotificationModel.JSON_PROPERTY_CREATED_BY_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotificationModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private OffsetDateTime createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String SERIALIZED_NAME_IS_READ = "isRead";
-  @SerializedName(SERIALIZED_NAME_IS_READ)
+  public static final String JSON_PROPERTY_IS_READ = "isRead";
   private Boolean isRead;
 
-  public static final String SERIALIZED_NAME_ENTITY_ID = "entityId";
-  @SerializedName(SERIALIZED_NAME_ENTITY_ID)
+  public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   private UUID entityId;
 
-  public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "notificationType";
-  @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
+  public static final String JSON_PROPERTY_NOTIFICATION_TYPE = "notificationType";
   private NotificationTypeModel notificationType;
 
-  public static final String SERIALIZED_NAME_PROJECT_GLOBAL_ID = "projectGlobalId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_GLOBAL_ID)
-  private Long projectGlobalId;
+  public static final String JSON_PROPERTY_PROJECT_GLOBAL_ID = "projectGlobalId";
+  private JsonNullable<Long> projectGlobalId = JsonNullable.<Long>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_NAME = "projectName";
-  @SerializedName(SERIALIZED_NAME_PROJECT_NAME)
-  private String projectName;
+  public static final String JSON_PROPERTY_PROJECT_NAME = "projectName";
+  private JsonNullable<String> projectName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
+  public static final String JSON_PROPERTY_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   private Long testPlanGlobalId;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
-  private String testPlanName;
+  public static final String JSON_PROPERTY_TEST_PLAN_NAME = "testPlanName";
+  private JsonNullable<String> testPlanName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_WORKITEM_GLOBAL_ID = "workitemGlobalId";
-  @SerializedName(SERIALIZED_NAME_WORKITEM_GLOBAL_ID)
-  private Long workitemGlobalId;
+  public static final String JSON_PROPERTY_WORKITEM_GLOBAL_ID = "workitemGlobalId";
+  private JsonNullable<Long> workitemGlobalId = JsonNullable.<Long>undefined();
 
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
+  public static final String JSON_PROPERTY_COMMENT = "comment";
+  private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  private String workItemName;
+  public static final String JSON_PROPERTY_WORK_ITEM_NAME = "workItemName";
+  private JsonNullable<String> workItemName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTE_NAME = "attributeName";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTE_NAME)
-  private String attributeName;
+  public static final String JSON_PROPERTY_ATTRIBUTE_NAME = "attributeName";
+  private JsonNullable<String> attributeName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public NotificationModel() {
+  public NotificationModel() { 
   }
 
   public NotificationModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -125,20 +108,24 @@ public class NotificationModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public NotificationModel createdDate(OffsetDateTime createdDate) {
-    
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
 
@@ -146,19 +133,31 @@ public class NotificationModel {
    * Get createdDate
    * @return createdDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getCreatedDate() {
-    return createdDate;
+        return createdDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+    return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
+    this.createdDate = createdDate;
+  }
 
   public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
   public NotificationModel isRead(Boolean isRead) {
-    
     this.isRead = isRead;
     return this;
   }
@@ -167,19 +166,23 @@ public class NotificationModel {
    * Get isRead
    * @return isRead
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_READ)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsRead() {
     return isRead;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_READ)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsRead(Boolean isRead) {
     this.isRead = isRead;
   }
 
 
   public NotificationModel entityId(UUID entityId) {
-    
     this.entityId = entityId;
     return this;
   }
@@ -188,19 +191,23 @@ public class NotificationModel {
    * Get entityId
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getEntityId() {
     return entityId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntityId(UUID entityId) {
     this.entityId = entityId;
   }
 
 
   public NotificationModel notificationType(NotificationTypeModel notificationType) {
-    
     this.notificationType = notificationType;
     return this;
   }
@@ -209,20 +216,24 @@ public class NotificationModel {
    * Get notificationType
    * @return notificationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public NotificationTypeModel getNotificationType() {
     return notificationType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNotificationType(NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
   }
 
 
   public NotificationModel projectGlobalId(Long projectGlobalId) {
-    
-    this.projectGlobalId = projectGlobalId;
+    this.projectGlobalId = JsonNullable.<Long>of(projectGlobalId);
     return this;
   }
 
@@ -230,20 +241,32 @@ public class NotificationModel {
    * Get projectGlobalId
    * @return projectGlobalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Long getProjectGlobalId() {
-    return projectGlobalId;
+        return projectGlobalId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getProjectGlobalId_JsonNullable() {
+    return projectGlobalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_GLOBAL_ID)
+  public void setProjectGlobalId_JsonNullable(JsonNullable<Long> projectGlobalId) {
+    this.projectGlobalId = projectGlobalId;
+  }
 
   public void setProjectGlobalId(Long projectGlobalId) {
-    this.projectGlobalId = projectGlobalId;
+    this.projectGlobalId = JsonNullable.<Long>of(projectGlobalId);
   }
 
 
   public NotificationModel projectName(String projectName) {
-    
-    this.projectName = projectName;
+    this.projectName = JsonNullable.<String>of(projectName);
     return this;
   }
 
@@ -251,19 +274,31 @@ public class NotificationModel {
    * Get projectName
    * @return projectName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getProjectName() {
-    return projectName;
+        return projectName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getProjectName_JsonNullable() {
+    return projectName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_NAME)
+  public void setProjectName_JsonNullable(JsonNullable<String> projectName) {
+    this.projectName = projectName;
+  }
 
   public void setProjectName(String projectName) {
-    this.projectName = projectName;
+    this.projectName = JsonNullable.<String>of(projectName);
   }
 
 
   public NotificationModel testPlanGlobalId(Long testPlanGlobalId) {
-    
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -272,20 +307,24 @@ public class NotificationModel {
    * Get testPlanGlobalId
    * @return testPlanGlobalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
   public NotificationModel testPlanName(String testPlanName) {
-    
-    this.testPlanName = testPlanName;
+    this.testPlanName = JsonNullable.<String>of(testPlanName);
     return this;
   }
 
@@ -293,20 +332,32 @@ public class NotificationModel {
    * Get testPlanName
    * @return testPlanName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getTestPlanName() {
-    return testPlanName;
+        return testPlanName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTestPlanName_JsonNullable() {
+    return testPlanName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_NAME)
+  public void setTestPlanName_JsonNullable(JsonNullable<String> testPlanName) {
+    this.testPlanName = testPlanName;
+  }
 
   public void setTestPlanName(String testPlanName) {
-    this.testPlanName = testPlanName;
+    this.testPlanName = JsonNullable.<String>of(testPlanName);
   }
 
 
   public NotificationModel workitemGlobalId(Long workitemGlobalId) {
-    
-    this.workitemGlobalId = workitemGlobalId;
+    this.workitemGlobalId = JsonNullable.<Long>of(workitemGlobalId);
     return this;
   }
 
@@ -314,20 +365,32 @@ public class NotificationModel {
    * Get workitemGlobalId
    * @return workitemGlobalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Long getWorkitemGlobalId() {
-    return workitemGlobalId;
+        return workitemGlobalId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORKITEM_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getWorkitemGlobalId_JsonNullable() {
+    return workitemGlobalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORKITEM_GLOBAL_ID)
+  public void setWorkitemGlobalId_JsonNullable(JsonNullable<Long> workitemGlobalId) {
+    this.workitemGlobalId = workitemGlobalId;
+  }
 
   public void setWorkitemGlobalId(Long workitemGlobalId) {
-    this.workitemGlobalId = workitemGlobalId;
+    this.workitemGlobalId = JsonNullable.<Long>of(workitemGlobalId);
   }
 
 
   public NotificationModel comment(String comment) {
-    
-    this.comment = comment;
+    this.comment = JsonNullable.<String>of(comment);
     return this;
   }
 
@@ -335,20 +398,32 @@ public class NotificationModel {
    * Get comment
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getComment() {
-    return comment;
+        return comment.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getComment_JsonNullable() {
+    return comment;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  public void setComment_JsonNullable(JsonNullable<String> comment) {
+    this.comment = comment;
+  }
 
   public void setComment(String comment) {
-    this.comment = comment;
+    this.comment = JsonNullable.<String>of(comment);
   }
 
 
   public NotificationModel workItemName(String workItemName) {
-    
-    this.workItemName = workItemName;
+    this.workItemName = JsonNullable.<String>of(workItemName);
     return this;
   }
 
@@ -356,20 +431,32 @@ public class NotificationModel {
    * Get workItemName
    * @return workItemName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getWorkItemName() {
-    return workItemName;
+        return workItemName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getWorkItemName_JsonNullable() {
+    return workItemName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
+  public void setWorkItemName_JsonNullable(JsonNullable<String> workItemName) {
+    this.workItemName = workItemName;
+  }
 
   public void setWorkItemName(String workItemName) {
-    this.workItemName = workItemName;
+    this.workItemName = JsonNullable.<String>of(workItemName);
   }
 
 
   public NotificationModel attributeName(String attributeName) {
-    
-    this.attributeName = attributeName;
+    this.attributeName = JsonNullable.<String>of(attributeName);
     return this;
   }
 
@@ -377,19 +464,31 @@ public class NotificationModel {
    * Get attributeName
    * @return attributeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getAttributeName() {
-    return attributeName;
+        return attributeName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getAttributeName_JsonNullable() {
+    return attributeName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTE_NAME)
+  public void setAttributeName_JsonNullable(JsonNullable<String> attributeName) {
+    this.attributeName = attributeName;
+  }
 
   public void setAttributeName(String attributeName) {
-    this.attributeName = attributeName;
+    this.attributeName = JsonNullable.<String>of(attributeName);
   }
 
 
   public NotificationModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -398,18 +497,25 @@ public class NotificationModel {
    * Get createdById
    * @return createdById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-
+  /**
+   * Return true if this NotificationModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -420,18 +526,18 @@ public class NotificationModel {
     }
     NotificationModel notificationModel = (NotificationModel) o;
     return Objects.equals(this.id, notificationModel.id) &&
-        Objects.equals(this.createdDate, notificationModel.createdDate) &&
+        equalsNullable(this.createdDate, notificationModel.createdDate) &&
         Objects.equals(this.isRead, notificationModel.isRead) &&
         Objects.equals(this.entityId, notificationModel.entityId) &&
         Objects.equals(this.notificationType, notificationModel.notificationType) &&
-        Objects.equals(this.projectGlobalId, notificationModel.projectGlobalId) &&
-        Objects.equals(this.projectName, notificationModel.projectName) &&
+        equalsNullable(this.projectGlobalId, notificationModel.projectGlobalId) &&
+        equalsNullable(this.projectName, notificationModel.projectName) &&
         Objects.equals(this.testPlanGlobalId, notificationModel.testPlanGlobalId) &&
-        Objects.equals(this.testPlanName, notificationModel.testPlanName) &&
-        Objects.equals(this.workitemGlobalId, notificationModel.workitemGlobalId) &&
-        Objects.equals(this.comment, notificationModel.comment) &&
-        Objects.equals(this.workItemName, notificationModel.workItemName) &&
-        Objects.equals(this.attributeName, notificationModel.attributeName) &&
+        equalsNullable(this.testPlanName, notificationModel.testPlanName) &&
+        equalsNullable(this.workitemGlobalId, notificationModel.workitemGlobalId) &&
+        equalsNullable(this.comment, notificationModel.comment) &&
+        equalsNullable(this.workItemName, notificationModel.workItemName) &&
+        equalsNullable(this.attributeName, notificationModel.attributeName) &&
         Objects.equals(this.createdById, notificationModel.createdById);
   }
 
@@ -441,7 +547,7 @@ public class NotificationModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, isRead, entityId, notificationType, projectGlobalId, projectName, testPlanGlobalId, testPlanName, workitemGlobalId, comment, workItemName, attributeName, createdById);
+    return Objects.hash(id, hashCodeNullable(createdDate), isRead, entityId, notificationType, hashCodeNullable(projectGlobalId), hashCodeNullable(projectName), testPlanGlobalId, hashCodeNullable(testPlanName), hashCodeNullable(workitemGlobalId), hashCodeNullable(comment), hashCodeNullable(workItemName), hashCodeNullable(attributeName), createdById);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -484,133 +590,5 @@ public class NotificationModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("createdDate");
-    openapiFields.add("isRead");
-    openapiFields.add("entityId");
-    openapiFields.add("notificationType");
-    openapiFields.add("projectGlobalId");
-    openapiFields.add("projectName");
-    openapiFields.add("testPlanGlobalId");
-    openapiFields.add("testPlanName");
-    openapiFields.add("workitemGlobalId");
-    openapiFields.add("comment");
-    openapiFields.add("workItemName");
-    openapiFields.add("attributeName");
-    openapiFields.add("createdById");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("notificationType");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to NotificationModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!NotificationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NotificationModel is not found in the empty JSON string", NotificationModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!NotificationModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : NotificationModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("entityId") != null && !jsonObj.get("entityId").isJsonNull()) && !jsonObj.get("entityId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityId").toString()));
-      }
-      if ((jsonObj.get("projectName") != null && !jsonObj.get("projectName").isJsonNull()) && !jsonObj.get("projectName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectName").toString()));
-      }
-      if ((jsonObj.get("testPlanName") != null && !jsonObj.get("testPlanName").isJsonNull()) && !jsonObj.get("testPlanName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanName").toString()));
-      }
-      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
-      }
-      if ((jsonObj.get("workItemName") != null && !jsonObj.get("workItemName").isJsonNull()) && !jsonObj.get("workItemName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemName").toString()));
-      }
-      if ((jsonObj.get("attributeName") != null && !jsonObj.get("attributeName").isJsonNull()) && !jsonObj.get("attributeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attributeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attributeName").toString()));
-      }
-      if ((jsonObj.get("createdById") != null && !jsonObj.get("createdById").isJsonNull()) && !jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!NotificationModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NotificationModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<NotificationModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(NotificationModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<NotificationModel>() {
-           @Override
-           public void write(JsonWriter out, NotificationModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public NotificationModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of NotificationModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of NotificationModel
-  * @throws IOException if the JSON string is invalid with respect to NotificationModel
-  */
-  public static NotificationModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, NotificationModel.class);
-  }
-
- /**
-  * Convert an instance of NotificationModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
 |**name** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
-|**size** | **Float** |  |  [optional] |
+|**size** | **Float** |  |  |
 
 
 

@@ -15,14 +15,16 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -31,138 +33,130 @@ import ru.testit.client.model.TestPointFilterModelCreatedDate;
 import ru.testit.client.model.TestPointFilterModelDuration;
 import ru.testit.client.model.TestPointFilterModelModifiedDate;
 import ru.testit.client.model.TestPointFilterModelWorkItemCreatedDate;
+import ru.testit.client.model.TestPointFilterModelWorkItemMedianDuration;
 import ru.testit.client.model.TestPointFilterModelWorkItemModifiedDate;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2TestPointsSearchPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_TEST_PLAN_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_TEST_SUITE_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_STATUSES,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_PRIORITIES,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_IS_AUTOMATED,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_NAME,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_CONFIGURATION_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_TESTER_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_DURATION,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_SECTION_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_CREATED_DATE,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_CREATED_BY_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_MODIFIED_DATE,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_MODIFIED_BY_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_TAGS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_ATTRIBUTES,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_CREATED_DATE,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_CREATED_BY_IDS,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE,
+  ApiV2TestPointsSearchPostRequest.JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_IDS
+})
+@JsonTypeName("_api_v2_testPoints_search_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2TestPointsSearchPostRequest {
-  public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  private Set<UUID> testPlanIds;
+  public static final String JSON_PROPERTY_TEST_PLAN_IDS = "testPlanIds";
+  private JsonNullable<List<UUID>> testPlanIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
-  @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  private Set<UUID> testSuiteIds;
+  public static final String JSON_PROPERTY_TEST_SUITE_IDS = "testSuiteIds";
+  private JsonNullable<List<UUID>> testSuiteIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS)
-  private Set<Long> workItemGlobalIds;
+  public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
+  private JsonNullable<List<Long>> workItemGlobalIds = JsonNullable.<List<Long>>undefined();
 
-  public static final String SERIALIZED_NAME_STATUSES = "statuses";
-  @SerializedName(SERIALIZED_NAME_STATUSES)
-  private Set<TestPointStatus> statuses;
+  public static final String JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
+  private JsonNullable<TestPointFilterModelWorkItemMedianDuration> workItemMedianDuration = JsonNullable.<TestPointFilterModelWorkItemMedianDuration>undefined();
 
-  public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
-  @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  private Set<WorkItemPriorityModel> priorities;
+  public static final String JSON_PROPERTY_STATUSES = "statuses";
+  private JsonNullable<List<TestPointStatus>> statuses = JsonNullable.<List<TestPointStatus>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
-  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  private Boolean isAutomated;
+  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
+  private JsonNullable<List<WorkItemPriorityModel>> priorities = JsonNullable.<List<WorkItemPriorityModel>>undefined();
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  private JsonNullable<Boolean> isAutomated = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_TESTER_IDS = "testerIds";
-  @SerializedName(SERIALIZED_NAME_TESTER_IDS)
-  private Set<UUID> testerIds;
+  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
+  private JsonNullable<List<UUID>> configurationIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private TestPointFilterModelDuration duration;
+  public static final String JSON_PROPERTY_TESTER_IDS = "testerIds";
+  private JsonNullable<List<UUID>> testerIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
-  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds;
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private JsonNullable<TestPointFilterModelDuration> duration = JsonNullable.<TestPointFilterModelDuration>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private TestPointFilterModelCreatedDate createdDate;
+  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
+  private JsonNullable<List<UUID>> sectionIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<TestPointFilterModelCreatedDate> createdDate = JsonNullable.<TestPointFilterModelCreatedDate>undefined();
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private TestPointFilterModelModifiedDate modifiedDate;
+  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
+  private JsonNullable<List<UUID>> createdByIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds;
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<TestPointFilterModelModifiedDate> modifiedDate = JsonNullable.<TestPointFilterModelModifiedDate>undefined();
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Set<String> tags;
+  public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
+  private JsonNullable<List<UUID>> modifiedByIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_DATE)
-  private TestPointFilterModelWorkItemCreatedDate workItemCreatedDate;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS = "workItemCreatedByIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS)
-  private Set<UUID> workItemCreatedByIds;
+  public static final String JSON_PROPERTY_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
+  private JsonNullable<TestPointFilterModelWorkItemCreatedDate> workItemCreatedDate = JsonNullable.<TestPointFilterModelWorkItemCreatedDate>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE)
-  private TestPointFilterModelWorkItemModifiedDate workItemModifiedDate;
+  public static final String JSON_PROPERTY_WORK_ITEM_CREATED_BY_IDS = "workItemCreatedByIds";
+  private JsonNullable<List<UUID>> workItemCreatedByIds = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS = "workItemModifiedByIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS)
-  private Set<UUID> workItemModifiedByIds;
+  public static final String JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
+  private JsonNullable<TestPointFilterModelWorkItemModifiedDate> workItemModifiedDate = JsonNullable.<TestPointFilterModelWorkItemModifiedDate>undefined();
 
-  public ApiV2TestPointsSearchPostRequest() {
+  public static final String JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_IDS = "workItemModifiedByIds";
+  private JsonNullable<List<UUID>> workItemModifiedByIds = JsonNullable.<List<UUID>>undefined();
+
+  public ApiV2TestPointsSearchPostRequest() { 
   }
 
-  public ApiV2TestPointsSearchPostRequest testPlanIds(Set<UUID> testPlanIds) {
-    
-    this.testPlanIds = testPlanIds;
+  public ApiV2TestPointsSearchPostRequest testPlanIds(List<UUID> testPlanIds) {
+    this.testPlanIds = JsonNullable.<List<UUID>>of(testPlanIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addTestPlanIdsItem(UUID testPlanIdsItem) {
-    if (this.testPlanIds == null) {
-      this.testPlanIds = new LinkedHashSet<>();
+    if (this.testPlanIds == null || !this.testPlanIds.isPresent()) {
+      this.testPlanIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.testPlanIds.add(testPlanIdsItem);
+    try {
+      this.testPlanIds.get().add(testPlanIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -170,28 +164,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point test plan IDS to search for
    * @return testPlanIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getTestPlanIds() {
-    return testPlanIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getTestPlanIds() {
+        return testPlanIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTestPlanIds(Set<UUID> testPlanIds) {
+  public JsonNullable<List<UUID>> getTestPlanIds_JsonNullable() {
+    return testPlanIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_IDS)
+  public void setTestPlanIds_JsonNullable(JsonNullable<List<UUID>> testPlanIds) {
     this.testPlanIds = testPlanIds;
   }
 
+  public void setTestPlanIds(List<UUID> testPlanIds) {
+    this.testPlanIds = JsonNullable.<List<UUID>>of(testPlanIds);
+  }
 
-  public ApiV2TestPointsSearchPostRequest testSuiteIds(Set<UUID> testSuiteIds) {
-    
-    this.testSuiteIds = testSuiteIds;
+
+  public ApiV2TestPointsSearchPostRequest testSuiteIds(List<UUID> testSuiteIds) {
+    this.testSuiteIds = JsonNullable.<List<UUID>>of(testSuiteIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addTestSuiteIdsItem(UUID testSuiteIdsItem) {
-    if (this.testSuiteIds == null) {
-      this.testSuiteIds = new LinkedHashSet<>();
+    if (this.testSuiteIds == null || !this.testSuiteIds.isPresent()) {
+      this.testSuiteIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.testSuiteIds.add(testSuiteIdsItem);
+    try {
+      this.testSuiteIds.get().add(testSuiteIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -199,28 +209,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point test suite IDs to search for
    * @return testSuiteIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getTestSuiteIds() {
-    return testSuiteIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getTestSuiteIds() {
+        return testSuiteIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTestSuiteIds(Set<UUID> testSuiteIds) {
+  public JsonNullable<List<UUID>> getTestSuiteIds_JsonNullable() {
+    return testSuiteIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_IDS)
+  public void setTestSuiteIds_JsonNullable(JsonNullable<List<UUID>> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
   }
 
+  public void setTestSuiteIds(List<UUID> testSuiteIds) {
+    this.testSuiteIds = JsonNullable.<List<UUID>>of(testSuiteIds);
+  }
 
-  public ApiV2TestPointsSearchPostRequest workItemGlobalIds(Set<Long> workItemGlobalIds) {
-    
-    this.workItemGlobalIds = workItemGlobalIds;
+
+  public ApiV2TestPointsSearchPostRequest workItemGlobalIds(List<Long> workItemGlobalIds) {
+    this.workItemGlobalIds = JsonNullable.<List<Long>>of(workItemGlobalIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addWorkItemGlobalIdsItem(Long workItemGlobalIdsItem) {
-    if (this.workItemGlobalIds == null) {
-      this.workItemGlobalIds = new LinkedHashSet<>();
+    if (this.workItemGlobalIds == null || !this.workItemGlobalIds.isPresent()) {
+      this.workItemGlobalIds = JsonNullable.<List<Long>>of(new ArrayList<>());
     }
-    this.workItemGlobalIds.add(workItemGlobalIdsItem);
+    try {
+      this.workItemGlobalIds.get().add(workItemGlobalIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -228,28 +254,77 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point work item global IDs to search for
    * @return workItemGlobalIds
   **/
-  @javax.annotation.Nullable
-  public Set<Long> getWorkItemGlobalIds() {
-    return workItemGlobalIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<Long> getWorkItemGlobalIds() {
+        return workItemGlobalIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemGlobalIds(Set<Long> workItemGlobalIds) {
+  public JsonNullable<List<Long>> getWorkItemGlobalIds_JsonNullable() {
+    return workItemGlobalIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_IDS)
+  public void setWorkItemGlobalIds_JsonNullable(JsonNullable<List<Long>> workItemGlobalIds) {
     this.workItemGlobalIds = workItemGlobalIds;
   }
 
+  public void setWorkItemGlobalIds(List<Long> workItemGlobalIds) {
+    this.workItemGlobalIds = JsonNullable.<List<Long>>of(workItemGlobalIds);
+  }
 
-  public ApiV2TestPointsSearchPostRequest statuses(Set<TestPointStatus> statuses) {
-    
-    this.statuses = statuses;
+
+  public ApiV2TestPointsSearchPostRequest workItemMedianDuration(TestPointFilterModelWorkItemMedianDuration workItemMedianDuration) {
+    this.workItemMedianDuration = JsonNullable.<TestPointFilterModelWorkItemMedianDuration>of(workItemMedianDuration);
+    return this;
+  }
+
+   /**
+   * Get workItemMedianDuration
+   * @return workItemMedianDuration
+  **/
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPointFilterModelWorkItemMedianDuration getWorkItemMedianDuration() {
+        return workItemMedianDuration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestPointFilterModelWorkItemMedianDuration> getWorkItemMedianDuration_JsonNullable() {
+    return workItemMedianDuration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION)
+  public void setWorkItemMedianDuration_JsonNullable(JsonNullable<TestPointFilterModelWorkItemMedianDuration> workItemMedianDuration) {
+    this.workItemMedianDuration = workItemMedianDuration;
+  }
+
+  public void setWorkItemMedianDuration(TestPointFilterModelWorkItemMedianDuration workItemMedianDuration) {
+    this.workItemMedianDuration = JsonNullable.<TestPointFilterModelWorkItemMedianDuration>of(workItemMedianDuration);
+  }
+
+
+  public ApiV2TestPointsSearchPostRequest statuses(List<TestPointStatus> statuses) {
+    this.statuses = JsonNullable.<List<TestPointStatus>>of(statuses);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addStatusesItem(TestPointStatus statusesItem) {
-    if (this.statuses == null) {
-      this.statuses = new LinkedHashSet<>();
+    if (this.statuses == null || !this.statuses.isPresent()) {
+      this.statuses = JsonNullable.<List<TestPointStatus>>of(new ArrayList<>());
     }
-    this.statuses.add(statusesItem);
+    try {
+      this.statuses.get().add(statusesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -257,28 +332,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point statuses to search for
    * @return statuses
   **/
-  @javax.annotation.Nullable
-  public Set<TestPointStatus> getStatuses() {
-    return statuses;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<TestPointStatus> getStatuses() {
+        return statuses.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_STATUSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setStatuses(Set<TestPointStatus> statuses) {
+  public JsonNullable<List<TestPointStatus>> getStatuses_JsonNullable() {
+    return statuses;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUSES)
+  public void setStatuses_JsonNullable(JsonNullable<List<TestPointStatus>> statuses) {
     this.statuses = statuses;
   }
 
+  public void setStatuses(List<TestPointStatus> statuses) {
+    this.statuses = JsonNullable.<List<TestPointStatus>>of(statuses);
+  }
 
-  public ApiV2TestPointsSearchPostRequest priorities(Set<WorkItemPriorityModel> priorities) {
-    
-    this.priorities = priorities;
+
+  public ApiV2TestPointsSearchPostRequest priorities(List<WorkItemPriorityModel> priorities) {
+    this.priorities = JsonNullable.<List<WorkItemPriorityModel>>of(priorities);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null) {
-      this.priorities = new LinkedHashSet<>();
+    if (this.priorities == null || !this.priorities.isPresent()) {
+      this.priorities = JsonNullable.<List<WorkItemPriorityModel>>of(new ArrayList<>());
     }
-    this.priorities.add(prioritiesItem);
+    try {
+      this.priorities.get().add(prioritiesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -286,20 +377,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point priorities to search for
    * @return priorities
   **/
-  @javax.annotation.Nullable
-  public Set<WorkItemPriorityModel> getPriorities() {
-    return priorities;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<WorkItemPriorityModel> getPriorities() {
+        return priorities.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public JsonNullable<List<WorkItemPriorityModel>> getPriorities_JsonNullable() {
+    return priorities;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  public void setPriorities_JsonNullable(JsonNullable<List<WorkItemPriorityModel>> priorities) {
     this.priorities = priorities;
+  }
+
+  public void setPriorities(List<WorkItemPriorityModel> priorities) {
+    this.priorities = JsonNullable.<List<WorkItemPriorityModel>>of(priorities);
   }
 
 
   public ApiV2TestPointsSearchPostRequest isAutomated(Boolean isAutomated) {
-    
-    this.isAutomated = isAutomated;
+    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
 
@@ -307,20 +410,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point automation status to search for
    * @return isAutomated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsAutomated() {
-    return isAutomated;
+        return isAutomated.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsAutomated_JsonNullable() {
+    return isAutomated;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  public void setIsAutomated_JsonNullable(JsonNullable<Boolean> isAutomated) {
+    this.isAutomated = isAutomated;
+  }
 
   public void setIsAutomated(Boolean isAutomated) {
-    this.isAutomated = isAutomated;
+    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
   public ApiV2TestPointsSearchPostRequest name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -328,28 +443,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point name to search for
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setName(String name) {
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
   }
 
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
 
-  public ApiV2TestPointsSearchPostRequest configurationIds(Set<UUID> configurationIds) {
-    
-    this.configurationIds = configurationIds;
+
+  public ApiV2TestPointsSearchPostRequest configurationIds(List<UUID> configurationIds) {
+    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new LinkedHashSet<>();
+    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
+      this.configurationIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.configurationIds.add(configurationIdsItem);
+    try {
+      this.configurationIds.get().add(configurationIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -357,28 +488,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point configuration IDs to search for
    * @return configurationIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getConfigurationIds() {
-    return configurationIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getConfigurationIds() {
+        return configurationIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setConfigurationIds(Set<UUID> configurationIds) {
+  public JsonNullable<List<UUID>> getConfigurationIds_JsonNullable() {
+    return configurationIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  public void setConfigurationIds_JsonNullable(JsonNullable<List<UUID>> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
+  public void setConfigurationIds(List<UUID> configurationIds) {
+    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
+  }
 
-  public ApiV2TestPointsSearchPostRequest testerIds(Set<UUID> testerIds) {
-    
-    this.testerIds = testerIds;
+
+  public ApiV2TestPointsSearchPostRequest testerIds(List<UUID> testerIds) {
+    this.testerIds = JsonNullable.<List<UUID>>of(testerIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addTesterIdsItem(UUID testerIdsItem) {
-    if (this.testerIds == null) {
-      this.testerIds = new LinkedHashSet<>();
+    if (this.testerIds == null || !this.testerIds.isPresent()) {
+      this.testerIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.testerIds.add(testerIdsItem);
+    try {
+      this.testerIds.get().add(testerIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -386,20 +533,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point assigned user IDs to search for
    * @return testerIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getTesterIds() {
-    return testerIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getTesterIds() {
+        return testerIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTesterIds(Set<UUID> testerIds) {
+  public JsonNullable<List<UUID>> getTesterIds_JsonNullable() {
+    return testerIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
+  public void setTesterIds_JsonNullable(JsonNullable<List<UUID>> testerIds) {
     this.testerIds = testerIds;
+  }
+
+  public void setTesterIds(List<UUID> testerIds) {
+    this.testerIds = JsonNullable.<List<UUID>>of(testerIds);
   }
 
 
   public ApiV2TestPointsSearchPostRequest duration(TestPointFilterModelDuration duration) {
-    
-    this.duration = duration;
+    this.duration = JsonNullable.<TestPointFilterModelDuration>of(duration);
     return this;
   }
 
@@ -407,28 +566,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Get duration
    * @return duration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestPointFilterModelDuration getDuration() {
-    return duration;
+        return duration.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setDuration(TestPointFilterModelDuration duration) {
+  public JsonNullable<TestPointFilterModelDuration> getDuration_JsonNullable() {
+    return duration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<TestPointFilterModelDuration> duration) {
     this.duration = duration;
   }
 
+  public void setDuration(TestPointFilterModelDuration duration) {
+    this.duration = JsonNullable.<TestPointFilterModelDuration>of(duration);
+  }
 
-  public ApiV2TestPointsSearchPostRequest sectionIds(Set<UUID> sectionIds) {
-    
-    this.sectionIds = sectionIds;
+
+  public ApiV2TestPointsSearchPostRequest sectionIds(List<UUID> sectionIds) {
+    this.sectionIds = JsonNullable.<List<UUID>>of(sectionIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
+    if (this.sectionIds == null || !this.sectionIds.isPresent()) {
+      this.sectionIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.sectionIds.add(sectionIdsItem);
+    try {
+      this.sectionIds.get().add(sectionIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -436,20 +611,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point work item section IDs to search for
    * @return sectionIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getSectionIds() {
-    return sectionIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getSectionIds() {
+        return sectionIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public JsonNullable<List<UUID>> getSectionIds_JsonNullable() {
+    return sectionIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  public void setSectionIds_JsonNullable(JsonNullable<List<UUID>> sectionIds) {
     this.sectionIds = sectionIds;
+  }
+
+  public void setSectionIds(List<UUID> sectionIds) {
+    this.sectionIds = JsonNullable.<List<UUID>>of(sectionIds);
   }
 
 
   public ApiV2TestPointsSearchPostRequest createdDate(TestPointFilterModelCreatedDate createdDate) {
-    
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<TestPointFilterModelCreatedDate>of(createdDate);
     return this;
   }
 
@@ -457,28 +644,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Get createdDate
    * @return createdDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestPointFilterModelCreatedDate getCreatedDate() {
-    return createdDate;
+        return createdDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setCreatedDate(TestPointFilterModelCreatedDate createdDate) {
+  public JsonNullable<TestPointFilterModelCreatedDate> getCreatedDate_JsonNullable() {
+    return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<TestPointFilterModelCreatedDate> createdDate) {
     this.createdDate = createdDate;
   }
 
+  public void setCreatedDate(TestPointFilterModelCreatedDate createdDate) {
+    this.createdDate = JsonNullable.<TestPointFilterModelCreatedDate>of(createdDate);
+  }
 
-  public ApiV2TestPointsSearchPostRequest createdByIds(Set<UUID> createdByIds) {
-    
-    this.createdByIds = createdByIds;
+
+  public ApiV2TestPointsSearchPostRequest createdByIds(List<UUID> createdByIds) {
+    this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
+    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
+      this.createdByIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.createdByIds.add(createdByIdsItem);
+    try {
+      this.createdByIds.get().add(createdByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -486,20 +689,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point creator IDs to search for
    * @return createdByIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getCreatedByIds() {
-    return createdByIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getCreatedByIds() {
+        return createdByIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public JsonNullable<List<UUID>> getCreatedByIds_JsonNullable() {
+    return createdByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  public void setCreatedByIds_JsonNullable(JsonNullable<List<UUID>> createdByIds) {
     this.createdByIds = createdByIds;
+  }
+
+  public void setCreatedByIds(List<UUID> createdByIds) {
+    this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
   }
 
 
   public ApiV2TestPointsSearchPostRequest modifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
-    
-    this.modifiedDate = modifiedDate;
+    this.modifiedDate = JsonNullable.<TestPointFilterModelModifiedDate>of(modifiedDate);
     return this;
   }
 
@@ -507,28 +722,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestPointFilterModelModifiedDate getModifiedDate() {
-    return modifiedDate;
+        return modifiedDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setModifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
+  public JsonNullable<TestPointFilterModelModifiedDate> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<TestPointFilterModelModifiedDate> modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
+  public void setModifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
+    this.modifiedDate = JsonNullable.<TestPointFilterModelModifiedDate>of(modifiedDate);
+  }
 
-  public ApiV2TestPointsSearchPostRequest modifiedByIds(Set<UUID> modifiedByIds) {
-    
-    this.modifiedByIds = modifiedByIds;
+
+  public ApiV2TestPointsSearchPostRequest modifiedByIds(List<UUID> modifiedByIds) {
+    this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
+    if (this.modifiedByIds == null || !this.modifiedByIds.isPresent()) {
+      this.modifiedByIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.modifiedByIds.add(modifiedByIdsItem);
+    try {
+      this.modifiedByIds.get().add(modifiedByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -536,28 +767,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point last editor IDs to search for
    * @return modifiedByIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getModifiedByIds() {
-    return modifiedByIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getModifiedByIds() {
+        return modifiedByIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public JsonNullable<List<UUID>> getModifiedByIds_JsonNullable() {
+    return modifiedByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
+  public void setModifiedByIds_JsonNullable(JsonNullable<List<UUID>> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
+  public void setModifiedByIds(List<UUID> modifiedByIds) {
+    this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
+  }
 
-  public ApiV2TestPointsSearchPostRequest tags(Set<String> tags) {
-    
-    this.tags = tags;
+
+  public ApiV2TestPointsSearchPostRequest tags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new LinkedHashSet<>();
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.tags.add(tagsItem);
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -565,28 +812,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point tags to search for
    * @return tags
   **/
-  @javax.annotation.Nullable
-  public Set<String> getTags() {
-    return tags;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setTags(Set<String> tags) {
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
     this.tags = tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
   }
 
 
   public ApiV2TestPointsSearchPostRequest attributes(Map<String, Set<String>> attributes) {
-    
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest putAttributesItem(String key, Set<String> attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Set<String>>>of(new HashMap<>());
     }
-    this.attributes.put(key, attributesItem);
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -594,20 +857,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a test point attributes to search for
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, Set<String>> getAttributes() {
-    return attributes;
+        return attributes.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Set<String>>> getAttributes_JsonNullable() {
+    return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Set<String>>> attributes) {
+    this.attributes = attributes;
+  }
 
   public void setAttributes(Map<String, Set<String>> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
   public ApiV2TestPointsSearchPostRequest workItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
-    
-    this.workItemCreatedDate = workItemCreatedDate;
+    this.workItemCreatedDate = JsonNullable.<TestPointFilterModelWorkItemCreatedDate>of(workItemCreatedDate);
     return this;
   }
 
@@ -615,28 +890,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Get workItemCreatedDate
    * @return workItemCreatedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestPointFilterModelWorkItemCreatedDate getWorkItemCreatedDate() {
-    return workItemCreatedDate;
+        return workItemCreatedDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
+  public JsonNullable<TestPointFilterModelWorkItemCreatedDate> getWorkItemCreatedDate_JsonNullable() {
+    return workItemCreatedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_DATE)
+  public void setWorkItemCreatedDate_JsonNullable(JsonNullable<TestPointFilterModelWorkItemCreatedDate> workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
+  public void setWorkItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
+    this.workItemCreatedDate = JsonNullable.<TestPointFilterModelWorkItemCreatedDate>of(workItemCreatedDate);
+  }
 
-  public ApiV2TestPointsSearchPostRequest workItemCreatedByIds(Set<UUID> workItemCreatedByIds) {
-    
-    this.workItemCreatedByIds = workItemCreatedByIds;
+
+  public ApiV2TestPointsSearchPostRequest workItemCreatedByIds(List<UUID> workItemCreatedByIds) {
+    this.workItemCreatedByIds = JsonNullable.<List<UUID>>of(workItemCreatedByIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addWorkItemCreatedByIdsItem(UUID workItemCreatedByIdsItem) {
-    if (this.workItemCreatedByIds == null) {
-      this.workItemCreatedByIds = new LinkedHashSet<>();
+    if (this.workItemCreatedByIds == null || !this.workItemCreatedByIds.isPresent()) {
+      this.workItemCreatedByIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.workItemCreatedByIds.add(workItemCreatedByIdsItem);
+    try {
+      this.workItemCreatedByIds.get().add(workItemCreatedByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -644,20 +935,32 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a work item creator IDs to search for
    * @return workItemCreatedByIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getWorkItemCreatedByIds() {
-    return workItemCreatedByIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getWorkItemCreatedByIds() {
+        return workItemCreatedByIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemCreatedByIds(Set<UUID> workItemCreatedByIds) {
+  public JsonNullable<List<UUID>> getWorkItemCreatedByIds_JsonNullable() {
+    return workItemCreatedByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_BY_IDS)
+  public void setWorkItemCreatedByIds_JsonNullable(JsonNullable<List<UUID>> workItemCreatedByIds) {
     this.workItemCreatedByIds = workItemCreatedByIds;
+  }
+
+  public void setWorkItemCreatedByIds(List<UUID> workItemCreatedByIds) {
+    this.workItemCreatedByIds = JsonNullable.<List<UUID>>of(workItemCreatedByIds);
   }
 
 
   public ApiV2TestPointsSearchPostRequest workItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
-    
-    this.workItemModifiedDate = workItemModifiedDate;
+    this.workItemModifiedDate = JsonNullable.<TestPointFilterModelWorkItemModifiedDate>of(workItemModifiedDate);
     return this;
   }
 
@@ -665,28 +968,44 @@ public class ApiV2TestPointsSearchPostRequest {
    * Get workItemModifiedDate
    * @return workItemModifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestPointFilterModelWorkItemModifiedDate getWorkItemModifiedDate() {
-    return workItemModifiedDate;
+        return workItemModifiedDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
+  public JsonNullable<TestPointFilterModelWorkItemModifiedDate> getWorkItemModifiedDate_JsonNullable() {
+    return workItemModifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE)
+  public void setWorkItemModifiedDate_JsonNullable(JsonNullable<TestPointFilterModelWorkItemModifiedDate> workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
+  public void setWorkItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
+    this.workItemModifiedDate = JsonNullable.<TestPointFilterModelWorkItemModifiedDate>of(workItemModifiedDate);
+  }
 
-  public ApiV2TestPointsSearchPostRequest workItemModifiedByIds(Set<UUID> workItemModifiedByIds) {
-    
-    this.workItemModifiedByIds = workItemModifiedByIds;
+
+  public ApiV2TestPointsSearchPostRequest workItemModifiedByIds(List<UUID> workItemModifiedByIds) {
+    this.workItemModifiedByIds = JsonNullable.<List<UUID>>of(workItemModifiedByIds);
     return this;
   }
 
   public ApiV2TestPointsSearchPostRequest addWorkItemModifiedByIdsItem(UUID workItemModifiedByIdsItem) {
-    if (this.workItemModifiedByIds == null) {
-      this.workItemModifiedByIds = new LinkedHashSet<>();
+    if (this.workItemModifiedByIds == null || !this.workItemModifiedByIds.isPresent()) {
+      this.workItemModifiedByIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.workItemModifiedByIds.add(workItemModifiedByIdsItem);
+    try {
+      this.workItemModifiedByIds.get().add(workItemModifiedByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -694,18 +1013,33 @@ public class ApiV2TestPointsSearchPostRequest {
    * Specifies a work item last editor IDs to search for
    * @return workItemModifiedByIds
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getWorkItemModifiedByIds() {
-    return workItemModifiedByIds;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getWorkItemModifiedByIds() {
+        return workItemModifiedByIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setWorkItemModifiedByIds(Set<UUID> workItemModifiedByIds) {
+  public JsonNullable<List<UUID>> getWorkItemModifiedByIds_JsonNullable() {
+    return workItemModifiedByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_IDS)
+  public void setWorkItemModifiedByIds_JsonNullable(JsonNullable<List<UUID>> workItemModifiedByIds) {
     this.workItemModifiedByIds = workItemModifiedByIds;
   }
 
+  public void setWorkItemModifiedByIds(List<UUID> workItemModifiedByIds) {
+    this.workItemModifiedByIds = JsonNullable.<List<UUID>>of(workItemModifiedByIds);
+  }
 
 
+  /**
+   * Return true if this _api_v2_testPoints_search_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -715,27 +1049,28 @@ public class ApiV2TestPointsSearchPostRequest {
       return false;
     }
     ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest = (ApiV2TestPointsSearchPostRequest) o;
-    return Objects.equals(this.testPlanIds, apiV2TestPointsSearchPostRequest.testPlanIds) &&
-        Objects.equals(this.testSuiteIds, apiV2TestPointsSearchPostRequest.testSuiteIds) &&
-        Objects.equals(this.workItemGlobalIds, apiV2TestPointsSearchPostRequest.workItemGlobalIds) &&
-        Objects.equals(this.statuses, apiV2TestPointsSearchPostRequest.statuses) &&
-        Objects.equals(this.priorities, apiV2TestPointsSearchPostRequest.priorities) &&
-        Objects.equals(this.isAutomated, apiV2TestPointsSearchPostRequest.isAutomated) &&
-        Objects.equals(this.name, apiV2TestPointsSearchPostRequest.name) &&
-        Objects.equals(this.configurationIds, apiV2TestPointsSearchPostRequest.configurationIds) &&
-        Objects.equals(this.testerIds, apiV2TestPointsSearchPostRequest.testerIds) &&
-        Objects.equals(this.duration, apiV2TestPointsSearchPostRequest.duration) &&
-        Objects.equals(this.sectionIds, apiV2TestPointsSearchPostRequest.sectionIds) &&
-        Objects.equals(this.createdDate, apiV2TestPointsSearchPostRequest.createdDate) &&
-        Objects.equals(this.createdByIds, apiV2TestPointsSearchPostRequest.createdByIds) &&
-        Objects.equals(this.modifiedDate, apiV2TestPointsSearchPostRequest.modifiedDate) &&
-        Objects.equals(this.modifiedByIds, apiV2TestPointsSearchPostRequest.modifiedByIds) &&
-        Objects.equals(this.tags, apiV2TestPointsSearchPostRequest.tags) &&
-        Objects.equals(this.attributes, apiV2TestPointsSearchPostRequest.attributes) &&
-        Objects.equals(this.workItemCreatedDate, apiV2TestPointsSearchPostRequest.workItemCreatedDate) &&
-        Objects.equals(this.workItemCreatedByIds, apiV2TestPointsSearchPostRequest.workItemCreatedByIds) &&
-        Objects.equals(this.workItemModifiedDate, apiV2TestPointsSearchPostRequest.workItemModifiedDate) &&
-        Objects.equals(this.workItemModifiedByIds, apiV2TestPointsSearchPostRequest.workItemModifiedByIds);
+    return equalsNullable(this.testPlanIds, apiV2TestPointsSearchPostRequest.testPlanIds) &&
+        equalsNullable(this.testSuiteIds, apiV2TestPointsSearchPostRequest.testSuiteIds) &&
+        equalsNullable(this.workItemGlobalIds, apiV2TestPointsSearchPostRequest.workItemGlobalIds) &&
+        equalsNullable(this.workItemMedianDuration, apiV2TestPointsSearchPostRequest.workItemMedianDuration) &&
+        equalsNullable(this.statuses, apiV2TestPointsSearchPostRequest.statuses) &&
+        equalsNullable(this.priorities, apiV2TestPointsSearchPostRequest.priorities) &&
+        equalsNullable(this.isAutomated, apiV2TestPointsSearchPostRequest.isAutomated) &&
+        equalsNullable(this.name, apiV2TestPointsSearchPostRequest.name) &&
+        equalsNullable(this.configurationIds, apiV2TestPointsSearchPostRequest.configurationIds) &&
+        equalsNullable(this.testerIds, apiV2TestPointsSearchPostRequest.testerIds) &&
+        equalsNullable(this.duration, apiV2TestPointsSearchPostRequest.duration) &&
+        equalsNullable(this.sectionIds, apiV2TestPointsSearchPostRequest.sectionIds) &&
+        equalsNullable(this.createdDate, apiV2TestPointsSearchPostRequest.createdDate) &&
+        equalsNullable(this.createdByIds, apiV2TestPointsSearchPostRequest.createdByIds) &&
+        equalsNullable(this.modifiedDate, apiV2TestPointsSearchPostRequest.modifiedDate) &&
+        equalsNullable(this.modifiedByIds, apiV2TestPointsSearchPostRequest.modifiedByIds) &&
+        equalsNullable(this.tags, apiV2TestPointsSearchPostRequest.tags) &&
+        equalsNullable(this.attributes, apiV2TestPointsSearchPostRequest.attributes) &&
+        equalsNullable(this.workItemCreatedDate, apiV2TestPointsSearchPostRequest.workItemCreatedDate) &&
+        equalsNullable(this.workItemCreatedByIds, apiV2TestPointsSearchPostRequest.workItemCreatedByIds) &&
+        equalsNullable(this.workItemModifiedDate, apiV2TestPointsSearchPostRequest.workItemModifiedDate) &&
+        equalsNullable(this.workItemModifiedByIds, apiV2TestPointsSearchPostRequest.workItemModifiedByIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -744,7 +1079,7 @@ public class ApiV2TestPointsSearchPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
+    return Objects.hash(hashCodeNullable(testPlanIds), hashCodeNullable(testSuiteIds), hashCodeNullable(workItemGlobalIds), hashCodeNullable(workItemMedianDuration), hashCodeNullable(statuses), hashCodeNullable(priorities), hashCodeNullable(isAutomated), hashCodeNullable(name), hashCodeNullable(configurationIds), hashCodeNullable(testerIds), hashCodeNullable(duration), hashCodeNullable(sectionIds), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(tags), hashCodeNullable(attributes), hashCodeNullable(workItemCreatedDate), hashCodeNullable(workItemCreatedByIds), hashCodeNullable(workItemModifiedDate), hashCodeNullable(workItemModifiedByIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -761,6 +1096,7 @@ public class ApiV2TestPointsSearchPostRequest {
     sb.append("    testPlanIds: ").append(toIndentedString(testPlanIds)).append("\n");
     sb.append("    testSuiteIds: ").append(toIndentedString(testSuiteIds)).append("\n");
     sb.append("    workItemGlobalIds: ").append(toIndentedString(workItemGlobalIds)).append("\n");
+    sb.append("    workItemMedianDuration: ").append(toIndentedString(workItemMedianDuration)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
@@ -794,183 +1130,5 @@ public class ApiV2TestPointsSearchPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testPlanIds");
-    openapiFields.add("testSuiteIds");
-    openapiFields.add("workItemGlobalIds");
-    openapiFields.add("statuses");
-    openapiFields.add("priorities");
-    openapiFields.add("isAutomated");
-    openapiFields.add("name");
-    openapiFields.add("configurationIds");
-    openapiFields.add("testerIds");
-    openapiFields.add("duration");
-    openapiFields.add("sectionIds");
-    openapiFields.add("createdDate");
-    openapiFields.add("createdByIds");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("modifiedByIds");
-    openapiFields.add("tags");
-    openapiFields.add("attributes");
-    openapiFields.add("workItemCreatedDate");
-    openapiFields.add("workItemCreatedByIds");
-    openapiFields.add("workItemModifiedDate");
-    openapiFields.add("workItemModifiedByIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2TestPointsSearchPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2TestPointsSearchPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2TestPointsSearchPostRequest is not found in the empty JSON string", ApiV2TestPointsSearchPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2TestPointsSearchPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2TestPointsSearchPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanIds` to be an array in the JSON string but got `%s`", jsonObj.get("testPlanIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testSuiteIds` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemGlobalIds") != null && !jsonObj.get("workItemGlobalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemGlobalIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `statuses` to be an array in the JSON string but got `%s`", jsonObj.get("statuses").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testerIds") != null && !jsonObj.get("testerIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testerIds` to be an array in the JSON string but got `%s`", jsonObj.get("testerIds").toString()));
-      }
-      // validate the optional field `duration`
-      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestPointFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestPointFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
-      }
-      // validate the optional field `modifiedDate`
-      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        TestPointFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      // validate the optional field `workItemCreatedDate`
-      if (jsonObj.get("workItemCreatedDate") != null && !jsonObj.get("workItemCreatedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemCreatedDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemCreatedByIds") != null && !jsonObj.get("workItemCreatedByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemCreatedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemCreatedByIds").toString()));
-      }
-      // validate the optional field `workItemModifiedDate`
-      if (jsonObj.get("workItemModifiedDate") != null && !jsonObj.get("workItemModifiedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemModifiedDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemModifiedByIds") != null && !jsonObj.get("workItemModifiedByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemModifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemModifiedByIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2TestPointsSearchPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2TestPointsSearchPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2TestPointsSearchPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2TestPointsSearchPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2TestPointsSearchPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2TestPointsSearchPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2TestPointsSearchPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2TestPointsSearchPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2TestPointsSearchPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2TestPointsSearchPostRequest
-  */
-  public static ApiV2TestPointsSearchPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2TestPointsSearchPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2TestPointsSearchPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

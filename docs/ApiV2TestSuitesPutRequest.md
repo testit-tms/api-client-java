@@ -10,7 +10,7 @@
 |**id** | **UUID** |  |  |
 |**parentId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  |
-|**isDeleted** | **Boolean** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  |
 |**autoRefresh** | **Boolean** |  |  [optional] |
 
 

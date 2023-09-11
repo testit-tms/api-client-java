@@ -15,65 +15,49 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ConfigurationExtractionModelProjectIds;
 import ru.testit.client.model.WorkItemsExtractionModelIds;
 import ru.testit.client.model.WorkItemsExtractionModelSectionIds;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Rules for different level entities inclusion/exclusion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  WorkItemSelectModelExtractionModel.JSON_PROPERTY_IDS,
+  WorkItemSelectModelExtractionModel.JSON_PROPERTY_SECTION_IDS,
+  WorkItemSelectModelExtractionModel.JSON_PROPERTY_PROJECT_IDS
+})
+@JsonTypeName("WorkItemSelectModel_extractionModel")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemSelectModelExtractionModel {
-  public static final String SERIALIZED_NAME_IDS = "ids";
-  @SerializedName(SERIALIZED_NAME_IDS)
-  private WorkItemsExtractionModelIds ids;
+  public static final String JSON_PROPERTY_IDS = "ids";
+  private JsonNullable<WorkItemsExtractionModelIds> ids = JsonNullable.<WorkItemsExtractionModelIds>undefined();
 
-  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
-  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private WorkItemsExtractionModelSectionIds sectionIds;
+  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
+  private JsonNullable<WorkItemsExtractionModelSectionIds> sectionIds = JsonNullable.<WorkItemsExtractionModelSectionIds>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
-  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private ConfigurationExtractionModelProjectIds projectIds;
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<ConfigurationExtractionModelProjectIds> projectIds = JsonNullable.<ConfigurationExtractionModelProjectIds>undefined();
 
-  public WorkItemSelectModelExtractionModel() {
+  public WorkItemSelectModelExtractionModel() { 
   }
 
   public WorkItemSelectModelExtractionModel ids(WorkItemsExtractionModelIds ids) {
-    
-    this.ids = ids;
+    this.ids = JsonNullable.<WorkItemsExtractionModelIds>of(ids);
     return this;
   }
 
@@ -81,20 +65,32 @@ public class WorkItemSelectModelExtractionModel {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public WorkItemsExtractionModelIds getIds() {
-    return ids;
+        return ids.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemsExtractionModelIds> getIds_JsonNullable() {
+    return ids;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDS)
+  public void setIds_JsonNullable(JsonNullable<WorkItemsExtractionModelIds> ids) {
+    this.ids = ids;
+  }
 
   public void setIds(WorkItemsExtractionModelIds ids) {
-    this.ids = ids;
+    this.ids = JsonNullable.<WorkItemsExtractionModelIds>of(ids);
   }
 
 
   public WorkItemSelectModelExtractionModel sectionIds(WorkItemsExtractionModelSectionIds sectionIds) {
-    
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<WorkItemsExtractionModelSectionIds>of(sectionIds);
     return this;
   }
 
@@ -102,20 +98,32 @@ public class WorkItemSelectModelExtractionModel {
    * Get sectionIds
    * @return sectionIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public WorkItemsExtractionModelSectionIds getSectionIds() {
-    return sectionIds;
+        return sectionIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemsExtractionModelSectionIds> getSectionIds_JsonNullable() {
+    return sectionIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  public void setSectionIds_JsonNullable(JsonNullable<WorkItemsExtractionModelSectionIds> sectionIds) {
+    this.sectionIds = sectionIds;
+  }
 
   public void setSectionIds(WorkItemsExtractionModelSectionIds sectionIds) {
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<WorkItemsExtractionModelSectionIds>of(sectionIds);
   }
 
 
   public WorkItemSelectModelExtractionModel projectIds(ConfigurationExtractionModelProjectIds projectIds) {
-    
-    this.projectIds = projectIds;
+    this.projectIds = JsonNullable.<ConfigurationExtractionModelProjectIds>of(projectIds);
     return this;
   }
 
@@ -123,18 +131,33 @@ public class WorkItemSelectModelExtractionModel {
    * Get projectIds
    * @return projectIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public ConfigurationExtractionModelProjectIds getProjectIds() {
-    return projectIds;
+        return projectIds.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setProjectIds(ConfigurationExtractionModelProjectIds projectIds) {
+  public JsonNullable<ConfigurationExtractionModelProjectIds> getProjectIds_JsonNullable() {
+    return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<ConfigurationExtractionModelProjectIds> projectIds) {
     this.projectIds = projectIds;
   }
 
+  public void setProjectIds(ConfigurationExtractionModelProjectIds projectIds) {
+    this.projectIds = JsonNullable.<ConfigurationExtractionModelProjectIds>of(projectIds);
+  }
 
 
+  /**
+   * Return true if this WorkItemSelectModel_extractionModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,9 +167,9 @@ public class WorkItemSelectModelExtractionModel {
       return false;
     }
     WorkItemSelectModelExtractionModel workItemSelectModelExtractionModel = (WorkItemSelectModelExtractionModel) o;
-    return Objects.equals(this.ids, workItemSelectModelExtractionModel.ids) &&
-        Objects.equals(this.sectionIds, workItemSelectModelExtractionModel.sectionIds) &&
-        Objects.equals(this.projectIds, workItemSelectModelExtractionModel.projectIds);
+    return equalsNullable(this.ids, workItemSelectModelExtractionModel.ids) &&
+        equalsNullable(this.sectionIds, workItemSelectModelExtractionModel.sectionIds) &&
+        equalsNullable(this.projectIds, workItemSelectModelExtractionModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -155,7 +178,7 @@ public class WorkItemSelectModelExtractionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, sectionIds, projectIds);
+    return Objects.hash(hashCodeNullable(ids), hashCodeNullable(sectionIds), hashCodeNullable(projectIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -187,102 +210,5 @@ public class WorkItemSelectModelExtractionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ids");
-    openapiFields.add("sectionIds");
-    openapiFields.add("projectIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkItemSelectModelExtractionModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WorkItemSelectModelExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemSelectModelExtractionModel is not found in the empty JSON string", WorkItemSelectModelExtractionModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemSelectModelExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemSelectModelExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `ids`
-      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        WorkItemsExtractionModelIds.validateJsonObject(jsonObj.getAsJsonObject("ids"));
-      }
-      // validate the optional field `sectionIds`
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull()) {
-        WorkItemsExtractionModelSectionIds.validateJsonObject(jsonObj.getAsJsonObject("sectionIds"));
-      }
-      // validate the optional field `projectIds`
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull()) {
-        ConfigurationExtractionModelProjectIds.validateJsonObject(jsonObj.getAsJsonObject("projectIds"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemSelectModelExtractionModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemSelectModelExtractionModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemSelectModelExtractionModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemSelectModelExtractionModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemSelectModelExtractionModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemSelectModelExtractionModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemSelectModelExtractionModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WorkItemSelectModelExtractionModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkItemSelectModelExtractionModel
-  * @throws IOException if the JSON string is invalid with respect to WorkItemSelectModelExtractionModel
-  */
-  public static WorkItemSelectModelExtractionModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemSelectModelExtractionModel.class);
-  }
-
- /**
-  * Convert an instance of WorkItemSelectModelExtractionModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

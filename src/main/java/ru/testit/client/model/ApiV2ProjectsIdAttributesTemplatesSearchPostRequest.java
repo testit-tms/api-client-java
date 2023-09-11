@@ -15,61 +15,45 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeTypesEnum;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Collection of filters to apply to search
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.JSON_PROPERTY_NAME,
+  ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES
+})
+@JsonTypeName("_api_v2_projects__id__attributes_templates_search_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  private Set<CustomAttributeTypesEnum> customAttributeTypes;
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
+  private JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>undefined();
 
-  public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest() {
+  public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest() { 
   }
 
   public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -77,28 +61,44 @@ public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
    * Name of custom attribute template
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
-    
-    this.customAttributeTypes = customAttributeTypes;
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
 
   public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest addCustomAttributeTypesItem(CustomAttributeTypesEnum customAttributeTypesItem) {
-    if (this.customAttributeTypes == null) {
-      this.customAttributeTypes = new LinkedHashSet<>();
+    if (this.customAttributeTypes == null || !this.customAttributeTypes.isPresent()) {
+      this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(new LinkedHashSet<>());
     }
-    this.customAttributeTypes.add(customAttributeTypesItem);
+    try {
+      this.customAttributeTypes.get().add(customAttributeTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -106,18 +106,33 @@ public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
    * Collection of custom attributes types
    * @return customAttributeTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
-    return customAttributeTypes;
+        return customAttributeTypes.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public JsonNullable<Set<CustomAttributeTypesEnum>> getCustomAttributeTypes_JsonNullable() {
+    return customAttributeTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  public void setCustomAttributeTypes_JsonNullable(JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 
+  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
+  }
 
 
+  /**
+   * Return true if this _api_v2_projects__id__attributes_templates_search_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -127,8 +142,8 @@ public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
       return false;
     }
     ApiV2ProjectsIdAttributesTemplatesSearchPostRequest apiV2ProjectsIdAttributesTemplatesSearchPostRequest = (ApiV2ProjectsIdAttributesTemplatesSearchPostRequest) o;
-    return Objects.equals(this.name, apiV2ProjectsIdAttributesTemplatesSearchPostRequest.name) &&
-        Objects.equals(this.customAttributeTypes, apiV2ProjectsIdAttributesTemplatesSearchPostRequest.customAttributeTypes);
+    return equalsNullable(this.name, apiV2ProjectsIdAttributesTemplatesSearchPostRequest.name) &&
+        equalsNullable(this.customAttributeTypes, apiV2ProjectsIdAttributesTemplatesSearchPostRequest.customAttributeTypes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -137,7 +152,7 @@ public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, customAttributeTypes);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(customAttributeTypes));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -168,96 +183,5 @@ public class ApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("customAttributeTypes");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2ProjectsIdAttributesTemplatesSearchPostRequest is not found in the empty JSON string", ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2ProjectsIdAttributesTemplatesSearchPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeTypes") != null && !jsonObj.get("customAttributeTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeTypes` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeTypes").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2ProjectsIdAttributesTemplatesSearchPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2ProjectsIdAttributesTemplatesSearchPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2ProjectsIdAttributesTemplatesSearchPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2ProjectsIdAttributesTemplatesSearchPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2ProjectsIdAttributesTemplatesSearchPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
-  */
-  public static ApiV2ProjectsIdAttributesTemplatesSearchPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2ProjectsIdAttributesTemplatesSearchPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

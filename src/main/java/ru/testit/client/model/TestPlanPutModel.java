@@ -15,12 +15,13 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,90 +30,72 @@ import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TagShortModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestPlanPutModel.JSON_PROPERTY_ID,
+  TestPlanPutModel.JSON_PROPERTY_LOCKED_BY_ID,
+  TestPlanPutModel.JSON_PROPERTY_TAGS,
+  TestPlanPutModel.JSON_PROPERTY_NAME,
+  TestPlanPutModel.JSON_PROPERTY_START_DATE,
+  TestPlanPutModel.JSON_PROPERTY_END_DATE,
+  TestPlanPutModel.JSON_PROPERTY_DESCRIPTION,
+  TestPlanPutModel.JSON_PROPERTY_BUILD,
+  TestPlanPutModel.JSON_PROPERTY_PROJECT_ID,
+  TestPlanPutModel.JSON_PROPERTY_PRODUCT_NAME,
+  TestPlanPutModel.JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER,
+  TestPlanPutModel.JSON_PROPERTY_ATTRIBUTES
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanPutModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
-  @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
-  private UUID lockedById;
+  public static final String JSON_PROPERTY_LOCKED_BY_ID = "lockedById";
+  private JsonNullable<UUID> lockedById = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<TagShortModel>> tags = JsonNullable.<List<TagShortModel>>undefined();
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private OffsetDateTime startDate;
+  public static final String JSON_PROPERTY_START_DATE = "startDate";
+  private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String SERIALIZED_NAME_END_DATE = "endDate";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private OffsetDateTime endDate;
+  public static final String JSON_PROPERTY_END_DATE = "endDate";
+  private JsonNullable<OffsetDateTime> endDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_BUILD = "build";
-  @SerializedName(SERIALIZED_NAME_BUILD)
-  private String build;
+  public static final String JSON_PROPERTY_BUILD = "build";
+  private JsonNullable<String> build = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
-  @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  private String productName;
+  public static final String JSON_PROPERTY_PRODUCT_NAME = "productName";
+  private JsonNullable<String> productName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
-  @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  private Boolean hasAutomaticDurationTimer;
+  public static final String JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
+  private JsonNullable<Boolean> hasAutomaticDurationTimer = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = new HashMap<>();
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
 
-  public TestPlanPutModel() {
+  public TestPlanPutModel() { 
   }
 
   public TestPlanPutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -121,20 +104,24 @@ public class TestPlanPutModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPlanPutModel lockedById(UUID lockedById) {
-    
-    this.lockedById = lockedById;
+    this.lockedById = JsonNullable.<UUID>of(lockedById);
     return this;
   }
 
@@ -142,28 +129,44 @@ public class TestPlanPutModel {
    * Get lockedById
    * @return lockedById
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getLockedById() {
-    return lockedById;
+        return lockedById.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_LOCKED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getLockedById_JsonNullable() {
+    return lockedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOCKED_BY_ID)
+  public void setLockedById_JsonNullable(JsonNullable<UUID> lockedById) {
+    this.lockedById = lockedById;
+  }
 
   public void setLockedById(UUID lockedById) {
-    this.lockedById = lockedById;
+    this.lockedById = JsonNullable.<UUID>of(lockedById);
   }
 
 
   public TestPlanPutModel tags(List<TagShortModel> tags) {
-    
-    this.tags = tags;
+    this.tags = JsonNullable.<List<TagShortModel>>of(tags);
     return this;
   }
 
   public TestPlanPutModel addTagsItem(TagShortModel tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<TagShortModel>>of(new ArrayList<>());
     }
-    this.tags.add(tagsItem);
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -171,19 +174,31 @@ public class TestPlanPutModel {
    * Get tags
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<TagShortModel> getTags() {
-    return tags;
+        return tags.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TagShortModel>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<TagShortModel>> tags) {
+    this.tags = tags;
+  }
 
   public void setTags(List<TagShortModel> tags) {
-    this.tags = tags;
+    this.tags = JsonNullable.<List<TagShortModel>>of(tags);
   }
 
 
   public TestPlanPutModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -192,20 +207,24 @@ public class TestPlanPutModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPlanPutModel startDate(OffsetDateTime startDate) {
-    
-    this.startDate = startDate;
+    this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     return this;
   }
 
@@ -213,20 +232,32 @@ public class TestPlanPutModel {
    * Used for analytics
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getStartDate() {
-    return startDate;
+        return startDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getStartDate_JsonNullable() {
+    return startDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  public void setStartDate_JsonNullable(JsonNullable<OffsetDateTime> startDate) {
+    this.startDate = startDate;
+  }
 
   public void setStartDate(OffsetDateTime startDate) {
-    this.startDate = startDate;
+    this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
   }
 
 
   public TestPlanPutModel endDate(OffsetDateTime endDate) {
-    
-    this.endDate = endDate;
+    this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
     return this;
   }
 
@@ -234,20 +265,32 @@ public class TestPlanPutModel {
    * Used for analytics
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getEndDate() {
-    return endDate;
+        return endDate.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getEndDate_JsonNullable() {
+    return endDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  public void setEndDate_JsonNullable(JsonNullable<OffsetDateTime> endDate) {
+    this.endDate = endDate;
+  }
 
   public void setEndDate(OffsetDateTime endDate) {
-    this.endDate = endDate;
+    this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
   }
 
 
   public TestPlanPutModel description(String description) {
-    
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -255,20 +298,32 @@ public class TestPlanPutModel {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public TestPlanPutModel build(String build) {
-    
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
     return this;
   }
 
@@ -276,19 +331,31 @@ public class TestPlanPutModel {
    * Get build
    * @return build
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getBuild() {
-    return build;
+        return build.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getBuild_JsonNullable() {
+    return build;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  public void setBuild_JsonNullable(JsonNullable<String> build) {
+    this.build = build;
+  }
 
   public void setBuild(String build) {
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
   }
 
 
   public TestPlanPutModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -297,20 +364,24 @@ public class TestPlanPutModel {
    * Get projectId
    * @return projectId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPlanPutModel productName(String productName) {
-    
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
     return this;
   }
 
@@ -318,20 +389,32 @@ public class TestPlanPutModel {
    * Get productName
    * @return productName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getProductName() {
-    return productName;
+        return productName.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getProductName_JsonNullable() {
+    return productName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  public void setProductName_JsonNullable(JsonNullable<String> productName) {
+    this.productName = productName;
+  }
 
   public void setProductName(String productName) {
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
   }
 
 
   public TestPlanPutModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    
-    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
+    this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
     return this;
   }
 
@@ -339,28 +422,44 @@ public class TestPlanPutModel {
    * Get hasAutomaticDurationTimer
    * @return hasAutomaticDurationTimer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getHasAutomaticDurationTimer() {
-    return hasAutomaticDurationTimer;
+        return hasAutomaticDurationTimer.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getHasAutomaticDurationTimer_JsonNullable() {
+    return hasAutomaticDurationTimer;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER)
+  public void setHasAutomaticDurationTimer_JsonNullable(JsonNullable<Boolean> hasAutomaticDurationTimer) {
+    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
+  }
 
   public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
+    this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
   }
 
 
   public TestPlanPutModel attributes(Map<String, Object> attributes) {
-    
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
 
   public TestPlanPutModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
     }
-    this.attributes.put(key, attributesItem);
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -368,18 +467,33 @@ public class TestPlanPutModel {
    * Get attributes
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, Object> getAttributes() {
-    return attributes;
+        return attributes.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setAttributes(Map<String, Object> attributes) {
+  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
+    return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
     this.attributes = attributes;
   }
 
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+  }
 
 
+  /**
+   * Return true if this TestPlanPutModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -390,17 +504,17 @@ public class TestPlanPutModel {
     }
     TestPlanPutModel testPlanPutModel = (TestPlanPutModel) o;
     return Objects.equals(this.id, testPlanPutModel.id) &&
-        Objects.equals(this.lockedById, testPlanPutModel.lockedById) &&
-        Objects.equals(this.tags, testPlanPutModel.tags) &&
+        equalsNullable(this.lockedById, testPlanPutModel.lockedById) &&
+        equalsNullable(this.tags, testPlanPutModel.tags) &&
         Objects.equals(this.name, testPlanPutModel.name) &&
-        Objects.equals(this.startDate, testPlanPutModel.startDate) &&
-        Objects.equals(this.endDate, testPlanPutModel.endDate) &&
-        Objects.equals(this.description, testPlanPutModel.description) &&
-        Objects.equals(this.build, testPlanPutModel.build) &&
+        equalsNullable(this.startDate, testPlanPutModel.startDate) &&
+        equalsNullable(this.endDate, testPlanPutModel.endDate) &&
+        equalsNullable(this.description, testPlanPutModel.description) &&
+        equalsNullable(this.build, testPlanPutModel.build) &&
         Objects.equals(this.projectId, testPlanPutModel.projectId) &&
-        Objects.equals(this.productName, testPlanPutModel.productName) &&
-        Objects.equals(this.hasAutomaticDurationTimer, testPlanPutModel.hasAutomaticDurationTimer) &&
-        Objects.equals(this.attributes, testPlanPutModel.attributes);
+        equalsNullable(this.productName, testPlanPutModel.productName) &&
+        equalsNullable(this.hasAutomaticDurationTimer, testPlanPutModel.hasAutomaticDurationTimer) &&
+        equalsNullable(this.attributes, testPlanPutModel.attributes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -409,7 +523,7 @@ public class TestPlanPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, lockedById, tags, name, startDate, endDate, description, build, projectId, productName, hasAutomaticDurationTimer, attributes);
+    return Objects.hash(id, hashCodeNullable(lockedById), hashCodeNullable(tags), name, hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(description), hashCodeNullable(build), projectId, hashCodeNullable(productName), hashCodeNullable(hasAutomaticDurationTimer), hashCodeNullable(attributes));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -450,144 +564,5 @@ public class TestPlanPutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("lockedById");
-    openapiFields.add("tags");
-    openapiFields.add("name");
-    openapiFields.add("startDate");
-    openapiFields.add("endDate");
-    openapiFields.add("description");
-    openapiFields.add("build");
-    openapiFields.add("projectId");
-    openapiFields.add("productName");
-    openapiFields.add("hasAutomaticDurationTimer");
-    openapiFields.add("attributes");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("projectId");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanPutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanPutModel is not found in the empty JSON string", TestPlanPutModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanPutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("lockedById") != null && !jsonObj.get("lockedById").isJsonNull()) && !jsonObj.get("lockedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lockedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lockedById").toString()));
-      }
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
-        JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
-        if (jsonArraytags != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("tags").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-          }
-
-          // validate the optional field `tags` (array)
-          for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagShortModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) && !jsonObj.get("build").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `build` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build").toString()));
-      }
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if ((jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) && !jsonObj.get("productName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `productName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productName").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanPutModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanPutModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanPutModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanPutModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanPutModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanPutModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanPutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestPlanPutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPlanPutModel
-  * @throws IOException if the JSON string is invalid with respect to TestPlanPutModel
-  */
-  public static TestPlanPutModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanPutModel.class);
-  }
-
- /**
-  * Convert an instance of TestPlanPutModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

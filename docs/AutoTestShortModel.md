@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**globalId** | **Long** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**globalId** | **Long** |  |  |
 |**externalId** | **String** |  |  [optional] |
-|**projectId** | **UUID** |  |  [optional] |
+|**projectId** | **UUID** |  |  |
 |**name** | **String** |  |  [optional] |
 
 

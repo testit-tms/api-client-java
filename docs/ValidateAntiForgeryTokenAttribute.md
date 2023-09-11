@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**order** | **Integer** |  |  [optional] |
-|**isReusable** | **Boolean** |  |  [optional] [readonly] |
-|**typeId** | **Object** |  |  [optional] [readonly] |
+|**order** | **Integer** |  |  |
+|**isReusable** | **Boolean** |  |  [readonly] |
+|**typeId** | **Object** |  |  [readonly] |
 
 
 

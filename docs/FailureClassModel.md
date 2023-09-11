@@ -9,13 +9,13 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**failureCategory** | **FailureCategoryModel** |  |  |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**failureClassRegexes** | [**List&lt;FailureClassRegexModel&gt;**](FailureClassRegexModel.md) |  |  [optional] |
-|**id** | **UUID** | Unique ID of the entity |  [optional] |
-|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  [optional] |
+|**id** | **UUID** | Unique ID of the entity |  |
+|**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 
 
 

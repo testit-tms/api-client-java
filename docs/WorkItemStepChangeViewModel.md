@@ -11,9 +11,9 @@
 |**expected** | **String** |  |  [optional] |
 |**comments** | **String** |  |  [optional] |
 |**testData** | **String** |  |  [optional] |
-|**index** | **Integer** |  |  [optional] |
+|**index** | **Integer** |  |  |
 |**workItemId** | **UUID** |  |  [optional] |
-|**workItem** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  |  [optional] |
+|**workItem** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  |  [optional] |
 
 
 

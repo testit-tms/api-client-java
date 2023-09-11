@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**testRunId** | **UUID** |  |  [optional] |
+|**testRunId** | **UUID** |  |  |
 |**testPlanId** | **UUID** |  |  [optional] |
-|**testPlanGlobalId** | **Long** |  |  [optional] |
+|**testPlanGlobalId** | **Long** |  |  |
 |**name** | **String** |  |  [optional] |
 |**productName** | **String** |  |  [optional] |
 |**build** | **String** |  |  [optional] |

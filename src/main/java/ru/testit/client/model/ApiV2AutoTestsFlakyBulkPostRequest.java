@@ -15,58 +15,43 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import ru.testit.client.model.FlakyBulkModelAutotestSelect;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutotestSelectModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2AutoTestsFlakyBulkPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2AutoTestsFlakyBulkPostRequest.JSON_PROPERTY_AUTOTEST_SELECT,
+  ApiV2AutoTestsFlakyBulkPostRequest.JSON_PROPERTY_VALUE
+})
+@JsonTypeName("_api_v2_autoTests_flaky_bulk_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2AutoTestsFlakyBulkPostRequest {
-  public static final String SERIALIZED_NAME_AUTOTEST_SELECT = "autotestSelect";
-  @SerializedName(SERIALIZED_NAME_AUTOTEST_SELECT)
-  private FlakyBulkModelAutotestSelect autotestSelect;
+  public static final String JSON_PROPERTY_AUTOTEST_SELECT = "autotestSelect";
+  private JsonNullable<AutotestSelectModel> autotestSelect = JsonNullable.<AutotestSelectModel>undefined();
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String JSON_PROPERTY_VALUE = "value";
   private Boolean value;
 
-  public ApiV2AutoTestsFlakyBulkPostRequest() {
+  public ApiV2AutoTestsFlakyBulkPostRequest() { 
   }
 
-  public ApiV2AutoTestsFlakyBulkPostRequest autotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
-    
-    this.autotestSelect = autotestSelect;
+  public ApiV2AutoTestsFlakyBulkPostRequest autotestSelect(AutotestSelectModel autotestSelect) {
+    this.autotestSelect = JsonNullable.<AutotestSelectModel>of(autotestSelect);
     return this;
   }
 
@@ -74,19 +59,31 @@ public class ApiV2AutoTestsFlakyBulkPostRequest {
    * Get autotestSelect
    * @return autotestSelect
   **/
-  @javax.annotation.Nullable
-  public FlakyBulkModelAutotestSelect getAutotestSelect() {
-    return autotestSelect;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public AutotestSelectModel getAutotestSelect() {
+        return autotestSelect.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_AUTOTEST_SELECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setAutotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
+  public JsonNullable<AutotestSelectModel> getAutotestSelect_JsonNullable() {
+    return autotestSelect;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTOTEST_SELECT)
+  public void setAutotestSelect_JsonNullable(JsonNullable<AutotestSelectModel> autotestSelect) {
     this.autotestSelect = autotestSelect;
+  }
+
+  public void setAutotestSelect(AutotestSelectModel autotestSelect) {
+    this.autotestSelect = JsonNullable.<AutotestSelectModel>of(autotestSelect);
   }
 
 
   public ApiV2AutoTestsFlakyBulkPostRequest value(Boolean value) {
-    
     this.value = value;
     return this;
   }
@@ -95,18 +92,25 @@ public class ApiV2AutoTestsFlakyBulkPostRequest {
    * Are autotests flaky
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getValue() {
     return value;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(Boolean value) {
     this.value = value;
   }
 
 
-
+  /**
+   * Return true if this _api_v2_autoTests_flaky_bulk_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,13 +120,24 @@ public class ApiV2AutoTestsFlakyBulkPostRequest {
       return false;
     }
     ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest = (ApiV2AutoTestsFlakyBulkPostRequest) o;
-    return Objects.equals(this.autotestSelect, apiV2AutoTestsFlakyBulkPostRequest.autotestSelect) &&
+    return equalsNullable(this.autotestSelect, apiV2AutoTestsFlakyBulkPostRequest.autotestSelect) &&
         Objects.equals(this.value, apiV2AutoTestsFlakyBulkPostRequest.value);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autotestSelect, value);
+    return Objects.hash(hashCodeNullable(autotestSelect), value);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -146,101 +161,5 @@ public class ApiV2AutoTestsFlakyBulkPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("autotestSelect");
-    openapiFields.add("value");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("value");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2AutoTestsFlakyBulkPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2AutoTestsFlakyBulkPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2AutoTestsFlakyBulkPostRequest is not found in the empty JSON string", ApiV2AutoTestsFlakyBulkPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2AutoTestsFlakyBulkPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2AutoTestsFlakyBulkPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiV2AutoTestsFlakyBulkPostRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `autotestSelect`
-      if (jsonObj.get("autotestSelect") != null && !jsonObj.get("autotestSelect").isJsonNull()) {
-        FlakyBulkModelAutotestSelect.validateJsonObject(jsonObj.getAsJsonObject("autotestSelect"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2AutoTestsFlakyBulkPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2AutoTestsFlakyBulkPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2AutoTestsFlakyBulkPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2AutoTestsFlakyBulkPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2AutoTestsFlakyBulkPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2AutoTestsFlakyBulkPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2AutoTestsFlakyBulkPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2AutoTestsFlakyBulkPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2AutoTestsFlakyBulkPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2AutoTestsFlakyBulkPostRequest
-  */
-  public static ApiV2AutoTestsFlakyBulkPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2AutoTestsFlakyBulkPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2AutoTestsFlakyBulkPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

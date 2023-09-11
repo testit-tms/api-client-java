@@ -15,18 +15,18 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets DeletionState
  */
-@JsonAdapter(DeletionState.Adapter.class)
 public enum DeletionState {
   
   ANY("Any"),
@@ -41,6 +41,7 @@ public enum DeletionState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -50,6 +51,7 @@ public enum DeletionState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static DeletionState fromValue(String value) {
     for (DeletionState b : DeletionState.values()) {
       if (b.value.equals(value)) {
@@ -57,19 +59,6 @@ public enum DeletionState {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<DeletionState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final DeletionState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public DeletionState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return DeletionState.fromValue(value);
-    }
   }
 }
 

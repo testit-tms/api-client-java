@@ -15,18 +15,18 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets BackgroundJobType
  */
-@JsonAdapter(BackgroundJobType.Adapter.class)
 public enum BackgroundJobType {
   
   EXPORTXLSXTESTRESULTSBYTESTPLAN("ExportXlsxTestResultsByTestPlan"),
@@ -49,7 +49,9 @@ public enum BackgroundJobType {
   
   IMPORTXLSXPROJECT("ImportXlsxProject"),
   
-  IMPORTTESTRAILXMLPROJECT("ImportTestRailXmlProject");
+  IMPORTTESTRAILXMLPROJECT("ImportTestRailXmlProject"),
+  
+  PURGEPROJECT("PurgeProject");
 
   private String value;
 
@@ -57,6 +59,7 @@ public enum BackgroundJobType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -66,6 +69,7 @@ public enum BackgroundJobType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static BackgroundJobType fromValue(String value) {
     for (BackgroundJobType b : BackgroundJobType.values()) {
       if (b.value.equals(value)) {
@@ -73,19 +77,6 @@ public enum BackgroundJobType {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<BackgroundJobType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final BackgroundJobType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public BackgroundJobType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return BackgroundJobType.fromValue(value);
-    }
   }
 }
 

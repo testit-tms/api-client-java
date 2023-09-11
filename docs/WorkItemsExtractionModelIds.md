@@ -8,8 +8,8 @@ Extraction parameters for work items
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**include** | **Set&lt;UUID&gt;** |  |  [optional] |
-|**exclude** | **Set&lt;UUID&gt;** |  |  [optional] |
+|**include** | **List&lt;UUID&gt;** |  |  [optional] |
+|**exclude** | **List&lt;UUID&gt;** |  |  [optional] |
 
 
 

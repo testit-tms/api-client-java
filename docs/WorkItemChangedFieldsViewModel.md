@@ -8,25 +8,25 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
-|**isDeleted** | [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  |  [optional] |
-|**projectId** | [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  |  [optional] |
-|**isAutomated** | [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  |  [optional] |
-|**sectionId** | [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  |  [optional] |
+|**isDeleted** | [**BooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  |  [optional] |
+|**projectId** | [**GuidChangedFieldViewModel**](GuidChangedFieldViewModel.md) |  |  [optional] |
+|**isAutomated** | [**BooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  |  [optional] |
+|**sectionId** | [**GuidChangedFieldViewModel**](GuidChangedFieldViewModel.md) |  |  [optional] |
 |**description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
-|**state** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
-|**priority** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
-|**duration** | [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  |  [optional] |
+|**state** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**priority** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**duration** | [**Int32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  |  [optional] |
 |**attributes** | [**Map&lt;String, WorkItemChangedAttributeViewModel&gt;**](WorkItemChangedAttributeViewModel.md) |  |  [optional] |
-|**steps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
-|**preconditionSteps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
-|**postconditionSteps** | [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  |  [optional] |
-|**autoTests** | [**WorkItemChangedFieldsViewModelAutoTests**](WorkItemChangedFieldsViewModelAutoTests.md) |  |  [optional] |
-|**attachments** | [**WorkItemChangedFieldsViewModelAttachments**](WorkItemChangedFieldsViewModelAttachments.md) |  |  [optional] |
-|**tags** | [**WorkItemChangedFieldsViewModelTags**](WorkItemChangedFieldsViewModelTags.md) |  |  [optional] |
-|**links** | [**WorkItemChangedFieldsViewModelLinks**](WorkItemChangedFieldsViewModelLinks.md) |  |  [optional] |
-|**globalId** | [**WorkItemChangedFieldsViewModelGlobalId**](WorkItemChangedFieldsViewModelGlobalId.md) |  |  [optional] |
-|**versionNumber** | [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  |  [optional] |
-|**entityTypeName** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  |  [optional] |
+|**steps** | [**WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**preconditionSteps** | [**WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**postconditionSteps** | [**WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**autoTests** | [**AutoTestChangeViewModelArrayChangedFieldViewModel**](AutoTestChangeViewModelArrayChangedFieldViewModel.md) |  |  [optional] |
+|**attachments** | [**AttachmentChangeViewModelArrayChangedFieldViewModel**](AttachmentChangeViewModelArrayChangedFieldViewModel.md) |  |  [optional] |
+|**tags** | [**StringArrayChangedFieldViewModel**](StringArrayChangedFieldViewModel.md) |  |  [optional] |
+|**links** | [**WorkItemLinkChangeViewModelArrayChangedFieldViewModel**](WorkItemLinkChangeViewModelArrayChangedFieldViewModel.md) |  |  [optional] |
+|**globalId** | [**Int64ChangedFieldViewModel**](Int64ChangedFieldViewModel.md) |  |  [optional] |
+|**versionNumber** | [**Int32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  |  [optional] |
+|**entityTypeName** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
 
 
 

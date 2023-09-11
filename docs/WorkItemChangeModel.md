@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] |
-|**workItemId** | **UUID** |  |  [optional] |
-|**oldVersionId** | **UUID** |  |  [optional] |
-|**newVersionId** | **UUID** |  |  [optional] |
-|**workItemChangedFields** | [**WorkItemChangeModelWorkItemChangedFields**](WorkItemChangeModelWorkItemChangedFields.md) |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**id** | **UUID** |  |  |
+|**workItemId** | **UUID** |  |  |
+|**oldVersionId** | **UUID** |  |  |
+|**newVersionId** | **UUID** |  |  |
+|**workItemChangedFields** | [**WorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 
 

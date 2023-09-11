@@ -15,64 +15,48 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ParameterGroupModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ParameterGroupModel.JSON_PROPERTY_NAME,
+  ParameterGroupModel.JSON_PROPERTY_VALUES,
+  ParameterGroupModel.JSON_PROPERTY_PARAMETER_KEY_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ParameterGroupModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_VALUES = "values";
-  @SerializedName(SERIALIZED_NAME_VALUES)
-  private Map<String, String> values = new HashMap<>();
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private JsonNullable<Map<String, String>> values = JsonNullable.<Map<String, String>>undefined();
 
-  public static final String SERIALIZED_NAME_PARAMETER_KEY_ID = "parameterKeyId";
-  @SerializedName(SERIALIZED_NAME_PARAMETER_KEY_ID)
+  public static final String JSON_PROPERTY_PARAMETER_KEY_ID = "parameterKeyId";
   private UUID parameterKeyId;
 
-  public ParameterGroupModel() {
+  public ParameterGroupModel() { 
   }
 
   public ParameterGroupModel name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -80,28 +64,44 @@ public class ParameterGroupModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ParameterGroupModel values(Map<String, String> values) {
-    
-    this.values = values;
+    this.values = JsonNullable.<Map<String, String>>of(values);
     return this;
   }
 
   public ParameterGroupModel putValuesItem(String key, String valuesItem) {
-    if (this.values == null) {
-      this.values = new HashMap<>();
+    if (this.values == null || !this.values.isPresent()) {
+      this.values = JsonNullable.<Map<String, String>>of(new HashMap<>());
     }
-    this.values.put(key, valuesItem);
+    try {
+      this.values.get().put(key, valuesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -109,19 +109,31 @@ public class ParameterGroupModel {
    * Get values
    * @return values
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, String> getValues() {
-    return values;
+        return values.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getValues_JsonNullable() {
+    return values;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  public void setValues_JsonNullable(JsonNullable<Map<String, String>> values) {
+    this.values = values;
+  }
 
   public void setValues(Map<String, String> values) {
-    this.values = values;
+    this.values = JsonNullable.<Map<String, String>>of(values);
   }
 
 
   public ParameterGroupModel parameterKeyId(UUID parameterKeyId) {
-    
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -130,18 +142,25 @@ public class ParameterGroupModel {
    * Get parameterKeyId
    * @return parameterKeyId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getParameterKeyId() {
     return parameterKeyId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-
+  /**
+   * Return true if this ParameterGroupModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -151,14 +170,25 @@ public class ParameterGroupModel {
       return false;
     }
     ParameterGroupModel parameterGroupModel = (ParameterGroupModel) o;
-    return Objects.equals(this.name, parameterGroupModel.name) &&
-        Objects.equals(this.values, parameterGroupModel.values) &&
+    return equalsNullable(this.name, parameterGroupModel.name) &&
+        equalsNullable(this.values, parameterGroupModel.values) &&
         Objects.equals(this.parameterKeyId, parameterGroupModel.parameterKeyId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, values, parameterKeyId);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(values), parameterKeyId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -183,96 +213,5 @@ public class ParameterGroupModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("values");
-    openapiFields.add("parameterKeyId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ParameterGroupModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ParameterGroupModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ParameterGroupModel is not found in the empty JSON string", ParameterGroupModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ParameterGroupModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ParameterGroupModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("parameterKeyId") != null && !jsonObj.get("parameterKeyId").isJsonNull()) && !jsonObj.get("parameterKeyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parameterKeyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parameterKeyId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterGroupModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterGroupModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterGroupModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterGroupModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ParameterGroupModel>() {
-           @Override
-           public void write(JsonWriter out, ParameterGroupModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ParameterGroupModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ParameterGroupModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ParameterGroupModel
-  * @throws IOException if the JSON string is invalid with respect to ParameterGroupModel
-  */
-  public static ParameterGroupModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterGroupModel.class);
-  }
-
- /**
-  * Convert an instance of ParameterGroupModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

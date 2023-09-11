@@ -15,73 +15,56 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeTypesEnum;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ProjectAttributesFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ProjectAttributesFilterModel.JSON_PROPERTY_NAME,
+  ProjectAttributesFilterModel.JSON_PROPERTY_IS_REQUIRED,
+  ProjectAttributesFilterModel.JSON_PROPERTY_IS_GLOBAL,
+  ProjectAttributesFilterModel.JSON_PROPERTY_TYPES,
+  ProjectAttributesFilterModel.JSON_PROPERTY_IS_ENABLED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectAttributesFilterModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
-  @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  private Boolean isRequired;
+  public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  private JsonNullable<Boolean> isRequired = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
-  @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  private Boolean isGlobal;
+  public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
+  private JsonNullable<Boolean> isGlobal = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<CustomAttributeTypesEnum> types;
+  public static final String JSON_PROPERTY_TYPES = "types";
+  private JsonNullable<Set<CustomAttributeTypesEnum>> types = JsonNullable.<Set<CustomAttributeTypesEnum>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
-  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  private Boolean isEnabled;
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  private JsonNullable<Boolean> isEnabled = JsonNullable.<Boolean>undefined();
 
-  public ProjectAttributesFilterModel() {
+  public ProjectAttributesFilterModel() { 
   }
 
   public ProjectAttributesFilterModel name(String name) {
-    
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -89,20 +72,32 @@ public class ProjectAttributesFilterModel {
    * Specifies an attribute name to search for
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ProjectAttributesFilterModel isRequired(Boolean isRequired) {
-    
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
 
@@ -110,20 +105,32 @@ public class ProjectAttributesFilterModel {
    * Specifies an attribute mandatory status to search for
    * @return isRequired
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsRequired() {
-    return isRequired;
+        return isRequired.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsRequired_JsonNullable() {
+    return isRequired;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  public void setIsRequired_JsonNullable(JsonNullable<Boolean> isRequired) {
+    this.isRequired = isRequired;
+  }
 
   public void setIsRequired(Boolean isRequired) {
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
   public ProjectAttributesFilterModel isGlobal(Boolean isGlobal) {
-    
-    this.isGlobal = isGlobal;
+    this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
     return this;
   }
 
@@ -131,28 +138,44 @@ public class ProjectAttributesFilterModel {
    * Specifies an attribute global status to search for
    * @return isGlobal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsGlobal() {
-    return isGlobal;
+        return isGlobal.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsGlobal_JsonNullable() {
+    return isGlobal;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  public void setIsGlobal_JsonNullable(JsonNullable<Boolean> isGlobal) {
+    this.isGlobal = isGlobal;
+  }
 
   public void setIsGlobal(Boolean isGlobal) {
-    this.isGlobal = isGlobal;
+    this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
   }
 
 
   public ProjectAttributesFilterModel types(Set<CustomAttributeTypesEnum> types) {
-    
-    this.types = types;
+    this.types = JsonNullable.<Set<CustomAttributeTypesEnum>>of(types);
     return this;
   }
 
   public ProjectAttributesFilterModel addTypesItem(CustomAttributeTypesEnum typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
+    if (this.types == null || !this.types.isPresent()) {
+      this.types = JsonNullable.<Set<CustomAttributeTypesEnum>>of(new LinkedHashSet<>());
     }
-    this.types.add(typesItem);
+    try {
+      this.types.get().add(typesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -160,20 +183,32 @@ public class ProjectAttributesFilterModel {
    * Specifies an attribute types to search for
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<CustomAttributeTypesEnum> getTypes() {
-    return types;
+        return types.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<CustomAttributeTypesEnum>> getTypes_JsonNullable() {
+    return types;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  public void setTypes_JsonNullable(JsonNullable<Set<CustomAttributeTypesEnum>> types) {
+    this.types = types;
+  }
 
   public void setTypes(Set<CustomAttributeTypesEnum> types) {
-    this.types = types;
+    this.types = JsonNullable.<Set<CustomAttributeTypesEnum>>of(types);
   }
 
 
   public ProjectAttributesFilterModel isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
+    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
 
@@ -181,18 +216,33 @@ public class ProjectAttributesFilterModel {
    * Specifies an attribute enabled status to search for
    * @return isEnabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsEnabled() {
-    return isEnabled;
+        return isEnabled.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public JsonNullable<Boolean> getIsEnabled_JsonNullable() {
+    return isEnabled;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  public void setIsEnabled_JsonNullable(JsonNullable<Boolean> isEnabled) {
     this.isEnabled = isEnabled;
   }
 
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
+  }
 
 
+  /**
+   * Return true if this ProjectAttributesFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,11 +252,11 @@ public class ProjectAttributesFilterModel {
       return false;
     }
     ProjectAttributesFilterModel projectAttributesFilterModel = (ProjectAttributesFilterModel) o;
-    return Objects.equals(this.name, projectAttributesFilterModel.name) &&
-        Objects.equals(this.isRequired, projectAttributesFilterModel.isRequired) &&
-        Objects.equals(this.isGlobal, projectAttributesFilterModel.isGlobal) &&
-        Objects.equals(this.types, projectAttributesFilterModel.types) &&
-        Objects.equals(this.isEnabled, projectAttributesFilterModel.isEnabled);
+    return equalsNullable(this.name, projectAttributesFilterModel.name) &&
+        equalsNullable(this.isRequired, projectAttributesFilterModel.isRequired) &&
+        equalsNullable(this.isGlobal, projectAttributesFilterModel.isGlobal) &&
+        equalsNullable(this.types, projectAttributesFilterModel.types) &&
+        equalsNullable(this.isEnabled, projectAttributesFilterModel.isEnabled);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -215,7 +265,7 @@ public class ProjectAttributesFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isRequired, isGlobal, types, isEnabled);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(isRequired), hashCodeNullable(isGlobal), hashCodeNullable(types), hashCodeNullable(isEnabled));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -249,99 +299,5 @@ public class ProjectAttributesFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("isRequired");
-    openapiFields.add("isGlobal");
-    openapiFields.add("types");
-    openapiFields.add("isEnabled");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectAttributesFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectAttributesFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectAttributesFilterModel is not found in the empty JSON string", ProjectAttributesFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProjectAttributesFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectAttributesFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectAttributesFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectAttributesFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectAttributesFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectAttributesFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectAttributesFilterModel>() {
-           @Override
-           public void write(JsonWriter out, ProjectAttributesFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectAttributesFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ProjectAttributesFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectAttributesFilterModel
-  * @throws IOException if the JSON string is invalid with respect to ProjectAttributesFilterModel
-  */
-  public static ProjectAttributesFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectAttributesFilterModel.class);
-  }
-
- /**
-  * Convert an instance of ProjectAttributesFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -22,6 +22,7 @@
 |**description** | **String** | Description of the autotest in autotest&#39;s card |  [optional] |
 |**labels** | [**List&lt;LabelPostModel&gt;**](LabelPostModel.md) | Collection of the autotest labels |  [optional] |
 |**isFlaky** | **Boolean** | Indicates if the autotest is marked as flaky |  [optional] |
+|**externalKey** | **String** | External key of the autotest |  [optional] |
 
 
 

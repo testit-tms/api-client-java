@@ -12,14 +12,14 @@
 |**description** | **String** | Description of the webhook |  [optional] |
 |**url** | **String** | Request URL of the webhook |  |
 |**requestType** | **RequestTypeModel** |  |  |
-|**shouldSendBody** | **Boolean** | Indicates if the webhook sends body |  [optional] |
+|**shouldSendBody** | **Boolean** | Indicates if the webhook sends body |  |
 |**headers** | **Map&lt;String, String&gt;** | Collection of the webhook headers |  [optional] |
 |**queryParameters** | **Map&lt;String, String&gt;** | Collection of the webhook query parameters |  [optional] |
-|**isEnabled** | **Boolean** | Indicates if the webhook is active |  [optional] |
-|**shouldSendCustomBody** | **Boolean** | Indicates if the webhook sends custom body |  [optional] |
+|**isEnabled** | **Boolean** | Indicates if the webhook is active |  |
+|**shouldSendCustomBody** | **Boolean** | Indicates if the webhook sends custom body |  |
 |**customBody** | **String** | Custom body of the webhook |  [optional] |
-|**shouldReplaceParameters** | **Boolean** | Indicates if the webhook injects parameters |  [optional] |
-|**shouldEscapeParameters** | **Boolean** | Indicates if the webhook escapes invalid characters in parameters |  [optional] |
+|**shouldReplaceParameters** | **Boolean** | Indicates if the webhook injects parameters |  |
+|**shouldEscapeParameters** | **Boolean** | Indicates if the webhook escapes invalid characters in parameters |  |
 |**name** | **String** | Name of the webhook |  |
 
 

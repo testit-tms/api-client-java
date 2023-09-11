@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
+|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**parameterKeyId** | **UUID** |  |  [optional] |
-|**id** | **UUID** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  |
+|**parameterKeyId** | **UUID** |  |  |
+|**id** | **UUID** |  |  |
 |**value** | **String** |  |  |
 |**name** | **String** |  |  |
 

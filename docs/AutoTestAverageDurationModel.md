@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**passedAverageDuration** | **Double** |  |  [optional] |
-|**failedAverageDuration** | **Double** |  |  [optional] |
+|**passedAverageDuration** | **Double** |  |  |
+|**failedAverageDuration** | **Double** |  |  |
 
 
 

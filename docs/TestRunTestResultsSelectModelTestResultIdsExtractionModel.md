@@ -8,8 +8,8 @@ Rules to include and exclude certain entities in result
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**include** | **Set&lt;UUID&gt;** |  |  [optional] |
-|**exclude** | **Set&lt;UUID&gt;** |  |  [optional] |
+|**include** | **List&lt;UUID&gt;** |  |  [optional] |
+|**exclude** | **List&lt;UUID&gt;** |  |  [optional] |
 
 
 

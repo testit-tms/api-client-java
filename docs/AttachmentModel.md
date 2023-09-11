@@ -7,15 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**fileId** | **String** |  |  |
-|**type** | **String** |  |  |
-|**size** | **Float** |  |  |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  [optional] |
-|**modifiedById** | **UUID** |  |  [optional] |
-|**name** | **String** |  |  |
-|**id** | **UUID** | Specifies the GUID of the attachment. |  |
+|**fileId** | **String** | Unique ID of the attachment file |  [optional] |
+|**type** | **String** | MIME type of the attachment |  [optional] |
+|**size** | **Float** | Size in bytes of the attachment file |  |
+|**createdDate** | **OffsetDateTime** | Creation date of the attachment |  |
+|**modifiedDate** | **OffsetDateTime** | Last modification date of the attachment |  [optional] |
+|**createdById** | **UUID** | Unique ID of the attachment creator |  |
+|**modifiedById** | **UUID** | Unique ID of the attachment last editor |  [optional] |
+|**name** | **String** | Name of the attachment file |  [optional] |
+|**id** | **UUID** | Unique ID of the attachment |  |
 
 
 

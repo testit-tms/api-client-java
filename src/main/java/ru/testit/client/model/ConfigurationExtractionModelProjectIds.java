@@ -15,69 +15,57 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Extraction parameters for projects
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ConfigurationExtractionModelProjectIds.JSON_PROPERTY_INCLUDE,
+  ConfigurationExtractionModelProjectIds.JSON_PROPERTY_EXCLUDE
+})
+@JsonTypeName("ConfigurationExtractionModel_projectIds")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationExtractionModelProjectIds {
-  public static final String SERIALIZED_NAME_INCLUDE = "include";
-  @SerializedName(SERIALIZED_NAME_INCLUDE)
-  private Set<UUID> include;
+  public static final String JSON_PROPERTY_INCLUDE = "include";
+  private JsonNullable<List<UUID>> include = JsonNullable.<List<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
-  @SerializedName(SERIALIZED_NAME_EXCLUDE)
-  private Set<UUID> exclude;
+  public static final String JSON_PROPERTY_EXCLUDE = "exclude";
+  private JsonNullable<List<UUID>> exclude = JsonNullable.<List<UUID>>undefined();
 
-  public ConfigurationExtractionModelProjectIds() {
+  public ConfigurationExtractionModelProjectIds() { 
   }
 
-  public ConfigurationExtractionModelProjectIds include(Set<UUID> include) {
-    
-    this.include = include;
+  public ConfigurationExtractionModelProjectIds include(List<UUID> include) {
+    this.include = JsonNullable.<List<UUID>>of(include);
     return this;
   }
 
   public ConfigurationExtractionModelProjectIds addIncludeItem(UUID includeItem) {
-    if (this.include == null) {
-      this.include = new LinkedHashSet<>();
+    if (this.include == null || !this.include.isPresent()) {
+      this.include = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.include.add(includeItem);
+    try {
+      this.include.get().add(includeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -85,28 +73,44 @@ public class ConfigurationExtractionModelProjectIds {
    * Get include
    * @return include
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getInclude() {
-    return include;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getInclude() {
+        return include.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setInclude(Set<UUID> include) {
+  public JsonNullable<List<UUID>> getInclude_JsonNullable() {
+    return include;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  public void setInclude_JsonNullable(JsonNullable<List<UUID>> include) {
     this.include = include;
   }
 
+  public void setInclude(List<UUID> include) {
+    this.include = JsonNullable.<List<UUID>>of(include);
+  }
 
-  public ConfigurationExtractionModelProjectIds exclude(Set<UUID> exclude) {
-    
-    this.exclude = exclude;
+
+  public ConfigurationExtractionModelProjectIds exclude(List<UUID> exclude) {
+    this.exclude = JsonNullable.<List<UUID>>of(exclude);
     return this;
   }
 
   public ConfigurationExtractionModelProjectIds addExcludeItem(UUID excludeItem) {
-    if (this.exclude == null) {
-      this.exclude = new LinkedHashSet<>();
+    if (this.exclude == null || !this.exclude.isPresent()) {
+      this.exclude = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.exclude.add(excludeItem);
+    try {
+      this.exclude.get().add(excludeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -114,18 +118,33 @@ public class ConfigurationExtractionModelProjectIds {
    * Get exclude
    * @return exclude
   **/
-  @javax.annotation.Nullable
-  public Set<UUID> getExclude() {
-    return exclude;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getExclude() {
+        return exclude.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_EXCLUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setExclude(Set<UUID> exclude) {
+  public JsonNullable<List<UUID>> getExclude_JsonNullable() {
+    return exclude;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE)
+  public void setExclude_JsonNullable(JsonNullable<List<UUID>> exclude) {
     this.exclude = exclude;
   }
 
+  public void setExclude(List<UUID> exclude) {
+    this.exclude = JsonNullable.<List<UUID>>of(exclude);
+  }
 
 
+  /**
+   * Return true if this ConfigurationExtractionModel_projectIds object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,8 +154,8 @@ public class ConfigurationExtractionModelProjectIds {
       return false;
     }
     ConfigurationExtractionModelProjectIds configurationExtractionModelProjectIds = (ConfigurationExtractionModelProjectIds) o;
-    return Objects.equals(this.include, configurationExtractionModelProjectIds.include) &&
-        Objects.equals(this.exclude, configurationExtractionModelProjectIds.exclude);
+    return equalsNullable(this.include, configurationExtractionModelProjectIds.include) &&
+        equalsNullable(this.exclude, configurationExtractionModelProjectIds.exclude);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -145,7 +164,7 @@ public class ConfigurationExtractionModelProjectIds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(include, exclude);
+    return Objects.hash(hashCodeNullable(include), hashCodeNullable(exclude));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -176,97 +195,5 @@ public class ConfigurationExtractionModelProjectIds {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("include");
-    openapiFields.add("exclude");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ConfigurationExtractionModelProjectIds
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ConfigurationExtractionModelProjectIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationExtractionModelProjectIds is not found in the empty JSON string", ConfigurationExtractionModelProjectIds.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ConfigurationExtractionModelProjectIds.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationExtractionModelProjectIds` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("include") != null && !jsonObj.get("include").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `include` to be an array in the JSON string but got `%s`", jsonObj.get("include").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("exclude") != null && !jsonObj.get("exclude").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `exclude` to be an array in the JSON string but got `%s`", jsonObj.get("exclude").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConfigurationExtractionModelProjectIds.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConfigurationExtractionModelProjectIds' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConfigurationExtractionModelProjectIds> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConfigurationExtractionModelProjectIds.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ConfigurationExtractionModelProjectIds>() {
-           @Override
-           public void write(JsonWriter out, ConfigurationExtractionModelProjectIds value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ConfigurationExtractionModelProjectIds read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ConfigurationExtractionModelProjectIds given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConfigurationExtractionModelProjectIds
-  * @throws IOException if the JSON string is invalid with respect to ConfigurationExtractionModelProjectIds
-  */
-  public static ConfigurationExtractionModelProjectIds fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConfigurationExtractionModelProjectIds.class);
-  }
-
- /**
-  * Convert an instance of ConfigurationExtractionModelProjectIds to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

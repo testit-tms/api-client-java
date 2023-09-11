@@ -25,7 +25,8 @@ Collection of filters to apply to search
 |**types** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item |  [optional] |
 |**createdDate** | [**TestPointFilterModelWorkItemCreatedDate**](TestPointFilterModelWorkItemCreatedDate.md) |  |  [optional] |
 |**modifiedDate** | [**TestPointFilterModelWorkItemModifiedDate**](TestPointFilterModelWorkItemModifiedDate.md) |  |  [optional] |
-|**duration** | [**WorkItemFilterModelDuration**](WorkItemFilterModelDuration.md) |  |  [optional] |
+|**duration** | [**TestSuiteWorkItemsSearchModelDuration**](TestSuiteWorkItemsSearchModelDuration.md) |  |  [optional] |
+|**medianDuration** | [**TestSuiteWorkItemsSearchModelMedianDuration**](TestSuiteWorkItemsSearchModelMedianDuration.md) |  |  [optional] |
 |**isAutomated** | **Boolean** | Is result must consist of only manual/automated work items |  [optional] |
 |**tags** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
 |**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |

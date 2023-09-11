@@ -15,110 +15,94 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.RequestTypeModel;
 import ru.testit.client.model.WebHookEventTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2WebhooksPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_PROJECT_ID,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_EVENT_TYPE,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_DESCRIPTION,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_URL,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_REQUEST_TYPE,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_SHOULD_SEND_BODY,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_HEADERS,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_QUERY_PARAMETERS,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_IS_ENABLED,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_CUSTOM_BODY,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS,
+  ApiV2WebhooksPostRequest.JSON_PROPERTY_NAME
+})
+@JsonTypeName("_api_v2_webhooks_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2WebhooksPostRequest {
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
-  @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
+  public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private WebHookEventTypeModel eventType;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
-  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
   private RequestTypeModel requestType;
 
-  public static final String SERIALIZED_NAME_SHOULD_SEND_BODY = "shouldSendBody";
-  @SerializedName(SERIALIZED_NAME_SHOULD_SEND_BODY)
+  public static final String JSON_PROPERTY_SHOULD_SEND_BODY = "shouldSendBody";
   private Boolean shouldSendBody;
 
-  public static final String SERIALIZED_NAME_HEADERS = "headers";
-  @SerializedName(SERIALIZED_NAME_HEADERS)
-  private Map<String, String> headers = new HashMap<>();
+  public static final String JSON_PROPERTY_HEADERS = "headers";
+  private JsonNullable<Map<String, String>> headers = JsonNullable.<Map<String, String>>undefined();
 
-  public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
-  @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-  private Map<String, String> queryParameters = new HashMap<>();
+  public static final String JSON_PROPERTY_QUERY_PARAMETERS = "queryParameters";
+  private JsonNullable<Map<String, String>> queryParameters = JsonNullable.<Map<String, String>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
-  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
 
-  public static final String SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
-  @SerializedName(SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY)
+  public static final String JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
   private Boolean shouldSendCustomBody;
 
-  public static final String SERIALIZED_NAME_CUSTOM_BODY = "customBody";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_BODY)
-  private String customBody;
+  public static final String JSON_PROPERTY_CUSTOM_BODY = "customBody";
+  private JsonNullable<String> customBody = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
-  @SerializedName(SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS)
+  public static final String JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
   private Boolean shouldReplaceParameters;
 
-  public static final String SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
-  @SerializedName(SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS)
+  public static final String JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
   private Boolean shouldEscapeParameters;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public ApiV2WebhooksPostRequest() {
+  public ApiV2WebhooksPostRequest() { 
   }
 
   public ApiV2WebhooksPostRequest projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -127,19 +111,23 @@ public class ApiV2WebhooksPostRequest {
    * Unique ID of the webhook project
    * @return projectId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public ApiV2WebhooksPostRequest eventType(WebHookEventTypeModel eventType) {
-    
     this.eventType = eventType;
     return this;
   }
@@ -148,20 +136,24 @@ public class ApiV2WebhooksPostRequest {
    * Get eventType
    * @return eventType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WebHookEventTypeModel getEventType() {
     return eventType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
   public ApiV2WebhooksPostRequest description(String description) {
-    
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -169,19 +161,31 @@ public class ApiV2WebhooksPostRequest {
    * Description of the webhook
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public ApiV2WebhooksPostRequest url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -190,19 +194,23 @@ public class ApiV2WebhooksPostRequest {
    * Request URL of the webhook
    * @return url
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUrl() {
     return url;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public ApiV2WebhooksPostRequest requestType(RequestTypeModel requestType) {
-    
     this.requestType = requestType;
     return this;
   }
@@ -211,19 +219,23 @@ public class ApiV2WebhooksPostRequest {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public RequestTypeModel getRequestType() {
     return requestType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
   public ApiV2WebhooksPostRequest shouldSendBody(Boolean shouldSendBody) {
-    
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -232,28 +244,36 @@ public class ApiV2WebhooksPostRequest {
    * Indicates if the webhook sends body
    * @return shouldSendBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_BODY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getShouldSendBody() {
     return shouldSendBody;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_BODY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
   public ApiV2WebhooksPostRequest headers(Map<String, String> headers) {
-    
-    this.headers = headers;
+    this.headers = JsonNullable.<Map<String, String>>of(headers);
     return this;
   }
 
   public ApiV2WebhooksPostRequest putHeadersItem(String key, String headersItem) {
-    if (this.headers == null) {
-      this.headers = new HashMap<>();
+    if (this.headers == null || !this.headers.isPresent()) {
+      this.headers = JsonNullable.<Map<String, String>>of(new HashMap<>());
     }
-    this.headers.put(key, headersItem);
+    try {
+      this.headers.get().put(key, headersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -261,28 +281,44 @@ public class ApiV2WebhooksPostRequest {
    * Collection of the webhook headers
    * @return headers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, String> getHeaders() {
-    return headers;
+        return headers.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_HEADERS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getHeaders_JsonNullable() {
+    return headers;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADERS)
+  public void setHeaders_JsonNullable(JsonNullable<Map<String, String>> headers) {
+    this.headers = headers;
+  }
 
   public void setHeaders(Map<String, String> headers) {
-    this.headers = headers;
+    this.headers = JsonNullable.<Map<String, String>>of(headers);
   }
 
 
   public ApiV2WebhooksPostRequest queryParameters(Map<String, String> queryParameters) {
-    
-    this.queryParameters = queryParameters;
+    this.queryParameters = JsonNullable.<Map<String, String>>of(queryParameters);
     return this;
   }
 
   public ApiV2WebhooksPostRequest putQueryParametersItem(String key, String queryParametersItem) {
-    if (this.queryParameters == null) {
-      this.queryParameters = new HashMap<>();
+    if (this.queryParameters == null || !this.queryParameters.isPresent()) {
+      this.queryParameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
     }
-    this.queryParameters.put(key, queryParametersItem);
+    try {
+      this.queryParameters.get().put(key, queryParametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -290,19 +326,31 @@ public class ApiV2WebhooksPostRequest {
    * Collection of the webhook query parameters
    * @return queryParameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, String> getQueryParameters() {
-    return queryParameters;
+        return queryParameters.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_QUERY_PARAMETERS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getQueryParameters_JsonNullable() {
+    return queryParameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_QUERY_PARAMETERS)
+  public void setQueryParameters_JsonNullable(JsonNullable<Map<String, String>> queryParameters) {
+    this.queryParameters = queryParameters;
+  }
 
   public void setQueryParameters(Map<String, String> queryParameters) {
-    this.queryParameters = queryParameters;
+    this.queryParameters = JsonNullable.<Map<String, String>>of(queryParameters);
   }
 
 
   public ApiV2WebhooksPostRequest isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -311,19 +359,23 @@ public class ApiV2WebhooksPostRequest {
    * Indicates if the webhook is active
    * @return isEnabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
   public ApiV2WebhooksPostRequest shouldSendCustomBody(Boolean shouldSendCustomBody) {
-    
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -332,20 +384,24 @@ public class ApiV2WebhooksPostRequest {
    * Indicates if the webhook sends custom body
    * @return shouldSendCustomBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getShouldSendCustomBody() {
     return shouldSendCustomBody;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
   public ApiV2WebhooksPostRequest customBody(String customBody) {
-    
-    this.customBody = customBody;
+    this.customBody = JsonNullable.<String>of(customBody);
     return this;
   }
 
@@ -353,19 +409,31 @@ public class ApiV2WebhooksPostRequest {
    * Custom body of the webhook
    * @return customBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getCustomBody() {
-    return customBody;
+        return customBody.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_CUSTOM_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomBody_JsonNullable() {
+    return customBody;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_BODY)
+  public void setCustomBody_JsonNullable(JsonNullable<String> customBody) {
+    this.customBody = customBody;
+  }
 
   public void setCustomBody(String customBody) {
-    this.customBody = customBody;
+    this.customBody = JsonNullable.<String>of(customBody);
   }
 
 
   public ApiV2WebhooksPostRequest shouldReplaceParameters(Boolean shouldReplaceParameters) {
-    
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -374,19 +442,23 @@ public class ApiV2WebhooksPostRequest {
    * Indicates if the webhook injects parameters
    * @return shouldReplaceParameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getShouldReplaceParameters() {
     return shouldReplaceParameters;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
   public ApiV2WebhooksPostRequest shouldEscapeParameters(Boolean shouldEscapeParameters) {
-    
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -395,19 +467,23 @@ public class ApiV2WebhooksPostRequest {
    * Indicates if the webhook escapes invalid characters in parameters
    * @return shouldEscapeParameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getShouldEscapeParameters() {
     return shouldEscapeParameters;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
   public ApiV2WebhooksPostRequest name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -416,18 +492,25 @@ public class ApiV2WebhooksPostRequest {
    * Name of the webhook
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
-
+  /**
+   * Return true if this _api_v2_webhooks_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -439,15 +522,15 @@ public class ApiV2WebhooksPostRequest {
     ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = (ApiV2WebhooksPostRequest) o;
     return Objects.equals(this.projectId, apiV2WebhooksPostRequest.projectId) &&
         Objects.equals(this.eventType, apiV2WebhooksPostRequest.eventType) &&
-        Objects.equals(this.description, apiV2WebhooksPostRequest.description) &&
+        equalsNullable(this.description, apiV2WebhooksPostRequest.description) &&
         Objects.equals(this.url, apiV2WebhooksPostRequest.url) &&
         Objects.equals(this.requestType, apiV2WebhooksPostRequest.requestType) &&
         Objects.equals(this.shouldSendBody, apiV2WebhooksPostRequest.shouldSendBody) &&
-        Objects.equals(this.headers, apiV2WebhooksPostRequest.headers) &&
-        Objects.equals(this.queryParameters, apiV2WebhooksPostRequest.queryParameters) &&
+        equalsNullable(this.headers, apiV2WebhooksPostRequest.headers) &&
+        equalsNullable(this.queryParameters, apiV2WebhooksPostRequest.queryParameters) &&
         Objects.equals(this.isEnabled, apiV2WebhooksPostRequest.isEnabled) &&
         Objects.equals(this.shouldSendCustomBody, apiV2WebhooksPostRequest.shouldSendCustomBody) &&
-        Objects.equals(this.customBody, apiV2WebhooksPostRequest.customBody) &&
+        equalsNullable(this.customBody, apiV2WebhooksPostRequest.customBody) &&
         Objects.equals(this.shouldReplaceParameters, apiV2WebhooksPostRequest.shouldReplaceParameters) &&
         Objects.equals(this.shouldEscapeParameters, apiV2WebhooksPostRequest.shouldEscapeParameters) &&
         Objects.equals(this.name, apiV2WebhooksPostRequest.name);
@@ -459,7 +542,7 @@ public class ApiV2WebhooksPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, eventType, description, url, requestType, shouldSendBody, headers, queryParameters, isEnabled, shouldSendCustomBody, customBody, shouldReplaceParameters, shouldEscapeParameters, name);
+    return Objects.hash(projectId, eventType, hashCodeNullable(description), url, requestType, shouldSendBody, hashCodeNullable(headers), hashCodeNullable(queryParameters), isEnabled, shouldSendCustomBody, hashCodeNullable(customBody), shouldReplaceParameters, shouldEscapeParameters, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -502,128 +585,5 @@ public class ApiV2WebhooksPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("projectId");
-    openapiFields.add("eventType");
-    openapiFields.add("description");
-    openapiFields.add("url");
-    openapiFields.add("requestType");
-    openapiFields.add("shouldSendBody");
-    openapiFields.add("headers");
-    openapiFields.add("queryParameters");
-    openapiFields.add("isEnabled");
-    openapiFields.add("shouldSendCustomBody");
-    openapiFields.add("customBody");
-    openapiFields.add("shouldReplaceParameters");
-    openapiFields.add("shouldEscapeParameters");
-    openapiFields.add("name");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("projectId");
-    openapiRequiredFields.add("eventType");
-    openapiRequiredFields.add("url");
-    openapiRequiredFields.add("requestType");
-    openapiRequiredFields.add("name");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2WebhooksPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2WebhooksPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2WebhooksPostRequest is not found in the empty JSON string", ApiV2WebhooksPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2WebhooksPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2WebhooksPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiV2WebhooksPostRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      if ((jsonObj.get("customBody") != null && !jsonObj.get("customBody").isJsonNull()) && !jsonObj.get("customBody").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customBody").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2WebhooksPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2WebhooksPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2WebhooksPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2WebhooksPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2WebhooksPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2WebhooksPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2WebhooksPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2WebhooksPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2WebhooksPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2WebhooksPostRequest
-  */
-  public static ApiV2WebhooksPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2WebhooksPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2WebhooksPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Specifies the GUID of the attachment. |  |
+|**id** | **UUID** | Unique ID of the attachment |  |
 
 
 

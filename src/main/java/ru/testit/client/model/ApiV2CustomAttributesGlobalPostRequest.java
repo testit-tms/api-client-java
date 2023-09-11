@@ -15,73 +15,57 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeOptionPostModel;
 import ru.testit.client.model.CustomAttributeTypesEnum;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ApiV2CustomAttributesGlobalPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  ApiV2CustomAttributesGlobalPostRequest.JSON_PROPERTY_NAME,
+  ApiV2CustomAttributesGlobalPostRequest.JSON_PROPERTY_IS_ENABLED,
+  ApiV2CustomAttributesGlobalPostRequest.JSON_PROPERTY_IS_REQUIRED,
+  ApiV2CustomAttributesGlobalPostRequest.JSON_PROPERTY_OPTIONS,
+  ApiV2CustomAttributesGlobalPostRequest.JSON_PROPERTY_TYPE
+})
+@JsonTypeName("_api_v2_customAttributes_global_post_request")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2CustomAttributesGlobalPostRequest {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
-  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  private Boolean isEnabled;
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  private JsonNullable<Boolean> isEnabled = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
-  @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  private Boolean isRequired;
+  public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  private JsonNullable<Boolean> isRequired = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionPostModel> options;
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private JsonNullable<List<CustomAttributeOptionPostModel>> options = JsonNullable.<List<CustomAttributeOptionPostModel>>undefined();
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private CustomAttributeTypesEnum type;
 
-  public ApiV2CustomAttributesGlobalPostRequest() {
+  public ApiV2CustomAttributesGlobalPostRequest() { 
   }
 
   public ApiV2CustomAttributesGlobalPostRequest name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -90,20 +74,24 @@ public class ApiV2CustomAttributesGlobalPostRequest {
    * Name of attribute
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ApiV2CustomAttributesGlobalPostRequest isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
+    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
 
@@ -111,20 +99,32 @@ public class ApiV2CustomAttributesGlobalPostRequest {
    * Indicates whether the attribute is available
    * @return isEnabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsEnabled() {
-    return isEnabled;
+        return isEnabled.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsEnabled_JsonNullable() {
+    return isEnabled;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  public void setIsEnabled_JsonNullable(JsonNullable<Boolean> isEnabled) {
+    this.isEnabled = isEnabled;
+  }
 
   public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
+    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 
 
   public ApiV2CustomAttributesGlobalPostRequest isRequired(Boolean isRequired) {
-    
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
 
@@ -132,28 +132,44 @@ public class ApiV2CustomAttributesGlobalPostRequest {
    * Indicates whether the attribute value is mandatory to specify
    * @return isRequired
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsRequired() {
-    return isRequired;
+        return isRequired.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsRequired_JsonNullable() {
+    return isRequired;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  public void setIsRequired_JsonNullable(JsonNullable<Boolean> isRequired) {
+    this.isRequired = isRequired;
+  }
 
   public void setIsRequired(Boolean isRequired) {
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
   public ApiV2CustomAttributesGlobalPostRequest options(List<CustomAttributeOptionPostModel> options) {
-    
-    this.options = options;
+    this.options = JsonNullable.<List<CustomAttributeOptionPostModel>>of(options);
     return this;
   }
 
   public ApiV2CustomAttributesGlobalPostRequest addOptionsItem(CustomAttributeOptionPostModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
+    if (this.options == null || !this.options.isPresent()) {
+      this.options = JsonNullable.<List<CustomAttributeOptionPostModel>>of(new ArrayList<>());
     }
-    this.options.add(optionsItem);
+    try {
+      this.options.get().add(optionsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -161,19 +177,31 @@ public class ApiV2CustomAttributesGlobalPostRequest {
    * Collection of attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<CustomAttributeOptionPostModel> getOptions() {
-    return options;
+        return options.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CustomAttributeOptionPostModel>> getOptions_JsonNullable() {
+    return options;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  public void setOptions_JsonNullable(JsonNullable<List<CustomAttributeOptionPostModel>> options) {
+    this.options = options;
+  }
 
   public void setOptions(List<CustomAttributeOptionPostModel> options) {
-    this.options = options;
+    this.options = JsonNullable.<List<CustomAttributeOptionPostModel>>of(options);
   }
 
 
   public ApiV2CustomAttributesGlobalPostRequest type(CustomAttributeTypesEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -182,18 +210,25 @@ public class ApiV2CustomAttributesGlobalPostRequest {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public CustomAttributeTypesEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this _api_v2_customAttributes_global_post_request object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,9 +239,9 @@ public class ApiV2CustomAttributesGlobalPostRequest {
     }
     ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest = (ApiV2CustomAttributesGlobalPostRequest) o;
     return Objects.equals(this.name, apiV2CustomAttributesGlobalPostRequest.name) &&
-        Objects.equals(this.isEnabled, apiV2CustomAttributesGlobalPostRequest.isEnabled) &&
-        Objects.equals(this.isRequired, apiV2CustomAttributesGlobalPostRequest.isRequired) &&
-        Objects.equals(this.options, apiV2CustomAttributesGlobalPostRequest.options) &&
+        equalsNullable(this.isEnabled, apiV2CustomAttributesGlobalPostRequest.isEnabled) &&
+        equalsNullable(this.isRequired, apiV2CustomAttributesGlobalPostRequest.isRequired) &&
+        equalsNullable(this.options, apiV2CustomAttributesGlobalPostRequest.options) &&
         Objects.equals(this.type, apiV2CustomAttributesGlobalPostRequest.type);
   }
 
@@ -216,7 +251,7 @@ public class ApiV2CustomAttributesGlobalPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isEnabled, isRequired, options, type);
+    return Objects.hash(name, hashCodeNullable(isEnabled), hashCodeNullable(isRequired), hashCodeNullable(options), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -250,118 +285,5 @@ public class ApiV2CustomAttributesGlobalPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("isEnabled");
-    openapiFields.add("isRequired");
-    openapiFields.add("options");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("type");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiV2CustomAttributesGlobalPostRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ApiV2CustomAttributesGlobalPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2CustomAttributesGlobalPostRequest is not found in the empty JSON string", ApiV2CustomAttributesGlobalPostRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiV2CustomAttributesGlobalPostRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2CustomAttributesGlobalPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiV2CustomAttributesGlobalPostRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-        JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-        if (jsonArrayoptions != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("options").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
-          }
-
-          // validate the optional field `options` (array)
-          for (int i = 0; i < jsonArrayoptions.size(); i++) {
-            CustomAttributeOptionPostModel.validateJsonObject(jsonArrayoptions.get(i).getAsJsonObject());
-          };
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiV2CustomAttributesGlobalPostRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiV2CustomAttributesGlobalPostRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiV2CustomAttributesGlobalPostRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2CustomAttributesGlobalPostRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiV2CustomAttributesGlobalPostRequest>() {
-           @Override
-           public void write(JsonWriter out, ApiV2CustomAttributesGlobalPostRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiV2CustomAttributesGlobalPostRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiV2CustomAttributesGlobalPostRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiV2CustomAttributesGlobalPostRequest
-  * @throws IOException if the JSON string is invalid with respect to ApiV2CustomAttributesGlobalPostRequest
-  */
-  public static ApiV2CustomAttributesGlobalPostRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiV2CustomAttributesGlobalPostRequest.class);
-  }
-
- /**
-  * Convert an instance of ApiV2CustomAttributesGlobalPostRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

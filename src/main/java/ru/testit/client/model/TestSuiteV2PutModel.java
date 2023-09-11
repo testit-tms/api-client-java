@@ -15,70 +15,53 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestSuiteV2PutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonPropertyOrder({
+  TestSuiteV2PutModel.JSON_PROPERTY_ID,
+  TestSuiteV2PutModel.JSON_PROPERTY_PARENT_ID,
+  TestSuiteV2PutModel.JSON_PROPERTY_NAME,
+  TestSuiteV2PutModel.JSON_PROPERTY_IS_DELETED,
+  TestSuiteV2PutModel.JSON_PROPERTY_AUTO_REFRESH
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteV2PutModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
-  @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  private UUID parentId;
+  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  private JsonNullable<UUID> parentId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
-  @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
-  private Boolean autoRefresh;
+  public static final String JSON_PROPERTY_AUTO_REFRESH = "autoRefresh";
+  private JsonNullable<Boolean> autoRefresh = JsonNullable.<Boolean>undefined();
 
-  public TestSuiteV2PutModel() {
+  public TestSuiteV2PutModel() { 
   }
 
   public TestSuiteV2PutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -87,20 +70,24 @@ public class TestSuiteV2PutModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestSuiteV2PutModel parentId(UUID parentId) {
-    
-    this.parentId = parentId;
+    this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
 
@@ -108,19 +95,31 @@ public class TestSuiteV2PutModel {
    * Get parentId
    * @return parentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getParentId() {
-    return parentId;
+        return parentId.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getParentId_JsonNullable() {
+    return parentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  public void setParentId_JsonNullable(JsonNullable<UUID> parentId) {
+    this.parentId = parentId;
+  }
 
   public void setParentId(UUID parentId) {
-    this.parentId = parentId;
+    this.parentId = JsonNullable.<UUID>of(parentId);
   }
 
 
   public TestSuiteV2PutModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -129,19 +128,23 @@ public class TestSuiteV2PutModel {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestSuiteV2PutModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -150,20 +153,24 @@ public class TestSuiteV2PutModel {
    * Get isDeleted
    * @return isDeleted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestSuiteV2PutModel autoRefresh(Boolean autoRefresh) {
-    
-    this.autoRefresh = autoRefresh;
+    this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
     return this;
   }
 
@@ -171,18 +178,33 @@ public class TestSuiteV2PutModel {
    * Get autoRefresh
    * @return autoRefresh
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getAutoRefresh() {
-    return autoRefresh;
+        return autoRefresh.orElse(null);
   }
 
+  @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public JsonNullable<Boolean> getAutoRefresh_JsonNullable() {
+    return autoRefresh;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
+  public void setAutoRefresh_JsonNullable(JsonNullable<Boolean> autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 
+  public void setAutoRefresh(Boolean autoRefresh) {
+    this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
+  }
 
 
+  /**
+   * Return true if this TestSuiteV2PutModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,10 +215,10 @@ public class TestSuiteV2PutModel {
     }
     TestSuiteV2PutModel testSuiteV2PutModel = (TestSuiteV2PutModel) o;
     return Objects.equals(this.id, testSuiteV2PutModel.id) &&
-        Objects.equals(this.parentId, testSuiteV2PutModel.parentId) &&
+        equalsNullable(this.parentId, testSuiteV2PutModel.parentId) &&
         Objects.equals(this.name, testSuiteV2PutModel.name) &&
         Objects.equals(this.isDeleted, testSuiteV2PutModel.isDeleted) &&
-        Objects.equals(this.autoRefresh, testSuiteV2PutModel.autoRefresh);
+        equalsNullable(this.autoRefresh, testSuiteV2PutModel.autoRefresh);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -205,7 +227,7 @@ public class TestSuiteV2PutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, name, isDeleted, autoRefresh);
+    return Objects.hash(id, hashCodeNullable(parentId), name, isDeleted, hashCodeNullable(autoRefresh));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -239,110 +261,5 @@ public class TestSuiteV2PutModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("parentId");
-    openapiFields.add("name");
-    openapiFields.add("isDeleted");
-    openapiFields.add("autoRefresh");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestSuiteV2PutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestSuiteV2PutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteV2PutModel is not found in the empty JSON string", TestSuiteV2PutModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestSuiteV2PutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestSuiteV2PutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestSuiteV2PutModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestSuiteV2PutModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestSuiteV2PutModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteV2PutModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestSuiteV2PutModel>() {
-           @Override
-           public void write(JsonWriter out, TestSuiteV2PutModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestSuiteV2PutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestSuiteV2PutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestSuiteV2PutModel
-  * @throws IOException if the JSON string is invalid with respect to TestSuiteV2PutModel
-  */
-  public static TestSuiteV2PutModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestSuiteV2PutModel.class);
-  }
-
- /**
-  * Convert an instance of TestSuiteV2PutModel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

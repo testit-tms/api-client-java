@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**configurationId** | **UUID** |  |  [optional] |
-|**configurationGlobalId** | **Long** |  |  [optional] |
+|**configurationId** | **UUID** |  |  |
+|**configurationGlobalId** | **Long** |  |  |
 |**autoTestIds** | **List&lt;UUID&gt;** |  |  [optional] |
-|**iterationId** | **UUID** |  |  [optional] |
+|**iterationId** | **UUID** |  |  |
 |**parameterModels** | [**List&lt;ParameterShortModel&gt;**](ParameterShortModel.md) |  |  [optional] |
 
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**stepId** | **UUID** |  |  [optional] |
+|**stepId** | **UUID** |  |  |
 |**outcome** | **String** |  |  [optional] |
 
 
