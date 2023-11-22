@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**externalId** | **String** | This property is used to set autotest identifier from client system |  [optional] |
+|**externalId** | **String** | This property is used to set autotest identifier from client system |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |
 |**projectId** | **UUID** | This property is used to link autotest with project |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**namespace** | **String** |  |  [optional] |
 |**classname** | **String** |  |  [optional] |
 |**steps** | [**List&lt;AutoTestStepModel&gt;**](AutoTestStepModel.md) |  |  [optional] |

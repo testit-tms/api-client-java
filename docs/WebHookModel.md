@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Name of the webhook |  [optional] |
+|**name** | **String** | Name of the webhook |  |
 |**eventType** | **WebHookEventTypeModel** |  |  |
 |**description** | **String** | Description of the webhook |  [optional] |
-|**url** | **String** | Url to which the webhook sends request |  [optional] |
+|**url** | **String** | Url to which the webhook sends request |  |
 |**requestType** | **RequestTypeModel** |  |  |
 |**shouldSendBody** | **Boolean** | Indicates if the webhook sends body |  |
 |**headers** | **Map&lt;String, String&gt;** | Collection of headers which the webhook sends |  [optional] |

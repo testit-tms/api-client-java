@@ -11,7 +11,7 @@
 |**testerId** | **UUID** |  |  [optional] |
 |**parentId** | **UUID** |  |  [optional] |
 |**testPlanId** | **UUID** |  |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**id** | **UUID** | Unique ID of the entity |  |
 |**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 

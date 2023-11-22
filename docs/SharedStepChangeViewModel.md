@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
-|**name** | **String** |  |  [optional] |
-|**steps** | [**List&lt;WorkItemStepChangeViewModel&gt;**](WorkItemStepChangeViewModel.md) |  |  [optional] |
+|**name** | **String** |  |  |
+|**steps** | [**List&lt;WorkItemStepChangeViewModel&gt;**](WorkItemStepChangeViewModel.md) |  |  |
 
 
 

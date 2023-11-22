@@ -10,11 +10,11 @@
 |**id** | **UUID** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  |
 |**createdById** | **UUID** |  |  |
-|**createdByName** | **String** |  |  [optional] |
+|**createdByName** | **String** |  |  |
 |**testRunId** | **UUID** |  |  |
 |**testRunName** | **String** |  |  [optional] |
 |**configurationId** | **UUID** |  |  |
-|**configurationName** | **String** |  |  [optional] |
+|**configurationName** | **String** |  |  |
 |**outcome** | **AutotestResultOutcome** |  |  |
 |**launchSource** | **String** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |

@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**projectIds** | **Set&lt;UUID&gt;** | Collection of project identifiers |  [optional] |
 |**name** | **String** | Name of work item |  [optional] |
 |**ids** | **Set&lt;UUID&gt;** | Specifies a work item unique IDs to search for |  [optional] |
 |**globalIds** | **Set&lt;Long&gt;** | Collection of global (integer) identifiers |  [optional] |
 |**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** | Custom attributes of work item |  [optional] |
 |**isDeleted** | **Boolean** | Is result must consist of only actual/deleted work items |  [optional] |
-|**projectIds** | **Set&lt;UUID&gt;** | Collection of project identifiers |  [optional] |
 |**sectionIds** | **Set&lt;UUID&gt;** | Collection of section identifiers |  [optional] |
 |**createdByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who created work item |  [optional] |
 |**modifiedByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who applied last modification to work item |  [optional] |

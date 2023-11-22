@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**outcome** | **String** |  |  [optional] |
+|**outcome** | **String** |  |  |
 |**traces** | **String** |  |  [optional] |
-|**failureType** | **String** |  |  [optional] |
+|**failureType** | **String** |  |  |
 |**message** | **String** |  |  [optional] |
 |**testPoint** | [**TestPointPutModel**](TestPointPutModel.md) |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |

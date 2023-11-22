@@ -15,57 +15,74 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * RequestData
  */
-@JsonPropertyOrder({
-  RequestData.JSON_PROPERTY_URI,
-  RequestData.JSON_PROPERTY_STATUS_CODE,
-  RequestData.JSON_PROPERTY_REQUEST_BODY,
-  RequestData.JSON_PROPERTY_REQUEST_META,
-  RequestData.JSON_PROPERTY_RESPONSE_BODY,
-  RequestData.JSON_PROPERTY_RESPONSE_META
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RequestData {
-  public static final String JSON_PROPERTY_URI = "uri";
-  private JsonNullable<String> uri = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_URI = "uri";
+  @SerializedName(SERIALIZED_NAME_URI)
+  private String uri;
 
-  public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
+  @SerializedName(SERIALIZED_NAME_STATUS_CODE)
   private Integer statusCode;
 
-  public static final String JSON_PROPERTY_REQUEST_BODY = "requestBody";
-  private JsonNullable<String> requestBody = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_REQUEST_BODY = "requestBody";
+  @SerializedName(SERIALIZED_NAME_REQUEST_BODY)
+  private String requestBody;
 
-  public static final String JSON_PROPERTY_REQUEST_META = "requestMeta";
+  public static final String SERIALIZED_NAME_REQUEST_META = "requestMeta";
+  @SerializedName(SERIALIZED_NAME_REQUEST_META)
   private String requestMeta;
 
-  public static final String JSON_PROPERTY_RESPONSE_BODY = "responseBody";
+  public static final String SERIALIZED_NAME_RESPONSE_BODY = "responseBody";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_BODY)
   private String responseBody;
 
-  public static final String JSON_PROPERTY_RESPONSE_META = "responseMeta";
+  public static final String SERIALIZED_NAME_RESPONSE_META = "responseMeta";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_META)
   private String responseMeta;
 
-  public RequestData() { 
+  public RequestData() {
   }
 
   public RequestData uri(String uri) {
-    this.uri = JsonNullable.<String>of(uri);
+    
+    this.uri = uri;
     return this;
   }
 
@@ -73,31 +90,19 @@ public class RequestData {
    * Get uri
    * @return uri
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getUri() {
-        return uri.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getUri_JsonNullable() {
     return uri;
   }
-  
-  @JsonProperty(JSON_PROPERTY_URI)
-  public void setUri_JsonNullable(JsonNullable<String> uri) {
-    this.uri = uri;
-  }
+
 
   public void setUri(String uri) {
-    this.uri = JsonNullable.<String>of(uri);
+    this.uri = uri;
   }
 
 
   public RequestData statusCode(Integer statusCode) {
+    
     this.statusCode = statusCode;
     return this;
   }
@@ -106,24 +111,20 @@ public class RequestData {
    * Get statusCode
    * @return statusCode
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getStatusCode() {
     return statusCode;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
 
 
   public RequestData requestBody(String requestBody) {
-    this.requestBody = JsonNullable.<String>of(requestBody);
+    
+    this.requestBody = requestBody;
     return this;
   }
 
@@ -131,31 +132,19 @@ public class RequestData {
    * Get requestBody
    * @return requestBody
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getRequestBody() {
-        return requestBody.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_REQUEST_BODY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getRequestBody_JsonNullable() {
     return requestBody;
   }
-  
-  @JsonProperty(JSON_PROPERTY_REQUEST_BODY)
-  public void setRequestBody_JsonNullable(JsonNullable<String> requestBody) {
-    this.requestBody = requestBody;
-  }
+
 
   public void setRequestBody(String requestBody) {
-    this.requestBody = JsonNullable.<String>of(requestBody);
+    this.requestBody = requestBody;
   }
 
 
   public RequestData requestMeta(String requestMeta) {
+    
     this.requestMeta = requestMeta;
     return this;
   }
@@ -164,23 +153,19 @@ public class RequestData {
    * Get requestMeta
    * @return requestMeta
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUEST_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public String getRequestMeta() {
     return requestMeta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
   }
 
 
   public RequestData responseBody(String responseBody) {
+    
     this.responseBody = responseBody;
     return this;
   }
@@ -189,23 +174,19 @@ public class RequestData {
    * Get responseBody
    * @return responseBody
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public String getResponseBody() {
     return responseBody;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
 
 
   public RequestData responseMeta(String responseMeta) {
+    
     this.responseMeta = responseMeta;
     return this;
   }
@@ -214,25 +195,18 @@ public class RequestData {
    * Get responseMeta
    * @return responseMeta
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RESPONSE_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public String getResponseMeta() {
     return responseMeta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResponseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
   }
 
 
-  /**
-   * Return true if this RequestData object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,9 +216,9 @@ public class RequestData {
       return false;
     }
     RequestData requestData = (RequestData) o;
-    return equalsNullable(this.uri, requestData.uri) &&
+    return Objects.equals(this.uri, requestData.uri) &&
         Objects.equals(this.statusCode, requestData.statusCode) &&
-        equalsNullable(this.requestBody, requestData.requestBody) &&
+        Objects.equals(this.requestBody, requestData.requestBody) &&
         Objects.equals(this.requestMeta, requestData.requestMeta) &&
         Objects.equals(this.responseBody, requestData.responseBody) &&
         Objects.equals(this.responseMeta, requestData.responseMeta);
@@ -256,7 +230,7 @@ public class RequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(uri), statusCode, hashCodeNullable(requestBody), requestMeta, responseBody, responseMeta);
+    return Objects.hash(uri, statusCode, requestBody, requestMeta, responseBody, responseMeta);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -291,5 +265,119 @@ public class RequestData {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("uri");
+    openapiFields.add("statusCode");
+    openapiFields.add("requestBody");
+    openapiFields.add("requestMeta");
+    openapiFields.add("responseBody");
+    openapiFields.add("responseMeta");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("statusCode");
+    openapiRequiredFields.add("requestMeta");
+    openapiRequiredFields.add("responseBody");
+    openapiRequiredFields.add("responseMeta");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to RequestData
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!RequestData.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RequestData is not found in the empty JSON string", RequestData.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!RequestData.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RequestData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : RequestData.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
+      }
+      if ((jsonObj.get("requestBody") != null && !jsonObj.get("requestBody").isJsonNull()) && !jsonObj.get("requestBody").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requestBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestBody").toString()));
+      }
+      if (!jsonObj.get("requestMeta").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requestMeta` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestMeta").toString()));
+      }
+      if (!jsonObj.get("responseBody").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `responseBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseBody").toString()));
+      }
+      if (!jsonObj.get("responseMeta").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `responseMeta` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseMeta").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!RequestData.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RequestData' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<RequestData> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RequestData.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<RequestData>() {
+           @Override
+           public void write(JsonWriter out, RequestData value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public RequestData read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of RequestData given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of RequestData
+  * @throws IOException if the JSON string is invalid with respect to RequestData
+  */
+  public static RequestData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RequestData.class);
+  }
+
+ /**
+  * Convert an instance of RequestData to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

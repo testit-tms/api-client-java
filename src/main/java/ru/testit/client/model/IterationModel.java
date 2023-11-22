@@ -15,44 +15,61 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ParameterShortModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * IterationModel
  */
-@JsonPropertyOrder({
-  IterationModel.JSON_PROPERTY_ID,
-  IterationModel.JSON_PROPERTY_PARAMETERS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IterationModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  private JsonNullable<List<ParameterShortModel>> parameters = JsonNullable.<List<ParameterShortModel>>undefined();
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private List<ParameterShortModel> parameters;
 
-  public IterationModel() { 
+  public IterationModel() {
   }
 
   public IterationModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -61,36 +78,28 @@ public class IterationModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public IterationModel parameters(List<ParameterShortModel> parameters) {
-    this.parameters = JsonNullable.<List<ParameterShortModel>>of(parameters);
+    
+    this.parameters = parameters;
     return this;
   }
 
   public IterationModel addParametersItem(ParameterShortModel parametersItem) {
-    if (this.parameters == null || !this.parameters.isPresent()) {
-      this.parameters = JsonNullable.<List<ParameterShortModel>>of(new ArrayList<>());
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
     }
-    try {
-      this.parameters.get().add(parametersItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.parameters.add(parametersItem);
     return this;
   }
 
@@ -98,33 +107,18 @@ public class IterationModel {
    * Get parameters
    * @return parameters
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<ParameterShortModel> getParameters() {
-        return parameters.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<ParameterShortModel>> getParameters_JsonNullable() {
     return parameters;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  public void setParameters_JsonNullable(JsonNullable<List<ParameterShortModel>> parameters) {
+
+
+  public void setParameters(List<ParameterShortModel> parameters) {
     this.parameters = parameters;
   }
 
-  public void setParameters(List<ParameterShortModel> parameters) {
-    this.parameters = JsonNullable.<List<ParameterShortModel>>of(parameters);
-  }
 
 
-  /**
-   * Return true if this IterationModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,7 +129,7 @@ public class IterationModel {
     }
     IterationModel iterationModel = (IterationModel) o;
     return Objects.equals(this.id, iterationModel.id) &&
-        equalsNullable(this.parameters, iterationModel.parameters);
+        Objects.equals(this.parameters, iterationModel.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +138,7 @@ public class IterationModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(parameters));
+    return Objects.hash(id, parameters);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -175,5 +169,114 @@ public class IterationModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("parameters");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to IterationModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!IterationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in IterationModel is not found in the empty JSON string", IterationModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!IterationModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IterationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : IterationModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull()) {
+        JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
+        if (jsonArrayparameters != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("parameters").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
+          }
+
+          // validate the optional field `parameters` (array)
+          for (int i = 0; i < jsonArrayparameters.size(); i++) {
+            ParameterShortModel.validateJsonObject(jsonArrayparameters.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!IterationModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'IterationModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<IterationModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(IterationModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<IterationModel>() {
+           @Override
+           public void write(JsonWriter out, IterationModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public IterationModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of IterationModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of IterationModel
+  * @throws IOException if the JSON string is invalid with respect to IterationModel
+  */
+  public static IterationModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, IterationModel.class);
+  }
+
+ /**
+  * Convert an instance of IterationModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

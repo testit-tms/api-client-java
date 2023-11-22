@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**versionId** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
-|**name** | **String** |  |  [optional] |
-|**steps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
+|**name** | **String** |  |  |
+|**steps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**isDeleted** | **Boolean** |  |  |
 
 

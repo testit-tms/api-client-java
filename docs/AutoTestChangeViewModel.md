@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**projectId** | **UUID** |  |  |
-|**externalId** | **String** |  |  [optional] |
+|**externalId** | **String** |  |  |
 |**globalId** | **Long** |  |  |
 
 

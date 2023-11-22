@@ -15,42 +15,58 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * Specifies a project range of checklists count to search for
  */
-@JsonPropertyOrder({
-  ProjectsFilterModelChecklistsCount.JSON_PROPERTY_FROM,
-  ProjectsFilterModelChecklistsCount.JSON_PROPERTY_TO
-})
-@JsonTypeName("ProjectsFilterModel_checklistsCount")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectsFilterModelChecklistsCount {
-  public static final String JSON_PROPERTY_FROM = "from";
-  private JsonNullable<Integer> from = JsonNullable.<Integer>undefined();
+  public static final String SERIALIZED_NAME_FROM = "from";
+  @SerializedName(SERIALIZED_NAME_FROM)
+  private Integer from;
 
-  public static final String JSON_PROPERTY_TO = "to";
-  private JsonNullable<Integer> to = JsonNullable.<Integer>undefined();
+  public static final String SERIALIZED_NAME_TO = "to";
+  @SerializedName(SERIALIZED_NAME_TO)
+  private Integer to;
 
-  public ProjectsFilterModelChecklistsCount() { 
+  public ProjectsFilterModelChecklistsCount() {
   }
 
   public ProjectsFilterModelChecklistsCount from(Integer from) {
-    this.from = JsonNullable.<Integer>of(from);
+    
+    this.from = from;
     return this;
   }
 
@@ -58,32 +74,20 @@ public class ProjectsFilterModelChecklistsCount {
    * Get from
    * @return from
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Integer getFrom() {
-        return from.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getFrom_JsonNullable() {
     return from;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FROM)
-  public void setFrom_JsonNullable(JsonNullable<Integer> from) {
-    this.from = from;
-  }
+
 
   public void setFrom(Integer from) {
-    this.from = JsonNullable.<Integer>of(from);
+    this.from = from;
   }
 
 
   public ProjectsFilterModelChecklistsCount to(Integer to) {
-    this.to = JsonNullable.<Integer>of(to);
+    
+    this.to = to;
     return this;
   }
 
@@ -91,33 +95,18 @@ public class ProjectsFilterModelChecklistsCount {
    * Get to
    * @return to
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Integer getTo() {
-        return to.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Integer> getTo_JsonNullable() {
     return to;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TO)
-  public void setTo_JsonNullable(JsonNullable<Integer> to) {
+
+
+  public void setTo(Integer to) {
     this.to = to;
   }
 
-  public void setTo(Integer to) {
-    this.to = JsonNullable.<Integer>of(to);
-  }
 
 
-  /**
-   * Return true if this ProjectsFilterModel_checklistsCount object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -127,8 +116,8 @@ public class ProjectsFilterModelChecklistsCount {
       return false;
     }
     ProjectsFilterModelChecklistsCount projectsFilterModelChecklistsCount = (ProjectsFilterModelChecklistsCount) o;
-    return equalsNullable(this.from, projectsFilterModelChecklistsCount.from) &&
-        equalsNullable(this.to, projectsFilterModelChecklistsCount.to);
+    return Objects.equals(this.from, projectsFilterModelChecklistsCount.from) &&
+        Objects.equals(this.to, projectsFilterModelChecklistsCount.to);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -137,7 +126,7 @@ public class ProjectsFilterModelChecklistsCount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(from), hashCodeNullable(to));
+    return Objects.hash(from, to);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -168,5 +157,89 @@ public class ProjectsFilterModelChecklistsCount {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("from");
+    openapiFields.add("to");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ProjectsFilterModelChecklistsCount
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ProjectsFilterModelChecklistsCount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModelChecklistsCount is not found in the empty JSON string", ProjectsFilterModelChecklistsCount.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ProjectsFilterModelChecklistsCount.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModelChecklistsCount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ProjectsFilterModelChecklistsCount.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ProjectsFilterModelChecklistsCount' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ProjectsFilterModelChecklistsCount> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectsFilterModelChecklistsCount.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ProjectsFilterModelChecklistsCount>() {
+           @Override
+           public void write(JsonWriter out, ProjectsFilterModelChecklistsCount value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ProjectsFilterModelChecklistsCount read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ProjectsFilterModelChecklistsCount given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ProjectsFilterModelChecklistsCount
+  * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModelChecklistsCount
+  */
+  public static ProjectsFilterModelChecklistsCount fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ProjectsFilterModelChecklistsCount.class);
+  }
+
+ /**
+  * Convert an instance of ProjectsFilterModelChecklistsCount to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

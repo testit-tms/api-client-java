@@ -15,50 +15,67 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemVersionModel
  */
-@JsonPropertyOrder({
-  WorkItemVersionModel.JSON_PROPERTY_VERSION_ID,
-  WorkItemVersionModel.JSON_PROPERTY_VERSION_NUMBER,
-  WorkItemVersionModel.JSON_PROPERTY_MODIFIED_DATE,
-  WorkItemVersionModel.JSON_PROPERTY_MODIFIED_BY_ID
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemVersionModel {
-  public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
+  @SerializedName(SERIALIZED_NAME_VERSION_ID)
   private UUID versionId;
 
-  public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
+  public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
+  @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
   private Integer versionNumber;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
-  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
-  public WorkItemVersionModel() { 
+  public WorkItemVersionModel() {
   }
 
   public WorkItemVersionModel versionId(UUID versionId) {
+    
     this.versionId = versionId;
     return this;
   }
@@ -67,23 +84,19 @@ public class WorkItemVersionModel {
    * used for versioning changes in workitem
    * @return versionId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getVersionId() {
     return versionId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public WorkItemVersionModel versionNumber(Integer versionNumber) {
+    
     this.versionNumber = versionNumber;
     return this;
   }
@@ -92,24 +105,20 @@ public class WorkItemVersionModel {
    * used for define chronology of workitem state in each version
    * @return versionNumber
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getVersionNumber() {
     return versionNumber;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
   public WorkItemVersionModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -117,32 +126,20 @@ public class WorkItemVersionModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
+
 
   public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    this.modifiedDate = modifiedDate;
   }
 
 
   public WorkItemVersionModel modifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    
+    this.modifiedById = modifiedById;
     return this;
   }
 
@@ -150,33 +147,18 @@ public class WorkItemVersionModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getModifiedById() {
-        return modifiedById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+
+
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
-  }
 
 
-  /**
-   * Return true if this WorkItemVersionModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -188,8 +170,8 @@ public class WorkItemVersionModel {
     WorkItemVersionModel workItemVersionModel = (WorkItemVersionModel) o;
     return Objects.equals(this.versionId, workItemVersionModel.versionId) &&
         Objects.equals(this.versionNumber, workItemVersionModel.versionNumber) &&
-        equalsNullable(this.modifiedDate, workItemVersionModel.modifiedDate) &&
-        equalsNullable(this.modifiedById, workItemVersionModel.modifiedById);
+        Objects.equals(this.modifiedDate, workItemVersionModel.modifiedDate) &&
+        Objects.equals(this.modifiedById, workItemVersionModel.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -198,7 +180,7 @@ public class WorkItemVersionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, versionNumber, hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(versionId, versionNumber, modifiedDate, modifiedById);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -231,5 +213,106 @@ public class WorkItemVersionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("versionId");
+    openapiFields.add("versionNumber");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("modifiedById");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("versionId");
+    openapiRequiredFields.add("versionNumber");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemVersionModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemVersionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemVersionModel is not found in the empty JSON string", WorkItemVersionModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemVersionModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemVersionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WorkItemVersionModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("versionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemVersionModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemVersionModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemVersionModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemVersionModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemVersionModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemVersionModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemVersionModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemVersionModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemVersionModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemVersionModel
+  */
+  public static WorkItemVersionModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemVersionModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemVersionModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

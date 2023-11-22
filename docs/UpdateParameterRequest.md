@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**value** | **String** |  |  |
-|**name** | **String** |  |  |
+|**value** | **String** | Value of the parameter |  |
+|**name** | **String** | Key of the parameter |  |
 
 
 

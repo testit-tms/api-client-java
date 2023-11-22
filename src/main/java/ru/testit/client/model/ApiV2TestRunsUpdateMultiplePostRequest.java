@@ -15,52 +15,68 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.SetOfAttachmentIds;
 import ru.testit.client.model.SetOfLinks;
 import ru.testit.client.model.TestRunSelectionModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ApiV2TestRunsUpdateMultiplePostRequest
  */
-@JsonPropertyOrder({
-  ApiV2TestRunsUpdateMultiplePostRequest.JSON_PROPERTY_SELECT_MODEL,
-  ApiV2TestRunsUpdateMultiplePostRequest.JSON_PROPERTY_DESCRIPTION,
-  ApiV2TestRunsUpdateMultiplePostRequest.JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME,
-  ApiV2TestRunsUpdateMultiplePostRequest.JSON_PROPERTY_LINK_UPDATE_SCHEME
-})
-@JsonTypeName("_api_v2_testRuns_updateMultiple_post_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2TestRunsUpdateMultiplePostRequest {
-  public static final String JSON_PROPERTY_SELECT_MODEL = "selectModel";
+  public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
+  @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
   private TestRunSelectionModel selectModel;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
-  private JsonNullable<SetOfAttachmentIds> attachmentUpdateScheme = JsonNullable.<SetOfAttachmentIds>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME)
+  private SetOfAttachmentIds attachmentUpdateScheme;
 
-  public static final String JSON_PROPERTY_LINK_UPDATE_SCHEME = "linkUpdateScheme";
-  private JsonNullable<SetOfLinks> linkUpdateScheme = JsonNullable.<SetOfLinks>undefined();
+  public static final String SERIALIZED_NAME_LINK_UPDATE_SCHEME = "linkUpdateScheme";
+  @SerializedName(SERIALIZED_NAME_LINK_UPDATE_SCHEME)
+  private SetOfLinks linkUpdateScheme;
 
-  public ApiV2TestRunsUpdateMultiplePostRequest() { 
+  public ApiV2TestRunsUpdateMultiplePostRequest() {
   }
 
   public ApiV2TestRunsUpdateMultiplePostRequest selectModel(TestRunSelectionModel selectModel) {
+    
     this.selectModel = selectModel;
     return this;
   }
@@ -69,24 +85,20 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
    * Get selectModel
    * @return selectModel
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public TestRunSelectionModel getSelectModel() {
     return selectModel;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelectModel(TestRunSelectionModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
   public ApiV2TestRunsUpdateMultiplePostRequest description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -94,32 +106,20 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
    * Get description
    * @return description
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public ApiV2TestRunsUpdateMultiplePostRequest attachmentUpdateScheme(SetOfAttachmentIds attachmentUpdateScheme) {
-    this.attachmentUpdateScheme = JsonNullable.<SetOfAttachmentIds>of(attachmentUpdateScheme);
+    
+    this.attachmentUpdateScheme = attachmentUpdateScheme;
     return this;
   }
 
@@ -127,32 +127,20 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
    * Get attachmentUpdateScheme
    * @return attachmentUpdateScheme
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public SetOfAttachmentIds getAttachmentUpdateScheme() {
-        return attachmentUpdateScheme.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<SetOfAttachmentIds> getAttachmentUpdateScheme_JsonNullable() {
     return attachmentUpdateScheme;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME)
-  public void setAttachmentUpdateScheme_JsonNullable(JsonNullable<SetOfAttachmentIds> attachmentUpdateScheme) {
-    this.attachmentUpdateScheme = attachmentUpdateScheme;
-  }
+
 
   public void setAttachmentUpdateScheme(SetOfAttachmentIds attachmentUpdateScheme) {
-    this.attachmentUpdateScheme = JsonNullable.<SetOfAttachmentIds>of(attachmentUpdateScheme);
+    this.attachmentUpdateScheme = attachmentUpdateScheme;
   }
 
 
   public ApiV2TestRunsUpdateMultiplePostRequest linkUpdateScheme(SetOfLinks linkUpdateScheme) {
-    this.linkUpdateScheme = JsonNullable.<SetOfLinks>of(linkUpdateScheme);
+    
+    this.linkUpdateScheme = linkUpdateScheme;
     return this;
   }
 
@@ -160,33 +148,18 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
    * Get linkUpdateScheme
    * @return linkUpdateScheme
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public SetOfLinks getLinkUpdateScheme() {
-        return linkUpdateScheme.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINK_UPDATE_SCHEME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<SetOfLinks> getLinkUpdateScheme_JsonNullable() {
     return linkUpdateScheme;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINK_UPDATE_SCHEME)
-  public void setLinkUpdateScheme_JsonNullable(JsonNullable<SetOfLinks> linkUpdateScheme) {
+
+
+  public void setLinkUpdateScheme(SetOfLinks linkUpdateScheme) {
     this.linkUpdateScheme = linkUpdateScheme;
   }
 
-  public void setLinkUpdateScheme(SetOfLinks linkUpdateScheme) {
-    this.linkUpdateScheme = JsonNullable.<SetOfLinks>of(linkUpdateScheme);
-  }
 
 
-  /**
-   * Return true if this _api_v2_testRuns_updateMultiple_post_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,9 +170,9 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
     }
     ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest = (ApiV2TestRunsUpdateMultiplePostRequest) o;
     return Objects.equals(this.selectModel, apiV2TestRunsUpdateMultiplePostRequest.selectModel) &&
-        equalsNullable(this.description, apiV2TestRunsUpdateMultiplePostRequest.description) &&
-        equalsNullable(this.attachmentUpdateScheme, apiV2TestRunsUpdateMultiplePostRequest.attachmentUpdateScheme) &&
-        equalsNullable(this.linkUpdateScheme, apiV2TestRunsUpdateMultiplePostRequest.linkUpdateScheme);
+        Objects.equals(this.description, apiV2TestRunsUpdateMultiplePostRequest.description) &&
+        Objects.equals(this.attachmentUpdateScheme, apiV2TestRunsUpdateMultiplePostRequest.attachmentUpdateScheme) &&
+        Objects.equals(this.linkUpdateScheme, apiV2TestRunsUpdateMultiplePostRequest.linkUpdateScheme);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -208,7 +181,7 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectModel, hashCodeNullable(description), hashCodeNullable(attachmentUpdateScheme), hashCodeNullable(linkUpdateScheme));
+    return Objects.hash(selectModel, description, attachmentUpdateScheme, linkUpdateScheme);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -241,5 +214,110 @@ public class ApiV2TestRunsUpdateMultiplePostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("selectModel");
+    openapiFields.add("description");
+    openapiFields.add("attachmentUpdateScheme");
+    openapiFields.add("linkUpdateScheme");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("selectModel");
+    openapiRequiredFields.add("attachmentUpdateScheme");
+    openapiRequiredFields.add("linkUpdateScheme");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2TestRunsUpdateMultiplePostRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ApiV2TestRunsUpdateMultiplePostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2TestRunsUpdateMultiplePostRequest is not found in the empty JSON string", ApiV2TestRunsUpdateMultiplePostRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ApiV2TestRunsUpdateMultiplePostRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2TestRunsUpdateMultiplePostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ApiV2TestRunsUpdateMultiplePostRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the required field `selectModel`
+      TestRunSelectionModel.validateJsonObject(jsonObj.getAsJsonObject("selectModel"));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the required field `attachmentUpdateScheme`
+      SetOfAttachmentIds.validateJsonObject(jsonObj.getAsJsonObject("attachmentUpdateScheme"));
+      // validate the required field `linkUpdateScheme`
+      SetOfLinks.validateJsonObject(jsonObj.getAsJsonObject("linkUpdateScheme"));
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ApiV2TestRunsUpdateMultiplePostRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2TestRunsUpdateMultiplePostRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ApiV2TestRunsUpdateMultiplePostRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2TestRunsUpdateMultiplePostRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2TestRunsUpdateMultiplePostRequest>() {
+           @Override
+           public void write(JsonWriter out, ApiV2TestRunsUpdateMultiplePostRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ApiV2TestRunsUpdateMultiplePostRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ApiV2TestRunsUpdateMultiplePostRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApiV2TestRunsUpdateMultiplePostRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2TestRunsUpdateMultiplePostRequest
+  */
+  public static ApiV2TestRunsUpdateMultiplePostRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2TestRunsUpdateMultiplePostRequest.class);
+  }
+
+ /**
+  * Convert an instance of ApiV2TestRunsUpdateMultiplePostRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

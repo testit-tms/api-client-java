@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
-|**externalId** | **String** |  |  [optional] |
+|**externalId** | **String** |  |  |
 |**projectId** | **UUID** |  |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 
 
 

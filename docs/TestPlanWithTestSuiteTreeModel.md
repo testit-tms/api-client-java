@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**testSuites** | [**List&lt;TestSuiteWithChildrenModel&gt;**](TestSuiteWithChildrenModel.md) |  |  [optional] |
+|**testSuites** | [**List&lt;TestSuiteWithChildrenModel&gt;**](TestSuiteWithChildrenModel.md) |  |  |
 |**status** | **TestPlanStatusModel** |  |  |
 |**startedOn** | **OffsetDateTime** | Set when test plan is starter (status changed to: In Progress) |  [optional] |
 |**completedOn** | **OffsetDateTime** | set when test plan status is completed (status changed to: Completed) |  [optional] |
@@ -29,7 +29,7 @@
 |**projectId** | **UUID** |  |  |
 |**productName** | **String** |  |  [optional] |
 |**hasAutomaticDurationTimer** | **Boolean** |  |  [optional] |
-|**attributes** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** |  |  |
 
 
 

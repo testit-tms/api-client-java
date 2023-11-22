@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**action** | **String** |  |  [optional] |
-|**expected** | **String** |  |  [optional] |
-|**comments** | **String** |  |  [optional] |
-|**testData** | **String** |  |  [optional] |
+|**action** | **String** |  |  |
+|**expected** | **String** |  |  |
+|**comments** | **String** |  |  |
+|**testData** | **String** |  |  |
 |**index** | **Integer** |  |  |
 |**workItemId** | **UUID** |  |  [optional] |
-|**workItem** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  |  [optional] |
+|**workItem** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  |  |
 
 
 

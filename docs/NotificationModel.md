@@ -15,10 +15,10 @@
 |**projectGlobalId** | **Long** |  |  [optional] |
 |**projectName** | **String** |  |  [optional] |
 |**testPlanGlobalId** | **Long** |  |  |
-|**testPlanName** | **String** |  |  [optional] |
+|**testPlanName** | **String** |  |  |
 |**workitemGlobalId** | **Long** |  |  [optional] |
-|**comment** | **String** |  |  [optional] |
-|**workItemName** | **String** |  |  [optional] |
+|**comment** | **String** |  |  |
+|**workItemName** | **String** |  |  |
 |**attributeName** | **String** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
 

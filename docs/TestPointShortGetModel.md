@@ -14,9 +14,9 @@
 |**modifiedById** | **UUID** | Unique ID of the test point last editor |  [optional] |
 |**testerId** | **UUID** | Unique ID of the test point assigned user |  [optional] |
 |**parameters** | **Map&lt;String, String&gt;** | Collection of the test point parameters |  [optional] |
-|**attributes** | **Map&lt;String, Object&gt;** | Collection of attributes of work item the test point represents |  [optional] |
-|**tags** | **List&lt;String&gt;** | Collection of the test point tags |  [optional] |
-|**links** | **List&lt;String&gt;** | Collection of the test point links |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** | Collection of attributes of work item the test point represents |  |
+|**tags** | **List&lt;String&gt;** | Collection of the test point tags |  |
+|**links** | **List&lt;String&gt;** | Collection of the test point links |  |
 |**testSuiteId** | **UUID** | Unique ID of test suite the test point assigned to |  |
 |**workItemId** | **UUID** | Unique ID of work item the test point represents |  |
 |**workItemGlobalId** | **Long** | Global ID of work item the test point represents |  |
@@ -25,7 +25,7 @@
 |**status** | **TestPointStatus** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**isAutomated** | **Boolean** | Indicates if the test point represents an autotest |  |
-|**name** | **String** | Name of the test point |  [optional] |
+|**name** | **String** | Name of the test point |  |
 |**configurationId** | **UUID** | Unique ID of the test point configuration |  |
 |**duration** | **Integer** | Duration of the test point |  |
 |**sectionId** | **UUID** | Unique ID of section where work item the test point represents is located |  |

@@ -27,8 +27,8 @@
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**isDeleted** | **Boolean** | Flag determining whether Work Item is deleted |  |
 |**tagNames** | **List&lt;String&gt;** | Array of tag names of Work Item |  [optional] |
-|**iterations** | [**List&lt;IterationModel&gt;**](IterationModel.md) | Set of iterations related to Work Item |  [optional] |
-|**links** | [**List&lt;LinkShortModel&gt;**](LinkShortModel.md) | Set of links related to Work Item |  [optional] |
+|**iterations** | [**List&lt;IterationModel&gt;**](IterationModel.md) | Set of iterations related to Work Item |  |
+|**links** | [**List&lt;LinkShortModel&gt;**](LinkShortModel.md) | Set of links related to Work Item |  |
 
 
 

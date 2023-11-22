@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**name** | **String** |  |  [optional] |
-|**type** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
+|**type** | **String** |  |  |
 
 
 

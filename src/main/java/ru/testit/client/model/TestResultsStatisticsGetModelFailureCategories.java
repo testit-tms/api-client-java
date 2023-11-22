@@ -15,49 +15,68 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * Test results counts aggregated by result failure categories
  */
-@JsonPropertyOrder({
-  TestResultsStatisticsGetModelFailureCategories.JSON_PROPERTY_NO_ANALYTICS,
-  TestResultsStatisticsGetModelFailureCategories.JSON_PROPERTY_NO_DEFECT,
-  TestResultsStatisticsGetModelFailureCategories.JSON_PROPERTY_INFRASTRUCTURE_DEFECT,
-  TestResultsStatisticsGetModelFailureCategories.JSON_PROPERTY_PRODUCT_DEFECT,
-  TestResultsStatisticsGetModelFailureCategories.JSON_PROPERTY_TEST_DEFECT
-})
-@JsonTypeName("TestResultsStatisticsGetModel_failureCategories")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultsStatisticsGetModelFailureCategories {
-  public static final String JSON_PROPERTY_NO_ANALYTICS = "noAnalytics";
+  public static final String SERIALIZED_NAME_NO_ANALYTICS = "noAnalytics";
+  @SerializedName(SERIALIZED_NAME_NO_ANALYTICS)
   private Integer noAnalytics;
 
-  public static final String JSON_PROPERTY_NO_DEFECT = "noDefect";
+  public static final String SERIALIZED_NAME_NO_DEFECT = "noDefect";
+  @SerializedName(SERIALIZED_NAME_NO_DEFECT)
   private Integer noDefect;
 
-  public static final String JSON_PROPERTY_INFRASTRUCTURE_DEFECT = "infrastructureDefect";
+  public static final String SERIALIZED_NAME_INFRASTRUCTURE_DEFECT = "infrastructureDefect";
+  @SerializedName(SERIALIZED_NAME_INFRASTRUCTURE_DEFECT)
   private Integer infrastructureDefect;
 
-  public static final String JSON_PROPERTY_PRODUCT_DEFECT = "productDefect";
+  public static final String SERIALIZED_NAME_PRODUCT_DEFECT = "productDefect";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_DEFECT)
   private Integer productDefect;
 
-  public static final String JSON_PROPERTY_TEST_DEFECT = "testDefect";
+  public static final String SERIALIZED_NAME_TEST_DEFECT = "testDefect";
+  @SerializedName(SERIALIZED_NAME_TEST_DEFECT)
   private Integer testDefect;
 
-  public TestResultsStatisticsGetModelFailureCategories() { 
+  public TestResultsStatisticsGetModelFailureCategories() {
   }
 
   public TestResultsStatisticsGetModelFailureCategories noAnalytics(Integer noAnalytics) {
+    
     this.noAnalytics = noAnalytics;
     return this;
   }
@@ -66,23 +85,19 @@ public class TestResultsStatisticsGetModelFailureCategories {
    * Number of test results which outcomes were not analyzed
    * @return noAnalytics
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NO_ANALYTICS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getNoAnalytics() {
     return noAnalytics;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NO_ANALYTICS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNoAnalytics(Integer noAnalytics) {
     this.noAnalytics = noAnalytics;
   }
 
 
   public TestResultsStatisticsGetModelFailureCategories noDefect(Integer noDefect) {
+    
     this.noDefect = noDefect;
     return this;
   }
@@ -91,23 +106,19 @@ public class TestResultsStatisticsGetModelFailureCategories {
    * Number of test results which outcomes were not caused by any defect
    * @return noDefect
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NO_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getNoDefect() {
     return noDefect;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NO_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNoDefect(Integer noDefect) {
     this.noDefect = noDefect;
   }
 
 
   public TestResultsStatisticsGetModelFailureCategories infrastructureDefect(Integer infrastructureDefect) {
+    
     this.infrastructureDefect = infrastructureDefect;
     return this;
   }
@@ -116,23 +127,19 @@ public class TestResultsStatisticsGetModelFailureCategories {
    * Number of test results which outcomes were caused by some infrastructure defect
    * @return infrastructureDefect
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INFRASTRUCTURE_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getInfrastructureDefect() {
     return infrastructureDefect;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INFRASTRUCTURE_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInfrastructureDefect(Integer infrastructureDefect) {
     this.infrastructureDefect = infrastructureDefect;
   }
 
 
   public TestResultsStatisticsGetModelFailureCategories productDefect(Integer productDefect) {
+    
     this.productDefect = productDefect;
     return this;
   }
@@ -141,23 +148,19 @@ public class TestResultsStatisticsGetModelFailureCategories {
    * Number of test results which outcomes were caused by some tested product defect
    * @return productDefect
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PRODUCT_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getProductDefect() {
     return productDefect;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRODUCT_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProductDefect(Integer productDefect) {
     this.productDefect = productDefect;
   }
 
 
   public TestResultsStatisticsGetModelFailureCategories testDefect(Integer testDefect) {
+    
     this.testDefect = testDefect;
     return this;
   }
@@ -166,25 +169,18 @@ public class TestResultsStatisticsGetModelFailureCategories {
    * Number of test results which outcomes were caused by test itself
    * @return testDefect
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Integer getTestDefect() {
     return testDefect;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_DEFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestDefect(Integer testDefect) {
     this.testDefect = testDefect;
   }
 
 
-  /**
-   * Return true if this TestResultsStatisticsGetModel_failureCategories object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,5 +226,104 @@ public class TestResultsStatisticsGetModelFailureCategories {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("noAnalytics");
+    openapiFields.add("noDefect");
+    openapiFields.add("infrastructureDefect");
+    openapiFields.add("productDefect");
+    openapiFields.add("testDefect");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("noAnalytics");
+    openapiRequiredFields.add("noDefect");
+    openapiRequiredFields.add("infrastructureDefect");
+    openapiRequiredFields.add("productDefect");
+    openapiRequiredFields.add("testDefect");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultsStatisticsGetModelFailureCategories
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultsStatisticsGetModelFailureCategories.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultsStatisticsGetModelFailureCategories is not found in the empty JSON string", TestResultsStatisticsGetModelFailureCategories.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestResultsStatisticsGetModelFailureCategories.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsStatisticsGetModelFailureCategories` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestResultsStatisticsGetModelFailureCategories.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestResultsStatisticsGetModelFailureCategories.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestResultsStatisticsGetModelFailureCategories' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestResultsStatisticsGetModelFailureCategories> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultsStatisticsGetModelFailureCategories.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestResultsStatisticsGetModelFailureCategories>() {
+           @Override
+           public void write(JsonWriter out, TestResultsStatisticsGetModelFailureCategories value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestResultsStatisticsGetModelFailureCategories read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestResultsStatisticsGetModelFailureCategories given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultsStatisticsGetModelFailureCategories
+  * @throws IOException if the JSON string is invalid with respect to TestResultsStatisticsGetModelFailureCategories
+  */
+  public static TestResultsStatisticsGetModelFailureCategories fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestResultsStatisticsGetModelFailureCategories.class);
+  }
+
+ /**
+  * Convert an instance of TestResultsStatisticsGetModelFailureCategories to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

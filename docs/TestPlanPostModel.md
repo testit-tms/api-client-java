@@ -16,7 +16,7 @@
 |**projectId** | **UUID** |  |  |
 |**productName** | **String** |  |  [optional] |
 |**hasAutomaticDurationTimer** | **Boolean** |  |  [optional] |
-|**attributes** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** |  |  |
 
 
 

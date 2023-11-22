@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**hasThisSharedStepAsPrecondition** | **Boolean** |  |  |
 |**hasThisSharedStepAsPostcondition** | **Boolean** |  |  |
 |**createdById** | **UUID** |  |  |

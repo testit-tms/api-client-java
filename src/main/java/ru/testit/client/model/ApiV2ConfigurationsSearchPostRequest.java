@@ -15,65 +15,77 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ApiV2ConfigurationsSearchPostRequest
  */
-@JsonPropertyOrder({
-  ApiV2ConfigurationsSearchPostRequest.JSON_PROPERTY_PROJECT_IDS,
-  ApiV2ConfigurationsSearchPostRequest.JSON_PROPERTY_NAME,
-  ApiV2ConfigurationsSearchPostRequest.JSON_PROPERTY_IS_DELETED,
-  ApiV2ConfigurationsSearchPostRequest.JSON_PROPERTY_GLOBAL_IDS
-})
-@JsonTypeName("_api_v2_configurations_search_post_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2ConfigurationsSearchPostRequest {
-  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
-  private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private Set<UUID> projectIds;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
-  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
-  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
+  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
+  private Set<Long> globalIds;
 
-  public ApiV2ConfigurationsSearchPostRequest() { 
+  public ApiV2ConfigurationsSearchPostRequest() {
   }
 
   public ApiV2ConfigurationsSearchPostRequest projectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    
+    this.projectIds = projectIds;
     return this;
   }
 
   public ApiV2ConfigurationsSearchPostRequest addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null || !this.projectIds.isPresent()) {
-      this.projectIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
     }
-    try {
-      this.projectIds.get().add(projectIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.projectIds.add(projectIdsItem);
     return this;
   }
 
@@ -81,32 +93,20 @@ public class ApiV2ConfigurationsSearchPostRequest {
    * Collection of identifiers of projects from which configurations will be taken
    * @return projectIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getProjectIds() {
-        return projectIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getProjectIds_JsonNullable() {
     return projectIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  public void setProjectIds_JsonNullable(JsonNullable<Set<UUID>> projectIds) {
-    this.projectIds = projectIds;
-  }
+
 
   public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    this.projectIds = projectIds;
   }
 
 
   public ApiV2ConfigurationsSearchPostRequest name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -114,32 +114,20 @@ public class ApiV2ConfigurationsSearchPostRequest {
    * Filter to search by name (case-insensitive, partial match)
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public ApiV2ConfigurationsSearchPostRequest isDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    
+    this.isDeleted = isDeleted;
     return this;
   }
 
@@ -147,44 +135,28 @@ public class ApiV2ConfigurationsSearchPostRequest {
    * Is configurations deleted or existing
    * @return isDeleted
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getIsDeleted() {
-        return isDeleted.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
     return isDeleted;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
-    this.isDeleted = isDeleted;
-  }
+
 
   public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    this.isDeleted = isDeleted;
   }
 
 
   public ApiV2ConfigurationsSearchPostRequest globalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
+    
+    this.globalIds = globalIds;
     return this;
   }
 
   public ApiV2ConfigurationsSearchPostRequest addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null || !this.globalIds.isPresent()) {
-      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
+    if (this.globalIds == null) {
+      this.globalIds = new LinkedHashSet<>();
     }
-    try {
-      this.globalIds.get().add(globalIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.globalIds.add(globalIdsItem);
     return this;
   }
 
@@ -192,33 +164,18 @@ public class ApiV2ConfigurationsSearchPostRequest {
    * Collection of global (integer) identifiers to filter configurations
    * @return globalIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<Long> getGlobalIds() {
-        return globalIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
+
+
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
-  }
 
 
-  /**
-   * Return true if this _api_v2_configurations_search_post_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,10 +185,10 @@ public class ApiV2ConfigurationsSearchPostRequest {
       return false;
     }
     ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest = (ApiV2ConfigurationsSearchPostRequest) o;
-    return equalsNullable(this.projectIds, apiV2ConfigurationsSearchPostRequest.projectIds) &&
-        equalsNullable(this.name, apiV2ConfigurationsSearchPostRequest.name) &&
-        equalsNullable(this.isDeleted, apiV2ConfigurationsSearchPostRequest.isDeleted) &&
-        equalsNullable(this.globalIds, apiV2ConfigurationsSearchPostRequest.globalIds);
+    return Objects.equals(this.projectIds, apiV2ConfigurationsSearchPostRequest.projectIds) &&
+        Objects.equals(this.name, apiV2ConfigurationsSearchPostRequest.name) &&
+        Objects.equals(this.isDeleted, apiV2ConfigurationsSearchPostRequest.isDeleted) &&
+        Objects.equals(this.globalIds, apiV2ConfigurationsSearchPostRequest.globalIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -240,7 +197,7 @@ public class ApiV2ConfigurationsSearchPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(isDeleted), hashCodeNullable(globalIds));
+    return Objects.hash(projectIds, name, isDeleted, globalIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -273,5 +230,102 @@ public class ApiV2ConfigurationsSearchPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projectIds");
+    openapiFields.add("name");
+    openapiFields.add("isDeleted");
+    openapiFields.add("globalIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2ConfigurationsSearchPostRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ApiV2ConfigurationsSearchPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2ConfigurationsSearchPostRequest is not found in the empty JSON string", ApiV2ConfigurationsSearchPostRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ApiV2ConfigurationsSearchPostRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2ConfigurationsSearchPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ApiV2ConfigurationsSearchPostRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2ConfigurationsSearchPostRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ApiV2ConfigurationsSearchPostRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2ConfigurationsSearchPostRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2ConfigurationsSearchPostRequest>() {
+           @Override
+           public void write(JsonWriter out, ApiV2ConfigurationsSearchPostRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ApiV2ConfigurationsSearchPostRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ApiV2ConfigurationsSearchPostRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApiV2ConfigurationsSearchPostRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2ConfigurationsSearchPostRequest
+  */
+  public static ApiV2ConfigurationsSearchPostRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2ConfigurationsSearchPostRequest.class);
+  }
+
+ /**
+  * Convert an instance of ApiV2ConfigurationsSearchPostRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

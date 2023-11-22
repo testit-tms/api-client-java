@@ -20,7 +20,7 @@
 |**testPointId** | **UUID** |  |  [optional] |
 |**testPoint** | [**TestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  |  [optional] |
 |**testRunId** | **UUID** |  |  |
-|**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  [optional] |
+|**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  [optional] |

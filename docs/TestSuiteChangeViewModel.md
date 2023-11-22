@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**configurations** | [**List&lt;ShortConfiguration&gt;**](ShortConfiguration.md) |  |  [optional] |
 |**workItemCount** | **Long** |  |  |
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**failureCategory** | **String** |  |  [optional] |
+|**failureCategory** | **String** |  |  |
 |**value** | **Integer** |  |  |
 
 

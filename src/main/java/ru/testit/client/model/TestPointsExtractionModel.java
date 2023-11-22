@@ -15,38 +15,55 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestPointsExtractionModelIds;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPointsExtractionModel
  */
-@JsonPropertyOrder({
-  TestPointsExtractionModel.JSON_PROPERTY_IDS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointsExtractionModel {
-  public static final String JSON_PROPERTY_IDS = "ids";
-  private JsonNullable<TestPointsExtractionModelIds> ids = JsonNullable.<TestPointsExtractionModelIds>undefined();
+  public static final String SERIALIZED_NAME_IDS = "ids";
+  @SerializedName(SERIALIZED_NAME_IDS)
+  private TestPointsExtractionModelIds ids;
 
-  public TestPointsExtractionModel() { 
+  public TestPointsExtractionModel() {
   }
 
   public TestPointsExtractionModel ids(TestPointsExtractionModelIds ids) {
-    this.ids = JsonNullable.<TestPointsExtractionModelIds>of(ids);
+    
+    this.ids = ids;
     return this;
   }
 
@@ -54,33 +71,18 @@ public class TestPointsExtractionModel {
    * Get ids
    * @return ids
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestPointsExtractionModelIds getIds() {
-        return ids.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestPointsExtractionModelIds> getIds_JsonNullable() {
     return ids;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IDS)
-  public void setIds_JsonNullable(JsonNullable<TestPointsExtractionModelIds> ids) {
+
+
+  public void setIds(TestPointsExtractionModelIds ids) {
     this.ids = ids;
   }
 
-  public void setIds(TestPointsExtractionModelIds ids) {
-    this.ids = JsonNullable.<TestPointsExtractionModelIds>of(ids);
-  }
 
 
-  /**
-   * Return true if this TestPointsExtractionModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -90,7 +92,7 @@ public class TestPointsExtractionModel {
       return false;
     }
     TestPointsExtractionModel testPointsExtractionModel = (TestPointsExtractionModel) o;
-    return equalsNullable(this.ids, testPointsExtractionModel.ids);
+    return Objects.equals(this.ids, testPointsExtractionModel.ids);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -99,7 +101,7 @@ public class TestPointsExtractionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(ids));
+    return Objects.hash(ids);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -129,5 +131,92 @@ public class TestPointsExtractionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("ids");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointsExtractionModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointsExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointsExtractionModel is not found in the empty JSON string", TestPointsExtractionModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPointsExtractionModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointsExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `ids`
+      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
+        TestPointsExtractionModelIds.validateJsonObject(jsonObj.getAsJsonObject("ids"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPointsExtractionModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPointsExtractionModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPointsExtractionModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointsExtractionModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPointsExtractionModel>() {
+           @Override
+           public void write(JsonWriter out, TestPointsExtractionModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPointsExtractionModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPointsExtractionModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointsExtractionModel
+  * @throws IOException if the JSON string is invalid with respect to TestPointsExtractionModel
+  */
+  public static TestPointsExtractionModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPointsExtractionModel.class);
+  }
+
+ /**
+  * Convert an instance of TestPointsExtractionModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

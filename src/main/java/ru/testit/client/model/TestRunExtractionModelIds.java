@@ -15,57 +15,69 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * Extraction parameters for test runs
  */
-@JsonPropertyOrder({
-  TestRunExtractionModelIds.JSON_PROPERTY_INCLUDE,
-  TestRunExtractionModelIds.JSON_PROPERTY_EXCLUDE
-})
-@JsonTypeName("TestRunExtractionModel_ids")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunExtractionModelIds {
-  public static final String JSON_PROPERTY_INCLUDE = "include";
-  private JsonNullable<List<UUID>> include = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_INCLUDE = "include";
+  @SerializedName(SERIALIZED_NAME_INCLUDE)
+  private List<UUID> include;
 
-  public static final String JSON_PROPERTY_EXCLUDE = "exclude";
-  private JsonNullable<List<UUID>> exclude = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE)
+  private List<UUID> exclude;
 
-  public TestRunExtractionModelIds() { 
+  public TestRunExtractionModelIds() {
   }
 
   public TestRunExtractionModelIds include(List<UUID> include) {
-    this.include = JsonNullable.<List<UUID>>of(include);
+    
+    this.include = include;
     return this;
   }
 
   public TestRunExtractionModelIds addIncludeItem(UUID includeItem) {
-    if (this.include == null || !this.include.isPresent()) {
-      this.include = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.include == null) {
+      this.include = new ArrayList<>();
     }
-    try {
-      this.include.get().add(includeItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.include.add(includeItem);
     return this;
   }
 
@@ -73,44 +85,28 @@ public class TestRunExtractionModelIds {
    * Get include
    * @return include
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<UUID> getInclude() {
-        return include.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_INCLUDE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getInclude_JsonNullable() {
     return include;
   }
-  
-  @JsonProperty(JSON_PROPERTY_INCLUDE)
-  public void setInclude_JsonNullable(JsonNullable<List<UUID>> include) {
-    this.include = include;
-  }
+
 
   public void setInclude(List<UUID> include) {
-    this.include = JsonNullable.<List<UUID>>of(include);
+    this.include = include;
   }
 
 
   public TestRunExtractionModelIds exclude(List<UUID> exclude) {
-    this.exclude = JsonNullable.<List<UUID>>of(exclude);
+    
+    this.exclude = exclude;
     return this;
   }
 
   public TestRunExtractionModelIds addExcludeItem(UUID excludeItem) {
-    if (this.exclude == null || !this.exclude.isPresent()) {
-      this.exclude = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.exclude == null) {
+      this.exclude = new ArrayList<>();
     }
-    try {
-      this.exclude.get().add(excludeItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.exclude.add(excludeItem);
     return this;
   }
 
@@ -118,33 +114,18 @@ public class TestRunExtractionModelIds {
    * Get exclude
    * @return exclude
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<UUID> getExclude() {
-        return exclude.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EXCLUDE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getExclude_JsonNullable() {
     return exclude;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EXCLUDE)
-  public void setExclude_JsonNullable(JsonNullable<List<UUID>> exclude) {
+
+
+  public void setExclude(List<UUID> exclude) {
     this.exclude = exclude;
   }
 
-  public void setExclude(List<UUID> exclude) {
-    this.exclude = JsonNullable.<List<UUID>>of(exclude);
-  }
 
 
-  /**
-   * Return true if this TestRunExtractionModel_ids object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,8 +135,8 @@ public class TestRunExtractionModelIds {
       return false;
     }
     TestRunExtractionModelIds testRunExtractionModelIds = (TestRunExtractionModelIds) o;
-    return equalsNullable(this.include, testRunExtractionModelIds.include) &&
-        equalsNullable(this.exclude, testRunExtractionModelIds.exclude);
+    return Objects.equals(this.include, testRunExtractionModelIds.include) &&
+        Objects.equals(this.exclude, testRunExtractionModelIds.exclude);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -164,7 +145,7 @@ public class TestRunExtractionModelIds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(include), hashCodeNullable(exclude));
+    return Objects.hash(include, exclude);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -195,5 +176,97 @@ public class TestRunExtractionModelIds {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("include");
+    openapiFields.add("exclude");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunExtractionModelIds
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunExtractionModelIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunExtractionModelIds is not found in the empty JSON string", TestRunExtractionModelIds.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunExtractionModelIds.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunExtractionModelIds` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("include") != null && !jsonObj.get("include").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `include` to be an array in the JSON string but got `%s`", jsonObj.get("include").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("exclude") != null && !jsonObj.get("exclude").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `exclude` to be an array in the JSON string but got `%s`", jsonObj.get("exclude").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunExtractionModelIds.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunExtractionModelIds' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunExtractionModelIds> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunExtractionModelIds.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunExtractionModelIds>() {
+           @Override
+           public void write(JsonWriter out, TestRunExtractionModelIds value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunExtractionModelIds read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunExtractionModelIds given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunExtractionModelIds
+  * @throws IOException if the JSON string is invalid with respect to TestRunExtractionModelIds
+  */
+  public static TestRunExtractionModelIds fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunExtractionModelIds.class);
+  }
+
+ /**
+  * Convert an instance of TestRunExtractionModelIds to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

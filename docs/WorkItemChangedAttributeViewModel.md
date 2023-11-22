@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  [optional] |
-|**oldAttributeName** | **String** |  |  [optional] |
-|**newAttributeName** | **String** |  |  [optional] |
-|**oldValue** | **Object** |  |  [optional] |
-|**newValue** | **Object** |  |  [optional] |
+|**type** | **String** |  |  |
+|**oldAttributeName** | **String** |  |  |
+|**newAttributeName** | **String** |  |  |
+|**oldValue** | **Object** |  |  |
+|**newValue** | **Object** |  |  |
 
 
 

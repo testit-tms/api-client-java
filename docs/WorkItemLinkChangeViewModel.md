@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** |  |  [optional] |
-|**url** | **String** |  |  [optional] |
-|**title** | **String** |  |  [optional] |
+|**description** | **String** |  |  |
+|**url** | **String** |  |  |
+|**title** | **String** |  |  |
 |**hasInfo** | **Boolean** |  |  |
 |**id** | **UUID** |  |  |
-|**type** | **String** |  |  [optional] |
+|**type** | **String** |  |  |
 
 
 

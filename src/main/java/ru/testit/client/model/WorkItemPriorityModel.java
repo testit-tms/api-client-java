@@ -15,18 +15,18 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import com.google.gson.annotations.SerializedName;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * Gets or Sets WorkItemPriorityModel
  */
+@JsonAdapter(WorkItemPriorityModel.Adapter.class)
 public enum WorkItemPriorityModel {
   
   LOWEST("Lowest"),
@@ -45,7 +45,6 @@ public enum WorkItemPriorityModel {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -55,7 +54,6 @@ public enum WorkItemPriorityModel {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static WorkItemPriorityModel fromValue(String value) {
     for (WorkItemPriorityModel b : WorkItemPriorityModel.values()) {
       if (b.value.equals(value)) {
@@ -63,6 +61,19 @@ public enum WorkItemPriorityModel {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<WorkItemPriorityModel> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final WorkItemPriorityModel enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public WorkItemPriorityModel read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return WorkItemPriorityModel.fromValue(value);
+    }
   }
 }
 

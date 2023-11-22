@@ -31,7 +31,7 @@
 |**workItemVersionId** | **UUID** |  |  [optional] |
 |**workItemVersionNumber** | **Integer** |  |  [optional] |
 |**launchSource** | **String** |  |  [optional] |
-|**failureClassIds** | **List&lt;UUID&gt;** |  |  [optional] |
+|**failureClassIds** | **List&lt;UUID&gt;** |  |  |
 |**parameters** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 

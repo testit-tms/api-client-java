@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  [optional] |
-|**values** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**name** | **String** |  |  |
+|**values** | **Map&lt;String, String&gt;** |  |  |
 |**parameterKeyId** | **UUID** |  |  |
 
 

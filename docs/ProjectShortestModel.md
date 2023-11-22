@@ -10,7 +10,7 @@
 |**id** | **UUID** | Unique ID of project |  |
 |**isDeleted** | **Boolean** | Indicates whether the project is deleted |  |
 |**globalId** | **Long** | Global ID of project |  |
-|**name** | **String** | Name of project |  [optional] |
+|**name** | **String** | Name of project |  |
 
 
 

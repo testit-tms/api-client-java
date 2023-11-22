@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  |  [optional] |
-|**includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  |  [optional] |
+|**filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  |  |
+|**includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  |  |
 
 
 

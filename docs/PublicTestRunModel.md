@@ -10,13 +10,13 @@
 |**testRunId** | **UUID** |  |  |
 |**testPlanId** | **UUID** |  |  [optional] |
 |**testPlanGlobalId** | **Long** |  |  |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**productName** | **String** |  |  [optional] |
 |**build** | **String** |  |  [optional] |
-|**configurations** | [**List&lt;ConfigurationModel&gt;**](ConfigurationModel.md) |  |  [optional] |
-|**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  [optional] |
-|**testPoints** | [**List&lt;PublicTestPointModel&gt;**](PublicTestPointModel.md) |  |  [optional] |
-|**status** | **String** |  |  [optional] |
+|**configurations** | [**List&lt;ConfigurationModel&gt;**](ConfigurationModel.md) |  |  |
+|**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  |
+|**testPoints** | [**List&lt;PublicTestPointModel&gt;**](PublicTestPointModel.md) |  |  |
+|**status** | **String** |  |  |
 
 
 

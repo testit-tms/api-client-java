@@ -15,13 +15,12 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -30,74 +29,91 @@ import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelCreated
 import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelModifiedDate;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
  */
-@JsonPropertyOrder({
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_NAME,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_GLOBAL_IDS,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_SECTION_IDS,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_CREATED_BY_IDS,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_MODIFIED_BY_IDS,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_STATES,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_PRIORITIES,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_ENTITY_TYPES,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_CREATED_DATE,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_MODIFIED_DATE,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_IS_AUTOMATED,
-  ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.JSON_PROPERTY_TAGS
-})
-@JsonTypeName("_api_v2_workItems__sharedStepId__references_workItems_post_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
-  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
+  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
+  private Set<Long> globalIds;
 
-  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
-  private JsonNullable<Set<UUID>> sectionIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
+  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
+  private Set<UUID> sectionIds;
 
-  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
-  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  private Set<UUID> createdByIds;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
-  private JsonNullable<Set<UUID>> modifiedByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
+  private Set<UUID> modifiedByIds;
 
-  public static final String JSON_PROPERTY_STATES = "states";
-  private JsonNullable<Set<WorkItemStates>> states = JsonNullable.<Set<WorkItemStates>>undefined();
+  public static final String SERIALIZED_NAME_STATES = "states";
+  @SerializedName(SERIALIZED_NAME_STATES)
+  private Set<WorkItemStates> states;
 
-  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
-  private JsonNullable<Set<WorkItemPriorityModel>> priorities = JsonNullable.<Set<WorkItemPriorityModel>>undefined();
+  public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
+  @SerializedName(SERIALIZED_NAME_PRIORITIES)
+  private Set<WorkItemPriorityModel> priorities;
 
-  public static final String JSON_PROPERTY_ENTITY_TYPES = "entityTypes";
-  private JsonNullable<Set<String>> entityTypes = JsonNullable.<Set<String>>undefined();
+  public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
+  @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
+  private Set<String> entityTypes;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<SharedStepReferenceSectionsQueryFilterModelCreatedDate> createdDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelCreatedDate>undefined();
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<SharedStepReferenceSectionsQueryFilterModelModifiedDate> modifiedDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelModifiedDate>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate;
 
-  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
-  private JsonNullable<Boolean> isAutomated = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
+  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  private Boolean isAutomated;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Set<String> tags;
 
-  public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest() { 
+  public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest() {
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -105,44 +121,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Name of work item
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest globalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
+    
+    this.globalIds = globalIds;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null || !this.globalIds.isPresent()) {
-      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
+    if (this.globalIds == null) {
+      this.globalIds = new LinkedHashSet<>();
     }
-    try {
-      this.globalIds.get().add(globalIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.globalIds.add(globalIdsItem);
     return this;
   }
 
@@ -150,44 +150,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of global (integer) identifiers
    * @return globalIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<Long> getGlobalIds() {
-        return globalIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
-  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
-    this.globalIds = globalIds;
-  }
+
 
   public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
+    this.globalIds = globalIds;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest sectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
+    
+    this.sectionIds = sectionIds;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null || !this.sectionIds.isPresent()) {
-      this.sectionIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.sectionIds == null) {
+      this.sectionIds = new LinkedHashSet<>();
     }
-    try {
-      this.sectionIds.get().add(sectionIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.sectionIds.add(sectionIdsItem);
     return this;
   }
 
@@ -195,44 +179,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of section identifiers
    * @return sectionIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getSectionIds() {
-        return sectionIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getSectionIds_JsonNullable() {
     return sectionIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
-  public void setSectionIds_JsonNullable(JsonNullable<Set<UUID>> sectionIds) {
-    this.sectionIds = sectionIds;
-  }
+
 
   public void setSectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
+    this.sectionIds = sectionIds;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    
+    this.createdByIds = createdByIds;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
-      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.createdByIds == null) {
+      this.createdByIds = new LinkedHashSet<>();
     }
-    try {
-      this.createdByIds.get().add(createdByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.createdByIds.add(createdByIdsItem);
     return this;
   }
 
@@ -240,44 +208,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of identifiers of users who created work item
    * @return createdByIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
-        return createdByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
-    this.createdByIds = createdByIds;
-  }
+
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    this.createdByIds = createdByIds;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest modifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    
+    this.modifiedByIds = modifiedByIds;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null || !this.modifiedByIds.isPresent()) {
-      this.modifiedByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.modifiedByIds == null) {
+      this.modifiedByIds = new LinkedHashSet<>();
     }
-    try {
-      this.modifiedByIds.get().add(modifiedByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
 
@@ -285,44 +237,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of identifiers of users who applied last modification to work item
    * @return modifiedByIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getModifiedByIds() {
-        return modifiedByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getModifiedByIds_JsonNullable() {
     return modifiedByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  public void setModifiedByIds_JsonNullable(JsonNullable<Set<UUID>> modifiedByIds) {
-    this.modifiedByIds = modifiedByIds;
-  }
+
 
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    this.modifiedByIds = modifiedByIds;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest states(Set<WorkItemStates> states) {
-    this.states = JsonNullable.<Set<WorkItemStates>>of(states);
+    
+    this.states = states;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addStatesItem(WorkItemStates statesItem) {
-    if (this.states == null || !this.states.isPresent()) {
-      this.states = JsonNullable.<Set<WorkItemStates>>of(new LinkedHashSet<>());
+    if (this.states == null) {
+      this.states = new LinkedHashSet<>();
     }
-    try {
-      this.states.get().add(statesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.states.add(statesItem);
     return this;
   }
 
@@ -330,44 +266,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of states of work item
    * @return states
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<WorkItemStates> getStates() {
-        return states.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<WorkItemStates>> getStates_JsonNullable() {
     return states;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATES)
-  public void setStates_JsonNullable(JsonNullable<Set<WorkItemStates>> states) {
-    this.states = states;
-  }
+
 
   public void setStates(Set<WorkItemStates> states) {
-    this.states = JsonNullable.<Set<WorkItemStates>>of(states);
+    this.states = states;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest priorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
+    
+    this.priorities = priorities;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null || !this.priorities.isPresent()) {
-      this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(new LinkedHashSet<>());
+    if (this.priorities == null) {
+      this.priorities = new LinkedHashSet<>();
     }
-    try {
-      this.priorities.get().add(prioritiesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.priorities.add(prioritiesItem);
     return this;
   }
 
@@ -375,44 +295,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of priorities of work item
    * @return priorities
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<WorkItemPriorityModel> getPriorities() {
-        return priorities.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<WorkItemPriorityModel>> getPriorities_JsonNullable() {
     return priorities;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRIORITIES)
-  public void setPriorities_JsonNullable(JsonNullable<Set<WorkItemPriorityModel>> priorities) {
-    this.priorities = priorities;
-  }
+
 
   public void setPriorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
+    this.priorities = priorities;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest entityTypes(Set<String> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
+    
+    this.entityTypes = entityTypes;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addEntityTypesItem(String entityTypesItem) {
-    if (this.entityTypes == null || !this.entityTypes.isPresent()) {
-      this.entityTypes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    if (this.entityTypes == null) {
+      this.entityTypes = new LinkedHashSet<>();
     }
-    try {
-      this.entityTypes.get().add(entityTypesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.entityTypes.add(entityTypesItem);
     return this;
   }
 
@@ -420,32 +324,20 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<String> getEntityTypes() {
-        return entityTypes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<String>> getEntityTypes_JsonNullable() {
     return entityTypes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
-  public void setEntityTypes_JsonNullable(JsonNullable<Set<String>> entityTypes) {
-    this.entityTypes = entityTypes;
-  }
+
 
   public void setEntityTypes(Set<String> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
+    this.entityTypes = entityTypes;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest createdDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
-    this.createdDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelCreatedDate>of(createdDate);
+    
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -453,32 +345,20 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public SharedStepReferenceSectionsQueryFilterModelCreatedDate getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<SharedStepReferenceSectionsQueryFilterModelCreatedDate> getCreatedDate_JsonNullable() {
     return createdDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<SharedStepReferenceSectionsQueryFilterModelCreatedDate> createdDate) {
-    this.createdDate = createdDate;
-  }
+
 
   public void setCreatedDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
-    this.createdDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelCreatedDate>of(createdDate);
+    this.createdDate = createdDate;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest modifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
-    this.modifiedDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelModifiedDate>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -486,32 +366,20 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public SharedStepReferenceSectionsQueryFilterModelModifiedDate getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<SharedStepReferenceSectionsQueryFilterModelModifiedDate> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<SharedStepReferenceSectionsQueryFilterModelModifiedDate> modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
+
 
   public void setModifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
-    this.modifiedDate = JsonNullable.<SharedStepReferenceSectionsQueryFilterModelModifiedDate>of(modifiedDate);
+    this.modifiedDate = modifiedDate;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest isAutomated(Boolean isAutomated) {
-    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
+    
+    this.isAutomated = isAutomated;
     return this;
   }
 
@@ -519,44 +387,28 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Is result must consist of only manual/automated work items
    * @return isAutomated
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getIsAutomated() {
-        return isAutomated.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsAutomated_JsonNullable() {
     return isAutomated;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
-  public void setIsAutomated_JsonNullable(JsonNullable<Boolean> isAutomated) {
-    this.isAutomated = isAutomated;
-  }
+
 
   public void setIsAutomated(Boolean isAutomated) {
-    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
+    this.isAutomated = isAutomated;
   }
 
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest tags(Set<String> tags) {
-    this.tags = JsonNullable.<Set<String>>of(tags);
+    
+    this.tags = tags;
     return this;
   }
 
   public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest addTagsItem(String tagsItem) {
-    if (this.tags == null || !this.tags.isPresent()) {
-      this.tags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    if (this.tags == null) {
+      this.tags = new LinkedHashSet<>();
     }
-    try {
-      this.tags.get().add(tagsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.tags.add(tagsItem);
     return this;
   }
 
@@ -564,33 +416,18 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
    * Collection of tags
    * @return tags
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<String> getTags() {
-        return tags.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<String>> getTags_JsonNullable() {
     return tags;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<Set<String>> tags) {
+
+
+  public void setTags(Set<String> tags) {
     this.tags = tags;
   }
 
-  public void setTags(Set<String> tags) {
-    this.tags = JsonNullable.<Set<String>>of(tags);
-  }
 
 
-  /**
-   * Return true if this _api_v2_workItems__sharedStepId__references_workItems_post_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -600,18 +437,18 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
       return false;
     }
     ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest = (ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) o;
-    return equalsNullable(this.name, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.name) &&
-        equalsNullable(this.globalIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.globalIds) &&
-        equalsNullable(this.sectionIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.sectionIds) &&
-        equalsNullable(this.createdByIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.createdByIds) &&
-        equalsNullable(this.modifiedByIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.modifiedByIds) &&
-        equalsNullable(this.states, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.states) &&
-        equalsNullable(this.priorities, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.priorities) &&
-        equalsNullable(this.entityTypes, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.entityTypes) &&
-        equalsNullable(this.createdDate, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.createdDate) &&
-        equalsNullable(this.modifiedDate, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.modifiedDate) &&
-        equalsNullable(this.isAutomated, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.isAutomated) &&
-        equalsNullable(this.tags, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.tags);
+    return Objects.equals(this.name, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.name) &&
+        Objects.equals(this.globalIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.globalIds) &&
+        Objects.equals(this.sectionIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.sectionIds) &&
+        Objects.equals(this.createdByIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.createdByIds) &&
+        Objects.equals(this.modifiedByIds, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.modifiedByIds) &&
+        Objects.equals(this.states, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.states) &&
+        Objects.equals(this.priorities, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.priorities) &&
+        Objects.equals(this.entityTypes, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.entityTypes) &&
+        Objects.equals(this.createdDate, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.createdDate) &&
+        Objects.equals(this.modifiedDate, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.modifiedDate) &&
+        Objects.equals(this.isAutomated, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.isAutomated) &&
+        Objects.equals(this.tags, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -620,7 +457,7 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(globalIds), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(entityTypes), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(isAutomated), hashCodeNullable(tags));
+    return Objects.hash(name, globalIds, sectionIds, createdByIds, modifiedByIds, states, priorities, entityTypes, createdDate, modifiedDate, isAutomated, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -661,5 +498,142 @@ public class ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("globalIds");
+    openapiFields.add("sectionIds");
+    openapiFields.add("createdByIds");
+    openapiFields.add("modifiedByIds");
+    openapiFields.add("states");
+    openapiFields.add("priorities");
+    openapiFields.add("entityTypes");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("isAutomated");
+    openapiFields.add("tags");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest is not found in the empty JSON string", ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entityTypes` to be an array in the JSON string but got `%s`", jsonObj.get("entityTypes").toString()));
+      }
+      // validate the optional field `createdDate`
+      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
+        SharedStepReferenceSectionsQueryFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+      }
+      // validate the optional field `modifiedDate`
+      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
+        SharedStepReferenceSectionsQueryFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest>() {
+           @Override
+           public void write(JsonWriter out, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+  */
+  public static ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.class);
+  }
+
+ /**
+  * Convert an instance of ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

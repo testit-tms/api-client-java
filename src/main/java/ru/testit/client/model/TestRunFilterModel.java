@@ -15,13 +15,12 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -34,81 +33,95 @@ import ru.testit.client.model.TestRunFilterModelAutoTestsCount;
 import ru.testit.client.model.TestRunFilterModelCompletedDate;
 import ru.testit.client.model.TestRunFilterModelStartedDate;
 import ru.testit.client.model.TestRunState;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestRunFilterModel
  */
-@JsonPropertyOrder({
-  TestRunFilterModel.JSON_PROPERTY_PROJECT_IDS,
-  TestRunFilterModel.JSON_PROPERTY_NAME,
-  TestRunFilterModel.JSON_PROPERTY_STATES,
-  TestRunFilterModel.JSON_PROPERTY_STARTED_DATE,
-  TestRunFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
-  TestRunFilterModel.JSON_PROPERTY_MODIFIED_BY_IDS,
-  TestRunFilterModel.JSON_PROPERTY_IS_DELETED,
-  TestRunFilterModel.JSON_PROPERTY_AUTO_TESTS_COUNT,
-  TestRunFilterModel.JSON_PROPERTY_TEST_RESULTS_OUTCOME,
-  TestRunFilterModel.JSON_PROPERTY_FAILURE_CATEGORY,
-  TestRunFilterModel.JSON_PROPERTY_COMPLETED_DATE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunFilterModel {
-  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
-  private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private Set<UUID> projectIds;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_STATES = "states";
-  private JsonNullable<Set<TestRunState>> states = JsonNullable.<Set<TestRunState>>undefined();
+  public static final String SERIALIZED_NAME_STATES = "states";
+  @SerializedName(SERIALIZED_NAME_STATES)
+  private Set<TestRunState> states;
 
-  public static final String JSON_PROPERTY_STARTED_DATE = "startedDate";
-  private JsonNullable<TestRunFilterModelStartedDate> startedDate = JsonNullable.<TestRunFilterModelStartedDate>undefined();
+  public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
+  @SerializedName(SERIALIZED_NAME_STARTED_DATE)
+  private TestRunFilterModelStartedDate startedDate;
 
-  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
-  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  private Set<UUID> createdByIds;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
-  private JsonNullable<Set<UUID>> modifiedByIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
+  private Set<UUID> modifiedByIds;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
-  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_AUTO_TESTS_COUNT = "autoTestsCount";
-  private JsonNullable<TestRunFilterModelAutoTestsCount> autoTestsCount = JsonNullable.<TestRunFilterModelAutoTestsCount>undefined();
+  public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
+  @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
+  private TestRunFilterModelAutoTestsCount autoTestsCount;
 
-  public static final String JSON_PROPERTY_TEST_RESULTS_OUTCOME = "testResultsOutcome";
-  private JsonNullable<List<TestResultOutcome>> testResultsOutcome = JsonNullable.<List<TestResultOutcome>>undefined();
+  public static final String SERIALIZED_NAME_TEST_RESULTS_OUTCOME = "testResultsOutcome";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULTS_OUTCOME)
+  private List<TestResultOutcome> testResultsOutcome;
 
-  public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
-  private JsonNullable<List<FailureCategoryModel>> failureCategory = JsonNullable.<List<FailureCategoryModel>>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
+  private List<FailureCategoryModel> failureCategory;
 
-  public static final String JSON_PROPERTY_COMPLETED_DATE = "completedDate";
-  private JsonNullable<TestRunFilterModelCompletedDate> completedDate = JsonNullable.<TestRunFilterModelCompletedDate>undefined();
+  public static final String SERIALIZED_NAME_COMPLETED_DATE = "completedDate";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
+  private TestRunFilterModelCompletedDate completedDate;
 
-  public TestRunFilterModel() { 
+  public TestRunFilterModel() {
   }
 
   public TestRunFilterModel projectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    
+    this.projectIds = projectIds;
     return this;
   }
 
   public TestRunFilterModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null || !this.projectIds.isPresent()) {
-      this.projectIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
     }
-    try {
-      this.projectIds.get().add(projectIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.projectIds.add(projectIdsItem);
     return this;
   }
 
@@ -116,32 +129,20 @@ public class TestRunFilterModel {
    * Specifies a test run project IDs to search for
    * @return projectIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getProjectIds() {
-        return projectIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getProjectIds_JsonNullable() {
     return projectIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  public void setProjectIds_JsonNullable(JsonNullable<Set<UUID>> projectIds) {
-    this.projectIds = projectIds;
-  }
+
 
   public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    this.projectIds = projectIds;
   }
 
 
   public TestRunFilterModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -149,44 +150,28 @@ public class TestRunFilterModel {
    * Specifies test run name
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public TestRunFilterModel states(Set<TestRunState> states) {
-    this.states = JsonNullable.<Set<TestRunState>>of(states);
+    
+    this.states = states;
     return this;
   }
 
   public TestRunFilterModel addStatesItem(TestRunState statesItem) {
-    if (this.states == null || !this.states.isPresent()) {
-      this.states = JsonNullable.<Set<TestRunState>>of(new LinkedHashSet<>());
+    if (this.states == null) {
+      this.states = new LinkedHashSet<>();
     }
-    try {
-      this.states.get().add(statesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.states.add(statesItem);
     return this;
   }
 
@@ -194,32 +179,20 @@ public class TestRunFilterModel {
    * Specifies a test run states to search for
    * @return states
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<TestRunState> getStates() {
-        return states.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<TestRunState>> getStates_JsonNullable() {
     return states;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATES)
-  public void setStates_JsonNullable(JsonNullable<Set<TestRunState>> states) {
-    this.states = states;
-  }
+
 
   public void setStates(Set<TestRunState> states) {
-    this.states = JsonNullable.<Set<TestRunState>>of(states);
+    this.states = states;
   }
 
 
   public TestRunFilterModel startedDate(TestRunFilterModelStartedDate startedDate) {
-    this.startedDate = JsonNullable.<TestRunFilterModelStartedDate>of(startedDate);
+    
+    this.startedDate = startedDate;
     return this;
   }
 
@@ -227,44 +200,28 @@ public class TestRunFilterModel {
    * Get startedDate
    * @return startedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunFilterModelStartedDate getStartedDate() {
-        return startedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STARTED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunFilterModelStartedDate> getStartedDate_JsonNullable() {
     return startedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STARTED_DATE)
-  public void setStartedDate_JsonNullable(JsonNullable<TestRunFilterModelStartedDate> startedDate) {
-    this.startedDate = startedDate;
-  }
+
 
   public void setStartedDate(TestRunFilterModelStartedDate startedDate) {
-    this.startedDate = JsonNullable.<TestRunFilterModelStartedDate>of(startedDate);
+    this.startedDate = startedDate;
   }
 
 
   public TestRunFilterModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    
+    this.createdByIds = createdByIds;
     return this;
   }
 
   public TestRunFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
-      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.createdByIds == null) {
+      this.createdByIds = new LinkedHashSet<>();
     }
-    try {
-      this.createdByIds.get().add(createdByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.createdByIds.add(createdByIdsItem);
     return this;
   }
 
@@ -272,44 +229,28 @@ public class TestRunFilterModel {
    * Specifies a test run creator IDs to search for
    * @return createdByIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
-        return createdByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
-  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
-    this.createdByIds = createdByIds;
-  }
+
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+    this.createdByIds = createdByIds;
   }
 
 
   public TestRunFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    
+    this.modifiedByIds = modifiedByIds;
     return this;
   }
 
   public TestRunFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null || !this.modifiedByIds.isPresent()) {
-      this.modifiedByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.modifiedByIds == null) {
+      this.modifiedByIds = new LinkedHashSet<>();
     }
-    try {
-      this.modifiedByIds.get().add(modifiedByIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
 
@@ -317,32 +258,20 @@ public class TestRunFilterModel {
    * Specifies a test run last editor IDs to search for
    * @return modifiedByIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getModifiedByIds() {
-        return modifiedByIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getModifiedByIds_JsonNullable() {
     return modifiedByIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
-  public void setModifiedByIds_JsonNullable(JsonNullable<Set<UUID>> modifiedByIds) {
-    this.modifiedByIds = modifiedByIds;
-  }
+
 
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
+    this.modifiedByIds = modifiedByIds;
   }
 
 
   public TestRunFilterModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    
+    this.isDeleted = isDeleted;
     return this;
   }
 
@@ -350,32 +279,20 @@ public class TestRunFilterModel {
    * Specifies a test run deleted status to search for
    * @return isDeleted
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getIsDeleted() {
-        return isDeleted.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
     return isDeleted;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
-    this.isDeleted = isDeleted;
-  }
+
 
   public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    this.isDeleted = isDeleted;
   }
 
 
   public TestRunFilterModel autoTestsCount(TestRunFilterModelAutoTestsCount autoTestsCount) {
-    this.autoTestsCount = JsonNullable.<TestRunFilterModelAutoTestsCount>of(autoTestsCount);
+    
+    this.autoTestsCount = autoTestsCount;
     return this;
   }
 
@@ -383,44 +300,28 @@ public class TestRunFilterModel {
    * Get autoTestsCount
    * @return autoTestsCount
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunFilterModelAutoTestsCount getAutoTestsCount() {
-        return autoTestsCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_AUTO_TESTS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunFilterModelAutoTestsCount> getAutoTestsCount_JsonNullable() {
     return autoTestsCount;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AUTO_TESTS_COUNT)
-  public void setAutoTestsCount_JsonNullable(JsonNullable<TestRunFilterModelAutoTestsCount> autoTestsCount) {
-    this.autoTestsCount = autoTestsCount;
-  }
+
 
   public void setAutoTestsCount(TestRunFilterModelAutoTestsCount autoTestsCount) {
-    this.autoTestsCount = JsonNullable.<TestRunFilterModelAutoTestsCount>of(autoTestsCount);
+    this.autoTestsCount = autoTestsCount;
   }
 
 
   public TestRunFilterModel testResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
-    this.testResultsOutcome = JsonNullable.<List<TestResultOutcome>>of(testResultsOutcome);
+    
+    this.testResultsOutcome = testResultsOutcome;
     return this;
   }
 
   public TestRunFilterModel addTestResultsOutcomeItem(TestResultOutcome testResultsOutcomeItem) {
-    if (this.testResultsOutcome == null || !this.testResultsOutcome.isPresent()) {
-      this.testResultsOutcome = JsonNullable.<List<TestResultOutcome>>of(new ArrayList<>());
+    if (this.testResultsOutcome == null) {
+      this.testResultsOutcome = new ArrayList<>();
     }
-    try {
-      this.testResultsOutcome.get().add(testResultsOutcomeItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.testResultsOutcome.add(testResultsOutcomeItem);
     return this;
   }
 
@@ -428,44 +329,28 @@ public class TestRunFilterModel {
    * Specifies test results outcomes
    * @return testResultsOutcome
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<TestResultOutcome> getTestResultsOutcome() {
-        return testResultsOutcome.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_RESULTS_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<TestResultOutcome>> getTestResultsOutcome_JsonNullable() {
     return testResultsOutcome;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_RESULTS_OUTCOME)
-  public void setTestResultsOutcome_JsonNullable(JsonNullable<List<TestResultOutcome>> testResultsOutcome) {
-    this.testResultsOutcome = testResultsOutcome;
-  }
+
 
   public void setTestResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
-    this.testResultsOutcome = JsonNullable.<List<TestResultOutcome>>of(testResultsOutcome);
+    this.testResultsOutcome = testResultsOutcome;
   }
 
 
   public TestRunFilterModel failureCategory(List<FailureCategoryModel> failureCategory) {
-    this.failureCategory = JsonNullable.<List<FailureCategoryModel>>of(failureCategory);
+    
+    this.failureCategory = failureCategory;
     return this;
   }
 
   public TestRunFilterModel addFailureCategoryItem(FailureCategoryModel failureCategoryItem) {
-    if (this.failureCategory == null || !this.failureCategory.isPresent()) {
-      this.failureCategory = JsonNullable.<List<FailureCategoryModel>>of(new ArrayList<>());
+    if (this.failureCategory == null) {
+      this.failureCategory = new ArrayList<>();
     }
-    try {
-      this.failureCategory.get().add(failureCategoryItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.failureCategory.add(failureCategoryItem);
     return this;
   }
 
@@ -473,32 +358,20 @@ public class TestRunFilterModel {
    * Specifies failure categories
    * @return failureCategory
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<FailureCategoryModel> getFailureCategory() {
-        return failureCategory.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<FailureCategoryModel>> getFailureCategory_JsonNullable() {
     return failureCategory;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  public void setFailureCategory_JsonNullable(JsonNullable<List<FailureCategoryModel>> failureCategory) {
-    this.failureCategory = failureCategory;
-  }
+
 
   public void setFailureCategory(List<FailureCategoryModel> failureCategory) {
-    this.failureCategory = JsonNullable.<List<FailureCategoryModel>>of(failureCategory);
+    this.failureCategory = failureCategory;
   }
 
 
   public TestRunFilterModel completedDate(TestRunFilterModelCompletedDate completedDate) {
-    this.completedDate = JsonNullable.<TestRunFilterModelCompletedDate>of(completedDate);
+    
+    this.completedDate = completedDate;
     return this;
   }
 
@@ -506,33 +379,18 @@ public class TestRunFilterModel {
    * Get completedDate
    * @return completedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunFilterModelCompletedDate getCompletedDate() {
-        return completedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMPLETED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunFilterModelCompletedDate> getCompletedDate_JsonNullable() {
     return completedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMPLETED_DATE)
-  public void setCompletedDate_JsonNullable(JsonNullable<TestRunFilterModelCompletedDate> completedDate) {
+
+
+  public void setCompletedDate(TestRunFilterModelCompletedDate completedDate) {
     this.completedDate = completedDate;
   }
 
-  public void setCompletedDate(TestRunFilterModelCompletedDate completedDate) {
-    this.completedDate = JsonNullable.<TestRunFilterModelCompletedDate>of(completedDate);
-  }
 
 
-  /**
-   * Return true if this TestRunFilterModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -542,17 +400,17 @@ public class TestRunFilterModel {
       return false;
     }
     TestRunFilterModel testRunFilterModel = (TestRunFilterModel) o;
-    return equalsNullable(this.projectIds, testRunFilterModel.projectIds) &&
-        equalsNullable(this.name, testRunFilterModel.name) &&
-        equalsNullable(this.states, testRunFilterModel.states) &&
-        equalsNullable(this.startedDate, testRunFilterModel.startedDate) &&
-        equalsNullable(this.createdByIds, testRunFilterModel.createdByIds) &&
-        equalsNullable(this.modifiedByIds, testRunFilterModel.modifiedByIds) &&
-        equalsNullable(this.isDeleted, testRunFilterModel.isDeleted) &&
-        equalsNullable(this.autoTestsCount, testRunFilterModel.autoTestsCount) &&
-        equalsNullable(this.testResultsOutcome, testRunFilterModel.testResultsOutcome) &&
-        equalsNullable(this.failureCategory, testRunFilterModel.failureCategory) &&
-        equalsNullable(this.completedDate, testRunFilterModel.completedDate);
+    return Objects.equals(this.projectIds, testRunFilterModel.projectIds) &&
+        Objects.equals(this.name, testRunFilterModel.name) &&
+        Objects.equals(this.states, testRunFilterModel.states) &&
+        Objects.equals(this.startedDate, testRunFilterModel.startedDate) &&
+        Objects.equals(this.createdByIds, testRunFilterModel.createdByIds) &&
+        Objects.equals(this.modifiedByIds, testRunFilterModel.modifiedByIds) &&
+        Objects.equals(this.isDeleted, testRunFilterModel.isDeleted) &&
+        Objects.equals(this.autoTestsCount, testRunFilterModel.autoTestsCount) &&
+        Objects.equals(this.testResultsOutcome, testRunFilterModel.testResultsOutcome) &&
+        Objects.equals(this.failureCategory, testRunFilterModel.failureCategory) &&
+        Objects.equals(this.completedDate, testRunFilterModel.completedDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -561,7 +419,7 @@ public class TestRunFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(states), hashCodeNullable(startedDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(autoTestsCount), hashCodeNullable(testResultsOutcome), hashCodeNullable(failureCategory), hashCodeNullable(completedDate));
+    return Objects.hash(projectIds, name, states, startedDate, createdByIds, modifiedByIds, isDeleted, autoTestsCount, testResultsOutcome, failureCategory, completedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -601,5 +459,137 @@ public class TestRunFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projectIds");
+    openapiFields.add("name");
+    openapiFields.add("states");
+    openapiFields.add("startedDate");
+    openapiFields.add("createdByIds");
+    openapiFields.add("modifiedByIds");
+    openapiFields.add("isDeleted");
+    openapiFields.add("autoTestsCount");
+    openapiFields.add("testResultsOutcome");
+    openapiFields.add("failureCategory");
+    openapiFields.add("completedDate");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunFilterModel is not found in the empty JSON string", TestRunFilterModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
+      }
+      // validate the optional field `startedDate`
+      if (jsonObj.get("startedDate") != null && !jsonObj.get("startedDate").isJsonNull()) {
+        TestRunFilterModelStartedDate.validateJsonObject(jsonObj.getAsJsonObject("startedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
+      }
+      // validate the optional field `autoTestsCount`
+      if (jsonObj.get("autoTestsCount") != null && !jsonObj.get("autoTestsCount").isJsonNull()) {
+        TestRunFilterModelAutoTestsCount.validateJsonObject(jsonObj.getAsJsonObject("autoTestsCount"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testResultsOutcome") != null && !jsonObj.get("testResultsOutcome").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testResultsOutcome` to be an array in the JSON string but got `%s`", jsonObj.get("testResultsOutcome").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("failureCategory") != null && !jsonObj.get("failureCategory").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureCategory` to be an array in the JSON string but got `%s`", jsonObj.get("failureCategory").toString()));
+      }
+      // validate the optional field `completedDate`
+      if (jsonObj.get("completedDate") != null && !jsonObj.get("completedDate").isJsonNull()) {
+        TestRunFilterModelCompletedDate.validateJsonObject(jsonObj.getAsJsonObject("completedDate"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunFilterModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunFilterModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunFilterModel>() {
+           @Override
+           public void write(JsonWriter out, TestRunFilterModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunFilterModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunFilterModel
+  * @throws IOException if the JSON string is invalid with respect to TestRunFilterModel
+  */
+  public static TestRunFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunFilterModel.class);
+  }
+
+ /**
+  * Convert an instance of TestRunFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

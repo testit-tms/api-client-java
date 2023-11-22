@@ -15,42 +15,59 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.PeriodViewModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * PeriodViewModelChangedFieldViewModel
  */
-@JsonPropertyOrder({
-  PeriodViewModelChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
-  PeriodViewModelChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PeriodViewModelChangedFieldViewModel {
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
-  private JsonNullable<PeriodViewModel> oldValue = JsonNullable.<PeriodViewModel>undefined();
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private PeriodViewModel oldValue;
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
-  private JsonNullable<PeriodViewModel> newValue = JsonNullable.<PeriodViewModel>undefined();
+  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
+  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  private PeriodViewModel newValue;
 
-  public PeriodViewModelChangedFieldViewModel() { 
+  public PeriodViewModelChangedFieldViewModel() {
   }
 
   public PeriodViewModelChangedFieldViewModel oldValue(PeriodViewModel oldValue) {
-    this.oldValue = JsonNullable.<PeriodViewModel>of(oldValue);
+    
+    this.oldValue = oldValue;
     return this;
   }
 
@@ -58,32 +75,20 @@ public class PeriodViewModelChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public PeriodViewModel getOldValue() {
-        return oldValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<PeriodViewModel> getOldValue_JsonNullable() {
     return oldValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  public void setOldValue_JsonNullable(JsonNullable<PeriodViewModel> oldValue) {
-    this.oldValue = oldValue;
-  }
+
 
   public void setOldValue(PeriodViewModel oldValue) {
-    this.oldValue = JsonNullable.<PeriodViewModel>of(oldValue);
+    this.oldValue = oldValue;
   }
 
 
   public PeriodViewModelChangedFieldViewModel newValue(PeriodViewModel newValue) {
-    this.newValue = JsonNullable.<PeriodViewModel>of(newValue);
+    
+    this.newValue = newValue;
     return this;
   }
 
@@ -91,33 +96,18 @@ public class PeriodViewModelChangedFieldViewModel {
    * Get newValue
    * @return newValue
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public PeriodViewModel getNewValue() {
-        return newValue.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<PeriodViewModel> getNewValue_JsonNullable() {
     return newValue;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-  public void setNewValue_JsonNullable(JsonNullable<PeriodViewModel> newValue) {
+
+
+  public void setNewValue(PeriodViewModel newValue) {
     this.newValue = newValue;
   }
 
-  public void setNewValue(PeriodViewModel newValue) {
-    this.newValue = JsonNullable.<PeriodViewModel>of(newValue);
-  }
 
 
-  /**
-   * Return true if this PeriodViewModelChangedFieldViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -127,8 +117,8 @@ public class PeriodViewModelChangedFieldViewModel {
       return false;
     }
     PeriodViewModelChangedFieldViewModel periodViewModelChangedFieldViewModel = (PeriodViewModelChangedFieldViewModel) o;
-    return equalsNullable(this.oldValue, periodViewModelChangedFieldViewModel.oldValue) &&
-        equalsNullable(this.newValue, periodViewModelChangedFieldViewModel.newValue);
+    return Objects.equals(this.oldValue, periodViewModelChangedFieldViewModel.oldValue) &&
+        Objects.equals(this.newValue, periodViewModelChangedFieldViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -137,7 +127,7 @@ public class PeriodViewModelChangedFieldViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(oldValue), hashCodeNullable(newValue));
+    return Objects.hash(oldValue, newValue);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -168,5 +158,97 @@ public class PeriodViewModelChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("oldValue");
+    openapiFields.add("newValue");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to PeriodViewModelChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!PeriodViewModelChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PeriodViewModelChangedFieldViewModel is not found in the empty JSON string", PeriodViewModelChangedFieldViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!PeriodViewModelChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PeriodViewModelChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `oldValue`
+      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
+        PeriodViewModel.validateJsonObject(jsonObj.getAsJsonObject("oldValue"));
+      }
+      // validate the optional field `newValue`
+      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
+        PeriodViewModel.validateJsonObject(jsonObj.getAsJsonObject("newValue"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!PeriodViewModelChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PeriodViewModelChangedFieldViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<PeriodViewModelChangedFieldViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PeriodViewModelChangedFieldViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<PeriodViewModelChangedFieldViewModel>() {
+           @Override
+           public void write(JsonWriter out, PeriodViewModelChangedFieldViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public PeriodViewModelChangedFieldViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of PeriodViewModelChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PeriodViewModelChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to PeriodViewModelChangedFieldViewModel
+  */
+  public static PeriodViewModelChangedFieldViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PeriodViewModelChangedFieldViewModel.class);
+  }
+
+ /**
+  * Convert an instance of PeriodViewModelChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

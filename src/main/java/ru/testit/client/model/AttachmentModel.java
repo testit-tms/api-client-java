@@ -15,71 +15,92 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * AttachmentModel
  */
-@JsonPropertyOrder({
-  AttachmentModel.JSON_PROPERTY_FILE_ID,
-  AttachmentModel.JSON_PROPERTY_TYPE,
-  AttachmentModel.JSON_PROPERTY_SIZE,
-  AttachmentModel.JSON_PROPERTY_CREATED_DATE,
-  AttachmentModel.JSON_PROPERTY_MODIFIED_DATE,
-  AttachmentModel.JSON_PROPERTY_CREATED_BY_ID,
-  AttachmentModel.JSON_PROPERTY_MODIFIED_BY_ID,
-  AttachmentModel.JSON_PROPERTY_NAME,
-  AttachmentModel.JSON_PROPERTY_ID
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AttachmentModel {
-  public static final String JSON_PROPERTY_FILE_ID = "fileId";
-  private JsonNullable<String> fileId = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_FILE_ID = "fileId";
+  @SerializedName(SERIALIZED_NAME_FILE_ID)
+  private String fileId;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public static final String JSON_PROPERTY_SIZE = "size";
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
   private Float size;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private OffsetDateTime createdDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
 
-  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
   private UUID createdById;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
-  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_IS_TEMP = "isTemp";
+  @SerializedName(SERIALIZED_NAME_IS_TEMP)
+  private Boolean isTemp;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public AttachmentModel() { 
+  public AttachmentModel() {
   }
 
   public AttachmentModel fileId(String fileId) {
-    this.fileId = JsonNullable.<String>of(fileId);
+    
+    this.fileId = fileId;
     return this;
   }
 
@@ -87,32 +108,20 @@ public class AttachmentModel {
    * Unique ID of the attachment file
    * @return fileId
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getFileId() {
-        return fileId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getFileId_JsonNullable() {
     return fileId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
-  public void setFileId_JsonNullable(JsonNullable<String> fileId) {
-    this.fileId = fileId;
-  }
+
 
   public void setFileId(String fileId) {
-    this.fileId = JsonNullable.<String>of(fileId);
+    this.fileId = fileId;
   }
 
 
   public AttachmentModel type(String type) {
-    this.type = JsonNullable.<String>of(type);
+    
+    this.type = type;
     return this;
   }
 
@@ -120,31 +129,19 @@ public class AttachmentModel {
    * MIME type of the attachment
    * @return type
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<String> type) {
-    this.type = type;
-  }
+
 
   public void setType(String type) {
-    this.type = JsonNullable.<String>of(type);
+    this.type = type;
   }
 
 
   public AttachmentModel size(Float size) {
+    
     this.size = size;
     return this;
   }
@@ -153,23 +150,19 @@ public class AttachmentModel {
    * Size in bytes of the attachment file
    * @return size
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Float getSize() {
     return size;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSize(Float size) {
     this.size = size;
   }
 
 
   public AttachmentModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -178,24 +171,20 @@ public class AttachmentModel {
    * Creation date of the attachment
    * @return createdDate
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public AttachmentModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -203,31 +192,19 @@ public class AttachmentModel {
    * Last modification date of the attachment
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
+
 
   public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    this.modifiedDate = modifiedDate;
   }
 
 
   public AttachmentModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -236,24 +213,20 @@ public class AttachmentModel {
    * Unique ID of the attachment creator
    * @return createdById
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public AttachmentModel modifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    
+    this.modifiedById = modifiedById;
     return this;
   }
 
@@ -261,32 +234,20 @@ public class AttachmentModel {
    * Unique ID of the attachment last editor
    * @return modifiedById
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getModifiedById() {
-        return modifiedById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
-    this.modifiedById = modifiedById;
-  }
+
 
   public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    this.modifiedById = modifiedById;
   }
 
 
   public AttachmentModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -294,31 +255,40 @@ public class AttachmentModel {
    * Name of the attachment file
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
+
+
+  public void setName(String name) {
     this.name = name;
   }
 
-  public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+
+  public AttachmentModel isTemp(Boolean isTemp) {
+    
+    this.isTemp = isTemp;
+    return this;
+  }
+
+   /**
+   * Indicates whether the attachment is temporary (may be automatically deleted)
+   * @return isTemp
+  **/
+  @javax.annotation.Nonnull
+  public Boolean getIsTemp() {
+    return isTemp;
+  }
+
+
+  public void setIsTemp(Boolean isTemp) {
+    this.isTemp = isTemp;
   }
 
 
   public AttachmentModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -327,25 +297,18 @@ public class AttachmentModel {
    * Unique ID of the attachment
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
-  /**
-   * Return true if this AttachmentModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -355,14 +318,15 @@ public class AttachmentModel {
       return false;
     }
     AttachmentModel attachmentModel = (AttachmentModel) o;
-    return equalsNullable(this.fileId, attachmentModel.fileId) &&
-        equalsNullable(this.type, attachmentModel.type) &&
+    return Objects.equals(this.fileId, attachmentModel.fileId) &&
+        Objects.equals(this.type, attachmentModel.type) &&
         Objects.equals(this.size, attachmentModel.size) &&
         Objects.equals(this.createdDate, attachmentModel.createdDate) &&
-        equalsNullable(this.modifiedDate, attachmentModel.modifiedDate) &&
+        Objects.equals(this.modifiedDate, attachmentModel.modifiedDate) &&
         Objects.equals(this.createdById, attachmentModel.createdById) &&
-        equalsNullable(this.modifiedById, attachmentModel.modifiedById) &&
-        equalsNullable(this.name, attachmentModel.name) &&
+        Objects.equals(this.modifiedById, attachmentModel.modifiedById) &&
+        Objects.equals(this.name, attachmentModel.name) &&
+        Objects.equals(this.isTemp, attachmentModel.isTemp) &&
         Objects.equals(this.id, attachmentModel.id);
   }
 
@@ -372,7 +336,7 @@ public class AttachmentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(fileId), hashCodeNullable(type), size, createdDate, hashCodeNullable(modifiedDate), createdById, hashCodeNullable(modifiedById), hashCodeNullable(name), id);
+    return Objects.hash(fileId, type, size, createdDate, modifiedDate, createdById, modifiedById, name, isTemp, id);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -394,6 +358,7 @@ public class AttachmentModel {
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isTemp: ").append(toIndentedString(isTemp)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -410,5 +375,130 @@ public class AttachmentModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("fileId");
+    openapiFields.add("type");
+    openapiFields.add("size");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("createdById");
+    openapiFields.add("modifiedById");
+    openapiFields.add("name");
+    openapiFields.add("isTemp");
+    openapiFields.add("id");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("fileId");
+    openapiRequiredFields.add("type");
+    openapiRequiredFields.add("size");
+    openapiRequiredFields.add("createdDate");
+    openapiRequiredFields.add("createdById");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("isTemp");
+    openapiRequiredFields.add("id");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AttachmentModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AttachmentModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AttachmentModel is not found in the empty JSON string", AttachmentModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AttachmentModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AttachmentModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : AttachmentModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("fileId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fileId").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if (!jsonObj.get("createdById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AttachmentModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AttachmentModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AttachmentModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AttachmentModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AttachmentModel>() {
+           @Override
+           public void write(JsonWriter out, AttachmentModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AttachmentModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AttachmentModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AttachmentModel
+  * @throws IOException if the JSON string is invalid with respect to AttachmentModel
+  */
+  public static AttachmentModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AttachmentModel.class);
+  }
+
+ /**
+  * Convert an instance of AttachmentModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
