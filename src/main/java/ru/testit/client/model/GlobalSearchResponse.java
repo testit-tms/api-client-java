@@ -15,43 +15,63 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import ru.testit.client.model.GlobalSearchItemResult;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * GlobalSearchResponse
  */
-@JsonPropertyOrder({
-  GlobalSearchResponse.JSON_PROPERTY_RESULTS,
-  GlobalSearchResponse.JSON_PROPERTY_MORE_RESULTS_AVAILABLE,
-  GlobalSearchResponse.JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GlobalSearchResponse {
-  public static final String JSON_PROPERTY_RESULTS = "results";
+  public static final String SERIALIZED_NAME_RESULTS = "results";
+  @SerializedName(SERIALIZED_NAME_RESULTS)
   private List<GlobalSearchItemResult> results = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_MORE_RESULTS_AVAILABLE = "moreResultsAvailable";
+  public static final String SERIALIZED_NAME_MORE_RESULTS_AVAILABLE = "moreResultsAvailable";
+  @SerializedName(SERIALIZED_NAME_MORE_RESULTS_AVAILABLE)
   private Boolean moreResultsAvailable;
 
-  public static final String JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES = "availableResourceTypes";
+  public static final String SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES = "availableResourceTypes";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES)
   private List<String> availableResourceTypes = new ArrayList<>();
 
-  public GlobalSearchResponse() { 
+  public GlobalSearchResponse() {
   }
 
   public GlobalSearchResponse results(List<GlobalSearchItemResult> results) {
+    
     this.results = results;
     return this;
   }
@@ -68,23 +88,19 @@ public class GlobalSearchResponse {
    * Get results
    * @return results
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public List<GlobalSearchItemResult> getResults() {
     return results;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResults(List<GlobalSearchItemResult> results) {
     this.results = results;
   }
 
 
   public GlobalSearchResponse moreResultsAvailable(Boolean moreResultsAvailable) {
+    
     this.moreResultsAvailable = moreResultsAvailable;
     return this;
   }
@@ -93,23 +109,19 @@ public class GlobalSearchResponse {
    * Get moreResultsAvailable
    * @return moreResultsAvailable
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MORE_RESULTS_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getMoreResultsAvailable() {
     return moreResultsAvailable;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MORE_RESULTS_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMoreResultsAvailable(Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
   }
 
 
   public GlobalSearchResponse availableResourceTypes(List<String> availableResourceTypes) {
+    
     this.availableResourceTypes = availableResourceTypes;
     return this;
   }
@@ -126,25 +138,18 @@ public class GlobalSearchResponse {
    * Get availableResourceTypes
    * @return availableResourceTypes
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public List<String> getAvailableResourceTypes() {
     return availableResourceTypes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAvailableResourceTypes(List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
   }
 
 
-  /**
-   * Return true if this GlobalSearchResponse object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,5 +191,116 @@ public class GlobalSearchResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("results");
+    openapiFields.add("moreResultsAvailable");
+    openapiFields.add("availableResourceTypes");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("results");
+    openapiRequiredFields.add("moreResultsAvailable");
+    openapiRequiredFields.add("availableResourceTypes");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to GlobalSearchResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!GlobalSearchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GlobalSearchResponse is not found in the empty JSON string", GlobalSearchResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!GlobalSearchResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSearchResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : GlobalSearchResponse.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("results").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+      }
+
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      // validate the required field `results` (array)
+      for (int i = 0; i < jsonArrayresults.size(); i++) {
+        GlobalSearchItemResult.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
+      };
+      // ensure the required json array is present
+      if (jsonObj.get("availableResourceTypes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("availableResourceTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `availableResourceTypes` to be an array in the JSON string but got `%s`", jsonObj.get("availableResourceTypes").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!GlobalSearchResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GlobalSearchResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<GlobalSearchResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GlobalSearchResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<GlobalSearchResponse>() {
+           @Override
+           public void write(JsonWriter out, GlobalSearchResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public GlobalSearchResponse read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of GlobalSearchResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of GlobalSearchResponse
+  * @throws IOException if the JSON string is invalid with respect to GlobalSearchResponse
+  */
+  public static GlobalSearchResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GlobalSearchResponse.class);
+  }
+
+ /**
+  * Convert an instance of GlobalSearchResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

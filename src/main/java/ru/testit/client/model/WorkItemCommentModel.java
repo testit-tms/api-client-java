@@ -15,63 +15,80 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.UserWithRankModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import ru.testit.client.model.WorkItemCommentModelUser;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemCommentModel
  */
-@JsonPropertyOrder({
-  WorkItemCommentModel.JSON_PROPERTY_ID,
-  WorkItemCommentModel.JSON_PROPERTY_TEXT,
-  WorkItemCommentModel.JSON_PROPERTY_USER,
-  WorkItemCommentModel.JSON_PROPERTY_CREATED_BY_ID,
-  WorkItemCommentModel.JSON_PROPERTY_MODIFIED_BY_ID,
-  WorkItemCommentModel.JSON_PROPERTY_CREATED_DATE,
-  WorkItemCommentModel.JSON_PROPERTY_MODIFIED_DATE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemCommentModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_TEXT = "text";
-  private JsonNullable<String> text = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
-  public static final String JSON_PROPERTY_USER = "user";
-  private JsonNullable<UserWithRankModel> user = JsonNullable.<UserWithRankModel>undefined();
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private WorkItemCommentModelUser user;
 
-  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
   private UUID createdById;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
-  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private OffsetDateTime createdDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
 
-  public WorkItemCommentModel() { 
+  public WorkItemCommentModel() {
   }
 
   public WorkItemCommentModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -80,24 +97,20 @@ public class WorkItemCommentModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemCommentModel text(String text) {
-    this.text = JsonNullable.<String>of(text);
+    
+    this.text = text;
     return this;
   }
 
@@ -105,32 +118,20 @@ public class WorkItemCommentModel {
    * Get text
    * @return text
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getText() {
-        return text.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getText_JsonNullable() {
     return text;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEXT)
-  public void setText_JsonNullable(JsonNullable<String> text) {
+
+
+  public void setText(String text) {
     this.text = text;
   }
 
-  public void setText(String text) {
-    this.text = JsonNullable.<String>of(text);
-  }
 
-
-  public WorkItemCommentModel user(UserWithRankModel user) {
-    this.user = JsonNullable.<UserWithRankModel>of(user);
+  public WorkItemCommentModel user(WorkItemCommentModelUser user) {
+    
+    this.user = user;
     return this;
   }
 
@@ -138,31 +139,19 @@ public class WorkItemCommentModel {
    * Get user
    * @return user
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public UserWithRankModel getUser() {
-        return user.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UserWithRankModel> getUser_JsonNullable() {
+  @javax.annotation.Nonnull
+  public WorkItemCommentModelUser getUser() {
     return user;
   }
-  
-  @JsonProperty(JSON_PROPERTY_USER)
-  public void setUser_JsonNullable(JsonNullable<UserWithRankModel> user) {
-    this.user = user;
-  }
 
-  public void setUser(UserWithRankModel user) {
-    this.user = JsonNullable.<UserWithRankModel>of(user);
+
+  public void setUser(WorkItemCommentModelUser user) {
+    this.user = user;
   }
 
 
   public WorkItemCommentModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -171,24 +160,20 @@ public class WorkItemCommentModel {
    * Get createdById
    * @return createdById
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public WorkItemCommentModel modifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    
+    this.modifiedById = modifiedById;
     return this;
   }
 
@@ -196,31 +181,19 @@ public class WorkItemCommentModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getModifiedById() {
-        return modifiedById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
-    this.modifiedById = modifiedById;
-  }
+
 
   public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    this.modifiedById = modifiedById;
   }
 
 
   public WorkItemCommentModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -229,24 +202,20 @@ public class WorkItemCommentModel {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public WorkItemCommentModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -254,33 +223,18 @@ public class WorkItemCommentModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
-  }
 
 
-  /**
-   * Return true if this WorkItemCommentModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -291,12 +245,12 @@ public class WorkItemCommentModel {
     }
     WorkItemCommentModel workItemCommentModel = (WorkItemCommentModel) o;
     return Objects.equals(this.id, workItemCommentModel.id) &&
-        equalsNullable(this.text, workItemCommentModel.text) &&
-        equalsNullable(this.user, workItemCommentModel.user) &&
+        Objects.equals(this.text, workItemCommentModel.text) &&
+        Objects.equals(this.user, workItemCommentModel.user) &&
         Objects.equals(this.createdById, workItemCommentModel.createdById) &&
-        equalsNullable(this.modifiedById, workItemCommentModel.modifiedById) &&
+        Objects.equals(this.modifiedById, workItemCommentModel.modifiedById) &&
         Objects.equals(this.createdDate, workItemCommentModel.createdDate) &&
-        equalsNullable(this.modifiedDate, workItemCommentModel.modifiedDate);
+        Objects.equals(this.modifiedDate, workItemCommentModel.modifiedDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -305,7 +259,7 @@ public class WorkItemCommentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(text), hashCodeNullable(user), createdById, hashCodeNullable(modifiedById), createdDate, hashCodeNullable(modifiedDate));
+    return Objects.hash(id, text, user, createdById, modifiedById, createdDate, modifiedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -341,5 +295,120 @@ public class WorkItemCommentModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("text");
+    openapiFields.add("user");
+    openapiFields.add("createdById");
+    openapiFields.add("modifiedById");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("text");
+    openapiRequiredFields.add("user");
+    openapiRequiredFields.add("createdById");
+    openapiRequiredFields.add("createdDate");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemCommentModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemCommentModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemCommentModel is not found in the empty JSON string", WorkItemCommentModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemCommentModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemCommentModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WorkItemCommentModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (!jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      }
+      // validate the required field `user`
+      WorkItemCommentModelUser.validateJsonObject(jsonObj.getAsJsonObject("user"));
+      if (!jsonObj.get("createdById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemCommentModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemCommentModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemCommentModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemCommentModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemCommentModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemCommentModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemCommentModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemCommentModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemCommentModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemCommentModel
+  */
+  public static WorkItemCommentModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemCommentModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemCommentModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

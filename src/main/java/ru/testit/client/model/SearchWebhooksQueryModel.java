@@ -15,58 +15,75 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.RequestTypeModel;
 import ru.testit.client.model.WebHookEventTypeModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * SearchWebhooksQueryModel
  */
-@JsonPropertyOrder({
-  SearchWebhooksQueryModel.JSON_PROPERTY_NAME,
-  SearchWebhooksQueryModel.JSON_PROPERTY_EVENT_TYPES,
-  SearchWebhooksQueryModel.JSON_PROPERTY_METHODS,
-  SearchWebhooksQueryModel.JSON_PROPERTY_PROJECT_IDS,
-  SearchWebhooksQueryModel.JSON_PROPERTY_IS_ENABLED
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SearchWebhooksQueryModel {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_EVENT_TYPES = "eventTypes";
-  private JsonNullable<Set<WebHookEventTypeModel>> eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>undefined();
+  public static final String SERIALIZED_NAME_EVENT_TYPES = "eventTypes";
+  @SerializedName(SERIALIZED_NAME_EVENT_TYPES)
+  private Set<WebHookEventTypeModel> eventTypes;
 
-  public static final String JSON_PROPERTY_METHODS = "methods";
-  private JsonNullable<Set<RequestTypeModel>> methods = JsonNullable.<Set<RequestTypeModel>>undefined();
+  public static final String SERIALIZED_NAME_METHODS = "methods";
+  @SerializedName(SERIALIZED_NAME_METHODS)
+  private Set<RequestTypeModel> methods;
 
-  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
-  private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private Set<UUID> projectIds;
 
-  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
-  private JsonNullable<Boolean> isEnabled = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
+  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  private Boolean isEnabled;
 
-  public SearchWebhooksQueryModel() { 
+  public SearchWebhooksQueryModel() {
   }
 
   public SearchWebhooksQueryModel name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -74,44 +91,28 @@ public class SearchWebhooksQueryModel {
    * Specifies a webhook name to search for
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public SearchWebhooksQueryModel eventTypes(Set<WebHookEventTypeModel> eventTypes) {
-    this.eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>of(eventTypes);
+    
+    this.eventTypes = eventTypes;
     return this;
   }
 
   public SearchWebhooksQueryModel addEventTypesItem(WebHookEventTypeModel eventTypesItem) {
-    if (this.eventTypes == null || !this.eventTypes.isPresent()) {
-      this.eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>of(new LinkedHashSet<>());
+    if (this.eventTypes == null) {
+      this.eventTypes = new LinkedHashSet<>();
     }
-    try {
-      this.eventTypes.get().add(eventTypesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.eventTypes.add(eventTypesItem);
     return this;
   }
 
@@ -119,44 +120,28 @@ public class SearchWebhooksQueryModel {
    * Specifies a webhook event types to search for
    * @return eventTypes
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<WebHookEventTypeModel> getEventTypes() {
-        return eventTypes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EVENT_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<WebHookEventTypeModel>> getEventTypes_JsonNullable() {
     return eventTypes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EVENT_TYPES)
-  public void setEventTypes_JsonNullable(JsonNullable<Set<WebHookEventTypeModel>> eventTypes) {
-    this.eventTypes = eventTypes;
-  }
+
 
   public void setEventTypes(Set<WebHookEventTypeModel> eventTypes) {
-    this.eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>of(eventTypes);
+    this.eventTypes = eventTypes;
   }
 
 
   public SearchWebhooksQueryModel methods(Set<RequestTypeModel> methods) {
-    this.methods = JsonNullable.<Set<RequestTypeModel>>of(methods);
+    
+    this.methods = methods;
     return this;
   }
 
   public SearchWebhooksQueryModel addMethodsItem(RequestTypeModel methodsItem) {
-    if (this.methods == null || !this.methods.isPresent()) {
-      this.methods = JsonNullable.<Set<RequestTypeModel>>of(new LinkedHashSet<>());
+    if (this.methods == null) {
+      this.methods = new LinkedHashSet<>();
     }
-    try {
-      this.methods.get().add(methodsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.methods.add(methodsItem);
     return this;
   }
 
@@ -164,44 +149,28 @@ public class SearchWebhooksQueryModel {
    * Specifies a webhook methods to search for
    * @return methods
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<RequestTypeModel> getMethods() {
-        return methods.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_METHODS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<RequestTypeModel>> getMethods_JsonNullable() {
     return methods;
   }
-  
-  @JsonProperty(JSON_PROPERTY_METHODS)
-  public void setMethods_JsonNullable(JsonNullable<Set<RequestTypeModel>> methods) {
-    this.methods = methods;
-  }
+
 
   public void setMethods(Set<RequestTypeModel> methods) {
-    this.methods = JsonNullable.<Set<RequestTypeModel>>of(methods);
+    this.methods = methods;
   }
 
 
   public SearchWebhooksQueryModel projectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    
+    this.projectIds = projectIds;
     return this;
   }
 
   public SearchWebhooksQueryModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null || !this.projectIds.isPresent()) {
-      this.projectIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.projectIds == null) {
+      this.projectIds = new LinkedHashSet<>();
     }
-    try {
-      this.projectIds.get().add(projectIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.projectIds.add(projectIdsItem);
     return this;
   }
 
@@ -209,32 +178,20 @@ public class SearchWebhooksQueryModel {
    * Specifies a webhook project IDs to search for
    * @return projectIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getProjectIds() {
-        return projectIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getProjectIds_JsonNullable() {
     return projectIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  public void setProjectIds_JsonNullable(JsonNullable<Set<UUID>> projectIds) {
-    this.projectIds = projectIds;
-  }
+
 
   public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
+    this.projectIds = projectIds;
   }
 
 
   public SearchWebhooksQueryModel isEnabled(Boolean isEnabled) {
-    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
+    
+    this.isEnabled = isEnabled;
     return this;
   }
 
@@ -242,33 +199,18 @@ public class SearchWebhooksQueryModel {
    * Specifies a webhook deleted status to search for
    * @return isEnabled
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getIsEnabled() {
-        return isEnabled.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsEnabled_JsonNullable() {
     return isEnabled;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  public void setIsEnabled_JsonNullable(JsonNullable<Boolean> isEnabled) {
+
+
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
-  }
 
 
-  /**
-   * Return true if this SearchWebhooksQueryModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -278,11 +220,11 @@ public class SearchWebhooksQueryModel {
       return false;
     }
     SearchWebhooksQueryModel searchWebhooksQueryModel = (SearchWebhooksQueryModel) o;
-    return equalsNullable(this.name, searchWebhooksQueryModel.name) &&
-        equalsNullable(this.eventTypes, searchWebhooksQueryModel.eventTypes) &&
-        equalsNullable(this.methods, searchWebhooksQueryModel.methods) &&
-        equalsNullable(this.projectIds, searchWebhooksQueryModel.projectIds) &&
-        equalsNullable(this.isEnabled, searchWebhooksQueryModel.isEnabled);
+    return Objects.equals(this.name, searchWebhooksQueryModel.name) &&
+        Objects.equals(this.eventTypes, searchWebhooksQueryModel.eventTypes) &&
+        Objects.equals(this.methods, searchWebhooksQueryModel.methods) &&
+        Objects.equals(this.projectIds, searchWebhooksQueryModel.projectIds) &&
+        Objects.equals(this.isEnabled, searchWebhooksQueryModel.isEnabled);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -291,7 +233,7 @@ public class SearchWebhooksQueryModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(eventTypes), hashCodeNullable(methods), hashCodeNullable(projectIds), hashCodeNullable(isEnabled));
+    return Objects.hash(name, eventTypes, methods, projectIds, isEnabled);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -325,5 +267,107 @@ public class SearchWebhooksQueryModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("eventTypes");
+    openapiFields.add("methods");
+    openapiFields.add("projectIds");
+    openapiFields.add("isEnabled");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SearchWebhooksQueryModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SearchWebhooksQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchWebhooksQueryModel is not found in the empty JSON string", SearchWebhooksQueryModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!SearchWebhooksQueryModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchWebhooksQueryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("eventTypes") != null && !jsonObj.get("eventTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `eventTypes` to be an array in the JSON string but got `%s`", jsonObj.get("eventTypes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("methods") != null && !jsonObj.get("methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `methods` to be an array in the JSON string but got `%s`", jsonObj.get("methods").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SearchWebhooksQueryModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SearchWebhooksQueryModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SearchWebhooksQueryModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SearchWebhooksQueryModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SearchWebhooksQueryModel>() {
+           @Override
+           public void write(JsonWriter out, SearchWebhooksQueryModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SearchWebhooksQueryModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of SearchWebhooksQueryModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SearchWebhooksQueryModel
+  * @throws IOException if the JSON string is invalid with respect to SearchWebhooksQueryModel
+  */
+  public static SearchWebhooksQueryModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SearchWebhooksQueryModel.class);
+  }
+
+ /**
+  * Convert an instance of SearchWebhooksQueryModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

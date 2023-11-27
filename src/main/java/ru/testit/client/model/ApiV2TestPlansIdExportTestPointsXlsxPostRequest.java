@@ -15,92 +15,108 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ApiV2TestPlansIdExportTestPointsXlsxPostRequest
  */
-@JsonPropertyOrder({
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_NAME,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_SECTION,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_PRIORITY,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_AUTOMATED,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_STATUS,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_DURATION,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_CREATION_DATE,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_AUTHOR,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_MODIFICATION_DATE,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_MODIFIED_BY,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_TAGS,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_INCLUDE_ITERATIONS,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS,
-  ApiV2TestPlansIdExportTestPointsXlsxPostRequest.JSON_PROPERTY_CONFIGURATION_IDS
-})
-@JsonTypeName("_api_v2_testPlans__id__export_testPoints_xlsx_post_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
-  public static final String JSON_PROPERTY_INCLUDE_NAME = "includeName";
+  public static final String SERIALIZED_NAME_INCLUDE_NAME = "includeName";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_NAME)
   private Boolean includeName;
 
-  public static final String JSON_PROPERTY_INCLUDE_SECTION = "includeSection";
+  public static final String SERIALIZED_NAME_INCLUDE_SECTION = "includeSection";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_SECTION)
   private Boolean includeSection;
 
-  public static final String JSON_PROPERTY_INCLUDE_PRIORITY = "includePriority";
+  public static final String SERIALIZED_NAME_INCLUDE_PRIORITY = "includePriority";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_PRIORITY)
   private Boolean includePriority;
 
-  public static final String JSON_PROPERTY_INCLUDE_AUTOMATED = "includeAutomated";
+  public static final String SERIALIZED_NAME_INCLUDE_AUTOMATED = "includeAutomated";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_AUTOMATED)
   private Boolean includeAutomated;
 
-  public static final String JSON_PROPERTY_INCLUDE_STATUS = "includeStatus";
+  public static final String SERIALIZED_NAME_INCLUDE_STATUS = "includeStatus";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_STATUS)
   private Boolean includeStatus;
 
-  public static final String JSON_PROPERTY_INCLUDE_DURATION = "includeDuration";
+  public static final String SERIALIZED_NAME_INCLUDE_DURATION = "includeDuration";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_DURATION)
   private Boolean includeDuration;
 
-  public static final String JSON_PROPERTY_INCLUDE_CREATION_DATE = "includeCreationDate";
+  public static final String SERIALIZED_NAME_INCLUDE_CREATION_DATE = "includeCreationDate";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_CREATION_DATE)
   private Boolean includeCreationDate;
 
-  public static final String JSON_PROPERTY_INCLUDE_AUTHOR = "includeAuthor";
+  public static final String SERIALIZED_NAME_INCLUDE_AUTHOR = "includeAuthor";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_AUTHOR)
   private Boolean includeAuthor;
 
-  public static final String JSON_PROPERTY_INCLUDE_MODIFICATION_DATE = "includeModificationDate";
+  public static final String SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE = "includeModificationDate";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE)
   private Boolean includeModificationDate;
 
-  public static final String JSON_PROPERTY_INCLUDE_MODIFIED_BY = "includeModifiedBy";
+  public static final String SERIALIZED_NAME_INCLUDE_MODIFIED_BY = "includeModifiedBy";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFIED_BY)
   private Boolean includeModifiedBy;
 
-  public static final String JSON_PROPERTY_INCLUDE_TAGS = "includeTags";
+  public static final String SERIALIZED_NAME_INCLUDE_TAGS = "includeTags";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_TAGS)
   private Boolean includeTags;
 
-  public static final String JSON_PROPERTY_INCLUDE_ITERATIONS = "includeIterations";
+  public static final String SERIALIZED_NAME_INCLUDE_ITERATIONS = "includeIterations";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_ITERATIONS)
   private Boolean includeIterations;
 
-  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
-  private JsonNullable<List<UUID>> customAttributesIds = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS)
+  private List<UUID> customAttributesIds;
 
-  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
-  private JsonNullable<List<UUID>> configurationIds = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  private List<UUID> configurationIds;
 
-  public ApiV2TestPlansIdExportTestPointsXlsxPostRequest() { 
+  public ApiV2TestPlansIdExportTestPointsXlsxPostRequest() {
   }
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeName(Boolean includeName) {
+    
     this.includeName = includeName;
     return this;
   }
@@ -109,23 +125,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeName
    * @return includeName
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeName() {
     return includeName;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeName(Boolean includeName) {
     this.includeName = includeName;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeSection(Boolean includeSection) {
+    
     this.includeSection = includeSection;
     return this;
   }
@@ -134,23 +146,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeSection
    * @return includeSection
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_SECTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeSection() {
     return includeSection;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_SECTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeSection(Boolean includeSection) {
     this.includeSection = includeSection;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includePriority(Boolean includePriority) {
+    
     this.includePriority = includePriority;
     return this;
   }
@@ -159,23 +167,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includePriority
    * @return includePriority
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludePriority() {
     return includePriority;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludePriority(Boolean includePriority) {
     this.includePriority = includePriority;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeAutomated(Boolean includeAutomated) {
+    
     this.includeAutomated = includeAutomated;
     return this;
   }
@@ -184,23 +188,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeAutomated
    * @return includeAutomated
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeAutomated() {
     return includeAutomated;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_AUTOMATED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeAutomated(Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeStatus(Boolean includeStatus) {
+    
     this.includeStatus = includeStatus;
     return this;
   }
@@ -209,23 +209,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeStatus
    * @return includeStatus
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeStatus() {
     return includeStatus;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeStatus(Boolean includeStatus) {
     this.includeStatus = includeStatus;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeDuration(Boolean includeDuration) {
+    
     this.includeDuration = includeDuration;
     return this;
   }
@@ -234,23 +230,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeDuration
    * @return includeDuration
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeDuration() {
     return includeDuration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeDuration(Boolean includeDuration) {
     this.includeDuration = includeDuration;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeCreationDate(Boolean includeCreationDate) {
+    
     this.includeCreationDate = includeCreationDate;
     return this;
   }
@@ -259,23 +251,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeCreationDate
    * @return includeCreationDate
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_CREATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeCreationDate() {
     return includeCreationDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_CREATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeCreationDate(Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeAuthor(Boolean includeAuthor) {
+    
     this.includeAuthor = includeAuthor;
     return this;
   }
@@ -284,23 +272,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeAuthor
    * @return includeAuthor
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_AUTHOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeAuthor() {
     return includeAuthor;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_AUTHOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeAuthor(Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeModificationDate(Boolean includeModificationDate) {
+    
     this.includeModificationDate = includeModificationDate;
     return this;
   }
@@ -309,23 +293,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeModificationDate
    * @return includeModificationDate
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFICATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeModificationDate() {
     return includeModificationDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFICATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeModificationDate(Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeModifiedBy(Boolean includeModifiedBy) {
+    
     this.includeModifiedBy = includeModifiedBy;
     return this;
   }
@@ -334,23 +314,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeModifiedBy
    * @return includeModifiedBy
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFIED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeModifiedBy() {
     return includeModifiedBy;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFIED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeModifiedBy(Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeTags(Boolean includeTags) {
+    
     this.includeTags = includeTags;
     return this;
   }
@@ -359,23 +335,19 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeTags
    * @return includeTags
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeTags() {
     return includeTags;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest includeIterations(Boolean includeIterations) {
+    
     this.includeIterations = includeIterations;
     return this;
   }
@@ -384,36 +356,28 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get includeIterations
    * @return includeIterations
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INCLUDE_ITERATIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getIncludeIterations() {
     return includeIterations;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INCLUDE_ITERATIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIncludeIterations(Boolean includeIterations) {
     this.includeIterations = includeIterations;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest customAttributesIds(List<UUID> customAttributesIds) {
-    this.customAttributesIds = JsonNullable.<List<UUID>>of(customAttributesIds);
+    
+    this.customAttributesIds = customAttributesIds;
     return this;
   }
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest addCustomAttributesIdsItem(UUID customAttributesIdsItem) {
-    if (this.customAttributesIds == null || !this.customAttributesIds.isPresent()) {
-      this.customAttributesIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.customAttributesIds == null) {
+      this.customAttributesIds = new ArrayList<>();
     }
-    try {
-      this.customAttributesIds.get().add(customAttributesIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.customAttributesIds.add(customAttributesIdsItem);
     return this;
   }
 
@@ -421,44 +385,28 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get customAttributesIds
    * @return customAttributesIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<UUID> getCustomAttributesIds() {
-        return customAttributesIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getCustomAttributesIds_JsonNullable() {
     return customAttributesIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS)
-  public void setCustomAttributesIds_JsonNullable(JsonNullable<List<UUID>> customAttributesIds) {
-    this.customAttributesIds = customAttributesIds;
-  }
+
 
   public void setCustomAttributesIds(List<UUID> customAttributesIds) {
-    this.customAttributesIds = JsonNullable.<List<UUID>>of(customAttributesIds);
+    this.customAttributesIds = customAttributesIds;
   }
 
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest configurationIds(List<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
+    
+    this.configurationIds = configurationIds;
     return this;
   }
 
   public ApiV2TestPlansIdExportTestPointsXlsxPostRequest addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
-      this.configurationIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.configurationIds == null) {
+      this.configurationIds = new ArrayList<>();
     }
-    try {
-      this.configurationIds.get().add(configurationIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.configurationIds.add(configurationIdsItem);
     return this;
   }
 
@@ -466,33 +414,18 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
    * Get configurationIds
    * @return configurationIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<UUID> getConfigurationIds() {
-        return configurationIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getConfigurationIds_JsonNullable() {
     return configurationIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
-  public void setConfigurationIds_JsonNullable(JsonNullable<List<UUID>> configurationIds) {
+
+
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
-    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
-  }
 
 
-  /**
-   * Return true if this _api_v2_testPlans__id__export_testPoints_xlsx_post_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -514,8 +447,8 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
         Objects.equals(this.includeModifiedBy, apiV2TestPlansIdExportTestPointsXlsxPostRequest.includeModifiedBy) &&
         Objects.equals(this.includeTags, apiV2TestPlansIdExportTestPointsXlsxPostRequest.includeTags) &&
         Objects.equals(this.includeIterations, apiV2TestPlansIdExportTestPointsXlsxPostRequest.includeIterations) &&
-        equalsNullable(this.customAttributesIds, apiV2TestPlansIdExportTestPointsXlsxPostRequest.customAttributesIds) &&
-        equalsNullable(this.configurationIds, apiV2TestPlansIdExportTestPointsXlsxPostRequest.configurationIds);
+        Objects.equals(this.customAttributesIds, apiV2TestPlansIdExportTestPointsXlsxPostRequest.customAttributesIds) &&
+        Objects.equals(this.configurationIds, apiV2TestPlansIdExportTestPointsXlsxPostRequest.configurationIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -524,7 +457,7 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeName, includeSection, includePriority, includeAutomated, includeStatus, includeDuration, includeCreationDate, includeAuthor, includeModificationDate, includeModifiedBy, includeTags, includeIterations, hashCodeNullable(customAttributesIds), hashCodeNullable(configurationIds));
+    return Objects.hash(includeName, includeSection, includePriority, includeAutomated, includeStatus, includeDuration, includeCreationDate, includeAuthor, includeModificationDate, includeModifiedBy, includeTags, includeIterations, customAttributesIds, configurationIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -567,5 +500,128 @@ public class ApiV2TestPlansIdExportTestPointsXlsxPostRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("includeName");
+    openapiFields.add("includeSection");
+    openapiFields.add("includePriority");
+    openapiFields.add("includeAutomated");
+    openapiFields.add("includeStatus");
+    openapiFields.add("includeDuration");
+    openapiFields.add("includeCreationDate");
+    openapiFields.add("includeAuthor");
+    openapiFields.add("includeModificationDate");
+    openapiFields.add("includeModifiedBy");
+    openapiFields.add("includeTags");
+    openapiFields.add("includeIterations");
+    openapiFields.add("customAttributesIds");
+    openapiFields.add("configurationIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("includeName");
+    openapiRequiredFields.add("includeSection");
+    openapiRequiredFields.add("includePriority");
+    openapiRequiredFields.add("includeAutomated");
+    openapiRequiredFields.add("includeStatus");
+    openapiRequiredFields.add("includeDuration");
+    openapiRequiredFields.add("includeCreationDate");
+    openapiRequiredFields.add("includeAuthor");
+    openapiRequiredFields.add("includeModificationDate");
+    openapiRequiredFields.add("includeModifiedBy");
+    openapiRequiredFields.add("includeTags");
+    openapiRequiredFields.add("includeIterations");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ApiV2TestPlansIdExportTestPointsXlsxPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2TestPlansIdExportTestPointsXlsxPostRequest is not found in the empty JSON string", ApiV2TestPlansIdExportTestPointsXlsxPostRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ApiV2TestPlansIdExportTestPointsXlsxPostRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2TestPlansIdExportTestPointsXlsxPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ApiV2TestPlansIdExportTestPointsXlsxPostRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("customAttributesIds") != null && !jsonObj.get("customAttributesIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customAttributesIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributesIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ApiV2TestPlansIdExportTestPointsXlsxPostRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2TestPlansIdExportTestPointsXlsxPostRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ApiV2TestPlansIdExportTestPointsXlsxPostRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2TestPlansIdExportTestPointsXlsxPostRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2TestPlansIdExportTestPointsXlsxPostRequest>() {
+           @Override
+           public void write(JsonWriter out, ApiV2TestPlansIdExportTestPointsXlsxPostRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ApiV2TestPlansIdExportTestPointsXlsxPostRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ApiV2TestPlansIdExportTestPointsXlsxPostRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+  */
+  public static ApiV2TestPlansIdExportTestPointsXlsxPostRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2TestPlansIdExportTestPointsXlsxPostRequest.class);
+  }
+
+ /**
+  * Convert an instance of ApiV2TestPlansIdExportTestPointsXlsxPostRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

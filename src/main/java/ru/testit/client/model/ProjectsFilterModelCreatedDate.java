@@ -15,43 +15,59 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * Specifies a project range of creation date to search for
  */
-@JsonPropertyOrder({
-  ProjectsFilterModelCreatedDate.JSON_PROPERTY_FROM,
-  ProjectsFilterModelCreatedDate.JSON_PROPERTY_TO
-})
-@JsonTypeName("ProjectsFilterModel_createdDate")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectsFilterModelCreatedDate {
-  public static final String JSON_PROPERTY_FROM = "from";
-  private JsonNullable<OffsetDateTime> from = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_FROM = "from";
+  @SerializedName(SERIALIZED_NAME_FROM)
+  private OffsetDateTime from;
 
-  public static final String JSON_PROPERTY_TO = "to";
-  private JsonNullable<OffsetDateTime> to = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_TO = "to";
+  @SerializedName(SERIALIZED_NAME_TO)
+  private OffsetDateTime to;
 
-  public ProjectsFilterModelCreatedDate() { 
+  public ProjectsFilterModelCreatedDate() {
   }
 
   public ProjectsFilterModelCreatedDate from(OffsetDateTime from) {
-    this.from = JsonNullable.<OffsetDateTime>of(from);
+    
+    this.from = from;
     return this;
   }
 
@@ -59,32 +75,20 @@ public class ProjectsFilterModelCreatedDate {
    * Get from
    * @return from
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getFrom() {
-        return from.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getFrom_JsonNullable() {
     return from;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FROM)
-  public void setFrom_JsonNullable(JsonNullable<OffsetDateTime> from) {
-    this.from = from;
-  }
+
 
   public void setFrom(OffsetDateTime from) {
-    this.from = JsonNullable.<OffsetDateTime>of(from);
+    this.from = from;
   }
 
 
   public ProjectsFilterModelCreatedDate to(OffsetDateTime to) {
-    this.to = JsonNullable.<OffsetDateTime>of(to);
+    
+    this.to = to;
     return this;
   }
 
@@ -92,33 +96,18 @@ public class ProjectsFilterModelCreatedDate {
    * Get to
    * @return to
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getTo() {
-        return to.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getTo_JsonNullable() {
     return to;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TO)
-  public void setTo_JsonNullable(JsonNullable<OffsetDateTime> to) {
+
+
+  public void setTo(OffsetDateTime to) {
     this.to = to;
   }
 
-  public void setTo(OffsetDateTime to) {
-    this.to = JsonNullable.<OffsetDateTime>of(to);
-  }
 
 
-  /**
-   * Return true if this ProjectsFilterModel_createdDate object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,8 +117,8 @@ public class ProjectsFilterModelCreatedDate {
       return false;
     }
     ProjectsFilterModelCreatedDate projectsFilterModelCreatedDate = (ProjectsFilterModelCreatedDate) o;
-    return equalsNullable(this.from, projectsFilterModelCreatedDate.from) &&
-        equalsNullable(this.to, projectsFilterModelCreatedDate.to);
+    return Objects.equals(this.from, projectsFilterModelCreatedDate.from) &&
+        Objects.equals(this.to, projectsFilterModelCreatedDate.to);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -138,7 +127,7 @@ public class ProjectsFilterModelCreatedDate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(from), hashCodeNullable(to));
+    return Objects.hash(from, to);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -169,5 +158,89 @@ public class ProjectsFilterModelCreatedDate {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("from");
+    openapiFields.add("to");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ProjectsFilterModelCreatedDate
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ProjectsFilterModelCreatedDate.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModelCreatedDate is not found in the empty JSON string", ProjectsFilterModelCreatedDate.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ProjectsFilterModelCreatedDate.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModelCreatedDate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ProjectsFilterModelCreatedDate.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ProjectsFilterModelCreatedDate' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ProjectsFilterModelCreatedDate> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectsFilterModelCreatedDate.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ProjectsFilterModelCreatedDate>() {
+           @Override
+           public void write(JsonWriter out, ProjectsFilterModelCreatedDate value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ProjectsFilterModelCreatedDate read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ProjectsFilterModelCreatedDate given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ProjectsFilterModelCreatedDate
+  * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModelCreatedDate
+  */
+  public static ProjectsFilterModelCreatedDate fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ProjectsFilterModelCreatedDate.class);
+  }
+
+ /**
+  * Convert an instance of ProjectsFilterModelCreatedDate to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

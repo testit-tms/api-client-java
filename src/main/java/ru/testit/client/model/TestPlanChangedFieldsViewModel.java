@@ -15,13 +15,12 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -35,77 +34,95 @@ import ru.testit.client.model.StringChangedFieldWithDiffsViewModel;
 import ru.testit.client.model.TestPointChangeViewModelChangedFieldViewModel;
 import ru.testit.client.model.TestResultChangeViewModelChangedFieldViewModel;
 import ru.testit.client.model.TestSuiteChangeViewModelChangedFieldViewModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestPlanChangedFieldsViewModel
  */
-@JsonPropertyOrder({
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_NAME,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_DESCRIPTION,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_PRODUCT_NAME,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_BUILD,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_PERIOD,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_STATUS,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_TAGS,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_TEST_SUITE,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_TEST_POINTS,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_TEST_RESULTS,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_LOCKING,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER,
-  TestPlanChangedFieldsViewModel.JSON_PROPERTY_ATTRIBUTES
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanChangedFieldsViewModel {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<StringChangedFieldWithDiffsViewModel> name = JsonNullable.<StringChangedFieldWithDiffsViewModel>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private StringChangedFieldWithDiffsViewModel name;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<StringChangedFieldWithDiffsViewModel> description = JsonNullable.<StringChangedFieldWithDiffsViewModel>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private StringChangedFieldWithDiffsViewModel description;
 
-  public static final String JSON_PROPERTY_PRODUCT_NAME = "productName";
-  private JsonNullable<StringChangedFieldViewModel> productName = JsonNullable.<StringChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
+  private StringChangedFieldViewModel productName;
 
-  public static final String JSON_PROPERTY_BUILD = "build";
-  private JsonNullable<StringChangedFieldViewModel> build = JsonNullable.<StringChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_BUILD = "build";
+  @SerializedName(SERIALIZED_NAME_BUILD)
+  private StringChangedFieldViewModel build;
 
-  public static final String JSON_PROPERTY_PERIOD = "period";
-  private JsonNullable<PeriodViewModelChangedFieldViewModel> period = JsonNullable.<PeriodViewModelChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_PERIOD = "period";
+  @SerializedName(SERIALIZED_NAME_PERIOD)
+  private PeriodViewModelChangedFieldViewModel period;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<StringChangedFieldViewModel> status = JsonNullable.<StringChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private StringChangedFieldViewModel status;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<StringArrayChangedFieldViewModel> tags = JsonNullable.<StringArrayChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private StringArrayChangedFieldViewModel tags;
 
-  public static final String JSON_PROPERTY_TEST_SUITE = "testSuite";
-  private JsonNullable<TestSuiteChangeViewModelChangedFieldViewModel> testSuite = JsonNullable.<TestSuiteChangeViewModelChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_TEST_SUITE = "testSuite";
+  @SerializedName(SERIALIZED_NAME_TEST_SUITE)
+  private TestSuiteChangeViewModelChangedFieldViewModel testSuite;
 
-  public static final String JSON_PROPERTY_TEST_POINTS = "testPoints";
-  private JsonNullable<TestPointChangeViewModelChangedFieldViewModel> testPoints = JsonNullable.<TestPointChangeViewModelChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
+  @SerializedName(SERIALIZED_NAME_TEST_POINTS)
+  private TestPointChangeViewModelChangedFieldViewModel testPoints;
 
-  public static final String JSON_PROPERTY_TEST_RESULTS = "testResults";
-  private JsonNullable<TestResultChangeViewModelChangedFieldViewModel> testResults = JsonNullable.<TestResultChangeViewModelChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
+  private TestResultChangeViewModelChangedFieldViewModel testResults;
 
-  public static final String JSON_PROPERTY_LOCKING = "locking";
-  private JsonNullable<BooleanChangedFieldViewModel> locking = JsonNullable.<BooleanChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_LOCKING = "locking";
+  @SerializedName(SERIALIZED_NAME_LOCKING)
+  private BooleanChangedFieldViewModel locking;
 
-  public static final String JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
-  private JsonNullable<BooleanNullableChangedFieldViewModel> hasAutomaticDurationTimer = JsonNullable.<BooleanNullableChangedFieldViewModel>undefined();
+  public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
+  @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
+  private BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer;
 
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JsonNullable<Map<String, CustomAttributeChangeModel>> attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, CustomAttributeChangeModel> attributes;
 
-  public TestPlanChangedFieldsViewModel() { 
+  public TestPlanChangedFieldsViewModel() {
   }
 
   public TestPlanChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
-    this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -113,32 +130,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get name
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringChangedFieldWithDiffsViewModel> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<StringChangedFieldWithDiffsViewModel> name) {
-    this.name = name;
-  }
+
 
   public void setName(StringChangedFieldWithDiffsViewModel name) {
-    this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
+    this.name = name;
   }
 
 
   public TestPlanChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
-    this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -146,32 +151,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get description
    * @return description
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringChangedFieldWithDiffsViewModel> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<StringChangedFieldWithDiffsViewModel> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(StringChangedFieldWithDiffsViewModel description) {
-    this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
+    this.description = description;
   }
 
 
   public TestPlanChangedFieldsViewModel productName(StringChangedFieldViewModel productName) {
-    this.productName = JsonNullable.<StringChangedFieldViewModel>of(productName);
+    
+    this.productName = productName;
     return this;
   }
 
@@ -179,32 +172,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get productName
    * @return productName
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringChangedFieldViewModel getProductName() {
-        return productName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringChangedFieldViewModel> getProductName_JsonNullable() {
     return productName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
-  public void setProductName_JsonNullable(JsonNullable<StringChangedFieldViewModel> productName) {
-    this.productName = productName;
-  }
+
 
   public void setProductName(StringChangedFieldViewModel productName) {
-    this.productName = JsonNullable.<StringChangedFieldViewModel>of(productName);
+    this.productName = productName;
   }
 
 
   public TestPlanChangedFieldsViewModel build(StringChangedFieldViewModel build) {
-    this.build = JsonNullable.<StringChangedFieldViewModel>of(build);
+    
+    this.build = build;
     return this;
   }
 
@@ -212,32 +193,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get build
    * @return build
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringChangedFieldViewModel getBuild() {
-        return build.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_BUILD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringChangedFieldViewModel> getBuild_JsonNullable() {
     return build;
   }
-  
-  @JsonProperty(JSON_PROPERTY_BUILD)
-  public void setBuild_JsonNullable(JsonNullable<StringChangedFieldViewModel> build) {
-    this.build = build;
-  }
+
 
   public void setBuild(StringChangedFieldViewModel build) {
-    this.build = JsonNullable.<StringChangedFieldViewModel>of(build);
+    this.build = build;
   }
 
 
   public TestPlanChangedFieldsViewModel period(PeriodViewModelChangedFieldViewModel period) {
-    this.period = JsonNullable.<PeriodViewModelChangedFieldViewModel>of(period);
+    
+    this.period = period;
     return this;
   }
 
@@ -245,32 +214,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get period
    * @return period
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public PeriodViewModelChangedFieldViewModel getPeriod() {
-        return period.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<PeriodViewModelChangedFieldViewModel> getPeriod_JsonNullable() {
     return period;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PERIOD)
-  public void setPeriod_JsonNullable(JsonNullable<PeriodViewModelChangedFieldViewModel> period) {
-    this.period = period;
-  }
+
 
   public void setPeriod(PeriodViewModelChangedFieldViewModel period) {
-    this.period = JsonNullable.<PeriodViewModelChangedFieldViewModel>of(period);
+    this.period = period;
   }
 
 
   public TestPlanChangedFieldsViewModel status(StringChangedFieldViewModel status) {
-    this.status = JsonNullable.<StringChangedFieldViewModel>of(status);
+    
+    this.status = status;
     return this;
   }
 
@@ -278,32 +235,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get status
    * @return status
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringChangedFieldViewModel getStatus() {
-        return status.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringChangedFieldViewModel> getStatus_JsonNullable() {
     return status;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<StringChangedFieldViewModel> status) {
-    this.status = status;
-  }
+
 
   public void setStatus(StringChangedFieldViewModel status) {
-    this.status = JsonNullable.<StringChangedFieldViewModel>of(status);
+    this.status = status;
   }
 
 
   public TestPlanChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
-    this.tags = JsonNullable.<StringArrayChangedFieldViewModel>of(tags);
+    
+    this.tags = tags;
     return this;
   }
 
@@ -311,32 +256,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get tags
    * @return tags
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public StringArrayChangedFieldViewModel getTags() {
-        return tags.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StringArrayChangedFieldViewModel> getTags_JsonNullable() {
     return tags;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<StringArrayChangedFieldViewModel> tags) {
-    this.tags = tags;
-  }
+
 
   public void setTags(StringArrayChangedFieldViewModel tags) {
-    this.tags = JsonNullable.<StringArrayChangedFieldViewModel>of(tags);
+    this.tags = tags;
   }
 
 
   public TestPlanChangedFieldsViewModel testSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
-    this.testSuite = JsonNullable.<TestSuiteChangeViewModelChangedFieldViewModel>of(testSuite);
+    
+    this.testSuite = testSuite;
     return this;
   }
 
@@ -344,32 +277,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get testSuite
    * @return testSuite
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestSuiteChangeViewModelChangedFieldViewModel getTestSuite() {
-        return testSuite.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_SUITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestSuiteChangeViewModelChangedFieldViewModel> getTestSuite_JsonNullable() {
     return testSuite;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_SUITE)
-  public void setTestSuite_JsonNullable(JsonNullable<TestSuiteChangeViewModelChangedFieldViewModel> testSuite) {
-    this.testSuite = testSuite;
-  }
+
 
   public void setTestSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
-    this.testSuite = JsonNullable.<TestSuiteChangeViewModelChangedFieldViewModel>of(testSuite);
+    this.testSuite = testSuite;
   }
 
 
   public TestPlanChangedFieldsViewModel testPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
-    this.testPoints = JsonNullable.<TestPointChangeViewModelChangedFieldViewModel>of(testPoints);
+    
+    this.testPoints = testPoints;
     return this;
   }
 
@@ -377,32 +298,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get testPoints
    * @return testPoints
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestPointChangeViewModelChangedFieldViewModel getTestPoints() {
-        return testPoints.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_POINTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestPointChangeViewModelChangedFieldViewModel> getTestPoints_JsonNullable() {
     return testPoints;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_POINTS)
-  public void setTestPoints_JsonNullable(JsonNullable<TestPointChangeViewModelChangedFieldViewModel> testPoints) {
-    this.testPoints = testPoints;
-  }
+
 
   public void setTestPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
-    this.testPoints = JsonNullable.<TestPointChangeViewModelChangedFieldViewModel>of(testPoints);
+    this.testPoints = testPoints;
   }
 
 
   public TestPlanChangedFieldsViewModel testResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
-    this.testResults = JsonNullable.<TestResultChangeViewModelChangedFieldViewModel>of(testResults);
+    
+    this.testResults = testResults;
     return this;
   }
 
@@ -410,32 +319,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get testResults
    * @return testResults
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestResultChangeViewModelChangedFieldViewModel getTestResults() {
-        return testResults.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestResultChangeViewModelChangedFieldViewModel> getTestResults_JsonNullable() {
     return testResults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
-  public void setTestResults_JsonNullable(JsonNullable<TestResultChangeViewModelChangedFieldViewModel> testResults) {
-    this.testResults = testResults;
-  }
+
 
   public void setTestResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
-    this.testResults = JsonNullable.<TestResultChangeViewModelChangedFieldViewModel>of(testResults);
+    this.testResults = testResults;
   }
 
 
   public TestPlanChangedFieldsViewModel locking(BooleanChangedFieldViewModel locking) {
-    this.locking = JsonNullable.<BooleanChangedFieldViewModel>of(locking);
+    
+    this.locking = locking;
     return this;
   }
 
@@ -443,32 +340,20 @@ public class TestPlanChangedFieldsViewModel {
    * Get locking
    * @return locking
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public BooleanChangedFieldViewModel getLocking() {
-        return locking.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LOCKING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<BooleanChangedFieldViewModel> getLocking_JsonNullable() {
     return locking;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LOCKING)
-  public void setLocking_JsonNullable(JsonNullable<BooleanChangedFieldViewModel> locking) {
-    this.locking = locking;
-  }
+
 
   public void setLocking(BooleanChangedFieldViewModel locking) {
-    this.locking = JsonNullable.<BooleanChangedFieldViewModel>of(locking);
+    this.locking = locking;
   }
 
 
   public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
-    this.hasAutomaticDurationTimer = JsonNullable.<BooleanNullableChangedFieldViewModel>of(hasAutomaticDurationTimer);
+    
+    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
 
@@ -476,44 +361,28 @@ public class TestPlanChangedFieldsViewModel {
    * Get hasAutomaticDurationTimer
    * @return hasAutomaticDurationTimer
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public BooleanNullableChangedFieldViewModel getHasAutomaticDurationTimer() {
-        return hasAutomaticDurationTimer.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<BooleanNullableChangedFieldViewModel> getHasAutomaticDurationTimer_JsonNullable() {
     return hasAutomaticDurationTimer;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER)
-  public void setHasAutomaticDurationTimer_JsonNullable(JsonNullable<BooleanNullableChangedFieldViewModel> hasAutomaticDurationTimer) {
-    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
-  }
+
 
   public void setHasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
-    this.hasAutomaticDurationTimer = JsonNullable.<BooleanNullableChangedFieldViewModel>of(hasAutomaticDurationTimer);
+    this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanChangedFieldsViewModel attributes(Map<String, CustomAttributeChangeModel> attributes) {
-    this.attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>of(attributes);
+    
+    this.attributes = attributes;
     return this;
   }
 
   public TestPlanChangedFieldsViewModel putAttributesItem(String key, CustomAttributeChangeModel attributesItem) {
-    if (this.attributes == null || !this.attributes.isPresent()) {
-      this.attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>of(new HashMap<>());
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
     }
-    try {
-      this.attributes.get().put(key, attributesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
@@ -521,33 +390,18 @@ public class TestPlanChangedFieldsViewModel {
    * Get attributes
    * @return attributes
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Map<String, CustomAttributeChangeModel> getAttributes() {
-        return attributes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, CustomAttributeChangeModel>> getAttributes_JsonNullable() {
     return attributes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  public void setAttributes_JsonNullable(JsonNullable<Map<String, CustomAttributeChangeModel>> attributes) {
+
+
+  public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
-    this.attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>of(attributes);
-  }
 
 
-  /**
-   * Return true if this TestPlanChangedFieldsViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -557,19 +411,19 @@ public class TestPlanChangedFieldsViewModel {
       return false;
     }
     TestPlanChangedFieldsViewModel testPlanChangedFieldsViewModel = (TestPlanChangedFieldsViewModel) o;
-    return equalsNullable(this.name, testPlanChangedFieldsViewModel.name) &&
-        equalsNullable(this.description, testPlanChangedFieldsViewModel.description) &&
-        equalsNullable(this.productName, testPlanChangedFieldsViewModel.productName) &&
-        equalsNullable(this.build, testPlanChangedFieldsViewModel.build) &&
-        equalsNullable(this.period, testPlanChangedFieldsViewModel.period) &&
-        equalsNullable(this.status, testPlanChangedFieldsViewModel.status) &&
-        equalsNullable(this.tags, testPlanChangedFieldsViewModel.tags) &&
-        equalsNullable(this.testSuite, testPlanChangedFieldsViewModel.testSuite) &&
-        equalsNullable(this.testPoints, testPlanChangedFieldsViewModel.testPoints) &&
-        equalsNullable(this.testResults, testPlanChangedFieldsViewModel.testResults) &&
-        equalsNullable(this.locking, testPlanChangedFieldsViewModel.locking) &&
-        equalsNullable(this.hasAutomaticDurationTimer, testPlanChangedFieldsViewModel.hasAutomaticDurationTimer) &&
-        equalsNullable(this.attributes, testPlanChangedFieldsViewModel.attributes);
+    return Objects.equals(this.name, testPlanChangedFieldsViewModel.name) &&
+        Objects.equals(this.description, testPlanChangedFieldsViewModel.description) &&
+        Objects.equals(this.productName, testPlanChangedFieldsViewModel.productName) &&
+        Objects.equals(this.build, testPlanChangedFieldsViewModel.build) &&
+        Objects.equals(this.period, testPlanChangedFieldsViewModel.period) &&
+        Objects.equals(this.status, testPlanChangedFieldsViewModel.status) &&
+        Objects.equals(this.tags, testPlanChangedFieldsViewModel.tags) &&
+        Objects.equals(this.testSuite, testPlanChangedFieldsViewModel.testSuite) &&
+        Objects.equals(this.testPoints, testPlanChangedFieldsViewModel.testPoints) &&
+        Objects.equals(this.testResults, testPlanChangedFieldsViewModel.testResults) &&
+        Objects.equals(this.locking, testPlanChangedFieldsViewModel.locking) &&
+        Objects.equals(this.hasAutomaticDurationTimer, testPlanChangedFieldsViewModel.hasAutomaticDurationTimer) &&
+        Objects.equals(this.attributes, testPlanChangedFieldsViewModel.attributes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -578,7 +432,7 @@ public class TestPlanChangedFieldsViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(productName), hashCodeNullable(build), hashCodeNullable(period), hashCodeNullable(status), hashCodeNullable(tags), hashCodeNullable(testSuite), hashCodeNullable(testPoints), hashCodeNullable(testResults), hashCodeNullable(locking), hashCodeNullable(hasAutomaticDurationTimer), hashCodeNullable(attributes));
+    return Objects.hash(name, description, productName, build, period, status, tags, testSuite, testPoints, testResults, locking, hasAutomaticDurationTimer, attributes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -620,5 +474,148 @@ public class TestPlanChangedFieldsViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("productName");
+    openapiFields.add("build");
+    openapiFields.add("period");
+    openapiFields.add("status");
+    openapiFields.add("tags");
+    openapiFields.add("testSuite");
+    openapiFields.add("testPoints");
+    openapiFields.add("testResults");
+    openapiFields.add("locking");
+    openapiFields.add("hasAutomaticDurationTimer");
+    openapiFields.add("attributes");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanChangedFieldsViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanChangedFieldsViewModel is not found in the empty JSON string", TestPlanChangedFieldsViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestPlanChangedFieldsViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `name`
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) {
+        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("name"));
+      }
+      // validate the optional field `description`
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) {
+        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("description"));
+      }
+      // validate the optional field `productName`
+      if (jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) {
+        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("productName"));
+      }
+      // validate the optional field `build`
+      if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
+        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("build"));
+      }
+      // validate the optional field `period`
+      if (jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) {
+        PeriodViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("period"));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
+      }
+      // validate the optional field `tags`
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
+        StringArrayChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("tags"));
+      }
+      // validate the optional field `testSuite`
+      if (jsonObj.get("testSuite") != null && !jsonObj.get("testSuite").isJsonNull()) {
+        TestSuiteChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testSuite"));
+      }
+      // validate the optional field `testPoints`
+      if (jsonObj.get("testPoints") != null && !jsonObj.get("testPoints").isJsonNull()) {
+        TestPointChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testPoints"));
+      }
+      // validate the optional field `testResults`
+      if (jsonObj.get("testResults") != null && !jsonObj.get("testResults").isJsonNull()) {
+        TestResultChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testResults"));
+      }
+      // validate the optional field `locking`
+      if (jsonObj.get("locking") != null && !jsonObj.get("locking").isJsonNull()) {
+        BooleanChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("locking"));
+      }
+      // validate the optional field `hasAutomaticDurationTimer`
+      if (jsonObj.get("hasAutomaticDurationTimer") != null && !jsonObj.get("hasAutomaticDurationTimer").isJsonNull()) {
+        BooleanNullableChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("hasAutomaticDurationTimer"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestPlanChangedFieldsViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestPlanChangedFieldsViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestPlanChangedFieldsViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanChangedFieldsViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestPlanChangedFieldsViewModel>() {
+           @Override
+           public void write(JsonWriter out, TestPlanChangedFieldsViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestPlanChangedFieldsViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestPlanChangedFieldsViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanChangedFieldsViewModel
+  * @throws IOException if the JSON string is invalid with respect to TestPlanChangedFieldsViewModel
+  */
+  public static TestPlanChangedFieldsViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestPlanChangedFieldsViewModel.class);
+  }
+
+ /**
+  * Convert an instance of TestPlanChangedFieldsViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

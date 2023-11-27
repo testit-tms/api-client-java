@@ -15,44 +15,60 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestRunTestResultsSelectModelFilter;
 import ru.testit.client.model.TestRunTestResultsSelectModelTestResultIdsExtractionModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * Object with filters and extraction parameters
  */
-@JsonPropertyOrder({
-  TestRunTestResultsPartialBulkSetModelSelector.JSON_PROPERTY_FILTER,
-  TestRunTestResultsPartialBulkSetModelSelector.JSON_PROPERTY_TEST_RESULT_IDS_EXTRACTION_MODEL
-})
-@JsonTypeName("TestRunTestResultsPartialBulkSetModel_selector")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunTestResultsPartialBulkSetModelSelector {
-  public static final String JSON_PROPERTY_FILTER = "filter";
-  private JsonNullable<TestRunTestResultsSelectModelFilter> filter = JsonNullable.<TestRunTestResultsSelectModelFilter>undefined();
+  public static final String SERIALIZED_NAME_FILTER = "filter";
+  @SerializedName(SERIALIZED_NAME_FILTER)
+  private TestRunTestResultsSelectModelFilter filter;
 
-  public static final String JSON_PROPERTY_TEST_RESULT_IDS_EXTRACTION_MODEL = "testResultIdsExtractionModel";
-  private JsonNullable<TestRunTestResultsSelectModelTestResultIdsExtractionModel> testResultIdsExtractionModel = JsonNullable.<TestRunTestResultsSelectModelTestResultIdsExtractionModel>undefined();
+  public static final String SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL = "testResultIdsExtractionModel";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL)
+  private TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel;
 
-  public TestRunTestResultsPartialBulkSetModelSelector() { 
+  public TestRunTestResultsPartialBulkSetModelSelector() {
   }
 
   public TestRunTestResultsPartialBulkSetModelSelector filter(TestRunTestResultsSelectModelFilter filter) {
-    this.filter = JsonNullable.<TestRunTestResultsSelectModelFilter>of(filter);
+    
+    this.filter = filter;
     return this;
   }
 
@@ -60,32 +76,20 @@ public class TestRunTestResultsPartialBulkSetModelSelector {
    * Get filter
    * @return filter
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunTestResultsSelectModelFilter getFilter() {
-        return filter.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunTestResultsSelectModelFilter> getFilter_JsonNullable() {
     return filter;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  public void setFilter_JsonNullable(JsonNullable<TestRunTestResultsSelectModelFilter> filter) {
-    this.filter = filter;
-  }
+
 
   public void setFilter(TestRunTestResultsSelectModelFilter filter) {
-    this.filter = JsonNullable.<TestRunTestResultsSelectModelFilter>of(filter);
+    this.filter = filter;
   }
 
 
   public TestRunTestResultsPartialBulkSetModelSelector testResultIdsExtractionModel(TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel) {
-    this.testResultIdsExtractionModel = JsonNullable.<TestRunTestResultsSelectModelTestResultIdsExtractionModel>of(testResultIdsExtractionModel);
+    
+    this.testResultIdsExtractionModel = testResultIdsExtractionModel;
     return this;
   }
 
@@ -93,33 +97,18 @@ public class TestRunTestResultsPartialBulkSetModelSelector {
    * Get testResultIdsExtractionModel
    * @return testResultIdsExtractionModel
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunTestResultsSelectModelTestResultIdsExtractionModel getTestResultIdsExtractionModel() {
-        return testResultIdsExtractionModel.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_RESULT_IDS_EXTRACTION_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunTestResultsSelectModelTestResultIdsExtractionModel> getTestResultIdsExtractionModel_JsonNullable() {
     return testResultIdsExtractionModel;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_RESULT_IDS_EXTRACTION_MODEL)
-  public void setTestResultIdsExtractionModel_JsonNullable(JsonNullable<TestRunTestResultsSelectModelTestResultIdsExtractionModel> testResultIdsExtractionModel) {
+
+
+  public void setTestResultIdsExtractionModel(TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
   }
 
-  public void setTestResultIdsExtractionModel(TestRunTestResultsSelectModelTestResultIdsExtractionModel testResultIdsExtractionModel) {
-    this.testResultIdsExtractionModel = JsonNullable.<TestRunTestResultsSelectModelTestResultIdsExtractionModel>of(testResultIdsExtractionModel);
-  }
 
 
-  /**
-   * Return true if this TestRunTestResultsPartialBulkSetModel_selector object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,8 +118,8 @@ public class TestRunTestResultsPartialBulkSetModelSelector {
       return false;
     }
     TestRunTestResultsPartialBulkSetModelSelector testRunTestResultsPartialBulkSetModelSelector = (TestRunTestResultsPartialBulkSetModelSelector) o;
-    return equalsNullable(this.filter, testRunTestResultsPartialBulkSetModelSelector.filter) &&
-        equalsNullable(this.testResultIdsExtractionModel, testRunTestResultsPartialBulkSetModelSelector.testResultIdsExtractionModel);
+    return Objects.equals(this.filter, testRunTestResultsPartialBulkSetModelSelector.filter) &&
+        Objects.equals(this.testResultIdsExtractionModel, testRunTestResultsPartialBulkSetModelSelector.testResultIdsExtractionModel);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -139,7 +128,7 @@ public class TestRunTestResultsPartialBulkSetModelSelector {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(testResultIdsExtractionModel));
+    return Objects.hash(filter, testResultIdsExtractionModel);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -170,5 +159,97 @@ public class TestRunTestResultsPartialBulkSetModelSelector {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("filter");
+    openapiFields.add("testResultIdsExtractionModel");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunTestResultsPartialBulkSetModelSelector
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunTestResultsPartialBulkSetModelSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunTestResultsPartialBulkSetModelSelector is not found in the empty JSON string", TestRunTestResultsPartialBulkSetModelSelector.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunTestResultsPartialBulkSetModelSelector.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunTestResultsPartialBulkSetModelSelector` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `filter`
+      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
+        TestRunTestResultsSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+      }
+      // validate the optional field `testResultIdsExtractionModel`
+      if (jsonObj.get("testResultIdsExtractionModel") != null && !jsonObj.get("testResultIdsExtractionModel").isJsonNull()) {
+        TestRunTestResultsSelectModelTestResultIdsExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("testResultIdsExtractionModel"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunTestResultsPartialBulkSetModelSelector.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunTestResultsPartialBulkSetModelSelector' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunTestResultsPartialBulkSetModelSelector> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunTestResultsPartialBulkSetModelSelector.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunTestResultsPartialBulkSetModelSelector>() {
+           @Override
+           public void write(JsonWriter out, TestRunTestResultsPartialBulkSetModelSelector value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunTestResultsPartialBulkSetModelSelector read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunTestResultsPartialBulkSetModelSelector given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunTestResultsPartialBulkSetModelSelector
+  * @throws IOException if the JSON string is invalid with respect to TestRunTestResultsPartialBulkSetModelSelector
+  */
+  public static TestRunTestResultsPartialBulkSetModelSelector fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunTestResultsPartialBulkSetModelSelector.class);
+  }
+
+ /**
+  * Convert an instance of TestRunTestResultsPartialBulkSetModelSelector to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

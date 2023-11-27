@@ -15,18 +15,18 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
+import com.google.gson.annotations.SerializedName;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * Gets or Sets AvailableTestResultOutcome
  */
+@JsonAdapter(AvailableTestResultOutcome.Adapter.class)
 public enum AvailableTestResultOutcome {
   
   PASSED("Passed"),
@@ -43,7 +43,6 @@ public enum AvailableTestResultOutcome {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -53,7 +52,6 @@ public enum AvailableTestResultOutcome {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static AvailableTestResultOutcome fromValue(String value) {
     for (AvailableTestResultOutcome b : AvailableTestResultOutcome.values()) {
       if (b.value.equals(value)) {
@@ -61,6 +59,19 @@ public enum AvailableTestResultOutcome {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<AvailableTestResultOutcome> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final AvailableTestResultOutcome enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public AvailableTestResultOutcome read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return AvailableTestResultOutcome.fromValue(value);
+    }
   }
 }
 

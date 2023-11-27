@@ -29,5 +29,9 @@
 
 * `PURGEPROJECT` (value: `"PurgeProject"`)
 
+* `EXPORTPROJECTS` (value: `"ExportProjects"`)
+
+* `IMPORTPROJECTS` (value: `"ImportProjects"`)
+
 
 

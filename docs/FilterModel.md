@@ -11,10 +11,10 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  |  [optional] |
+|**data** | [**FilterModelData**](FilterModelData.md) |  |  |
 |**projectId** | **UUID** |  |  |
 |**fieldsToShow** | **Object** |  |  [optional] |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**id** | **UUID** | Unique ID of the entity |  |
 |**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
 

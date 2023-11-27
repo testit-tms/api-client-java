@@ -13,8 +13,8 @@
 |**url** | **String** | Request URL of the webhook |  |
 |**requestType** | **RequestTypeModel** |  |  |
 |**shouldSendBody** | **Boolean** | Indicates if the webhook sends body |  |
-|**headers** | **Map&lt;String, String&gt;** | Collection of the webhook headers |  [optional] |
-|**queryParameters** | **Map&lt;String, String&gt;** | Collection of the webhook query parameters |  [optional] |
+|**headers** | **Map&lt;String, String&gt;** | Collection of the webhook headers |  |
+|**queryParameters** | **Map&lt;String, String&gt;** | Collection of the webhook query parameters |  |
 |**isEnabled** | **Boolean** | Indicates if the webhook is active |  |
 |**shouldSendCustomBody** | **Boolean** | Indicates if the webhook sends custom body |  |
 |**customBody** | **String** | Custom body of the webhook |  [optional] |

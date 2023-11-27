@@ -15,58 +15,74 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * WorkItemLinkChangeViewModel
  */
-@JsonPropertyOrder({
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_DESCRIPTION,
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_URL,
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_TITLE,
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_HAS_INFO,
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_ID,
-  WorkItemLinkChangeViewModel.JSON_PROPERTY_TYPE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemLinkChangeViewModel {
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_URL = "url";
-  private JsonNullable<String> url = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
+  public static final String SERIALIZED_NAME_HAS_INFO = "hasInfo";
+  @SerializedName(SERIALIZED_NAME_HAS_INFO)
   private Boolean hasInfo;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public WorkItemLinkChangeViewModel() { 
+  public WorkItemLinkChangeViewModel() {
   }
 
   public WorkItemLinkChangeViewModel description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -74,32 +90,20 @@ public class WorkItemLinkChangeViewModel {
    * Get description
    * @return description
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public WorkItemLinkChangeViewModel url(String url) {
-    this.url = JsonNullable.<String>of(url);
+    
+    this.url = url;
     return this;
   }
 
@@ -107,32 +111,20 @@ public class WorkItemLinkChangeViewModel {
    * Get url
    * @return url
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getUrl() {
-        return url.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getUrl_JsonNullable() {
     return url;
   }
-  
-  @JsonProperty(JSON_PROPERTY_URL)
-  public void setUrl_JsonNullable(JsonNullable<String> url) {
-    this.url = url;
-  }
+
 
   public void setUrl(String url) {
-    this.url = JsonNullable.<String>of(url);
+    this.url = url;
   }
 
 
   public WorkItemLinkChangeViewModel title(String title) {
-    this.title = JsonNullable.<String>of(title);
+    
+    this.title = title;
     return this;
   }
 
@@ -140,31 +132,19 @@ public class WorkItemLinkChangeViewModel {
    * Get title
    * @return title
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
+
 
   public void setTitle(String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
 
   public WorkItemLinkChangeViewModel hasInfo(Boolean hasInfo) {
+    
     this.hasInfo = hasInfo;
     return this;
   }
@@ -173,23 +153,19 @@ public class WorkItemLinkChangeViewModel {
    * Get hasInfo
    * @return hasInfo
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HAS_INFO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public Boolean getHasInfo() {
     return hasInfo;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HAS_INFO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
   public WorkItemLinkChangeViewModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -198,24 +174,20 @@ public class WorkItemLinkChangeViewModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemLinkChangeViewModel type(String type) {
-    this.type = JsonNullable.<String>of(type);
+    
+    this.type = type;
     return this;
   }
 
@@ -223,33 +195,18 @@ public class WorkItemLinkChangeViewModel {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nonnull
   public String getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<String> type) {
+
+
+  public void setType(String type) {
     this.type = type;
   }
 
-  public void setType(String type) {
-    this.type = JsonNullable.<String>of(type);
-  }
 
 
-  /**
-   * Return true if this WorkItemLinkChangeViewModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -259,28 +216,17 @@ public class WorkItemLinkChangeViewModel {
       return false;
     }
     WorkItemLinkChangeViewModel workItemLinkChangeViewModel = (WorkItemLinkChangeViewModel) o;
-    return equalsNullable(this.description, workItemLinkChangeViewModel.description) &&
-        equalsNullable(this.url, workItemLinkChangeViewModel.url) &&
-        equalsNullable(this.title, workItemLinkChangeViewModel.title) &&
+    return Objects.equals(this.description, workItemLinkChangeViewModel.description) &&
+        Objects.equals(this.url, workItemLinkChangeViewModel.url) &&
+        Objects.equals(this.title, workItemLinkChangeViewModel.title) &&
         Objects.equals(this.hasInfo, workItemLinkChangeViewModel.hasInfo) &&
         Objects.equals(this.id, workItemLinkChangeViewModel.id) &&
-        equalsNullable(this.type, workItemLinkChangeViewModel.type);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.type, workItemLinkChangeViewModel.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), hashCodeNullable(url), hashCodeNullable(title), hasInfo, id, hashCodeNullable(type));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(description, url, title, hasInfo, id, type);
   }
 
   @Override
@@ -308,5 +254,121 @@ public class WorkItemLinkChangeViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("description");
+    openapiFields.add("url");
+    openapiFields.add("title");
+    openapiFields.add("hasInfo");
+    openapiFields.add("id");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("description");
+    openapiRequiredFields.add("url");
+    openapiRequiredFields.add("title");
+    openapiRequiredFields.add("hasInfo");
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("type");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemLinkChangeViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemLinkChangeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLinkChangeViewModel is not found in the empty JSON string", WorkItemLinkChangeViewModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!WorkItemLinkChangeViewModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkChangeViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WorkItemLinkChangeViewModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if (!jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if (!jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WorkItemLinkChangeViewModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WorkItemLinkChangeViewModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WorkItemLinkChangeViewModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemLinkChangeViewModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WorkItemLinkChangeViewModel>() {
+           @Override
+           public void write(JsonWriter out, WorkItemLinkChangeViewModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WorkItemLinkChangeViewModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WorkItemLinkChangeViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemLinkChangeViewModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemLinkChangeViewModel
+  */
+  public static WorkItemLinkChangeViewModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WorkItemLinkChangeViewModel.class);
+  }
+
+ /**
+  * Convert an instance of WorkItemLinkChangeViewModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

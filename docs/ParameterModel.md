@@ -14,8 +14,8 @@
 |**isDeleted** | **Boolean** |  |  |
 |**parameterKeyId** | **UUID** |  |  |
 |**id** | **UUID** |  |  |
-|**value** | **String** |  |  |
-|**name** | **String** |  |  |
+|**value** | **String** | Value of the parameter |  |
+|**name** | **String** | Key of the parameter |  |
 
 
 

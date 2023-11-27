@@ -15,77 +15,94 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * StepCommentModel
  */
-@JsonPropertyOrder({
-  StepCommentModel.JSON_PROPERTY_ID,
-  StepCommentModel.JSON_PROPERTY_TEXT,
-  StepCommentModel.JSON_PROPERTY_STEP_ID,
-  StepCommentModel.JSON_PROPERTY_PARENT_STEP_ID,
-  StepCommentModel.JSON_PROPERTY_ATTACHMENTS,
-  StepCommentModel.JSON_PROPERTY_TEST_RESULT_ID,
-  StepCommentModel.JSON_PROPERTY_CREATED_BY_ID,
-  StepCommentModel.JSON_PROPERTY_MODIFIED_BY_ID,
-  StepCommentModel.JSON_PROPERTY_CREATED_DATE,
-  StepCommentModel.JSON_PROPERTY_MODIFIED_DATE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StepCommentModel {
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_TEXT = "text";
-  private JsonNullable<String> text = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
-  public static final String JSON_PROPERTY_STEP_ID = "stepId";
+  public static final String SERIALIZED_NAME_STEP_ID = "stepId";
+  @SerializedName(SERIALIZED_NAME_STEP_ID)
   private UUID stepId;
 
-  public static final String JSON_PROPERTY_PARENT_STEP_ID = "parentStepId";
-  private JsonNullable<UUID> parentStepId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_PARENT_STEP_ID = "parentStepId";
+  @SerializedName(SERIALIZED_NAME_PARENT_STEP_ID)
+  private UUID parentStepId;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentModel>> attachments = JsonNullable.<List<AttachmentModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentModel> attachments;
 
-  public static final String JSON_PROPERTY_TEST_RESULT_ID = "testResultId";
+  public static final String SERIALIZED_NAME_TEST_RESULT_ID = "testResultId";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULT_ID)
   private UUID testResultId;
 
-  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
   private UUID createdById;
 
-  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
-  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  private UUID modifiedById;
 
-  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private OffsetDateTime createdDate;
 
-  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
-  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
 
-  public StepCommentModel() { 
+  public StepCommentModel() {
   }
 
   public StepCommentModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -94,24 +111,20 @@ public class StepCommentModel {
    * Get id
    * @return id
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public StepCommentModel text(String text) {
-    this.text = JsonNullable.<String>of(text);
+    
+    this.text = text;
     return this;
   }
 
@@ -119,31 +132,19 @@ public class StepCommentModel {
    * Get text
    * @return text
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getText() {
-        return text.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getText_JsonNullable() {
     return text;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TEXT)
-  public void setText_JsonNullable(JsonNullable<String> text) {
-    this.text = text;
-  }
+
 
   public void setText(String text) {
-    this.text = JsonNullable.<String>of(text);
+    this.text = text;
   }
 
 
   public StepCommentModel stepId(UUID stepId) {
+    
     this.stepId = stepId;
     return this;
   }
@@ -152,24 +153,20 @@ public class StepCommentModel {
    * Get stepId
    * @return stepId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STEP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getStepId() {
     return stepId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STEP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
   public StepCommentModel parentStepId(UUID parentStepId) {
-    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
+    
+    this.parentStepId = parentStepId;
     return this;
   }
 
@@ -177,44 +174,28 @@ public class StepCommentModel {
    * Get parentStepId
    * @return parentStepId
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getParentStepId() {
-        return parentStepId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getParentStepId_JsonNullable() {
     return parentStepId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
-  public void setParentStepId_JsonNullable(JsonNullable<UUID> parentStepId) {
-    this.parentStepId = parentStepId;
-  }
+
 
   public void setParentStepId(UUID parentStepId) {
-    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
+    this.parentStepId = parentStepId;
   }
 
 
   public StepCommentModel attachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public StepCommentModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
@@ -222,31 +203,19 @@ public class StepCommentModel {
    * Get attachments
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentModel>> attachments) {
-    this.attachments = attachments;
-  }
+
 
   public void setAttachments(List<AttachmentModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
+    this.attachments = attachments;
   }
 
 
   public StepCommentModel testResultId(UUID testResultId) {
+    
     this.testResultId = testResultId;
     return this;
   }
@@ -255,23 +224,19 @@ public class StepCommentModel {
    * Get testResultId
    * @return testResultId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_RESULT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getTestResultId() {
     return testResultId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_RESULT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestResultId(UUID testResultId) {
     this.testResultId = testResultId;
   }
 
 
   public StepCommentModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -280,24 +245,20 @@ public class StepCommentModel {
    * Get createdById
    * @return createdById
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public StepCommentModel modifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    
+    this.modifiedById = modifiedById;
     return this;
   }
 
@@ -305,31 +266,19 @@ public class StepCommentModel {
    * Get modifiedById
    * @return modifiedById
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getModifiedById() {
-        return modifiedById.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
-  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
-    this.modifiedById = modifiedById;
-  }
+
 
   public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    this.modifiedById = modifiedById;
   }
 
 
   public StepCommentModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -338,24 +287,20 @@ public class StepCommentModel {
    * Get createdDate
    * @return createdDate
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public StepCommentModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    
+    this.modifiedDate = modifiedDate;
     return this;
   }
 
@@ -363,33 +308,18 @@ public class StepCommentModel {
    * Get modifiedDate
    * @return modifiedDate
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
-        return modifiedDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
-  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
-  }
 
 
-  /**
-   * Return true if this StepCommentModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -400,15 +330,15 @@ public class StepCommentModel {
     }
     StepCommentModel stepCommentModel = (StepCommentModel) o;
     return Objects.equals(this.id, stepCommentModel.id) &&
-        equalsNullable(this.text, stepCommentModel.text) &&
+        Objects.equals(this.text, stepCommentModel.text) &&
         Objects.equals(this.stepId, stepCommentModel.stepId) &&
-        equalsNullable(this.parentStepId, stepCommentModel.parentStepId) &&
-        equalsNullable(this.attachments, stepCommentModel.attachments) &&
+        Objects.equals(this.parentStepId, stepCommentModel.parentStepId) &&
+        Objects.equals(this.attachments, stepCommentModel.attachments) &&
         Objects.equals(this.testResultId, stepCommentModel.testResultId) &&
         Objects.equals(this.createdById, stepCommentModel.createdById) &&
-        equalsNullable(this.modifiedById, stepCommentModel.modifiedById) &&
+        Objects.equals(this.modifiedById, stepCommentModel.modifiedById) &&
         Objects.equals(this.createdDate, stepCommentModel.createdDate) &&
-        equalsNullable(this.modifiedDate, stepCommentModel.modifiedDate);
+        Objects.equals(this.modifiedDate, stepCommentModel.modifiedDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -417,7 +347,7 @@ public class StepCommentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(text), stepId, hashCodeNullable(parentStepId), hashCodeNullable(attachments), testResultId, createdById, hashCodeNullable(modifiedById), createdDate, hashCodeNullable(modifiedDate));
+    return Objects.hash(id, text, stepId, parentStepId, attachments, testResultId, createdById, modifiedById, createdDate, modifiedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -456,5 +386,144 @@ public class StepCommentModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("text");
+    openapiFields.add("stepId");
+    openapiFields.add("parentStepId");
+    openapiFields.add("attachments");
+    openapiFields.add("testResultId");
+    openapiFields.add("createdById");
+    openapiFields.add("modifiedById");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("stepId");
+    openapiRequiredFields.add("testResultId");
+    openapiRequiredFields.add("createdById");
+    openapiRequiredFields.add("createdDate");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to StepCommentModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!StepCommentModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StepCommentModel is not found in the empty JSON string", StepCommentModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!StepCommentModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepCommentModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : StepCommentModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      }
+      if (!jsonObj.get("stepId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
+      }
+      if ((jsonObj.get("parentStepId") != null && !jsonObj.get("parentStepId").isJsonNull()) && !jsonObj.get("parentStepId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parentStepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentStepId").toString()));
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (!jsonObj.get("testResultId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testResultId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testResultId").toString()));
+      }
+      if (!jsonObj.get("createdById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
+      }
+      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!StepCommentModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StepCommentModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<StepCommentModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StepCommentModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<StepCommentModel>() {
+           @Override
+           public void write(JsonWriter out, StepCommentModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public StepCommentModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of StepCommentModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StepCommentModel
+  * @throws IOException if the JSON string is invalid with respect to StepCommentModel
+  */
+  public static StepCommentModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StepCommentModel.class);
+  }
+
+ /**
+  * Convert an instance of StepCommentModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

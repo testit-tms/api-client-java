@@ -34,7 +34,7 @@
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**stepComments** | [**List&lt;StepCommentModel&gt;**](StepCommentModel.md) |  |  [optional] |
-|**failureClassIds** | **List&lt;UUID&gt;** |  |  [optional] |
+|**failureClassIds** | **List&lt;UUID&gt;** |  |  |
 |**outcome** | **TestResultOutcome** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |

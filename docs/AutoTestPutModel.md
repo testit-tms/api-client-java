@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId |  [optional] |
+|**id** | **UUID** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId |  [optional] |
 |**workItemIdsForLinkWithAutoTest** | **Set&lt;UUID&gt;** |  |  [optional] |
 |**externalId** | **String** | External ID of the autotest |  |
 |**links** | [**List&lt;LinkPutModel&gt;**](LinkPutModel.md) | Collection of the autotest links |  [optional] |

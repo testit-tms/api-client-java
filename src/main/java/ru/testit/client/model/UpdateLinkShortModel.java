@@ -15,44 +15,61 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ActionUpdate;
 import ru.testit.client.model.LinkPostModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * UpdateLinkShortModel
  */
-@JsonPropertyOrder({
-  UpdateLinkShortModel.JSON_PROPERTY_ACTION,
-  UpdateLinkShortModel.JSON_PROPERTY_LINKS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateLinkShortModel {
-  public static final String JSON_PROPERTY_ACTION = "action";
+  public static final String SERIALIZED_NAME_ACTION = "action";
+  @SerializedName(SERIALIZED_NAME_ACTION)
   private ActionUpdate action;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<LinkPostModel>> links = JsonNullable.<List<LinkPostModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private List<LinkPostModel> links;
 
-  public UpdateLinkShortModel() { 
+  public UpdateLinkShortModel() {
   }
 
   public UpdateLinkShortModel action(ActionUpdate action) {
+    
     this.action = action;
     return this;
   }
@@ -61,36 +78,28 @@ public class UpdateLinkShortModel {
    * Get action
    * @return action
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public ActionUpdate getAction() {
     return action;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAction(ActionUpdate action) {
     this.action = action;
   }
 
 
   public UpdateLinkShortModel links(List<LinkPostModel> links) {
-    this.links = JsonNullable.<List<LinkPostModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public UpdateLinkShortModel addLinksItem(LinkPostModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<LinkPostModel>>of(new ArrayList<>());
+    if (this.links == null) {
+      this.links = new ArrayList<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
@@ -98,33 +107,18 @@ public class UpdateLinkShortModel {
    * Get links
    * @return links
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<LinkPostModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<LinkPostModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<LinkPostModel>> links) {
+
+
+  public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
-  public void setLinks(List<LinkPostModel> links) {
-    this.links = JsonNullable.<List<LinkPostModel>>of(links);
-  }
 
 
-  /**
-   * Return true if this UpdateLinkShortModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,7 +129,7 @@ public class UpdateLinkShortModel {
     }
     UpdateLinkShortModel updateLinkShortModel = (UpdateLinkShortModel) o;
     return Objects.equals(this.action, updateLinkShortModel.action) &&
-        equalsNullable(this.links, updateLinkShortModel.links);
+        Objects.equals(this.links, updateLinkShortModel.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +138,7 @@ public class UpdateLinkShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, hashCodeNullable(links));
+    return Objects.hash(action, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -175,5 +169,111 @@ public class UpdateLinkShortModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("action");
+    openapiFields.add("links");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("action");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UpdateLinkShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!UpdateLinkShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateLinkShortModel is not found in the empty JSON string", UpdateLinkShortModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!UpdateLinkShortModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateLinkShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UpdateLinkShortModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!UpdateLinkShortModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateLinkShortModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<UpdateLinkShortModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateLinkShortModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<UpdateLinkShortModel>() {
+           @Override
+           public void write(JsonWriter out, UpdateLinkShortModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public UpdateLinkShortModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of UpdateLinkShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UpdateLinkShortModel
+  * @throws IOException if the JSON string is invalid with respect to UpdateLinkShortModel
+  */
+  public static UpdateLinkShortModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateLinkShortModel.class);
+  }
+
+ /**
+  * Convert an instance of UpdateLinkShortModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

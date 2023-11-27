@@ -15,59 +15,76 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestSuiteType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * TestSuiteV2PostModel
  */
-@JsonPropertyOrder({
-  TestSuiteV2PostModel.JSON_PROPERTY_PARENT_ID,
-  TestSuiteV2PostModel.JSON_PROPERTY_TEST_PLAN_ID,
-  TestSuiteV2PostModel.JSON_PROPERTY_NAME,
-  TestSuiteV2PostModel.JSON_PROPERTY_TYPE,
-  TestSuiteV2PostModel.JSON_PROPERTY_SAVE_STRUCTURE,
-  TestSuiteV2PostModel.JSON_PROPERTY_AUTO_REFRESH
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestSuiteV2PostModel {
-  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
-  private JsonNullable<UUID> parentId = JsonNullable.<UUID>undefined();
+  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  private UUID parentId;
 
-  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
+  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
   private UUID testPlanId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<TestSuiteType> type = JsonNullable.<TestSuiteType>undefined();
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TestSuiteType type;
 
-  public static final String JSON_PROPERTY_SAVE_STRUCTURE = "saveStructure";
-  private JsonNullable<Boolean> saveStructure = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
+  @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
+  private Boolean saveStructure;
 
-  public static final String JSON_PROPERTY_AUTO_REFRESH = "autoRefresh";
-  private JsonNullable<Boolean> autoRefresh = JsonNullable.<Boolean>undefined();
+  public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
+  @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
+  private Boolean autoRefresh;
 
-  public TestSuiteV2PostModel() { 
+  public TestSuiteV2PostModel() {
   }
 
   public TestSuiteV2PostModel parentId(UUID parentId) {
-    this.parentId = JsonNullable.<UUID>of(parentId);
+    
+    this.parentId = parentId;
     return this;
   }
 
@@ -75,31 +92,19 @@ public class TestSuiteV2PostModel {
    * Unique ID of the parent test suite in hierarchy
    * @return parentId
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public UUID getParentId() {
-        return parentId.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<UUID> getParentId_JsonNullable() {
     return parentId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  public void setParentId_JsonNullable(JsonNullable<UUID> parentId) {
-    this.parentId = parentId;
-  }
+
 
   public void setParentId(UUID parentId) {
-    this.parentId = JsonNullable.<UUID>of(parentId);
+    this.parentId = parentId;
   }
 
 
   public TestSuiteV2PostModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -108,23 +113,19 @@ public class TestSuiteV2PostModel {
    * Unique ID of test plan to which the test suite belongs
    * @return testPlanId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestSuiteV2PostModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -133,24 +134,20 @@ public class TestSuiteV2PostModel {
    * Name of the test suite
    * @return name
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestSuiteV2PostModel type(TestSuiteType type) {
-    this.type = JsonNullable.<TestSuiteType>of(type);
+    
+    this.type = type;
     return this;
   }
 
@@ -158,32 +155,20 @@ public class TestSuiteV2PostModel {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestSuiteType getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestSuiteType> getType_JsonNullable() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<TestSuiteType> type) {
-    this.type = type;
-  }
+
 
   public void setType(TestSuiteType type) {
-    this.type = JsonNullable.<TestSuiteType>of(type);
+    this.type = type;
   }
 
 
   public TestSuiteV2PostModel saveStructure(Boolean saveStructure) {
-    this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
+    
+    this.saveStructure = saveStructure;
     return this;
   }
 
@@ -191,32 +176,20 @@ public class TestSuiteV2PostModel {
    * Indicates if the test suite retains section tree structure
    * @return saveStructure
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getSaveStructure() {
-        return saveStructure.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getSaveStructure_JsonNullable() {
     return saveStructure;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
-  public void setSaveStructure_JsonNullable(JsonNullable<Boolean> saveStructure) {
-    this.saveStructure = saveStructure;
-  }
+
 
   public void setSaveStructure(Boolean saveStructure) {
-    this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
+    this.saveStructure = saveStructure;
   }
 
 
   public TestSuiteV2PostModel autoRefresh(Boolean autoRefresh) {
-    this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
+    
+    this.autoRefresh = autoRefresh;
     return this;
   }
 
@@ -224,33 +197,18 @@ public class TestSuiteV2PostModel {
    * Indicates if scheduled auto refresh is enabled for the test suite
    * @return autoRefresh
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Boolean getAutoRefresh() {
-        return autoRefresh.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getAutoRefresh_JsonNullable() {
     return autoRefresh;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
-  public void setAutoRefresh_JsonNullable(JsonNullable<Boolean> autoRefresh) {
+
+
+  public void setAutoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 
-  public void setAutoRefresh(Boolean autoRefresh) {
-    this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
-  }
 
 
-  /**
-   * Return true if this TestSuiteV2PostModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -260,12 +218,12 @@ public class TestSuiteV2PostModel {
       return false;
     }
     TestSuiteV2PostModel testSuiteV2PostModel = (TestSuiteV2PostModel) o;
-    return equalsNullable(this.parentId, testSuiteV2PostModel.parentId) &&
+    return Objects.equals(this.parentId, testSuiteV2PostModel.parentId) &&
         Objects.equals(this.testPlanId, testSuiteV2PostModel.testPlanId) &&
         Objects.equals(this.name, testSuiteV2PostModel.name) &&
-        equalsNullable(this.type, testSuiteV2PostModel.type) &&
-        equalsNullable(this.saveStructure, testSuiteV2PostModel.saveStructure) &&
-        equalsNullable(this.autoRefresh, testSuiteV2PostModel.autoRefresh);
+        Objects.equals(this.type, testSuiteV2PostModel.type) &&
+        Objects.equals(this.saveStructure, testSuiteV2PostModel.saveStructure) &&
+        Objects.equals(this.autoRefresh, testSuiteV2PostModel.autoRefresh);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -274,7 +232,7 @@ public class TestSuiteV2PostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(parentId), testPlanId, name, hashCodeNullable(type), hashCodeNullable(saveStructure), hashCodeNullable(autoRefresh));
+    return Objects.hash(parentId, testPlanId, name, type, saveStructure, autoRefresh);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -309,5 +267,111 @@ public class TestSuiteV2PostModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("parentId");
+    openapiFields.add("testPlanId");
+    openapiFields.add("name");
+    openapiFields.add("type");
+    openapiFields.add("saveStructure");
+    openapiFields.add("autoRefresh");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("testPlanId");
+    openapiRequiredFields.add("name");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestSuiteV2PostModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestSuiteV2PostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteV2PostModel is not found in the empty JSON string", TestSuiteV2PostModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestSuiteV2PostModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestSuiteV2PostModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
+      }
+      if (!jsonObj.get("testPlanId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestSuiteV2PostModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestSuiteV2PostModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestSuiteV2PostModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteV2PostModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestSuiteV2PostModel>() {
+           @Override
+           public void write(JsonWriter out, TestSuiteV2PostModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestSuiteV2PostModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestSuiteV2PostModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestSuiteV2PostModel
+  * @throws IOException if the JSON string is invalid with respect to TestSuiteV2PostModel
+  */
+  public static TestSuiteV2PostModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestSuiteV2PostModel.class);
+  }
+
+ /**
+  * Convert an instance of TestSuiteV2PostModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

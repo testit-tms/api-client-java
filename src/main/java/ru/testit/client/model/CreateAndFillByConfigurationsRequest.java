@@ -15,13 +15,12 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -29,57 +28,74 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentPutModel;
 import ru.testit.client.model.LinkPostModel;
 import ru.testit.client.model.TestPointSelector;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * CreateAndFillByConfigurationsRequest
  */
-@JsonPropertyOrder({
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_TEST_POINT_SELECTORS,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_PROJECT_ID,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_TEST_PLAN_ID,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_NAME,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_DESCRIPTION,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_LAUNCH_SOURCE,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_ATTACHMENTS,
-  CreateAndFillByConfigurationsRequest.JSON_PROPERTY_LINKS
-})
-@JsonTypeName("CreateAndFillByConfigurations_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAndFillByConfigurationsRequest {
-  public static final String JSON_PROPERTY_TEST_POINT_SELECTORS = "testPointSelectors";
+  public static final String SERIALIZED_NAME_TEST_POINT_SELECTORS = "testPointSelectors";
+  @SerializedName(SERIALIZED_NAME_TEST_POINT_SELECTORS)
   private List<TestPointSelector> testPointSelectors = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private UUID projectId;
 
-  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
+  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
   private UUID testPlanId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
-  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
+  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  private String launchSource;
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private JsonNullable<List<AttachmentPutModel>> attachments = JsonNullable.<List<AttachmentPutModel>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentPutModel> attachments;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<LinkPostModel>> links = JsonNullable.<List<LinkPostModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private List<LinkPostModel> links;
 
-  public CreateAndFillByConfigurationsRequest() { 
+  public CreateAndFillByConfigurationsRequest() {
   }
 
   public CreateAndFillByConfigurationsRequest testPointSelectors(List<TestPointSelector> testPointSelectors) {
+    
     this.testPointSelectors = testPointSelectors;
     return this;
   }
@@ -96,23 +112,19 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies an array of work items and configuration to create a test run for.
    * @return testPointSelectors
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_POINT_SELECTORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public List<TestPointSelector> getTestPointSelectors() {
     return testPointSelectors;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_POINT_SELECTORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPointSelectors(List<TestPointSelector> testPointSelectors) {
     this.testPointSelectors = testPointSelectors;
   }
 
 
   public CreateAndFillByConfigurationsRequest projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -121,23 +133,19 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies the GUID of the project, in which a test run will be created.
    * @return projectId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public CreateAndFillByConfigurationsRequest testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -146,24 +154,20 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies the GUID of the test plan, within which the test run will be created.
    * @return testPlanId
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public CreateAndFillByConfigurationsRequest name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    
+    this.name = name;
     return this;
   }
 
@@ -171,32 +175,20 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies the name of the test run.
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
+
 
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
 
   public CreateAndFillByConfigurationsRequest description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    
+    this.description = description;
     return this;
   }
 
@@ -204,32 +196,20 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies the test run description.
    * @return description
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
+
 
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
 
   public CreateAndFillByConfigurationsRequest launchSource(String launchSource) {
-    this.launchSource = JsonNullable.<String>of(launchSource);
+    
+    this.launchSource = launchSource;
     return this;
   }
 
@@ -237,44 +217,28 @@ public class CreateAndFillByConfigurationsRequest {
    * Specifies the test run launch source.
    * @return launchSource
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getLaunchSource() {
-        return launchSource.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getLaunchSource_JsonNullable() {
     return launchSource;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
-  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
-    this.launchSource = launchSource;
-  }
+
 
   public void setLaunchSource(String launchSource) {
-    this.launchSource = JsonNullable.<String>of(launchSource);
+    this.launchSource = launchSource;
   }
 
 
   public CreateAndFillByConfigurationsRequest attachments(List<AttachmentPutModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+    
+    this.attachments = attachments;
     return this;
   }
 
   public CreateAndFillByConfigurationsRequest addAttachmentsItem(AttachmentPutModel attachmentsItem) {
-    if (this.attachments == null || !this.attachments.isPresent()) {
-      this.attachments = JsonNullable.<List<AttachmentPutModel>>of(new ArrayList<>());
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
     }
-    try {
-      this.attachments.get().add(attachmentsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachments.add(attachmentsItem);
     return this;
   }
 
@@ -282,44 +246,28 @@ public class CreateAndFillByConfigurationsRequest {
    * Collection of attachment ids to relate to the test run
    * @return attachments
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<AttachmentPutModel> getAttachments() {
-        return attachments.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<AttachmentPutModel>> getAttachments_JsonNullable() {
     return attachments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentPutModel>> attachments) {
-    this.attachments = attachments;
-  }
+
 
   public void setAttachments(List<AttachmentPutModel> attachments) {
-    this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
+    this.attachments = attachments;
   }
 
 
   public CreateAndFillByConfigurationsRequest links(List<LinkPostModel> links) {
-    this.links = JsonNullable.<List<LinkPostModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public CreateAndFillByConfigurationsRequest addLinksItem(LinkPostModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<LinkPostModel>>of(new ArrayList<>());
+    if (this.links == null) {
+      this.links = new ArrayList<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
@@ -327,33 +275,18 @@ public class CreateAndFillByConfigurationsRequest {
    * Collection of links to relate to the test run
    * @return links
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<LinkPostModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<LinkPostModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<LinkPostModel>> links) {
+
+
+  public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
-  public void setLinks(List<LinkPostModel> links) {
-    this.links = JsonNullable.<List<LinkPostModel>>of(links);
-  }
 
 
-  /**
-   * Return true if this CreateAndFillByConfigurations_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -366,11 +299,11 @@ public class CreateAndFillByConfigurationsRequest {
     return Objects.equals(this.testPointSelectors, createAndFillByConfigurationsRequest.testPointSelectors) &&
         Objects.equals(this.projectId, createAndFillByConfigurationsRequest.projectId) &&
         Objects.equals(this.testPlanId, createAndFillByConfigurationsRequest.testPlanId) &&
-        equalsNullable(this.name, createAndFillByConfigurationsRequest.name) &&
-        equalsNullable(this.description, createAndFillByConfigurationsRequest.description) &&
-        equalsNullable(this.launchSource, createAndFillByConfigurationsRequest.launchSource) &&
-        equalsNullable(this.attachments, createAndFillByConfigurationsRequest.attachments) &&
-        equalsNullable(this.links, createAndFillByConfigurationsRequest.links);
+        Objects.equals(this.name, createAndFillByConfigurationsRequest.name) &&
+        Objects.equals(this.description, createAndFillByConfigurationsRequest.description) &&
+        Objects.equals(this.launchSource, createAndFillByConfigurationsRequest.launchSource) &&
+        Objects.equals(this.attachments, createAndFillByConfigurationsRequest.attachments) &&
+        Objects.equals(this.links, createAndFillByConfigurationsRequest.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -379,7 +312,7 @@ public class CreateAndFillByConfigurationsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPointSelectors, projectId, testPlanId, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
+    return Objects.hash(testPointSelectors, projectId, testPlanId, name, description, launchSource, attachments, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -416,5 +349,158 @@ public class CreateAndFillByConfigurationsRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("testPointSelectors");
+    openapiFields.add("projectId");
+    openapiFields.add("testPlanId");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("launchSource");
+    openapiFields.add("attachments");
+    openapiFields.add("links");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("testPointSelectors");
+    openapiRequiredFields.add("projectId");
+    openapiRequiredFields.add("testPlanId");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to CreateAndFillByConfigurationsRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!CreateAndFillByConfigurationsRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateAndFillByConfigurationsRequest is not found in the empty JSON string", CreateAndFillByConfigurationsRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!CreateAndFillByConfigurationsRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateAndFillByConfigurationsRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CreateAndFillByConfigurationsRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("testPointSelectors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPointSelectors` to be an array in the JSON string but got `%s`", jsonObj.get("testPointSelectors").toString()));
+      }
+
+      JsonArray jsonArraytestPointSelectors = jsonObj.getAsJsonArray("testPointSelectors");
+      // validate the required field `testPointSelectors` (array)
+      for (int i = 0; i < jsonArraytestPointSelectors.size(); i++) {
+        TestPointSelector.validateJsonObject(jsonArraytestPointSelectors.get(i).getAsJsonObject());
+      };
+      if (!jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if (!jsonObj.get("testPlanId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!CreateAndFillByConfigurationsRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateAndFillByConfigurationsRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<CreateAndFillByConfigurationsRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateAndFillByConfigurationsRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<CreateAndFillByConfigurationsRequest>() {
+           @Override
+           public void write(JsonWriter out, CreateAndFillByConfigurationsRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public CreateAndFillByConfigurationsRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of CreateAndFillByConfigurationsRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CreateAndFillByConfigurationsRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateAndFillByConfigurationsRequest
+  */
+  public static CreateAndFillByConfigurationsRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateAndFillByConfigurationsRequest.class);
+  }
+
+ /**
+  * Convert an instance of CreateAndFillByConfigurationsRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

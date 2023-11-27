@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
-|**name** | **String** |  |  [optional] |
-|**entityTypeName** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
+|**entityTypeName** | **String** |  |  |
 |**hasThisSharedStepAsStep** | **Boolean** |  |  |
 |**hasThisSharedStepAsPrecondition** | **Boolean** |  |  |
 |**hasThisSharedStepAsPostcondition** | **Boolean** |  |  |
@@ -18,7 +18,7 @@
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**state** | **String** |  |  [optional] |
+|**state** | **String** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**isDeleted** | **Boolean** |  |  |
 |**versionId** | **UUID** | used for versioning changes in workitem |  |

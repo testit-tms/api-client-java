@@ -19,59 +19,55 @@ All URIs are relative to *http://localhost*
 | [**setConfigurationsByTestSuiteId**](TestSuitesApi.md#setConfigurationsByTestSuiteId) | **POST** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id |
 
 
-
-## addTestPointsToTestSuite
-
-> addTestPointsToTestSuite(id, apiV2ProjectsIdWorkItemsSearchPostRequest)
+<a id="addTestPointsToTestSuite"></a>
+# **addTestPointsToTestSuite**
+> addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
 
 Add test-points to test suite
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132"); // UUID | Test suite internal identifier
-        ApiV2ProjectsIdWorkItemsSearchPostRequest apiV2ProjectsIdWorkItemsSearchPostRequest = new ApiV2ProjectsIdWorkItemsSearchPostRequest(); // ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project
-        try {
-            apiInstance.addTestPointsToTestSuite(id, apiV2ProjectsIdWorkItemsSearchPostRequest);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#addTestPointsToTestSuite");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132"); // UUID | Test suite internal identifier
+    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project
+    try {
+      apiInstance.addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#addTestPointsToTestSuite");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal identifier | |
-| **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -83,69 +79,65 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Test suite with provided ID was not found |  -  |
-| **400** | Bad Request |  -  |
 | **204** | Successful operation |  -  |
-| **403** | Update permission for test plan is required |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test plan is required |  -  |
+| **404** | Test suite with provided ID was not found |  -  |
 | **422** | Shared steps cannot be added to test suite |  -  |
 
-
-## apiV2TestSuitesIdPatch
-
+<a id="apiV2TestSuitesIdPatch"></a>
+# **apiV2TestSuitesIdPatch**
 > apiV2TestSuitesIdPatch(id, operation)
 
 Patch test suite
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
-        List<Operation> operation = Arrays.asList(); // List<Operation> | 
-        try {
-            apiInstance.apiV2TestSuitesIdPatch(id, operation);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdPatch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2TestSuitesIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -162,8 +154,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -171,53 +163,49 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for test suite is required |  -  |
 
-
-## apiV2TestSuitesIdRefreshPost
-
+<a id="apiV2TestSuitesIdRefreshPost"></a>
+# **apiV2TestSuitesIdRefreshPost**
 > apiV2TestSuitesIdRefreshPost(id)
 
 Refresh test suite. Only dynamic test suites are supported by this method
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
-        try {
-            apiInstance.apiV2TestSuitesIdRefreshPost(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdRefreshPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
+    try {
+      apiInstance.apiV2TestSuitesIdRefreshPost(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdRefreshPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -233,68 +221,64 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test suite is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Update permission for test suite is required |  -  |
 
-
-## apiV2TestSuitesIdWorkItemsPost
-
+<a id="apiV2TestSuitesIdWorkItemsPost"></a>
+# **apiV2TestSuitesIdWorkItemsPost**
 > apiV2TestSuitesIdWorkItemsPost(id, UUID)
 
 Set work items for test suite
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Unique ID of the test suite
-        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
-        try {
-            apiInstance.apiV2TestSuitesIdWorkItemsPost(id, UUID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdWorkItemsPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Unique ID of the test suite
+    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+    try {
+      apiInstance.apiV2TestSuitesIdWorkItemsPost(id, UUID);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdWorkItemsPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Unique ID of the test suite | |
-| **UUID** | **List&lt;UUID&gt;**|  | [optional] |
+| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
 
 ### Return type
 
@@ -306,8 +290,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -315,53 +299,50 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for test plan is required |  -  |
 
-
-## apiV2TestSuitesPost
-
+<a id="apiV2TestSuitesPost"></a>
+# **apiV2TestSuitesPost**
 > TestSuiteV2GetModel apiV2TestSuitesPost(apiV2TestSuitesPostRequest)
 
 Create test suite
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest = new ApiV2TestSuitesPostRequest(); // ApiV2TestSuitesPostRequest | 
-        try {
-            TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(apiV2TestSuitesPostRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest = new ApiV2TestSuitesPostRequest(); // ApiV2TestSuitesPostRequest | 
+    try {
+      TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(apiV2TestSuitesPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -377,8 +358,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -386,52 +367,49 @@ public class Example {
 | **201** | Created |  -  |
 | **403** | Update permission for test plan is required |  -  |
 
-
-## apiV2TestSuitesPut
-
+<a id="apiV2TestSuitesPut"></a>
+# **apiV2TestSuitesPut**
 > apiV2TestSuitesPut(apiV2TestSuitesPutRequest)
 
 Edit test suite
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest = new ApiV2TestSuitesPutRequest(); // ApiV2TestSuitesPutRequest | 
-        try {
-            apiInstance.apiV2TestSuitesPut(apiV2TestSuitesPutRequest);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPut");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest = new ApiV2TestSuitesPutRequest(); // ApiV2TestSuitesPutRequest | 
+    try {
+      apiInstance.apiV2TestSuitesPut(apiV2TestSuitesPutRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -447,8 +425,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -456,60 +434,51 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Update permission for test plan is required |  -  |
 
-
-## deleteTestSuite
-
+<a id="deleteTestSuite"></a>
+# **deleteTestSuite**
 > deleteTestSuite(id)
 
 Delete TestSuite
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System deletes test suite
-<br>System returns no content response
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        try {
-            apiInstance.deleteTestSuite(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#deleteTestSuite");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    try {
+      apiInstance.deleteTestSuite(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#deleteTestSuite");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -525,73 +494,63 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 | **204** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test plan required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 
-
-## getConfigurationsByTestSuiteId
-
+<a id="getConfigurationsByTestSuiteId"></a>
+# **getConfigurationsByTestSuiteId**
 > List&lt;ConfigurationModel&gt; getConfigurationsByTestSuiteId(id)
 
 Get Configurations By Id
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System search configurations related to the test points
-<br>System returns configurations array
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        try {
-            List<ConfigurationModel> result = apiInstance.getConfigurationsByTestSuiteId(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#getConfigurationsByTestSuiteId");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    try {
+      List<ConfigurationModel> result = apiInstance.getConfigurationsByTestSuiteId(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#getConfigurationsByTestSuiteId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -607,8 +566,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -618,61 +577,52 @@ public class Example {
 | **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
-
-## getTestPointsById
-
+<a id="getTestPointsById"></a>
+# **getTestPointsById**
 > List&lt;TestPointByTestSuiteModel&gt; getTestPointsById(id)
 
 Get TestPoints By Id
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System returns test points array
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        try {
-            List<TestPointByTestSuiteModel> result = apiInstance.getTestPointsById(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#getTestPointsById");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    try {
+      List<TestPointByTestSuiteModel> result = apiInstance.getTestPointsById(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#getTestPointsById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -688,8 +638,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -699,62 +649,52 @@ public class Example {
 | **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
-
-## getTestResultsById
-
+<a id="getTestResultsById"></a>
+# **getTestResultsById**
 > List&lt;TestResultV2ShortModel&gt; getTestResultsById(id)
 
 Get TestResults By Id
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System search test results related to the test points
-<br>System returns test results array
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        try {
-            List<TestResultV2ShortModel> result = apiInstance.getTestResultsById(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#getTestResultsById");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    try {
+      List<TestResultV2ShortModel> result = apiInstance.getTestResultsById(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#getTestResultsById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -770,8 +710,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -781,60 +721,52 @@ public class Example {
 | **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
-
-## getTestSuiteById
-
+<a id="getTestSuiteById"></a>
+# **getTestSuiteById**
 > TestSuiteV2GetModel getTestSuiteById(id)
 
 Get TestSuite by Id
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System returns test suite
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        try {
-            TestSuiteV2GetModel result = apiInstance.getTestSuiteById(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#getTestSuiteById");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    try {
+      TestSuiteV2GetModel result = apiInstance.getTestSuiteById(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#getTestSuiteById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -850,83 +782,69 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-| **200** | Successful operation |  -  |
 
-
-## searchWorkItems
-
+<a id="searchWorkItems"></a>
+# **searchWorkItems**
 > List&lt;WorkItemShortModel&gt; searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest)
 
 Search WorkItems
 
-<br>Use case
-<br>User sets test suite identifier
-<br>[Optional] User sets filter
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System search work items related to the test points
-<br>
-                    [Optional] User sets filter, system applies filter
-                
-<br>System returns work items array
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                    &lt;br&gt;System returns work items array
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-        Integer take = 56; // Integer | Amount of items to be taken (limit)
-        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-        String searchField = "searchField_example"; // String | Property name for searching
-        String searchValue = "searchValue_example"; // String | Value for searching
-        SearchWorkItemsRequest searchWorkItemsRequest = new SearchWorkItemsRequest(); // SearchWorkItemsRequest | 
-        try {
-            List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#searchWorkItems");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    SearchWorkItemsRequest searchWorkItemsRequest = new SearchWorkItemsRequest(); // SearchWorkItemsRequest | 
+    try {
+      List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#searchWorkItems");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -948,81 +866,69 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Can&#39;t find a TestSuite with id! |  -  |
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
+| **404** | Can&#39;t find a TestSuite with id! |  -  |
 
-
-## setConfigurationsByTestSuiteId
-
+<a id="setConfigurationsByTestSuiteId"></a>
+# **setConfigurationsByTestSuiteId**
 > setConfigurationsByTestSuiteId(id, UUID)
 
 Set Configurations By TestSuite Id
 
-<br>Use case
-<br>User sets test suite identifier
-<br>User sets collection of configuration identifiers
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System search configuration
-<br>System restores(if exist) or creates test points with listed configuration
-<br>System returns no content response
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.TestSuitesApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-        Set<UUID> UUID = Arrays.asList(); // Set<UUID> | Collection of configuration identifiers\"
-        try {
-            apiInstance.setConfigurationsByTestSuiteId(id, UUID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling TestSuitesApi#setConfigurationsByTestSuiteId");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
+    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | Collection of configuration identifiers\"
+    try {
+      apiInstance.setConfigurationsByTestSuiteId(id, UUID);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#setConfigurationsByTestSuiteId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal (guid format) identifier\&quot; | |
-| **UUID** | **List&lt;UUID&gt;**| Collection of configuration identifiers\&quot; | [optional] |
+| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)| Collection of configuration identifiers\&quot; | [optional] |
 
 ### Return type
 
@@ -1034,15 +940,15 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
-| **204** | Successful operation |  -  |
 

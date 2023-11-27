@@ -15,44 +15,61 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ActionUpdate;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * UpdateAttachmentShortModel
  */
-@JsonPropertyOrder({
-  UpdateAttachmentShortModel.JSON_PROPERTY_ACTION,
-  UpdateAttachmentShortModel.JSON_PROPERTY_ATTACHMENT_IDS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAttachmentShortModel {
-  public static final String JSON_PROPERTY_ACTION = "action";
+  public static final String SERIALIZED_NAME_ACTION = "action";
+  @SerializedName(SERIALIZED_NAME_ACTION)
   private ActionUpdate action;
 
-  public static final String JSON_PROPERTY_ATTACHMENT_IDS = "attachmentIds";
-  private JsonNullable<List<UUID>> attachmentIds = JsonNullable.<List<UUID>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
+  private List<UUID> attachmentIds;
 
-  public UpdateAttachmentShortModel() { 
+  public UpdateAttachmentShortModel() {
   }
 
   public UpdateAttachmentShortModel action(ActionUpdate action) {
+    
     this.action = action;
     return this;
   }
@@ -61,36 +78,28 @@ public class UpdateAttachmentShortModel {
    * Get action
    * @return action
   **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
+  @javax.annotation.Nonnull
   public ActionUpdate getAction() {
     return action;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAction(ActionUpdate action) {
     this.action = action;
   }
 
 
   public UpdateAttachmentShortModel attachmentIds(List<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
+    
+    this.attachmentIds = attachmentIds;
     return this;
   }
 
   public UpdateAttachmentShortModel addAttachmentIdsItem(UUID attachmentIdsItem) {
-    if (this.attachmentIds == null || !this.attachmentIds.isPresent()) {
-      this.attachmentIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    if (this.attachmentIds == null) {
+      this.attachmentIds = new ArrayList<>();
     }
-    try {
-      this.attachmentIds.get().add(attachmentIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachmentIds.add(attachmentIdsItem);
     return this;
   }
 
@@ -98,33 +107,18 @@ public class UpdateAttachmentShortModel {
    * Get attachmentIds
    * @return attachmentIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public List<UUID> getAttachmentIds() {
-        return attachmentIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getAttachmentIds_JsonNullable() {
     return attachmentIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  public void setAttachmentIds_JsonNullable(JsonNullable<List<UUID>> attachmentIds) {
+
+
+  public void setAttachmentIds(List<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 
-  public void setAttachmentIds(List<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
-  }
 
 
-  /**
-   * Return true if this UpdateAttachmentShortModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,7 +129,7 @@ public class UpdateAttachmentShortModel {
     }
     UpdateAttachmentShortModel updateAttachmentShortModel = (UpdateAttachmentShortModel) o;
     return Objects.equals(this.action, updateAttachmentShortModel.action) &&
-        equalsNullable(this.attachmentIds, updateAttachmentShortModel.attachmentIds);
+        Objects.equals(this.attachmentIds, updateAttachmentShortModel.attachmentIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +138,7 @@ public class UpdateAttachmentShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, hashCodeNullable(attachmentIds));
+    return Objects.hash(action, attachmentIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -175,5 +169,101 @@ public class UpdateAttachmentShortModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("action");
+    openapiFields.add("attachmentIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("action");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UpdateAttachmentShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!UpdateAttachmentShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateAttachmentShortModel is not found in the empty JSON string", UpdateAttachmentShortModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!UpdateAttachmentShortModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateAttachmentShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UpdateAttachmentShortModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attachmentIds` to be an array in the JSON string but got `%s`", jsonObj.get("attachmentIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!UpdateAttachmentShortModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateAttachmentShortModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<UpdateAttachmentShortModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateAttachmentShortModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<UpdateAttachmentShortModel>() {
+           @Override
+           public void write(JsonWriter out, UpdateAttachmentShortModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public UpdateAttachmentShortModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of UpdateAttachmentShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UpdateAttachmentShortModel
+  * @throws IOException if the JSON string is invalid with respect to UpdateAttachmentShortModel
+  */
+  public static UpdateAttachmentShortModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateAttachmentShortModel.class);
+  }
+
+ /**
+  * Convert an instance of UpdateAttachmentShortModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

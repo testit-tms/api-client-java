@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**selectModel** | [**TestRunSelectionModel**](TestRunSelectionModel.md) |  |  |
 |**description** | **String** |  |  [optional] |
-|**attachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  |  [optional] |
-|**linkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  |  [optional] |
+|**attachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  |  |
+|**linkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  |  |
 
 
 

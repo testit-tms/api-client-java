@@ -13,6 +13,7 @@
 |**state** | **BackgroundJobState** |  |  |
 |**isDeleted** | **Boolean** |  |  |
 |**progress** | **Long** |  |  |
+|**createdDate** | **OffsetDateTime** |  |  |
 |**startDate** | **OffsetDateTime** |  |  [optional] |
 |**endDate** | **OffsetDateTime** |  |  [optional] |
 |**error** | **String** |  |  [optional] |

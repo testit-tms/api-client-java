@@ -8,19 +8,19 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**firstName** | **String** |  |  [optional] |
-|**lastName** | **String** |  |  [optional] |
-|**middleName** | **String** |  |  [optional] |
-|**userName** | **String** |  |  [optional] |
-|**displayName** | **String** |  |  [optional] |
-|**userType** | **String** |  |  [optional] |
-|**avatarUrl** | **String** |  |  [optional] |
-|**avatarMetadata** | **String** |  |  [optional] |
+|**firstName** | **String** |  |  |
+|**lastName** | **String** |  |  |
+|**middleName** | **String** |  |  |
+|**userName** | **String** |  |  |
+|**displayName** | **String** |  |  |
+|**userType** | **String** |  |  |
+|**avatarUrl** | **String** |  |  |
+|**avatarMetadata** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  |
 |**isDisabled** | **Boolean** |  |  |
 |**providerId** | **UUID** |  |  [optional] |
 |**isActiveStatusByEntity** | **Boolean** |  |  |
-|**userRank** | [**UserRankModel**](UserRankModel.md) |  |  [optional] |
+|**userRank** | [**UserWithRankModelUserRank**](UserWithRankModelUserRank.md) |  |  |
 
 
 

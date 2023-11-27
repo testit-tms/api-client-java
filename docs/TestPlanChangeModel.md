@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**testPlanId** | **UUID** |  |  |
-|**testPlanChangedFields** | [**TestPlanChangedFieldsViewModel**](TestPlanChangedFieldsViewModel.md) |  |  [optional] |
+|**testPlanChangedFields** | [**TestPlanChangeModelTestPlanChangedFields**](TestPlanChangeModelTestPlanChangedFields.md) |  |  |
 |**createdById** | **UUID** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 

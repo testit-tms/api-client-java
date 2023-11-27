@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**testSuiteId** | **UUID** |  |  |
-|**testSuiteName** | **String** |  |  [optional] |
+|**testSuiteName** | **String** |  |  |
 |**value** | **Long** |  |  |
 
 

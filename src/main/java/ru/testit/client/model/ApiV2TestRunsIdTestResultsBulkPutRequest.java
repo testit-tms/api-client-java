@@ -15,59 +15,75 @@ package ru.testit.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.LinkPostModel;
 import ru.testit.client.model.TestRunTestResultsPartialBulkSetModelSelector;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import ru.testit.client.invoker.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import ru.testit.client.invoker.JSON;
 
 /**
  * ApiV2TestRunsIdTestResultsBulkPutRequest
  */
-@JsonPropertyOrder({
-  ApiV2TestRunsIdTestResultsBulkPutRequest.JSON_PROPERTY_SELECTOR,
-  ApiV2TestRunsIdTestResultsBulkPutRequest.JSON_PROPERTY_RESULT_REASON_IDS,
-  ApiV2TestRunsIdTestResultsBulkPutRequest.JSON_PROPERTY_LINKS,
-  ApiV2TestRunsIdTestResultsBulkPutRequest.JSON_PROPERTY_COMMENT,
-  ApiV2TestRunsIdTestResultsBulkPutRequest.JSON_PROPERTY_ATTACHMENT_IDS
-})
-@JsonTypeName("_api_v2_testRuns__id__testResults_bulk_put_request")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiV2TestRunsIdTestResultsBulkPutRequest {
-  public static final String JSON_PROPERTY_SELECTOR = "selector";
-  private JsonNullable<TestRunTestResultsPartialBulkSetModelSelector> selector = JsonNullable.<TestRunTestResultsPartialBulkSetModelSelector>undefined();
+  public static final String SERIALIZED_NAME_SELECTOR = "selector";
+  @SerializedName(SERIALIZED_NAME_SELECTOR)
+  private TestRunTestResultsPartialBulkSetModelSelector selector;
 
-  public static final String JSON_PROPERTY_RESULT_REASON_IDS = "resultReasonIds";
-  private JsonNullable<Set<UUID>> resultReasonIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_RESULT_REASON_IDS = "resultReasonIds";
+  @SerializedName(SERIALIZED_NAME_RESULT_REASON_IDS)
+  private Set<UUID> resultReasonIds;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<Set<LinkPostModel>> links = JsonNullable.<Set<LinkPostModel>>undefined();
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private Set<LinkPostModel> links;
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private String comment;
 
-  public static final String JSON_PROPERTY_ATTACHMENT_IDS = "attachmentIds";
-  private JsonNullable<Set<UUID>> attachmentIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
+  private Set<UUID> attachmentIds;
 
-  public ApiV2TestRunsIdTestResultsBulkPutRequest() { 
+  public ApiV2TestRunsIdTestResultsBulkPutRequest() {
   }
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest selector(TestRunTestResultsPartialBulkSetModelSelector selector) {
-    this.selector = JsonNullable.<TestRunTestResultsPartialBulkSetModelSelector>of(selector);
+    
+    this.selector = selector;
     return this;
   }
 
@@ -75,44 +91,28 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
    * Get selector
    * @return selector
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public TestRunTestResultsPartialBulkSetModelSelector getSelector() {
-        return selector.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SELECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestRunTestResultsPartialBulkSetModelSelector> getSelector_JsonNullable() {
     return selector;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SELECTOR)
-  public void setSelector_JsonNullable(JsonNullable<TestRunTestResultsPartialBulkSetModelSelector> selector) {
-    this.selector = selector;
-  }
+
 
   public void setSelector(TestRunTestResultsPartialBulkSetModelSelector selector) {
-    this.selector = JsonNullable.<TestRunTestResultsPartialBulkSetModelSelector>of(selector);
+    this.selector = selector;
   }
 
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest resultReasonIds(Set<UUID> resultReasonIds) {
-    this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
+    
+    this.resultReasonIds = resultReasonIds;
     return this;
   }
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest addResultReasonIdsItem(UUID resultReasonIdsItem) {
-    if (this.resultReasonIds == null || !this.resultReasonIds.isPresent()) {
-      this.resultReasonIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.resultReasonIds == null) {
+      this.resultReasonIds = new LinkedHashSet<>();
     }
-    try {
-      this.resultReasonIds.get().add(resultReasonIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.resultReasonIds.add(resultReasonIdsItem);
     return this;
   }
 
@@ -120,44 +120,28 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
    * Unique IDs of result reasons to be assigned to test results
    * @return resultReasonIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getResultReasonIds() {
-        return resultReasonIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RESULT_REASON_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getResultReasonIds_JsonNullable() {
     return resultReasonIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_RESULT_REASON_IDS)
-  public void setResultReasonIds_JsonNullable(JsonNullable<Set<UUID>> resultReasonIds) {
-    this.resultReasonIds = resultReasonIds;
-  }
+
 
   public void setResultReasonIds(Set<UUID> resultReasonIds) {
-    this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
+    this.resultReasonIds = resultReasonIds;
   }
 
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest links(Set<LinkPostModel> links) {
-    this.links = JsonNullable.<Set<LinkPostModel>>of(links);
+    
+    this.links = links;
     return this;
   }
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest addLinksItem(LinkPostModel linksItem) {
-    if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<Set<LinkPostModel>>of(new LinkedHashSet<>());
+    if (this.links == null) {
+      this.links = new LinkedHashSet<>();
     }
-    try {
-      this.links.get().add(linksItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.links.add(linksItem);
     return this;
   }
 
@@ -165,32 +149,20 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
    * Collection of links to be assigned to test results
    * @return links
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<LinkPostModel> getLinks() {
-        return links.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<LinkPostModel>> getLinks_JsonNullable() {
     return links;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<Set<LinkPostModel>> links) {
-    this.links = links;
-  }
+
 
   public void setLinks(Set<LinkPostModel> links) {
-    this.links = JsonNullable.<Set<LinkPostModel>>of(links);
+    this.links = links;
   }
 
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest comment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    
+    this.comment = comment;
     return this;
   }
 
@@ -198,44 +170,28 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
    * Comment to be added to test results
    * @return comment
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public String getComment() {
-        return comment.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<String> comment) {
-    this.comment = comment;
-  }
+
 
   public void setComment(String comment) {
-    this.comment = JsonNullable.<String>of(comment);
+    this.comment = comment;
   }
 
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest attachmentIds(Set<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
+    
+    this.attachmentIds = attachmentIds;
     return this;
   }
 
   public ApiV2TestRunsIdTestResultsBulkPutRequest addAttachmentIdsItem(UUID attachmentIdsItem) {
-    if (this.attachmentIds == null || !this.attachmentIds.isPresent()) {
-      this.attachmentIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.attachmentIds == null) {
+      this.attachmentIds = new LinkedHashSet<>();
     }
-    try {
-      this.attachmentIds.get().add(attachmentIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.attachmentIds.add(attachmentIdsItem);
     return this;
   }
 
@@ -243,33 +199,18 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
    * Unique IDs of files to be attached to test results
    * @return attachmentIds
   **/
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
+  @javax.annotation.Nullable
   public Set<UUID> getAttachmentIds() {
-        return attachmentIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getAttachmentIds_JsonNullable() {
     return attachmentIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
-  public void setAttachmentIds_JsonNullable(JsonNullable<Set<UUID>> attachmentIds) {
+
+
+  public void setAttachmentIds(Set<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 
-  public void setAttachmentIds(Set<UUID> attachmentIds) {
-    this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
-  }
 
 
-  /**
-   * Return true if this _api_v2_testRuns__id__testResults_bulk_put_request object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -279,11 +220,11 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
       return false;
     }
     ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest = (ApiV2TestRunsIdTestResultsBulkPutRequest) o;
-    return equalsNullable(this.selector, apiV2TestRunsIdTestResultsBulkPutRequest.selector) &&
-        equalsNullable(this.resultReasonIds, apiV2TestRunsIdTestResultsBulkPutRequest.resultReasonIds) &&
-        equalsNullable(this.links, apiV2TestRunsIdTestResultsBulkPutRequest.links) &&
-        equalsNullable(this.comment, apiV2TestRunsIdTestResultsBulkPutRequest.comment) &&
-        equalsNullable(this.attachmentIds, apiV2TestRunsIdTestResultsBulkPutRequest.attachmentIds);
+    return Objects.equals(this.selector, apiV2TestRunsIdTestResultsBulkPutRequest.selector) &&
+        Objects.equals(this.resultReasonIds, apiV2TestRunsIdTestResultsBulkPutRequest.resultReasonIds) &&
+        Objects.equals(this.links, apiV2TestRunsIdTestResultsBulkPutRequest.links) &&
+        Objects.equals(this.comment, apiV2TestRunsIdTestResultsBulkPutRequest.comment) &&
+        Objects.equals(this.attachmentIds, apiV2TestRunsIdTestResultsBulkPutRequest.attachmentIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -292,7 +233,7 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(selector), hashCodeNullable(resultReasonIds), hashCodeNullable(links), hashCodeNullable(comment), hashCodeNullable(attachmentIds));
+    return Objects.hash(selector, resultReasonIds, links, comment, attachmentIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -326,5 +267,121 @@ public class ApiV2TestRunsIdTestResultsBulkPutRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("selector");
+    openapiFields.add("resultReasonIds");
+    openapiFields.add("links");
+    openapiFields.add("comment");
+    openapiFields.add("attachmentIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2TestRunsIdTestResultsBulkPutRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ApiV2TestRunsIdTestResultsBulkPutRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2TestRunsIdTestResultsBulkPutRequest is not found in the empty JSON string", ApiV2TestRunsIdTestResultsBulkPutRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ApiV2TestRunsIdTestResultsBulkPutRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2TestRunsIdTestResultsBulkPutRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `selector`
+      if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
+        TestRunTestResultsPartialBulkSetModelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("resultReasonIds") != null && !jsonObj.get("resultReasonIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resultReasonIds` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasonIds").toString()));
+      }
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
+        if (jsonArraylinks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("links").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+          }
+
+          // validate the optional field `links` (array)
+          for (int i = 0; i < jsonArraylinks.size(); i++) {
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attachmentIds` to be an array in the JSON string but got `%s`", jsonObj.get("attachmentIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ApiV2TestRunsIdTestResultsBulkPutRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2TestRunsIdTestResultsBulkPutRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ApiV2TestRunsIdTestResultsBulkPutRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2TestRunsIdTestResultsBulkPutRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2TestRunsIdTestResultsBulkPutRequest>() {
+           @Override
+           public void write(JsonWriter out, ApiV2TestRunsIdTestResultsBulkPutRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ApiV2TestRunsIdTestResultsBulkPutRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ApiV2TestRunsIdTestResultsBulkPutRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApiV2TestRunsIdTestResultsBulkPutRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2TestRunsIdTestResultsBulkPutRequest
+  */
+  public static ApiV2TestRunsIdTestResultsBulkPutRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2TestRunsIdTestResultsBulkPutRequest.class);
+  }
+
+ /**
+  * Convert an instance of ApiV2TestRunsIdTestResultsBulkPutRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -14,54 +14,50 @@ All URIs are relative to *http://localhost*
 | [**apiV2WebhooksTestPost**](WebhooksApi.md#apiV2WebhooksTestPost) | **POST** /api/v2/webhooks/test | Test webhook&#39;s url |
 
 
-
-## apiV2WebhooksGet
-
+<a id="apiV2WebhooksGet"></a>
+# **apiV2WebhooksGet**
 > List&lt;WebHookModel&gt; apiV2WebhooksGet(projectId)
 
 Get all webhooks
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        UUID projectId = UUID.randomUUID(); // UUID | Project unique ID
-        try {
-            List<WebHookModel> result = apiInstance.apiV2WebhooksGet(projectId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | Project unique ID
+    try {
+      List<WebHookModel> result = apiInstance.apiV2WebhooksGet(projectId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -77,8 +73,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -86,53 +82,49 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Read permission for requested project is required |  -  |
 
-
-## apiV2WebhooksIdDelete
-
+<a id="apiV2WebhooksIdDelete"></a>
+# **apiV2WebhooksIdDelete**
 > apiV2WebhooksIdDelete(id)
 
 Delete webhook by ID
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
-        try {
-            apiInstance.apiV2WebhooksIdDelete(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdDelete");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
+    try {
+      apiInstance.apiV2WebhooksIdDelete(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -148,8 +140,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -157,54 +149,50 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Delete permission for webhooks is required |  -  |
 
-
-## apiV2WebhooksIdGet
-
+<a id="apiV2WebhooksIdGet"></a>
+# **apiV2WebhooksIdGet**
 > WebHookModel apiV2WebhooksIdGet(id)
 
 Get webhook by ID
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
-        try {
-            WebHookModel result = apiInstance.apiV2WebhooksIdGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
+    try {
+      WebHookModel result = apiInstance.apiV2WebhooksIdGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -220,8 +208,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -229,55 +217,51 @@ public class Example {
 | **200** | Success |  -  |
 | **403** | Update permission for webhooks is required |  -  |
 
-
-## apiV2WebhooksIdPut
-
+<a id="apiV2WebhooksIdPut"></a>
+# **apiV2WebhooksIdPut**
 > WebHookModel apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest)
 
 Edit webhook by ID
 
 ### Example
-
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
-        ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
-        try {
-            WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdPut");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
+    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
+    try {
+      WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdPut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -294,62 +278,59 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for webhooks is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for webhooks is required |  -  |
 
-
-## apiV2WebhooksPost
-
+<a id="apiV2WebhooksPost"></a>
+# **apiV2WebhooksPost**
 > WebHookModel apiV2WebhooksPost(apiV2WebhooksPostRequest)
 
 Create webhook
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
-        try {
-            WebHookModel result = apiInstance.apiV2WebhooksPost(apiV2WebhooksPostRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
+    try {
+      WebHookModel result = apiInstance.apiV2WebhooksPost(apiV2WebhooksPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -365,8 +346,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -374,58 +355,55 @@ public class Example {
 | **201** | Created |  -  |
 | **403** | Update permission for webhooks is required |  -  |
 
-
-## apiV2WebhooksSearchPost
-
+<a id="apiV2WebhooksSearchPost"></a>
+# **apiV2WebhooksSearchPost**
 > List&lt;WebHookModel&gt; apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest)
 
 Search for webhooks
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-        Integer take = 56; // Integer | Amount of items to be taken (limit)
-        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-        String searchField = "searchField_example"; // String | Property name for searching
-        String searchValue = "searchValue_example"; // String | Value for searching
-        ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest = new ApiV2WebhooksSearchPostRequest(); // ApiV2WebhooksSearchPostRequest | 
-        try {
-            List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSearchPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest = new ApiV2WebhooksSearchPostRequest(); // ApiV2WebhooksSearchPostRequest | 
+    try {
+      List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -446,68 +424,65 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for all requested projects is required |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for all requested projects is required |  -  |
 
-
-## apiV2WebhooksSpecialVariablesGet
-
+<a id="apiV2WebhooksSpecialVariablesGet"></a>
+# **apiV2WebhooksSpecialVariablesGet**
 > List&lt;String&gt; apiV2WebhooksSpecialVariablesGet(eventType, variablesType)
 
 Get special variables for webhook event type
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        WebHookEventType eventType = WebHookEventType.fromValue("AutomatedTestRunCreated"); // WebHookEventType | Webhook event type
-        WebhookVariablesType variablesType = WebhookVariablesType.fromValue("VariablesForUrl"); // WebhookVariablesType | 
-        try {
-            List<String> result = apiInstance.apiV2WebhooksSpecialVariablesGet(eventType, variablesType);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSpecialVariablesGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    WebHookEventType eventType = WebHookEventType.fromValue("AutomatedTestRunCreated"); // WebHookEventType | Webhook event type
+    WebhookVariablesType variablesType = WebhookVariablesType.fromValue("VariablesForUrl"); // WebhookVariablesType | 
+    try {
+      List<String> result = apiInstance.apiV2WebhooksSpecialVariablesGet(eventType, variablesType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSpecialVariablesGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
 
-
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **eventType** | **WebHookEventType**| Webhook event type | [optional] [enum: AutomatedTestRunCreated, TestPlansStatusChanged, TestRunStopped, TestPointAssigned, TestResultJiraIssueCreated, AutoTestFinished, UserMentionedInComment, UserSelectedInWorkItemAttribute, AllTestPointsFinished, AllAutoTestsFinished, AutoTestChanged, WorkItemAutoTestRelationChanged, WorkItemAttributeChanged, WorkItemChanged, ConfigurationChanged, ProjectChanged, TestPlanChanged] |
-| **variablesType** | **WebhookVariablesType**|  | [optional] [default to VariablesForUrl] [enum: VariablesForUrl, VariablesForHeaders, VariablesForBody] |
+| **eventType** | [**WebHookEventType**](.md)| Webhook event type | [optional] [enum: AutomatedTestRunCreated, TestPlansStatusChanged, TestRunStopped, TestPointAssigned, TestResultJiraIssueCreated, AutoTestFinished, UserMentionedInComment, UserSelectedInWorkItemAttribute, AllTestPointsFinished, AllAutoTestsFinished, AutoTestChanged, WorkItemAutoTestRelationChanged, WorkItemAttributeChanged, WorkItemChanged, ConfigurationChanged, ProjectChanged, TestPlanChanged] |
+| **variablesType** | [**WebhookVariablesType**](.md)|  | [optional] [default to VariablesForUrl] [enum: VariablesForUrl, VariablesForHeaders, VariablesForBody] |
 
 ### Return type
 
@@ -519,61 +494,58 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-
-## apiV2WebhooksTestPost
-
+<a id="apiV2WebhooksTestPost"></a>
+# **apiV2WebhooksTestPost**
 > RequestData apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest)
 
 Test webhook&#39;s url
 
 ### Example
-
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
+import ru.testit.client.invoker.models.*;
 import ru.testit.client.api.WebhooksApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest = new ApiV2WebhooksTestPostRequest(); // ApiV2WebhooksTestPostRequest | 
-        try {
-            RequestData result = apiInstance.apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WebhooksApi#apiV2WebhooksTestPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest = new ApiV2WebhooksTestPostRequest(); // ApiV2WebhooksTestPostRequest | 
+    try {
+      RequestData result = apiInstance.apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#apiV2WebhooksTestPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
 ### Parameters
-
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -589,12 +561,12 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for webhooks is required |  -  |
 | **200** | Success |  -  |
+| **403** | Update permission for webhooks is required |  -  |
 

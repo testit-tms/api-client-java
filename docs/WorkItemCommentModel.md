@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**text** | **String** |  |  [optional] |
-|**user** | [**UserWithRankModel**](UserWithRankModel.md) |  |  [optional] |
+|**text** | **String** |  |  |
+|**user** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  |  |
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  |

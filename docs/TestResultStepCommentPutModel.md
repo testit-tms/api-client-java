@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**text** | **String** |  |  [optional] |
+|**text** | **String** |  |  |
 |**stepId** | **UUID** |  |  |
 |**parentStepId** | **UUID** |  |  [optional] |
-|**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) |  |  [optional] |
+|**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) |  |  |
 
 
 

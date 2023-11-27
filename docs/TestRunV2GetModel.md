@@ -18,8 +18,8 @@
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdByUserName** | **String** |  |  [optional] |
-|**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  [optional] |
-|**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |
+|**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  |
+|**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
