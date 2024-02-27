@@ -657,7 +657,7 @@ null (empty response body)
 
 <a id="downloadAttachment"></a>
 # **downloadAttachment**
-> downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview)
+> File downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview)
 
 Get attachment of TestResult
 
@@ -693,7 +693,8 @@ public class Example {
     String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
     Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
     try {
-      apiInstance.downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview);
+      File result = apiInstance.downloadAttachment(attachmentId, id, width, height, resizeType, backgroundColor, preview);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#downloadAttachment");
       System.err.println("Status code: " + e.getCode());
@@ -719,7 +720,7 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -728,7 +729,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

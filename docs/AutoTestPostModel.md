@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**workItemIdsForLinkWithAutoTest** | **Set&lt;UUID&gt;** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. |  [optional] |
 |**shouldCreateWorkItem** | **Boolean** | Creates a test case linked to the autotest. |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** | Key value pair of custom work item attributes |  [optional] |
 |**externalId** | **String** | External ID of the autotest |  |
 |**links** | [**List&lt;LinkPostModel&gt;**](LinkPostModel.md) | Collection of the autotest links |  [optional] |
 |**projectId** | **UUID** | Unique ID of the autotest project |  |

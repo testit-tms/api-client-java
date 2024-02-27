@@ -253,7 +253,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdWorkItemsTagsGet"></a>
 # **apiV2ProjectsProjectIdWorkItemsTagsGet**
-> List&lt;TagShortModel&gt; apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted)
+> List&lt;TagModel&gt; apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted)
 
 Get WorkItems Tags
 
@@ -284,7 +284,7 @@ public class Example {
     UUID projectId = UUID.randomUUID(); // UUID | Project internal (UUID) identifier
     Boolean isDeleted = true; // Boolean | 
     try {
-      List<TagShortModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted);
+      List<TagModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsTagsGet");
@@ -306,7 +306,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TagShortModel&gt;**](TagShortModel.md)
+[**List&lt;TagModel&gt;**](TagModel.md)
 
 ### Authorization
 

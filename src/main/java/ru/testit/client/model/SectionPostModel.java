@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.StepPutModel;
+import ru.testit.client.model.AttachmentPutModel;
+import ru.testit.client.model.StepPostModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,11 +72,15 @@ public class SectionPostModel {
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps;
+  private List<StepPostModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps;
+  private List<StepPostModel> postconditionSteps;
+
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public SectionPostModel() {
   }
@@ -143,13 +148,13 @@ public class SectionPostModel {
   }
 
 
-  public SectionPostModel preconditionSteps(List<StepPutModel> preconditionSteps) {
+  public SectionPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
     
     this.preconditionSteps = preconditionSteps;
     return this;
   }
 
-  public SectionPostModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
+  public SectionPostModel addPreconditionStepsItem(StepPostModel preconditionStepsItem) {
     if (this.preconditionSteps == null) {
       this.preconditionSteps = new ArrayList<>();
     }
@@ -162,23 +167,23 @@ public class SectionPostModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  public List<StepPutModel> getPreconditionSteps() {
+  public List<StepPostModel> getPreconditionSteps() {
     return preconditionSteps;
   }
 
 
-  public void setPreconditionSteps(List<StepPutModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public SectionPostModel postconditionSteps(List<StepPutModel> postconditionSteps) {
+  public SectionPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
     
     this.postconditionSteps = postconditionSteps;
     return this;
   }
 
-  public SectionPostModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
+  public SectionPostModel addPostconditionStepsItem(StepPostModel postconditionStepsItem) {
     if (this.postconditionSteps == null) {
       this.postconditionSteps = new ArrayList<>();
     }
@@ -191,13 +196,42 @@ public class SectionPostModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  public List<StepPutModel> getPostconditionSteps() {
+  public List<StepPostModel> getPostconditionSteps() {
     return postconditionSteps;
   }
 
 
-  public void setPostconditionSteps(List<StepPutModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
+  }
+
+
+  public SectionPostModel attachments(List<AttachmentPutModel> attachments) {
+    
+    this.attachments = attachments;
+    return this;
+  }
+
+  public SectionPostModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @javax.annotation.Nonnull
+  public List<AttachmentPutModel> getAttachments() {
+    return attachments;
+  }
+
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
+    this.attachments = attachments;
   }
 
 
@@ -215,7 +249,8 @@ public class SectionPostModel {
         Objects.equals(this.projectId, sectionPostModel.projectId) &&
         Objects.equals(this.parentId, sectionPostModel.parentId) &&
         Objects.equals(this.preconditionSteps, sectionPostModel.preconditionSteps) &&
-        Objects.equals(this.postconditionSteps, sectionPostModel.postconditionSteps);
+        Objects.equals(this.postconditionSteps, sectionPostModel.postconditionSteps) &&
+        Objects.equals(this.attachments, sectionPostModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -224,7 +259,7 @@ public class SectionPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, projectId, parentId, preconditionSteps, postconditionSteps);
+    return Objects.hash(name, projectId, parentId, preconditionSteps, postconditionSteps, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -243,6 +278,7 @@ public class SectionPostModel {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");
     sb.append("    postconditionSteps: ").append(toIndentedString(postconditionSteps)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -270,11 +306,13 @@ public class SectionPostModel {
     openapiFields.add("parentId");
     openapiFields.add("preconditionSteps");
     openapiFields.add("postconditionSteps");
+    openapiFields.add("attachments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("projectId");
+    openapiRequiredFields.add("attachments");
   }
 
  /**
@@ -323,7 +361,7 @@ public class SectionPostModel {
 
           // validate the optional field `preconditionSteps` (array)
           for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-            StepPutModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
+            StepPostModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -337,10 +375,20 @@ public class SectionPostModel {
 
           // validate the optional field `postconditionSteps` (array)
           for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-            StepPutModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
+            StepPostModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
+      // ensure the json data is an array
+      if (!jsonObj.get("attachments").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+      }
+
+      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+      // validate the required field `attachments` (array)
+      for (int i = 0; i < jsonArrayattachments.size(); i++) {
+        AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

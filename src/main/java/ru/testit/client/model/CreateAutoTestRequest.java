@@ -22,8 +22,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -68,6 +70,10 @@ public class CreateAutoTestRequest {
   public static final String SERIALIZED_NAME_SHOULD_CREATE_WORK_ITEM = "shouldCreateWorkItem";
   @SerializedName(SERIALIZED_NAME_SHOULD_CREATE_WORK_ITEM)
   private Boolean shouldCreateWorkItem;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
@@ -175,6 +181,35 @@ public class CreateAutoTestRequest {
 
   public void setShouldCreateWorkItem(Boolean shouldCreateWorkItem) {
     this.shouldCreateWorkItem = shouldCreateWorkItem;
+  }
+
+
+  public CreateAutoTestRequest attributes(Map<String, Object> attributes) {
+    
+    this.attributes = attributes;
+    return this;
+  }
+
+  public CreateAutoTestRequest putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * Key value pair of custom work item attributes
+   * @return attributes
+  **/
+  @javax.annotation.Nullable
+  public Map<String, Object> getAttributes() {
+    return attributes;
+  }
+
+
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
   }
 
 
@@ -524,6 +559,7 @@ public class CreateAutoTestRequest {
     CreateAutoTestRequest createAutoTestRequest = (CreateAutoTestRequest) o;
     return Objects.equals(this.workItemIdsForLinkWithAutoTest, createAutoTestRequest.workItemIdsForLinkWithAutoTest) &&
         Objects.equals(this.shouldCreateWorkItem, createAutoTestRequest.shouldCreateWorkItem) &&
+        Objects.equals(this.attributes, createAutoTestRequest.attributes) &&
         Objects.equals(this.externalId, createAutoTestRequest.externalId) &&
         Objects.equals(this.links, createAutoTestRequest.links) &&
         Objects.equals(this.projectId, createAutoTestRequest.projectId) &&
@@ -546,7 +582,7 @@ public class CreateAutoTestRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workItemIdsForLinkWithAutoTest, shouldCreateWorkItem, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
+    return Objects.hash(workItemIdsForLinkWithAutoTest, shouldCreateWorkItem, attributes, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -562,6 +598,7 @@ public class CreateAutoTestRequest {
     sb.append("class CreateAutoTestRequest {\n");
     sb.append("    workItemIdsForLinkWithAutoTest: ").append(toIndentedString(workItemIdsForLinkWithAutoTest)).append("\n");
     sb.append("    shouldCreateWorkItem: ").append(toIndentedString(shouldCreateWorkItem)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
@@ -600,6 +637,7 @@ public class CreateAutoTestRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("workItemIdsForLinkWithAutoTest");
     openapiFields.add("shouldCreateWorkItem");
+    openapiFields.add("attributes");
     openapiFields.add("externalId");
     openapiFields.add("links");
     openapiFields.add("projectId");

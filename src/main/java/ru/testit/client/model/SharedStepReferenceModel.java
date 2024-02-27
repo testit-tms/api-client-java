@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 
 import com.google.gson.Gson;
@@ -129,7 +129,7 @@ public class SharedStepReferenceModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags;
+  private List<TagModel> tags;
 
   public SharedStepReferenceModel() {
   }
@@ -491,13 +491,13 @@ public class SharedStepReferenceModel {
   }
 
 
-  public SharedStepReferenceModel tags(List<TagShortModel> tags) {
+  public SharedStepReferenceModel tags(List<TagModel> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public SharedStepReferenceModel addTagsItem(TagShortModel tagsItem) {
+  public SharedStepReferenceModel addTagsItem(TagModel tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -510,12 +510,12 @@ public class SharedStepReferenceModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  public List<TagShortModel> getTags() {
+  public List<TagModel> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<TagShortModel> tags) {
+  public void setTags(List<TagModel> tags) {
     this.tags = tags;
   }
 
@@ -708,7 +708,7 @@ public class SharedStepReferenceModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagShortModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
           };
         }
       }

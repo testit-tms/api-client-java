@@ -10,8 +10,9 @@
 |**name** | **String** |  |  |
 |**projectId** | **UUID** |  |  |
 |**parentId** | **UUID** |  |  [optional] |
-|**preconditionSteps** | [**List&lt;StepPutModel&gt;**](StepPutModel.md) |  |  [optional] |
-|**postconditionSteps** | [**List&lt;StepPutModel&gt;**](StepPutModel.md) |  |  [optional] |
+|**preconditionSteps** | [**List&lt;StepPostModel&gt;**](StepPostModel.md) |  |  [optional] |
+|**postconditionSteps** | [**List&lt;StepPostModel&gt;**](StepPostModel.md) |  |  [optional] |
+|**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) |  |  |
 
 
 

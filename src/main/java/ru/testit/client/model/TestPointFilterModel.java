@@ -83,6 +83,10 @@ public class TestPointFilterModel {
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
   private TestPointFilterModelWorkItemMedianDuration workItemMedianDuration;
 
+  public static final String SERIALIZED_NAME_WORK_ITEM_IS_DELETED = "workItemIsDeleted";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IS_DELETED)
+  private Boolean workItemIsDeleted;
+
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
   @SerializedName(SERIALIZED_NAME_STATUSES)
   private List<TestPointStatus> statuses;
@@ -263,6 +267,27 @@ public class TestPointFilterModel {
 
   public void setWorkItemMedianDuration(TestPointFilterModelWorkItemMedianDuration workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
+  }
+
+
+  public TestPointFilterModel workItemIsDeleted(Boolean workItemIsDeleted) {
+    
+    this.workItemIsDeleted = workItemIsDeleted;
+    return this;
+  }
+
+   /**
+   * Specifies a test point work item is deleted flag to search for
+   * @return workItemIsDeleted
+  **/
+  @javax.annotation.Nullable
+  public Boolean getWorkItemIsDeleted() {
+    return workItemIsDeleted;
+  }
+
+
+  public void setWorkItemIsDeleted(Boolean workItemIsDeleted) {
+    this.workItemIsDeleted = workItemIsDeleted;
   }
 
 
@@ -746,6 +771,7 @@ public class TestPointFilterModel {
         Objects.equals(this.testSuiteIds, testPointFilterModel.testSuiteIds) &&
         Objects.equals(this.workItemGlobalIds, testPointFilterModel.workItemGlobalIds) &&
         Objects.equals(this.workItemMedianDuration, testPointFilterModel.workItemMedianDuration) &&
+        Objects.equals(this.workItemIsDeleted, testPointFilterModel.workItemIsDeleted) &&
         Objects.equals(this.statuses, testPointFilterModel.statuses) &&
         Objects.equals(this.priorities, testPointFilterModel.priorities) &&
         Objects.equals(this.isAutomated, testPointFilterModel.isAutomated) &&
@@ -772,7 +798,7 @@ public class TestPointFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, workItemMedianDuration, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
+    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, workItemMedianDuration, workItemIsDeleted, statuses, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -790,6 +816,7 @@ public class TestPointFilterModel {
     sb.append("    testSuiteIds: ").append(toIndentedString(testSuiteIds)).append("\n");
     sb.append("    workItemGlobalIds: ").append(toIndentedString(workItemGlobalIds)).append("\n");
     sb.append("    workItemMedianDuration: ").append(toIndentedString(workItemMedianDuration)).append("\n");
+    sb.append("    workItemIsDeleted: ").append(toIndentedString(workItemIsDeleted)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
@@ -834,6 +861,7 @@ public class TestPointFilterModel {
     openapiFields.add("testSuiteIds");
     openapiFields.add("workItemGlobalIds");
     openapiFields.add("workItemMedianDuration");
+    openapiFields.add("workItemIsDeleted");
     openapiFields.add("statuses");
     openapiFields.add("priorities");
     openapiFields.add("isAutomated");

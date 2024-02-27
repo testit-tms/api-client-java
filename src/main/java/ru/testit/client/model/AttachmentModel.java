@@ -87,10 +87,6 @@ public class AttachmentModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_IS_TEMP = "isTemp";
-  @SerializedName(SERIALIZED_NAME_IS_TEMP)
-  private Boolean isTemp;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -266,27 +262,6 @@ public class AttachmentModel {
   }
 
 
-  public AttachmentModel isTemp(Boolean isTemp) {
-    
-    this.isTemp = isTemp;
-    return this;
-  }
-
-   /**
-   * Indicates whether the attachment is temporary (may be automatically deleted)
-   * @return isTemp
-  **/
-  @javax.annotation.Nonnull
-  public Boolean getIsTemp() {
-    return isTemp;
-  }
-
-
-  public void setIsTemp(Boolean isTemp) {
-    this.isTemp = isTemp;
-  }
-
-
   public AttachmentModel id(UUID id) {
     
     this.id = id;
@@ -326,7 +301,6 @@ public class AttachmentModel {
         Objects.equals(this.createdById, attachmentModel.createdById) &&
         Objects.equals(this.modifiedById, attachmentModel.modifiedById) &&
         Objects.equals(this.name, attachmentModel.name) &&
-        Objects.equals(this.isTemp, attachmentModel.isTemp) &&
         Objects.equals(this.id, attachmentModel.id);
   }
 
@@ -336,7 +310,7 @@ public class AttachmentModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileId, type, size, createdDate, modifiedDate, createdById, modifiedById, name, isTemp, id);
+    return Objects.hash(fileId, type, size, createdDate, modifiedDate, createdById, modifiedById, name, id);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,7 +332,6 @@ public class AttachmentModel {
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    isTemp: ").append(toIndentedString(isTemp)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -390,7 +363,6 @@ public class AttachmentModel {
     openapiFields.add("createdById");
     openapiFields.add("modifiedById");
     openapiFields.add("name");
-    openapiFields.add("isTemp");
     openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
@@ -401,7 +373,6 @@ public class AttachmentModel {
     openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("isTemp");
     openapiRequiredFields.add("id");
   }
 

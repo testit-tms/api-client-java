@@ -34,7 +34,7 @@
 |**postconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**duration** | **Integer** |  |  |
 |**attributes** | **Map&lt;String, Object&gt;** |  |  |
-|**tags** | [**List&lt;TagShortModel&gt;**](TagShortModel.md) |  |  |
+|**tags** | [**List&lt;TagPutModel&gt;**](TagPutModel.md) |  |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
 |**name** | **String** |  |  |
 

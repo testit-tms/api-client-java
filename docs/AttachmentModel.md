@@ -15,7 +15,6 @@
 |**createdById** | **UUID** | Unique ID of the attachment creator |  |
 |**modifiedById** | **UUID** | Unique ID of the attachment last editor |  [optional] |
 |**name** | **String** | Name of the attachment file |  |
-|**isTemp** | **Boolean** | Indicates whether the attachment is temporary (may be automatically deleted) |  |
 |**id** | **UUID** | Unique ID of the attachment |  |
 
 

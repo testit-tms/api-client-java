@@ -1,6 +1,6 @@
 
 
-# TagShortModel
+# ApiV2TagsPostRequest
 
 
 ## Properties

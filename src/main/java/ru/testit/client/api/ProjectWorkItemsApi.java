@@ -30,7 +30,7 @@ import java.io.IOException;
 import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest;
 import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TagModel;
 import java.util.UUID;
 import ru.testit.client.model.WorkItemGroupModel;
 import ru.testit.client.model.WorkItemShortModel;
@@ -673,7 +673,7 @@ public class ProjectWorkItemsApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return List&lt;TagShortModel&gt;
+     * @return List&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -681,8 +681,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public List<TagShortModel> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
-        ApiResponse<List<TagShortModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
+    public List<TagModel> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<TagModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
         return localVarResp.getData();
     }
 
@@ -691,7 +691,7 @@ public class ProjectWorkItemsApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return ApiResponse&lt;List&lt;TagShortModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TagModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -699,9 +699,9 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TagShortModel>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
+    public ApiResponse<List<TagModel>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, null);
-        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -719,10 +719,10 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagModel>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, _callback);
-        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

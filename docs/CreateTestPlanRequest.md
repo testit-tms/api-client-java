@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tags** | [**List&lt;TagShortModel&gt;**](TagShortModel.md) |  |  [optional] |
+|**tags** | [**List&lt;TagPostModel&gt;**](TagPostModel.md) |  |  [optional] |
 |**name** | **String** |  |  |
 |**startDate** | **OffsetDateTime** | Used for analytics |  [optional] |
 |**endDate** | **OffsetDateTime** | Used for analytics |  [optional] |

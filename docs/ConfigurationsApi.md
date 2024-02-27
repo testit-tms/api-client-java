@@ -625,6 +625,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Read permission for archive is required |  -  |
 
 <a id="apiV2ConfigurationsSearchPost"></a>
 # **apiV2ConfigurationsSearchPost**

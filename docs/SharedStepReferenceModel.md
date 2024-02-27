@@ -24,7 +24,7 @@
 |**versionId** | **UUID** | used for versioning changes in workitem |  |
 |**isAutomated** | **Boolean** |  |  |
 |**sectionId** | **UUID** |  |  |
-|**tags** | [**List&lt;TagShortModel&gt;**](TagShortModel.md) |  |  [optional] |
+|**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  [optional] |
 
 
 

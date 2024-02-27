@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentPutModel;
 import ru.testit.client.model.StepPutModel;
 
 import com.google.gson.Gson;
@@ -80,6 +81,10 @@ public class SectionPutModel {
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
   private List<StepPutModel> postconditionSteps;
+
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public SectionPutModel() {
   }
@@ -226,6 +231,35 @@ public class SectionPutModel {
   }
 
 
+  public SectionPutModel attachments(List<AttachmentPutModel> attachments) {
+    
+    this.attachments = attachments;
+    return this;
+  }
+
+  public SectionPutModel addAttachmentsItem(AttachmentPutModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @javax.annotation.Nonnull
+  public List<AttachmentPutModel> getAttachments() {
+    return attachments;
+  }
+
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
+    this.attachments = attachments;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -241,7 +275,8 @@ public class SectionPutModel {
         Objects.equals(this.projectId, sectionPutModel.projectId) &&
         Objects.equals(this.parentId, sectionPutModel.parentId) &&
         Objects.equals(this.preconditionSteps, sectionPutModel.preconditionSteps) &&
-        Objects.equals(this.postconditionSteps, sectionPutModel.postconditionSteps);
+        Objects.equals(this.postconditionSteps, sectionPutModel.postconditionSteps) &&
+        Objects.equals(this.attachments, sectionPutModel.attachments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -250,7 +285,7 @@ public class SectionPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, projectId, parentId, preconditionSteps, postconditionSteps);
+    return Objects.hash(id, name, projectId, parentId, preconditionSteps, postconditionSteps, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -270,6 +305,7 @@ public class SectionPutModel {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");
     sb.append("    postconditionSteps: ").append(toIndentedString(postconditionSteps)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -298,12 +334,14 @@ public class SectionPutModel {
     openapiFields.add("parentId");
     openapiFields.add("preconditionSteps");
     openapiFields.add("postconditionSteps");
+    openapiFields.add("attachments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("projectId");
+    openapiRequiredFields.add("attachments");
   }
 
  /**
@@ -373,6 +411,16 @@ public class SectionPutModel {
           };
         }
       }
+      // ensure the json data is an array
+      if (!jsonObj.get("attachments").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+      }
+
+      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+      // validate the required field `attachments` (array)
+      for (int i = 0; i < jsonArrayattachments.size(); i++) {
+        AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
