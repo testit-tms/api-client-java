@@ -118,6 +118,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2ProjectsRestoreBulkPostRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2ProjectsSearchPostRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2SearchGlobalSearchPostRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TagsDeleteRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TagsPostRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TagsPutRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TestPlansIdExportTestPointsXlsxPostRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ApiV2TestPlansIdTestRunsSearchPostRequest.CustomTypeAdapterFactory());
@@ -309,12 +312,19 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ShortConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StepCommentModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StepModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StepPostModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StepPutModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StepResultModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StringArrayChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StringChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.StringChangedFieldWithDiffsViewModel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagShortModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagExtractionModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagPostModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagPutModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagSelectModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagsFilterModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TagsFilterModelCreatedDate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestPlanChangeModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestPlanChangeModelTestPlanChangedFields.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestPlanChangedFieldsViewModel.CustomTypeAdapterFactory());
@@ -367,6 +377,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultV2GetModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultV2ShortModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsFilterModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsFilterModelCreatedDate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsFilterModelDuration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsLocalFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsStatisticsGetModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestResultsStatisticsGetModelFailureCategories.CustomTypeAdapterFactory());
@@ -380,6 +392,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunFilterModelAutoTestsCount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunFilterModelCompletedDate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunFilterModelCreatedDate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunFilterModelStartedDate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunGroupByFailureClassModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.TestRunGroupByStatusModel.CustomTypeAdapterFactory());

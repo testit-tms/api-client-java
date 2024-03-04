@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentModel;
 import ru.testit.client.model.StepModel;
 
 import com.google.gson.Gson;
@@ -58,6 +59,10 @@ import ru.testit.client.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionWithStepsModel {
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<AttachmentModel> attachments;
+
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
   private List<StepModel> preconditionSteps;
@@ -104,6 +109,35 @@ public class SectionWithStepsModel {
 
   public SectionWithStepsModel() {
   }
+
+  public SectionWithStepsModel attachments(List<AttachmentModel> attachments) {
+    
+    this.attachments = attachments;
+    return this;
+  }
+
+  public SectionWithStepsModel addAttachmentsItem(AttachmentModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @javax.annotation.Nullable
+  public List<AttachmentModel> getAttachments() {
+    return attachments;
+  }
+
+
+  public void setAttachments(List<AttachmentModel> attachments) {
+    this.attachments = attachments;
+  }
+
 
   public SectionWithStepsModel preconditionSteps(List<StepModel> preconditionSteps) {
     
@@ -362,7 +396,8 @@ public class SectionWithStepsModel {
       return false;
     }
     SectionWithStepsModel sectionWithStepsModel = (SectionWithStepsModel) o;
-    return Objects.equals(this.preconditionSteps, sectionWithStepsModel.preconditionSteps) &&
+    return Objects.equals(this.attachments, sectionWithStepsModel.attachments) &&
+        Objects.equals(this.preconditionSteps, sectionWithStepsModel.preconditionSteps) &&
         Objects.equals(this.postconditionSteps, sectionWithStepsModel.postconditionSteps) &&
         Objects.equals(this.projectId, sectionWithStepsModel.projectId) &&
         Objects.equals(this.parentId, sectionWithStepsModel.parentId) &&
@@ -381,7 +416,7 @@ public class SectionWithStepsModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(preconditionSteps, postconditionSteps, projectId, parentId, isDeleted, id, createdDate, modifiedDate, createdById, modifiedById, name);
+    return Objects.hash(attachments, preconditionSteps, postconditionSteps, projectId, parentId, isDeleted, id, createdDate, modifiedDate, createdById, modifiedById, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -395,6 +430,7 @@ public class SectionWithStepsModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionWithStepsModel {\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");
     sb.append("    postconditionSteps: ").append(toIndentedString(postconditionSteps)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
@@ -428,6 +464,7 @@ public class SectionWithStepsModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("attachments");
     openapiFields.add("preconditionSteps");
     openapiFields.add("postconditionSteps");
     openapiFields.add("projectId");
@@ -474,6 +511,20 @@ public class SectionWithStepsModel {
       for (String requiredField : SectionWithStepsModel.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+          };
         }
       }
       if (jsonObj.get("preconditionSteps") != null && !jsonObj.get("preconditionSteps").isJsonNull()) {

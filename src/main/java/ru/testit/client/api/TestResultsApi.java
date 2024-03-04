@@ -1372,6 +1372,7 @@ public class TestResultsApi {
         }
 
         final String[] localVarAccepts = {
+            "application/octet-stream",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1416,6 +1417,7 @@ public class TestResultsApi {
      * @param resizeType Type of resizing to apply to the result image (optional)
      * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
      * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1427,8 +1429,9 @@ public class TestResultsApi {
         <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
      </table>
      */
-    public void downloadAttachment(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
-        downloadAttachmentWithHttpInfo(attachmentId, id, width, height, resizeType, backgroundColor, preview);
+    public File downloadAttachment(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+        ApiResponse<File> localVarResp = downloadAttachmentWithHttpInfo(attachmentId, id, width, height, resizeType, backgroundColor, preview);
+        return localVarResp.getData();
     }
 
     /**
@@ -1441,7 +1444,7 @@ public class TestResultsApi {
      * @param resizeType Type of resizing to apply to the result image (optional)
      * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
      * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1453,9 +1456,10 @@ public class TestResultsApi {
         <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> downloadAttachmentWithHttpInfo(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+    public ApiResponse<File> downloadAttachmentWithHttpInfo(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
         okhttp3.Call localVarCall = downloadAttachmentValidateBeforeCall(attachmentId, id, width, height, resizeType, backgroundColor, preview, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1481,10 +1485,11 @@ public class TestResultsApi {
         <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadAttachmentAsync(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call downloadAttachmentAsync(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadAttachmentValidateBeforeCall(attachmentId, id, width, height, resizeType, backgroundColor, preview, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

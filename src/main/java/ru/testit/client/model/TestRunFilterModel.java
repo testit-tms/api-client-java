@@ -31,6 +31,7 @@ import ru.testit.client.model.FailureCategoryModel;
 import ru.testit.client.model.TestResultOutcome;
 import ru.testit.client.model.TestRunFilterModelAutoTestsCount;
 import ru.testit.client.model.TestRunFilterModelCompletedDate;
+import ru.testit.client.model.TestRunFilterModelCreatedDate;
 import ru.testit.client.model.TestRunFilterModelStartedDate;
 import ru.testit.client.model.TestRunState;
 
@@ -75,6 +76,10 @@ public class TestRunFilterModel {
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
   private Set<TestRunState> states;
+
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private TestRunFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
@@ -187,6 +192,27 @@ public class TestRunFilterModel {
 
   public void setStates(Set<TestRunState> states) {
     this.states = states;
+  }
+
+
+  public TestRunFilterModel createdDate(TestRunFilterModelCreatedDate createdDate) {
+    
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Get createdDate
+   * @return createdDate
+  **/
+  @javax.annotation.Nullable
+  public TestRunFilterModelCreatedDate getCreatedDate() {
+    return createdDate;
+  }
+
+
+  public void setCreatedDate(TestRunFilterModelCreatedDate createdDate) {
+    this.createdDate = createdDate;
   }
 
 
@@ -403,6 +429,7 @@ public class TestRunFilterModel {
     return Objects.equals(this.projectIds, testRunFilterModel.projectIds) &&
         Objects.equals(this.name, testRunFilterModel.name) &&
         Objects.equals(this.states, testRunFilterModel.states) &&
+        Objects.equals(this.createdDate, testRunFilterModel.createdDate) &&
         Objects.equals(this.startedDate, testRunFilterModel.startedDate) &&
         Objects.equals(this.createdByIds, testRunFilterModel.createdByIds) &&
         Objects.equals(this.modifiedByIds, testRunFilterModel.modifiedByIds) &&
@@ -419,7 +446,7 @@ public class TestRunFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, name, states, startedDate, createdByIds, modifiedByIds, isDeleted, autoTestsCount, testResultsOutcome, failureCategory, completedDate);
+    return Objects.hash(projectIds, name, states, createdDate, startedDate, createdByIds, modifiedByIds, isDeleted, autoTestsCount, testResultsOutcome, failureCategory, completedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -436,6 +463,7 @@ public class TestRunFilterModel {
     sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    startedDate: ").append(toIndentedString(startedDate)).append("\n");
     sb.append("    createdByIds: ").append(toIndentedString(createdByIds)).append("\n");
     sb.append("    modifiedByIds: ").append(toIndentedString(modifiedByIds)).append("\n");
@@ -469,6 +497,7 @@ public class TestRunFilterModel {
     openapiFields.add("projectIds");
     openapiFields.add("name");
     openapiFields.add("states");
+    openapiFields.add("createdDate");
     openapiFields.add("startedDate");
     openapiFields.add("createdByIds");
     openapiFields.add("modifiedByIds");
@@ -512,6 +541,10 @@ public class TestRunFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
+      }
+      // validate the optional field `createdDate`
+      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
+        TestRunFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // validate the optional field `startedDate`
       if (jsonObj.get("startedDate") != null && !jsonObj.get("startedDate").isJsonNull()) {

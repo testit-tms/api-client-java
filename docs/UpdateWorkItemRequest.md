@@ -20,7 +20,7 @@
 |**postconditionSteps** | [**List&lt;StepPutModel&gt;**](StepPutModel.md) |  |  |
 |**duration** | **Integer** |  |  |
 |**attributes** | **Map&lt;String, Object&gt;** |  |  |
-|**tags** | [**List&lt;TagShortModel&gt;**](TagShortModel.md) |  |  |
+|**tags** | [**List&lt;TagPutModel&gt;**](TagPutModel.md) |  |  |
 |**links** | [**List&lt;LinkPutModel&gt;**](LinkPutModel.md) |  |  |
 |**name** | **String** |  |  |
 

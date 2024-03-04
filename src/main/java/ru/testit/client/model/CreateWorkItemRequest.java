@@ -31,8 +31,8 @@ import ru.testit.client.model.AttachmentPutModel;
 import ru.testit.client.model.AutoTestIdModel;
 import ru.testit.client.model.IterationPutModel;
 import ru.testit.client.model.LinkPostModel;
-import ru.testit.client.model.StepPutModel;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.StepPostModel;
+import ru.testit.client.model.TagPostModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
@@ -85,15 +85,15 @@ public class CreateWorkItemRequest {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<StepPutModel> steps = new ArrayList<>();
+  private List<StepPostModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps = new ArrayList<>();
+  private List<StepPostModel> preconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps = new ArrayList<>();
+  private List<StepPostModel> postconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -105,7 +105,7 @@ public class CreateWorkItemRequest {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = new ArrayList<>();
+  private List<TagPostModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
@@ -222,13 +222,13 @@ public class CreateWorkItemRequest {
   }
 
 
-  public CreateWorkItemRequest steps(List<StepPutModel> steps) {
+  public CreateWorkItemRequest steps(List<StepPostModel> steps) {
     
     this.steps = steps;
     return this;
   }
 
-  public CreateWorkItemRequest addStepsItem(StepPutModel stepsItem) {
+  public CreateWorkItemRequest addStepsItem(StepPostModel stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
     }
@@ -241,23 +241,23 @@ public class CreateWorkItemRequest {
    * @return steps
   **/
   @javax.annotation.Nonnull
-  public List<StepPutModel> getSteps() {
+  public List<StepPostModel> getSteps() {
     return steps;
   }
 
 
-  public void setSteps(List<StepPutModel> steps) {
+  public void setSteps(List<StepPostModel> steps) {
     this.steps = steps;
   }
 
 
-  public CreateWorkItemRequest preconditionSteps(List<StepPutModel> preconditionSteps) {
+  public CreateWorkItemRequest preconditionSteps(List<StepPostModel> preconditionSteps) {
     
     this.preconditionSteps = preconditionSteps;
     return this;
   }
 
-  public CreateWorkItemRequest addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
+  public CreateWorkItemRequest addPreconditionStepsItem(StepPostModel preconditionStepsItem) {
     if (this.preconditionSteps == null) {
       this.preconditionSteps = new ArrayList<>();
     }
@@ -270,23 +270,23 @@ public class CreateWorkItemRequest {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
-  public List<StepPutModel> getPreconditionSteps() {
+  public List<StepPostModel> getPreconditionSteps() {
     return preconditionSteps;
   }
 
 
-  public void setPreconditionSteps(List<StepPutModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public CreateWorkItemRequest postconditionSteps(List<StepPutModel> postconditionSteps) {
+  public CreateWorkItemRequest postconditionSteps(List<StepPostModel> postconditionSteps) {
     
     this.postconditionSteps = postconditionSteps;
     return this;
   }
 
-  public CreateWorkItemRequest addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
+  public CreateWorkItemRequest addPostconditionStepsItem(StepPostModel postconditionStepsItem) {
     if (this.postconditionSteps == null) {
       this.postconditionSteps = new ArrayList<>();
     }
@@ -299,12 +299,12 @@ public class CreateWorkItemRequest {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
-  public List<StepPutModel> getPostconditionSteps() {
+  public List<StepPostModel> getPostconditionSteps() {
     return postconditionSteps;
   }
 
 
-  public void setPostconditionSteps(List<StepPutModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
@@ -361,13 +361,13 @@ public class CreateWorkItemRequest {
   }
 
 
-  public CreateWorkItemRequest tags(List<TagShortModel> tags) {
+  public CreateWorkItemRequest tags(List<TagPostModel> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public CreateWorkItemRequest addTagsItem(TagShortModel tagsItem) {
+  public CreateWorkItemRequest addTagsItem(TagPostModel tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -380,12 +380,12 @@ public class CreateWorkItemRequest {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  public List<TagShortModel> getTags() {
+  public List<TagPostModel> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<TagShortModel> tags) {
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
@@ -730,7 +730,7 @@ public class CreateWorkItemRequest {
       JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
       // validate the required field `steps` (array)
       for (int i = 0; i < jsonArraysteps.size(); i++) {
-        StepPutModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+        StepPostModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("preconditionSteps").isJsonArray()) {
@@ -740,7 +740,7 @@ public class CreateWorkItemRequest {
       JsonArray jsonArraypreconditionSteps = jsonObj.getAsJsonArray("preconditionSteps");
       // validate the required field `preconditionSteps` (array)
       for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-        StepPutModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
+        StepPostModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("postconditionSteps").isJsonArray()) {
@@ -750,7 +750,7 @@ public class CreateWorkItemRequest {
       JsonArray jsonArraypostconditionSteps = jsonObj.getAsJsonArray("postconditionSteps");
       // validate the required field `postconditionSteps` (array)
       for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-        StepPutModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
+        StepPostModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("tags").isJsonArray()) {
@@ -760,7 +760,7 @@ public class CreateWorkItemRequest {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagShortModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+        TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
       };
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");

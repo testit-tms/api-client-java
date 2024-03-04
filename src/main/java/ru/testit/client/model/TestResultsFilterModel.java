@@ -27,6 +27,8 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.FailureCategoryModel;
 import ru.testit.client.model.TestResultOutcome;
+import ru.testit.client.model.TestResultsFilterModelCreatedDate;
+import ru.testit.client.model.TestResultsFilterModelDuration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,6 +63,26 @@ public class TestResultsFilterModel {
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
   private List<UUID> testRunIds;
+
+  public static final String SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS = "autoTestGlobalIds";
+  @SerializedName(SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS)
+  private List<Long> autoTestGlobalIds;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private TestResultsFilterModelCreatedDate createdDate;
+
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private TestResultsFilterModelDuration duration;
+
+  public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
+  @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
+  private List<String> resultReasons;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
@@ -111,6 +133,127 @@ public class TestResultsFilterModel {
 
   public void setTestRunIds(List<UUID> testRunIds) {
     this.testRunIds = testRunIds;
+  }
+
+
+  public TestResultsFilterModel autoTestGlobalIds(List<Long> autoTestGlobalIds) {
+    
+    this.autoTestGlobalIds = autoTestGlobalIds;
+    return this;
+  }
+
+  public TestResultsFilterModel addAutoTestGlobalIdsItem(Long autoTestGlobalIdsItem) {
+    if (this.autoTestGlobalIds == null) {
+      this.autoTestGlobalIds = new ArrayList<>();
+    }
+    this.autoTestGlobalIds.add(autoTestGlobalIdsItem);
+    return this;
+  }
+
+   /**
+   * Specifies an autotest global IDs to search results for
+   * @return autoTestGlobalIds
+  **/
+  @javax.annotation.Nullable
+  public List<Long> getAutoTestGlobalIds() {
+    return autoTestGlobalIds;
+  }
+
+
+  public void setAutoTestGlobalIds(List<Long> autoTestGlobalIds) {
+    this.autoTestGlobalIds = autoTestGlobalIds;
+  }
+
+
+  public TestResultsFilterModel name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Specifies an autotest name to search results for
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public TestResultsFilterModel createdDate(TestResultsFilterModelCreatedDate createdDate) {
+    
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Get createdDate
+   * @return createdDate
+  **/
+  @javax.annotation.Nullable
+  public TestResultsFilterModelCreatedDate getCreatedDate() {
+    return createdDate;
+  }
+
+
+  public void setCreatedDate(TestResultsFilterModelCreatedDate createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public TestResultsFilterModel duration(TestResultsFilterModelDuration duration) {
+    
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Get duration
+   * @return duration
+  **/
+  @javax.annotation.Nullable
+  public TestResultsFilterModelDuration getDuration() {
+    return duration;
+  }
+
+
+  public void setDuration(TestResultsFilterModelDuration duration) {
+    this.duration = duration;
+  }
+
+
+  public TestResultsFilterModel resultReasons(List<String> resultReasons) {
+    
+    this.resultReasons = resultReasons;
+    return this;
+  }
+
+  public TestResultsFilterModel addResultReasonsItem(String resultReasonsItem) {
+    if (this.resultReasons == null) {
+      this.resultReasons = new ArrayList<>();
+    }
+    this.resultReasons.add(resultReasonsItem);
+    return this;
+  }
+
+   /**
+   * Specifies result reasons for searching test results
+   * @return resultReasons
+  **/
+  @javax.annotation.Nullable
+  public List<String> getResultReasons() {
+    return resultReasons;
+  }
+
+
+  public void setResultReasons(List<String> resultReasons) {
+    this.resultReasons = resultReasons;
   }
 
 
@@ -254,6 +397,11 @@ public class TestResultsFilterModel {
     }
     TestResultsFilterModel testResultsFilterModel = (TestResultsFilterModel) o;
     return Objects.equals(this.testRunIds, testResultsFilterModel.testRunIds) &&
+        Objects.equals(this.autoTestGlobalIds, testResultsFilterModel.autoTestGlobalIds) &&
+        Objects.equals(this.name, testResultsFilterModel.name) &&
+        Objects.equals(this.createdDate, testResultsFilterModel.createdDate) &&
+        Objects.equals(this.duration, testResultsFilterModel.duration) &&
+        Objects.equals(this.resultReasons, testResultsFilterModel.resultReasons) &&
         Objects.equals(this.configurationIds, testResultsFilterModel.configurationIds) &&
         Objects.equals(this.outcomes, testResultsFilterModel.outcomes) &&
         Objects.equals(this.failureCategories, testResultsFilterModel.failureCategories) &&
@@ -267,7 +415,7 @@ public class TestResultsFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunIds, configurationIds, outcomes, failureCategories, namespace, className);
+    return Objects.hash(testRunIds, autoTestGlobalIds, name, createdDate, duration, resultReasons, configurationIds, outcomes, failureCategories, namespace, className);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -282,6 +430,11 @@ public class TestResultsFilterModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestResultsFilterModel {\n");
     sb.append("    testRunIds: ").append(toIndentedString(testRunIds)).append("\n");
+    sb.append("    autoTestGlobalIds: ").append(toIndentedString(autoTestGlobalIds)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    resultReasons: ").append(toIndentedString(resultReasons)).append("\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
     sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
     sb.append("    failureCategories: ").append(toIndentedString(failureCategories)).append("\n");
@@ -310,6 +463,11 @@ public class TestResultsFilterModel {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("testRunIds");
+    openapiFields.add("autoTestGlobalIds");
+    openapiFields.add("name");
+    openapiFields.add("createdDate");
+    openapiFields.add("duration");
+    openapiFields.add("resultReasons");
     openapiFields.add("configurationIds");
     openapiFields.add("outcomes");
     openapiFields.add("failureCategories");
@@ -343,6 +501,25 @@ public class TestResultsFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("autoTestGlobalIds") != null && !jsonObj.get("autoTestGlobalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `autoTestGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestGlobalIds").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `createdDate`
+      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
+        TestResultsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+      }
+      // validate the optional field `duration`
+      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
+        TestResultsFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resultReasons` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasons").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {

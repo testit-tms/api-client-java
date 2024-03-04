@@ -33,7 +33,7 @@ import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.IterationModel;
 import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.StepModel;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TagPutModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
@@ -178,7 +178,7 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = new ArrayList<>();
+  private List<TagPutModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -832,13 +832,13 @@ public class WorkItemModel {
   }
 
 
-  public WorkItemModel tags(List<TagShortModel> tags) {
+  public WorkItemModel tags(List<TagPutModel> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public WorkItemModel addTagsItem(TagShortModel tagsItem) {
+  public WorkItemModel addTagsItem(TagPutModel tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -851,12 +851,12 @@ public class WorkItemModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  public List<TagShortModel> getTags() {
+  public List<TagPutModel> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<TagShortModel> tags) {
+  public void setTags(List<TagPutModel> tags) {
     this.tags = tags;
   }
 
@@ -1238,7 +1238,7 @@ public class WorkItemModel {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagShortModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+        TagPutModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {

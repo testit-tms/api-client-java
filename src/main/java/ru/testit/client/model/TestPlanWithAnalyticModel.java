@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TagPostModel;
 import ru.testit.client.model.TestPlanStatusModel;
 import ru.testit.client.model.TestPlanWithAnalyticModelAnalytic;
 
@@ -116,7 +116,7 @@ public class TestPlanWithAnalyticModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags;
+  private List<TagPostModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -430,13 +430,13 @@ public class TestPlanWithAnalyticModel {
   }
 
 
-  public TestPlanWithAnalyticModel tags(List<TagShortModel> tags) {
+  public TestPlanWithAnalyticModel tags(List<TagPostModel> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public TestPlanWithAnalyticModel addTagsItem(TagShortModel tagsItem) {
+  public TestPlanWithAnalyticModel addTagsItem(TagPostModel tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -449,12 +449,12 @@ public class TestPlanWithAnalyticModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  public List<TagShortModel> getTags() {
+  public List<TagPostModel> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<TagShortModel> tags) {
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
@@ -844,7 +844,7 @@ public class TestPlanWithAnalyticModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagShortModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
           };
         }
       }

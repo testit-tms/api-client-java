@@ -120,6 +120,10 @@ public class AutoTestRelatedToTestResult {
   @SerializedName(SERIALIZED_NAME_LABELS)
   private List<LabelShortModel> labels;
 
+  public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
+  private String externalKey;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -486,6 +490,27 @@ public class AutoTestRelatedToTestResult {
   }
 
 
+  public AutoTestRelatedToTestResult externalKey(String externalKey) {
+    
+    this.externalKey = externalKey;
+    return this;
+  }
+
+   /**
+   * Get externalKey
+   * @return externalKey
+  **/
+  @javax.annotation.Nullable
+  public String getExternalKey() {
+    return externalKey;
+  }
+
+
+  public void setExternalKey(String externalKey) {
+    this.externalKey = externalKey;
+  }
+
+
   public AutoTestRelatedToTestResult id(UUID id) {
     
     this.id = id;
@@ -553,6 +578,7 @@ public class AutoTestRelatedToTestResult {
         Objects.equals(this.createdById, autoTestRelatedToTestResult.createdById) &&
         Objects.equals(this.modifiedById, autoTestRelatedToTestResult.modifiedById) &&
         Objects.equals(this.labels, autoTestRelatedToTestResult.labels) &&
+        Objects.equals(this.externalKey, autoTestRelatedToTestResult.externalKey) &&
         Objects.equals(this.id, autoTestRelatedToTestResult.id) &&
         Objects.equals(this.isDeleted, autoTestRelatedToTestResult.isDeleted);
   }
@@ -563,7 +589,7 @@ public class AutoTestRelatedToTestResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, links, projectId, name, namespace, classname, steps, setup, teardown, globalId, createdDate, modifiedDate, createdById, modifiedById, labels, id, isDeleted);
+    return Objects.hash(externalId, links, projectId, name, namespace, classname, steps, setup, teardown, globalId, createdDate, modifiedDate, createdById, modifiedById, labels, externalKey, id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -592,6 +618,7 @@ public class AutoTestRelatedToTestResult {
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("}");
@@ -631,6 +658,7 @@ public class AutoTestRelatedToTestResult {
     openapiFields.add("createdById");
     openapiFields.add("modifiedById");
     openapiFields.add("labels");
+    openapiFields.add("externalKey");
     openapiFields.add("id");
     openapiFields.add("isDeleted");
 
@@ -762,6 +790,9 @@ public class AutoTestRelatedToTestResult {
             LabelShortModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
           };
         }
+      }
+      if ((jsonObj.get("externalKey") != null && !jsonObj.get("externalKey").isJsonNull()) && !jsonObj.get("externalKey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externalKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalKey").toString()));
       }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
