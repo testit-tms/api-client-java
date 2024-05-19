@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -76,7 +75,6 @@ public class ConfigurationFilterModel {
   }
 
   public ConfigurationFilterModel projectIds(Set<UUID> projectIds) {
-    
     this.projectIds = projectIds;
     return this;
   }
@@ -98,14 +96,12 @@ public class ConfigurationFilterModel {
     return projectIds;
   }
 
-
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
   public ConfigurationFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -119,14 +115,12 @@ public class ConfigurationFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ConfigurationFilterModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -140,14 +134,12 @@ public class ConfigurationFilterModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public ConfigurationFilterModel globalIds(Set<Long> globalIds) {
-    
     this.globalIds = globalIds;
     return this;
   }
@@ -168,7 +160,6 @@ public class ConfigurationFilterModel {
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
-
 
   public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
@@ -247,34 +238,35 @@ public class ConfigurationFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ConfigurationFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ConfigurationFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ConfigurationFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ConfigurationFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationFilterModel is not found in the empty JSON string", ConfigurationFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
   }
@@ -299,9 +291,9 @@ public class ConfigurationFilterModel {
 
            @Override
            public ConfigurationFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest;
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TagModel;
+import ru.testit.client.model.TagShortModel;
 import java.util.UUID;
+import ru.testit.client.model.WorkItemGroupGetModel;
 import ru.testit.client.model.WorkItemGroupModel;
+import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProjectWorkItemsApi {
     private ApiClient localVarApiClient;
@@ -87,7 +86,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest  (optional)
+     * @param workItemGroupGetModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +97,7 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemGroupGetModel workItemGroupGetModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,7 +111,7 @@ public class ProjectWorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest;
+        Object localVarPostBody = workItemGroupGetModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/workItems/search/grouped"
@@ -165,13 +164,13 @@ public class ProjectWorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemGroupGetModel workItemGroupGetModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdWorkItemsSearchGroupedPostCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, _callback);
+        return apiV2ProjectsProjectIdWorkItemsSearchGroupedPostCall(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel, _callback);
 
     }
 
@@ -184,7 +183,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest  (optional)
+     * @param workItemGroupGetModel  (optional)
      * @return List&lt;WorkItemGroupModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,8 +193,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemGroupModel> apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) throws ApiException {
-        ApiResponse<List<WorkItemGroupModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest);
+    public List<WorkItemGroupModel> apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemGroupGetModel workItemGroupGetModel) throws ApiException {
+        ApiResponse<List<WorkItemGroupModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel);
         return localVarResp.getData();
     }
 
@@ -208,7 +207,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest  (optional)
+     * @param workItemGroupGetModel  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemGroupModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -218,8 +217,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemGroupModel>> apiV2ProjectsProjectIdWorkItemsSearchGroupedPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, null);
+    public ApiResponse<List<WorkItemGroupModel>> apiV2ProjectsProjectIdWorkItemsSearchGroupedPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemGroupGetModel workItemGroupGetModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel, null);
         Type localVarReturnType = new TypeToken<List<WorkItemGroupModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -233,7 +232,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest  (optional)
+     * @param workItemGroupGetModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -244,9 +243,9 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, final ApiCallback<List<WorkItemGroupModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchGroupedPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemGroupGetModel workItemGroupGetModel, final ApiCallback<List<WorkItemGroupModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchGroupedPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemGroupModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -259,7 +258,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -270,7 +269,7 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -284,7 +283,7 @@ public class ProjectWorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = workItemSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/workItems/search/id"
@@ -337,13 +336,13 @@ public class ProjectWorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsSearchIdPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdWorkItemsSearchIdPostCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        return apiV2ProjectsProjectIdWorkItemsSearchIdPostCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
 
     }
 
@@ -356,7 +355,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -366,8 +365,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ProjectsProjectIdWorkItemsSearchIdPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchIdPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public List<UUID> apiV2ProjectsProjectIdWorkItemsSearchIdPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchIdPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
         return localVarResp.getData();
     }
 
@@ -380,7 +379,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -390,8 +389,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdWorkItemsSearchIdPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdWorkItemsSearchIdPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -405,7 +404,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -416,9 +415,9 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchIdPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchIdPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -431,7 +430,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -442,7 +441,7 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -456,7 +455,7 @@ public class ProjectWorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = workItemSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/workItems/search"
@@ -509,13 +508,13 @@ public class ProjectWorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsSearchPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdWorkItemsSearchPostCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        return apiV2ProjectsProjectIdWorkItemsSearchPostCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
 
     }
 
@@ -528,7 +527,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -538,8 +537,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemShortModel> apiV2ProjectsProjectIdWorkItemsSearchPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public List<WorkItemShortModel> apiV2ProjectsProjectIdWorkItemsSearchPost(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsSearchPostWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
         return localVarResp.getData();
     }
 
@@ -552,7 +551,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -562,8 +561,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemShortModel>> apiV2ProjectsProjectIdWorkItemsSearchPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<List<WorkItemShortModel>> apiV2ProjectsProjectIdWorkItemsSearchPostWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -577,7 +576,7 @@ public class ProjectWorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -588,9 +587,9 @@ public class ProjectWorkItemsApi {
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsSearchPostAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsSearchPostValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -673,7 +672,7 @@ public class ProjectWorkItemsApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return List&lt;TagModel&gt;
+     * @return List&lt;TagShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -681,8 +680,8 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public List<TagModel> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
-        ApiResponse<List<TagModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
+    public List<TagShortModel> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<TagShortModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
         return localVarResp.getData();
     }
 
@@ -691,7 +690,7 @@ public class ProjectWorkItemsApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return ApiResponse&lt;List&lt;TagModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TagShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -699,9 +698,9 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TagModel>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
+    public ApiResponse<List<TagShortModel>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, null);
-        Type localVarReturnType = new TypeToken<List<TagModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -719,10 +718,10 @@ public class ProjectWorkItemsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagShortModel>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, _callback);
-        Type localVarReturnType = new TypeToken<List<TagModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

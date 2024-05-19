@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.UserWithRankModelUserRank;
+import ru.testit.client.model.UserRankModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -109,13 +108,12 @@ public class UserWithRankModel {
 
   public static final String SERIALIZED_NAME_USER_RANK = "userRank";
   @SerializedName(SERIALIZED_NAME_USER_RANK)
-  private UserWithRankModelUserRank userRank;
+  private UserRankModel userRank;
 
   public UserWithRankModel() {
   }
 
   public UserWithRankModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -129,14 +127,12 @@ public class UserWithRankModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public UserWithRankModel firstName(String firstName) {
-    
     this.firstName = firstName;
     return this;
   }
@@ -150,14 +146,12 @@ public class UserWithRankModel {
     return firstName;
   }
 
-
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
 
   public UserWithRankModel lastName(String lastName) {
-    
     this.lastName = lastName;
     return this;
   }
@@ -171,14 +165,12 @@ public class UserWithRankModel {
     return lastName;
   }
 
-
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
 
   public UserWithRankModel middleName(String middleName) {
-    
     this.middleName = middleName;
     return this;
   }
@@ -192,14 +184,12 @@ public class UserWithRankModel {
     return middleName;
   }
 
-
   public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
 
 
   public UserWithRankModel userName(String userName) {
-    
     this.userName = userName;
     return this;
   }
@@ -213,14 +203,12 @@ public class UserWithRankModel {
     return userName;
   }
 
-
   public void setUserName(String userName) {
     this.userName = userName;
   }
 
 
   public UserWithRankModel displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
@@ -234,14 +222,12 @@ public class UserWithRankModel {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public UserWithRankModel userType(String userType) {
-    
     this.userType = userType;
     return this;
   }
@@ -255,14 +241,12 @@ public class UserWithRankModel {
     return userType;
   }
 
-
   public void setUserType(String userType) {
     this.userType = userType;
   }
 
 
   public UserWithRankModel avatarUrl(String avatarUrl) {
-    
     this.avatarUrl = avatarUrl;
     return this;
   }
@@ -276,14 +260,12 @@ public class UserWithRankModel {
     return avatarUrl;
   }
 
-
   public void setAvatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
 
 
   public UserWithRankModel avatarMetadata(String avatarMetadata) {
-    
     this.avatarMetadata = avatarMetadata;
     return this;
   }
@@ -297,14 +279,12 @@ public class UserWithRankModel {
     return avatarMetadata;
   }
 
-
   public void setAvatarMetadata(String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
   }
 
 
   public UserWithRankModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -318,14 +298,12 @@ public class UserWithRankModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public UserWithRankModel isDisabled(Boolean isDisabled) {
-    
     this.isDisabled = isDisabled;
     return this;
   }
@@ -339,14 +317,12 @@ public class UserWithRankModel {
     return isDisabled;
   }
 
-
   public void setIsDisabled(Boolean isDisabled) {
     this.isDisabled = isDisabled;
   }
 
 
   public UserWithRankModel providerId(UUID providerId) {
-    
     this.providerId = providerId;
     return this;
   }
@@ -360,14 +336,12 @@ public class UserWithRankModel {
     return providerId;
   }
 
-
   public void setProviderId(UUID providerId) {
     this.providerId = providerId;
   }
 
 
   public UserWithRankModel isActiveStatusByEntity(Boolean isActiveStatusByEntity) {
-    
     this.isActiveStatusByEntity = isActiveStatusByEntity;
     return this;
   }
@@ -381,14 +355,12 @@ public class UserWithRankModel {
     return isActiveStatusByEntity;
   }
 
-
   public void setIsActiveStatusByEntity(Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
   }
 
 
-  public UserWithRankModel userRank(UserWithRankModelUserRank userRank) {
-    
+  public UserWithRankModel userRank(UserRankModel userRank) {
     this.userRank = userRank;
     return this;
   }
@@ -398,12 +370,11 @@ public class UserWithRankModel {
    * @return userRank
   **/
   @javax.annotation.Nonnull
-  public UserWithRankModelUserRank getUserRank() {
+  public UserRankModel getUserRank() {
     return userRank;
   }
 
-
-  public void setUserRank(UserWithRankModelUserRank userRank) {
+  public void setUserRank(UserRankModel userRank) {
     this.userRank = userRank;
   }
 
@@ -523,32 +494,33 @@ public class UserWithRankModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UserWithRankModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to UserWithRankModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!UserWithRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!UserWithRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UserWithRankModel is not found in the empty JSON string", UserWithRankModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UserWithRankModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserWithRankModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserWithRankModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UserWithRankModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -580,7 +552,7 @@ public class UserWithRankModel {
         throw new IllegalArgumentException(String.format("Expected the field `providerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("providerId").toString()));
       }
       // validate the required field `userRank`
-      UserWithRankModelUserRank.validateJsonObject(jsonObj.getAsJsonObject("userRank"));
+      UserRankModel.validateJsonElement(jsonObj.get("userRank"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -603,9 +575,9 @@ public class UserWithRankModel {
 
            @Override
            public UserWithRankModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

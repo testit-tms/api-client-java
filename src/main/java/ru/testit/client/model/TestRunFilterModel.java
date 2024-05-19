@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,7 +55,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -117,7 +116,6 @@ public class TestRunFilterModel {
   }
 
   public TestRunFilterModel projectIds(Set<UUID> projectIds) {
-    
     this.projectIds = projectIds;
     return this;
   }
@@ -139,14 +137,12 @@ public class TestRunFilterModel {
     return projectIds;
   }
 
-
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
   public TestRunFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -160,14 +156,12 @@ public class TestRunFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunFilterModel states(Set<TestRunState> states) {
-    
     this.states = states;
     return this;
   }
@@ -189,14 +183,12 @@ public class TestRunFilterModel {
     return states;
   }
 
-
   public void setStates(Set<TestRunState> states) {
     this.states = states;
   }
 
 
   public TestRunFilterModel createdDate(TestRunFilterModelCreatedDate createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -210,14 +202,12 @@ public class TestRunFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(TestRunFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestRunFilterModel startedDate(TestRunFilterModelStartedDate startedDate) {
-    
     this.startedDate = startedDate;
     return this;
   }
@@ -231,14 +221,12 @@ public class TestRunFilterModel {
     return startedDate;
   }
 
-
   public void setStartedDate(TestRunFilterModelStartedDate startedDate) {
     this.startedDate = startedDate;
   }
 
 
   public TestRunFilterModel createdByIds(Set<UUID> createdByIds) {
-    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -260,14 +248,12 @@ public class TestRunFilterModel {
     return createdByIds;
   }
 
-
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public TestRunFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -289,14 +275,12 @@ public class TestRunFilterModel {
     return modifiedByIds;
   }
 
-
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
   public TestRunFilterModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -310,14 +294,12 @@ public class TestRunFilterModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestRunFilterModel autoTestsCount(TestRunFilterModelAutoTestsCount autoTestsCount) {
-    
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -331,14 +313,12 @@ public class TestRunFilterModel {
     return autoTestsCount;
   }
 
-
   public void setAutoTestsCount(TestRunFilterModelAutoTestsCount autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
   public TestRunFilterModel testResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
-    
     this.testResultsOutcome = testResultsOutcome;
     return this;
   }
@@ -360,14 +340,12 @@ public class TestRunFilterModel {
     return testResultsOutcome;
   }
 
-
   public void setTestResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
     this.testResultsOutcome = testResultsOutcome;
   }
 
 
   public TestRunFilterModel failureCategory(List<FailureCategoryModel> failureCategory) {
-    
     this.failureCategory = failureCategory;
     return this;
   }
@@ -389,14 +367,12 @@ public class TestRunFilterModel {
     return failureCategory;
   }
 
-
   public void setFailureCategory(List<FailureCategoryModel> failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
   public TestRunFilterModel completedDate(TestRunFilterModelCompletedDate completedDate) {
-    
     this.completedDate = completedDate;
     return this;
   }
@@ -409,7 +385,6 @@ public class TestRunFilterModel {
   public TestRunFilterModelCompletedDate getCompletedDate() {
     return completedDate;
   }
-
 
   public void setCompletedDate(TestRunFilterModelCompletedDate completedDate) {
     this.completedDate = completedDate;
@@ -512,67 +487,68 @@ public class TestRunFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestRunFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestRunFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunFilterModel is not found in the empty JSON string", TestRunFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestRunFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestRunFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        TestRunFilterModelCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
       }
       // validate the optional field `startedDate`
       if (jsonObj.get("startedDate") != null && !jsonObj.get("startedDate").isJsonNull()) {
-        TestRunFilterModelStartedDate.validateJsonObject(jsonObj.getAsJsonObject("startedDate"));
+        TestRunFilterModelStartedDate.validateJsonElement(jsonObj.get("startedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       // validate the optional field `autoTestsCount`
       if (jsonObj.get("autoTestsCount") != null && !jsonObj.get("autoTestsCount").isJsonNull()) {
-        TestRunFilterModelAutoTestsCount.validateJsonObject(jsonObj.getAsJsonObject("autoTestsCount"));
+        TestRunFilterModelAutoTestsCount.validateJsonElement(jsonObj.get("autoTestsCount"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testResultsOutcome") != null && !jsonObj.get("testResultsOutcome").isJsonArray()) {
+      if (jsonObj.get("testResultsOutcome") != null && !jsonObj.get("testResultsOutcome").isJsonNull() && !jsonObj.get("testResultsOutcome").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testResultsOutcome` to be an array in the JSON string but got `%s`", jsonObj.get("testResultsOutcome").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureCategory") != null && !jsonObj.get("failureCategory").isJsonArray()) {
+      if (jsonObj.get("failureCategory") != null && !jsonObj.get("failureCategory").isJsonNull() && !jsonObj.get("failureCategory").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureCategory` to be an array in the JSON string but got `%s`", jsonObj.get("failureCategory").toString()));
       }
       // validate the optional field `completedDate`
       if (jsonObj.get("completedDate") != null && !jsonObj.get("completedDate").isJsonNull()) {
-        TestRunFilterModelCompletedDate.validateJsonObject(jsonObj.getAsJsonObject("completedDate"));
+        TestRunFilterModelCompletedDate.validateJsonElement(jsonObj.get("completedDate"));
       }
   }
 
@@ -596,9 +572,9 @@ public class TestRunFilterModel {
 
            @Override
            public TestRunFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

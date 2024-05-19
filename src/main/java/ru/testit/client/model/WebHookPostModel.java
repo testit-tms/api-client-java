@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -118,7 +117,6 @@ public class WebHookPostModel {
   }
 
   public WebHookPostModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -132,14 +130,12 @@ public class WebHookPostModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public WebHookPostModel eventType(WebHookEventTypeModel eventType) {
-    
     this.eventType = eventType;
     return this;
   }
@@ -153,14 +149,12 @@ public class WebHookPostModel {
     return eventType;
   }
 
-
   public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
   public WebHookPostModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -174,14 +168,12 @@ public class WebHookPostModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public WebHookPostModel url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -195,14 +187,12 @@ public class WebHookPostModel {
     return url;
   }
 
-
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public WebHookPostModel requestType(RequestTypeModel requestType) {
-    
     this.requestType = requestType;
     return this;
   }
@@ -216,14 +206,12 @@ public class WebHookPostModel {
     return requestType;
   }
 
-
   public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
   public WebHookPostModel shouldSendBody(Boolean shouldSendBody) {
-    
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -237,14 +225,12 @@ public class WebHookPostModel {
     return shouldSendBody;
   }
 
-
   public void setShouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
   public WebHookPostModel headers(Map<String, String> headers) {
-    
     this.headers = headers;
     return this;
   }
@@ -266,14 +252,12 @@ public class WebHookPostModel {
     return headers;
   }
 
-
   public void setHeaders(Map<String, String> headers) {
     this.headers = headers;
   }
 
 
   public WebHookPostModel queryParameters(Map<String, String> queryParameters) {
-    
     this.queryParameters = queryParameters;
     return this;
   }
@@ -295,14 +279,12 @@ public class WebHookPostModel {
     return queryParameters;
   }
 
-
   public void setQueryParameters(Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
   }
 
 
   public WebHookPostModel isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -316,14 +298,12 @@ public class WebHookPostModel {
     return isEnabled;
   }
 
-
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
   public WebHookPostModel shouldSendCustomBody(Boolean shouldSendCustomBody) {
-    
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -337,14 +317,12 @@ public class WebHookPostModel {
     return shouldSendCustomBody;
   }
 
-
   public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
   public WebHookPostModel customBody(String customBody) {
-    
     this.customBody = customBody;
     return this;
   }
@@ -358,14 +336,12 @@ public class WebHookPostModel {
     return customBody;
   }
 
-
   public void setCustomBody(String customBody) {
     this.customBody = customBody;
   }
 
 
   public WebHookPostModel shouldReplaceParameters(Boolean shouldReplaceParameters) {
-    
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -379,14 +355,12 @@ public class WebHookPostModel {
     return shouldReplaceParameters;
   }
 
-
   public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
   public WebHookPostModel shouldEscapeParameters(Boolean shouldEscapeParameters) {
-    
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -400,14 +374,12 @@ public class WebHookPostModel {
     return shouldEscapeParameters;
   }
 
-
   public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
   public WebHookPostModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -420,7 +392,6 @@ public class WebHookPostModel {
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -541,41 +512,46 @@ public class WebHookPostModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebHookPostModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to WebHookPostModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WebHookPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WebHookPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WebHookPostModel is not found in the empty JSON string", WebHookPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WebHookPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WebHookPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
+      // validate the required field `eventType`
+      WebHookEventTypeModel.validateJsonElement(jsonObj.get("eventType"));
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
+      // validate the required field `requestType`
+      RequestTypeModel.validateJsonElement(jsonObj.get("requestType"));
       if ((jsonObj.get("customBody") != null && !jsonObj.get("customBody").isJsonNull()) && !jsonObj.get("customBody").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customBody").toString()));
       }
@@ -604,9 +580,9 @@ public class WebHookPostModel {
 
            @Override
            public WebHookPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

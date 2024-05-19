@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -50,7 +50,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -136,7 +135,6 @@ public class AutotestFilterModel {
   }
 
   public AutotestFilterModel projectIds(Set<UUID> projectIds) {
-    
     this.projectIds = projectIds;
     return this;
   }
@@ -158,14 +156,12 @@ public class AutotestFilterModel {
     return projectIds;
   }
 
-
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
   public AutotestFilterModel externalIds(Set<String> externalIds) {
-    
     this.externalIds = externalIds;
     return this;
   }
@@ -187,14 +183,12 @@ public class AutotestFilterModel {
     return externalIds;
   }
 
-
   public void setExternalIds(Set<String> externalIds) {
     this.externalIds = externalIds;
   }
 
 
   public AutotestFilterModel globalIds(Set<Long> globalIds) {
-    
     this.globalIds = globalIds;
     return this;
   }
@@ -216,14 +210,12 @@ public class AutotestFilterModel {
     return globalIds;
   }
 
-
   public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
   public AutotestFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -237,14 +229,12 @@ public class AutotestFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public AutotestFilterModel isFlaky(Boolean isFlaky) {
-    
     this.isFlaky = isFlaky;
     return this;
   }
@@ -258,14 +248,12 @@ public class AutotestFilterModel {
     return isFlaky;
   }
 
-
   public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
   public AutotestFilterModel mustBeApproved(Boolean mustBeApproved) {
-    
     this.mustBeApproved = mustBeApproved;
     return this;
   }
@@ -279,14 +267,12 @@ public class AutotestFilterModel {
     return mustBeApproved;
   }
 
-
   public void setMustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
   public AutotestFilterModel stabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
-    
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
@@ -300,14 +286,12 @@ public class AutotestFilterModel {
     return stabilityPercentage;
   }
 
-
   public void setStabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
   public AutotestFilterModel createdDate(AutotestFilterModelCreatedDate createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -321,14 +305,12 @@ public class AutotestFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(AutotestFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public AutotestFilterModel createdByIds(Set<UUID> createdByIds) {
-    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -350,14 +332,12 @@ public class AutotestFilterModel {
     return createdByIds;
   }
 
-
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public AutotestFilterModel modifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -371,14 +351,12 @@ public class AutotestFilterModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public AutotestFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -400,14 +378,12 @@ public class AutotestFilterModel {
     return modifiedByIds;
   }
 
-
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
   public AutotestFilterModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -421,14 +397,12 @@ public class AutotestFilterModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public AutotestFilterModel namespace(String namespace) {
-    
     this.namespace = namespace;
     return this;
   }
@@ -442,14 +416,12 @@ public class AutotestFilterModel {
     return namespace;
   }
 
-
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
   public AutotestFilterModel isEmptyNamespace(Boolean isEmptyNamespace) {
-    
     this.isEmptyNamespace = isEmptyNamespace;
     return this;
   }
@@ -463,14 +435,12 @@ public class AutotestFilterModel {
     return isEmptyNamespace;
   }
 
-
   public void setIsEmptyNamespace(Boolean isEmptyNamespace) {
     this.isEmptyNamespace = isEmptyNamespace;
   }
 
 
   public AutotestFilterModel className(String className) {
-    
     this.className = className;
     return this;
   }
@@ -484,14 +454,12 @@ public class AutotestFilterModel {
     return className;
   }
 
-
   public void setClassName(String className) {
     this.className = className;
   }
 
 
   public AutotestFilterModel isEmptyClassName(Boolean isEmptyClassName) {
-    
     this.isEmptyClassName = isEmptyClassName;
     return this;
   }
@@ -505,14 +473,12 @@ public class AutotestFilterModel {
     return isEmptyClassName;
   }
 
-
   public void setIsEmptyClassName(Boolean isEmptyClassName) {
     this.isEmptyClassName = isEmptyClassName;
   }
 
 
   public AutotestFilterModel lastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
-    
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
@@ -526,14 +492,12 @@ public class AutotestFilterModel {
     return lastTestResultOutcome;
   }
 
-
   public void setLastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
   public AutotestFilterModel externalKey(String externalKey) {
-    
     this.externalKey = externalKey;
     return this;
   }
@@ -546,7 +510,6 @@ public class AutotestFilterModel {
   public String getExternalKey() {
     return externalKey;
   }
-
 
   public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
@@ -667,35 +630,36 @@ public class AutotestFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutotestFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AutotestFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutotestFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutotestFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestFilterModel is not found in the empty JSON string", AutotestFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutotestFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("externalIds") != null && !jsonObj.get("externalIds").isJsonArray()) {
+      if (jsonObj.get("externalIds") != null && !jsonObj.get("externalIds").isJsonNull() && !jsonObj.get("externalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalIds` to be an array in the JSON string but got `%s`", jsonObj.get("externalIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
@@ -703,22 +667,22 @@ public class AutotestFilterModel {
       }
       // validate the optional field `stabilityPercentage`
       if (jsonObj.get("stabilityPercentage") != null && !jsonObj.get("stabilityPercentage").isJsonNull()) {
-        AutotestFilterModelStabilityPercentage.validateJsonObject(jsonObj.getAsJsonObject("stabilityPercentage"));
+        AutotestFilterModelStabilityPercentage.validateJsonElement(jsonObj.get("stabilityPercentage"));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        AutotestFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        AutotestFilterModelCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        AutotestFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        AutotestFilterModelModifiedDate.validateJsonElement(jsonObj.get("modifiedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
@@ -726,6 +690,10 @@ public class AutotestFilterModel {
       }
       if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+      }
+      // validate the optional field `lastTestResultOutcome`
+      if (jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) {
+        AutotestResultOutcome.validateJsonElement(jsonObj.get("lastTestResultOutcome"));
       }
       if ((jsonObj.get("externalKey") != null && !jsonObj.get("externalKey").isJsonNull()) && !jsonObj.get("externalKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalKey").toString()));
@@ -752,9 +720,9 @@ public class AutotestFilterModel {
 
            @Override
            public AutotestFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

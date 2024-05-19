@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -65,7 +64,6 @@ public class StringChangedFieldViewModel {
   }
 
   public StringChangedFieldViewModel oldValue(String oldValue) {
-    
     this.oldValue = oldValue;
     return this;
   }
@@ -79,14 +77,12 @@ public class StringChangedFieldViewModel {
     return oldValue;
   }
 
-
   public void setOldValue(String oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public StringChangedFieldViewModel newValue(String newValue) {
-    
     this.newValue = newValue;
     return this;
   }
@@ -99,7 +95,6 @@ public class StringChangedFieldViewModel {
   public String getNewValue() {
     return newValue;
   }
-
 
   public void setNewValue(String newValue) {
     this.newValue = newValue;
@@ -172,25 +167,26 @@ public class StringChangedFieldViewModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StringChangedFieldViewModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to StringChangedFieldViewModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StringChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StringChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StringChangedFieldViewModel is not found in the empty JSON string", StringChangedFieldViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StringChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) && !jsonObj.get("oldValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
       }
@@ -219,9 +215,9 @@ public class StringChangedFieldViewModel {
 
            @Override
            public StringChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

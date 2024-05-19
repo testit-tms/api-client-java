@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ExportProjectJsonRequest;
-import ru.testit.client.model.ExportProjectWithTestPlansJsonRequest;
 import java.io.File;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.ProjectExportQueryModel;
+import ru.testit.client.model.ProjectExportWithTestPlansPostModel;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -38,7 +38,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProjectExportApi {
     private ApiClient localVarApiClient;
@@ -81,7 +80,7 @@ public class ProjectExportApi {
      * Build call for export
      * @param projectId Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +94,7 @@ public class ProjectExportApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportCall(String projectId, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCall(String projectId, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +108,7 @@ public class ProjectExportApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectJsonRequest;
+        Object localVarPostBody = projectExportQueryModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/export"
@@ -147,13 +146,13 @@ public class ProjectExportApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportValidateBeforeCall(String projectId, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportValidateBeforeCall(String projectId, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling export(Async)");
         }
 
-        return exportCall(projectId, includeAttachments, exportProjectJsonRequest, _callback);
+        return exportCall(projectId, includeAttachments, projectExportQueryModel, _callback);
 
     }
 
@@ -162,7 +161,7 @@ public class ProjectExportApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param projectId Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +174,8 @@ public class ProjectExportApi {
      * @deprecated
      */
     @Deprecated
-    public File export(String projectId, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        ApiResponse<File> localVarResp = exportWithHttpInfo(projectId, includeAttachments, exportProjectJsonRequest);
+    public File export(String projectId, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        ApiResponse<File> localVarResp = exportWithHttpInfo(projectId, includeAttachments, projectExportQueryModel);
         return localVarResp.getData();
     }
 
@@ -185,7 +184,7 @@ public class ProjectExportApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param projectId Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -198,8 +197,8 @@ public class ProjectExportApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<File> exportWithHttpInfo(String projectId, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportValidateBeforeCall(projectId, includeAttachments, exportProjectJsonRequest, null);
+    public ApiResponse<File> exportWithHttpInfo(String projectId, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        okhttp3.Call localVarCall = exportValidateBeforeCall(projectId, includeAttachments, projectExportQueryModel, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -209,7 +208,7 @@ public class ProjectExportApi {
      * &lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
      * @param projectId Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +222,9 @@ public class ProjectExportApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportAsync(String projectId, Boolean includeAttachments, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call exportAsync(String projectId, Boolean includeAttachments, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportValidateBeforeCall(projectId, includeAttachments, exportProjectJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportValidateBeforeCall(projectId, includeAttachments, projectExportQueryModel, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -234,7 +233,7 @@ public class ProjectExportApi {
      * Build call for exportProjectJson
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -245,7 +244,7 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectJsonCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectJsonCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -259,7 +258,7 @@ public class ProjectExportApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectJsonRequest;
+        Object localVarPostBody = projectExportQueryModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/export/json"
@@ -296,13 +295,13 @@ public class ProjectExportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectJsonValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectJsonValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling exportProjectJson(Async)");
         }
 
-        return exportProjectJsonCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
+        return exportProjectJsonCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
 
     }
 
@@ -311,7 +310,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -321,8 +320,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectJson(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectJsonWithHttpInfo(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest);
+    public UUID exportProjectJson(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectJsonWithHttpInfo(projectId, timeZoneOffsetInMinutes, projectExportQueryModel);
         return localVarResp.getData();
     }
 
@@ -331,7 +330,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -341,8 +340,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectJsonWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, null);
+    public ApiResponse<UUID> exportProjectJsonWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -352,7 +351,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -363,9 +362,9 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectJsonAsync(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectJsonAsync(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportProjectJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -374,7 +373,7 @@ public class ProjectExportApi {
      * Build call for exportProjectWithTestPlansJson
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -385,7 +384,7 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansJsonCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansJsonCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -399,7 +398,7 @@ public class ProjectExportApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
+        Object localVarPostBody = projectExportWithTestPlansPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/export/testPlans/json"
@@ -436,13 +435,13 @@ public class ProjectExportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectWithTestPlansJsonValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectWithTestPlansJsonValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling exportProjectWithTestPlansJson(Async)");
         }
 
-        return exportProjectWithTestPlansJsonCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
+        return exportProjectWithTestPlansJsonCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
 
     }
 
@@ -451,7 +450,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -461,8 +460,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectWithTestPlansJson(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansJsonWithHttpInfo(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
+    public UUID exportProjectWithTestPlansJson(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansJsonWithHttpInfo(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
         return localVarResp.getData();
     }
 
@@ -471,7 +470,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -481,8 +480,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectWithTestPlansJsonWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, null);
+    public ApiResponse<UUID> exportProjectWithTestPlansJsonWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -492,7 +491,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -503,9 +502,9 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansJsonAsync(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansJsonAsync(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportProjectWithTestPlansJsonValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -514,7 +513,7 @@ public class ProjectExportApi {
      * Build call for exportProjectWithTestPlansZip
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -525,7 +524,7 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansZipCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansZipCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -539,7 +538,7 @@ public class ProjectExportApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
+        Object localVarPostBody = projectExportWithTestPlansPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/export/testPlans/zip"
@@ -576,13 +575,13 @@ public class ProjectExportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectWithTestPlansZipValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectWithTestPlansZipValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling exportProjectWithTestPlansZip(Async)");
         }
 
-        return exportProjectWithTestPlansZipCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
+        return exportProjectWithTestPlansZipCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
 
     }
 
@@ -591,7 +590,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -601,8 +600,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectWithTestPlansZip(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansZipWithHttpInfo(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
+    public UUID exportProjectWithTestPlansZip(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectWithTestPlansZipWithHttpInfo(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
         return localVarResp.getData();
     }
 
@@ -611,7 +610,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -621,8 +620,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectWithTestPlansZipWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, null);
+    public ApiResponse<UUID> exportProjectWithTestPlansZipWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -632,7 +631,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -643,9 +642,9 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectWithTestPlansZipAsync(String projectId, Long timeZoneOffsetInMinutes, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectWithTestPlansZipAsync(String projectId, Long timeZoneOffsetInMinutes, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportProjectWithTestPlansZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -654,7 +653,7 @@ public class ProjectExportApi {
      * Build call for exportProjectZip
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -665,7 +664,7 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectZipCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportProjectZipCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -679,7 +678,7 @@ public class ProjectExportApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectJsonRequest;
+        Object localVarPostBody = projectExportQueryModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/export/zip"
@@ -716,13 +715,13 @@ public class ProjectExportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportProjectZipValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportProjectZipValidateBeforeCall(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling exportProjectZip(Async)");
         }
 
-        return exportProjectZipCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
+        return exportProjectZipCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
 
     }
 
@@ -731,7 +730,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -741,8 +740,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public UUID exportProjectZip(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        ApiResponse<UUID> localVarResp = exportProjectZipWithHttpInfo(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest);
+    public UUID exportProjectZip(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        ApiResponse<UUID> localVarResp = exportProjectZipWithHttpInfo(projectId, timeZoneOffsetInMinutes, projectExportQueryModel);
         return localVarResp.getData();
     }
 
@@ -751,7 +750,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -761,8 +760,8 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> exportProjectZipWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, null);
+    public ApiResponse<UUID> exportProjectZipWithHttpInfo(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel) throws ApiException {
+        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -772,7 +771,7 @@ public class ProjectExportApi {
      * 
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param exportProjectJsonRequest  (optional)
+     * @param projectExportQueryModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -783,9 +782,9 @@ public class ProjectExportApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportProjectZipAsync(String projectId, Long timeZoneOffsetInMinutes, ExportProjectJsonRequest exportProjectJsonRequest, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call exportProjectZipAsync(String projectId, Long timeZoneOffsetInMinutes, ProjectExportQueryModel projectExportQueryModel, final ApiCallback<UUID> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportProjectZipValidateBeforeCall(projectId, timeZoneOffsetInMinutes, projectExportQueryModel, _callback);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

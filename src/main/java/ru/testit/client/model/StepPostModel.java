@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -78,7 +77,6 @@ public class StepPostModel {
   }
 
   public StepPostModel action(String action) {
-    
     this.action = action;
     return this;
   }
@@ -92,14 +90,12 @@ public class StepPostModel {
     return action;
   }
 
-
   public void setAction(String action) {
     this.action = action;
   }
 
 
   public StepPostModel expected(String expected) {
-    
     this.expected = expected;
     return this;
   }
@@ -113,14 +109,12 @@ public class StepPostModel {
     return expected;
   }
 
-
   public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
   public StepPostModel testData(String testData) {
-    
     this.testData = testData;
     return this;
   }
@@ -134,14 +128,12 @@ public class StepPostModel {
     return testData;
   }
 
-
   public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
   public StepPostModel comments(String comments) {
-    
     this.comments = comments;
     return this;
   }
@@ -155,14 +147,12 @@ public class StepPostModel {
     return comments;
   }
 
-
   public void setComments(String comments) {
     this.comments = comments;
   }
 
 
   public StepPostModel workItemId(UUID workItemId) {
-    
     this.workItemId = workItemId;
     return this;
   }
@@ -175,7 +165,6 @@ public class StepPostModel {
   public UUID getWorkItemId() {
     return workItemId;
   }
-
 
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
@@ -257,25 +246,26 @@ public class StepPostModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StepPostModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to StepPostModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StepPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StepPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StepPostModel is not found in the empty JSON string", StepPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StepPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
@@ -313,9 +303,9 @@ public class StepPostModel {
 
            @Override
            public StepPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

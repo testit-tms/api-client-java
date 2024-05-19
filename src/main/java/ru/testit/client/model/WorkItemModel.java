@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +58,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -192,7 +191,6 @@ public class WorkItemModel {
   }
 
   public WorkItemModel versionId(UUID versionId) {
-    
     this.versionId = versionId;
     return this;
   }
@@ -206,14 +204,12 @@ public class WorkItemModel {
     return versionId;
   }
 
-
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public WorkItemModel medianDuration(Long medianDuration) {
-    
     this.medianDuration = medianDuration;
     return this;
   }
@@ -227,14 +223,12 @@ public class WorkItemModel {
     return medianDuration;
   }
 
-
   public void setMedianDuration(Long medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
   public WorkItemModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -248,14 +242,12 @@ public class WorkItemModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public WorkItemModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -269,14 +261,12 @@ public class WorkItemModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public WorkItemModel entityTypeName(WorkItemEntityTypes entityTypeName) {
-    
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -290,14 +280,12 @@ public class WorkItemModel {
     return entityTypeName;
   }
 
-
   public void setEntityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
   public WorkItemModel isAutomated(Boolean isAutomated) {
-    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -311,14 +299,12 @@ public class WorkItemModel {
     return isAutomated;
   }
 
-
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public WorkItemModel autoTests(List<AutoTestModel> autoTests) {
-    
     this.autoTests = autoTests;
     return this;
   }
@@ -340,14 +326,12 @@ public class WorkItemModel {
     return autoTests;
   }
 
-
   public void setAutoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
   public WorkItemModel attachments(List<AttachmentModel> attachments) {
-    
     this.attachments = attachments;
     return this;
   }
@@ -369,14 +353,12 @@ public class WorkItemModel {
     return attachments;
   }
 
-
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public WorkItemModel sectionPreconditionSteps(List<StepModel> sectionPreconditionSteps) {
-    
     this.sectionPreconditionSteps = sectionPreconditionSteps;
     return this;
   }
@@ -398,14 +380,12 @@ public class WorkItemModel {
     return sectionPreconditionSteps;
   }
 
-
   public void setSectionPreconditionSteps(List<StepModel> sectionPreconditionSteps) {
     this.sectionPreconditionSteps = sectionPreconditionSteps;
   }
 
 
   public WorkItemModel sectionPostconditionSteps(List<StepModel> sectionPostconditionSteps) {
-    
     this.sectionPostconditionSteps = sectionPostconditionSteps;
     return this;
   }
@@ -427,14 +407,12 @@ public class WorkItemModel {
     return sectionPostconditionSteps;
   }
 
-
   public void setSectionPostconditionSteps(List<StepModel> sectionPostconditionSteps) {
     this.sectionPostconditionSteps = sectionPostconditionSteps;
   }
 
 
   public WorkItemModel versionNumber(Integer versionNumber) {
-    
     this.versionNumber = versionNumber;
     return this;
   }
@@ -448,14 +426,12 @@ public class WorkItemModel {
     return versionNumber;
   }
 
-
   public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
   public WorkItemModel iterations(List<IterationModel> iterations) {
-    
     this.iterations = iterations;
     return this;
   }
@@ -477,14 +453,12 @@ public class WorkItemModel {
     return iterations;
   }
 
-
   public void setIterations(List<IterationModel> iterations) {
     this.iterations = iterations;
   }
 
 
   public WorkItemModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -498,14 +472,12 @@ public class WorkItemModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public WorkItemModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -519,14 +491,12 @@ public class WorkItemModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public WorkItemModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -540,14 +510,12 @@ public class WorkItemModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public WorkItemModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -561,14 +529,12 @@ public class WorkItemModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public WorkItemModel globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -582,14 +548,12 @@ public class WorkItemModel {
     return globalId;
   }
 
-
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public WorkItemModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -603,14 +567,12 @@ public class WorkItemModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemModel sectionId(UUID sectionId) {
-    
     this.sectionId = sectionId;
     return this;
   }
@@ -624,14 +586,12 @@ public class WorkItemModel {
     return sectionId;
   }
 
-
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public WorkItemModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -645,14 +605,12 @@ public class WorkItemModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public WorkItemModel state(WorkItemStates state) {
-    
     this.state = state;
     return this;
   }
@@ -666,14 +624,12 @@ public class WorkItemModel {
     return state;
   }
 
-
   public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
   public WorkItemModel priority(WorkItemPriorityModel priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -687,14 +643,12 @@ public class WorkItemModel {
     return priority;
   }
 
-
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public WorkItemModel steps(List<StepModel> steps) {
-    
     this.steps = steps;
     return this;
   }
@@ -716,14 +670,12 @@ public class WorkItemModel {
     return steps;
   }
 
-
   public void setSteps(List<StepModel> steps) {
     this.steps = steps;
   }
 
 
   public WorkItemModel preconditionSteps(List<StepModel> preconditionSteps) {
-    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -745,14 +697,12 @@ public class WorkItemModel {
     return preconditionSteps;
   }
 
-
   public void setPreconditionSteps(List<StepModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
   public WorkItemModel postconditionSteps(List<StepModel> postconditionSteps) {
-    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -774,14 +724,12 @@ public class WorkItemModel {
     return postconditionSteps;
   }
 
-
   public void setPostconditionSteps(List<StepModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
   public WorkItemModel duration(Integer duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -797,14 +745,12 @@ public class WorkItemModel {
     return duration;
   }
 
-
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public WorkItemModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -826,14 +772,12 @@ public class WorkItemModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public WorkItemModel tags(List<TagPutModel> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -855,14 +799,12 @@ public class WorkItemModel {
     return tags;
   }
 
-
   public void setTags(List<TagPutModel> tags) {
     this.tags = tags;
   }
 
 
   public WorkItemModel links(List<LinkModel> links) {
-    
     this.links = links;
     return this;
   }
@@ -884,14 +826,12 @@ public class WorkItemModel {
     return links;
   }
 
-
   public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
   public WorkItemModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -904,7 +844,6 @@ public class WorkItemModel {
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -1083,38 +1022,41 @@ public class WorkItemModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkItemModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to WorkItemModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WorkItemModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WorkItemModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemModel is not found in the empty JSON string", WorkItemModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WorkItemModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("versionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
       }
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
+      // validate the required field `entityTypeName`
+      WorkItemEntityTypes.validateJsonElement(jsonObj.get("entityTypeName"));
       if (jsonObj.get("autoTests") != null && !jsonObj.get("autoTests").isJsonNull()) {
         JsonArray jsonArrayautoTests = jsonObj.getAsJsonArray("autoTests");
         if (jsonArrayautoTests != null) {
@@ -1125,7 +1067,7 @@ public class WorkItemModel {
 
           // validate the optional field `autoTests` (array)
           for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-            AutoTestModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
+            AutoTestModel.validateJsonElement(jsonArrayautoTests.get(i));
           };
         }
       }
@@ -1139,7 +1081,7 @@ public class WorkItemModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -1153,7 +1095,7 @@ public class WorkItemModel {
 
           // validate the optional field `sectionPreconditionSteps` (array)
           for (int i = 0; i < jsonArraysectionPreconditionSteps.size(); i++) {
-            StepModel.validateJsonObject(jsonArraysectionPreconditionSteps.get(i).getAsJsonObject());
+            StepModel.validateJsonElement(jsonArraysectionPreconditionSteps.get(i));
           };
         }
       }
@@ -1167,7 +1109,7 @@ public class WorkItemModel {
 
           // validate the optional field `sectionPostconditionSteps` (array)
           for (int i = 0; i < jsonArraysectionPostconditionSteps.size(); i++) {
-            StepModel.validateJsonObject(jsonArraysectionPostconditionSteps.get(i).getAsJsonObject());
+            StepModel.validateJsonElement(jsonArraysectionPostconditionSteps.get(i));
           };
         }
       }
@@ -1181,7 +1123,7 @@ public class WorkItemModel {
 
           // validate the optional field `iterations` (array)
           for (int i = 0; i < jsonArrayiterations.size(); i++) {
-            IterationModel.validateJsonObject(jsonArrayiterations.get(i).getAsJsonObject());
+            IterationModel.validateJsonElement(jsonArrayiterations.get(i));
           };
         }
       }
@@ -1200,6 +1142,10 @@ public class WorkItemModel {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the required field `state`
+      WorkItemStates.validateJsonElement(jsonObj.get("state"));
+      // validate the required field `priority`
+      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       // ensure the json data is an array
       if (!jsonObj.get("steps").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `steps` to be an array in the JSON string but got `%s`", jsonObj.get("steps").toString()));
@@ -1208,7 +1154,7 @@ public class WorkItemModel {
       JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
       // validate the required field `steps` (array)
       for (int i = 0; i < jsonArraysteps.size(); i++) {
-        StepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+        StepModel.validateJsonElement(jsonArraysteps.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("preconditionSteps").isJsonArray()) {
@@ -1218,7 +1164,7 @@ public class WorkItemModel {
       JsonArray jsonArraypreconditionSteps = jsonObj.getAsJsonArray("preconditionSteps");
       // validate the required field `preconditionSteps` (array)
       for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-        StepModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
+        StepModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("postconditionSteps").isJsonArray()) {
@@ -1228,7 +1174,7 @@ public class WorkItemModel {
       JsonArray jsonArraypostconditionSteps = jsonObj.getAsJsonArray("postconditionSteps");
       // validate the required field `postconditionSteps` (array)
       for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-        StepModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
+        StepModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("tags").isJsonArray()) {
@@ -1238,7 +1184,7 @@ public class WorkItemModel {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagPutModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+        TagPutModel.validateJsonElement(jsonArraytags.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {
@@ -1248,7 +1194,7 @@ public class WorkItemModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+        LinkModel.validateJsonElement(jsonArraylinks.get(i));
       };
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -1275,9 +1221,9 @@ public class WorkItemModel {
 
            @Override
            public WorkItemModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

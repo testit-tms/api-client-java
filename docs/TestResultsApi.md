@@ -293,7 +293,7 @@ public class Example {
 
 <a id="apiV2TestResultsIdPut"></a>
 # **apiV2TestResultsIdPut**
-> apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest)
+> apiV2TestResultsIdPut(id, testResultUpdateModel)
 
 Edit test result by ID
 
@@ -320,9 +320,9 @@ public class Example {
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test result unique ID
-    ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest = new ApiV2TestResultsIdPutRequest(); // ApiV2TestResultsIdPutRequest | 
+    TestResultUpdateModel testResultUpdateModel = new TestResultUpdateModel(); // TestResultUpdateModel | 
     try {
-      apiInstance.apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest);
+      apiInstance.apiV2TestResultsIdPut(id, testResultUpdateModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdPut");
       System.err.println("Status code: " + e.getCode());
@@ -339,7 +339,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test result unique ID | |
-| **apiV2TestResultsIdPutRequest** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md)|  | [optional] |
+| **testResultUpdateModel** | [**TestResultUpdateModel**](TestResultUpdateModel.md)|  | [optional] |
 
 ### Return type
 
@@ -362,7 +362,7 @@ null (empty response body)
 
 <a id="apiV2TestResultsSearchPost"></a>
 # **apiV2TestResultsSearchPost**
-> List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest)
+> List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel)
 
 Search for test results
 
@@ -393,9 +393,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
+    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
     try {
-      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
+      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
@@ -417,7 +417,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
+| **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -440,7 +440,7 @@ public class Example {
 
 <a id="apiV2TestResultsStatisticsFilterPost"></a>
 # **apiV2TestResultsStatisticsFilterPost**
-> TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest)
+> TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(testResultsFilterModel)
 
 Search for test results and extract statistics
 
@@ -466,9 +466,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
+    TestResultsFilterModel testResultsFilterModel = new TestResultsFilterModel(); // TestResultsFilterModel | 
     try {
-      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest);
+      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(testResultsFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
@@ -485,7 +485,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
+| **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional] |
 
 ### Return type
 

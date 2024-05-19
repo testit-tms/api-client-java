@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ExternalLinkModel;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -88,7 +87,6 @@ public class TestPlanLink {
   }
 
   public TestPlanLink bugLink(LinkModel bugLink) {
-    
     this.bugLink = bugLink;
     return this;
   }
@@ -102,14 +100,12 @@ public class TestPlanLink {
     return bugLink;
   }
 
-
   public void setBugLink(LinkModel bugLink) {
     this.bugLink = bugLink;
   }
 
 
   public TestPlanLink workItemGlobalId(Long workItemGlobalId) {
-    
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -123,14 +119,12 @@ public class TestPlanLink {
     return workItemGlobalId;
   }
 
-
   public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
   public TestPlanLink workItemName(String workItemName) {
-    
     this.workItemName = workItemName;
     return this;
   }
@@ -144,14 +138,12 @@ public class TestPlanLink {
     return workItemName;
   }
 
-
   public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
   public TestPlanLink configurationName(String configurationName) {
-    
     this.configurationName = configurationName;
     return this;
   }
@@ -165,14 +157,12 @@ public class TestPlanLink {
     return configurationName;
   }
 
-
   public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   public TestPlanLink createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -186,14 +176,12 @@ public class TestPlanLink {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPlanLink comment(String comment) {
-    
     this.comment = comment;
     return this;
   }
@@ -207,14 +195,12 @@ public class TestPlanLink {
     return comment;
   }
 
-
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   public TestPlanLink info(ExternalLinkModel info) {
-    
     this.info = info;
     return this;
   }
@@ -227,7 +213,6 @@ public class TestPlanLink {
   public ExternalLinkModel getInfo() {
     return info;
   }
-
 
   public void setInfo(ExternalLinkModel info) {
     this.info = info;
@@ -315,28 +300,29 @@ public class TestPlanLink {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanLink
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPlanLink
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanLink.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanLink.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanLink is not found in the empty JSON string", TestPlanLink.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanLink.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanLink` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanLink` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `bugLink`
       if (jsonObj.get("bugLink") != null && !jsonObj.get("bugLink").isJsonNull()) {
-        LinkModel.validateJsonObject(jsonObj.getAsJsonObject("bugLink"));
+        LinkModel.validateJsonElement(jsonObj.get("bugLink"));
       }
       if ((jsonObj.get("workItemName") != null && !jsonObj.get("workItemName").isJsonNull()) && !jsonObj.get("workItemName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemName").toString()));
@@ -352,7 +338,7 @@ public class TestPlanLink {
       }
       // validate the optional field `info`
       if (jsonObj.get("info") != null && !jsonObj.get("info").isJsonNull()) {
-        ExternalLinkModel.validateJsonObject(jsonObj.getAsJsonObject("info"));
+        ExternalLinkModel.validateJsonElement(jsonObj.get("info"));
       }
   }
 
@@ -376,9 +362,9 @@ public class TestPlanLink {
 
            @Override
            public TestPlanLink read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

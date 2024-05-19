@@ -27,26 +27,26 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsRestoreBulkPostRequest;
-import ru.testit.client.model.ApiV2ProjectsSearchPostRequest;
 import ru.testit.client.model.AutoTestNamespaceModel;
-import ru.testit.client.model.CreateProjectRequest;
-import ru.testit.client.model.ExportProjectWithTestPlansJsonRequest;
+import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.FailureClassModel;
 import java.io.File;
 import ru.testit.client.model.FilterModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.ProjectExportWithTestPlansPostModel;
 import ru.testit.client.model.ProjectModel;
+import ru.testit.client.model.ProjectPostModel;
+import ru.testit.client.model.ProjectPutModel;
+import ru.testit.client.model.ProjectSelectModel;
+import ru.testit.client.model.ProjectsFilterModel;
 import ru.testit.client.model.PublicTestRunModel;
 import java.util.Set;
 import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestRunModel;
 import ru.testit.client.model.TestRunV2GetModel;
 import java.util.UUID;
-import ru.testit.client.model.UpdateCustomAttributeTestPlanProjectRelationsRequest;
-import ru.testit.client.model.UpdateProjectRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -54,7 +54,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProjectsApi {
     private ApiClient localVarApiClient;
@@ -239,7 +238,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for apiV2ProjectsDemoPost
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -252,7 +251,7 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -266,7 +265,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createProjectRequest;
+        Object localVarPostBody = projectPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/demo";
@@ -298,15 +297,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsDemoPostCall(createProjectRequest, _callback);
+    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsDemoPostCall(projectPostModel, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -318,15 +317,15 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel apiV2ProjectsDemoPost(CreateProjectRequest createProjectRequest) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(createProjectRequest);
+    public ProjectModel apiV2ProjectsDemoPost(ProjectPostModel projectPostModel) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(projectPostModel);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,8 +337,8 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> apiV2ProjectsDemoPostWithHttpInfo(CreateProjectRequest createProjectRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectRequest, null);
+    public ApiResponse<ProjectModel> apiV2ProjectsDemoPostWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -347,7 +346,7 @@ public class ProjectsApi {
     /**
      *  (asynchronously)
      * 
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -360,9 +359,9 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostAsync(CreateProjectRequest createProjectRequest, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1402,7 +1401,7 @@ public class ProjectsApi {
     /**
      * Build call for apiV2ProjectsIdTestPlansAttributePut
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1415,7 +1414,7 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1429,7 +1428,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateCustomAttributeTestPlanProjectRelationsRequest;
+        Object localVarPostBody = customAttributeTestPlanProjectRelationPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/attribute"
@@ -1463,13 +1462,13 @@ public class ProjectsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansAttributePut(Async)");
         }
 
-        return apiV2ProjectsIdTestPlansAttributePutCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
+        return apiV2ProjectsIdTestPlansAttributePutCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
 
     }
 
@@ -1477,7 +1476,7 @@ public class ProjectsApi {
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1488,15 +1487,15 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public void apiV2ProjectsIdTestPlansAttributePut(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
-        apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(id, updateCustomAttributeTestPlanProjectRelationsRequest);
+    public void apiV2ProjectsIdTestPlansAttributePut(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
+        apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(id, customAttributeTestPlanProjectRelationPutModel);
     }
 
     /**
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1508,8 +1507,8 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<Void> apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, null);
+    public ApiResponse<Void> apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1517,7 +1516,7 @@ public class ProjectsApi {
      * Update attribute of project&#39;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1530,9 +1529,9 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutAsync(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutAsync(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -2031,7 +2030,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for apiV2ProjectsPurgeBulkPost
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2042,7 +2041,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsPurgeBulkPostCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsPurgeBulkPostCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2056,7 +2055,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsRestoreBulkPostRequest;
+        Object localVarPostBody = projectSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/purge/bulk";
@@ -2088,15 +2087,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsPurgeBulkPostValidateBeforeCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsPurgeBulkPostCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
+    private okhttp3.Call apiV2ProjectsPurgeBulkPostValidateBeforeCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsPurgeBulkPostCall(projectSelectModel, _callback);
 
     }
 
     /**
      * Purge multiple projects
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @return Long
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2106,15 +2105,15 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public Long apiV2ProjectsPurgeBulkPost(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
-        ApiResponse<Long> localVarResp = apiV2ProjectsPurgeBulkPostWithHttpInfo(apiV2ProjectsRestoreBulkPostRequest);
+    public Long apiV2ProjectsPurgeBulkPost(ProjectSelectModel projectSelectModel) throws ApiException {
+        ApiResponse<Long> localVarResp = apiV2ProjectsPurgeBulkPostWithHttpInfo(projectSelectModel);
         return localVarResp.getData();
     }
 
     /**
      * Purge multiple projects
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @return ApiResponse&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2124,8 +2123,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Long> apiV2ProjectsPurgeBulkPostWithHttpInfo(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, null);
+    public ApiResponse<Long> apiV2ProjectsPurgeBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(projectSelectModel, null);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2133,7 +2132,7 @@ public class ProjectsApi {
     /**
      * Purge multiple projects (asynchronously)
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2144,16 +2143,16 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsPurgeBulkPostAsync(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback<Long> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsPurgeBulkPostAsync(ProjectSelectModel projectSelectModel, final ApiCallback<Long> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(projectSelectModel, _callback);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ProjectsRestoreBulkPost
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2164,7 +2163,7 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsRestoreBulkPostCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsRestoreBulkPostCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2178,7 +2177,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsRestoreBulkPostRequest;
+        Object localVarPostBody = projectSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/restore/bulk";
@@ -2210,15 +2209,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsRestoreBulkPostValidateBeforeCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsRestoreBulkPostCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
+    private okhttp3.Call apiV2ProjectsRestoreBulkPostValidateBeforeCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsRestoreBulkPostCall(projectSelectModel, _callback);
 
     }
 
     /**
      * Restore multiple projects
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @return Long
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2228,15 +2227,15 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public Long apiV2ProjectsRestoreBulkPost(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
-        ApiResponse<Long> localVarResp = apiV2ProjectsRestoreBulkPostWithHttpInfo(apiV2ProjectsRestoreBulkPostRequest);
+    public Long apiV2ProjectsRestoreBulkPost(ProjectSelectModel projectSelectModel) throws ApiException {
+        ApiResponse<Long> localVarResp = apiV2ProjectsRestoreBulkPostWithHttpInfo(projectSelectModel);
         return localVarResp.getData();
     }
 
     /**
      * Restore multiple projects
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @return ApiResponse&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2246,8 +2245,8 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Long> apiV2ProjectsRestoreBulkPostWithHttpInfo(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, null);
+    public ApiResponse<Long> apiV2ProjectsRestoreBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(projectSelectModel, null);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2255,7 +2254,7 @@ public class ProjectsApi {
     /**
      * Restore multiple projects (asynchronously)
      * 
-     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
+     * @param projectSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2266,9 +2265,9 @@ public class ProjectsApi {
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsRestoreBulkPostAsync(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback<Long> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsRestoreBulkPostAsync(ProjectSelectModel projectSelectModel, final ApiCallback<Long> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(projectSelectModel, _callback);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2280,7 +2279,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsSearchPostRequest  (optional)
+     * @param projectsFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2290,7 +2289,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2304,7 +2303,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsSearchPostRequest;
+        Object localVarPostBody = projectsFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/search";
@@ -2356,8 +2355,8 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
 
     }
 
@@ -2369,7 +2368,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsSearchPostRequest  (optional)
+     * @param projectsFilterModel  (optional)
      * @return List&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2378,8 +2377,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
-        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
+    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
+        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
         return localVarResp.getData();
     }
 
@@ -2391,7 +2390,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsSearchPostRequest  (optional)
+     * @param projectsFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;ProjectModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2400,8 +2399,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, null);
+    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, null);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2414,7 +2413,7 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsSearchPostRequest  (optional)
+     * @param projectsFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2424,9 +2423,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2838,7 +2837,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for createProject
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2851,7 +2850,7 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2865,7 +2864,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createProjectRequest;
+        Object localVarPostBody = projectPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -2897,15 +2896,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectValidateBeforeCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
-        return createProjectCall(createProjectRequest, _callback);
+    private okhttp3.Call createProjectValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+        return createProjectCall(projectPostModel, _callback);
 
     }
 
     /**
      * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2917,15 +2916,15 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel createProject(CreateProjectRequest createProjectRequest) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(createProjectRequest);
+    public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(projectPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2937,8 +2936,8 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> createProjectWithHttpInfo(CreateProjectRequest createProjectRequest) throws ApiException {
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, null);
+    public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2946,7 +2945,7 @@ public class ProjectsApi {
     /**
      * Create project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param createProjectRequest  (optional)
+     * @param projectPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2959,9 +2958,9 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectAsync(CreateProjectRequest createProjectRequest, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, _callback);
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3097,7 +3096,7 @@ public class ProjectsApi {
      * Build call for exportWithTestPlansAndConfigurations
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3112,7 +3111,7 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsCall(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportWithTestPlansAndConfigurationsCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3126,7 +3125,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = exportProjectWithTestPlansJsonRequest;
+        Object localVarPostBody = projectExportWithTestPlansPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/export-by-testPlans"
@@ -3164,13 +3163,13 @@ public class ProjectsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportWithTestPlansAndConfigurations(Async)");
         }
 
-        return exportWithTestPlansAndConfigurationsCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, _callback);
+        return exportWithTestPlansAndConfigurationsCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
 
     }
 
@@ -3179,7 +3178,7 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3193,8 +3192,8 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        ApiResponse<File> localVarResp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, includeAttachments, exportProjectWithTestPlansJsonRequest);
+    public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        ApiResponse<File> localVarResp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, includeAttachments, projectExportWithTestPlansPostModel);
         return localVarResp.getData();
     }
 
@@ -3203,7 +3202,7 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3217,8 +3216,8 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest) throws ApiException {
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, null);
+    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
+        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3228,7 +3227,7 @@ public class ProjectsApi {
      * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
      * @param id Specifies the ID of the project you want to export. (required)
      * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param exportProjectWithTestPlansJsonRequest  (optional)
+     * @param projectExportWithTestPlansPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3243,9 +3242,9 @@ public class ProjectsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsAsync(String id, Boolean includeAttachments, ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call exportWithTestPlansAndConfigurationsAsync(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, exportProjectWithTestPlansJsonRequest, _callback);
+        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4066,7 +4065,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for updateProject
-     * @param updateProjectRequest  (optional)
+     * @param projectPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4080,7 +4079,7 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4094,7 +4093,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateProjectRequest;
+        Object localVarPostBody = projectPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -4126,15 +4125,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectValidateBeforeCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
-        return updateProjectCall(updateProjectRequest, _callback);
+    private okhttp3.Call updateProjectValidateBeforeCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
+        return updateProjectCall(projectPutModel, _callback);
 
     }
 
     /**
      * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param updateProjectRequest  (optional)
+     * @param projectPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4146,14 +4145,14 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProject(UpdateProjectRequest updateProjectRequest) throws ApiException {
-        updateProjectWithHttpInfo(updateProjectRequest);
+    public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
+        updateProjectWithHttpInfo(projectPutModel);
     }
 
     /**
      * Update project
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param updateProjectRequest  (optional)
+     * @param projectPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4166,15 +4165,15 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectWithHttpInfo(UpdateProjectRequest updateProjectRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, null);
+    public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update project (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param updateProjectRequest  (optional)
+     * @param projectPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4188,9 +4187,9 @@ public class ProjectsApi {
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectAsync(UpdateProjectRequest updateProjectRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectAsync(ProjectPutModel projectPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, _callback);
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

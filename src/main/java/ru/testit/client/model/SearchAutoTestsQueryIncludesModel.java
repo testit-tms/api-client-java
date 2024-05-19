@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -68,7 +67,6 @@ public class SearchAutoTestsQueryIncludesModel {
   }
 
   public SearchAutoTestsQueryIncludesModel includeSteps(Boolean includeSteps) {
-    
     this.includeSteps = includeSteps;
     return this;
   }
@@ -82,14 +80,12 @@ public class SearchAutoTestsQueryIncludesModel {
     return includeSteps;
   }
 
-
   public void setIncludeSteps(Boolean includeSteps) {
     this.includeSteps = includeSteps;
   }
 
 
   public SearchAutoTestsQueryIncludesModel includeLinks(Boolean includeLinks) {
-    
     this.includeLinks = includeLinks;
     return this;
   }
@@ -103,14 +99,12 @@ public class SearchAutoTestsQueryIncludesModel {
     return includeLinks;
   }
 
-
   public void setIncludeLinks(Boolean includeLinks) {
     this.includeLinks = includeLinks;
   }
 
 
   public SearchAutoTestsQueryIncludesModel includeLabels(Boolean includeLabels) {
-    
     this.includeLabels = includeLabels;
     return this;
   }
@@ -123,7 +117,6 @@ public class SearchAutoTestsQueryIncludesModel {
   public Boolean getIncludeLabels() {
     return includeLabels;
   }
-
 
   public void setIncludeLabels(Boolean includeLabels) {
     this.includeLabels = includeLabels;
@@ -191,32 +184,33 @@ public class SearchAutoTestsQueryIncludesModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchAutoTestsQueryIncludesModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchAutoTestsQueryIncludesModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SearchAutoTestsQueryIncludesModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchAutoTestsQueryIncludesModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchAutoTestsQueryIncludesModel is not found in the empty JSON string", SearchAutoTestsQueryIncludesModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchAutoTestsQueryIncludesModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAutoTestsQueryIncludesModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAutoTestsQueryIncludesModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchAutoTestsQueryIncludesModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -239,9 +233,9 @@ public class SearchAutoTestsQueryIncludesModel {
 
            @Override
            public SearchAutoTestsQueryIncludesModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

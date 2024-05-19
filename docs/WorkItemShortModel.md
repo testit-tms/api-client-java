@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | Work Item internal unique identifier |  |
 |**versionId** | **UUID** | Work Item version identifier |  |
+|**versionNumber** | **Integer** | Work Item version number |  |
 |**name** | **String** | Work Item name |  |
 |**entityTypeName** | **String** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases |  |
 |**projectId** | **UUID** | Project unique identifier |  |

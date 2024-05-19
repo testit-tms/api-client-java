@@ -219,7 +219,7 @@ public class Example {
 
 <a id="apiV2WebhooksIdPut"></a>
 # **apiV2WebhooksIdPut**
-> WebHookModel apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest)
+> WebHookModel apiV2WebhooksIdPut(id, webHookPostModel)
 
 Edit webhook by ID
 
@@ -246,9 +246,9 @@ public class Example {
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
-    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
+    WebHookPostModel webHookPostModel = new WebHookPostModel(); // WebHookPostModel | 
     try {
-      WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest);
+      WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, webHookPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdPut");
@@ -266,7 +266,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Webhook unique ID | |
-| **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional] |
+| **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -289,7 +289,7 @@ public class Example {
 
 <a id="apiV2WebhooksPost"></a>
 # **apiV2WebhooksPost**
-> WebHookModel apiV2WebhooksPost(apiV2WebhooksPostRequest)
+> WebHookModel apiV2WebhooksPost(webHookPostModel)
 
 Create webhook
 
@@ -315,9 +315,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
+    WebHookPostModel webHookPostModel = new WebHookPostModel(); // WebHookPostModel | 
     try {
-      WebHookModel result = apiInstance.apiV2WebhooksPost(apiV2WebhooksPostRequest);
+      WebHookModel result = apiInstance.apiV2WebhooksPost(webHookPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksPost");
@@ -334,7 +334,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional] |
+| **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +357,7 @@ public class Example {
 
 <a id="apiV2WebhooksSearchPost"></a>
 # **apiV2WebhooksSearchPost**
-> List&lt;WebHookModel&gt; apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest)
+> List&lt;WebHookModel&gt; apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel)
 
 Search for webhooks
 
@@ -388,9 +388,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest = new ApiV2WebhooksSearchPostRequest(); // ApiV2WebhooksSearchPostRequest | 
+    SearchWebhooksQueryModel searchWebhooksQueryModel = new SearchWebhooksQueryModel(); // SearchWebhooksQueryModel | 
     try {
-      List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
+      List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSearchPost");
@@ -412,7 +412,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2WebhooksSearchPostRequest** | [**ApiV2WebhooksSearchPostRequest**](ApiV2WebhooksSearchPostRequest.md)|  | [optional] |
+| **searchWebhooksQueryModel** | [**SearchWebhooksQueryModel**](SearchWebhooksQueryModel.md)|  | [optional] |
 
 ### Return type
 
@@ -504,7 +504,7 @@ public class Example {
 
 <a id="apiV2WebhooksTestPost"></a>
 # **apiV2WebhooksTestPost**
-> RequestData apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest)
+> WebhookResponse apiV2WebhooksTestPost(webHookTestModel)
 
 Test webhook&#39;s url
 
@@ -530,9 +530,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest = new ApiV2WebhooksTestPostRequest(); // ApiV2WebhooksTestPostRequest | 
+    WebHookTestModel webHookTestModel = new WebHookTestModel(); // WebHookTestModel | 
     try {
-      RequestData result = apiInstance.apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest);
+      WebhookResponse result = apiInstance.apiV2WebhooksTestPost(webHookTestModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksTestPost");
@@ -549,11 +549,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2WebhooksTestPostRequest** | [**ApiV2WebhooksTestPostRequest**](ApiV2WebhooksTestPostRequest.md)|  | [optional] |
+| **webHookTestModel** | [**WebHookTestModel**](WebHookTestModel.md)|  | [optional] |
 
 ### Return type
 
-[**RequestData**](RequestData.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 

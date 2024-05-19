@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestRunGroupByFailureClassModel;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -69,7 +68,6 @@ public class TestRunAnalyticResultModel {
   }
 
   public TestRunAnalyticResultModel countGroupByStatus(List<TestRunGroupByStatusModel> countGroupByStatus) {
-    
     this.countGroupByStatus = countGroupByStatus;
     return this;
   }
@@ -91,14 +89,12 @@ public class TestRunAnalyticResultModel {
     return countGroupByStatus;
   }
 
-
   public void setCountGroupByStatus(List<TestRunGroupByStatusModel> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
 
 
   public TestRunAnalyticResultModel countGroupByFailureClass(List<TestRunGroupByFailureClassModel> countGroupByFailureClass) {
-    
     this.countGroupByFailureClass = countGroupByFailureClass;
     return this;
   }
@@ -119,7 +115,6 @@ public class TestRunAnalyticResultModel {
   public List<TestRunGroupByFailureClassModel> getCountGroupByFailureClass() {
     return countGroupByFailureClass;
   }
-
 
   public void setCountGroupByFailureClass(List<TestRunGroupByFailureClassModel> countGroupByFailureClass) {
     this.countGroupByFailureClass = countGroupByFailureClass;
@@ -192,25 +187,26 @@ public class TestRunAnalyticResultModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunAnalyticResultModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestRunAnalyticResultModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunAnalyticResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestRunAnalyticResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunAnalyticResultModel is not found in the empty JSON string", TestRunAnalyticResultModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestRunAnalyticResultModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunAnalyticResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunAnalyticResultModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("countGroupByStatus") != null && !jsonObj.get("countGroupByStatus").isJsonNull()) {
         JsonArray jsonArraycountGroupByStatus = jsonObj.getAsJsonArray("countGroupByStatus");
         if (jsonArraycountGroupByStatus != null) {
@@ -221,7 +217,7 @@ public class TestRunAnalyticResultModel {
 
           // validate the optional field `countGroupByStatus` (array)
           for (int i = 0; i < jsonArraycountGroupByStatus.size(); i++) {
-            TestRunGroupByStatusModel.validateJsonObject(jsonArraycountGroupByStatus.get(i).getAsJsonObject());
+            TestRunGroupByStatusModel.validateJsonElement(jsonArraycountGroupByStatus.get(i));
           };
         }
       }
@@ -235,7 +231,7 @@ public class TestRunAnalyticResultModel {
 
           // validate the optional field `countGroupByFailureClass` (array)
           for (int i = 0; i < jsonArraycountGroupByFailureClass.size(); i++) {
-            TestRunGroupByFailureClassModel.validateJsonObject(jsonArraycountGroupByFailureClass.get(i).getAsJsonObject());
+            TestRunGroupByFailureClassModel.validateJsonElement(jsonArraycountGroupByFailureClass.get(i));
           };
         }
       }
@@ -261,9 +257,9 @@ public class TestRunAnalyticResultModel {
 
            @Override
            public TestRunAnalyticResultModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

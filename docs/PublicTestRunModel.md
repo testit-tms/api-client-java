@@ -17,6 +17,8 @@
 |**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  |
 |**testPoints** | [**List&lt;PublicTestPointModel&gt;**](PublicTestPointModel.md) |  |  |
 |**status** | **String** |  |  |
+|**customParameters** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**testRunDescription** | **String** |  |  [optional] |
 
 
 

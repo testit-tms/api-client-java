@@ -20,6 +20,8 @@
 |**createdByUserName** | **String** |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
+|**customParameters** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**webhooks** | [**List&lt;NamedEntityModel&gt;**](NamedEntityModel.md) |  |  |
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |

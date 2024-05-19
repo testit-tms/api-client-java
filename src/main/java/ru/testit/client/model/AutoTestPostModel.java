@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -53,7 +53,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -135,7 +134,6 @@ public class AutoTestPostModel {
   }
 
   public AutoTestPostModel workItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
-    
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
     return this;
   }
@@ -157,14 +155,12 @@ public class AutoTestPostModel {
     return workItemIdsForLinkWithAutoTest;
   }
 
-
   public void setWorkItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
   }
 
 
   public AutoTestPostModel shouldCreateWorkItem(Boolean shouldCreateWorkItem) {
-    
     this.shouldCreateWorkItem = shouldCreateWorkItem;
     return this;
   }
@@ -178,14 +174,12 @@ public class AutoTestPostModel {
     return shouldCreateWorkItem;
   }
 
-
   public void setShouldCreateWorkItem(Boolean shouldCreateWorkItem) {
     this.shouldCreateWorkItem = shouldCreateWorkItem;
   }
 
 
   public AutoTestPostModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -207,14 +201,12 @@ public class AutoTestPostModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public AutoTestPostModel externalId(String externalId) {
-    
     this.externalId = externalId;
     return this;
   }
@@ -228,14 +220,12 @@ public class AutoTestPostModel {
     return externalId;
   }
 
-
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
   public AutoTestPostModel links(List<LinkPostModel> links) {
-    
     this.links = links;
     return this;
   }
@@ -257,14 +247,12 @@ public class AutoTestPostModel {
     return links;
   }
 
-
   public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
   public AutoTestPostModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -278,14 +266,12 @@ public class AutoTestPostModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public AutoTestPostModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -299,14 +285,12 @@ public class AutoTestPostModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public AutoTestPostModel namespace(String namespace) {
-    
     this.namespace = namespace;
     return this;
   }
@@ -320,14 +304,12 @@ public class AutoTestPostModel {
     return namespace;
   }
 
-
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
   public AutoTestPostModel classname(String classname) {
-    
     this.classname = classname;
     return this;
   }
@@ -341,14 +323,12 @@ public class AutoTestPostModel {
     return classname;
   }
 
-
   public void setClassname(String classname) {
     this.classname = classname;
   }
 
 
   public AutoTestPostModel steps(List<AutoTestStepModel> steps) {
-    
     this.steps = steps;
     return this;
   }
@@ -370,14 +350,12 @@ public class AutoTestPostModel {
     return steps;
   }
 
-
   public void setSteps(List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
   public AutoTestPostModel setup(List<AutoTestStepModel> setup) {
-    
     this.setup = setup;
     return this;
   }
@@ -399,14 +377,12 @@ public class AutoTestPostModel {
     return setup;
   }
 
-
   public void setSetup(List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
   public AutoTestPostModel teardown(List<AutoTestStepModel> teardown) {
-    
     this.teardown = teardown;
     return this;
   }
@@ -428,14 +404,12 @@ public class AutoTestPostModel {
     return teardown;
   }
 
-
   public void setTeardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
   public AutoTestPostModel title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -449,14 +423,12 @@ public class AutoTestPostModel {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public AutoTestPostModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -470,14 +442,12 @@ public class AutoTestPostModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public AutoTestPostModel labels(List<LabelPostModel> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -499,14 +469,12 @@ public class AutoTestPostModel {
     return labels;
   }
 
-
   public void setLabels(List<LabelPostModel> labels) {
     this.labels = labels;
   }
 
 
   public AutoTestPostModel isFlaky(Boolean isFlaky) {
-    
     this.isFlaky = isFlaky;
     return this;
   }
@@ -520,14 +488,12 @@ public class AutoTestPostModel {
     return isFlaky;
   }
 
-
   public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
   public AutoTestPostModel externalKey(String externalKey) {
-    
     this.externalKey = externalKey;
     return this;
   }
@@ -540,7 +506,6 @@ public class AutoTestPostModel {
   public String getExternalKey() {
     return externalKey;
   }
-
 
   public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
@@ -661,34 +626,35 @@ public class AutoTestPostModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestPostModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AutoTestPostModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestPostModel is not found in the empty JSON string", AutoTestPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemIdsForLinkWithAutoTest") != null && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonArray()) {
+      if (jsonObj.get("workItemIdsForLinkWithAutoTest") != null && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonNull() && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemIdsForLinkWithAutoTest` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIdsForLinkWithAutoTest").toString()));
       }
       if (!jsonObj.get("externalId").isJsonPrimitive()) {
@@ -704,7 +670,7 @@ public class AutoTestPostModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -730,7 +696,7 @@ public class AutoTestPostModel {
 
           // validate the optional field `steps` (array)
           for (int i = 0; i < jsonArraysteps.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysteps.get(i));
           };
         }
       }
@@ -744,7 +710,7 @@ public class AutoTestPostModel {
 
           // validate the optional field `setup` (array)
           for (int i = 0; i < jsonArraysetup.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysetup.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysetup.get(i));
           };
         }
       }
@@ -758,7 +724,7 @@ public class AutoTestPostModel {
 
           // validate the optional field `teardown` (array)
           for (int i = 0; i < jsonArrayteardown.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArrayteardown.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArrayteardown.get(i));
           };
         }
       }
@@ -778,7 +744,7 @@ public class AutoTestPostModel {
 
           // validate the optional field `labels` (array)
           for (int i = 0; i < jsonArraylabels.size(); i++) {
-            LabelPostModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
+            LabelPostModel.validateJsonElement(jsonArraylabels.get(i));
           };
         }
       }
@@ -807,9 +773,9 @@ public class AutoTestPostModel {
 
            @Override
            public AutoTestPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

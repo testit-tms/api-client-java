@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -82,7 +81,6 @@ public class TestRunTestResultsPartialBulkSetModel {
   }
 
   public TestRunTestResultsPartialBulkSetModel selector(TestRunTestResultsPartialBulkSetModelSelector selector) {
-    
     this.selector = selector;
     return this;
   }
@@ -96,14 +94,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return selector;
   }
 
-
   public void setSelector(TestRunTestResultsPartialBulkSetModelSelector selector) {
     this.selector = selector;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel resultReasonIds(Set<UUID> resultReasonIds) {
-    
     this.resultReasonIds = resultReasonIds;
     return this;
   }
@@ -125,14 +121,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return resultReasonIds;
   }
 
-
   public void setResultReasonIds(Set<UUID> resultReasonIds) {
     this.resultReasonIds = resultReasonIds;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel links(Set<LinkPostModel> links) {
-    
     this.links = links;
     return this;
   }
@@ -154,14 +148,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return links;
   }
 
-
   public void setLinks(Set<LinkPostModel> links) {
     this.links = links;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel comment(String comment) {
-    
     this.comment = comment;
     return this;
   }
@@ -175,14 +167,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return comment;
   }
 
-
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   public TestRunTestResultsPartialBulkSetModel attachmentIds(Set<UUID> attachmentIds) {
-    
     this.attachmentIds = attachmentIds;
     return this;
   }
@@ -203,7 +193,6 @@ public class TestRunTestResultsPartialBulkSetModel {
   public Set<UUID> getAttachmentIds() {
     return attachmentIds;
   }
-
 
   public void setAttachmentIds(Set<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
@@ -285,31 +274,32 @@ public class TestRunTestResultsPartialBulkSetModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunTestResultsPartialBulkSetModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestRunTestResultsPartialBulkSetModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunTestResultsPartialBulkSetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestRunTestResultsPartialBulkSetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunTestResultsPartialBulkSetModel is not found in the empty JSON string", TestRunTestResultsPartialBulkSetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestRunTestResultsPartialBulkSetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunTestResultsPartialBulkSetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunTestResultsPartialBulkSetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `selector`
       if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
-        TestRunTestResultsPartialBulkSetModelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+        TestRunTestResultsPartialBulkSetModelSelector.validateJsonElement(jsonObj.get("selector"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resultReasonIds") != null && !jsonObj.get("resultReasonIds").isJsonArray()) {
+      if (jsonObj.get("resultReasonIds") != null && !jsonObj.get("resultReasonIds").isJsonNull() && !jsonObj.get("resultReasonIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resultReasonIds` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasonIds").toString()));
       }
       if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
@@ -322,7 +312,7 @@ public class TestRunTestResultsPartialBulkSetModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -330,7 +320,7 @@ public class TestRunTestResultsPartialBulkSetModel {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonArray()) {
+      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonNull() && !jsonObj.get("attachmentIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `attachmentIds` to be an array in the JSON string but got `%s`", jsonObj.get("attachmentIds").toString()));
       }
   }
@@ -355,9 +345,9 @@ public class TestRunTestResultsPartialBulkSetModel {
 
            @Override
            public TestRunTestResultsPartialBulkSetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

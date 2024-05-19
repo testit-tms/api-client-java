@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,9 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.WorkItemCommentModelUser;
+import ru.testit.client.model.UserWithRankModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -66,7 +65,7 @@ public class WorkItemCommentModel {
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  private WorkItemCommentModelUser user;
+  private UserWithRankModel user;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
@@ -88,7 +87,6 @@ public class WorkItemCommentModel {
   }
 
   public WorkItemCommentModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -102,14 +100,12 @@ public class WorkItemCommentModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemCommentModel text(String text) {
-    
     this.text = text;
     return this;
   }
@@ -123,14 +119,12 @@ public class WorkItemCommentModel {
     return text;
   }
 
-
   public void setText(String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentModel user(WorkItemCommentModelUser user) {
-    
+  public WorkItemCommentModel user(UserWithRankModel user) {
     this.user = user;
     return this;
   }
@@ -140,18 +134,16 @@ public class WorkItemCommentModel {
    * @return user
   **/
   @javax.annotation.Nonnull
-  public WorkItemCommentModelUser getUser() {
+  public UserWithRankModel getUser() {
     return user;
   }
 
-
-  public void setUser(WorkItemCommentModelUser user) {
+  public void setUser(UserWithRankModel user) {
     this.user = user;
   }
 
 
   public WorkItemCommentModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -165,14 +157,12 @@ public class WorkItemCommentModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public WorkItemCommentModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -186,14 +176,12 @@ public class WorkItemCommentModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public WorkItemCommentModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -207,14 +195,12 @@ public class WorkItemCommentModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public WorkItemCommentModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -227,7 +213,6 @@ public class WorkItemCommentModel {
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
-
 
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
@@ -320,32 +305,33 @@ public class WorkItemCommentModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkItemCommentModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to WorkItemCommentModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WorkItemCommentModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WorkItemCommentModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemCommentModel is not found in the empty JSON string", WorkItemCommentModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WorkItemCommentModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemCommentModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemCommentModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemCommentModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -353,7 +339,7 @@ public class WorkItemCommentModel {
         throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
       }
       // validate the required field `user`
-      WorkItemCommentModelUser.validateJsonObject(jsonObj.getAsJsonObject("user"));
+      UserWithRankModel.validateJsonElement(jsonObj.get("user"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -382,9 +368,9 @@ public class WorkItemCommentModel {
 
            @Override
            public WorkItemCommentModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

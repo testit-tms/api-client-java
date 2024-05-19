@@ -87,7 +87,7 @@ null (empty response body)
 
 <a id="createSection"></a>
 # **createSection**
-> SectionWithStepsModel createSection(createSectionRequest)
+> SectionWithStepsModel createSection(sectionPostModel)
 
 Create section
 
@@ -115,9 +115,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    CreateSectionRequest createSectionRequest = new CreateSectionRequest(); // CreateSectionRequest | 
+    SectionPostModel sectionPostModel = new SectionPostModel(); // SectionPostModel | 
     try {
-      SectionWithStepsModel result = apiInstance.createSection(createSectionRequest);
+      SectionWithStepsModel result = apiInstance.createSection(sectionPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#createSection");
@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createSectionRequest** | [**CreateSectionRequest**](CreateSectionRequest.md)|  | [optional] |
+| **sectionPostModel** | [**SectionPostModel**](SectionPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -399,7 +399,7 @@ public class Example {
 
 <a id="move"></a>
 # **move**
-> move(moveRequest)
+> move(sectionMoveModel)
 
 Move section with all work items into another section
 
@@ -425,9 +425,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    MoveRequest moveRequest = new MoveRequest(); // MoveRequest | 
+    SectionMoveModel sectionMoveModel = new SectionMoveModel(); // SectionMoveModel | 
     try {
-      apiInstance.move(moveRequest);
+      apiInstance.move(sectionMoveModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#move");
       System.err.println("Status code: " + e.getCode());
@@ -443,7 +443,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **moveRequest** | [**MoveRequest**](MoveRequest.md)|  | [optional] |
+| **sectionMoveModel** | [**SectionMoveModel**](SectionMoveModel.md)|  | [optional] |
 
 ### Return type
 
@@ -466,7 +466,7 @@ null (empty response body)
 
 <a id="rename"></a>
 # **rename**
-> rename(renameRequest)
+> rename(sectionRenameModel)
 
 Rename section
 
@@ -494,9 +494,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    RenameRequest renameRequest = new RenameRequest(); // RenameRequest | 
+    SectionRenameModel sectionRenameModel = new SectionRenameModel(); // SectionRenameModel | 
     try {
-      apiInstance.rename(renameRequest);
+      apiInstance.rename(sectionRenameModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#rename");
       System.err.println("Status code: " + e.getCode());
@@ -512,7 +512,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **renameRequest** | [**RenameRequest**](RenameRequest.md)|  | [optional] |
+| **sectionRenameModel** | [**SectionRenameModel**](SectionRenameModel.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +539,7 @@ null (empty response body)
 
 <a id="updateSection"></a>
 # **updateSection**
-> updateSection(updateSectionRequest)
+> updateSection(sectionPutModel)
 
 Update section
 
@@ -567,9 +567,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    UpdateSectionRequest updateSectionRequest = new UpdateSectionRequest(); // UpdateSectionRequest | 
+    SectionPutModel sectionPutModel = new SectionPutModel(); // SectionPutModel | 
     try {
-      apiInstance.updateSection(updateSectionRequest);
+      apiInstance.updateSection(sectionPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#updateSection");
       System.err.println("Status code: " + e.getCode());
@@ -585,7 +585,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateSectionRequest** | [**UpdateSectionRequest**](UpdateSectionRequest.md)|  | [optional] |
+| **sectionPutModel** | [**SectionPutModel**](SectionPutModel.md)|  | [optional] |
 
 ### Return type
 

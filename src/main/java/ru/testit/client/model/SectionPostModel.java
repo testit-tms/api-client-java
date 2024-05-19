@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -86,7 +85,6 @@ public class SectionPostModel {
   }
 
   public SectionPostModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,14 +98,12 @@ public class SectionPostModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public SectionPostModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -121,14 +117,12 @@ public class SectionPostModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public SectionPostModel parentId(UUID parentId) {
-    
     this.parentId = parentId;
     return this;
   }
@@ -142,14 +136,12 @@ public class SectionPostModel {
     return parentId;
   }
 
-
   public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
   public SectionPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
-    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -171,14 +163,12 @@ public class SectionPostModel {
     return preconditionSteps;
   }
 
-
   public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
   public SectionPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
-    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -200,14 +190,12 @@ public class SectionPostModel {
     return postconditionSteps;
   }
 
-
   public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
   public SectionPostModel attachments(List<AttachmentPutModel> attachments) {
-    
     this.attachments = attachments;
     return this;
   }
@@ -228,7 +216,6 @@ public class SectionPostModel {
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
-
 
   public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
@@ -316,32 +303,33 @@ public class SectionPostModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SectionPostModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SectionPostModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SectionPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SectionPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SectionPostModel is not found in the empty JSON string", SectionPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SectionPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SectionPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -361,7 +349,7 @@ public class SectionPostModel {
 
           // validate the optional field `preconditionSteps` (array)
           for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-            StepPostModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
+            StepPostModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
           };
         }
       }
@@ -375,7 +363,7 @@ public class SectionPostModel {
 
           // validate the optional field `postconditionSteps` (array)
           for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-            StepPostModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
+            StepPostModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
           };
         }
       }
@@ -387,7 +375,7 @@ public class SectionPostModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+        AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
       };
   }
 
@@ -411,9 +399,9 @@ public class SectionPostModel {
 
            @Override
            public SectionPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

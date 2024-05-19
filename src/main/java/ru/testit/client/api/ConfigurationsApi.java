@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ConfigurationsCreateByParametersPostRequest;
-import ru.testit.client.model.ApiV2ConfigurationsPurgeBulkPostRequest;
-import ru.testit.client.model.ApiV2ConfigurationsPutRequest;
-import ru.testit.client.model.ApiV2ConfigurationsSearchPostRequest;
+import ru.testit.client.model.ConfigurationByParametersModel;
+import ru.testit.client.model.ConfigurationFilterModel;
 import ru.testit.client.model.ConfigurationModel;
-import ru.testit.client.model.CreateConfigurationRequest;
+import ru.testit.client.model.ConfigurationPostModel;
+import ru.testit.client.model.ConfigurationPutModel;
+import ru.testit.client.model.ConfigurationSelectModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
@@ -43,7 +43,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ConfigurationsApi {
     private ApiClient localVarApiClient;
@@ -84,7 +83,7 @@ public class ConfigurationsApi {
 
     /**
      * Build call for apiV2ConfigurationsCreateByParametersPost
-     * @param apiV2ConfigurationsCreateByParametersPostRequest  (optional)
+     * @param configurationByParametersModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +94,7 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsCreateByParametersPostCall(ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsCreateByParametersPostCall(ConfigurationByParametersModel configurationByParametersModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +108,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsCreateByParametersPostRequest;
+        Object localVarPostBody = configurationByParametersModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations/createByParameters";
@@ -141,15 +140,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsCreateByParametersPostCall(apiV2ConfigurationsCreateByParametersPostRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(ConfigurationByParametersModel configurationByParametersModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsCreateByParametersPostCall(configurationByParametersModel, _callback);
 
     }
 
     /**
      * Create configurations by parameters
      * 
-     * @param apiV2ConfigurationsCreateByParametersPostRequest  (optional)
+     * @param configurationByParametersModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -159,15 +158,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ConfigurationsCreateByParametersPost(ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ConfigurationsCreateByParametersPostWithHttpInfo(apiV2ConfigurationsCreateByParametersPostRequest);
+    public List<UUID> apiV2ConfigurationsCreateByParametersPost(ConfigurationByParametersModel configurationByParametersModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ConfigurationsCreateByParametersPostWithHttpInfo(configurationByParametersModel);
         return localVarResp.getData();
     }
 
     /**
      * Create configurations by parameters
      * 
-     * @param apiV2ConfigurationsCreateByParametersPostRequest  (optional)
+     * @param configurationByParametersModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -177,8 +176,8 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ConfigurationsCreateByParametersPostWithHttpInfo(ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(apiV2ConfigurationsCreateByParametersPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2ConfigurationsCreateByParametersPostWithHttpInfo(ConfigurationByParametersModel configurationByParametersModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(configurationByParametersModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -186,7 +185,7 @@ public class ConfigurationsApi {
     /**
      * Create configurations by parameters (asynchronously)
      * 
-     * @param apiV2ConfigurationsCreateByParametersPostRequest  (optional)
+     * @param configurationByParametersModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -197,16 +196,16 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configuration is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsCreateByParametersPostAsync(ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsCreateByParametersPostAsync(ConfigurationByParametersModel configurationByParametersModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(apiV2ConfigurationsCreateByParametersPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsCreateByParametersPostValidateBeforeCall(configurationByParametersModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ConfigurationsDeleteBulkPost
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -216,7 +215,7 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsDeleteBulkPostCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsDeleteBulkPostCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -230,7 +229,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsPurgeBulkPostRequest;
+        Object localVarPostBody = configurationSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations/delete/bulk";
@@ -262,15 +261,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsDeleteBulkPostCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsDeleteBulkPostCall(configurationSelectModel, _callback);
 
     }
 
     /**
      * Delete multiple configurations
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -279,15 +278,15 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public Integer apiV2ConfigurationsDeleteBulkPost(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        ApiResponse<Integer> localVarResp = apiV2ConfigurationsDeleteBulkPostWithHttpInfo(apiV2ConfigurationsPurgeBulkPostRequest);
+    public Integer apiV2ConfigurationsDeleteBulkPost(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        ApiResponse<Integer> localVarResp = apiV2ConfigurationsDeleteBulkPostWithHttpInfo(configurationSelectModel);
         return localVarResp.getData();
     }
 
     /**
      * Delete multiple configurations
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -296,8 +295,8 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> apiV2ConfigurationsDeleteBulkPostWithHttpInfo(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, null);
+    public ApiResponse<Integer> apiV2ConfigurationsDeleteBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(configurationSelectModel, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -305,7 +304,7 @@ public class ConfigurationsApi {
     /**
      * Delete multiple configurations (asynchronously)
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -315,9 +314,9 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsDeleteBulkPostAsync(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsDeleteBulkPostAsync(ConfigurationSelectModel configurationSelectModel, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsDeleteBulkPostValidateBeforeCall(configurationSelectModel, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -821,7 +820,7 @@ public class ConfigurationsApi {
     }
     /**
      * Build call for apiV2ConfigurationsPurgeBulkPost
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -832,7 +831,7 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsPurgeBulkPostCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsPurgeBulkPostCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -846,7 +845,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsPurgeBulkPostRequest;
+        Object localVarPostBody = configurationSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations/purge/bulk";
@@ -878,15 +877,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsPurgeBulkPostCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsPurgeBulkPostCall(configurationSelectModel, _callback);
 
     }
 
     /**
      * Permanently delete multiple archived configurations
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -895,14 +894,14 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ConfigurationsPurgeBulkPost(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        apiV2ConfigurationsPurgeBulkPostWithHttpInfo(apiV2ConfigurationsPurgeBulkPostRequest);
+    public void apiV2ConfigurationsPurgeBulkPost(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        apiV2ConfigurationsPurgeBulkPostWithHttpInfo(configurationSelectModel);
     }
 
     /**
      * Permanently delete multiple archived configurations
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -912,15 +911,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ConfigurationsPurgeBulkPostWithHttpInfo(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, null);
+    public ApiResponse<Void> apiV2ConfigurationsPurgeBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(configurationSelectModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Permanently delete multiple archived configurations (asynchronously)
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -931,15 +930,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsPurgeBulkPostAsync(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsPurgeBulkPostAsync(ConfigurationSelectModel configurationSelectModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsPurgeBulkPostValidateBeforeCall(configurationSelectModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ConfigurationsPut
-     * @param apiV2ConfigurationsPutRequest  (optional)
+     * @param configurationPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -950,7 +949,7 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configurations is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsPutCall(ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsPutCall(ConfigurationPutModel configurationPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -964,7 +963,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsPutRequest;
+        Object localVarPostBody = configurationPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations";
@@ -996,15 +995,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsPutValidateBeforeCall(ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsPutCall(apiV2ConfigurationsPutRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsPutValidateBeforeCall(ConfigurationPutModel configurationPutModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsPutCall(configurationPutModel, _callback);
 
     }
 
     /**
      * Edit configuration
      * 
-     * @param apiV2ConfigurationsPutRequest  (optional)
+     * @param configurationPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1013,14 +1012,14 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configurations is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ConfigurationsPut(ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest) throws ApiException {
-        apiV2ConfigurationsPutWithHttpInfo(apiV2ConfigurationsPutRequest);
+    public void apiV2ConfigurationsPut(ConfigurationPutModel configurationPutModel) throws ApiException {
+        apiV2ConfigurationsPutWithHttpInfo(configurationPutModel);
     }
 
     /**
      * Edit configuration
      * 
-     * @param apiV2ConfigurationsPutRequest  (optional)
+     * @param configurationPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1030,15 +1029,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configurations is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ConfigurationsPutWithHttpInfo(ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsPutValidateBeforeCall(apiV2ConfigurationsPutRequest, null);
+    public ApiResponse<Void> apiV2ConfigurationsPutWithHttpInfo(ConfigurationPutModel configurationPutModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsPutValidateBeforeCall(configurationPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Edit configuration (asynchronously)
      * 
-     * @param apiV2ConfigurationsPutRequest  (optional)
+     * @param configurationPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1049,15 +1048,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Update permission for configurations is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsPutAsync(ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsPutAsync(ConfigurationPutModel configurationPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsPutValidateBeforeCall(apiV2ConfigurationsPutRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsPutValidateBeforeCall(configurationPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ConfigurationsRestoreBulkPost
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1068,7 +1067,7 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsRestoreBulkPostCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsRestoreBulkPostCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1082,7 +1081,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsPurgeBulkPostRequest;
+        Object localVarPostBody = configurationSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations/restore/bulk";
@@ -1114,15 +1113,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsRestoreBulkPostCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(ConfigurationSelectModel configurationSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsRestoreBulkPostCall(configurationSelectModel, _callback);
 
     }
 
     /**
      * Restore multiple configurations from the archive
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1132,15 +1131,15 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public Integer apiV2ConfigurationsRestoreBulkPost(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        ApiResponse<Integer> localVarResp = apiV2ConfigurationsRestoreBulkPostWithHttpInfo(apiV2ConfigurationsPurgeBulkPostRequest);
+    public Integer apiV2ConfigurationsRestoreBulkPost(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        ApiResponse<Integer> localVarResp = apiV2ConfigurationsRestoreBulkPostWithHttpInfo(configurationSelectModel);
         return localVarResp.getData();
     }
 
     /**
      * Restore multiple configurations from the archive
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1150,8 +1149,8 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> apiV2ConfigurationsRestoreBulkPostWithHttpInfo(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, null);
+    public ApiResponse<Integer> apiV2ConfigurationsRestoreBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(configurationSelectModel, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1159,7 +1158,7 @@ public class ConfigurationsApi {
     /**
      * Restore multiple configurations from the archive (asynchronously)
      * 
-     * @param apiV2ConfigurationsPurgeBulkPostRequest  (optional)
+     * @param configurationSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1170,9 +1169,9 @@ public class ConfigurationsApi {
         <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsRestoreBulkPostAsync(ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsRestoreBulkPostAsync(ConfigurationSelectModel configurationSelectModel, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(apiV2ConfigurationsPurgeBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsRestoreBulkPostValidateBeforeCall(configurationSelectModel, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1184,7 +1183,7 @@ public class ConfigurationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ConfigurationsSearchPostRequest Model containing all the filters (optional)
+     * @param configurationFilterModel Model containing all the filters (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1194,7 +1193,7 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ConfigurationFilterModel configurationFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1208,7 +1207,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ConfigurationsSearchPostRequest;
+        Object localVarPostBody = configurationFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations/search";
@@ -1260,8 +1259,8 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ConfigurationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2ConfigurationsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2ConfigurationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ConfigurationFilterModel configurationFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ConfigurationsSearchPostCall(skip, take, orderBy, searchField, searchValue, configurationFilterModel, _callback);
 
     }
 
@@ -1273,7 +1272,7 @@ public class ConfigurationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ConfigurationsSearchPostRequest Model containing all the filters (optional)
+     * @param configurationFilterModel Model containing all the filters (optional)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1282,8 +1281,8 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public List<ConfigurationModel> apiV2ConfigurationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest) throws ApiException {
-        ApiResponse<List<ConfigurationModel>> localVarResp = apiV2ConfigurationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest);
+    public List<ConfigurationModel> apiV2ConfigurationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ConfigurationFilterModel configurationFilterModel) throws ApiException {
+        ApiResponse<List<ConfigurationModel>> localVarResp = apiV2ConfigurationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, configurationFilterModel);
         return localVarResp.getData();
     }
 
@@ -1295,7 +1294,7 @@ public class ConfigurationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ConfigurationsSearchPostRequest Model containing all the filters (optional)
+     * @param configurationFilterModel Model containing all the filters (optional)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1304,8 +1303,8 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public ApiResponse<List<ConfigurationModel>> apiV2ConfigurationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ConfigurationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest, null);
+    public ApiResponse<List<ConfigurationModel>> apiV2ConfigurationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ConfigurationFilterModel configurationFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ConfigurationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, configurationFilterModel, null);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1318,7 +1317,7 @@ public class ConfigurationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ConfigurationsSearchPostRequest Model containing all the filters (optional)
+     * @param configurationFilterModel Model containing all the filters (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1328,16 +1327,16 @@ public class ConfigurationsApi {
         <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ConfigurationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ConfigurationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ConfigurationFilterModel configurationFilterModel, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ConfigurationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ConfigurationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, configurationFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<ConfigurationModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createConfiguration
-     * @param createConfigurationRequest  (optional)
+     * @param configurationPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1352,7 +1351,7 @@ public class ConfigurationsApi {
         <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createConfigurationCall(CreateConfigurationRequest createConfigurationRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createConfigurationCall(ConfigurationPostModel configurationPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1366,7 +1365,7 @@ public class ConfigurationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createConfigurationRequest;
+        Object localVarPostBody = configurationPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/configurations";
@@ -1398,15 +1397,15 @@ public class ConfigurationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createConfigurationValidateBeforeCall(CreateConfigurationRequest createConfigurationRequest, final ApiCallback _callback) throws ApiException {
-        return createConfigurationCall(createConfigurationRequest, _callback);
+    private okhttp3.Call createConfigurationValidateBeforeCall(ConfigurationPostModel configurationPostModel, final ApiCallback _callback) throws ApiException {
+        return createConfigurationCall(configurationPostModel, _callback);
 
     }
 
     /**
      * Create Configuration
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configuration  &lt;br&gt;System returns created configuration (listed in the response example)
-     * @param createConfigurationRequest  (optional)
+     * @param configurationPostModel  (optional)
      * @return ConfigurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1420,15 +1419,15 @@ public class ConfigurationsApi {
         <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public ConfigurationModel createConfiguration(CreateConfigurationRequest createConfigurationRequest) throws ApiException {
-        ApiResponse<ConfigurationModel> localVarResp = createConfigurationWithHttpInfo(createConfigurationRequest);
+    public ConfigurationModel createConfiguration(ConfigurationPostModel configurationPostModel) throws ApiException {
+        ApiResponse<ConfigurationModel> localVarResp = createConfigurationWithHttpInfo(configurationPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create Configuration
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configuration  &lt;br&gt;System returns created configuration (listed in the response example)
-     * @param createConfigurationRequest  (optional)
+     * @param configurationPostModel  (optional)
      * @return ApiResponse&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1442,8 +1441,8 @@ public class ConfigurationsApi {
         <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConfigurationModel> createConfigurationWithHttpInfo(CreateConfigurationRequest createConfigurationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createConfigurationValidateBeforeCall(createConfigurationRequest, null);
+    public ApiResponse<ConfigurationModel> createConfigurationWithHttpInfo(ConfigurationPostModel configurationPostModel) throws ApiException {
+        okhttp3.Call localVarCall = createConfigurationValidateBeforeCall(configurationPostModel, null);
         Type localVarReturnType = new TypeToken<ConfigurationModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1451,7 +1450,7 @@ public class ConfigurationsApi {
     /**
      * Create Configuration (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets configuration model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configuration  &lt;br&gt;System returns created configuration (listed in the response example)
-     * @param createConfigurationRequest  (optional)
+     * @param configurationPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1466,9 +1465,9 @@ public class ConfigurationsApi {
         <tr><td> 409 </td><td> Configuration with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createConfigurationAsync(CreateConfigurationRequest createConfigurationRequest, final ApiCallback<ConfigurationModel> _callback) throws ApiException {
+    public okhttp3.Call createConfigurationAsync(ConfigurationPostModel configurationPostModel, final ApiCallback<ConfigurationModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createConfigurationValidateBeforeCall(createConfigurationRequest, _callback);
+        okhttp3.Call localVarCall = createConfigurationValidateBeforeCall(configurationPostModel, _callback);
         Type localVarReturnType = new TypeToken<ConfigurationModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

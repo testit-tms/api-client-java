@@ -17,7 +17,7 @@
 |**modifiedById** | **UUID** | Unique ID of user who modified the test run last time |  [optional] |
 |**isDeleted** | **Boolean** | Is the test run is deleted |  |
 |**autoTestsCount** | **Integer** | Number of AutoTests run in the test run |  |
-|**statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  |  |
+|**statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  |  |
 
 
 

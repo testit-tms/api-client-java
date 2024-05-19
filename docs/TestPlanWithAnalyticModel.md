@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**analytic** | [**TestPlanWithAnalyticModelAnalytic**](TestPlanWithAnalyticModelAnalytic.md) |  |  |
+|**analytic** | [**TestPointAnalyticResult**](TestPointAnalyticResult.md) |  |  |
 |**status** | **TestPlanStatusModel** |  |  |
 |**startedOn** | **OffsetDateTime** | Set when test plan is starter (status changed to: In Progress) |  [optional] |
 |**completedOn** | **OffsetDateTime** | set when test plan status is completed (status changed to: Completed) |  [optional] |

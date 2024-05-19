@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +52,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -158,7 +157,6 @@ public class TestPlanWithTestSuiteTreeModel {
   }
 
   public TestPlanWithTestSuiteTreeModel testSuites(List<TestSuiteWithChildrenModel> testSuites) {
-    
     this.testSuites = testSuites;
     return this;
   }
@@ -180,14 +178,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return testSuites;
   }
 
-
   public void setTestSuites(List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
   }
 
 
   public TestPlanWithTestSuiteTreeModel status(TestPlanStatusModel status) {
-    
     this.status = status;
     return this;
   }
@@ -201,14 +197,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return status;
   }
 
-
   public void setStatus(TestPlanStatusModel status) {
     this.status = status;
   }
 
 
   public TestPlanWithTestSuiteTreeModel startedOn(OffsetDateTime startedOn) {
-    
     this.startedOn = startedOn;
     return this;
   }
@@ -222,14 +216,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return startedOn;
   }
 
-
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestPlanWithTestSuiteTreeModel completedOn(OffsetDateTime completedOn) {
-    
     this.completedOn = completedOn;
     return this;
   }
@@ -243,14 +235,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return completedOn;
   }
 
-
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestPlanWithTestSuiteTreeModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -264,14 +254,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPlanWithTestSuiteTreeModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -285,14 +273,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPlanWithTestSuiteTreeModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -306,14 +292,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPlanWithTestSuiteTreeModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -327,14 +311,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestPlanWithTestSuiteTreeModel globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -348,14 +330,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return globalId;
   }
 
-
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public TestPlanWithTestSuiteTreeModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -369,14 +349,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestPlanWithTestSuiteTreeModel lockedDate(OffsetDateTime lockedDate) {
-    
     this.lockedDate = lockedDate;
     return this;
   }
@@ -390,14 +368,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return lockedDate;
   }
 
-
   public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
   public TestPlanWithTestSuiteTreeModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -411,14 +387,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPlanWithTestSuiteTreeModel lockedById(UUID lockedById) {
-    
     this.lockedById = lockedById;
     return this;
   }
@@ -432,14 +406,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return lockedById;
   }
 
-
   public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
   public TestPlanWithTestSuiteTreeModel tags(List<TagPostModel> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -461,14 +433,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return tags;
   }
 
-
   public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
   public TestPlanWithTestSuiteTreeModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -482,14 +452,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPlanWithTestSuiteTreeModel startDate(OffsetDateTime startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -503,14 +471,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return startDate;
   }
 
-
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
   public TestPlanWithTestSuiteTreeModel endDate(OffsetDateTime endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -524,14 +490,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return endDate;
   }
 
-
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
   public TestPlanWithTestSuiteTreeModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -545,14 +509,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestPlanWithTestSuiteTreeModel build(String build) {
-    
     this.build = build;
     return this;
   }
@@ -566,14 +528,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return build;
   }
 
-
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public TestPlanWithTestSuiteTreeModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -587,14 +547,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPlanWithTestSuiteTreeModel productName(String productName) {
-    
     this.productName = productName;
     return this;
   }
@@ -608,14 +566,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return productName;
   }
 
-
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
   public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -629,14 +585,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return hasAutomaticDurationTimer;
   }
 
-
   public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanWithTestSuiteTreeModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -657,7 +611,6 @@ public class TestPlanWithTestSuiteTreeModel {
   public Map<String, Object> getAttributes() {
     return attributes;
   }
-
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
@@ -802,32 +755,33 @@ public class TestPlanWithTestSuiteTreeModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanWithTestSuiteTreeModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPlanWithTestSuiteTreeModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanWithTestSuiteTreeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanWithTestSuiteTreeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanWithTestSuiteTreeModel is not found in the empty JSON string", TestPlanWithTestSuiteTreeModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanWithTestSuiteTreeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithTestSuiteTreeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithTestSuiteTreeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanWithTestSuiteTreeModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("testSuites").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuites` to be an array in the JSON string but got `%s`", jsonObj.get("testSuites").toString()));
@@ -836,8 +790,10 @@ public class TestPlanWithTestSuiteTreeModel {
       JsonArray jsonArraytestSuites = jsonObj.getAsJsonArray("testSuites");
       // validate the required field `testSuites` (array)
       for (int i = 0; i < jsonArraytestSuites.size(); i++) {
-        TestSuiteWithChildrenModel.validateJsonObject(jsonArraytestSuites.get(i).getAsJsonObject());
+        TestSuiteWithChildrenModel.validateJsonElement(jsonArraytestSuites.get(i));
       };
+      // validate the required field `status`
+      TestPlanStatusModel.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -860,7 +816,7 @@ public class TestPlanWithTestSuiteTreeModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagPostModel.validateJsonElement(jsonArraytags.get(i));
           };
         }
       }
@@ -901,9 +857,9 @@ public class TestPlanWithTestSuiteTreeModel {
 
            @Override
            public TestPlanWithTestSuiteTreeModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

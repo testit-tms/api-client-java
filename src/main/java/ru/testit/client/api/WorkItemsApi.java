@@ -27,26 +27,26 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
-import ru.testit.client.model.ApiV2WorkItemsMovePostRequest;
-import ru.testit.client.model.ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest;
-import ru.testit.client.model.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest;
 import ru.testit.client.model.AutoTestModel;
-import ru.testit.client.model.CreateWorkItemRequest;
 import java.io.File;
 import ru.testit.client.model.IterationModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.SharedStepReferenceModel;
 import ru.testit.client.model.SharedStepReferenceSectionModel;
+import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModel;
+import ru.testit.client.model.SharedStepReferencesQueryFilterModel;
 import ru.testit.client.model.TestResultChronologyModel;
 import ru.testit.client.model.TestResultHistoryReportModel;
 import java.util.UUID;
-import ru.testit.client.model.UpdateWorkItemRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemChangeModel;
 import ru.testit.client.model.WorkItemLikeModel;
 import ru.testit.client.model.WorkItemModel;
+import ru.testit.client.model.WorkItemMovePostModel;
+import ru.testit.client.model.WorkItemPostModel;
+import ru.testit.client.model.WorkItemPutModel;
+import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 import ru.testit.client.model.WorkItemVersionModel;
 
@@ -55,7 +55,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class WorkItemsApi {
     private ApiClient localVarApiClient;
@@ -1490,7 +1489,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for apiV2WorkItemsMovePost
-     * @param apiV2WorkItemsMovePostRequest  (optional)
+     * @param workItemMovePostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1503,7 +1502,7 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsMovePostCall(ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsMovePostCall(WorkItemMovePostModel workItemMovePostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1517,7 +1516,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2WorkItemsMovePostRequest;
+        Object localVarPostBody = workItemMovePostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/move";
@@ -1549,15 +1548,15 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsMovePostValidateBeforeCall(ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WorkItemsMovePostCall(apiV2WorkItemsMovePostRequest, _callback);
+    private okhttp3.Call apiV2WorkItemsMovePostValidateBeforeCall(WorkItemMovePostModel workItemMovePostModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsMovePostCall(workItemMovePostModel, _callback);
 
     }
 
     /**
      * Move WorkItem to another section
      * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
-     * @param apiV2WorkItemsMovePostRequest  (optional)
+     * @param workItemMovePostModel  (optional)
      * @return WorkItemShortModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1569,15 +1568,15 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
      </table>
      */
-    public WorkItemShortModel apiV2WorkItemsMovePost(ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest) throws ApiException {
-        ApiResponse<WorkItemShortModel> localVarResp = apiV2WorkItemsMovePostWithHttpInfo(apiV2WorkItemsMovePostRequest);
+    public WorkItemShortModel apiV2WorkItemsMovePost(WorkItemMovePostModel workItemMovePostModel) throws ApiException {
+        ApiResponse<WorkItemShortModel> localVarResp = apiV2WorkItemsMovePostWithHttpInfo(workItemMovePostModel);
         return localVarResp.getData();
     }
 
     /**
      * Move WorkItem to another section
      * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
-     * @param apiV2WorkItemsMovePostRequest  (optional)
+     * @param workItemMovePostModel  (optional)
      * @return ApiResponse&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1589,8 +1588,8 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkItemShortModel> apiV2WorkItemsMovePostWithHttpInfo(ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsMovePostValidateBeforeCall(apiV2WorkItemsMovePostRequest, null);
+    public ApiResponse<WorkItemShortModel> apiV2WorkItemsMovePostWithHttpInfo(WorkItemMovePostModel workItemMovePostModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsMovePostValidateBeforeCall(workItemMovePostModel, null);
         Type localVarReturnType = new TypeToken<WorkItemShortModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1598,7 +1597,7 @@ public class WorkItemsApi {
     /**
      * Move WorkItem to another section (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
-     * @param apiV2WorkItemsMovePostRequest  (optional)
+     * @param workItemMovePostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1611,9 +1610,9 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsMovePostAsync(ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest, final ApiCallback<WorkItemShortModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsMovePostAsync(WorkItemMovePostModel workItemMovePostModel, final ApiCallback<WorkItemShortModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsMovePostValidateBeforeCall(apiV2WorkItemsMovePostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsMovePostValidateBeforeCall(workItemMovePostModel, _callback);
         Type localVarReturnType = new TypeToken<WorkItemShortModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1625,7 +1624,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1636,7 +1635,7 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Test library read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1650,7 +1649,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = workItemSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/search";
@@ -1702,8 +1701,8 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WorkItemsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2WorkItemsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsSearchPostCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
 
     }
 
@@ -1715,7 +1714,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1725,8 +1724,8 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Test library read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemShortModel> apiV2WorkItemsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2WorkItemsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public List<WorkItemShortModel> apiV2WorkItemsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2WorkItemsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, workItemSelectModel);
         return localVarResp.getData();
     }
 
@@ -1738,7 +1737,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1748,8 +1747,8 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Test library read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemShortModel>> apiV2WorkItemsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<List<WorkItemShortModel>> apiV2WorkItemsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1762,7 +1761,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest  (optional)
+     * @param workItemSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1773,9 +1772,9 @@ public class WorkItemsApi {
         <tr><td> 403 </td><td> Test library read permission for all requested projects is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1788,7 +1787,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest  (optional)
+     * @param sharedStepReferenceSectionsQueryFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1800,7 +1799,7 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1814,7 +1813,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest;
+        Object localVarPostBody = sharedStepReferenceSectionsQueryFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/{sharedStepId}/references/sections"
@@ -1867,13 +1866,13 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sharedStepId' is set
         if (sharedStepId == null) {
             throw new ApiException("Missing the required parameter 'sharedStepId' when calling apiV2WorkItemsSharedStepIdReferencesSectionsPost(Async)");
         }
 
-        return apiV2WorkItemsSharedStepIdReferencesSectionsPostCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, _callback);
+        return apiV2WorkItemsSharedStepIdReferencesSectionsPostCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel, _callback);
 
     }
 
@@ -1886,7 +1885,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest  (optional)
+     * @param sharedStepReferenceSectionsQueryFilterModel  (optional)
      * @return List&lt;SharedStepReferenceSectionModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1897,8 +1896,8 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public List<SharedStepReferenceSectionModel> apiV2WorkItemsSharedStepIdReferencesSectionsPost(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) throws ApiException {
-        ApiResponse<List<SharedStepReferenceSectionModel>> localVarResp = apiV2WorkItemsSharedStepIdReferencesSectionsPostWithHttpInfo(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest);
+    public List<SharedStepReferenceSectionModel> apiV2WorkItemsSharedStepIdReferencesSectionsPost(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel) throws ApiException {
+        ApiResponse<List<SharedStepReferenceSectionModel>> localVarResp = apiV2WorkItemsSharedStepIdReferencesSectionsPostWithHttpInfo(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel);
         return localVarResp.getData();
     }
 
@@ -1911,7 +1910,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest  (optional)
+     * @param sharedStepReferenceSectionsQueryFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;SharedStepReferenceSectionModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1922,8 +1921,8 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<SharedStepReferenceSectionModel>> apiV2WorkItemsSharedStepIdReferencesSectionsPostWithHttpInfo(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, null);
+    public ApiResponse<List<SharedStepReferenceSectionModel>> apiV2WorkItemsSharedStepIdReferencesSectionsPostWithHttpInfo(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel, null);
         Type localVarReturnType = new TypeToken<List<SharedStepReferenceSectionModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1937,7 +1936,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest  (optional)
+     * @param sharedStepReferenceSectionsQueryFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1949,9 +1948,9 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostAsync(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, final ApiCallback<List<SharedStepReferenceSectionModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesSectionsPostAsync(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel, final ApiCallback<List<SharedStepReferenceSectionModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesSectionsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<SharedStepReferenceSectionModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1964,7 +1963,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest  (optional)
+     * @param sharedStepReferencesQueryFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1976,7 +1975,7 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1990,7 +1989,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest;
+        Object localVarPostBody = sharedStepReferencesQueryFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/{sharedStepId}/references/workItems"
@@ -2043,13 +2042,13 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sharedStepId' is set
         if (sharedStepId == null) {
             throw new ApiException("Missing the required parameter 'sharedStepId' when calling apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(Async)");
         }
 
-        return apiV2WorkItemsSharedStepIdReferencesWorkItemsPostCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, _callback);
+        return apiV2WorkItemsSharedStepIdReferencesWorkItemsPostCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel, _callback);
 
     }
 
@@ -2062,7 +2061,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest  (optional)
+     * @param sharedStepReferencesQueryFilterModel  (optional)
      * @return List&lt;SharedStepReferenceModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2073,8 +2072,8 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public List<SharedStepReferenceModel> apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) throws ApiException {
-        ApiResponse<List<SharedStepReferenceModel>> localVarResp = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostWithHttpInfo(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest);
+    public List<SharedStepReferenceModel> apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel) throws ApiException {
+        ApiResponse<List<SharedStepReferenceModel>> localVarResp = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostWithHttpInfo(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel);
         return localVarResp.getData();
     }
 
@@ -2087,7 +2086,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest  (optional)
+     * @param sharedStepReferencesQueryFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2098,8 +2097,8 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<SharedStepReferenceModel>> apiV2WorkItemsSharedStepIdReferencesWorkItemsPostWithHttpInfo(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, null);
+    public ApiResponse<List<SharedStepReferenceModel>> apiV2WorkItemsSharedStepIdReferencesWorkItemsPostWithHttpInfo(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel, null);
         Type localVarReturnType = new TypeToken<List<SharedStepReferenceModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2113,7 +2112,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest  (optional)
+     * @param sharedStepReferencesQueryFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2125,9 +2124,9 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> Can&#39;t find SharedStep with id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostAsync(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, final ApiCallback<List<SharedStepReferenceModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSharedStepIdReferencesWorkItemsPostAsync(UUID sharedStepId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel, final ApiCallback<List<SharedStepReferenceModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsSharedStepIdReferencesWorkItemsPostValidateBeforeCall(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<SharedStepReferenceModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2278,7 +2277,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for createWorkItem
-     * @param createWorkItemRequest  (optional)
+     * @param workItemPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2292,7 +2291,7 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkItemCall(CreateWorkItemRequest createWorkItemRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createWorkItemCall(WorkItemPostModel workItemPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2306,7 +2305,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createWorkItemRequest;
+        Object localVarPostBody = workItemPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems";
@@ -2338,15 +2337,15 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createWorkItemValidateBeforeCall(CreateWorkItemRequest createWorkItemRequest, final ApiCallback _callback) throws ApiException {
-        return createWorkItemCall(createWorkItemRequest, _callback);
+    private okhttp3.Call createWorkItemValidateBeforeCall(WorkItemPostModel workItemPostModel, final ApiCallback _callback) throws ApiException {
+        return createWorkItemCall(workItemPostModel, _callback);
 
     }
 
     /**
      * Create Test Case, Checklist or Shared Step
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates work item by identifier  &lt;br&gt;System returns work item model (listed in response parameters)
-     * @param createWorkItemRequest  (optional)
+     * @param workItemPostModel  (optional)
      * @return WorkItemModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2359,15 +2358,15 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public WorkItemModel createWorkItem(CreateWorkItemRequest createWorkItemRequest) throws ApiException {
-        ApiResponse<WorkItemModel> localVarResp = createWorkItemWithHttpInfo(createWorkItemRequest);
+    public WorkItemModel createWorkItem(WorkItemPostModel workItemPostModel) throws ApiException {
+        ApiResponse<WorkItemModel> localVarResp = createWorkItemWithHttpInfo(workItemPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create Test Case, Checklist or Shared Step
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates work item by identifier  &lt;br&gt;System returns work item model (listed in response parameters)
-     * @param createWorkItemRequest  (optional)
+     * @param workItemPostModel  (optional)
      * @return ApiResponse&lt;WorkItemModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2380,8 +2379,8 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkItemModel> createWorkItemWithHttpInfo(CreateWorkItemRequest createWorkItemRequest) throws ApiException {
-        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(createWorkItemRequest, null);
+    public ApiResponse<WorkItemModel> createWorkItemWithHttpInfo(WorkItemPostModel workItemPostModel) throws ApiException {
+        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(workItemPostModel, null);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2389,7 +2388,7 @@ public class WorkItemsApi {
     /**
      * Create Test Case, Checklist or Shared Step (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates work item by identifier  &lt;br&gt;System returns work item model (listed in response parameters)
-     * @param createWorkItemRequest  (optional)
+     * @param workItemPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2403,9 +2402,9 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkItemAsync(CreateWorkItemRequest createWorkItemRequest, final ApiCallback<WorkItemModel> _callback) throws ApiException {
+    public okhttp3.Call createWorkItemAsync(WorkItemPostModel workItemPostModel, final ApiCallback<WorkItemModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(createWorkItemRequest, _callback);
+        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(workItemPostModel, _callback);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3707,7 +3706,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for updateWorkItem
-     * @param updateWorkItemRequest  (optional)
+     * @param workItemPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3721,7 +3720,7 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWorkItemCall(UpdateWorkItemRequest updateWorkItemRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateWorkItemCall(WorkItemPutModel workItemPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3735,7 +3734,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateWorkItemRequest;
+        Object localVarPostBody = workItemPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems";
@@ -3767,15 +3766,15 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateWorkItemValidateBeforeCall(UpdateWorkItemRequest updateWorkItemRequest, final ApiCallback _callback) throws ApiException {
-        return updateWorkItemCall(updateWorkItemRequest, _callback);
+    private okhttp3.Call updateWorkItemValidateBeforeCall(WorkItemPutModel workItemPutModel, final ApiCallback _callback) throws ApiException {
+        return updateWorkItemCall(workItemPutModel, _callback);
 
     }
 
     /**
      * Update Test Case, Checklist or Shared Step
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates work item by identifier  &lt;br&gt;System returns updated work item model (listed in response parameters)
-     * @param updateWorkItemRequest  (optional)
+     * @param workItemPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3787,14 +3786,14 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public void updateWorkItem(UpdateWorkItemRequest updateWorkItemRequest) throws ApiException {
-        updateWorkItemWithHttpInfo(updateWorkItemRequest);
+    public void updateWorkItem(WorkItemPutModel workItemPutModel) throws ApiException {
+        updateWorkItemWithHttpInfo(workItemPutModel);
     }
 
     /**
      * Update Test Case, Checklist or Shared Step
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates work item by identifier  &lt;br&gt;System returns updated work item model (listed in response parameters)
-     * @param updateWorkItemRequest  (optional)
+     * @param workItemPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3807,15 +3806,15 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateWorkItemWithHttpInfo(UpdateWorkItemRequest updateWorkItemRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(updateWorkItemRequest, null);
+    public ApiResponse<Void> updateWorkItemWithHttpInfo(WorkItemPutModel workItemPutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(workItemPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Test Case, Checklist or Shared Step (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates work item by identifier  &lt;br&gt;System returns updated work item model (listed in response parameters)
-     * @param updateWorkItemRequest  (optional)
+     * @param workItemPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3829,9 +3828,9 @@ public class WorkItemsApi {
         <tr><td> 404 </td><td> &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWorkItemAsync(UpdateWorkItemRequest updateWorkItemRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateWorkItemAsync(WorkItemPutModel workItemPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(updateWorkItemRequest, _callback);
+        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(workItemPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

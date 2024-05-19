@@ -20,7 +20,7 @@
 |**isDisabled** | **Boolean** |  |  |
 |**providerId** | **UUID** |  |  [optional] |
 |**isActiveStatusByEntity** | **Boolean** |  |  |
-|**userRank** | [**UserWithRankModelUserRank**](UserWithRankModelUserRank.md) |  |  |
+|**userRank** | [**UserRankModel**](UserRankModel.md) |  |  |
 
 
 

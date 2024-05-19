@@ -18,9 +18,11 @@
 |**tags** | **List&lt;String&gt;** | Collection of the test point tags |  |
 |**links** | **List&lt;String&gt;** | Collection of the test point links |  |
 |**testSuiteId** | **UUID** | Unique ID of test suite the test point assigned to |  |
+|**testSuiteName** | **String** | Name of the test suite |  |
 |**workItemId** | **UUID** | Unique ID of work item the test point represents |  |
 |**workItemGlobalId** | **Long** | Global ID of work item the test point represents |  |
 |**workItemVersionId** | **UUID** | Unique ID of work item version the test point represents |  |
+|**workItemVersionNumber** | **Integer** | Number of work item version the test point represents |  |
 |**workItemMedianDuration** | **Long** | Median duration of work item the test point represents |  [optional] |
 |**status** | **TestPointStatus** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
@@ -31,7 +33,7 @@
 |**sectionId** | **UUID** | Unique ID of section where work item the test point represents is located |  |
 |**sectionName** | **String** | Name of section where work item the test point represents is located |  [optional] |
 |**projectId** | **UUID** | Unique ID of the test point project |  |
-|**lastTestResult** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  |  |
+|**lastTestResult** | [**LastTestResultModel**](LastTestResultModel.md) |  |  |
 |**iterationId** | **UUID** | Unique ID of work item iteration the test point represents |  |
 |**workItemState** | **WorkItemState** |  |  |
 |**workItemCreatedById** | **UUID** | Unique ID of the work item creator |  |

@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,7 +50,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -172,7 +171,6 @@ public class AutoTestModel {
   }
 
   public AutoTestModel globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -186,14 +184,12 @@ public class AutoTestModel {
     return globalId;
   }
 
-
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public AutoTestModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -207,14 +203,12 @@ public class AutoTestModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public AutoTestModel mustBeApproved(Boolean mustBeApproved) {
-    
     this.mustBeApproved = mustBeApproved;
     return this;
   }
@@ -228,14 +222,12 @@ public class AutoTestModel {
     return mustBeApproved;
   }
 
-
   public void setMustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
   public AutoTestModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -249,14 +241,12 @@ public class AutoTestModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public AutoTestModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -270,14 +260,12 @@ public class AutoTestModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public AutoTestModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -291,14 +279,12 @@ public class AutoTestModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public AutoTestModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -312,14 +298,12 @@ public class AutoTestModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public AutoTestModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -333,14 +317,12 @@ public class AutoTestModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public AutoTestModel lastTestRunId(UUID lastTestRunId) {
-    
     this.lastTestRunId = lastTestRunId;
     return this;
   }
@@ -354,14 +336,12 @@ public class AutoTestModel {
     return lastTestRunId;
   }
 
-
   public void setLastTestRunId(UUID lastTestRunId) {
     this.lastTestRunId = lastTestRunId;
   }
 
 
   public AutoTestModel lastTestRunName(String lastTestRunName) {
-    
     this.lastTestRunName = lastTestRunName;
     return this;
   }
@@ -375,14 +355,12 @@ public class AutoTestModel {
     return lastTestRunName;
   }
 
-
   public void setLastTestRunName(String lastTestRunName) {
     this.lastTestRunName = lastTestRunName;
   }
 
 
   public AutoTestModel lastTestResultId(UUID lastTestResultId) {
-    
     this.lastTestResultId = lastTestResultId;
     return this;
   }
@@ -396,14 +374,12 @@ public class AutoTestModel {
     return lastTestResultId;
   }
 
-
   public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
   public AutoTestModel lastTestResultOutcome(String lastTestResultOutcome) {
-    
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
@@ -417,14 +393,12 @@ public class AutoTestModel {
     return lastTestResultOutcome;
   }
 
-
   public void setLastTestResultOutcome(String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
   public AutoTestModel stabilityPercentage(Integer stabilityPercentage) {
-    
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
@@ -438,14 +412,12 @@ public class AutoTestModel {
     return stabilityPercentage;
   }
 
-
   public void setStabilityPercentage(Integer stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
   public AutoTestModel externalId(String externalId) {
-    
     this.externalId = externalId;
     return this;
   }
@@ -459,14 +431,12 @@ public class AutoTestModel {
     return externalId;
   }
 
-
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
   public AutoTestModel links(List<LinkPutModel> links) {
-    
     this.links = links;
     return this;
   }
@@ -488,14 +458,12 @@ public class AutoTestModel {
     return links;
   }
 
-
   public void setLinks(List<LinkPutModel> links) {
     this.links = links;
   }
 
 
   public AutoTestModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -509,14 +477,12 @@ public class AutoTestModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public AutoTestModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -530,14 +496,12 @@ public class AutoTestModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public AutoTestModel namespace(String namespace) {
-    
     this.namespace = namespace;
     return this;
   }
@@ -551,14 +515,12 @@ public class AutoTestModel {
     return namespace;
   }
 
-
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
   public AutoTestModel classname(String classname) {
-    
     this.classname = classname;
     return this;
   }
@@ -572,14 +534,12 @@ public class AutoTestModel {
     return classname;
   }
 
-
   public void setClassname(String classname) {
     this.classname = classname;
   }
 
 
   public AutoTestModel steps(List<AutoTestStepModel> steps) {
-    
     this.steps = steps;
     return this;
   }
@@ -601,14 +561,12 @@ public class AutoTestModel {
     return steps;
   }
 
-
   public void setSteps(List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
   public AutoTestModel setup(List<AutoTestStepModel> setup) {
-    
     this.setup = setup;
     return this;
   }
@@ -630,14 +588,12 @@ public class AutoTestModel {
     return setup;
   }
 
-
   public void setSetup(List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
   public AutoTestModel teardown(List<AutoTestStepModel> teardown) {
-    
     this.teardown = teardown;
     return this;
   }
@@ -659,14 +615,12 @@ public class AutoTestModel {
     return teardown;
   }
 
-
   public void setTeardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
   public AutoTestModel title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -680,14 +634,12 @@ public class AutoTestModel {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public AutoTestModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -701,14 +653,12 @@ public class AutoTestModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public AutoTestModel labels(List<LabelShortModel> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -730,14 +680,12 @@ public class AutoTestModel {
     return labels;
   }
 
-
   public void setLabels(List<LabelShortModel> labels) {
     this.labels = labels;
   }
 
 
   public AutoTestModel isFlaky(Boolean isFlaky) {
-    
     this.isFlaky = isFlaky;
     return this;
   }
@@ -751,14 +699,12 @@ public class AutoTestModel {
     return isFlaky;
   }
 
-
   public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
   public AutoTestModel externalKey(String externalKey) {
-    
     this.externalKey = externalKey;
     return this;
   }
@@ -771,7 +717,6 @@ public class AutoTestModel {
   public String getExternalKey() {
     return externalKey;
   }
-
 
   public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
@@ -928,32 +873,33 @@ public class AutoTestModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AutoTestModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestModel is not found in the empty JSON string", AutoTestModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -988,7 +934,7 @@ public class AutoTestModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPutModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkPutModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -1014,7 +960,7 @@ public class AutoTestModel {
 
           // validate the optional field `steps` (array)
           for (int i = 0; i < jsonArraysteps.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysteps.get(i));
           };
         }
       }
@@ -1028,7 +974,7 @@ public class AutoTestModel {
 
           // validate the optional field `setup` (array)
           for (int i = 0; i < jsonArraysetup.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysetup.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysetup.get(i));
           };
         }
       }
@@ -1042,7 +988,7 @@ public class AutoTestModel {
 
           // validate the optional field `teardown` (array)
           for (int i = 0; i < jsonArrayteardown.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArrayteardown.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArrayteardown.get(i));
           };
         }
       }
@@ -1062,7 +1008,7 @@ public class AutoTestModel {
 
           // validate the optional field `labels` (array)
           for (int i = 0; i < jsonArraylabels.size(); i++) {
-            LabelShortModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
+            LabelShortModel.validateJsonElement(jsonArraylabels.get(i));
           };
         }
       }
@@ -1091,9 +1037,9 @@ public class AutoTestModel {
 
            @Override
            public AutoTestModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

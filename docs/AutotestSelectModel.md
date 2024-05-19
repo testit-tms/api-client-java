@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**AutotestSelectModelFilter**](AutotestSelectModelFilter.md) |  |  |
-|**extractionModel** | [**AutotestSelectModelExtractionModel**](AutotestSelectModelExtractionModel.md) |  |  |
+|**filter** | [**AutotestFilterModel**](AutotestFilterModel.md) |  |  |
+|**extractionModel** | [**AutotestsExtractionModel**](AutotestsExtractionModel.md) |  |  |
 
 
 
