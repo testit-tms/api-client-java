@@ -11,6 +11,9 @@
 |**autoTestGlobalIds** | **List&lt;Long&gt;** | Specifies an autotest global IDs to search results for |  [optional] |
 |**name** | **String** | Specifies an autotest name to search results for |  [optional] |
 |**createdDate** | [**TestResultsFilterModelCreatedDate**](TestResultsFilterModelCreatedDate.md) |  |  [optional] |
+|**modifiedDate** | [**TestResultsFilterModelModifiedDate**](TestResultsFilterModelModifiedDate.md) |  |  [optional] |
+|**startedOn** | [**TestResultsFilterModelStartedOn**](TestResultsFilterModelStartedOn.md) |  |  [optional] |
+|**completedOn** | [**TestResultsFilterModelCompletedOn**](TestResultsFilterModelCompletedOn.md) |  |  [optional] |
 |**duration** | [**TestResultsFilterModelDuration**](TestResultsFilterModelDuration.md) |  |  [optional] |
 |**resultReasons** | **List&lt;String&gt;** | Specifies result reasons for searching test results |  [optional] |
 |**configurationIds** | **List&lt;UUID&gt;** | Specifies a test result configuration IDs to search for |  [optional] |

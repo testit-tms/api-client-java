@@ -112,7 +112,7 @@ null (empty response body)
 
 <a id="apiV2ProjectsDemoPost"></a>
 # **apiV2ProjectsDemoPost**
-> ProjectModel apiV2ProjectsDemoPost(createProjectRequest)
+> ProjectModel apiV2ProjectsDemoPost(projectPostModel)
 
 
 
@@ -138,9 +138,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    CreateProjectRequest createProjectRequest = new CreateProjectRequest(); // CreateProjectRequest | 
+    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
     try {
-      ProjectModel result = apiInstance.apiV2ProjectsDemoPost(createProjectRequest);
+      ProjectModel result = apiInstance.apiV2ProjectsDemoPost(projectPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsDemoPost");
@@ -157,7 +157,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional] |
+| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -734,7 +734,7 @@ null (empty response body)
 
 <a id="apiV2ProjectsIdTestPlansAttributePut"></a>
 # **apiV2ProjectsIdTestPlansAttributePut**
-> apiV2ProjectsIdTestPlansAttributePut(id, updateCustomAttributeTestPlanProjectRelationsRequest)
+> apiV2ProjectsIdTestPlansAttributePut(id, customAttributeTestPlanProjectRelationPutModel)
 
 Update attribute of project&#39;s test plans
 
@@ -763,9 +763,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-    UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest = new UpdateCustomAttributeTestPlanProjectRelationsRequest(); // UpdateCustomAttributeTestPlanProjectRelationsRequest | 
+    CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
     try {
-      apiInstance.apiV2ProjectsIdTestPlansAttributePut(id, updateCustomAttributeTestPlanProjectRelationsRequest);
+      apiInstance.apiV2ProjectsIdTestPlansAttributePut(id, customAttributeTestPlanProjectRelationPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansAttributePut");
       System.err.println("Status code: " + e.getCode());
@@ -782,7 +782,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md)|  | [optional] |
+| **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1041,7 +1041,7 @@ public class Example {
 
 <a id="apiV2ProjectsPurgeBulkPost"></a>
 # **apiV2ProjectsPurgeBulkPost**
-> Long apiV2ProjectsPurgeBulkPost(apiV2ProjectsRestoreBulkPostRequest)
+> Long apiV2ProjectsPurgeBulkPost(projectSelectModel)
 
 Purge multiple projects
 
@@ -1067,9 +1067,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest = new ApiV2ProjectsRestoreBulkPostRequest(); // ApiV2ProjectsRestoreBulkPostRequest | 
+    ProjectSelectModel projectSelectModel = new ProjectSelectModel(); // ProjectSelectModel | 
     try {
-      Long result = apiInstance.apiV2ProjectsPurgeBulkPost(apiV2ProjectsRestoreBulkPostRequest);
+      Long result = apiInstance.apiV2ProjectsPurgeBulkPost(projectSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsPurgeBulkPost");
@@ -1086,7 +1086,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md)|  | [optional] |
+| **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1109,7 +1109,7 @@ public class Example {
 
 <a id="apiV2ProjectsRestoreBulkPost"></a>
 # **apiV2ProjectsRestoreBulkPost**
-> Long apiV2ProjectsRestoreBulkPost(apiV2ProjectsRestoreBulkPostRequest)
+> Long apiV2ProjectsRestoreBulkPost(projectSelectModel)
 
 Restore multiple projects
 
@@ -1135,9 +1135,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest = new ApiV2ProjectsRestoreBulkPostRequest(); // ApiV2ProjectsRestoreBulkPostRequest | 
+    ProjectSelectModel projectSelectModel = new ProjectSelectModel(); // ProjectSelectModel | 
     try {
-      Long result = apiInstance.apiV2ProjectsRestoreBulkPost(apiV2ProjectsRestoreBulkPostRequest);
+      Long result = apiInstance.apiV2ProjectsRestoreBulkPost(projectSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsRestoreBulkPost");
@@ -1154,7 +1154,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md)|  | [optional] |
+| **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1177,7 +1177,7 @@ public class Example {
 
 <a id="apiV2ProjectsSearchPost"></a>
 # **apiV2ProjectsSearchPost**
-> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest)
+> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel)
 
 Search for projects
 
@@ -1208,9 +1208,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest = new ApiV2ProjectsSearchPostRequest(); // ApiV2ProjectsSearchPostRequest | 
+    ProjectsFilterModel projectsFilterModel = new ProjectsFilterModel(); // ProjectsFilterModel | 
     try {
-      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
+      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsSearchPost");
@@ -1232,7 +1232,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ProjectsSearchPostRequest** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md)|  | [optional] |
+| **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1464,7 +1464,7 @@ null (empty response body)
 
 <a id="createProject"></a>
 # **createProject**
-> ProjectModel createProject(createProjectRequest)
+> ProjectModel createProject(projectPostModel)
 
 Create project
 
@@ -1492,9 +1492,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    CreateProjectRequest createProjectRequest = new CreateProjectRequest(); // CreateProjectRequest | 
+    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
     try {
-      ProjectModel result = apiInstance.createProject(createProjectRequest);
+      ProjectModel result = apiInstance.createProject(projectPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1511,7 +1511,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional] |
+| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1604,7 +1604,7 @@ null (empty response body)
 
 <a id="exportWithTestPlansAndConfigurations"></a>
 # **exportWithTestPlansAndConfigurations**
-> File exportWithTestPlansAndConfigurations(id, includeAttachments, exportProjectWithTestPlansJsonRequest)
+> File exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel)
 
 Export project with test plans, test suites and test points as JSON file
 
@@ -1634,9 +1634,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Specifies the ID of the project you want to export.
     Boolean includeAttachments = false; // Boolean | Enables attachment export.
-    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
     try {
-      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, exportProjectWithTestPlansJsonRequest);
+      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#exportWithTestPlansAndConfigurations");
@@ -1655,7 +1655,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Specifies the ID of the project you want to export. | |
 | **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
-| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -2073,7 +2073,7 @@ public class Example {
 
 <a id="updateProject"></a>
 # **updateProject**
-> updateProject(updateProjectRequest)
+> updateProject(projectPutModel)
 
 Update project
 
@@ -2101,9 +2101,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    UpdateProjectRequest updateProjectRequest = new UpdateProjectRequest(); // UpdateProjectRequest | 
+    ProjectPutModel projectPutModel = new ProjectPutModel(); // ProjectPutModel | 
     try {
-      apiInstance.updateProject(updateProjectRequest);
+      apiInstance.updateProject(projectPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateProject");
       System.err.println("Status code: " + e.getCode());
@@ -2119,7 +2119,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateProjectRequest** | [**UpdateProjectRequest**](UpdateProjectRequest.md)|  | [optional] |
+| **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] |
 
 ### Return type
 

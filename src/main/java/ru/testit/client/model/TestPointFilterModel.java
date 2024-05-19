@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +57,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -163,7 +162,6 @@ public class TestPointFilterModel {
   }
 
   public TestPointFilterModel testPlanIds(List<UUID> testPlanIds) {
-    
     this.testPlanIds = testPlanIds;
     return this;
   }
@@ -185,14 +183,12 @@ public class TestPointFilterModel {
     return testPlanIds;
   }
 
-
   public void setTestPlanIds(List<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
   }
 
 
   public TestPointFilterModel testSuiteIds(List<UUID> testSuiteIds) {
-    
     this.testSuiteIds = testSuiteIds;
     return this;
   }
@@ -214,14 +210,12 @@ public class TestPointFilterModel {
     return testSuiteIds;
   }
 
-
   public void setTestSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
   }
 
 
   public TestPointFilterModel workItemGlobalIds(List<Long> workItemGlobalIds) {
-    
     this.workItemGlobalIds = workItemGlobalIds;
     return this;
   }
@@ -243,14 +237,12 @@ public class TestPointFilterModel {
     return workItemGlobalIds;
   }
 
-
   public void setWorkItemGlobalIds(List<Long> workItemGlobalIds) {
     this.workItemGlobalIds = workItemGlobalIds;
   }
 
 
   public TestPointFilterModel workItemMedianDuration(TestPointFilterModelWorkItemMedianDuration workItemMedianDuration) {
-    
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
@@ -264,14 +256,12 @@ public class TestPointFilterModel {
     return workItemMedianDuration;
   }
 
-
   public void setWorkItemMedianDuration(TestPointFilterModelWorkItemMedianDuration workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
 
   public TestPointFilterModel workItemIsDeleted(Boolean workItemIsDeleted) {
-    
     this.workItemIsDeleted = workItemIsDeleted;
     return this;
   }
@@ -285,14 +275,12 @@ public class TestPointFilterModel {
     return workItemIsDeleted;
   }
 
-
   public void setWorkItemIsDeleted(Boolean workItemIsDeleted) {
     this.workItemIsDeleted = workItemIsDeleted;
   }
 
 
   public TestPointFilterModel statuses(List<TestPointStatus> statuses) {
-    
     this.statuses = statuses;
     return this;
   }
@@ -314,14 +302,12 @@ public class TestPointFilterModel {
     return statuses;
   }
 
-
   public void setStatuses(List<TestPointStatus> statuses) {
     this.statuses = statuses;
   }
 
 
   public TestPointFilterModel priorities(List<WorkItemPriorityModel> priorities) {
-    
     this.priorities = priorities;
     return this;
   }
@@ -343,14 +329,12 @@ public class TestPointFilterModel {
     return priorities;
   }
 
-
   public void setPriorities(List<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
   public TestPointFilterModel isAutomated(Boolean isAutomated) {
-    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -364,14 +348,12 @@ public class TestPointFilterModel {
     return isAutomated;
   }
 
-
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public TestPointFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -385,14 +367,12 @@ public class TestPointFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPointFilterModel configurationIds(List<UUID> configurationIds) {
-    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -414,14 +394,12 @@ public class TestPointFilterModel {
     return configurationIds;
   }
 
-
   public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
   public TestPointFilterModel testerIds(List<UUID> testerIds) {
-    
     this.testerIds = testerIds;
     return this;
   }
@@ -443,14 +421,12 @@ public class TestPointFilterModel {
     return testerIds;
   }
 
-
   public void setTesterIds(List<UUID> testerIds) {
     this.testerIds = testerIds;
   }
 
 
   public TestPointFilterModel duration(TestPointFilterModelDuration duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -464,14 +440,12 @@ public class TestPointFilterModel {
     return duration;
   }
 
-
   public void setDuration(TestPointFilterModelDuration duration) {
     this.duration = duration;
   }
 
 
   public TestPointFilterModel sectionIds(List<UUID> sectionIds) {
-    
     this.sectionIds = sectionIds;
     return this;
   }
@@ -493,14 +467,12 @@ public class TestPointFilterModel {
     return sectionIds;
   }
 
-
   public void setSectionIds(List<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
   public TestPointFilterModel createdDate(TestPointFilterModelCreatedDate createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -514,14 +486,12 @@ public class TestPointFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(TestPointFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPointFilterModel createdByIds(List<UUID> createdByIds) {
-    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -543,14 +513,12 @@ public class TestPointFilterModel {
     return createdByIds;
   }
 
-
   public void setCreatedByIds(List<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public TestPointFilterModel modifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -564,14 +532,12 @@ public class TestPointFilterModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(TestPointFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPointFilterModel modifiedByIds(List<UUID> modifiedByIds) {
-    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -593,14 +559,12 @@ public class TestPointFilterModel {
     return modifiedByIds;
   }
 
-
   public void setModifiedByIds(List<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
   public TestPointFilterModel tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -622,14 +586,12 @@ public class TestPointFilterModel {
     return tags;
   }
 
-
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
 
   public TestPointFilterModel attributes(Map<String, Set<String>> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -651,14 +613,12 @@ public class TestPointFilterModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
   public TestPointFilterModel workItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
-    
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -672,14 +632,12 @@ public class TestPointFilterModel {
     return workItemCreatedDate;
   }
 
-
   public void setWorkItemCreatedDate(TestPointFilterModelWorkItemCreatedDate workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
   public TestPointFilterModel workItemCreatedByIds(List<UUID> workItemCreatedByIds) {
-    
     this.workItemCreatedByIds = workItemCreatedByIds;
     return this;
   }
@@ -701,14 +659,12 @@ public class TestPointFilterModel {
     return workItemCreatedByIds;
   }
 
-
   public void setWorkItemCreatedByIds(List<UUID> workItemCreatedByIds) {
     this.workItemCreatedByIds = workItemCreatedByIds;
   }
 
 
   public TestPointFilterModel workItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
-    
     this.workItemModifiedDate = workItemModifiedDate;
     return this;
   }
@@ -722,14 +678,12 @@ public class TestPointFilterModel {
     return workItemModifiedDate;
   }
 
-
   public void setWorkItemModifiedDate(TestPointFilterModelWorkItemModifiedDate workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
 
   public TestPointFilterModel workItemModifiedByIds(List<UUID> workItemModifiedByIds) {
-    
     this.workItemModifiedByIds = workItemModifiedByIds;
     return this;
   }
@@ -750,7 +704,6 @@ public class TestPointFilterModel {
   public List<UUID> getWorkItemModifiedByIds() {
     return workItemModifiedByIds;
   }
-
 
   public void setWorkItemModifiedByIds(List<UUID> workItemModifiedByIds) {
     this.workItemModifiedByIds = workItemModifiedByIds;
@@ -886,102 +839,103 @@ public class TestPointFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPointFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPointFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPointFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPointFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointFilterModel is not found in the empty JSON string", TestPointFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPointFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonArray()) {
+      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonNull() && !jsonObj.get("testPlanIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testPlanIds` to be an array in the JSON string but got `%s`", jsonObj.get("testPlanIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonArray()) {
+      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonNull() && !jsonObj.get("testSuiteIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteIds` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemGlobalIds") != null && !jsonObj.get("workItemGlobalIds").isJsonArray()) {
+      if (jsonObj.get("workItemGlobalIds") != null && !jsonObj.get("workItemGlobalIds").isJsonNull() && !jsonObj.get("workItemGlobalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemGlobalIds").toString()));
       }
       // validate the optional field `workItemMedianDuration`
       if (jsonObj.get("workItemMedianDuration") != null && !jsonObj.get("workItemMedianDuration").isJsonNull()) {
-        TestPointFilterModelWorkItemMedianDuration.validateJsonObject(jsonObj.getAsJsonObject("workItemMedianDuration"));
+        TestPointFilterModelWorkItemMedianDuration.validateJsonElement(jsonObj.get("workItemMedianDuration"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonArray()) {
+      if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonNull() && !jsonObj.get("statuses").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `statuses` to be an array in the JSON string but got `%s`", jsonObj.get("statuses").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testerIds") != null && !jsonObj.get("testerIds").isJsonArray()) {
+      if (jsonObj.get("testerIds") != null && !jsonObj.get("testerIds").isJsonNull() && !jsonObj.get("testerIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testerIds` to be an array in the JSON string but got `%s`", jsonObj.get("testerIds").toString()));
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestPointFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+        TestPointFilterModelDuration.validateJsonElement(jsonObj.get("duration"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull() && !jsonObj.get("sectionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestPointFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        TestPointFilterModelCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        TestPointFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        TestPointFilterModelModifiedDate.validateJsonElement(jsonObj.get("modifiedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // validate the optional field `workItemCreatedDate`
       if (jsonObj.get("workItemCreatedDate") != null && !jsonObj.get("workItemCreatedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemCreatedDate"));
+        TestPointFilterModelWorkItemCreatedDate.validateJsonElement(jsonObj.get("workItemCreatedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemCreatedByIds") != null && !jsonObj.get("workItemCreatedByIds").isJsonArray()) {
+      if (jsonObj.get("workItemCreatedByIds") != null && !jsonObj.get("workItemCreatedByIds").isJsonNull() && !jsonObj.get("workItemCreatedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemCreatedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemCreatedByIds").toString()));
       }
       // validate the optional field `workItemModifiedDate`
       if (jsonObj.get("workItemModifiedDate") != null && !jsonObj.get("workItemModifiedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("workItemModifiedDate"));
+        TestPointFilterModelWorkItemModifiedDate.validateJsonElement(jsonObj.get("workItemModifiedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemModifiedByIds") != null && !jsonObj.get("workItemModifiedByIds").isJsonArray()) {
+      if (jsonObj.get("workItemModifiedByIds") != null && !jsonObj.get("workItemModifiedByIds").isJsonNull() && !jsonObj.get("workItemModifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemModifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemModifiedByIds").toString()));
       }
   }
@@ -1006,9 +960,9 @@ public class TestPointFilterModel {
 
            @Override
            public TestPointFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

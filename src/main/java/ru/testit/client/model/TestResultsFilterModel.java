@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,13 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.FailureCategoryModel;
 import ru.testit.client.model.TestResultOutcome;
+import ru.testit.client.model.TestResultsFilterModelCompletedOn;
 import ru.testit.client.model.TestResultsFilterModelCreatedDate;
 import ru.testit.client.model.TestResultsFilterModelDuration;
+import ru.testit.client.model.TestResultsFilterModelModifiedDate;
+import ru.testit.client.model.TestResultsFilterModelStartedOn;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +53,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -75,6 +77,18 @@ public class TestResultsFilterModel {
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private TestResultsFilterModelCreatedDate createdDate;
+
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private TestResultsFilterModelModifiedDate modifiedDate;
+
+  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
+  @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  private TestResultsFilterModelStartedOn startedOn;
+
+  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  private TestResultsFilterModelCompletedOn completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -108,7 +122,6 @@ public class TestResultsFilterModel {
   }
 
   public TestResultsFilterModel testRunIds(List<UUID> testRunIds) {
-    
     this.testRunIds = testRunIds;
     return this;
   }
@@ -130,14 +143,12 @@ public class TestResultsFilterModel {
     return testRunIds;
   }
 
-
   public void setTestRunIds(List<UUID> testRunIds) {
     this.testRunIds = testRunIds;
   }
 
 
   public TestResultsFilterModel autoTestGlobalIds(List<Long> autoTestGlobalIds) {
-    
     this.autoTestGlobalIds = autoTestGlobalIds;
     return this;
   }
@@ -159,14 +170,12 @@ public class TestResultsFilterModel {
     return autoTestGlobalIds;
   }
 
-
   public void setAutoTestGlobalIds(List<Long> autoTestGlobalIds) {
     this.autoTestGlobalIds = autoTestGlobalIds;
   }
 
 
   public TestResultsFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -180,14 +189,12 @@ public class TestResultsFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestResultsFilterModel createdDate(TestResultsFilterModelCreatedDate createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -201,14 +208,69 @@ public class TestResultsFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(TestResultsFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
+  public TestResultsFilterModel modifiedDate(TestResultsFilterModelModifiedDate modifiedDate) {
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+   /**
+   * Get modifiedDate
+   * @return modifiedDate
+  **/
+  @javax.annotation.Nullable
+  public TestResultsFilterModelModifiedDate getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public void setModifiedDate(TestResultsFilterModelModifiedDate modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public TestResultsFilterModel startedOn(TestResultsFilterModelStartedOn startedOn) {
+    this.startedOn = startedOn;
+    return this;
+  }
+
+   /**
+   * Get startedOn
+   * @return startedOn
+  **/
+  @javax.annotation.Nullable
+  public TestResultsFilterModelStartedOn getStartedOn() {
+    return startedOn;
+  }
+
+  public void setStartedOn(TestResultsFilterModelStartedOn startedOn) {
+    this.startedOn = startedOn;
+  }
+
+
+  public TestResultsFilterModel completedOn(TestResultsFilterModelCompletedOn completedOn) {
+    this.completedOn = completedOn;
+    return this;
+  }
+
+   /**
+   * Get completedOn
+   * @return completedOn
+  **/
+  @javax.annotation.Nullable
+  public TestResultsFilterModelCompletedOn getCompletedOn() {
+    return completedOn;
+  }
+
+  public void setCompletedOn(TestResultsFilterModelCompletedOn completedOn) {
+    this.completedOn = completedOn;
+  }
+
+
   public TestResultsFilterModel duration(TestResultsFilterModelDuration duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -222,14 +284,12 @@ public class TestResultsFilterModel {
     return duration;
   }
 
-
   public void setDuration(TestResultsFilterModelDuration duration) {
     this.duration = duration;
   }
 
 
   public TestResultsFilterModel resultReasons(List<String> resultReasons) {
-    
     this.resultReasons = resultReasons;
     return this;
   }
@@ -251,14 +311,12 @@ public class TestResultsFilterModel {
     return resultReasons;
   }
 
-
   public void setResultReasons(List<String> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
   public TestResultsFilterModel configurationIds(List<UUID> configurationIds) {
-    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -280,14 +338,12 @@ public class TestResultsFilterModel {
     return configurationIds;
   }
 
-
   public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
   public TestResultsFilterModel outcomes(List<TestResultOutcome> outcomes) {
-    
     this.outcomes = outcomes;
     return this;
   }
@@ -309,14 +365,12 @@ public class TestResultsFilterModel {
     return outcomes;
   }
 
-
   public void setOutcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
   }
 
 
   public TestResultsFilterModel failureCategories(List<FailureCategoryModel> failureCategories) {
-    
     this.failureCategories = failureCategories;
     return this;
   }
@@ -338,14 +392,12 @@ public class TestResultsFilterModel {
     return failureCategories;
   }
 
-
   public void setFailureCategories(List<FailureCategoryModel> failureCategories) {
     this.failureCategories = failureCategories;
   }
 
 
   public TestResultsFilterModel namespace(String namespace) {
-    
     this.namespace = namespace;
     return this;
   }
@@ -359,14 +411,12 @@ public class TestResultsFilterModel {
     return namespace;
   }
 
-
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
   public TestResultsFilterModel className(String className) {
-    
     this.className = className;
     return this;
   }
@@ -379,7 +429,6 @@ public class TestResultsFilterModel {
   public String getClassName() {
     return className;
   }
-
 
   public void setClassName(String className) {
     this.className = className;
@@ -400,6 +449,9 @@ public class TestResultsFilterModel {
         Objects.equals(this.autoTestGlobalIds, testResultsFilterModel.autoTestGlobalIds) &&
         Objects.equals(this.name, testResultsFilterModel.name) &&
         Objects.equals(this.createdDate, testResultsFilterModel.createdDate) &&
+        Objects.equals(this.modifiedDate, testResultsFilterModel.modifiedDate) &&
+        Objects.equals(this.startedOn, testResultsFilterModel.startedOn) &&
+        Objects.equals(this.completedOn, testResultsFilterModel.completedOn) &&
         Objects.equals(this.duration, testResultsFilterModel.duration) &&
         Objects.equals(this.resultReasons, testResultsFilterModel.resultReasons) &&
         Objects.equals(this.configurationIds, testResultsFilterModel.configurationIds) &&
@@ -415,7 +467,7 @@ public class TestResultsFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunIds, autoTestGlobalIds, name, createdDate, duration, resultReasons, configurationIds, outcomes, failureCategories, namespace, className);
+    return Objects.hash(testRunIds, autoTestGlobalIds, name, createdDate, modifiedDate, startedOn, completedOn, duration, resultReasons, configurationIds, outcomes, failureCategories, namespace, className);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -433,6 +485,9 @@ public class TestResultsFilterModel {
     sb.append("    autoTestGlobalIds: ").append(toIndentedString(autoTestGlobalIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
+    sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    resultReasons: ").append(toIndentedString(resultReasons)).append("\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
@@ -466,6 +521,9 @@ public class TestResultsFilterModel {
     openapiFields.add("autoTestGlobalIds");
     openapiFields.add("name");
     openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("startedOn");
+    openapiFields.add("completedOn");
     openapiFields.add("duration");
     openapiFields.add("resultReasons");
     openapiFields.add("configurationIds");
@@ -479,31 +537,32 @@ public class TestResultsFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultsFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestResultsFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultsFilterModel is not found in the empty JSON string", TestResultsFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultsFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
+      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonNull() && !jsonObj.get("testRunIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestGlobalIds") != null && !jsonObj.get("autoTestGlobalIds").isJsonArray()) {
+      if (jsonObj.get("autoTestGlobalIds") != null && !jsonObj.get("autoTestGlobalIds").isJsonNull() && !jsonObj.get("autoTestGlobalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestGlobalIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
@@ -511,26 +570,38 @@ public class TestResultsFilterModel {
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestResultsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        TestResultsFilterModelCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
+      }
+      // validate the optional field `modifiedDate`
+      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
+        TestResultsFilterModelModifiedDate.validateJsonElement(jsonObj.get("modifiedDate"));
+      }
+      // validate the optional field `startedOn`
+      if (jsonObj.get("startedOn") != null && !jsonObj.get("startedOn").isJsonNull()) {
+        TestResultsFilterModelStartedOn.validateJsonElement(jsonObj.get("startedOn"));
+      }
+      // validate the optional field `completedOn`
+      if (jsonObj.get("completedOn") != null && !jsonObj.get("completedOn").isJsonNull()) {
+        TestResultsFilterModelCompletedOn.validateJsonElement(jsonObj.get("completedOn"));
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestResultsFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+        TestResultsFilterModelDuration.validateJsonElement(jsonObj.get("duration"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonArray()) {
+      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonNull() && !jsonObj.get("resultReasons").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resultReasons` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasons").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
+      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonNull() && !jsonObj.get("outcomes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonArray()) {
+      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonNull() && !jsonObj.get("failureCategories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureCategories` to be an array in the JSON string but got `%s`", jsonObj.get("failureCategories").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
@@ -561,9 +632,9 @@ public class TestResultsFilterModel {
 
            @Override
            public TestResultsFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -126,7 +125,6 @@ public class ProjectModel {
   }
 
   public ProjectModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -140,14 +138,12 @@ public class ProjectModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public ProjectModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -161,14 +157,12 @@ public class ProjectModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public ProjectModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -182,14 +176,12 @@ public class ProjectModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ProjectModel isFavorite(Boolean isFavorite) {
-    
     this.isFavorite = isFavorite;
     return this;
   }
@@ -203,14 +195,12 @@ public class ProjectModel {
     return isFavorite;
   }
 
-
   public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
   public ProjectModel attributesScheme(List<CustomAttributeModel> attributesScheme) {
-    
     this.attributesScheme = attributesScheme;
     return this;
   }
@@ -232,14 +222,12 @@ public class ProjectModel {
     return attributesScheme;
   }
 
-
   public void setAttributesScheme(List<CustomAttributeModel> attributesScheme) {
     this.attributesScheme = attributesScheme;
   }
 
 
   public ProjectModel testPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
-    
     this.testPlansAttributesScheme = testPlansAttributesScheme;
     return this;
   }
@@ -261,14 +249,12 @@ public class ProjectModel {
     return testPlansAttributesScheme;
   }
 
-
   public void setTestPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
     this.testPlansAttributesScheme = testPlansAttributesScheme;
   }
 
 
   public ProjectModel testCasesCount(Integer testCasesCount) {
-    
     this.testCasesCount = testCasesCount;
     return this;
   }
@@ -282,14 +268,12 @@ public class ProjectModel {
     return testCasesCount;
   }
 
-
   public void setTestCasesCount(Integer testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
   public ProjectModel sharedStepsCount(Integer sharedStepsCount) {
-    
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
@@ -303,14 +287,12 @@ public class ProjectModel {
     return sharedStepsCount;
   }
 
-
   public void setSharedStepsCount(Integer sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
   public ProjectModel checkListsCount(Integer checkListsCount) {
-    
     this.checkListsCount = checkListsCount;
     return this;
   }
@@ -324,14 +306,12 @@ public class ProjectModel {
     return checkListsCount;
   }
 
-
   public void setCheckListsCount(Integer checkListsCount) {
     this.checkListsCount = checkListsCount;
   }
 
 
   public ProjectModel autoTestsCount(Integer autoTestsCount) {
-    
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -345,14 +325,12 @@ public class ProjectModel {
     return autoTestsCount;
   }
 
-
   public void setAutoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
   public ProjectModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -366,14 +344,12 @@ public class ProjectModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public ProjectModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -387,14 +363,12 @@ public class ProjectModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public ProjectModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -408,14 +382,12 @@ public class ProjectModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public ProjectModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -429,14 +401,12 @@ public class ProjectModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public ProjectModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -450,14 +420,12 @@ public class ProjectModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public ProjectModel globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -470,7 +438,6 @@ public class ProjectModel {
   public Long getGlobalId() {
     return globalId;
   }
-
 
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
@@ -592,32 +559,33 @@ public class ProjectModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ProjectModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectModel is not found in the empty JSON string", ProjectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ProjectModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -637,7 +605,7 @@ public class ProjectModel {
 
           // validate the optional field `attributesScheme` (array)
           for (int i = 0; i < jsonArrayattributesScheme.size(); i++) {
-            CustomAttributeModel.validateJsonObject(jsonArrayattributesScheme.get(i).getAsJsonObject());
+            CustomAttributeModel.validateJsonElement(jsonArrayattributesScheme.get(i));
           };
         }
       }
@@ -651,7 +619,7 @@ public class ProjectModel {
 
           // validate the optional field `testPlansAttributesScheme` (array)
           for (int i = 0; i < jsonArraytestPlansAttributesScheme.size(); i++) {
-            CustomAttributeModel.validateJsonObject(jsonArraytestPlansAttributesScheme.get(i).getAsJsonObject());
+            CustomAttributeModel.validateJsonElement(jsonArraytestPlansAttributesScheme.get(i));
           };
         }
       }
@@ -683,9 +651,9 @@ public class ProjectModel {
 
            @Override
            public ProjectModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

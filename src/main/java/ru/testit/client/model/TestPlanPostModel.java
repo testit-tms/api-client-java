@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +50,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -104,7 +103,6 @@ public class TestPlanPostModel {
   }
 
   public TestPlanPostModel tags(List<TagPostModel> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -126,14 +124,12 @@ public class TestPlanPostModel {
     return tags;
   }
 
-
   public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
   public TestPlanPostModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -147,14 +143,12 @@ public class TestPlanPostModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPlanPostModel startDate(OffsetDateTime startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -168,14 +162,12 @@ public class TestPlanPostModel {
     return startDate;
   }
 
-
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
   public TestPlanPostModel endDate(OffsetDateTime endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -189,14 +181,12 @@ public class TestPlanPostModel {
     return endDate;
   }
 
-
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
   public TestPlanPostModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -210,14 +200,12 @@ public class TestPlanPostModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestPlanPostModel build(String build) {
-    
     this.build = build;
     return this;
   }
@@ -231,14 +219,12 @@ public class TestPlanPostModel {
     return build;
   }
 
-
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public TestPlanPostModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -252,14 +238,12 @@ public class TestPlanPostModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPlanPostModel productName(String productName) {
-    
     this.productName = productName;
     return this;
   }
@@ -273,14 +257,12 @@ public class TestPlanPostModel {
     return productName;
   }
 
-
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
   public TestPlanPostModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -294,14 +276,12 @@ public class TestPlanPostModel {
     return hasAutomaticDurationTimer;
   }
 
-
   public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanPostModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -322,7 +302,6 @@ public class TestPlanPostModel {
   public Map<String, Object> getAttributes() {
     return attributes;
   }
-
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
@@ -422,32 +401,33 @@ public class TestPlanPostModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanPostModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPlanPostModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanPostModel is not found in the empty JSON string", TestPlanPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
         if (jsonArraytags != null) {
@@ -458,7 +438,7 @@ public class TestPlanPostModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagPostModel.validateJsonElement(jsonArraytags.get(i));
           };
         }
       }
@@ -499,9 +479,9 @@ public class TestPlanPostModel {
 
            @Override
            public TestPlanPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

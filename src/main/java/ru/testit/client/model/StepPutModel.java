@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -82,7 +81,6 @@ public class StepPutModel {
   }
 
   public StepPutModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -96,14 +94,12 @@ public class StepPutModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public StepPutModel action(String action) {
-    
     this.action = action;
     return this;
   }
@@ -117,14 +113,12 @@ public class StepPutModel {
     return action;
   }
 
-
   public void setAction(String action) {
     this.action = action;
   }
 
 
   public StepPutModel expected(String expected) {
-    
     this.expected = expected;
     return this;
   }
@@ -138,14 +132,12 @@ public class StepPutModel {
     return expected;
   }
 
-
   public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
   public StepPutModel testData(String testData) {
-    
     this.testData = testData;
     return this;
   }
@@ -159,14 +151,12 @@ public class StepPutModel {
     return testData;
   }
 
-
   public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
   public StepPutModel comments(String comments) {
-    
     this.comments = comments;
     return this;
   }
@@ -180,14 +170,12 @@ public class StepPutModel {
     return comments;
   }
 
-
   public void setComments(String comments) {
     this.comments = comments;
   }
 
 
   public StepPutModel workItemId(UUID workItemId) {
-    
     this.workItemId = workItemId;
     return this;
   }
@@ -200,7 +188,6 @@ public class StepPutModel {
   public UUID getWorkItemId() {
     return workItemId;
   }
-
 
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
@@ -286,32 +273,33 @@ public class StepPutModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StepPutModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to StepPutModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StepPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StepPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StepPutModel is not found in the empty JSON string", StepPutModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StepPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepPutModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StepPutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -352,9 +340,9 @@ public class StepPutModel {
 
            @Override
            public StepPutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

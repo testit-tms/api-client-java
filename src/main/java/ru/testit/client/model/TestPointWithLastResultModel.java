@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +52,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -162,7 +161,6 @@ public class TestPointWithLastResultModel {
   }
 
   public TestPointWithLastResultModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -176,14 +174,12 @@ public class TestPointWithLastResultModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPointWithLastResultModel workItemName(String workItemName) {
-    
     this.workItemName = workItemName;
     return this;
   }
@@ -197,14 +193,12 @@ public class TestPointWithLastResultModel {
     return workItemName;
   }
 
-
   public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
   public TestPointWithLastResultModel isAutomated(Boolean isAutomated) {
-    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -218,14 +212,12 @@ public class TestPointWithLastResultModel {
     return isAutomated;
   }
 
-
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public TestPointWithLastResultModel testerId(UUID testerId) {
-    
     this.testerId = testerId;
     return this;
   }
@@ -239,14 +231,12 @@ public class TestPointWithLastResultModel {
     return testerId;
   }
 
-
   public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
   public TestPointWithLastResultModel workItemId(UUID workItemId) {
-    
     this.workItemId = workItemId;
     return this;
   }
@@ -260,14 +250,12 @@ public class TestPointWithLastResultModel {
     return workItemId;
   }
 
-
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
   public TestPointWithLastResultModel configurationId(UUID configurationId) {
-    
     this.configurationId = configurationId;
     return this;
   }
@@ -281,14 +269,12 @@ public class TestPointWithLastResultModel {
     return configurationId;
   }
 
-
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestPointWithLastResultModel testSuiteId(UUID testSuiteId) {
-    
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -302,14 +288,12 @@ public class TestPointWithLastResultModel {
     return testSuiteId;
   }
 
-
   public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
   public TestPointWithLastResultModel lastTestResult(LastTestResultModel lastTestResult) {
-    
     this.lastTestResult = lastTestResult;
     return this;
   }
@@ -323,14 +307,12 @@ public class TestPointWithLastResultModel {
     return lastTestResult;
   }
 
-
   public void setLastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
 
   public TestPointWithLastResultModel status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -344,14 +326,12 @@ public class TestPointWithLastResultModel {
     return status;
   }
 
-
   public void setStatus(String status) {
     this.status = status;
   }
 
 
   public TestPointWithLastResultModel workItemGlobalId(Long workItemGlobalId) {
-    
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -365,14 +345,12 @@ public class TestPointWithLastResultModel {
     return workItemGlobalId;
   }
 
-
   public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
   public TestPointWithLastResultModel workItemEntityTypeName(String workItemEntityTypeName) {
-    
     this.workItemEntityTypeName = workItemEntityTypeName;
     return this;
   }
@@ -386,14 +364,12 @@ public class TestPointWithLastResultModel {
     return workItemEntityTypeName;
   }
 
-
   public void setWorkItemEntityTypeName(String workItemEntityTypeName) {
     this.workItemEntityTypeName = workItemEntityTypeName;
   }
 
 
   public TestPointWithLastResultModel sectionId(UUID sectionId) {
-    
     this.sectionId = sectionId;
     return this;
   }
@@ -407,14 +383,12 @@ public class TestPointWithLastResultModel {
     return sectionId;
   }
 
-
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public TestPointWithLastResultModel sectionName(String sectionName) {
-    
     this.sectionName = sectionName;
     return this;
   }
@@ -428,14 +402,12 @@ public class TestPointWithLastResultModel {
     return sectionName;
   }
 
-
   public void setSectionName(String sectionName) {
     this.sectionName = sectionName;
   }
 
 
   public TestPointWithLastResultModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -449,14 +421,12 @@ public class TestPointWithLastResultModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPointWithLastResultModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -470,14 +440,12 @@ public class TestPointWithLastResultModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPointWithLastResultModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -491,14 +459,12 @@ public class TestPointWithLastResultModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPointWithLastResultModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -512,14 +478,12 @@ public class TestPointWithLastResultModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestPointWithLastResultModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -541,14 +505,12 @@ public class TestPointWithLastResultModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public TestPointWithLastResultModel tagNames(List<String> tagNames) {
-    
     this.tagNames = tagNames;
     return this;
   }
@@ -570,14 +532,12 @@ public class TestPointWithLastResultModel {
     return tagNames;
   }
 
-
   public void setTagNames(List<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
   public TestPointWithLastResultModel duration(Integer duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -591,14 +551,12 @@ public class TestPointWithLastResultModel {
     return duration;
   }
 
-
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public TestPointWithLastResultModel priority(WorkItemPriorityModel priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -612,14 +570,12 @@ public class TestPointWithLastResultModel {
     return priority;
   }
 
-
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public TestPointWithLastResultModel testSuiteNameBreadCrumbs(List<String> testSuiteNameBreadCrumbs) {
-    
     this.testSuiteNameBreadCrumbs = testSuiteNameBreadCrumbs;
     return this;
   }
@@ -641,14 +597,12 @@ public class TestPointWithLastResultModel {
     return testSuiteNameBreadCrumbs;
   }
 
-
   public void setTestSuiteNameBreadCrumbs(List<String> testSuiteNameBreadCrumbs) {
     this.testSuiteNameBreadCrumbs = testSuiteNameBreadCrumbs;
   }
 
 
   public TestPointWithLastResultModel groupCount(Integer groupCount) {
-    
     this.groupCount = groupCount;
     return this;
   }
@@ -662,14 +616,12 @@ public class TestPointWithLastResultModel {
     return groupCount;
   }
 
-
   public void setGroupCount(Integer groupCount) {
     this.groupCount = groupCount;
   }
 
 
   public TestPointWithLastResultModel iteration(IterationModel iteration) {
-    
     this.iteration = iteration;
     return this;
   }
@@ -682,7 +634,6 @@ public class TestPointWithLastResultModel {
   public IterationModel getIteration() {
     return iteration;
   }
-
 
   public void setIteration(IterationModel iteration) {
     this.iteration = iteration;
@@ -829,32 +780,33 @@ public class TestPointWithLastResultModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPointWithLastResultModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPointWithLastResultModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPointWithLastResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPointWithLastResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointWithLastResultModel is not found in the empty JSON string", TestPointWithLastResultModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPointWithLastResultModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointWithLastResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointWithLastResultModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPointWithLastResultModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -875,7 +827,7 @@ public class TestPointWithLastResultModel {
       }
       // validate the optional field `lastTestResult`
       if (jsonObj.get("lastTestResult") != null && !jsonObj.get("lastTestResult").isJsonNull()) {
-        LastTestResultModel.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
+        LastTestResultModel.validateJsonElement(jsonObj.get("lastTestResult"));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -896,16 +848,18 @@ public class TestPointWithLastResultModel {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
+      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
       }
+      // validate the required field `priority`
+      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testSuiteNameBreadCrumbs") != null && !jsonObj.get("testSuiteNameBreadCrumbs").isJsonArray()) {
+      if (jsonObj.get("testSuiteNameBreadCrumbs") != null && !jsonObj.get("testSuiteNameBreadCrumbs").isJsonNull() && !jsonObj.get("testSuiteNameBreadCrumbs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteNameBreadCrumbs` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteNameBreadCrumbs").toString()));
       }
       // validate the optional field `iteration`
       if (jsonObj.get("iteration") != null && !jsonObj.get("iteration").isJsonNull()) {
-        IterationModel.validateJsonObject(jsonObj.getAsJsonObject("iteration"));
+        IterationModel.validateJsonElement(jsonObj.get("iteration"));
       }
   }
 
@@ -929,9 +883,9 @@ public class TestPointWithLastResultModel {
 
            @Override
            public TestPointWithLastResultModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

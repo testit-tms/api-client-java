@@ -27,19 +27,19 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
-import ru.testit.client.model.ApiV2TestSuitesPostRequest;
-import ru.testit.client.model.ApiV2TestSuitesPutRequest;
 import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SearchWorkItemsRequest;
 import java.util.Set;
 import ru.testit.client.model.TestPointByTestSuiteModel;
 import ru.testit.client.model.TestResultV2ShortModel;
 import ru.testit.client.model.TestSuiteV2GetModel;
+import ru.testit.client.model.TestSuiteV2PostModel;
+import ru.testit.client.model.TestSuiteV2PutModel;
+import ru.testit.client.model.TestSuiteWorkItemsSearchModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
+import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -47,7 +47,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TestSuitesApi {
     private ApiClient localVarApiClient;
@@ -89,7 +88,7 @@ public class TestSuitesApi {
     /**
      * Build call for addTestPointsToTestSuite
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -104,7 +103,7 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,7 +117,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = workItemSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/test-points"
@@ -151,13 +150,13 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsToTestSuite(Async)");
         }
 
-        return addTestPointsToTestSuiteCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        return addTestPointsToTestSuiteCall(id, workItemSelectModel, _callback);
 
     }
 
@@ -165,7 +164,7 @@ public class TestSuitesApi {
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -178,15 +177,15 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsToTestSuite(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        addTestPointsToTestSuiteWithHttpInfo(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public void addTestPointsToTestSuite(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        addTestPointsToTestSuiteWithHttpInfo(id, workItemSelectModel);
     }
 
     /**
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +199,8 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -209,7 +208,7 @@ public class TestSuitesApi {
      * Add test-points to test suite (asynchronously)
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -224,9 +223,9 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -611,7 +610,7 @@ public class TestSuitesApi {
     }
     /**
      * Build call for apiV2TestSuitesPost
-     * @param apiV2TestSuitesPostRequest  (optional)
+     * @param testSuiteV2PostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -622,7 +621,7 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPostCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPostCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -636,7 +635,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestSuitesPostRequest;
+        Object localVarPostBody = testSuiteV2PostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites";
@@ -668,15 +667,15 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestSuitesPostValidateBeforeCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestSuitesPostCall(apiV2TestSuitesPostRequest, _callback);
+    private okhttp3.Call apiV2TestSuitesPostValidateBeforeCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPostCall(testSuiteV2PostModel, _callback);
 
     }
 
     /**
      * Create test suite
      * 
-     * @param apiV2TestSuitesPostRequest  (optional)
+     * @param testSuiteV2PostModel  (optional)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -686,15 +685,15 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public TestSuiteV2GetModel apiV2TestSuitesPost(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
-        ApiResponse<TestSuiteV2GetModel> localVarResp = apiV2TestSuitesPostWithHttpInfo(apiV2TestSuitesPostRequest);
+    public TestSuiteV2GetModel apiV2TestSuitesPost(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
+        ApiResponse<TestSuiteV2GetModel> localVarResp = apiV2TestSuitesPostWithHttpInfo(testSuiteV2PostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create test suite
      * 
-     * @param apiV2TestSuitesPostRequest  (optional)
+     * @param testSuiteV2PostModel  (optional)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -704,8 +703,8 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, null);
+    public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(testSuiteV2PostModel, null);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -713,7 +712,7 @@ public class TestSuitesApi {
     /**
      * Create test suite (asynchronously)
      * 
-     * @param apiV2TestSuitesPostRequest  (optional)
+     * @param testSuiteV2PostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -724,16 +723,16 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPostAsync(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPostAsync(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(testSuiteV2PostModel, _callback);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestSuitesPut
-     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param testSuiteV2PutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -744,7 +743,7 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPutCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPutCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -758,7 +757,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestSuitesPutRequest;
+        Object localVarPostBody = testSuiteV2PutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites";
@@ -790,15 +789,15 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestSuitesPutValidateBeforeCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestSuitesPutCall(apiV2TestSuitesPutRequest, _callback);
+    private okhttp3.Call apiV2TestSuitesPutValidateBeforeCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPutCall(testSuiteV2PutModel, _callback);
 
     }
 
     /**
      * Edit test suite
      * 
-     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param testSuiteV2PutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -807,14 +806,14 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestSuitesPut(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
-        apiV2TestSuitesPutWithHttpInfo(apiV2TestSuitesPutRequest);
+    public void apiV2TestSuitesPut(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
+        apiV2TestSuitesPutWithHttpInfo(testSuiteV2PutModel);
     }
 
     /**
      * Edit test suite
      * 
-     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param testSuiteV2PutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -824,15 +823,15 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, null);
+    public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(testSuiteV2PutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Edit test suite (asynchronously)
      * 
-     * @param apiV2TestSuitesPutRequest  (optional)
+     * @param testSuiteV2PutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -843,9 +842,9 @@ public class TestSuitesApi {
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPutAsync(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPutAsync(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(testSuiteV2PutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1528,7 +1527,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWorkItemsRequest  (optional)
+     * @param testSuiteWorkItemsSearchModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1544,7 +1543,7 @@ public class TestSuitesApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1558,7 +1557,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = searchWorkItemsRequest;
+        Object localVarPostBody = testSuiteWorkItemsSearchModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/workItems/search"
@@ -1612,13 +1611,13 @@ public class TestSuitesApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling searchWorkItems(Async)");
         }
 
-        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
+        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
 
     }
 
@@ -1631,7 +1630,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWorkItemsRequest  (optional)
+     * @param testSuiteWorkItemsSearchModel  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1646,8 +1645,8 @@ public class TestSuitesApi {
      * @deprecated
      */
     @Deprecated
-    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
+    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel);
         return localVarResp.getData();
     }
 
@@ -1660,7 +1659,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWorkItemsRequest  (optional)
+     * @param testSuiteWorkItemsSearchModel  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1675,8 +1674,8 @@ public class TestSuitesApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, null);
+    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1690,7 +1689,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWorkItemsRequest  (optional)
+     * @param testSuiteWorkItemsSearchModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1706,9 +1705,9 @@ public class TestSuitesApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +22,13 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestPointShortGetModelLastTestResult;
+import ru.testit.client.model.LastTestResultModel;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemState;
@@ -53,7 +53,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -107,6 +106,10 @@ public class TestPointShortGetModel {
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
   private UUID testSuiteId;
 
+  public static final String SERIALIZED_NAME_TEST_SUITE_NAME = "testSuiteName";
+  @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME)
+  private String testSuiteName;
+
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
   private UUID workItemId;
@@ -118,6 +121,10 @@ public class TestPointShortGetModel {
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
   private UUID workItemVersionId;
+
+  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER)
+  private Integer workItemVersionNumber;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
@@ -161,7 +168,7 @@ public class TestPointShortGetModel {
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT = "lastTestResult";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT)
-  private TestPointShortGetModelLastTestResult lastTestResult;
+  private LastTestResultModel lastTestResult;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
@@ -191,7 +198,6 @@ public class TestPointShortGetModel {
   }
 
   public TestPointShortGetModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -205,14 +211,12 @@ public class TestPointShortGetModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPointShortGetModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -226,14 +230,12 @@ public class TestPointShortGetModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPointShortGetModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -247,14 +249,12 @@ public class TestPointShortGetModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPointShortGetModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -268,14 +268,12 @@ public class TestPointShortGetModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPointShortGetModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -289,14 +287,12 @@ public class TestPointShortGetModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestPointShortGetModel testerId(UUID testerId) {
-    
     this.testerId = testerId;
     return this;
   }
@@ -310,14 +306,12 @@ public class TestPointShortGetModel {
     return testerId;
   }
 
-
   public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
   public TestPointShortGetModel parameters(Map<String, String> parameters) {
-    
     this.parameters = parameters;
     return this;
   }
@@ -339,14 +333,12 @@ public class TestPointShortGetModel {
     return parameters;
   }
 
-
   public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
   public TestPointShortGetModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -368,14 +360,12 @@ public class TestPointShortGetModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public TestPointShortGetModel tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -397,14 +387,12 @@ public class TestPointShortGetModel {
     return tags;
   }
 
-
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
 
   public TestPointShortGetModel links(List<String> links) {
-    
     this.links = links;
     return this;
   }
@@ -426,14 +414,12 @@ public class TestPointShortGetModel {
     return links;
   }
 
-
   public void setLinks(List<String> links) {
     this.links = links;
   }
 
 
   public TestPointShortGetModel testSuiteId(UUID testSuiteId) {
-    
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -447,14 +433,31 @@ public class TestPointShortGetModel {
     return testSuiteId;
   }
 
-
   public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
+  public TestPointShortGetModel testSuiteName(String testSuiteName) {
+    this.testSuiteName = testSuiteName;
+    return this;
+  }
+
+   /**
+   * Name of the test suite
+   * @return testSuiteName
+  **/
+  @javax.annotation.Nonnull
+  public String getTestSuiteName() {
+    return testSuiteName;
+  }
+
+  public void setTestSuiteName(String testSuiteName) {
+    this.testSuiteName = testSuiteName;
+  }
+
+
   public TestPointShortGetModel workItemId(UUID workItemId) {
-    
     this.workItemId = workItemId;
     return this;
   }
@@ -468,14 +471,12 @@ public class TestPointShortGetModel {
     return workItemId;
   }
 
-
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
   public TestPointShortGetModel workItemGlobalId(Long workItemGlobalId) {
-    
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -489,14 +490,12 @@ public class TestPointShortGetModel {
     return workItemGlobalId;
   }
 
-
   public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
   public TestPointShortGetModel workItemVersionId(UUID workItemVersionId) {
-    
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -510,14 +509,31 @@ public class TestPointShortGetModel {
     return workItemVersionId;
   }
 
-
   public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
+  public TestPointShortGetModel workItemVersionNumber(Integer workItemVersionNumber) {
+    this.workItemVersionNumber = workItemVersionNumber;
+    return this;
+  }
+
+   /**
+   * Number of work item version the test point represents
+   * @return workItemVersionNumber
+  **/
+  @javax.annotation.Nonnull
+  public Integer getWorkItemVersionNumber() {
+    return workItemVersionNumber;
+  }
+
+  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
+    this.workItemVersionNumber = workItemVersionNumber;
+  }
+
+
   public TestPointShortGetModel workItemMedianDuration(Long workItemMedianDuration) {
-    
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
@@ -531,14 +547,12 @@ public class TestPointShortGetModel {
     return workItemMedianDuration;
   }
 
-
   public void setWorkItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
 
   public TestPointShortGetModel status(TestPointStatus status) {
-    
     this.status = status;
     return this;
   }
@@ -552,14 +566,12 @@ public class TestPointShortGetModel {
     return status;
   }
 
-
   public void setStatus(TestPointStatus status) {
     this.status = status;
   }
 
 
   public TestPointShortGetModel priority(WorkItemPriorityModel priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -573,14 +585,12 @@ public class TestPointShortGetModel {
     return priority;
   }
 
-
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public TestPointShortGetModel isAutomated(Boolean isAutomated) {
-    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -594,14 +604,12 @@ public class TestPointShortGetModel {
     return isAutomated;
   }
 
-
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public TestPointShortGetModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -615,14 +623,12 @@ public class TestPointShortGetModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPointShortGetModel configurationId(UUID configurationId) {
-    
     this.configurationId = configurationId;
     return this;
   }
@@ -636,14 +642,12 @@ public class TestPointShortGetModel {
     return configurationId;
   }
 
-
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestPointShortGetModel duration(Integer duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -657,14 +661,12 @@ public class TestPointShortGetModel {
     return duration;
   }
 
-
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public TestPointShortGetModel sectionId(UUID sectionId) {
-    
     this.sectionId = sectionId;
     return this;
   }
@@ -678,14 +680,12 @@ public class TestPointShortGetModel {
     return sectionId;
   }
 
-
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public TestPointShortGetModel sectionName(String sectionName) {
-    
     this.sectionName = sectionName;
     return this;
   }
@@ -699,14 +699,12 @@ public class TestPointShortGetModel {
     return sectionName;
   }
 
-
   public void setSectionName(String sectionName) {
     this.sectionName = sectionName;
   }
 
 
   public TestPointShortGetModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -720,14 +718,12 @@ public class TestPointShortGetModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPointShortGetModel lastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
-    
+  public TestPointShortGetModel lastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
     return this;
   }
@@ -737,18 +733,16 @@ public class TestPointShortGetModel {
    * @return lastTestResult
   **/
   @javax.annotation.Nonnull
-  public TestPointShortGetModelLastTestResult getLastTestResult() {
+  public LastTestResultModel getLastTestResult() {
     return lastTestResult;
   }
 
-
-  public void setLastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
+  public void setLastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
 
   public TestPointShortGetModel iterationId(UUID iterationId) {
-    
     this.iterationId = iterationId;
     return this;
   }
@@ -762,14 +756,12 @@ public class TestPointShortGetModel {
     return iterationId;
   }
 
-
   public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
   public TestPointShortGetModel workItemState(WorkItemState workItemState) {
-    
     this.workItemState = workItemState;
     return this;
   }
@@ -783,14 +775,12 @@ public class TestPointShortGetModel {
     return workItemState;
   }
 
-
   public void setWorkItemState(WorkItemState workItemState) {
     this.workItemState = workItemState;
   }
 
 
   public TestPointShortGetModel workItemCreatedById(UUID workItemCreatedById) {
-    
     this.workItemCreatedById = workItemCreatedById;
     return this;
   }
@@ -804,14 +794,12 @@ public class TestPointShortGetModel {
     return workItemCreatedById;
   }
 
-
   public void setWorkItemCreatedById(UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
   }
 
 
   public TestPointShortGetModel workItemCreatedDate(OffsetDateTime workItemCreatedDate) {
-    
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -825,14 +813,12 @@ public class TestPointShortGetModel {
     return workItemCreatedDate;
   }
 
-
   public void setWorkItemCreatedDate(OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
   public TestPointShortGetModel workItemModifiedById(UUID workItemModifiedById) {
-    
     this.workItemModifiedById = workItemModifiedById;
     return this;
   }
@@ -846,14 +832,12 @@ public class TestPointShortGetModel {
     return workItemModifiedById;
   }
 
-
   public void setWorkItemModifiedById(UUID workItemModifiedById) {
     this.workItemModifiedById = workItemModifiedById;
   }
 
 
   public TestPointShortGetModel workItemModifiedDate(OffsetDateTime workItemModifiedDate) {
-    
     this.workItemModifiedDate = workItemModifiedDate;
     return this;
   }
@@ -866,7 +850,6 @@ public class TestPointShortGetModel {
   public OffsetDateTime getWorkItemModifiedDate() {
     return workItemModifiedDate;
   }
-
 
   public void setWorkItemModifiedDate(OffsetDateTime workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
@@ -894,9 +877,11 @@ public class TestPointShortGetModel {
         Objects.equals(this.tags, testPointShortGetModel.tags) &&
         Objects.equals(this.links, testPointShortGetModel.links) &&
         Objects.equals(this.testSuiteId, testPointShortGetModel.testSuiteId) &&
+        Objects.equals(this.testSuiteName, testPointShortGetModel.testSuiteName) &&
         Objects.equals(this.workItemId, testPointShortGetModel.workItemId) &&
         Objects.equals(this.workItemGlobalId, testPointShortGetModel.workItemGlobalId) &&
         Objects.equals(this.workItemVersionId, testPointShortGetModel.workItemVersionId) &&
+        Objects.equals(this.workItemVersionNumber, testPointShortGetModel.workItemVersionNumber) &&
         Objects.equals(this.workItemMedianDuration, testPointShortGetModel.workItemMedianDuration) &&
         Objects.equals(this.status, testPointShortGetModel.status) &&
         Objects.equals(this.priority, testPointShortGetModel.priority) &&
@@ -922,7 +907,7 @@ public class TestPointShortGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testerId, parameters, attributes, tags, links, testSuiteId, workItemId, workItemGlobalId, workItemVersionId, workItemMedianDuration, status, priority, isAutomated, name, configurationId, duration, sectionId, sectionName, projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, workItemModifiedById, workItemModifiedDate);
+    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testerId, parameters, attributes, tags, links, testSuiteId, testSuiteName, workItemId, workItemGlobalId, workItemVersionId, workItemVersionNumber, workItemMedianDuration, status, priority, isAutomated, name, configurationId, duration, sectionId, sectionName, projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, workItemModifiedById, workItemModifiedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -947,9 +932,11 @@ public class TestPointShortGetModel {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    testSuiteId: ").append(toIndentedString(testSuiteId)).append("\n");
+    sb.append("    testSuiteName: ").append(toIndentedString(testSuiteName)).append("\n");
     sb.append("    workItemId: ").append(toIndentedString(workItemId)).append("\n");
     sb.append("    workItemGlobalId: ").append(toIndentedString(workItemGlobalId)).append("\n");
     sb.append("    workItemVersionId: ").append(toIndentedString(workItemVersionId)).append("\n");
+    sb.append("    workItemVersionNumber: ").append(toIndentedString(workItemVersionNumber)).append("\n");
     sb.append("    workItemMedianDuration: ").append(toIndentedString(workItemMedianDuration)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
@@ -1000,9 +987,11 @@ public class TestPointShortGetModel {
     openapiFields.add("tags");
     openapiFields.add("links");
     openapiFields.add("testSuiteId");
+    openapiFields.add("testSuiteName");
     openapiFields.add("workItemId");
     openapiFields.add("workItemGlobalId");
     openapiFields.add("workItemVersionId");
+    openapiFields.add("workItemVersionNumber");
     openapiFields.add("workItemMedianDuration");
     openapiFields.add("status");
     openapiFields.add("priority");
@@ -1030,9 +1019,11 @@ public class TestPointShortGetModel {
     openapiRequiredFields.add("tags");
     openapiRequiredFields.add("links");
     openapiRequiredFields.add("testSuiteId");
+    openapiRequiredFields.add("testSuiteName");
     openapiRequiredFields.add("workItemId");
     openapiRequiredFields.add("workItemGlobalId");
     openapiRequiredFields.add("workItemVersionId");
+    openapiRequiredFields.add("workItemVersionNumber");
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("priority");
     openapiRequiredFields.add("isAutomated");
@@ -1049,32 +1040,33 @@ public class TestPointShortGetModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPointShortGetModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPointShortGetModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPointShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPointShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointShortGetModel is not found in the empty JSON string", TestPointShortGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPointShortGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointShortGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPointShortGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -1102,12 +1094,19 @@ public class TestPointShortGetModel {
       if (!jsonObj.get("testSuiteId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteId").toString()));
       }
+      if (!jsonObj.get("testSuiteName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testSuiteName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteName").toString()));
+      }
       if (!jsonObj.get("workItemId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemId").toString()));
       }
       if (!jsonObj.get("workItemVersionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemVersionId").toString()));
       }
+      // validate the required field `status`
+      TestPointStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the required field `priority`
+      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -1124,10 +1123,12 @@ public class TestPointShortGetModel {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
       // validate the required field `lastTestResult`
-      TestPointShortGetModelLastTestResult.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
+      LastTestResultModel.validateJsonElement(jsonObj.get("lastTestResult"));
       if (!jsonObj.get("iterationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iterationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iterationId").toString()));
       }
+      // validate the required field `workItemState`
+      WorkItemState.validateJsonElement(jsonObj.get("workItemState"));
       if (!jsonObj.get("workItemCreatedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemCreatedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemCreatedById").toString()));
       }
@@ -1156,9 +1157,9 @@ public class TestPointShortGetModel {
 
            @Override
            public TestPointShortGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

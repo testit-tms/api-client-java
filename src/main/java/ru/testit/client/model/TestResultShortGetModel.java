@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,7 +50,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -97,8 +96,25 @@ public class TestResultShortGetModel {
   private String comment;
 
   public static final String SERIALIZED_NAME_DATE = "date";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
+
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private OffsetDateTime createdDate;
+
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private OffsetDateTime modifiedDate;
+
+  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
+  @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  private OffsetDateTime startedOn;
+
+  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -116,7 +132,6 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -130,14 +145,12 @@ public class TestResultShortGetModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultShortGetModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -151,14 +164,12 @@ public class TestResultShortGetModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestResultShortGetModel autotestGlobalId(Long autotestGlobalId) {
-    
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
@@ -172,14 +183,12 @@ public class TestResultShortGetModel {
     return autotestGlobalId;
   }
 
-
   public void setAutotestGlobalId(Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
   public TestResultShortGetModel testRunId(UUID testRunId) {
-    
     this.testRunId = testRunId;
     return this;
   }
@@ -193,14 +202,12 @@ public class TestResultShortGetModel {
     return testRunId;
   }
 
-
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public TestResultShortGetModel configurationId(UUID configurationId) {
-    
     this.configurationId = configurationId;
     return this;
   }
@@ -214,14 +221,12 @@ public class TestResultShortGetModel {
     return configurationId;
   }
 
-
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestResultShortGetModel configurationName(String configurationName) {
-    
     this.configurationName = configurationName;
     return this;
   }
@@ -235,14 +240,12 @@ public class TestResultShortGetModel {
     return configurationName;
   }
 
-
   public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   public TestResultShortGetModel outcome(String outcome) {
-    
     this.outcome = outcome;
     return this;
   }
@@ -256,14 +259,12 @@ public class TestResultShortGetModel {
     return outcome;
   }
 
-
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultShortGetModel resultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
-    
     this.resultReasons = resultReasons;
     return this;
   }
@@ -285,14 +286,12 @@ public class TestResultShortGetModel {
     return resultReasons;
   }
 
-
   public void setResultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
   public TestResultShortGetModel comment(String comment) {
-    
     this.comment = comment;
     return this;
   }
@@ -306,35 +305,111 @@ public class TestResultShortGetModel {
     return comment;
   }
 
-
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
+  @Deprecated
   public TestResultShortGetModel date(OffsetDateTime date) {
-    
     this.date = date;
     return this;
   }
 
    /**
-   * Date when the test result has been set
+   * Date when the test result was completed or started or created
    * @return date
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nonnull
   public OffsetDateTime getDate() {
     return date;
   }
 
-
+  @Deprecated
   public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
 
+  public TestResultShortGetModel createdDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Date when the test result has been created
+   * @return createdDate
+  **/
+  @javax.annotation.Nonnull
+  public OffsetDateTime getCreatedDate() {
+    return createdDate;
+  }
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public TestResultShortGetModel modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+   /**
+   * Date when the test result has been modified
+   * @return modifiedDate
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public TestResultShortGetModel startedOn(OffsetDateTime startedOn) {
+    this.startedOn = startedOn;
+    return this;
+  }
+
+   /**
+   * Date when the test result has been started
+   * @return startedOn
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getStartedOn() {
+    return startedOn;
+  }
+
+  public void setStartedOn(OffsetDateTime startedOn) {
+    this.startedOn = startedOn;
+  }
+
+
+  public TestResultShortGetModel completedOn(OffsetDateTime completedOn) {
+    this.completedOn = completedOn;
+    return this;
+  }
+
+   /**
+   * Date when the test result has been completed
+   * @return completedOn
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCompletedOn() {
+    return completedOn;
+  }
+
+  public void setCompletedOn(OffsetDateTime completedOn) {
+    this.completedOn = completedOn;
+  }
+
+
   public TestResultShortGetModel duration(Long duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -348,14 +423,12 @@ public class TestResultShortGetModel {
     return duration;
   }
 
-
   public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
   public TestResultShortGetModel links(List<LinkSubGetModel> links) {
-    
     this.links = links;
     return this;
   }
@@ -377,14 +450,12 @@ public class TestResultShortGetModel {
     return links;
   }
 
-
   public void setLinks(List<LinkSubGetModel> links) {
     this.links = links;
   }
 
 
   public TestResultShortGetModel attachments(List<AttachmentModel> attachments) {
-    
     this.attachments = attachments;
     return this;
   }
@@ -405,7 +476,6 @@ public class TestResultShortGetModel {
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
-
 
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
@@ -432,6 +502,10 @@ public class TestResultShortGetModel {
         Objects.equals(this.resultReasons, testResultShortGetModel.resultReasons) &&
         Objects.equals(this.comment, testResultShortGetModel.comment) &&
         Objects.equals(this.date, testResultShortGetModel.date) &&
+        Objects.equals(this.createdDate, testResultShortGetModel.createdDate) &&
+        Objects.equals(this.modifiedDate, testResultShortGetModel.modifiedDate) &&
+        Objects.equals(this.startedOn, testResultShortGetModel.startedOn) &&
+        Objects.equals(this.completedOn, testResultShortGetModel.completedOn) &&
         Objects.equals(this.duration, testResultShortGetModel.duration) &&
         Objects.equals(this.links, testResultShortGetModel.links) &&
         Objects.equals(this.attachments, testResultShortGetModel.attachments);
@@ -443,7 +517,7 @@ public class TestResultShortGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, outcome, resultReasons, comment, date, duration, links, attachments);
+    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, outcome, resultReasons, comment, date, createdDate, modifiedDate, startedOn, completedOn, duration, links, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -467,6 +541,10 @@ public class TestResultShortGetModel {
     sb.append("    resultReasons: ").append(toIndentedString(resultReasons)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
+    sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
@@ -502,6 +580,10 @@ public class TestResultShortGetModel {
     openapiFields.add("resultReasons");
     openapiFields.add("comment");
     openapiFields.add("date");
+    openapiFields.add("createdDate");
+    openapiFields.add("modifiedDate");
+    openapiFields.add("startedOn");
+    openapiFields.add("completedOn");
     openapiFields.add("duration");
     openapiFields.add("links");
     openapiFields.add("attachments");
@@ -517,37 +599,39 @@ public class TestResultShortGetModel {
     openapiRequiredFields.add("outcome");
     openapiRequiredFields.add("resultReasons");
     openapiRequiredFields.add("date");
+    openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("links");
     openapiRequiredFields.add("attachments");
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultShortGetModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestResultShortGetModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortGetModel is not found in the empty JSON string", TestResultShortGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultShortGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -574,7 +658,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArrayresultReasons = jsonObj.getAsJsonArray("resultReasons");
       // validate the required field `resultReasons` (array)
       for (int i = 0; i < jsonArrayresultReasons.size(); i++) {
-        AutotestResultReasonSubGetModel.validateJsonObject(jsonArrayresultReasons.get(i).getAsJsonObject());
+        AutotestResultReasonSubGetModel.validateJsonElement(jsonArrayresultReasons.get(i));
       };
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -587,7 +671,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkSubGetModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+        LinkSubGetModel.validateJsonElement(jsonArraylinks.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("attachments").isJsonArray()) {
@@ -597,7 +681,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+        AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
       };
   }
 
@@ -621,9 +705,9 @@ public class TestResultShortGetModel {
 
            @Override
            public TestResultShortGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

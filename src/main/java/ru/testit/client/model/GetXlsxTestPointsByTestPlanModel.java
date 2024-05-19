@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -116,7 +115,6 @@ public class GetXlsxTestPointsByTestPlanModel {
   }
 
   public GetXlsxTestPointsByTestPlanModel includeName(Boolean includeName) {
-    
     this.includeName = includeName;
     return this;
   }
@@ -130,14 +128,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeName;
   }
 
-
   public void setIncludeName(Boolean includeName) {
     this.includeName = includeName;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeSection(Boolean includeSection) {
-    
     this.includeSection = includeSection;
     return this;
   }
@@ -151,14 +147,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeSection;
   }
 
-
   public void setIncludeSection(Boolean includeSection) {
     this.includeSection = includeSection;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includePriority(Boolean includePriority) {
-    
     this.includePriority = includePriority;
     return this;
   }
@@ -172,14 +166,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includePriority;
   }
 
-
   public void setIncludePriority(Boolean includePriority) {
     this.includePriority = includePriority;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeAutomated(Boolean includeAutomated) {
-    
     this.includeAutomated = includeAutomated;
     return this;
   }
@@ -193,14 +185,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeAutomated;
   }
 
-
   public void setIncludeAutomated(Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeStatus(Boolean includeStatus) {
-    
     this.includeStatus = includeStatus;
     return this;
   }
@@ -214,14 +204,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeStatus;
   }
 
-
   public void setIncludeStatus(Boolean includeStatus) {
     this.includeStatus = includeStatus;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeDuration(Boolean includeDuration) {
-    
     this.includeDuration = includeDuration;
     return this;
   }
@@ -235,14 +223,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeDuration;
   }
 
-
   public void setIncludeDuration(Boolean includeDuration) {
     this.includeDuration = includeDuration;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeCreationDate(Boolean includeCreationDate) {
-    
     this.includeCreationDate = includeCreationDate;
     return this;
   }
@@ -256,14 +242,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeCreationDate;
   }
 
-
   public void setIncludeCreationDate(Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeAuthor(Boolean includeAuthor) {
-    
     this.includeAuthor = includeAuthor;
     return this;
   }
@@ -277,14 +261,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeAuthor;
   }
 
-
   public void setIncludeAuthor(Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeModificationDate(Boolean includeModificationDate) {
-    
     this.includeModificationDate = includeModificationDate;
     return this;
   }
@@ -298,14 +280,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeModificationDate;
   }
 
-
   public void setIncludeModificationDate(Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeModifiedBy(Boolean includeModifiedBy) {
-    
     this.includeModifiedBy = includeModifiedBy;
     return this;
   }
@@ -319,14 +299,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeModifiedBy;
   }
 
-
   public void setIncludeModifiedBy(Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeTags(Boolean includeTags) {
-    
     this.includeTags = includeTags;
     return this;
   }
@@ -340,14 +318,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeTags;
   }
 
-
   public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel includeIterations(Boolean includeIterations) {
-    
     this.includeIterations = includeIterations;
     return this;
   }
@@ -361,14 +337,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeIterations;
   }
 
-
   public void setIncludeIterations(Boolean includeIterations) {
     this.includeIterations = includeIterations;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel customAttributesIds(List<UUID> customAttributesIds) {
-    
     this.customAttributesIds = customAttributesIds;
     return this;
   }
@@ -390,14 +364,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return customAttributesIds;
   }
 
-
   public void setCustomAttributesIds(List<UUID> customAttributesIds) {
     this.customAttributesIds = customAttributesIds;
   }
 
 
   public GetXlsxTestPointsByTestPlanModel configurationIds(List<UUID> configurationIds) {
-    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -418,7 +390,6 @@ public class GetXlsxTestPointsByTestPlanModel {
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
-
 
   public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
@@ -539,38 +510,39 @@ public class GetXlsxTestPointsByTestPlanModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetXlsxTestPointsByTestPlanModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetXlsxTestPointsByTestPlanModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetXlsxTestPointsByTestPlanModel is not found in the empty JSON string", GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetXlsxTestPointsByTestPlanModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetXlsxTestPointsByTestPlanModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetXlsxTestPointsByTestPlanModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetXlsxTestPointsByTestPlanModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributesIds") != null && !jsonObj.get("customAttributesIds").isJsonArray()) {
+      if (jsonObj.get("customAttributesIds") != null && !jsonObj.get("customAttributesIds").isJsonNull() && !jsonObj.get("customAttributesIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `customAttributesIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributesIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
   }
@@ -595,9 +567,9 @@ public class GetXlsxTestPointsByTestPlanModel {
 
            @Override
            public GetXlsxTestPointsByTestPlanModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

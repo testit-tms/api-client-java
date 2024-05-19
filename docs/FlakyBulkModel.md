@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**autotestSelect** | [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  |  |
+|**autotestSelect** | [**AutotestSelectModel**](AutotestSelectModel.md) |  |  |
 |**value** | **Boolean** | Are autotests flaky |  |
 
 

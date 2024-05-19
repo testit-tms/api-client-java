@@ -8,7 +8,7 @@ Model containing options to filter work items
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**WorkItemSelectModelFilter**](WorkItemSelectModelFilter.md) |  |  |
+|**filter** | [**WorkItemFilterModel**](WorkItemFilterModel.md) |  |  |
 |**extractionModel** | [**WorkItemLocalSelectModelExtractionModel**](WorkItemLocalSelectModelExtractionModel.md) |  |  [optional] |
 
 

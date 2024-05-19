@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2TestPointsSearchPostRequest;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.TestPointFilterModel;
 import ru.testit.client.model.TestPointShortGetModel;
 import ru.testit.client.model.TestRunModel;
 import java.util.UUID;
@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TestPointsApi {
     private ApiClient localVarApiClient;
@@ -339,7 +338,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -350,7 +349,7 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPointsSearchIdPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPointsSearchIdPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -364,7 +363,7 @@ public class TestPointsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPointsSearchPostRequest;
+        Object localVarPostBody = testPointFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPoints/search/id";
@@ -416,8 +415,8 @@ public class TestPointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPointsSearchIdPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestPointsSearchIdPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestPointsSearchIdPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestPointsSearchIdPostCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, _callback);
 
     }
 
@@ -429,7 +428,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -439,8 +438,8 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2TestPointsSearchIdPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2TestPointsSearchIdPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest);
+    public List<UUID> apiV2TestPointsSearchIdPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2TestPointsSearchIdPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testPointFilterModel);
         return localVarResp.getData();
     }
 
@@ -452,7 +451,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +461,8 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2TestPointsSearchIdPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPointsSearchIdPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2TestPointsSearchIdPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPointsSearchIdPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -476,7 +475,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -487,9 +486,9 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPointsSearchIdPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPointsSearchIdPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPointsSearchIdPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPointsSearchIdPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -501,7 +500,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -512,7 +511,7 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPointsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPointsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -526,7 +525,7 @@ public class TestPointsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPointsSearchPostRequest;
+        Object localVarPostBody = testPointFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPoints/search";
@@ -578,8 +577,8 @@ public class TestPointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPointsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestPointsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestPointsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestPointsSearchPostCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, _callback);
 
     }
 
@@ -591,7 +590,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @return List&lt;TestPointShortGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -601,8 +600,8 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestPointShortGetModel> apiV2TestPointsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestPointShortGetModel>> localVarResp = apiV2TestPointsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest);
+    public List<TestPointShortGetModel> apiV2TestPointsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
+        ApiResponse<List<TestPointShortGetModel>> localVarResp = apiV2TestPointsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testPointFilterModel);
         return localVarResp.getData();
     }
 
@@ -614,7 +613,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;TestPointShortGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -624,8 +623,8 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestPointShortGetModel>> apiV2TestPointsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPointsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, null);
+    public ApiResponse<List<TestPointShortGetModel>> apiV2TestPointsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPointsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, null);
         Type localVarReturnType = new TypeToken<List<TestPointShortGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -638,7 +637,7 @@ public class TestPointsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPointsSearchPostRequest  (optional)
+     * @param testPointFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -649,9 +648,9 @@ public class TestPointsApi {
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPointsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPointsSearchPostRequest apiV2TestPointsSearchPostRequest, final ApiCallback<List<TestPointShortGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPointsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback<List<TestPointShortGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPointsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestPointsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPointsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testPointFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<TestPointShortGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

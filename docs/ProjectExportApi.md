@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 <a id="export"></a>
 # **export**
-> File export(projectId, includeAttachments, exportProjectJsonRequest)
+> File export(projectId, includeAttachments, projectExportQueryModel)
 
 Export project as JSON file
 
@@ -43,9 +43,9 @@ public class Example {
     ProjectExportApi apiInstance = new ProjectExportApi(defaultClient);
     String projectId = "projectId_example"; // String | Specifies the ID of the project you want to export.
     Boolean includeAttachments = false; // Boolean | Enables attachment export.
-    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
     try {
-      File result = apiInstance.export(projectId, includeAttachments, exportProjectJsonRequest);
+      File result = apiInstance.export(projectId, includeAttachments, projectExportQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectExportApi#export");
@@ -64,7 +64,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Specifies the ID of the project you want to export. | |
 | **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
-| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
 
 ### Return type
 
@@ -88,7 +88,7 @@ public class Example {
 
 <a id="exportProjectJson"></a>
 # **exportProjectJson**
-> UUID exportProjectJson(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest)
+> UUID exportProjectJson(projectId, timeZoneOffsetInMinutes, projectExportQueryModel)
 
 Export project as JSON file in background job
 
@@ -116,9 +116,9 @@ public class Example {
     ProjectExportApi apiInstance = new ProjectExportApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
     try {
-      UUID result = apiInstance.exportProjectJson(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest);
+      UUID result = apiInstance.exportProjectJson(projectId, timeZoneOffsetInMinutes, projectExportQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectExportApi#exportProjectJson");
@@ -137,7 +137,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
 
 ### Return type
 
@@ -160,7 +160,7 @@ public class Example {
 
 <a id="exportProjectWithTestPlansJson"></a>
 # **exportProjectWithTestPlansJson**
-> UUID exportProjectWithTestPlansJson(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest)
+> UUID exportProjectWithTestPlansJson(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
 
 Export project as JSON file with test plans in background job
 
@@ -188,9 +188,9 @@ public class Example {
     ProjectExportApi apiInstance = new ProjectExportApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
     try {
-      UUID result = apiInstance.exportProjectWithTestPlansJson(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
+      UUID result = apiInstance.exportProjectWithTestPlansJson(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectExportApi#exportProjectWithTestPlansJson");
@@ -209,7 +209,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -232,7 +232,7 @@ public class Example {
 
 <a id="exportProjectWithTestPlansZip"></a>
 # **exportProjectWithTestPlansZip**
-> UUID exportProjectWithTestPlansZip(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest)
+> UUID exportProjectWithTestPlansZip(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel)
 
 Export project as Zip file with test plans in background job
 
@@ -260,9 +260,9 @@ public class Example {
     ProjectExportApi apiInstance = new ProjectExportApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ExportProjectWithTestPlansJsonRequest exportProjectWithTestPlansJsonRequest = new ExportProjectWithTestPlansJsonRequest(); // ExportProjectWithTestPlansJsonRequest | 
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
     try {
-      UUID result = apiInstance.exportProjectWithTestPlansZip(projectId, timeZoneOffsetInMinutes, exportProjectWithTestPlansJsonRequest);
+      UUID result = apiInstance.exportProjectWithTestPlansZip(projectId, timeZoneOffsetInMinutes, projectExportWithTestPlansPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectExportApi#exportProjectWithTestPlansZip");
@@ -281,7 +281,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -304,7 +304,7 @@ public class Example {
 
 <a id="exportProjectZip"></a>
 # **exportProjectZip**
-> UUID exportProjectZip(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest)
+> UUID exportProjectZip(projectId, timeZoneOffsetInMinutes, projectExportQueryModel)
 
 Export project as Zip file in background job
 
@@ -332,9 +332,9 @@ public class Example {
     ProjectExportApi apiInstance = new ProjectExportApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ExportProjectJsonRequest exportProjectJsonRequest = new ExportProjectJsonRequest(); // ExportProjectJsonRequest | 
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
     try {
-      UUID result = apiInstance.exportProjectZip(projectId, timeZoneOffsetInMinutes, exportProjectJsonRequest);
+      UUID result = apiInstance.exportProjectZip(projectId, timeZoneOffsetInMinutes, projectExportQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectExportApi#exportProjectZip");
@@ -353,7 +353,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
 
 ### Return type
 

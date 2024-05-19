@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -51,7 +51,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -105,7 +104,6 @@ public class ProjectsFilterModel {
   }
 
   public ProjectsFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -119,14 +117,12 @@ public class ProjectsFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ProjectsFilterModel isFavorite(Boolean isFavorite) {
-    
     this.isFavorite = isFavorite;
     return this;
   }
@@ -140,14 +136,12 @@ public class ProjectsFilterModel {
     return isFavorite;
   }
 
-
   public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
   public ProjectsFilterModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -161,14 +155,12 @@ public class ProjectsFilterModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public ProjectsFilterModel testCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
-    
     this.testCasesCount = testCasesCount;
     return this;
   }
@@ -182,14 +174,12 @@ public class ProjectsFilterModel {
     return testCasesCount;
   }
 
-
   public void setTestCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
   public ProjectsFilterModel checklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
-    
     this.checklistsCount = checklistsCount;
     return this;
   }
@@ -203,14 +193,12 @@ public class ProjectsFilterModel {
     return checklistsCount;
   }
 
-
   public void setChecklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
     this.checklistsCount = checklistsCount;
   }
 
 
   public ProjectsFilterModel sharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
-    
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
@@ -224,14 +212,12 @@ public class ProjectsFilterModel {
     return sharedStepsCount;
   }
 
-
   public void setSharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
   public ProjectsFilterModel autotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
-    
     this.autotestsCount = autotestsCount;
     return this;
   }
@@ -245,14 +231,12 @@ public class ProjectsFilterModel {
     return autotestsCount;
   }
 
-
   public void setAutotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
     this.autotestsCount = autotestsCount;
   }
 
 
   public ProjectsFilterModel globalIds(Set<Long> globalIds) {
-    
     this.globalIds = globalIds;
     return this;
   }
@@ -274,14 +258,12 @@ public class ProjectsFilterModel {
     return globalIds;
   }
 
-
   public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
   public ProjectsFilterModel createdDate(ProjectsFilterModelCreatedDate createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -295,14 +277,12 @@ public class ProjectsFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(ProjectsFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public ProjectsFilterModel createdByIds(Set<UUID> createdByIds) {
-    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -323,7 +303,6 @@ public class ProjectsFilterModel {
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
-
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
@@ -420,54 +399,55 @@ public class ProjectsFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectsFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ProjectsFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModel is not found in the empty JSON string", ProjectsFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectsFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `testCasesCount`
       if (jsonObj.get("testCasesCount") != null && !jsonObj.get("testCasesCount").isJsonNull()) {
-        ProjectsFilterModelTestCasesCount.validateJsonObject(jsonObj.getAsJsonObject("testCasesCount"));
+        ProjectsFilterModelTestCasesCount.validateJsonElement(jsonObj.get("testCasesCount"));
       }
       // validate the optional field `checklistsCount`
       if (jsonObj.get("checklistsCount") != null && !jsonObj.get("checklistsCount").isJsonNull()) {
-        ProjectsFilterModelChecklistsCount.validateJsonObject(jsonObj.getAsJsonObject("checklistsCount"));
+        ProjectsFilterModelChecklistsCount.validateJsonElement(jsonObj.get("checklistsCount"));
       }
       // validate the optional field `sharedStepsCount`
       if (jsonObj.get("sharedStepsCount") != null && !jsonObj.get("sharedStepsCount").isJsonNull()) {
-        ProjectsFilterModelSharedStepsCount.validateJsonObject(jsonObj.getAsJsonObject("sharedStepsCount"));
+        ProjectsFilterModelSharedStepsCount.validateJsonElement(jsonObj.get("sharedStepsCount"));
       }
       // validate the optional field `autotestsCount`
       if (jsonObj.get("autotestsCount") != null && !jsonObj.get("autotestsCount").isJsonNull()) {
-        ProjectsFilterModelAutotestsCount.validateJsonObject(jsonObj.getAsJsonObject("autotestsCount"));
+        ProjectsFilterModelAutotestsCount.validateJsonElement(jsonObj.get("autotestsCount"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        ProjectsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        ProjectsFilterModelCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
   }
@@ -492,9 +472,9 @@ public class ProjectsFilterModel {
 
            @Override
            public ProjectsFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

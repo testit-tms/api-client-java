@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -55,7 +55,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -121,7 +120,6 @@ public class TestPlanChangedFieldsViewModel {
   }
 
   public TestPlanChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
-    
     this.name = name;
     return this;
   }
@@ -135,14 +133,12 @@ public class TestPlanChangedFieldsViewModel {
     return name;
   }
 
-
   public void setName(StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
   }
 
 
   public TestPlanChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
-    
     this.description = description;
     return this;
   }
@@ -156,14 +152,12 @@ public class TestPlanChangedFieldsViewModel {
     return description;
   }
 
-
   public void setDescription(StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
   }
 
 
   public TestPlanChangedFieldsViewModel productName(StringChangedFieldViewModel productName) {
-    
     this.productName = productName;
     return this;
   }
@@ -177,14 +171,12 @@ public class TestPlanChangedFieldsViewModel {
     return productName;
   }
 
-
   public void setProductName(StringChangedFieldViewModel productName) {
     this.productName = productName;
   }
 
 
   public TestPlanChangedFieldsViewModel build(StringChangedFieldViewModel build) {
-    
     this.build = build;
     return this;
   }
@@ -198,14 +190,12 @@ public class TestPlanChangedFieldsViewModel {
     return build;
   }
 
-
   public void setBuild(StringChangedFieldViewModel build) {
     this.build = build;
   }
 
 
   public TestPlanChangedFieldsViewModel period(PeriodViewModelChangedFieldViewModel period) {
-    
     this.period = period;
     return this;
   }
@@ -219,14 +209,12 @@ public class TestPlanChangedFieldsViewModel {
     return period;
   }
 
-
   public void setPeriod(PeriodViewModelChangedFieldViewModel period) {
     this.period = period;
   }
 
 
   public TestPlanChangedFieldsViewModel status(StringChangedFieldViewModel status) {
-    
     this.status = status;
     return this;
   }
@@ -240,14 +228,12 @@ public class TestPlanChangedFieldsViewModel {
     return status;
   }
 
-
   public void setStatus(StringChangedFieldViewModel status) {
     this.status = status;
   }
 
 
   public TestPlanChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -261,14 +247,12 @@ public class TestPlanChangedFieldsViewModel {
     return tags;
   }
 
-
   public void setTags(StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
   }
 
 
   public TestPlanChangedFieldsViewModel testSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
-    
     this.testSuite = testSuite;
     return this;
   }
@@ -282,14 +266,12 @@ public class TestPlanChangedFieldsViewModel {
     return testSuite;
   }
 
-
   public void setTestSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = testSuite;
   }
 
 
   public TestPlanChangedFieldsViewModel testPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
-    
     this.testPoints = testPoints;
     return this;
   }
@@ -303,14 +285,12 @@ public class TestPlanChangedFieldsViewModel {
     return testPoints;
   }
 
-
   public void setTestPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = testPoints;
   }
 
 
   public TestPlanChangedFieldsViewModel testResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
-    
     this.testResults = testResults;
     return this;
   }
@@ -324,14 +304,12 @@ public class TestPlanChangedFieldsViewModel {
     return testResults;
   }
 
-
   public void setTestResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = testResults;
   }
 
 
   public TestPlanChangedFieldsViewModel locking(BooleanChangedFieldViewModel locking) {
-    
     this.locking = locking;
     return this;
   }
@@ -345,14 +323,12 @@ public class TestPlanChangedFieldsViewModel {
     return locking;
   }
 
-
   public void setLocking(BooleanChangedFieldViewModel locking) {
     this.locking = locking;
   }
 
 
   public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
-    
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -366,14 +342,12 @@ public class TestPlanChangedFieldsViewModel {
     return hasAutomaticDurationTimer;
   }
 
-
   public void setHasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanChangedFieldsViewModel attributes(Map<String, CustomAttributeChangeModel> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -394,7 +368,6 @@ public class TestPlanChangedFieldsViewModel {
   public Map<String, CustomAttributeChangeModel> getAttributes() {
     return attributes;
   }
-
 
   public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
@@ -500,72 +473,73 @@ public class TestPlanChangedFieldsViewModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanChangedFieldsViewModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPlanChangedFieldsViewModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanChangedFieldsViewModel is not found in the empty JSON string", TestPlanChangedFieldsViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanChangedFieldsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `name`
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("name"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("name"));
       }
       // validate the optional field `description`
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("description"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("description"));
       }
       // validate the optional field `productName`
       if (jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("productName"));
+        StringChangedFieldViewModel.validateJsonElement(jsonObj.get("productName"));
       }
       // validate the optional field `build`
       if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("build"));
+        StringChangedFieldViewModel.validateJsonElement(jsonObj.get("build"));
       }
       // validate the optional field `period`
       if (jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) {
-        PeriodViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("period"));
+        PeriodViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("period"));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
+        StringChangedFieldViewModel.validateJsonElement(jsonObj.get("status"));
       }
       // validate the optional field `tags`
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
-        StringArrayChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("tags"));
+        StringArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("tags"));
       }
       // validate the optional field `testSuite`
       if (jsonObj.get("testSuite") != null && !jsonObj.get("testSuite").isJsonNull()) {
-        TestSuiteChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testSuite"));
+        TestSuiteChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testSuite"));
       }
       // validate the optional field `testPoints`
       if (jsonObj.get("testPoints") != null && !jsonObj.get("testPoints").isJsonNull()) {
-        TestPointChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testPoints"));
+        TestPointChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testPoints"));
       }
       // validate the optional field `testResults`
       if (jsonObj.get("testResults") != null && !jsonObj.get("testResults").isJsonNull()) {
-        TestResultChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testResults"));
+        TestResultChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testResults"));
       }
       // validate the optional field `locking`
       if (jsonObj.get("locking") != null && !jsonObj.get("locking").isJsonNull()) {
-        BooleanChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("locking"));
+        BooleanChangedFieldViewModel.validateJsonElement(jsonObj.get("locking"));
       }
       // validate the optional field `hasAutomaticDurationTimer`
       if (jsonObj.get("hasAutomaticDurationTimer") != null && !jsonObj.get("hasAutomaticDurationTimer").isJsonNull()) {
-        BooleanNullableChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("hasAutomaticDurationTimer"));
+        BooleanNullableChangedFieldViewModel.validateJsonElement(jsonObj.get("hasAutomaticDurationTimer"));
       }
   }
 
@@ -589,9 +563,9 @@ public class TestPlanChangedFieldsViewModel {
 
            @Override
            public TestPlanChangedFieldsViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

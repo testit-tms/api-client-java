@@ -28,7 +28,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2AutoTestsFlakyBulkPost"></a>
 # **apiV2AutoTestsFlakyBulkPost**
-> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest)
+> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel)
 
 Set \&quot;Flaky\&quot; status for multiple autotests
 
@@ -61,9 +61,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest = new ApiV2AutoTestsFlakyBulkPostRequest(); // ApiV2AutoTestsFlakyBulkPostRequest | 
+    FlakyBulkModel flakyBulkModel = new FlakyBulkModel(); // FlakyBulkModel | 
     try {
-      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest);
+      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsFlakyBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -84,7 +84,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsFlakyBulkPostRequest** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md)|  | [optional] |
+| **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] |
 
 ### Return type
 
@@ -179,7 +179,7 @@ null (empty response body)
 
 <a id="apiV2AutoTestsIdTestResultsSearchPost"></a>
 # **apiV2AutoTestsIdTestResultsSearchPost**
-> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest)
+> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel)
 
 Get test results history for autotest
 
@@ -213,9 +213,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest = new ApiV2AutoTestsIdTestResultsSearchPostRequest(); // ApiV2AutoTestsIdTestResultsSearchPostRequest | 
+    AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel = new AutotestHistoricalResultSelectModel(); // AutotestHistoricalResultSelectModel | 
     try {
-      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest);
+      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsIdTestResultsSearchPost");
@@ -238,7 +238,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsIdTestResultsSearchPostRequest** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md)|  | [optional] |
+| **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -407,7 +407,7 @@ null (empty response body)
 
 <a id="apiV2AutoTestsSearchPost"></a>
 # **apiV2AutoTestsSearchPost**
-> List&lt;AutoTestModel&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest)
+> List&lt;AutoTestModel&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autotestsSelectModel)
 
 Search for autotests
 
@@ -438,9 +438,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest = new ApiV2AutoTestsSearchPostRequest(); // ApiV2AutoTestsSearchPostRequest | 
+    AutotestsSelectModel autotestsSelectModel = new AutotestsSelectModel(); // AutotestsSelectModel | 
     try {
-      List<AutoTestModel> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest);
+      List<AutoTestModel> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autotestsSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsSearchPost");
@@ -462,7 +462,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsSearchPostRequest** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md)|  | [optional] |
+| **autotestsSelectModel** | [**AutotestsSelectModel**](AutotestsSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -485,7 +485,7 @@ public class Example {
 
 <a id="createAutoTest"></a>
 # **createAutoTest**
-> AutoTestModel createAutoTest(createAutoTestRequest)
+> AutoTestModel createAutoTest(autoTestPostModel)
 
 Create autotest
 
@@ -513,9 +513,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    CreateAutoTestRequest createAutoTestRequest = new CreateAutoTestRequest(); // CreateAutoTestRequest | 
+    AutoTestPostModel autoTestPostModel = new AutoTestPostModel(); // AutoTestPostModel | 
     try {
-      AutoTestModel result = apiInstance.createAutoTest(createAutoTestRequest);
+      AutoTestModel result = apiInstance.createAutoTest(autoTestPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#createAutoTest");
@@ -532,7 +532,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAutoTestRequest** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md)|  | [optional] |
+| **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1363,7 +1363,7 @@ public class Example {
 
 <a id="linkAutoTestToWorkItem"></a>
 # **linkAutoTestToWorkItem**
-> linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest)
+> linkAutoTestToWorkItem(id, workItemIdModel)
 
 Link autotest with work items
 
@@ -1392,9 +1392,9 @@ public class Example {
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
     String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
-    LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest = new LinkAutoTestToWorkItemRequest(); // LinkAutoTestToWorkItemRequest | 
+    WorkItemIdModel workItemIdModel = new WorkItemIdModel(); // WorkItemIdModel | 
     try {
-      apiInstance.linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest);
+      apiInstance.linkAutoTestToWorkItem(id, workItemIdModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#linkAutoTestToWorkItem");
       System.err.println("Status code: " + e.getCode());
@@ -1411,7 +1411,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Autotest internal (UUID) or global (integer) identifier | |
-| **linkAutoTestToWorkItemRequest** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md)|  | [optional] |
+| **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1437,7 +1437,7 @@ null (empty response body)
 
 <a id="updateAutoTest"></a>
 # **updateAutoTest**
-> updateAutoTest(updateAutoTestRequest)
+> updateAutoTest(autoTestPutModel)
 
 Update autotest
 
@@ -1465,9 +1465,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    UpdateAutoTestRequest updateAutoTestRequest = new UpdateAutoTestRequest(); // UpdateAutoTestRequest | 
+    AutoTestPutModel autoTestPutModel = new AutoTestPutModel(); // AutoTestPutModel | 
     try {
-      apiInstance.updateAutoTest(updateAutoTestRequest);
+      apiInstance.updateAutoTest(autoTestPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#updateAutoTest");
       System.err.println("Status code: " + e.getCode());
@@ -1483,7 +1483,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateAutoTestRequest** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md)|  | [optional] |
+| **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] |
 
 ### Return type
 

@@ -84,7 +84,7 @@ null (empty response body)
 
 <a id="apiV2WorkItemsCommentsPost"></a>
 # **apiV2WorkItemsCommentsPost**
-> WorkItemCommentModel apiV2WorkItemsCommentsPost(apiV2WorkItemsCommentsPostRequest)
+> WorkItemCommentModel apiV2WorkItemsCommentsPost(workItemCommentPostModel)
 
 Create WorkItem comment
 
@@ -112,9 +112,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-    ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest = new ApiV2WorkItemsCommentsPostRequest(); // ApiV2WorkItemsCommentsPostRequest | 
+    WorkItemCommentPostModel workItemCommentPostModel = new WorkItemCommentPostModel(); // WorkItemCommentPostModel | 
     try {
-      WorkItemCommentModel result = apiInstance.apiV2WorkItemsCommentsPost(apiV2WorkItemsCommentsPostRequest);
+      WorkItemCommentModel result = apiInstance.apiV2WorkItemsCommentsPost(workItemCommentPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPost");
@@ -131,7 +131,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2WorkItemsCommentsPostRequest** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional] |
+| **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -157,7 +157,7 @@ public class Example {
 
 <a id="apiV2WorkItemsCommentsPut"></a>
 # **apiV2WorkItemsCommentsPut**
-> apiV2WorkItemsCommentsPut(apiV2WorkItemsCommentsPutRequest)
+> apiV2WorkItemsCommentsPut(workItemCommentPutModel)
 
 Update work item comment
 
@@ -183,9 +183,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-    ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest = new ApiV2WorkItemsCommentsPutRequest(); // ApiV2WorkItemsCommentsPutRequest | 
+    WorkItemCommentPutModel workItemCommentPutModel = new WorkItemCommentPutModel(); // WorkItemCommentPutModel | 
     try {
-      apiInstance.apiV2WorkItemsCommentsPut(apiV2WorkItemsCommentsPutRequest);
+      apiInstance.apiV2WorkItemsCommentsPut(workItemCommentPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPut");
       System.err.println("Status code: " + e.getCode());
@@ -201,7 +201,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2WorkItemsCommentsPutRequest** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md)|  | [optional] |
+| **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional] |
 
 ### Return type
 

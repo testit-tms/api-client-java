@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -82,7 +81,6 @@ public class SearchWebhooksQueryModel {
   }
 
   public SearchWebhooksQueryModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -96,14 +94,12 @@ public class SearchWebhooksQueryModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public SearchWebhooksQueryModel eventTypes(Set<WebHookEventTypeModel> eventTypes) {
-    
     this.eventTypes = eventTypes;
     return this;
   }
@@ -125,14 +121,12 @@ public class SearchWebhooksQueryModel {
     return eventTypes;
   }
 
-
   public void setEventTypes(Set<WebHookEventTypeModel> eventTypes) {
     this.eventTypes = eventTypes;
   }
 
 
   public SearchWebhooksQueryModel methods(Set<RequestTypeModel> methods) {
-    
     this.methods = methods;
     return this;
   }
@@ -154,14 +148,12 @@ public class SearchWebhooksQueryModel {
     return methods;
   }
 
-
   public void setMethods(Set<RequestTypeModel> methods) {
     this.methods = methods;
   }
 
 
   public SearchWebhooksQueryModel projectIds(Set<UUID> projectIds) {
-    
     this.projectIds = projectIds;
     return this;
   }
@@ -183,14 +175,12 @@ public class SearchWebhooksQueryModel {
     return projectIds;
   }
 
-
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
   public SearchWebhooksQueryModel isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -203,7 +193,6 @@ public class SearchWebhooksQueryModel {
   public Boolean getIsEnabled() {
     return isEnabled;
   }
-
 
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
@@ -285,38 +274,39 @@ public class SearchWebhooksQueryModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchWebhooksQueryModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchWebhooksQueryModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SearchWebhooksQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchWebhooksQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchWebhooksQueryModel is not found in the empty JSON string", SearchWebhooksQueryModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchWebhooksQueryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchWebhooksQueryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchWebhooksQueryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("eventTypes") != null && !jsonObj.get("eventTypes").isJsonArray()) {
+      if (jsonObj.get("eventTypes") != null && !jsonObj.get("eventTypes").isJsonNull() && !jsonObj.get("eventTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `eventTypes` to be an array in the JSON string but got `%s`", jsonObj.get("eventTypes").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("methods") != null && !jsonObj.get("methods").isJsonArray()) {
+      if (jsonObj.get("methods") != null && !jsonObj.get("methods").isJsonNull() && !jsonObj.get("methods").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `methods` to be an array in the JSON string but got `%s`", jsonObj.get("methods").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
@@ -341,9 +331,9 @@ public class SearchWebhooksQueryModel {
 
            @Override
            public SearchWebhooksQueryModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

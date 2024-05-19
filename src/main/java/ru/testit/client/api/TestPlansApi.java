@@ -27,13 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
-import ru.testit.client.model.ApiV2TestPlansIdExportTestPointsXlsxPostRequest;
-import ru.testit.client.model.ApiV2TestPlansIdTestPointsTesterUserIdPostRequest;
-import ru.testit.client.model.ApiV2TestPlansIdTestRunsSearchPostRequest;
 import ru.testit.client.model.ConfigurationModel;
-import ru.testit.client.model.CreateTestPlanRequest;
 import java.io.File;
+import ru.testit.client.model.GetXlsxTestPointsByTestPlanModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
@@ -41,22 +37,25 @@ import java.util.Set;
 import ru.testit.client.model.TestPlanChangeModel;
 import ru.testit.client.model.TestPlanLink;
 import ru.testit.client.model.TestPlanModel;
+import ru.testit.client.model.TestPlanPostModel;
+import ru.testit.client.model.TestPlanPutModel;
 import ru.testit.client.model.TestPlanShortModel;
 import ru.testit.client.model.TestPlanWithTestSuiteTreeModel;
 import ru.testit.client.model.TestPointAnalyticResult;
+import ru.testit.client.model.TestPointSelectModel;
 import ru.testit.client.model.TestPointWithLastResultModel;
 import ru.testit.client.model.TestRunModel;
+import ru.testit.client.model.TestRunSearchQueryModel;
 import ru.testit.client.model.TestSuiteV2TreeModel;
 import java.util.UUID;
-import ru.testit.client.model.UpdateTestPlanRequest;
 import ru.testit.client.model.ValidationProblemDetails;
+import ru.testit.client.model.WorkItemSelectModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TestPlansApi {
     private ApiClient localVarApiClient;
@@ -98,7 +97,7 @@ public class TestPlansApi {
     /**
      * Build call for addTestPointsWithSections
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -112,7 +111,7 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsWithSectionsCall(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsWithSectionsCall(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -126,7 +125,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = workItemSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/test-points/withSections"
@@ -159,13 +158,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsWithSectionsValidateBeforeCall(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsWithSectionsValidateBeforeCall(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsWithSections(Async)");
         }
 
-        return addTestPointsWithSectionsCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        return addTestPointsWithSectionsCall(id, workItemSelectModel, _callback);
 
     }
 
@@ -173,7 +172,7 @@ public class TestPlansApi {
      * Add test-points to TestPlan with sections
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -185,15 +184,15 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsWithSections(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        addTestPointsWithSectionsWithHttpInfo(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public void addTestPointsWithSections(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        addTestPointsWithSectionsWithHttpInfo(id, workItemSelectModel);
     }
 
     /**
      * Add test-points to TestPlan with sections
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -206,8 +205,8 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsWithSectionsWithHttpInfo(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<Void> addTestPointsWithSectionsWithHttpInfo(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, workItemSelectModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -215,7 +214,7 @@ public class TestPlansApi {
      * Add test-points to TestPlan with sections (asynchronously)
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -229,9 +228,9 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsWithSectionsAsync(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsWithSectionsAsync(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, workItemSelectModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -792,7 +791,7 @@ public class TestPlansApi {
      * Build call for apiV2TestPlansIdExportTestPointsXlsxPost
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
+     * @param getXlsxTestPointsByTestPlanModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -806,7 +805,7 @@ public class TestPlansApi {
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostCall(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostCall(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -820,7 +819,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPlansIdExportTestPointsXlsxPostRequest;
+        Object localVarPostBody = getXlsxTestPointsByTestPlanModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/export/testPoints/xlsx"
@@ -858,13 +857,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdExportTestPointsXlsxPost(Async)");
         }
 
-        return apiV2TestPlansIdExportTestPointsXlsxPostCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, _callback);
+        return apiV2TestPlansIdExportTestPointsXlsxPostCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, _callback);
 
     }
 
@@ -873,7 +872,7 @@ public class TestPlansApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
+     * @param getXlsxTestPointsByTestPlanModel  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -886,8 +885,8 @@ public class TestPlansApi {
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
      */
-    public File apiV2TestPlansIdExportTestPointsXlsxPost(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest) throws ApiException {
-        ApiResponse<File> localVarResp = apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest);
+    public File apiV2TestPlansIdExportTestPointsXlsxPost(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
+        ApiResponse<File> localVarResp = apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel);
         return localVarResp.getData();
     }
 
@@ -896,7 +895,7 @@ public class TestPlansApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
+     * @param getXlsxTestPointsByTestPlanModel  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -909,8 +908,8 @@ public class TestPlansApi {
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, null);
+    public ApiResponse<File> apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -920,7 +919,7 @@ public class TestPlansApi {
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
+     * @param getXlsxTestPointsByTestPlanModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -934,9 +933,9 @@ public class TestPlansApi {
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostAsync(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostAsync(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1901,7 +1900,7 @@ public class TestPlansApi {
     /**
      * Build call for apiV2TestPlansIdTestPointsTesterDelete
      * @param id Unique or global ID of the test plan (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1912,7 +1911,7 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteCall(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteCall(String id, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1926,7 +1925,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPlansIdTestPointsTesterUserIdPostRequest;
+        Object localVarPostBody = testPointSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testPoints/tester"
@@ -1959,13 +1958,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(String id, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestPointsTesterDelete(Async)");
         }
 
-        return apiV2TestPlansIdTestPointsTesterDeleteCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
+        return apiV2TestPlansIdTestPointsTesterDeleteCall(id, testPointSelectModel, _callback);
 
     }
 
@@ -1973,7 +1972,7 @@ public class TestPlansApi {
      * Unassign users from multiple test points
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1983,8 +1982,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2TestPlansIdTestPointsTesterDelete(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
+    public List<UUID> apiV2TestPlansIdTestPointsTesterDelete(String id, TestPointSelectModel testPointSelectModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(id, testPointSelectModel);
         return localVarResp.getData();
     }
 
@@ -1992,7 +1991,7 @@ public class TestPlansApi {
      * Unassign users from multiple test points
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2002,8 +2001,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(String id, TestPointSelectModel testPointSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, testPointSelectModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2012,7 +2011,7 @@ public class TestPlansApi {
      * Unassign users from multiple test points (asynchronously)
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2023,9 +2022,9 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteAsync(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteAsync(String id, TestPointSelectModel testPointSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, testPointSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2034,7 +2033,7 @@ public class TestPlansApi {
      * Build call for apiV2TestPlansIdTestPointsTesterUserIdPost
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2045,7 +2044,7 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostCall(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostCall(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2059,7 +2058,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPlansIdTestPointsTesterUserIdPostRequest;
+        Object localVarPostBody = testPointSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testPoints/tester/{userId}"
@@ -2093,7 +2092,7 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestPointsTesterUserIdPost(Async)");
@@ -2104,7 +2103,7 @@ public class TestPlansApi {
             throw new ApiException("Missing the required parameter 'userId' when calling apiV2TestPlansIdTestPointsTesterUserIdPost(Async)");
         }
 
-        return apiV2TestPlansIdTestPointsTesterUserIdPostCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
+        return apiV2TestPlansIdTestPointsTesterUserIdPostCall(id, userId, testPointSelectModel, _callback);
 
     }
 
@@ -2113,7 +2112,7 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2123,8 +2122,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2TestPlansIdTestPointsTesterUserIdPost(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
+    public List<UUID> apiV2TestPlansIdTestPointsTesterUserIdPost(String id, UUID userId, TestPointSelectModel testPointSelectModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(id, userId, testPointSelectModel);
         return localVarResp.getData();
     }
 
@@ -2133,7 +2132,7 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2143,8 +2142,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(String id, UUID userId, TestPointSelectModel testPointSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, testPointSelectModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2154,7 +2153,7 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
+     * @param testPointSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2165,9 +2164,9 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostAsync(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostAsync(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, testPointSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2383,7 +2382,7 @@ public class TestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
+     * @param testRunSearchQueryModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2395,7 +2394,7 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2409,7 +2408,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestPlansIdTestRunsSearchPostRequest;
+        Object localVarPostBody = testRunSearchQueryModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testRuns/search"
@@ -2462,13 +2461,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestRunsSearchPost(Async)");
         }
 
-        return apiV2TestPlansIdTestRunsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, _callback);
+        return apiV2TestPlansIdTestRunsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, _callback);
 
     }
 
@@ -2481,7 +2480,7 @@ public class TestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
+     * @param testRunSearchQueryModel  (optional)
      * @return List&lt;TestRunModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2492,8 +2491,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestRunModel> apiV2TestPlansIdTestRunsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestRunModel>> localVarResp = apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest);
+    public List<TestRunModel> apiV2TestPlansIdTestRunsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
+        ApiResponse<List<TestRunModel>> localVarResp = apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel);
         return localVarResp.getData();
     }
 
@@ -2506,7 +2505,7 @@ public class TestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
+     * @param testRunSearchQueryModel  (optional)
      * @return ApiResponse&lt;List&lt;TestRunModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2517,8 +2516,8 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, null);
+    public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, null);
         Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2532,7 +2531,7 @@ public class TestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
+     * @param testRunSearchQueryModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2544,9 +2543,9 @@ public class TestPlansApi {
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, _callback);
         Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3231,7 +3230,7 @@ public class TestPlansApi {
     }
     /**
      * Build call for createTestPlan
-     * @param createTestPlanRequest  (optional)
+     * @param testPlanPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3245,7 +3244,7 @@ public class TestPlansApi {
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestPlanCall(CreateTestPlanRequest createTestPlanRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTestPlanCall(TestPlanPostModel testPlanPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3259,7 +3258,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTestPlanRequest;
+        Object localVarPostBody = testPlanPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans";
@@ -3291,15 +3290,15 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTestPlanValidateBeforeCall(CreateTestPlanRequest createTestPlanRequest, final ApiCallback _callback) throws ApiException {
-        return createTestPlanCall(createTestPlanRequest, _callback);
+    private okhttp3.Call createTestPlanValidateBeforeCall(TestPlanPostModel testPlanPostModel, final ApiCallback _callback) throws ApiException {
+        return createTestPlanCall(testPlanPostModel, _callback);
 
     }
 
     /**
      * Create TestPlan
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param createTestPlanRequest  (optional)
+     * @param testPlanPostModel  (optional)
      * @return TestPlanModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3312,15 +3311,15 @@ public class TestPlansApi {
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public TestPlanModel createTestPlan(CreateTestPlanRequest createTestPlanRequest) throws ApiException {
-        ApiResponse<TestPlanModel> localVarResp = createTestPlanWithHttpInfo(createTestPlanRequest);
+    public TestPlanModel createTestPlan(TestPlanPostModel testPlanPostModel) throws ApiException {
+        ApiResponse<TestPlanModel> localVarResp = createTestPlanWithHttpInfo(testPlanPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create TestPlan
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param createTestPlanRequest  (optional)
+     * @param testPlanPostModel  (optional)
      * @return ApiResponse&lt;TestPlanModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3333,8 +3332,8 @@ public class TestPlansApi {
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestPlanModel> createTestPlanWithHttpInfo(CreateTestPlanRequest createTestPlanRequest) throws ApiException {
-        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(createTestPlanRequest, null);
+    public ApiResponse<TestPlanModel> createTestPlanWithHttpInfo(TestPlanPostModel testPlanPostModel) throws ApiException {
+        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(testPlanPostModel, null);
         Type localVarReturnType = new TypeToken<TestPlanModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3342,7 +3341,7 @@ public class TestPlansApi {
     /**
      * Create TestPlan (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param createTestPlanRequest  (optional)
+     * @param testPlanPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3356,9 +3355,9 @@ public class TestPlansApi {
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestPlanAsync(CreateTestPlanRequest createTestPlanRequest, final ApiCallback<TestPlanModel> _callback) throws ApiException {
+    public okhttp3.Call createTestPlanAsync(TestPlanPostModel testPlanPostModel, final ApiCallback<TestPlanModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(createTestPlanRequest, _callback);
+        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(testPlanPostModel, _callback);
         Type localVarReturnType = new TypeToken<TestPlanModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4286,7 +4285,7 @@ public class TestPlansApi {
     }
     /**
      * Build call for updateTestPlan
-     * @param updateTestPlanRequest  (optional)
+     * @param testPlanPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4302,7 +4301,7 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTestPlanCall(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTestPlanCall(TestPlanPutModel testPlanPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4316,7 +4315,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateTestPlanRequest;
+        Object localVarPostBody = testPlanPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans";
@@ -4348,15 +4347,15 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTestPlanValidateBeforeCall(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback _callback) throws ApiException {
-        return updateTestPlanCall(updateTestPlanRequest, _callback);
+    private okhttp3.Call updateTestPlanValidateBeforeCall(TestPlanPutModel testPlanPutModel, final ApiCallback _callback) throws ApiException {
+        return updateTestPlanCall(testPlanPutModel, _callback);
 
     }
 
     /**
      * Update TestPlan
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param updateTestPlanRequest  (optional)
+     * @param testPlanPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4370,14 +4369,14 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public void updateTestPlan(UpdateTestPlanRequest updateTestPlanRequest) throws ApiException {
-        updateTestPlanWithHttpInfo(updateTestPlanRequest);
+    public void updateTestPlan(TestPlanPutModel testPlanPutModel) throws ApiException {
+        updateTestPlanWithHttpInfo(testPlanPutModel);
     }
 
     /**
      * Update TestPlan
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param updateTestPlanRequest  (optional)
+     * @param testPlanPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4392,15 +4391,15 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateTestPlanWithHttpInfo(UpdateTestPlanRequest updateTestPlanRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(updateTestPlanRequest, null);
+    public ApiResponse<Void> updateTestPlanWithHttpInfo(TestPlanPutModel testPlanPutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(testPlanPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update TestPlan (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param updateTestPlanRequest  (optional)
+     * @param testPlanPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4416,9 +4415,9 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTestPlanAsync(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateTestPlanAsync(TestPlanPutModel testPlanPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(updateTestPlanRequest, _callback);
+        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(testPlanPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

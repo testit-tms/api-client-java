@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -66,7 +65,6 @@ public class TagsFilterModelCreatedDate {
   }
 
   public TagsFilterModelCreatedDate from(OffsetDateTime from) {
-    
     this.from = from;
     return this;
   }
@@ -80,14 +78,12 @@ public class TagsFilterModelCreatedDate {
     return from;
   }
 
-
   public void setFrom(OffsetDateTime from) {
     this.from = from;
   }
 
 
   public TagsFilterModelCreatedDate to(OffsetDateTime to) {
-    
     this.to = to;
     return this;
   }
@@ -100,7 +96,6 @@ public class TagsFilterModelCreatedDate {
   public OffsetDateTime getTo() {
     return to;
   }
-
 
   public void setTo(OffsetDateTime to) {
     this.to = to;
@@ -173,25 +168,26 @@ public class TagsFilterModelCreatedDate {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TagsFilterModelCreatedDate
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TagsFilterModelCreatedDate
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TagsFilterModelCreatedDate.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TagsFilterModelCreatedDate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TagsFilterModelCreatedDate is not found in the empty JSON string", TagsFilterModelCreatedDate.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TagsFilterModelCreatedDate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsFilterModelCreatedDate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsFilterModelCreatedDate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -214,9 +210,9 @@ public class TagsFilterModelCreatedDate {
 
            @Override
            public TagsFilterModelCreatedDate read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

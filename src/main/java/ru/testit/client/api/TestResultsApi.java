@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2TestResultsIdPutRequest;
-import ru.testit.client.model.ApiV2TestResultsSearchPostRequest;
 import ru.testit.client.model.AttachmentModel;
 import java.io.File;
 import ru.testit.client.model.ImageResizeType;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestResultModel;
 import ru.testit.client.model.TestResultShortGetModel;
+import ru.testit.client.model.TestResultUpdateModel;
+import ru.testit.client.model.TestResultsFilterModel;
 import ru.testit.client.model.TestResultsStatisticsGetModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TestResultsApi {
     private ApiClient localVarApiClient;
@@ -600,7 +599,7 @@ public class TestResultsApi {
     /**
      * Build call for apiV2TestResultsIdPut
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -611,7 +610,7 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -625,7 +624,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsIdPutRequest;
+        Object localVarPostBody = testResultUpdateModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/{id}"
@@ -658,13 +657,13 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestResultsIdPut(Async)");
         }
 
-        return apiV2TestResultsIdPutCall(id, apiV2TestResultsIdPutRequest, _callback);
+        return apiV2TestResultsIdPutCall(id, testResultUpdateModel, _callback);
 
     }
 
@@ -672,7 +671,7 @@ public class TestResultsApi {
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -681,15 +680,15 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestResultsIdPut(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
-        apiV2TestResultsIdPutWithHttpInfo(id, apiV2TestResultsIdPutRequest);
+    public void apiV2TestResultsIdPut(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
+        apiV2TestResultsIdPutWithHttpInfo(id, testResultUpdateModel);
     }
 
     /**
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -699,8 +698,8 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, null);
+    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -708,7 +707,7 @@ public class TestResultsApi {
      * Edit test result by ID (asynchronously)
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -719,9 +718,9 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -732,7 +731,7 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -743,7 +742,7 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -757,7 +756,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
+        Object localVarPostBody = testResultsFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/search";
@@ -809,8 +808,8 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, _callback);
 
     }
 
@@ -822,7 +821,7 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @return List&lt;TestResultShortGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -832,8 +831,8 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestResultShortGetModel>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
+    public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
+        ApiResponse<List<TestResultShortGetModel>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
         return localVarResp.getData();
     }
 
@@ -845,7 +844,7 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;TestResultShortGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -855,8 +854,8 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, null);
+    public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, null);
         Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -869,7 +868,7 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -880,16 +879,16 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<List<TestResultShortGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback<List<TestResultShortGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestResultsStatisticsFilterPost
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -900,7 +899,7 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -914,7 +913,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
+        Object localVarPostBody = testResultsFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/statistics/filter";
@@ -946,15 +945,15 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsStatisticsFilterPostCall(apiV2TestResultsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsStatisticsFilterPostCall(testResultsFilterModel, _callback);
 
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @return TestResultsStatisticsGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -964,15 +963,15 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(apiV2TestResultsSearchPostRequest);
+    public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(TestResultsFilterModel testResultsFilterModel) throws ApiException {
+        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(testResultsFilterModel);
         return localVarResp.getData();
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -982,8 +981,8 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, null);
+    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(TestResultsFilterModel testResultsFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterModel, null);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -991,7 +990,7 @@ public class TestResultsApi {
     /**
      * Search for test results and extract statistics (asynchronously)
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1002,9 +1001,9 @@ public class TestResultsApi {
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(TestResultsFilterModel testResultsFilterModel, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterModel, _callback);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

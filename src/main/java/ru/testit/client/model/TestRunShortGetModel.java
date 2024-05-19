@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,9 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestRunShortGetModelStatistics;
+import ru.testit.client.model.TestResultsStatisticsGetModel;
 import ru.testit.client.model.TestRunState;
 
 import com.google.gson.Gson;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -99,13 +98,12 @@ public class TestRunShortGetModel {
 
   public static final String SERIALIZED_NAME_STATISTICS = "statistics";
   @SerializedName(SERIALIZED_NAME_STATISTICS)
-  private TestRunShortGetModelStatistics statistics;
+  private TestResultsStatisticsGetModel statistics;
 
   public TestRunShortGetModel() {
   }
 
   public TestRunShortGetModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -119,14 +117,12 @@ public class TestRunShortGetModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestRunShortGetModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -140,14 +136,12 @@ public class TestRunShortGetModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunShortGetModel state(TestRunState state) {
-    
     this.state = state;
     return this;
   }
@@ -161,14 +155,12 @@ public class TestRunShortGetModel {
     return state;
   }
 
-
   public void setState(TestRunState state) {
     this.state = state;
   }
 
 
   public TestRunShortGetModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -182,14 +174,12 @@ public class TestRunShortGetModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestRunShortGetModel startedDate(OffsetDateTime startedDate) {
-    
     this.startedDate = startedDate;
     return this;
   }
@@ -203,14 +193,12 @@ public class TestRunShortGetModel {
     return startedDate;
   }
 
-
   public void setStartedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
   }
 
 
   public TestRunShortGetModel completedDate(OffsetDateTime completedDate) {
-    
     this.completedDate = completedDate;
     return this;
   }
@@ -224,14 +212,12 @@ public class TestRunShortGetModel {
     return completedDate;
   }
 
-
   public void setCompletedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
   }
 
 
   public TestRunShortGetModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -245,14 +231,12 @@ public class TestRunShortGetModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestRunShortGetModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -266,14 +250,12 @@ public class TestRunShortGetModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestRunShortGetModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -287,14 +269,12 @@ public class TestRunShortGetModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestRunShortGetModel autoTestsCount(Integer autoTestsCount) {
-    
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -308,14 +288,12 @@ public class TestRunShortGetModel {
     return autoTestsCount;
   }
 
-
   public void setAutoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
-  public TestRunShortGetModel statistics(TestRunShortGetModelStatistics statistics) {
-    
+  public TestRunShortGetModel statistics(TestResultsStatisticsGetModel statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -325,12 +303,11 @@ public class TestRunShortGetModel {
    * @return statistics
   **/
   @javax.annotation.Nonnull
-  public TestRunShortGetModelStatistics getStatistics() {
+  public TestResultsStatisticsGetModel getStatistics() {
     return statistics;
   }
 
-
-  public void setStatistics(TestRunShortGetModelStatistics statistics) {
+  public void setStatistics(TestResultsStatisticsGetModel statistics) {
     this.statistics = statistics;
   }
 
@@ -436,38 +413,41 @@ public class TestRunShortGetModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestRunShortGetModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestRunShortGetModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestRunShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestRunShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunShortGetModel is not found in the empty JSON string", TestRunShortGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestRunShortGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunShortGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunShortGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the required field `state`
+      TestRunState.validateJsonElement(jsonObj.get("state"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -475,7 +455,7 @@ public class TestRunShortGetModel {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
       // validate the required field `statistics`
-      TestRunShortGetModelStatistics.validateJsonObject(jsonObj.getAsJsonObject("statistics"));
+      TestResultsStatisticsGetModel.validateJsonElement(jsonObj.get("statistics"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -498,9 +478,9 @@ public class TestRunShortGetModel {
 
            @Override
            public TestRunShortGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

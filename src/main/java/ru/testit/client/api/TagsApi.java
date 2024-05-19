@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2TagsDeleteRequest;
-import ru.testit.client.model.ApiV2TagsPostRequest;
-import ru.testit.client.model.ApiV2TagsPutRequest;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TagModel;
+import ru.testit.client.model.TagPostModel;
+import ru.testit.client.model.TagPutModel;
+import ru.testit.client.model.TagSelectModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 
@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TagsApi {
     private ApiClient localVarApiClient;
@@ -81,7 +80,7 @@ public class TagsApi {
 
     /**
      * Build call for apiV2TagsDelete
-     * @param apiV2TagsDeleteRequest  (optional)
+     * @param tagSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +94,7 @@ public class TagsApi {
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsDeleteCall(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsDeleteCall(TagSelectModel tagSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +108,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TagsDeleteRequest;
+        Object localVarPostBody = tagSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -144,15 +143,15 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsDeleteValidateBeforeCall(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsDeleteCall(apiV2TagsDeleteRequest, _callback);
+    private okhttp3.Call apiV2TagsDeleteValidateBeforeCall(TagSelectModel tagSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsDeleteCall(tagSelectModel, _callback);
 
     }
 
     /**
      * Delete tags
      * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param apiV2TagsDeleteRequest  (optional)
+     * @param tagSelectModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -164,14 +163,14 @@ public class TagsApi {
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TagsDelete(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest) throws ApiException {
-        apiV2TagsDeleteWithHttpInfo(apiV2TagsDeleteRequest);
+    public void apiV2TagsDelete(TagSelectModel tagSelectModel) throws ApiException {
+        apiV2TagsDeleteWithHttpInfo(tagSelectModel);
     }
 
     /**
      * Delete tags
      * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param apiV2TagsDeleteRequest  (optional)
+     * @param tagSelectModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,15 +183,15 @@ public class TagsApi {
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(apiV2TagsDeleteRequest, null);
+    public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(TagSelectModel tagSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(tagSelectModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete tags (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param apiV2TagsDeleteRequest  (optional)
+     * @param tagSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -206,9 +205,9 @@ public class TagsApi {
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsDeleteAsync(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsDeleteAsync(TagSelectModel tagSelectModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(apiV2TagsDeleteRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(tagSelectModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -475,7 +474,7 @@ public class TagsApi {
     }
     /**
      * Build call for apiV2TagsPost
-     * @param apiV2TagsPostRequest  (optional)
+     * @param tagPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -487,7 +486,7 @@ public class TagsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPostCall(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPostCall(TagPostModel tagPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -501,7 +500,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TagsPostRequest;
+        Object localVarPostBody = tagPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -536,15 +535,15 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsPostValidateBeforeCall(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsPostCall(apiV2TagsPostRequest, _callback);
+    private okhttp3.Call apiV2TagsPostValidateBeforeCall(TagPostModel tagPostModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsPostCall(tagPostModel, _callback);
 
     }
 
     /**
      * Create tag
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param apiV2TagsPostRequest  (optional)
+     * @param tagPostModel  (optional)
      * @return TagModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -555,15 +554,15 @@ public class TagsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public TagModel apiV2TagsPost(ApiV2TagsPostRequest apiV2TagsPostRequest) throws ApiException {
-        ApiResponse<TagModel> localVarResp = apiV2TagsPostWithHttpInfo(apiV2TagsPostRequest);
+    public TagModel apiV2TagsPost(TagPostModel tagPostModel) throws ApiException {
+        ApiResponse<TagModel> localVarResp = apiV2TagsPostWithHttpInfo(tagPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create tag
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param apiV2TagsPostRequest  (optional)
+     * @param tagPostModel  (optional)
      * @return ApiResponse&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -574,8 +573,8 @@ public class TagsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TagModel> apiV2TagsPostWithHttpInfo(ApiV2TagsPostRequest apiV2TagsPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(apiV2TagsPostRequest, null);
+    public ApiResponse<TagModel> apiV2TagsPostWithHttpInfo(TagPostModel tagPostModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(tagPostModel, null);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -583,7 +582,7 @@ public class TagsApi {
     /**
      * Create tag (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param apiV2TagsPostRequest  (optional)
+     * @param tagPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -595,9 +594,9 @@ public class TagsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPostAsync(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback<TagModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPostAsync(TagPostModel tagPostModel, final ApiCallback<TagModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(apiV2TagsPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(tagPostModel, _callback);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -605,7 +604,7 @@ public class TagsApi {
     /**
      * Build call for apiV2TagsPut
      * @param id  (optional)
-     * @param apiV2TagsPutRequest  (optional)
+     * @param tagPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -619,7 +618,7 @@ public class TagsApi {
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPutCall(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPutCall(UUID id, TagPutModel tagPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -633,7 +632,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TagsPutRequest;
+        Object localVarPostBody = tagPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -672,8 +671,8 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsPutValidateBeforeCall(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsPutCall(id, apiV2TagsPutRequest, _callback);
+    private okhttp3.Call apiV2TagsPutValidateBeforeCall(UUID id, TagPutModel tagPutModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsPutCall(id, tagPutModel, _callback);
 
     }
 
@@ -681,7 +680,7 @@ public class TagsApi {
      * Update tag
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param apiV2TagsPutRequest  (optional)
+     * @param tagPutModel  (optional)
      * @return TagModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -694,8 +693,8 @@ public class TagsApi {
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
-    public TagModel apiV2TagsPut(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest) throws ApiException {
-        ApiResponse<TagModel> localVarResp = apiV2TagsPutWithHttpInfo(id, apiV2TagsPutRequest);
+    public TagModel apiV2TagsPut(UUID id, TagPutModel tagPutModel) throws ApiException {
+        ApiResponse<TagModel> localVarResp = apiV2TagsPutWithHttpInfo(id, tagPutModel);
         return localVarResp.getData();
     }
 
@@ -703,7 +702,7 @@ public class TagsApi {
      * Update tag
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param apiV2TagsPutRequest  (optional)
+     * @param tagPutModel  (optional)
      * @return ApiResponse&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,8 +715,8 @@ public class TagsApi {
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TagModel> apiV2TagsPutWithHttpInfo(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, apiV2TagsPutRequest, null);
+    public ApiResponse<TagModel> apiV2TagsPutWithHttpInfo(UUID id, TagPutModel tagPutModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, tagPutModel, null);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -726,7 +725,7 @@ public class TagsApi {
      * Update tag (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param apiV2TagsPutRequest  (optional)
+     * @param tagPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -740,9 +739,9 @@ public class TagsApi {
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPutAsync(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback<TagModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPutAsync(UUID id, TagPutModel tagPutModel, final ApiCallback<TagModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, apiV2TagsPutRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, tagPutModel, _callback);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

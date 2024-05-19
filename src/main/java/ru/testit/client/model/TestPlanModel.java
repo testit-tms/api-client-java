@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +51,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -153,7 +152,6 @@ public class TestPlanModel {
   }
 
   public TestPlanModel status(TestPlanStatusModel status) {
-    
     this.status = status;
     return this;
   }
@@ -167,14 +165,12 @@ public class TestPlanModel {
     return status;
   }
 
-
   public void setStatus(TestPlanStatusModel status) {
     this.status = status;
   }
 
 
   public TestPlanModel startedOn(OffsetDateTime startedOn) {
-    
     this.startedOn = startedOn;
     return this;
   }
@@ -188,14 +184,12 @@ public class TestPlanModel {
     return startedOn;
   }
 
-
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestPlanModel completedOn(OffsetDateTime completedOn) {
-    
     this.completedOn = completedOn;
     return this;
   }
@@ -209,14 +203,12 @@ public class TestPlanModel {
     return completedOn;
   }
 
-
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestPlanModel createdDate(OffsetDateTime createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -230,14 +222,12 @@ public class TestPlanModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPlanModel modifiedDate(OffsetDateTime modifiedDate) {
-    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -251,14 +241,12 @@ public class TestPlanModel {
     return modifiedDate;
   }
 
-
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPlanModel createdById(UUID createdById) {
-    
     this.createdById = createdById;
     return this;
   }
@@ -272,14 +260,12 @@ public class TestPlanModel {
     return createdById;
   }
 
-
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPlanModel modifiedById(UUID modifiedById) {
-    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -293,14 +279,12 @@ public class TestPlanModel {
     return modifiedById;
   }
 
-
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestPlanModel globalId(Long globalId) {
-    
     this.globalId = globalId;
     return this;
   }
@@ -314,14 +298,12 @@ public class TestPlanModel {
     return globalId;
   }
 
-
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public TestPlanModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -335,14 +317,12 @@ public class TestPlanModel {
     return isDeleted;
   }
 
-
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestPlanModel lockedDate(OffsetDateTime lockedDate) {
-    
     this.lockedDate = lockedDate;
     return this;
   }
@@ -356,14 +336,12 @@ public class TestPlanModel {
     return lockedDate;
   }
 
-
   public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
   public TestPlanModel id(UUID id) {
-    
     this.id = id;
     return this;
   }
@@ -377,14 +355,12 @@ public class TestPlanModel {
     return id;
   }
 
-
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPlanModel lockedById(UUID lockedById) {
-    
     this.lockedById = lockedById;
     return this;
   }
@@ -398,14 +374,12 @@ public class TestPlanModel {
     return lockedById;
   }
 
-
   public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
   public TestPlanModel tags(List<TagPostModel> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -427,14 +401,12 @@ public class TestPlanModel {
     return tags;
   }
 
-
   public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
   public TestPlanModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -448,14 +420,12 @@ public class TestPlanModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPlanModel startDate(OffsetDateTime startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -469,14 +439,12 @@ public class TestPlanModel {
     return startDate;
   }
 
-
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
   public TestPlanModel endDate(OffsetDateTime endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -490,14 +458,12 @@ public class TestPlanModel {
     return endDate;
   }
 
-
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
   public TestPlanModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -511,14 +477,12 @@ public class TestPlanModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestPlanModel build(String build) {
-    
     this.build = build;
     return this;
   }
@@ -532,14 +496,12 @@ public class TestPlanModel {
     return build;
   }
 
-
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public TestPlanModel projectId(UUID projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -553,14 +515,12 @@ public class TestPlanModel {
     return projectId;
   }
 
-
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPlanModel productName(String productName) {
-    
     this.productName = productName;
     return this;
   }
@@ -574,14 +534,12 @@ public class TestPlanModel {
     return productName;
   }
 
-
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
   public TestPlanModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -595,14 +553,12 @@ public class TestPlanModel {
     return hasAutomaticDurationTimer;
   }
 
-
   public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanModel attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -623,7 +579,6 @@ public class TestPlanModel {
   public Map<String, Object> getAttributes() {
     return attributes;
   }
-
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
@@ -764,32 +719,35 @@ public class TestPlanModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TestPlanModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanModel is not found in the empty JSON string", TestPlanModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `status`
+      TestPlanStatusModel.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -812,7 +770,7 @@ public class TestPlanModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagPostModel.validateJsonElement(jsonArraytags.get(i));
           };
         }
       }
@@ -853,9 +811,9 @@ public class TestPlanModel {
 
            @Override
            public TestPlanModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

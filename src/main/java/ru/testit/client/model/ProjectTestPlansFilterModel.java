@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -50,7 +50,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -128,7 +127,6 @@ public class ProjectTestPlansFilterModel {
   }
 
   public ProjectTestPlansFilterModel name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -142,14 +140,12 @@ public class ProjectTestPlansFilterModel {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ProjectTestPlansFilterModel description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -163,14 +159,12 @@ public class ProjectTestPlansFilterModel {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public ProjectTestPlansFilterModel build(String build) {
-    
     this.build = build;
     return this;
   }
@@ -184,14 +178,12 @@ public class ProjectTestPlansFilterModel {
     return build;
   }
 
-
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public ProjectTestPlansFilterModel productName(String productName) {
-    
     this.productName = productName;
     return this;
   }
@@ -205,14 +197,12 @@ public class ProjectTestPlansFilterModel {
     return productName;
   }
 
-
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
   public ProjectTestPlansFilterModel status(Set<TestPlanStatusModel> status) {
-    
     this.status = status;
     return this;
   }
@@ -234,14 +224,12 @@ public class ProjectTestPlansFilterModel {
     return status;
   }
 
-
   public void setStatus(Set<TestPlanStatusModel> status) {
     this.status = status;
   }
 
 
   public ProjectTestPlansFilterModel globalIds(Set<Long> globalIds) {
-    
     this.globalIds = globalIds;
     return this;
   }
@@ -263,14 +251,12 @@ public class ProjectTestPlansFilterModel {
     return globalIds;
   }
 
-
   public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
   public ProjectTestPlansFilterModel isLocked(Boolean isLocked) {
-    
     this.isLocked = isLocked;
     return this;
   }
@@ -284,14 +270,12 @@ public class ProjectTestPlansFilterModel {
     return isLocked;
   }
 
-
   public void setIsLocked(Boolean isLocked) {
     this.isLocked = isLocked;
   }
 
 
   public ProjectTestPlansFilterModel lockedDate(DateTimeRangeSelectorModel lockedDate) {
-    
     this.lockedDate = lockedDate;
     return this;
   }
@@ -305,14 +289,12 @@ public class ProjectTestPlansFilterModel {
     return lockedDate;
   }
 
-
   public void setLockedDate(DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
   public ProjectTestPlansFilterModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
-    
     this.automaticDurationTimer = automaticDurationTimer;
     return this;
   }
@@ -334,14 +316,12 @@ public class ProjectTestPlansFilterModel {
     return automaticDurationTimer;
   }
 
-
   public void setAutomaticDurationTimer(Set<Boolean> automaticDurationTimer) {
     this.automaticDurationTimer = automaticDurationTimer;
   }
 
 
   public ProjectTestPlansFilterModel createdByIds(Set<UUID> createdByIds) {
-    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -363,14 +343,12 @@ public class ProjectTestPlansFilterModel {
     return createdByIds;
   }
 
-
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public ProjectTestPlansFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
@@ -384,14 +362,12 @@ public class ProjectTestPlansFilterModel {
     return createdDate;
   }
 
-
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public ProjectTestPlansFilterModel startDate(DateTimeRangeSelectorModel startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -405,14 +381,12 @@ public class ProjectTestPlansFilterModel {
     return startDate;
   }
 
-
   public void setStartDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
   }
 
 
   public ProjectTestPlansFilterModel endDate(DateTimeRangeSelectorModel endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -426,14 +400,12 @@ public class ProjectTestPlansFilterModel {
     return endDate;
   }
 
-
   public void setEndDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
   }
 
 
   public ProjectTestPlansFilterModel tagNames(Set<String> tagNames) {
-    
     this.tagNames = tagNames;
     return this;
   }
@@ -455,14 +427,12 @@ public class ProjectTestPlansFilterModel {
     return tagNames;
   }
 
-
   public void setTagNames(Set<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
   public ProjectTestPlansFilterModel attributes(Map<String, Set<String>> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -484,14 +454,12 @@ public class ProjectTestPlansFilterModel {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
   public ProjectTestPlansFilterModel isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -504,7 +472,6 @@ public class ProjectTestPlansFilterModel {
   public Boolean getIsDeleted() {
     return isDeleted;
   }
-
 
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
@@ -619,25 +586,26 @@ public class ProjectTestPlansFilterModel {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectTestPlansFilterModel
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ProjectTestPlansFilterModel
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectTestPlansFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectTestPlansFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectTestPlansFilterModel is not found in the empty JSON string", ProjectTestPlansFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectTestPlansFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectTestPlansFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectTestPlansFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -651,39 +619,39 @@ public class ProjectTestPlansFilterModel {
         throw new IllegalArgumentException(String.format("Expected the field `productName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productName").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonArray()) {
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull() && !jsonObj.get("status").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be an array in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // validate the optional field `lockedDate`
       if (jsonObj.get("lockedDate") != null && !jsonObj.get("lockedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("lockedDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("lockedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("automaticDurationTimer") != null && !jsonObj.get("automaticDurationTimer").isJsonArray()) {
+      if (jsonObj.get("automaticDurationTimer") != null && !jsonObj.get("automaticDurationTimer").isJsonNull() && !jsonObj.get("automaticDurationTimer").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `automaticDurationTimer` to be an array in the JSON string but got `%s`", jsonObj.get("automaticDurationTimer").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
       }
       // validate the optional field `startDate`
       if (jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("startDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("startDate"));
       }
       // validate the optional field `endDate`
       if (jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("endDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("endDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
+      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
       }
   }
@@ -708,9 +676,9 @@ public class ProjectTestPlansFilterModel {
 
            @Override
            public ProjectTestPlansFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,6 +13,7 @@
 |**failedTestPoints** | **Integer** |  |  |
 |**skippedTestPoints** | **Integer** |  |  |
 |**blockedTestPoints** | **Integer** |  |  |
+|**levelAvatarEnabled** | **Boolean** |  |  |
 
 
 

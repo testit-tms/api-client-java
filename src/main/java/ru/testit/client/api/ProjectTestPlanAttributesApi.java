@@ -29,18 +29,17 @@ import java.io.IOException;
 
 import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
+import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SearchAttributesInProjectRequest;
+import ru.testit.client.model.ProjectAttributesFilterModel;
 import java.util.Set;
 import java.util.UUID;
-import ru.testit.client.model.UpdateCustomAttributeTestPlanProjectRelationsRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProjectTestPlanAttributesApi {
     private ApiClient localVarApiClient;
@@ -479,7 +478,7 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchAttributesInProjectRequest  (optional)
+     * @param projectAttributesFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -490,7 +489,7 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -504,7 +503,7 @@ public class ProjectTestPlanAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = searchAttributesInProjectRequest;
+        Object localVarPostBody = projectAttributesFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes/search"
@@ -557,13 +556,13 @@ public class ProjectTestPlanAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling searchTestPlanAttributesInProject(Async)");
         }
 
-        return searchTestPlanAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
+        return searchTestPlanAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
 
     }
 
@@ -576,7 +575,7 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchAttributesInProjectRequest  (optional)
+     * @param projectAttributesFilterModel  (optional)
      * @return List&lt;CustomAttributeGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -586,8 +585,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
-        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
+    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
+        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
         return localVarResp.getData();
     }
 
@@ -600,7 +599,7 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchAttributesInProjectRequest  (optional)
+     * @param projectAttributesFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -610,8 +609,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, null);
+    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -625,7 +624,7 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchAttributesInProjectRequest  (optional)
+     * @param projectAttributesFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -636,9 +635,9 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -646,7 +645,7 @@ public class ProjectTestPlanAttributesApi {
     /**
      * Build call for updateCustomAttributeTestPlanProjectRelations
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -657,7 +656,7 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -671,7 +670,7 @@ public class ProjectTestPlanAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateCustomAttributeTestPlanProjectRelationsRequest;
+        Object localVarPostBody = customAttributeTestPlanProjectRelationPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes"
@@ -704,13 +703,13 @@ public class ProjectTestPlanAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling updateCustomAttributeTestPlanProjectRelations(Async)");
         }
 
-        return updateCustomAttributeTestPlanProjectRelationsCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
+        return updateCustomAttributeTestPlanProjectRelationsCall(projectId, customAttributeTestPlanProjectRelationPutModel, _callback);
 
     }
 
@@ -718,7 +717,7 @@ public class ProjectTestPlanAttributesApi {
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -727,15 +726,15 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public void updateCustomAttributeTestPlanProjectRelations(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
-        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, updateCustomAttributeTestPlanProjectRelationsRequest);
+    public void updateCustomAttributeTestPlanProjectRelations(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
+        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, customAttributeTestPlanProjectRelationPutModel);
     }
 
     /**
      * Update attribute of project&#39;s test plans
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -745,8 +744,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, null);
+    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, customAttributeTestPlanProjectRelationPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -754,7 +753,7 @@ public class ProjectTestPlanAttributesApi {
      * Update attribute of project&#39;s test plans (asynchronously)
      * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
+     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -765,9 +764,9 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, customAttributeTestPlanProjectRelationPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
