@@ -27,15 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.CreateSectionRequest;
 import ru.testit.client.model.DeletionState;
+import ru.testit.client.model.MoveRequest;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SectionMoveModel;
-import ru.testit.client.model.SectionPostModel;
-import ru.testit.client.model.SectionPutModel;
-import ru.testit.client.model.SectionRenameModel;
+import ru.testit.client.model.RenameRequest;
 import ru.testit.client.model.SectionWithStepsModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateSectionRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemShortModel;
 
@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class SectionsApi {
     private ApiClient localVarApiClient;
@@ -93,7 +94,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for section is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2SectionsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -163,7 +169,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for section is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2SectionsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -181,7 +192,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for section is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2SectionsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -201,7 +217,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for section is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2SectionsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -212,7 +233,7 @@ public class SectionsApi {
     }
     /**
      * Build call for createSection
-     * @param sectionPostModel  (optional)
+     * @param createSectionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -225,9 +246,10 @@ public class SectionsApi {
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSectionCall(SectionPostModel sectionPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSectionCall(CreateSectionRequest createSectionRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -241,7 +263,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionPostModel;
+        Object localVarPostBody = createSectionRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections";
@@ -273,15 +295,15 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSectionValidateBeforeCall(SectionPostModel sectionPostModel, final ApiCallback _callback) throws ApiException {
-        return createSectionCall(sectionPostModel, _callback);
+    private okhttp3.Call createSectionValidateBeforeCall(CreateSectionRequest createSectionRequest, final ApiCallback _callback) throws ApiException {
+        return createSectionCall(createSectionRequest, _callback);
 
     }
 
     /**
      * Create section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     * @param createSectionRequest  (optional)
      * @return SectionWithStepsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -293,17 +315,18 @@ public class SectionsApi {
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public SectionWithStepsModel createSection(SectionPostModel sectionPostModel) throws ApiException {
-        ApiResponse<SectionWithStepsModel> localVarResp = createSectionWithHttpInfo(sectionPostModel);
+    public SectionWithStepsModel createSection(CreateSectionRequest createSectionRequest) throws ApiException {
+        ApiResponse<SectionWithStepsModel> localVarResp = createSectionWithHttpInfo(createSectionRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     * @param createSectionRequest  (optional)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -315,18 +338,19 @@ public class SectionsApi {
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(SectionPostModel sectionPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createSectionValidateBeforeCall(sectionPostModel, null);
+    public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(CreateSectionRequest createSectionRequest) throws ApiException {
+        okhttp3.Call localVarCall = createSectionValidateBeforeCall(createSectionRequest, null);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create section (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     * @param createSectionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -339,11 +363,12 @@ public class SectionsApi {
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parent section with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSectionAsync(SectionPostModel sectionPostModel, final ApiCallback<SectionWithStepsModel> _callback) throws ApiException {
+    public okhttp3.Call createSectionAsync(CreateSectionRequest createSectionRequest, final ApiCallback<SectionWithStepsModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSectionValidateBeforeCall(sectionPostModel, _callback);
+        okhttp3.Call localVarCall = createSectionValidateBeforeCall(createSectionRequest, _callback);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -361,8 +386,8 @@ public class SectionsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot delete root section </td><td>  -  </td></tr>
      </table>
      */
@@ -424,7 +449,7 @@ public class SectionsApi {
 
     /**
      * Delete section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -434,8 +459,8 @@ public class SectionsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot delete root section </td><td>  -  </td></tr>
      </table>
      */
@@ -445,7 +470,7 @@ public class SectionsApi {
 
     /**
      * Delete section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -456,8 +481,8 @@ public class SectionsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot delete root section </td><td>  -  </td></tr>
      </table>
      */
@@ -468,7 +493,7 @@ public class SectionsApi {
 
     /**
      * Delete section (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -480,8 +505,8 @@ public class SectionsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot delete root section </td><td>  -  </td></tr>
      </table>
      */
@@ -501,11 +526,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionByIdCall(UUID id, DeletionState isDeleted, final ApiCallback _callback) throws ApiException {
@@ -570,7 +597,7 @@ public class SectionsApi {
 
     /**
      * Get section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return SectionWithStepsModel
@@ -578,11 +605,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public SectionWithStepsModel getSectionById(UUID id, DeletionState isDeleted) throws ApiException {
@@ -592,7 +621,7 @@ public class SectionsApi {
 
     /**
      * Get section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
@@ -600,11 +629,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SectionWithStepsModel> getSectionByIdWithHttpInfo(UUID id, DeletionState isDeleted) throws ApiException {
@@ -615,7 +646,7 @@ public class SectionsApi {
 
     /**
      * Get section (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback The callback to be executed when the API call finishes
@@ -624,11 +655,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSectionByIdAsync(UUID id, DeletionState isDeleted, final ApiCallback<SectionWithStepsModel> _callback) throws ApiException {
@@ -655,11 +688,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -755,7 +790,7 @@ public class SectionsApi {
 
     /**
      * Get section work items
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -770,11 +805,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -786,7 +823,7 @@ public class SectionsApi {
 
     /**
      * Get section work items
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -801,11 +838,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -818,7 +857,7 @@ public class SectionsApi {
 
     /**
      * Get section work items (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -834,11 +873,13 @@ public class SectionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -852,7 +893,7 @@ public class SectionsApi {
     }
     /**
      * Build call for move
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -860,10 +901,15 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveCall(SectionMoveModel sectionMoveModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call moveCall(MoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -877,7 +923,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionMoveModel;
+        Object localVarPostBody = moveRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections/move";
@@ -909,49 +955,59 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call moveValidateBeforeCall(SectionMoveModel sectionMoveModel, final ApiCallback _callback) throws ApiException {
-        return moveCall(sectionMoveModel, _callback);
+    private okhttp3.Call moveValidateBeforeCall(MoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
+        return moveCall(moveRequest, _callback);
 
     }
 
     /**
      * Move section with all work items into another section
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void move(SectionMoveModel sectionMoveModel) throws ApiException {
-        moveWithHttpInfo(sectionMoveModel);
+    public void move(MoveRequest moveRequest) throws ApiException {
+        moveWithHttpInfo(moveRequest);
     }
 
     /**
      * Move section with all work items into another section
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> moveWithHttpInfo(SectionMoveModel sectionMoveModel) throws ApiException {
-        okhttp3.Call localVarCall = moveValidateBeforeCall(sectionMoveModel, null);
+    public ApiResponse<Void> moveWithHttpInfo(MoveRequest moveRequest) throws ApiException {
+        okhttp3.Call localVarCall = moveValidateBeforeCall(moveRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Move section with all work items into another section (asynchronously)
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -959,18 +1015,23 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveAsync(SectionMoveModel sectionMoveModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call moveAsync(MoveRequest moveRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = moveValidateBeforeCall(sectionMoveModel, _callback);
+        okhttp3.Call localVarCall = moveValidateBeforeCall(moveRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for rename
-     * @param sectionRenameModel  (optional)
+     * @param renameRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -978,6 +1039,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -985,7 +1047,7 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameCall(SectionRenameModel sectionRenameModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call renameCall(RenameRequest renameRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -999,7 +1061,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionRenameModel;
+        Object localVarPostBody = renameRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections/rename";
@@ -1031,20 +1093,21 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call renameValidateBeforeCall(SectionRenameModel sectionRenameModel, final ApiCallback _callback) throws ApiException {
-        return renameCall(sectionRenameModel, _callback);
+    private okhttp3.Call renameValidateBeforeCall(RenameRequest renameRequest, final ApiCallback _callback) throws ApiException {
+        return renameCall(renameRequest, _callback);
 
     }
 
     /**
      * Rename section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
-     * @param sectionRenameModel  (optional)
+     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     * @param renameRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -1052,20 +1115,21 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public void rename(SectionRenameModel sectionRenameModel) throws ApiException {
-        renameWithHttpInfo(sectionRenameModel);
+    public void rename(RenameRequest renameRequest) throws ApiException {
+        renameWithHttpInfo(renameRequest);
     }
 
     /**
      * Rename section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
-     * @param sectionRenameModel  (optional)
+     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     * @param renameRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -1073,15 +1137,15 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> renameWithHttpInfo(SectionRenameModel sectionRenameModel) throws ApiException {
-        okhttp3.Call localVarCall = renameValidateBeforeCall(sectionRenameModel, null);
+    public ApiResponse<Void> renameWithHttpInfo(RenameRequest renameRequest) throws ApiException {
+        okhttp3.Call localVarCall = renameValidateBeforeCall(renameRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Rename section (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
-     * @param sectionRenameModel  (optional)
+     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     * @param renameRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1089,6 +1153,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -1096,15 +1161,15 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameAsync(SectionRenameModel sectionRenameModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call renameAsync(RenameRequest renameRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = renameValidateBeforeCall(sectionRenameModel, _callback);
+        okhttp3.Call localVarCall = renameValidateBeforeCall(renameRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSection
-     * @param sectionPutModel  (optional)
+     * @param updateSectionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1112,15 +1177,15 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSectionCall(SectionPutModel sectionPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSectionCall(UpdateSectionRequest updateSectionRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1134,7 +1199,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionPutModel;
+        Object localVarPostBody = updateSectionRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections";
@@ -1166,59 +1231,59 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSectionValidateBeforeCall(SectionPutModel sectionPutModel, final ApiCallback _callback) throws ApiException {
-        return updateSectionCall(sectionPutModel, _callback);
+    private okhttp3.Call updateSectionValidateBeforeCall(UpdateSectionRequest updateSectionRequest, final ApiCallback _callback) throws ApiException {
+        return updateSectionCall(updateSectionRequest, _callback);
 
     }
 
     /**
      * Update section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
-     * @param sectionPutModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     * @param updateSectionRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public void updateSection(SectionPutModel sectionPutModel) throws ApiException {
-        updateSectionWithHttpInfo(sectionPutModel);
+    public void updateSection(UpdateSectionRequest updateSectionRequest) throws ApiException {
+        updateSectionWithHttpInfo(updateSectionRequest);
     }
 
     /**
      * Update section
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
-     * @param sectionPutModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     * @param updateSectionRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateSectionWithHttpInfo(SectionPutModel sectionPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(sectionPutModel, null);
+    public ApiResponse<Void> updateSectionWithHttpInfo(UpdateSectionRequest updateSectionRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(updateSectionRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update section (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
-     * @param sectionPutModel  (optional)
+     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     * @param updateSectionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1226,17 +1291,17 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSectionAsync(SectionPutModel sectionPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateSectionAsync(UpdateSectionRequest updateSectionRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(sectionPutModel, _callback);
+        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(updateSectionRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +30,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TagPostModel;
 import ru.testit.client.model.TestPlanStatusModel;
-import ru.testit.client.model.TestPointAnalyticResult;
+import ru.testit.client.model.TestPlanWithAnalyticModelAnalytic;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,6 +52,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -63,7 +64,7 @@ import ru.testit.client.invoker.JSON;
 public class TestPlanWithAnalyticModel {
   public static final String SERIALIZED_NAME_ANALYTIC = "analytic";
   @SerializedName(SERIALIZED_NAME_ANALYTIC)
-  private TestPointAnalyticResult analytic;
+  private TestPlanWithAnalyticModelAnalytic analytic;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -156,7 +157,8 @@ public class TestPlanWithAnalyticModel {
   public TestPlanWithAnalyticModel() {
   }
 
-  public TestPlanWithAnalyticModel analytic(TestPointAnalyticResult analytic) {
+  public TestPlanWithAnalyticModel analytic(TestPlanWithAnalyticModelAnalytic analytic) {
+    
     this.analytic = analytic;
     return this;
   }
@@ -166,16 +168,18 @@ public class TestPlanWithAnalyticModel {
    * @return analytic
   **/
   @javax.annotation.Nonnull
-  public TestPointAnalyticResult getAnalytic() {
+  public TestPlanWithAnalyticModelAnalytic getAnalytic() {
     return analytic;
   }
 
-  public void setAnalytic(TestPointAnalyticResult analytic) {
+
+  public void setAnalytic(TestPlanWithAnalyticModelAnalytic analytic) {
     this.analytic = analytic;
   }
 
 
   public TestPlanWithAnalyticModel status(TestPlanStatusModel status) {
+    
     this.status = status;
     return this;
   }
@@ -189,12 +193,14 @@ public class TestPlanWithAnalyticModel {
     return status;
   }
 
+
   public void setStatus(TestPlanStatusModel status) {
     this.status = status;
   }
 
 
   public TestPlanWithAnalyticModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -208,12 +214,14 @@ public class TestPlanWithAnalyticModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestPlanWithAnalyticModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -227,12 +235,14 @@ public class TestPlanWithAnalyticModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestPlanWithAnalyticModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -246,12 +256,14 @@ public class TestPlanWithAnalyticModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestPlanWithAnalyticModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -265,12 +277,14 @@ public class TestPlanWithAnalyticModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestPlanWithAnalyticModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -284,12 +298,14 @@ public class TestPlanWithAnalyticModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPlanWithAnalyticModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -303,12 +319,14 @@ public class TestPlanWithAnalyticModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestPlanWithAnalyticModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
@@ -322,12 +340,14 @@ public class TestPlanWithAnalyticModel {
     return globalId;
   }
 
+
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public TestPlanWithAnalyticModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -341,12 +361,14 @@ public class TestPlanWithAnalyticModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public TestPlanWithAnalyticModel lockedDate(OffsetDateTime lockedDate) {
+    
     this.lockedDate = lockedDate;
     return this;
   }
@@ -360,12 +382,14 @@ public class TestPlanWithAnalyticModel {
     return lockedDate;
   }
 
+
   public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
   public TestPlanWithAnalyticModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -379,12 +403,14 @@ public class TestPlanWithAnalyticModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestPlanWithAnalyticModel lockedById(UUID lockedById) {
+    
     this.lockedById = lockedById;
     return this;
   }
@@ -398,12 +424,14 @@ public class TestPlanWithAnalyticModel {
     return lockedById;
   }
 
+
   public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
   public TestPlanWithAnalyticModel tags(List<TagPostModel> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -425,12 +453,14 @@ public class TestPlanWithAnalyticModel {
     return tags;
   }
 
+
   public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
   public TestPlanWithAnalyticModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -444,12 +474,14 @@ public class TestPlanWithAnalyticModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestPlanWithAnalyticModel startDate(OffsetDateTime startDate) {
+    
     this.startDate = startDate;
     return this;
   }
@@ -463,12 +495,14 @@ public class TestPlanWithAnalyticModel {
     return startDate;
   }
 
+
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
   public TestPlanWithAnalyticModel endDate(OffsetDateTime endDate) {
+    
     this.endDate = endDate;
     return this;
   }
@@ -482,12 +516,14 @@ public class TestPlanWithAnalyticModel {
     return endDate;
   }
 
+
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
   public TestPlanWithAnalyticModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -501,12 +537,14 @@ public class TestPlanWithAnalyticModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestPlanWithAnalyticModel build(String build) {
+    
     this.build = build;
     return this;
   }
@@ -520,12 +558,14 @@ public class TestPlanWithAnalyticModel {
     return build;
   }
 
+
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public TestPlanWithAnalyticModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -539,12 +579,14 @@ public class TestPlanWithAnalyticModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestPlanWithAnalyticModel productName(String productName) {
+    
     this.productName = productName;
     return this;
   }
@@ -558,12 +600,14 @@ public class TestPlanWithAnalyticModel {
     return productName;
   }
 
+
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
   public TestPlanWithAnalyticModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+    
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -577,12 +621,14 @@ public class TestPlanWithAnalyticModel {
     return hasAutomaticDurationTimer;
   }
 
+
   public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
   public TestPlanWithAnalyticModel attributes(Map<String, Object> attributes) {
+    
     this.attributes = attributes;
     return this;
   }
@@ -603,6 +649,7 @@ public class TestPlanWithAnalyticModel {
   public Map<String, Object> getAttributes() {
     return attributes;
   }
+
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
@@ -747,37 +794,34 @@ public class TestPlanWithAnalyticModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestPlanWithAnalyticModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanWithAnalyticModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanWithAnalyticModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanWithAnalyticModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanWithAnalyticModel is not found in the empty JSON string", TestPlanWithAnalyticModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPlanWithAnalyticModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithAnalyticModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithAnalyticModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanWithAnalyticModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `analytic`
-      TestPointAnalyticResult.validateJsonElement(jsonObj.get("analytic"));
-      // validate the required field `status`
-      TestPlanStatusModel.validateJsonElement(jsonObj.get("status"));
+      TestPlanWithAnalyticModelAnalytic.validateJsonObject(jsonObj.getAsJsonObject("analytic"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -800,7 +844,7 @@ public class TestPlanWithAnalyticModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagPostModel.validateJsonElement(jsonArraytags.get(i));
+            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
           };
         }
       }
@@ -841,9 +885,9 @@ public class TestPlanWithAnalyticModel {
 
            @Override
            public TestPlanWithAnalyticModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

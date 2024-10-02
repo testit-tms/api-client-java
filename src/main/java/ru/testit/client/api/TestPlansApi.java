@@ -27,35 +27,34 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+import ru.testit.client.model.ApiV2TestPlansIdExportTestPointsXlsxPostRequest;
+import ru.testit.client.model.ApiV2TestPlansIdTestPointsTesterUserIdPostRequest;
+import ru.testit.client.model.ApiV2TestPlansIdTestRunsSearchPostRequest;
 import ru.testit.client.model.ConfigurationModel;
-import java.io.File;
-import ru.testit.client.model.GetXlsxTestPointsByTestPlanModel;
-import java.time.OffsetDateTime;
+import ru.testit.client.model.CreateTestPlanRequest;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import java.util.Set;
 import ru.testit.client.model.TestPlanChangeModel;
 import ru.testit.client.model.TestPlanLink;
 import ru.testit.client.model.TestPlanModel;
-import ru.testit.client.model.TestPlanPostModel;
-import ru.testit.client.model.TestPlanPutModel;
 import ru.testit.client.model.TestPlanShortModel;
 import ru.testit.client.model.TestPlanWithTestSuiteTreeModel;
 import ru.testit.client.model.TestPointAnalyticResult;
-import ru.testit.client.model.TestPointSelectModel;
 import ru.testit.client.model.TestPointWithLastResultModel;
 import ru.testit.client.model.TestRunModel;
-import ru.testit.client.model.TestRunSearchQueryModel;
 import ru.testit.client.model.TestSuiteV2TreeModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateTestPlanRequest;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemSelectModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class TestPlansApi {
     private ApiClient localVarApiClient;
@@ -97,7 +96,7 @@ public class TestPlansApi {
     /**
      * Build call for addTestPointsWithSections
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -105,13 +104,15 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsWithSectionsCall(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsWithSectionsCall(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,7 +126,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/test-points/withSections"
@@ -158,13 +159,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsWithSectionsValidateBeforeCall(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsWithSectionsValidateBeforeCall(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsWithSections(Async)");
         }
 
-        return addTestPointsWithSectionsCall(id, workItemSelectModel, _callback);
+        return addTestPointsWithSectionsCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
 
     }
 
@@ -172,41 +173,45 @@ public class TestPlansApi {
      * Add test-points to TestPlan with sections
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsWithSections(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        addTestPointsWithSectionsWithHttpInfo(id, workItemSelectModel);
+    public void addTestPointsWithSections(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
+        addTestPointsWithSectionsWithHttpInfo(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
     }
 
     /**
      * Add test-points to TestPlan with sections
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsWithSectionsWithHttpInfo(String id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, workItemSelectModel, null);
+    public ApiResponse<Void> addTestPointsWithSectionsWithHttpInfo(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -214,7 +219,7 @@ public class TestPlansApi {
      * Add test-points to TestPlan with sections (asynchronously)
      * 
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -222,15 +227,17 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsWithSectionsAsync(String id, WorkItemSelectModel workItemSelectModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsWithSectionsAsync(String id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, workItemSelectModel, _callback);
+        okhttp3.Call localVarCall = addTestPointsWithSectionsValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -245,10 +252,11 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  TestPlan is locked   Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestPlan with id   Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
      */
@@ -311,7 +319,7 @@ public class TestPlansApi {
 
     /**
      * Add WorkItems to TestPlan with Sections as TestSuites
-     * &lt;br&gt;Use case  &lt;br&gt;User sets TestPlan identifier  &lt;br&gt;User sets WorkItem identifiers (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System added WorkItems and Sections to TestPlan  &lt;br&gt;System returns no content response
+     *  Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -319,10 +327,11 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  TestPlan is locked   Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestPlan with id   Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
      */
@@ -332,7 +341,7 @@ public class TestPlansApi {
 
     /**
      * Add WorkItems to TestPlan with Sections as TestSuites
-     * &lt;br&gt;Use case  &lt;br&gt;User sets TestPlan identifier  &lt;br&gt;User sets WorkItem identifiers (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System added WorkItems and Sections to TestPlan  &lt;br&gt;System returns no content response
+     *  Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -341,10 +350,11 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  TestPlan is locked   Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestPlan with id   Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
      */
@@ -355,7 +365,7 @@ public class TestPlansApi {
 
     /**
      * Add WorkItems to TestPlan with Sections as TestSuites (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets TestPlan identifier  &lt;br&gt;User sets WorkItem identifiers (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System added WorkItems and Sections to TestPlan  &lt;br&gt;System returns no content response
+     *  Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -365,10 +375,11 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  TestPlan is locked   Some of configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for TestPlan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestPlan with id   Some of workItems do not exist </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Can&#39;t put a SharedStep in the TestSuite </td><td>  -  </td></tr>
      </table>
      */
@@ -389,8 +400,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdAnalyticsGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -451,7 +465,7 @@ public class TestPlansApi {
 
     /**
      * Get analytics by TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System returns analytics by test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return TestPointAnalyticResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -460,8 +474,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public TestPointAnalyticResult apiV2TestPlansIdAnalyticsGet(String id) throws ApiException {
@@ -471,7 +488,7 @@ public class TestPlansApi {
 
     /**
      * Get analytics by TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System returns analytics by test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;TestPointAnalyticResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -480,8 +497,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestPointAnalyticResult> apiV2TestPlansIdAnalyticsGetWithHttpInfo(String id) throws ApiException {
@@ -492,7 +512,7 @@ public class TestPlansApi {
 
     /**
      * Get analytics by TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System returns analytics by test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -502,8 +522,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdAnalyticsGetAsync(String id, final ApiCallback<TestPointAnalyticResult> _callback) throws ApiException {
@@ -523,8 +546,13 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdAutobalancePostCall(String id, Set<UUID> testers, final ApiCallback _callback) throws ApiException {
@@ -597,8 +625,13 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public TestPlanWithTestSuiteTreeModel apiV2TestPlansIdAutobalancePost(String id, Set<UUID> testers) throws ApiException {
@@ -616,8 +649,13 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestPlanWithTestSuiteTreeModel> apiV2TestPlansIdAutobalancePostWithHttpInfo(String id, Set<UUID> testers) throws ApiException {
@@ -637,8 +675,13 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdAutobalancePostAsync(String id, Set<UUID> testers, final ApiCallback<TestPlanWithTestSuiteTreeModel> _callback) throws ApiException {
@@ -662,6 +705,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdConfigurationsGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -722,7 +767,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan configurations
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan configurations
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan configurations
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -734,6 +779,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<ConfigurationModel> apiV2TestPlansIdConfigurationsGet(String id) throws ApiException {
@@ -743,7 +790,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan configurations
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan configurations
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan configurations
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -755,6 +802,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ConfigurationModel>> apiV2TestPlansIdConfigurationsGetWithHttpInfo(String id) throws ApiException {
@@ -765,7 +814,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan configurations (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan configurations
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan configurations
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -778,6 +827,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdConfigurationsGetAsync(String id, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
@@ -791,7 +842,7 @@ public class TestPlansApi {
      * Build call for apiV2TestPlansIdExportTestPointsXlsxPost
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param getXlsxTestPointsByTestPlanModel  (optional)
+     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -803,9 +854,11 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostCall(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostCall(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -819,7 +872,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = getXlsxTestPointsByTestPlanModel;
+        Object localVarPostBody = apiV2TestPlansIdExportTestPointsXlsxPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/export/testPoints/xlsx"
@@ -836,7 +889,6 @@ public class TestPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/octet-stream",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -857,23 +909,22 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdExportTestPointsXlsxPost(Async)");
         }
 
-        return apiV2TestPlansIdExportTestPointsXlsxPostCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, _callback);
+        return apiV2TestPlansIdExportTestPointsXlsxPostCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, _callback);
 
     }
 
     /**
      * Export TestPoints from TestPlan in xls format
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param getXlsxTestPointsByTestPlanModel  (optional)
-     * @return File
+     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -883,20 +934,21 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public File apiV2TestPlansIdExportTestPointsXlsxPost(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
-        ApiResponse<File> localVarResp = apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel);
-        return localVarResp.getData();
+    public void apiV2TestPlansIdExportTestPointsXlsxPost(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest) throws ApiException {
+        apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest);
     }
 
     /**
      * Export TestPoints from TestPlan in xls format
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param getXlsxTestPointsByTestPlanModel  (optional)
-     * @return ApiResponse&lt;File&gt;
+     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -906,20 +958,21 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, null);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    public ApiResponse<Void> apiV2TestPlansIdExportTestPointsXlsxPostWithHttpInfo(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, null);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Export TestPoints from TestPlan in xls format (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @param getXlsxTestPointsByTestPlanModel  (optional)
+     * @param apiV2TestPlansIdExportTestPointsXlsxPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -931,13 +984,14 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostAsync(String id, Long timeZoneOffsetInMinutes, GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdExportTestPointsXlsxPostAsync(String id, Long timeZoneOffsetInMinutes, ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel, _callback);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdExportTestPointsXlsxPostValidateBeforeCall(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -958,6 +1012,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdExportTestResultHistoryXlsxPostCall(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes, final ApiCallback _callback) throws ApiException {
@@ -1003,7 +1059,6 @@ public class TestPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/octet-stream",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1035,13 +1090,12 @@ public class TestPlansApi {
 
     /**
      * Export TestResults history from TestPlan in xls format
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param mustReturnOnlyLastTestResult  (optional)
      * @param includeSteps  (optional)
      * @param includeDeletedTestSuites  (optional)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1051,22 +1105,23 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public File apiV2TestPlansIdExportTestResultHistoryXlsxPost(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
-        ApiResponse<File> localVarResp = apiV2TestPlansIdExportTestResultHistoryXlsxPostWithHttpInfo(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes);
-        return localVarResp.getData();
+    public void apiV2TestPlansIdExportTestResultHistoryXlsxPost(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
+        apiV2TestPlansIdExportTestResultHistoryXlsxPostWithHttpInfo(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes);
     }
 
     /**
      * Export TestResults history from TestPlan in xls format
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param mustReturnOnlyLastTestResult  (optional)
      * @param includeSteps  (optional)
      * @param includeDeletedTestSuites  (optional)
      * @param timeZoneOffsetInMinutes  (optional)
-     * @return ApiResponse&lt;File&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1076,17 +1131,18 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> apiV2TestPlansIdExportTestResultHistoryXlsxPostWithHttpInfo(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
+    public ApiResponse<Void> apiV2TestPlansIdExportTestResultHistoryXlsxPostWithHttpInfo(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestPlansIdExportTestResultHistoryXlsxPostValidateBeforeCall(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes, null);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Export TestResults history from TestPlan in xls format (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+     *  Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param mustReturnOnlyLastTestResult  (optional)
      * @param includeSteps  (optional)
@@ -1103,13 +1159,14 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdExportTestResultHistoryXlsxPostAsync(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdExportTestResultHistoryXlsxPostAsync(String id, Boolean mustReturnOnlyLastTestResult, Boolean includeSteps, Boolean includeDeletedTestSuites, Long timeZoneOffsetInMinutes, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestPlansIdExportTestResultHistoryXlsxPostValidateBeforeCall(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes, _callback);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1131,6 +1188,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdHistoryGetCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -1211,7 +1270,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan history
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan history
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan history
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1228,6 +1287,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanChangeModel> apiV2TestPlansIdHistoryGet(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1237,7 +1298,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan history
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan history
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan history
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1254,6 +1315,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanChangeModel>> apiV2TestPlansIdHistoryGetWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1264,7 +1327,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan history (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan history
+     *  Use case   User sets test plan identifier   User runs method execution   System return test plan history
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1282,6 +1345,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdHistoryGetAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestPlanChangeModel>> _callback) throws ApiException {
@@ -1304,8 +1369,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdLinksGetCall(String id, Integer skip, Integer take, String orderBy, final ApiCallback _callback) throws ApiException {
@@ -1378,7 +1447,7 @@ public class TestPlansApi {
 
     /**
      * Get Links of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets pagination filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns links of TestPlan
+     *  Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip  (optional)
      * @param take  (optional)
@@ -1389,8 +1458,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanLink> apiV2TestPlansIdLinksGet(String id, Integer skip, Integer take, String orderBy) throws ApiException {
@@ -1400,7 +1473,7 @@ public class TestPlansApi {
 
     /**
      * Get Links of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets pagination filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns links of TestPlan
+     *  Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip  (optional)
      * @param take  (optional)
@@ -1411,8 +1484,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanLink>> apiV2TestPlansIdLinksGetWithHttpInfo(String id, Integer skip, Integer take, String orderBy) throws ApiException {
@@ -1423,7 +1500,7 @@ public class TestPlansApi {
 
     /**
      * Get Links of TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets pagination filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns links of TestPlan
+     *  Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip  (optional)
      * @param take  (optional)
@@ -1435,8 +1512,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdLinksGetAsync(String id, Integer skip, Integer take, String orderBy, final ApiCallback<List<TestPlanLink>> _callback) throws ApiException {
@@ -1457,7 +1538,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -1527,7 +1613,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestPlansIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -1545,7 +1636,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestPlansIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -1565,7 +1661,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -1594,6 +1695,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestPointsLastResultsGetCall(String id, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -1678,7 +1781,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPoints with last result from TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return test points with last result from test plan
+     *  Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param testerId  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -1696,6 +1799,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPointWithLastResultModel> apiV2TestPlansIdTestPointsLastResultsGet(String id, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1705,7 +1810,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPoints with last result from TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return test points with last result from test plan
+     *  Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param testerId  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -1723,6 +1828,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPointWithLastResultModel>> apiV2TestPlansIdTestPointsLastResultsGetWithHttpInfo(String id, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1733,7 +1840,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPoints with last result from TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return test points with last result from test plan
+     *  Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param testerId  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -1752,6 +1859,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestPointsLastResultsGetAsync(String id, UUID testerId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestPointWithLastResultModel>> _callback) throws ApiException {
@@ -1773,8 +1882,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestPointsResetPostCall(String id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -1836,7 +1948,7 @@ public class TestPlansApi {
 
     /**
      * Reset TestPoints status of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets test points identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System reset test points statuses of test plan
+     *  Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1845,8 +1957,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestPlansIdTestPointsResetPost(String id, Set<UUID> UUID) throws ApiException {
@@ -1855,7 +1970,7 @@ public class TestPlansApi {
 
     /**
      * Reset TestPoints status of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets test points identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System reset test points statuses of test plan
+     *  Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1865,8 +1980,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestPlansIdTestPointsResetPostWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
@@ -1876,7 +1994,7 @@ public class TestPlansApi {
 
     /**
      * Reset TestPoints status of TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets test points identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System reset test points statuses of test plan
+     *  Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1887,8 +2005,11 @@ public class TestPlansApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestPointsResetPostAsync(String id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
@@ -1900,18 +2021,23 @@ public class TestPlansApi {
     /**
      * Build call for apiV2TestPlansIdTestPointsTesterDelete
      * @param id Unique or global ID of the test plan (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteCall(String id, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteCall(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1925,7 +2051,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testPointSelectModel;
+        Object localVarPostBody = apiV2TestPlansIdTestPointsTesterUserIdPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testPoints/tester"
@@ -1958,13 +2084,13 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(String id, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestPointsTesterDelete(Async)");
         }
 
-        return apiV2TestPlansIdTestPointsTesterDeleteCall(id, testPointSelectModel, _callback);
+        return apiV2TestPlansIdTestPointsTesterDeleteCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
 
     }
 
@@ -1972,18 +2098,23 @@ public class TestPlansApi {
      * Unassign users from multiple test points
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2TestPlansIdTestPointsTesterDelete(String id, TestPointSelectModel testPointSelectModel) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(id, testPointSelectModel);
+    public List<UUID> apiV2TestPlansIdTestPointsTesterDelete(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
         return localVarResp.getData();
     }
 
@@ -1991,18 +2122,23 @@ public class TestPlansApi {
      * Unassign users from multiple test points
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(String id, TestPointSelectModel testPointSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, testPointSelectModel, null);
+    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterDeleteWithHttpInfo(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2011,20 +2147,25 @@ public class TestPlansApi {
      * Unassign users from multiple test points (asynchronously)
      * 
      * @param id Unique or global ID of the test plan (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteAsync(String id, TestPointSelectModel testPointSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterDeleteAsync(String id, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, testPointSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterDeleteValidateBeforeCall(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2033,18 +2174,23 @@ public class TestPlansApi {
      * Build call for apiV2TestPlansIdTestPointsTesterUserIdPost
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostCall(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostCall(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2058,7 +2204,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testPointSelectModel;
+        Object localVarPostBody = apiV2TestPlansIdTestPointsTesterUserIdPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testPoints/tester/{userId}"
@@ -2092,7 +2238,7 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestPointsTesterUserIdPost(Async)");
@@ -2103,7 +2249,7 @@ public class TestPlansApi {
             throw new ApiException("Missing the required parameter 'userId' when calling apiV2TestPlansIdTestPointsTesterUserIdPost(Async)");
         }
 
-        return apiV2TestPlansIdTestPointsTesterUserIdPostCall(id, userId, testPointSelectModel, _callback);
+        return apiV2TestPlansIdTestPointsTesterUserIdPostCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
 
     }
 
@@ -2112,18 +2258,23 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2TestPlansIdTestPointsTesterUserIdPost(String id, UUID userId, TestPointSelectModel testPointSelectModel) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(id, userId, testPointSelectModel);
+    public List<UUID> apiV2TestPlansIdTestPointsTesterUserIdPost(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
         return localVarResp.getData();
     }
 
@@ -2132,18 +2283,23 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(String id, UUID userId, TestPointSelectModel testPointSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, testPointSelectModel, null);
+    public ApiResponse<List<UUID>> apiV2TestPlansIdTestPointsTesterUserIdPostWithHttpInfo(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2153,20 +2309,25 @@ public class TestPlansApi {
      * 
      * @param id Unique or global ID of the test plan (required)
      * @param userId Unique ID of the user (required)
-     * @param testPointSelectModel  (optional)
+     * @param apiV2TestPlansIdTestPointsTesterUserIdPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plans is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostAsync(String id, UUID userId, TestPointSelectModel testPointSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestPointsTesterUserIdPostAsync(String id, UUID userId, ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, testPointSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestPointsTesterUserIdPostValidateBeforeCall(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2190,8 +2351,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestRunsGetCall(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -2288,7 +2453,7 @@ public class TestPlansApi {
 
     /**
      * Get TestRuns of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRun status filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -2305,8 +2470,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestRunModel> apiV2TestPlansIdTestRunsGet(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2316,7 +2485,7 @@ public class TestPlansApi {
 
     /**
      * Get TestRuns of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRun status filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -2333,8 +2502,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsGetWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -2345,7 +2518,7 @@ public class TestPlansApi {
 
     /**
      * Get TestRuns of TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRun status filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -2363,8 +2536,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestRunsGetAsync(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
@@ -2382,7 +2559,7 @@ public class TestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunSearchQueryModel  (optional)
+     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2390,11 +2567,15 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2408,7 +2589,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunSearchQueryModel;
+        Object localVarPostBody = apiV2TestPlansIdTestRunsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans/{id}/testRuns/search"
@@ -2461,77 +2642,85 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestPlansIdTestRunsSearchPost(Async)");
         }
 
-        return apiV2TestPlansIdTestRunsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, _callback);
+        return apiV2TestPlansIdTestRunsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, _callback);
 
     }
 
     /**
      * Search TestRuns of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunSearchQueryModel  (optional)
+     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
      * @return List&lt;TestRunModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestRunModel> apiV2TestPlansIdTestRunsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
-        ApiResponse<List<TestRunModel>> localVarResp = apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel);
+    public List<TestRunModel> apiV2TestPlansIdTestRunsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestRunModel>> localVarResp = apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Search TestRuns of TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunSearchQueryModel  (optional)
+     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;TestRunModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, null);
+    public ApiResponse<List<TestRunModel>> apiV2TestPlansIdTestRunsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search TestRuns of TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+     *  Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunSearchQueryModel  (optional)
+     * @param apiV2TestPlansIdTestRunsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2539,13 +2728,17 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunSearchQueryModel testRunSearchQueryModel, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestRunsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<TestRunModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2559,9 +2752,14 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Last modification date does not exist </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2624,39 +2822,46 @@ public class TestPlansApi {
      * Get last modification date of test plan&#39;s test results
      * 
      * @param id Test plan unique or global ID (required)
-     * @return OffsetDateTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Last modification date does not exist </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
      </table>
      */
-    public OffsetDateTime apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(String id) throws ApiException {
-        ApiResponse<OffsetDateTime> localVarResp = apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetWithHttpInfo(id);
-        return localVarResp.getData();
+    public void apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(String id) throws ApiException {
+        apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetWithHttpInfo(id);
     }
 
     /**
      * Get last modification date of test plan&#39;s test results
      * 
      * @param id Test plan unique or global ID (required)
-     * @return ApiResponse&lt;OffsetDateTime&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Last modification date does not exist </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OffsetDateTime> apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetWithHttpInfo(String id) throws ApiException {
+    public ApiResponse<Void> apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetWithHttpInfo(String id) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<OffsetDateTime>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
@@ -2669,16 +2874,20 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Last modification date does not exist </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Last modification date exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetAsync(String id, final ApiCallback<OffsetDateTime> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<OffsetDateTime>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -2690,11 +2899,15 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdUnlockRequestPostCall(String id, final ApiCallback _callback) throws ApiException {
@@ -2755,17 +2968,21 @@ public class TestPlansApi {
 
     /**
      * Send unlock TestPlan notification
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System send unlock test plan notification
+     *  Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestPlansIdUnlockRequestPost(String id) throws ApiException {
@@ -2774,18 +2991,22 @@ public class TestPlansApi {
 
     /**
      * Send unlock TestPlan notification
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System send unlock test plan notification
+     *  Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestPlansIdUnlockRequestPostWithHttpInfo(String id) throws ApiException {
@@ -2795,7 +3016,7 @@ public class TestPlansApi {
 
     /**
      * Send unlock TestPlan notification (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System send unlock test plan notification
+     *  Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2803,11 +3024,15 @@ public class TestPlansApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestPlan not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansIdUnlockRequestPostAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -2827,9 +3052,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansShortsPostCall(Boolean isDeleted, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -2889,7 +3117,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlans short models by Project identifiers
-     * &lt;br&gt;Use case  &lt;br&gt;User sets projects identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plans short models (listed in response example)
+     *  Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)
      * @param isDeleted  (optional)
      * @param UUID  (optional)
      * @return List&lt;TestPlanShortModel&gt;
@@ -2898,9 +3126,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanShortModel> apiV2TestPlansShortsPost(Boolean isDeleted, Set<UUID> UUID) throws ApiException {
@@ -2910,7 +3141,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlans short models by Project identifiers
-     * &lt;br&gt;Use case  &lt;br&gt;User sets projects identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plans short models (listed in response example)
+     *  Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)
      * @param isDeleted  (optional)
      * @param UUID  (optional)
      * @return ApiResponse&lt;List&lt;TestPlanShortModel&gt;&gt;
@@ -2919,9 +3150,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanShortModel>> apiV2TestPlansShortsPostWithHttpInfo(Boolean isDeleted, Set<UUID> UUID) throws ApiException {
@@ -2932,7 +3166,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlans short models by Project identifiers (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets projects identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plans short models (listed in response example)
+     *  Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)
      * @param isDeleted  (optional)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2942,9 +3176,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPlansShortsPostAsync(Boolean isDeleted, Set<UUID> UUID, final ApiCallback<List<TestPlanShortModel>> _callback) throws ApiException {
@@ -2968,6 +3205,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cloneCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3028,7 +3267,7 @@ public class TestPlansApi {
 
     /**
      * Clone TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System clones test plan  &lt;br&gt;System returns test plan (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return TestPlanModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3040,6 +3279,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public TestPlanModel clone(String id) throws ApiException {
@@ -3049,7 +3290,7 @@ public class TestPlansApi {
 
     /**
      * Clone TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System clones test plan  &lt;br&gt;System returns test plan (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;TestPlanModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3061,6 +3302,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestPlanModel> cloneWithHttpInfo(String id) throws ApiException {
@@ -3071,7 +3314,7 @@ public class TestPlansApi {
 
     /**
      * Clone TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System clones test plan  &lt;br&gt;System returns test plan (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3084,6 +3327,8 @@ public class TestPlansApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cloneAsync(String id, final ApiCallback<TestPlanModel> _callback) throws ApiException {
@@ -3103,10 +3348,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3167,17 +3414,19 @@ public class TestPlansApi {
 
     /**
      * Complete TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void complete(String id) throws ApiException {
@@ -3186,7 +3435,7 @@ public class TestPlansApi {
 
     /**
      * Complete TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3194,10 +3443,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> completeWithHttpInfo(String id) throws ApiException {
@@ -3207,7 +3458,7 @@ public class TestPlansApi {
 
     /**
      * Complete TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3216,10 +3467,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -3230,7 +3483,7 @@ public class TestPlansApi {
     }
     /**
      * Build call for createTestPlan
-     * @param testPlanPostModel  (optional)
+     * @param createTestPlanRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3238,13 +3491,15 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestPlanCall(TestPlanPostModel testPlanPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTestPlanCall(CreateTestPlanRequest createTestPlanRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3258,7 +3513,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testPlanPostModel;
+        Object localVarPostBody = createTestPlanRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans";
@@ -3290,58 +3545,62 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTestPlanValidateBeforeCall(TestPlanPostModel testPlanPostModel, final ApiCallback _callback) throws ApiException {
-        return createTestPlanCall(testPlanPostModel, _callback);
+    private okhttp3.Call createTestPlanValidateBeforeCall(CreateTestPlanRequest createTestPlanRequest, final ApiCallback _callback) throws ApiException {
+        return createTestPlanCall(createTestPlanRequest, _callback);
 
     }
 
     /**
      * Create TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param testPlanPostModel  (optional)
+     *  Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
+     * @param createTestPlanRequest  (optional)
      * @return TestPlanModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestPlanModel createTestPlan(TestPlanPostModel testPlanPostModel) throws ApiException {
-        ApiResponse<TestPlanModel> localVarResp = createTestPlanWithHttpInfo(testPlanPostModel);
+    public TestPlanModel createTestPlan(CreateTestPlanRequest createTestPlanRequest) throws ApiException {
+        ApiResponse<TestPlanModel> localVarResp = createTestPlanWithHttpInfo(createTestPlanRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param testPlanPostModel  (optional)
+     *  Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
+     * @param createTestPlanRequest  (optional)
      * @return ApiResponse&lt;TestPlanModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestPlanModel> createTestPlanWithHttpInfo(TestPlanPostModel testPlanPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(testPlanPostModel, null);
+    public ApiResponse<TestPlanModel> createTestPlanWithHttpInfo(CreateTestPlanRequest createTestPlanRequest) throws ApiException {
+        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(createTestPlanRequest, null);
         Type localVarReturnType = new TypeToken<TestPlanModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
-     * @param testPlanPostModel  (optional)
+     *  Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
+     * @param createTestPlanRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3349,15 +3608,17 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> TestPlan with the same name already exists! </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTestPlanAsync(TestPlanPostModel testPlanPostModel, final ApiCallback<TestPlanModel> _callback) throws ApiException {
+    public okhttp3.Call createTestPlanAsync(CreateTestPlanRequest createTestPlanRequest, final ApiCallback<TestPlanModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(testPlanPostModel, _callback);
+        okhttp3.Call localVarCall = createTestPlanValidateBeforeCall(createTestPlanRequest, _callback);
         Type localVarReturnType = new TypeToken<TestPlanModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3372,9 +3633,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestPlanCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3435,16 +3699,19 @@ public class TestPlansApi {
 
     /**
      * Delete TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void deleteTestPlan(String id) throws ApiException {
@@ -3453,7 +3720,7 @@ public class TestPlansApi {
 
     /**
      * Delete TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3461,9 +3728,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteTestPlanWithHttpInfo(String id) throws ApiException {
@@ -3473,7 +3743,7 @@ public class TestPlansApi {
 
     /**
      * Delete TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3482,9 +3752,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestPlanAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -3503,9 +3776,13 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlanByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3566,7 +3843,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan by Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search  test plan by the identifier  &lt;br&gt;System returns test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return TestPlanModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3574,9 +3851,13 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public TestPlanModel getTestPlanById(String id) throws ApiException {
@@ -3586,7 +3867,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan by Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search  test plan by the identifier  &lt;br&gt;System returns test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;TestPlanModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3594,9 +3875,13 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestPlanModel> getTestPlanByIdWithHttpInfo(String id) throws ApiException {
@@ -3607,7 +3892,7 @@ public class TestPlansApi {
 
     /**
      * Get TestPlan by Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search  test plan by the identifier  &lt;br&gt;System returns test plan
+     *  Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3616,9 +3901,13 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Can&#39;t find a Project with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlanByIdAsync(String id, final ApiCallback<TestPlanModel> _callback) throws ApiException {
@@ -3638,9 +3927,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestSuitesByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3701,7 +3993,7 @@ public class TestPlansApi {
 
     /**
      * Get TestSuites Tree By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test suites related to the test plan  &lt;br&gt;System returns test suites as a tree model (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return List&lt;TestSuiteV2TreeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3709,9 +4001,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestSuiteV2TreeModel> getTestSuitesById(String id) throws ApiException {
@@ -3721,7 +4016,7 @@ public class TestPlansApi {
 
     /**
      * Get TestSuites Tree By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test suites related to the test plan  &lt;br&gt;System returns test suites as a tree model (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;List&lt;TestSuiteV2TreeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3729,9 +4024,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestSuiteV2TreeModel>> getTestSuitesByIdWithHttpInfo(String id) throws ApiException {
@@ -3742,7 +4040,7 @@ public class TestPlansApi {
 
     /**
      * Get TestSuites Tree By Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test suites related to the test plan  &lt;br&gt;System returns test suites as a tree model (listed in response example)
+     *  Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3751,9 +4049,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestSuitesByIdAsync(String id, final ApiCallback<List<TestSuiteV2TreeModel>> _callback) throws ApiException {
@@ -3773,10 +4074,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call pauseCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3837,17 +4140,19 @@ public class TestPlansApi {
 
     /**
      * Pause TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System pauses the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void pause(String id) throws ApiException {
@@ -3856,7 +4161,7 @@ public class TestPlansApi {
 
     /**
      * Pause TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System pauses the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3864,10 +4169,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> pauseWithHttpInfo(String id) throws ApiException {
@@ -3877,7 +4184,7 @@ public class TestPlansApi {
 
     /**
      * Pause TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System pauses the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3886,10 +4193,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call pauseAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -3908,7 +4217,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call purgeTestPlanCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3976,7 +4290,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void purgeTestPlan(String id) throws ApiException {
@@ -3993,7 +4312,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> purgeTestPlanWithHttpInfo(String id) throws ApiException {
@@ -4012,7 +4336,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Full access permission for the archive is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call purgeTestPlanAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -4031,9 +4360,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call restoreTestPlanCall(String id, final ApiCallback _callback) throws ApiException {
@@ -4094,16 +4426,19 @@ public class TestPlansApi {
 
     /**
      * Restore TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System restores test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void restoreTestPlan(String id) throws ApiException {
@@ -4112,7 +4447,7 @@ public class TestPlansApi {
 
     /**
      * Restore TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System restores test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4120,9 +4455,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> restoreTestPlanWithHttpInfo(String id) throws ApiException {
@@ -4132,7 +4470,7 @@ public class TestPlansApi {
 
     /**
      * Restore TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System restores test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4141,9 +4479,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call restoreTestPlanAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -4162,9 +4503,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startCall(String id, final ApiCallback _callback) throws ApiException {
@@ -4225,16 +4569,19 @@ public class TestPlansApi {
 
     /**
      * Start TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void start(String id) throws ApiException {
@@ -4243,7 +4590,7 @@ public class TestPlansApi {
 
     /**
      * Start TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4251,9 +4598,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> startWithHttpInfo(String id) throws ApiException {
@@ -4263,7 +4613,7 @@ public class TestPlansApi {
 
     /**
      * Start TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts the test plan and updates test plan status  &lt;br&gt;System returns no content response
+     *  Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response
      * @param id Test plan internal (guid format) or global (int  format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4272,9 +4622,12 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -4285,7 +4638,7 @@ public class TestPlansApi {
     }
     /**
      * Build call for updateTestPlan
-     * @param testPlanPutModel  (optional)
+     * @param updateTestPlanRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4293,7 +4646,7 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
@@ -4301,7 +4654,7 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTestPlanCall(TestPlanPutModel testPlanPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTestPlanCall(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4315,7 +4668,7 @@ public class TestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testPlanPutModel;
+        Object localVarPostBody = updateTestPlanRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testPlans";
@@ -4347,21 +4700,21 @@ public class TestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTestPlanValidateBeforeCall(TestPlanPutModel testPlanPutModel, final ApiCallback _callback) throws ApiException {
-        return updateTestPlanCall(testPlanPutModel, _callback);
+    private okhttp3.Call updateTestPlanValidateBeforeCall(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback _callback) throws ApiException {
+        return updateTestPlanCall(updateTestPlanRequest, _callback);
 
     }
 
     /**
      * Update TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param testPlanPutModel  (optional)
+     *  Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
+     * @param updateTestPlanRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
@@ -4369,21 +4722,21 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public void updateTestPlan(TestPlanPutModel testPlanPutModel) throws ApiException {
-        updateTestPlanWithHttpInfo(testPlanPutModel);
+    public void updateTestPlan(UpdateTestPlanRequest updateTestPlanRequest) throws ApiException {
+        updateTestPlanWithHttpInfo(updateTestPlanRequest);
     }
 
     /**
      * Update TestPlan
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param testPlanPutModel  (optional)
+     *  Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
+     * @param updateTestPlanRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
@@ -4391,15 +4744,15 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateTestPlanWithHttpInfo(TestPlanPutModel testPlanPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(testPlanPutModel, null);
+    public ApiResponse<Void> updateTestPlanWithHttpInfo(UpdateTestPlanRequest updateTestPlanRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(updateTestPlanRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update TestPlan (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
-     * @param testPlanPutModel  (optional)
+     *  Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
+     * @param updateTestPlanRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4407,7 +4760,7 @@ public class TestPlansApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestPlan with id! </td><td>  -  </td></tr>
@@ -4415,9 +4768,9 @@ public class TestPlansApi {
         <tr><td> 422 </td><td> Can&#39;t change ProjectId </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTestPlanAsync(TestPlanPutModel testPlanPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateTestPlanAsync(UpdateTestPlanRequest updateTestPlanRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(testPlanPutModel, _callback);
+        okhttp3.Call localVarCall = updateTestPlanValidateBeforeCall(updateTestPlanRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

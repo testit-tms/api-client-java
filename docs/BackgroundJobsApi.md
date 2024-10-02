@@ -4,12 +4,81 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**apiV2BackgroundJobsCompletedDelete**](BackgroundJobsApi.md#apiV2BackgroundJobsCompletedDelete) | **DELETE** /api/v2/backgroundJobs/completed | Delete all completed background jobs |
 | [**apiV2BackgroundJobsGet**](BackgroundJobsApi.md#apiV2BackgroundJobsGet) | **GET** /api/v2/backgroundJobs |  |
 | [**apiV2BackgroundJobsIdCancelPost**](BackgroundJobsApi.md#apiV2BackgroundJobsIdCancelPost) | **POST** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job |
 | [**apiV2BackgroundJobsIdGet**](BackgroundJobsApi.md#apiV2BackgroundJobsIdGet) | **GET** /api/v2/backgroundJobs/{id} | Get background job by ID |
 | [**apiV2BackgroundJobsIdStatusGet**](BackgroundJobsApi.md#apiV2BackgroundJobsIdStatusGet) | **GET** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID |
 | [**apiV2BackgroundJobsSearchPost**](BackgroundJobsApi.md#apiV2BackgroundJobsSearchPost) | **POST** /api/v2/backgroundJobs/search | Search for user background jobs |
 
+
+<a id="apiV2BackgroundJobsCompletedDelete"></a>
+# **apiV2BackgroundJobsCompletedDelete**
+> apiV2BackgroundJobsCompletedDelete()
+
+Delete all completed background jobs
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.BackgroundJobsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    BackgroundJobsApi apiInstance = new BackgroundJobsApi(defaultClient);
+    try {
+      apiInstance.apiV2BackgroundJobsCompletedDelete();
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BackgroundJobsApi#apiV2BackgroundJobsCompletedDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2BackgroundJobsGet"></a>
 # **apiV2BackgroundJobsGet**
@@ -84,7 +153,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2BackgroundJobsIdCancelPost"></a>
 # **apiV2BackgroundJobsIdCancelPost**
@@ -145,12 +220,18 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2BackgroundJobsIdGet"></a>
 # **apiV2BackgroundJobsIdGet**
@@ -217,7 +298,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2BackgroundJobsIdStatusGet"></a>
 # **apiV2BackgroundJobsIdStatusGet**
@@ -284,11 +371,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2BackgroundJobsSearchPost"></a>
 # **apiV2BackgroundJobsSearchPost**
-> List&lt;BackgroundJobGetModel&gt; apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel)
+> List&lt;BackgroundJobGetModel&gt; apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest)
 
 Search for user background jobs
 
@@ -319,9 +412,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    BackgroundJobFilterModel backgroundJobFilterModel = new BackgroundJobFilterModel(); // BackgroundJobFilterModel | 
+    ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest = new ApiV2BackgroundJobsSearchPostRequest(); // ApiV2BackgroundJobsSearchPostRequest | 
     try {
-      List<BackgroundJobGetModel> result = apiInstance.apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel);
+      List<BackgroundJobGetModel> result = apiInstance.apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BackgroundJobsApi#apiV2BackgroundJobsSearchPost");
@@ -343,7 +436,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **backgroundJobFilterModel** | [**BackgroundJobFilterModel**](BackgroundJobFilterModel.md)|  | [optional] |
+| **apiV2BackgroundJobsSearchPostRequest** | [**ApiV2BackgroundJobsSearchPostRequest**](ApiV2BackgroundJobsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -361,5 +454,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

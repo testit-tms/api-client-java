@@ -27,26 +27,25 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsRestoreBulkPostRequest;
+import ru.testit.client.model.ApiV2ProjectsSearchPostRequest;
 import ru.testit.client.model.AutoTestNamespaceModel;
-import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
+import ru.testit.client.model.CreateProjectRequest;
 import ru.testit.client.model.FailureClassModel;
 import java.io.File;
 import ru.testit.client.model.FilterModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.ProjectExportWithTestPlansPostModel;
 import ru.testit.client.model.ProjectModel;
-import ru.testit.client.model.ProjectPostModel;
-import ru.testit.client.model.ProjectPutModel;
-import ru.testit.client.model.ProjectSelectModel;
-import ru.testit.client.model.ProjectsFilterModel;
 import ru.testit.client.model.PublicTestRunModel;
 import java.util.Set;
 import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestRunModel;
 import ru.testit.client.model.TestRunV2GetModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateCustomAttributeTestPlanProjectRelationsRequest;
+import ru.testit.client.model.UpdateProjectRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -54,6 +53,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectsApi {
     private ApiClient localVarApiClient;
@@ -103,11 +103,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addGlobaAttributesToProjectCall(String id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -169,7 +170,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,11 +178,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void addGlobaAttributesToProject(String id, Set<UUID> UUID) throws ApiException {
@@ -190,7 +192,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -199,11 +201,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> addGlobaAttributesToProjectWithHttpInfo(String id, Set<UUID> UUID) throws ApiException {
@@ -213,7 +216,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -223,11 +226,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt; Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addGlobaAttributesToProjectAsync(String id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
@@ -238,7 +242,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for apiV2ProjectsDemoPost
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -247,11 +251,14 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -265,7 +272,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPostModel;
+        Object localVarPostBody = createProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/demo";
@@ -297,15 +304,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsDemoPostCall(projectPostModel, _callback);
+    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsDemoPostCall(createProjectRequest, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -313,19 +320,22 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel apiV2ProjectsDemoPost(ProjectPostModel projectPostModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(projectPostModel);
+    public ProjectModel apiV2ProjectsDemoPost(CreateProjectRequest createProjectRequest) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(createProjectRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -333,12 +343,15 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> apiV2ProjectsDemoPostWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, null);
+    public ApiResponse<ProjectModel> apiV2ProjectsDemoPostWithHttpInfo(CreateProjectRequest createProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectRequest, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -346,7 +359,7 @@ public class ProjectsApi {
     /**
      *  (asynchronously)
      * 
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -355,13 +368,16 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostAsync(CreateProjectRequest createProjectRequest, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -376,7 +392,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdDeleteCall(String id, final ApiCallback _callback) throws ApiException {
@@ -444,7 +465,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdDelete(String id) throws ApiException {
@@ -461,7 +487,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdDeleteWithHttpInfo(String id) throws ApiException {
@@ -480,7 +511,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdDeleteAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -499,8 +535,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFailureClassesGetCall(String id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -573,8 +614,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<FailureClassModel> apiV2ProjectsIdFailureClassesGet(String id, Boolean isDeleted) throws ApiException {
@@ -592,8 +638,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FailureClassModel>> apiV2ProjectsIdFailureClassesGetWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -613,8 +664,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFailureClassesGetAsync(String id, Boolean isDeleted, final ApiCallback<List<FailureClassModel>> _callback) throws ApiException {
@@ -636,7 +692,10 @@ public class ProjectsApi {
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFavoritePutCall(String id, final ApiCallback _callback) throws ApiException {
@@ -706,7 +765,10 @@ public class ProjectsApi {
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdFavoritePut(String id) throws ApiException {
@@ -725,7 +787,10 @@ public class ProjectsApi {
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdFavoritePutWithHttpInfo(String id) throws ApiException {
@@ -746,7 +811,10 @@ public class ProjectsApi {
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFavoritePutAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -764,8 +832,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFiltersGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -826,15 +899,20 @@ public class ProjectsApi {
 
     /**
      * Get Project filters
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;FilterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<FilterModel> apiV2ProjectsIdFiltersGet(String id) throws ApiException {
@@ -844,15 +922,20 @@ public class ProjectsApi {
 
     /**
      * Get Project filters
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;FilterModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FilterModel>> apiV2ProjectsIdFiltersGetWithHttpInfo(String id) throws ApiException {
@@ -863,7 +946,7 @@ public class ProjectsApi {
 
     /**
      * Get Project filters (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -871,8 +954,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdFiltersGetAsync(String id, final ApiCallback<List<FilterModel>> _callback) throws ApiException {
@@ -893,7 +981,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -963,7 +1056,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -981,7 +1079,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -1001,7 +1104,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -1020,7 +1128,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPurgePostCall(String id, final ApiCallback _callback) throws ApiException {
@@ -1080,7 +1193,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Purge archived project
+     * Purge the project
      * 
      * @param id Unique or global ID of the project (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1088,7 +1201,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdPurgePost(String id) throws ApiException {
@@ -1096,7 +1214,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Purge archived project
+     * Purge the project
      * 
      * @param id Unique or global ID of the project (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1105,7 +1223,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdPurgePostWithHttpInfo(String id) throws ApiException {
@@ -1114,7 +1237,7 @@ public class ProjectsApi {
     }
 
     /**
-     * Purge archived project (asynchronously)
+     * Purge the project (asynchronously)
      * 
      * @param id Unique or global ID of the project (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1124,7 +1247,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdPurgePostAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1143,7 +1271,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdRestorePostCall(String id, final ApiCallback _callback) throws ApiException {
@@ -1211,7 +1344,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2ProjectsIdRestorePost(String id) throws ApiException {
@@ -1228,7 +1366,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2ProjectsIdRestorePostWithHttpInfo(String id) throws ApiException {
@@ -1247,7 +1390,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdRestorePostAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1267,7 +1415,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1337,7 +1490,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1345,7 +1498,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1356,7 +1514,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1365,7 +1523,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1377,7 +1540,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1387,7 +1550,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1401,7 +1569,7 @@ public class ProjectsApi {
     /**
      * Build call for apiV2ProjectsIdTestPlansAttributePut
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1409,12 +1577,17 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1428,7 +1601,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTestPlanProjectRelationPutModel;
+        Object localVarPostBody = updateCustomAttributeTestPlanProjectRelationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{id}/testPlans/attribute"
@@ -1462,61 +1635,71 @@ public class ProjectsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2ProjectsIdTestPlansAttributePut(Async)");
         }
 
-        return apiV2ProjectsIdTestPlansAttributePutCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
+        return apiV2ProjectsIdTestPlansAttributePutCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
 
     }
 
     /**
      * Update attribute of project&#39;s test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public void apiV2ProjectsIdTestPlansAttributePut(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(id, customAttributeTestPlanProjectRelationPutModel);
+    public void apiV2ProjectsIdTestPlansAttributePut(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(id, updateCustomAttributeTestPlanProjectRelationsRequest);
     }
 
     /**
      * Update attribute of project&#39;s test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<Void> apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, null);
+    public ApiResponse<Void> apiV2ProjectsIdTestPlansAttributePutWithHttpInfo(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update attribute of project&#39;s test plans (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
+     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1524,14 +1707,19 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutAsync(String id, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsIdTestPlansAttributePutAsync(String id, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, customAttributeTestPlanProjectRelationPutModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsIdTestPlansAttributePutValidateBeforeCall(id, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1544,10 +1732,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetCall(String id, final ApiCallback _callback) throws ApiException {
@@ -1608,17 +1799,20 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;PublicTestRunModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<PublicTestRunModel> apiV2ProjectsIdTestRunsActiveGet(String id) throws ApiException {
@@ -1628,17 +1822,20 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;PublicTestRunModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<PublicTestRunModel>> apiV2ProjectsIdTestRunsActiveGetWithHttpInfo(String id) throws ApiException {
@@ -1649,7 +1846,7 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1657,10 +1854,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsActiveGetAsync(String id, final ApiCallback<List<PublicTestRunModel>> _callback) throws ApiException {
@@ -1693,7 +1893,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsFullGetCall(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -1810,7 +2016,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional, default to false)
      * @param mustAggregateTestResults  (optional, default to true)
@@ -1831,7 +2037,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestRunModel> apiV2ProjectsIdTestRunsFullGet(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1841,7 +2053,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional, default to false)
      * @param mustAggregateTestResults  (optional, default to true)
@@ -1862,7 +2074,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestRunModel>> apiV2ProjectsIdTestRunsFullGetWithHttpInfo(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1873,7 +2091,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional, default to false)
      * @param mustAggregateTestResults  (optional, default to true)
@@ -1895,7 +2113,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsIdTestRunsFullGetAsync(String id, Boolean includeTestResults, Boolean mustAggregateTestResults, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunModel>> _callback) throws ApiException {
@@ -1914,7 +2138,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsNameNameExistsGetCall(String name, final ApiCallback _callback) throws ApiException {
@@ -1982,7 +2212,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public Boolean apiV2ProjectsNameNameExistsGet(String name) throws ApiException {
@@ -1999,7 +2235,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Boolean> apiV2ProjectsNameNameExistsGetWithHttpInfo(String name) throws ApiException {
@@ -2018,7 +2260,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2ProjectsNameNameExistsGetAsync(String name, final ApiCallback<Boolean> _callback) throws ApiException {
@@ -2030,18 +2278,23 @@ public class ProjectsApi {
     }
     /**
      * Build call for apiV2ProjectsPurgeBulkPost
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsPurgeBulkPostCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsPurgeBulkPostCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2055,7 +2308,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectSelectModel;
+        Object localVarPostBody = apiV2ProjectsRestoreBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/purge/bulk";
@@ -2087,44 +2340,54 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsPurgeBulkPostValidateBeforeCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsPurgeBulkPostCall(projectSelectModel, _callback);
+    private okhttp3.Call apiV2ProjectsPurgeBulkPostValidateBeforeCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsPurgeBulkPostCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
 
     }
 
     /**
      * Purge multiple projects
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @return Long
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public Long apiV2ProjectsPurgeBulkPost(ProjectSelectModel projectSelectModel) throws ApiException {
-        ApiResponse<Long> localVarResp = apiV2ProjectsPurgeBulkPostWithHttpInfo(projectSelectModel);
+    public Long apiV2ProjectsPurgeBulkPost(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
+        ApiResponse<Long> localVarResp = apiV2ProjectsPurgeBulkPostWithHttpInfo(apiV2ProjectsRestoreBulkPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Purge multiple projects
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @return ApiResponse&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Long> apiV2ProjectsPurgeBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(projectSelectModel, null);
+    public ApiResponse<Long> apiV2ProjectsPurgeBulkPostWithHttpInfo(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, null);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2132,38 +2395,48 @@ public class ProjectsApi {
     /**
      * Purge multiple projects (asynchronously)
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsPurgeBulkPostAsync(ProjectSelectModel projectSelectModel, final ApiCallback<Long> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsPurgeBulkPostAsync(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback<Long> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(projectSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsPurgeBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ProjectsRestoreBulkPost
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsRestoreBulkPostCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsRestoreBulkPostCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2177,7 +2450,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectSelectModel;
+        Object localVarPostBody = apiV2ProjectsRestoreBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/restore/bulk";
@@ -2209,44 +2482,54 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsRestoreBulkPostValidateBeforeCall(ProjectSelectModel projectSelectModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsRestoreBulkPostCall(projectSelectModel, _callback);
+    private okhttp3.Call apiV2ProjectsRestoreBulkPostValidateBeforeCall(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsRestoreBulkPostCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
 
     }
 
     /**
      * Restore multiple projects
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @return Long
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public Long apiV2ProjectsRestoreBulkPost(ProjectSelectModel projectSelectModel) throws ApiException {
-        ApiResponse<Long> localVarResp = apiV2ProjectsRestoreBulkPostWithHttpInfo(projectSelectModel);
+    public Long apiV2ProjectsRestoreBulkPost(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
+        ApiResponse<Long> localVarResp = apiV2ProjectsRestoreBulkPostWithHttpInfo(apiV2ProjectsRestoreBulkPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Restore multiple projects
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @return ApiResponse&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Long> apiV2ProjectsRestoreBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(projectSelectModel, null);
+    public ApiResponse<Long> apiV2ProjectsRestoreBulkPostWithHttpInfo(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, null);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2254,20 +2537,25 @@ public class ProjectsApi {
     /**
      * Restore multiple projects (asynchronously)
      * 
-     * @param projectSelectModel  (optional)
+     * @param apiV2ProjectsRestoreBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project manager or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsRestoreBulkPostAsync(ProjectSelectModel projectSelectModel, final ApiCallback<Long> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsRestoreBulkPostAsync(ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest, final ApiCallback<Long> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(projectSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsRestoreBulkPostValidateBeforeCall(apiV2ProjectsRestoreBulkPostRequest, _callback);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2279,17 +2567,23 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2303,7 +2597,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectsFilterModel;
+        Object localVarPostBody = apiV2ProjectsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/search";
@@ -2355,8 +2649,8 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
+    private okhttp3.Call apiV2ProjectsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
 
     }
 
@@ -2368,17 +2662,23 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @return List&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
-        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
+    public List<ProjectModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
+        ApiResponse<List<ProjectModel>> localVarResp = apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -2390,17 +2690,23 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;ProjectModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, null);
+    public ApiResponse<List<ProjectModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2413,19 +2719,25 @@ public class ProjectsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectsFilterModel  (optional)
+     * @param apiV2ProjectsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest, final ApiCallback<List<ProjectModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, projectsFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<ProjectModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2439,8 +2751,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backgroundImportProjectCall(File _file, final ApiCallback _callback) throws ApiException {
@@ -2508,8 +2825,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public UUID backgroundImportProject(File _file) throws ApiException {
@@ -2526,8 +2848,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> backgroundImportProjectWithHttpInfo(File _file) throws ApiException {
@@ -2546,8 +2873,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backgroundImportProjectAsync(File _file, final ApiCallback<UUID> _callback) throws ApiException {
@@ -2566,8 +2898,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backgroundImportZipProjectCall(File _file, final ApiCallback _callback) throws ApiException {
@@ -2635,8 +2972,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public UUID backgroundImportZipProject(File _file) throws ApiException {
@@ -2653,8 +2995,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> backgroundImportZipProjectWithHttpInfo(File _file) throws ApiException {
@@ -2673,8 +3020,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backgroundImportZipProjectAsync(File _file, final ApiCallback<UUID> _callback) throws ApiException {
@@ -2695,10 +3047,13 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2765,7 +3120,7 @@ public class ProjectsApi {
 
     /**
      * Import project from JSON file
-     * &lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+     *      &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;     This method imports a &#x60;.json&#x60; file with a project to the test management system.   In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:       &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.
      * @param includeAttachments Enables attachment import. (optional, default to false)
      * @param _file Select file (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2773,10 +3128,13 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2787,7 +3145,7 @@ public class ProjectsApi {
 
     /**
      * Import project from JSON file
-     * &lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+     *      &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;     This method imports a &#x60;.json&#x60; file with a project to the test management system.   In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:       &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.
      * @param includeAttachments Enables attachment import. (optional, default to false)
      * @param _file Select file (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -2796,10 +3154,13 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2811,7 +3172,7 @@ public class ProjectsApi {
 
     /**
      * Import project from JSON file (asynchronously)
-     * &lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+     *      &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;     This method imports a &#x60;.json&#x60; file with a project to the test management system.   In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:       &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.
      * @param includeAttachments Enables attachment import. (optional, default to false)
      * @param _file Select file (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2821,10 +3182,13 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Entity with the same ID was already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -2837,7 +3201,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for createProject
-     * @param projectPostModel  (optional)
+     * @param createProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2846,11 +3210,14 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2864,7 +3231,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPostModel;
+        Object localVarPostBody = createProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -2896,15 +3263,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
-        return createProjectCall(projectPostModel, _callback);
+    private okhttp3.Call createProjectValidateBeforeCall(CreateProjectRequest createProjectRequest, final ApiCallback _callback) throws ApiException {
+        return createProjectCall(createProjectRequest, _callback);
 
     }
 
     /**
      * Create project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     * @param createProjectRequest  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2912,19 +3279,22 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(projectPostModel);
+    public ProjectModel createProject(CreateProjectRequest createProjectRequest) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(createProjectRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     * @param createProjectRequest  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2932,20 +3302,23 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, null);
+    public ApiResponse<ProjectModel> createProjectWithHttpInfo(CreateProjectRequest createProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     * @param createProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2954,13 +3327,16 @@ public class ProjectsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator or admin system role is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectAsync(CreateProjectRequest createProjectRequest, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, _callback);
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2975,8 +3351,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for AutoTest is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectAutoTestsCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3044,8 +3424,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for AutoTest is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void deleteProjectAutoTests(String id) throws ApiException {
@@ -3062,8 +3446,12 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for AutoTest is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteProjectAutoTestsWithHttpInfo(String id) throws ApiException {
@@ -3082,171 +3470,18 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for AutoTest is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectAutoTestsAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteProjectAutoTestsValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for exportWithTestPlansAndConfigurations
-     * @param id Specifies the ID of the project you want to export. (required)
-     * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = projectExportWithTestPlansPostModel;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/projects/{id}/export-by-testPlans"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (includeAttachments != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeAttachments", includeAttachments));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportWithTestPlansAndConfigurationsValidateBeforeCall(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling exportWithTestPlansAndConfigurations(Async)");
-        }
-
-        return exportWithTestPlansAndConfigurationsCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
-
-    }
-
-    /**
-     * Export project with test plans, test suites and test points as JSON file
-     * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
-     * @param id Specifies the ID of the project you want to export. (required)
-     * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public File exportWithTestPlansAndConfigurations(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        ApiResponse<File> localVarResp = exportWithTestPlansAndConfigurationsWithHttpInfo(id, includeAttachments, projectExportWithTestPlansPostModel);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export project with test plans, test suites and test points as JSON file
-     * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
-     * @param id Specifies the ID of the project you want to export. (required)
-     * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
-     * @return ApiResponse&lt;File&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<File> exportWithTestPlansAndConfigurationsWithHttpInfo(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel) throws ApiException {
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, null);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Export project with test plans, test suites and test points as JSON file (asynchronously)
-     * &lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
-     * @param id Specifies the ID of the project you want to export. (required)
-     * @param includeAttachments Enables attachment export. (optional, default to false)
-     * @param projectExportWithTestPlansPostModel  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Root section was not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call exportWithTestPlansAndConfigurationsAsync(String id, Boolean includeAttachments, ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel, final ApiCallback<File> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = exportWithTestPlansAndConfigurationsValidateBeforeCall(id, includeAttachments, projectExportWithTestPlansPostModel, _callback);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -3264,8 +3499,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3351,7 +3591,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects
-     * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
+     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3364,8 +3604,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3377,7 +3622,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects
-     * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
+     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3390,8 +3635,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3404,7 +3654,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
+     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3418,8 +3668,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Invalid user permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -3440,9 +3695,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3503,16 +3762,20 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;AutoTestNamespaceModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<AutoTestNamespaceModel> getAutoTestsNamespaces(String id) throws ApiException {
@@ -3522,16 +3785,20 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;AutoTestNamespaceModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AutoTestNamespaceModel>> getAutoTestsNamespacesWithHttpInfo(String id) throws ApiException {
@@ -3542,7 +3809,7 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3550,9 +3817,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoTestsNamespacesAsync(String id, final ApiCallback<List<AutoTestNamespaceModel>> _callback) throws ApiException {
@@ -3571,10 +3842,14 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdCall(String id, final ApiCallback _callback) throws ApiException {
@@ -3635,17 +3910,21 @@ public class ProjectsApi {
 
     /**
      * Get project by ID
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ProjectModel getProjectById(String id) throws ApiException {
@@ -3655,17 +3934,21 @@ public class ProjectsApi {
 
     /**
      * Get project by ID
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ProjectModel> getProjectByIdWithHttpInfo(String id) throws ApiException {
@@ -3676,7 +3959,7 @@ public class ProjectsApi {
 
     /**
      * Get project by ID (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
+     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3684,10 +3967,14 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> ID is invalid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for projects is required </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdAsync(String id, final ApiCallback<ProjectModel> _callback) throws ApiException {
@@ -3707,9 +3994,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdCall(String id, Boolean isDeleted, final ApiCallback _callback) throws ApiException {
@@ -3774,7 +4065,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return List&lt;TestPlanModel&gt;
@@ -3782,9 +4073,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPlanModel> getTestPlansByProjectId(String id, Boolean isDeleted) throws ApiException {
@@ -3794,7 +4089,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return ApiResponse&lt;List&lt;TestPlanModel&gt;&gt;
@@ -3802,9 +4097,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPlanModel>> getTestPlansByProjectIdWithHttpInfo(String id, Boolean isDeleted) throws ApiException {
@@ -3815,7 +4114,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3824,9 +4123,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPlansByProjectIdAsync(String id, Boolean isDeleted, final ApiCallback<List<TestPlanModel>> _callback) throws ApiException {
@@ -3857,9 +4160,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunsByProjectIdCall(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -3968,7 +4275,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
+     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -3987,9 +4294,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestRunV2GetModel> getTestRunsByProjectId(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -3999,7 +4310,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
+     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -4018,9 +4329,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestRunV2GetModel>> getTestRunsByProjectIdWithHttpInfo(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -4031,7 +4346,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
+     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (optional)
      * @param inProgress  (optional)
@@ -4051,9 +4366,13 @@ public class ProjectsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunsByProjectIdAsync(String id, Boolean notStarted, Boolean inProgress, Boolean stopped, Boolean completed, OffsetDateTime createdDateFrom, OffsetDateTime createdDateTo, UUID testPlanId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestRunV2GetModel>> _callback) throws ApiException {
@@ -4065,7 +4384,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for updateProject
-     * @param projectPutModel  (optional)
+     * @param updateProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4073,13 +4392,15 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4093,7 +4414,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPutModel;
+        Object localVarPostBody = updateProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -4125,55 +4446,59 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectValidateBeforeCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
-        return updateProjectCall(projectPutModel, _callback);
+    private okhttp3.Call updateProjectValidateBeforeCall(UpdateProjectRequest updateProjectRequest, final ApiCallback _callback) throws ApiException {
+        return updateProjectCall(updateProjectRequest, _callback);
 
     }
 
     /**
      * Update project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     * @param updateProjectRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
-        updateProjectWithHttpInfo(projectPutModel);
+    public void updateProject(UpdateProjectRequest updateProjectRequest) throws ApiException {
+        updateProjectWithHttpInfo(updateProjectRequest);
     }
 
     /**
      * Update project
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     * @param updateProjectRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, null);
+    public ApiResponse<Void> updateProjectWithHttpInfo(UpdateProjectRequest updateProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     * @param updateProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4181,15 +4506,17 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Project with the same name already exists </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectAsync(ProjectPutModel projectPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectAsync(UpdateProjectRequest updateProjectRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, _callback);
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

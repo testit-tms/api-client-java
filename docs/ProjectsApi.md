@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
 | [**apiV2ProjectsIdFiltersGet**](ProjectsApi.md#apiV2ProjectsIdFiltersGet) | **GET** /api/v2/projects/{id}/filters | Get Project filters |
 | [**apiV2ProjectsIdPatch**](ProjectsApi.md#apiV2ProjectsIdPatch) | **PATCH** /api/v2/projects/{id} | Patch project |
-| [**apiV2ProjectsIdPurgePost**](ProjectsApi.md#apiV2ProjectsIdPurgePost) | **POST** /api/v2/projects/{id}/purge | Purge archived project |
+| [**apiV2ProjectsIdPurgePost**](ProjectsApi.md#apiV2ProjectsIdPurgePost) | **POST** /api/v2/projects/{id}/purge | Purge the project |
 | [**apiV2ProjectsIdRestorePost**](ProjectsApi.md#apiV2ProjectsIdRestorePost) | **POST** /api/v2/projects/{id}/restore | Restore archived project |
 | [**apiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsApi.md#apiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans |
 | [**apiV2ProjectsIdTestPlansAttributePut**](ProjectsApi.md#apiV2ProjectsIdTestPlansAttributePut) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans |
@@ -26,7 +26,6 @@ All URIs are relative to *http://localhost*
 | [**callImport**](ProjectsApi.md#callImport) | **POST** /api/v2/projects/import | Import project from JSON file |
 | [**createProject**](ProjectsApi.md#createProject) | **POST** /api/v2/projects | Create project |
 | [**deleteProjectAutoTests**](ProjectsApi.md#deleteProjectAutoTests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project |
-| [**exportWithTestPlansAndConfigurations**](ProjectsApi.md#exportWithTestPlansAndConfigurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file |
 | [**getAllProjects**](ProjectsApi.md#getAllProjects) | **GET** /api/v2/projects | Get all projects |
 | [**getAutoTestsNamespaces**](ProjectsApi.md#getAutoTestsNamespaces) | **GET** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project |
 | [**getProjectById**](ProjectsApi.md#getProjectById) | **GET** /api/v2/projects/{id} | Get project by ID |
@@ -41,7 +40,7 @@ All URIs are relative to *http://localhost*
 
 Add global attributes to project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns no content response
+ Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
 
 ### Example
 ```java
@@ -104,15 +103,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | &lt;br&gt; Attributes must be global  |  -  |
+| **400** |   Attributes must be global  |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client Error |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsDemoPost"></a>
 # **apiV2ProjectsDemoPost**
-> ProjectModel apiV2ProjectsDemoPost(projectPostModel)
+> ProjectModel apiV2ProjectsDemoPost(createProjectRequest)
 
 
 
@@ -138,9 +138,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    CreateProjectRequest createProjectRequest = new CreateProjectRequest(); // CreateProjectRequest | 
     try {
-      ProjectModel result = apiInstance.apiV2ProjectsDemoPost(projectPostModel);
+      ProjectModel result = apiInstance.apiV2ProjectsDemoPost(createProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsDemoPost");
@@ -157,7 +157,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
+| **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -177,8 +177,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdDelete"></a>
 # **apiV2ProjectsIdDelete**
@@ -245,7 +248,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project manager or admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdFailureClassesGet"></a>
 # **apiV2ProjectsIdFailureClassesGet**
@@ -314,8 +322,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdFavoritePut"></a>
 # **apiV2ProjectsIdFavoritePut**
@@ -384,7 +397,10 @@ null (empty response body)
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdFiltersGet"></a>
 # **apiV2ProjectsIdFiltersGet**
@@ -392,7 +408,7 @@ null (empty response body)
 
 Get Project filters
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+ Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
 
 ### Example
 ```java
@@ -453,8 +469,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdPatch"></a>
 # **apiV2ProjectsIdPatch**
@@ -525,13 +546,18 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdPurgePost"></a>
 # **apiV2ProjectsIdPurgePost**
 > apiV2ProjectsIdPurgePost(id)
 
-Purge archived project
+Purge the project
 
 ### Example
 ```java
@@ -592,7 +618,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdRestorePost"></a>
 # **apiV2ProjectsIdRestorePost**
@@ -659,7 +690,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project manager or admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdTestPlansAttributeAttributeIdDelete"></a>
 # **apiV2ProjectsIdTestPlansAttributeAttributeIdDelete**
@@ -667,7 +703,7 @@ null (empty response body)
 
 Delete attribute from project&#39;s test plans
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
+ Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
 
 ### Example
 ```java
@@ -730,15 +766,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for project settings is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdTestPlansAttributePut"></a>
 # **apiV2ProjectsIdTestPlansAttributePut**
-> apiV2ProjectsIdTestPlansAttributePut(id, customAttributeTestPlanProjectRelationPutModel)
+> apiV2ProjectsIdTestPlansAttributePut(id, updateCustomAttributeTestPlanProjectRelationsRequest)
 
 Update attribute of project&#39;s test plans
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
+ Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
 
 ### Example
 ```java
@@ -763,9 +804,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-    CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
+    UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest = new UpdateCustomAttributeTestPlanProjectRelationsRequest(); // UpdateCustomAttributeTestPlanProjectRelationsRequest | 
     try {
-      apiInstance.apiV2ProjectsIdTestPlansAttributePut(id, customAttributeTestPlanProjectRelationPutModel);
+      apiInstance.apiV2ProjectsIdTestPlansAttributePut(id, updateCustomAttributeTestPlanProjectRelationsRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansAttributePut");
       System.err.println("Status code: " + e.getCode());
@@ -782,7 +823,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional] |
+| **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -801,7 +842,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for project settings is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdTestRunsActiveGet"></a>
 # **apiV2ProjectsIdTestRunsActiveGet**
@@ -809,7 +855,7 @@ null (empty response body)
 
 Get active Project TestRuns
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+ Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
 
 ### Example
 ```java
@@ -870,10 +916,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsIdTestRunsFullGet"></a>
 # **apiV2ProjectsIdTestRunsFullGet**
@@ -881,7 +930,7 @@ public class Example {
 
 Get Project TestRuns full models
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+ Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
 
 ### Example
 ```java
@@ -970,7 +1019,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsNameNameExistsGet"></a>
 # **apiV2ProjectsNameNameExistsGet**
@@ -1037,11 +1092,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsPurgeBulkPost"></a>
 # **apiV2ProjectsPurgeBulkPost**
-> Long apiV2ProjectsPurgeBulkPost(projectSelectModel)
+> Long apiV2ProjectsPurgeBulkPost(apiV2ProjectsRestoreBulkPostRequest)
 
 Purge multiple projects
 
@@ -1067,9 +1128,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectSelectModel projectSelectModel = new ProjectSelectModel(); // ProjectSelectModel | 
+    ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest = new ApiV2ProjectsRestoreBulkPostRequest(); // ApiV2ProjectsRestoreBulkPostRequest | 
     try {
-      Long result = apiInstance.apiV2ProjectsPurgeBulkPost(projectSelectModel);
+      Long result = apiInstance.apiV2ProjectsPurgeBulkPost(apiV2ProjectsRestoreBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsPurgeBulkPost");
@@ -1086,7 +1147,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] |
+| **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1104,12 +1165,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsRestoreBulkPost"></a>
 # **apiV2ProjectsRestoreBulkPost**
-> Long apiV2ProjectsRestoreBulkPost(projectSelectModel)
+> Long apiV2ProjectsRestoreBulkPost(apiV2ProjectsRestoreBulkPostRequest)
 
 Restore multiple projects
 
@@ -1135,9 +1201,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectSelectModel projectSelectModel = new ProjectSelectModel(); // ProjectSelectModel | 
+    ApiV2ProjectsRestoreBulkPostRequest apiV2ProjectsRestoreBulkPostRequest = new ApiV2ProjectsRestoreBulkPostRequest(); // ApiV2ProjectsRestoreBulkPostRequest | 
     try {
-      Long result = apiInstance.apiV2ProjectsRestoreBulkPost(projectSelectModel);
+      Long result = apiInstance.apiV2ProjectsRestoreBulkPost(apiV2ProjectsRestoreBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsRestoreBulkPost");
@@ -1154,7 +1220,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] |
+| **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1172,12 +1238,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project manager or admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsSearchPost"></a>
 # **apiV2ProjectsSearchPost**
-> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel)
+> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest)
 
 Search for projects
 
@@ -1208,9 +1279,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectsFilterModel projectsFilterModel = new ProjectsFilterModel(); // ProjectsFilterModel | 
+    ApiV2ProjectsSearchPostRequest apiV2ProjectsSearchPostRequest = new ApiV2ProjectsSearchPostRequest(); // ApiV2ProjectsSearchPostRequest | 
     try {
-      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
+      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsSearchPost");
@@ -1232,7 +1303,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md)|  | [optional] |
+| **apiV2ProjectsSearchPostRequest** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1250,7 +1321,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="backgroundImportProject"></a>
 # **backgroundImportProject**
@@ -1317,8 +1394,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for project settings required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="backgroundImportZipProject"></a>
 # **backgroundImportZipProject**
@@ -1385,8 +1467,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for project settings required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="callImport"></a>
 # **callImport**
@@ -1394,7 +1481,7 @@ public class Example {
 
 Import project from JSON file
 
-&lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+     &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;     This method imports a &#x60;.json&#x60; file with a project to the test management system.   In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:       &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.
 
 ### Example
 ```java
@@ -1457,18 +1544,21 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Project creator or admin system role is required |  -  |
-| **409** | Entity with the same ID was already imported in other project |  -  |
 | **413** | Multipart body length limit exceeded |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Project creator or admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Entity with the same ID was already imported in other project |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createProject"></a>
 # **createProject**
-> ProjectModel createProject(projectPostModel)
+> ProjectModel createProject(createProjectRequest)
 
 Create project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
+ Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
 
 ### Example
 ```java
@@ -1492,9 +1582,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    CreateProjectRequest createProjectRequest = new CreateProjectRequest(); // CreateProjectRequest | 
     try {
-      ProjectModel result = apiInstance.createProject(projectPostModel);
+      ProjectModel result = apiInstance.createProject(createProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1511,7 +1601,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
+| **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1531,8 +1621,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project creator or admin system role is required |  -  |
+| **404** | Not Found |  -  |
 | **409** | Project with the same name already exists |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteProjectAutoTests"></a>
 # **deleteProjectAutoTests**
@@ -1599,84 +1692,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Delete permission for AutoTest is required |  -  |
 | **404** | Not Found |  -  |
-
-<a id="exportWithTestPlansAndConfigurations"></a>
-# **exportWithTestPlansAndConfigurations**
-> File exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel)
-
-Export project with test plans, test suites and test points as JSON file
-
-&lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
-
-### Example
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
-import ru.testit.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String id = "id_example"; // String | Specifies the ID of the project you want to export.
-    Boolean includeAttachments = false; // Boolean | Enables attachment export.
-    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
-    try {
-      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#exportWithTestPlansAndConfigurations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Specifies the ID of the project you want to export. | |
-| **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
-| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
-
-### Return type
-
-[**File**](File.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Root section was not found |  -  |
-| **403** | Update permission for project settings is required |  -  |
-| **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getAllProjects"></a>
 # **getAllProjects**
@@ -1684,7 +1705,7 @@ public class Example {
 
 Get all projects
 
-&lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
+ Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
 
 ### Example
 ```java
@@ -1757,8 +1778,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Invalid user permissions |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getAutoTestsNamespaces"></a>
 # **getAutoTestsNamespaces**
@@ -1766,7 +1792,7 @@ public class Example {
 
 Get namespaces of autotests in project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
+ Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
 
 ### Example
 ```java
@@ -1827,9 +1853,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getProjectById"></a>
 # **getProjectById**
@@ -1837,7 +1867,7 @@ public class Example {
 
 Get project by ID
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
+ Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
 
 ### Example
 ```java
@@ -1898,10 +1928,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | ID is invalid |  -  |
-| **403** | Read permission for projects is required |  -  |
+| **200** | OK |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **400** | ID is invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for projects is required |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **0** | Error |  -  |
 
 <a id="getTestPlansByProjectId"></a>
 # **getTestPlansByProjectId**
@@ -1909,7 +1943,7 @@ public class Example {
 
 Get project test plans
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+ Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
 
 ### Example
 ```java
@@ -1972,9 +2006,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getTestRunsByProjectId"></a>
 # **getTestRunsByProjectId**
@@ -1982,7 +2020,7 @@ public class Example {
 
 Get project test runs
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
+ Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
 
 ### Example
 ```java
@@ -2067,17 +2105,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test result is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="updateProject"></a>
 # **updateProject**
-> updateProject(projectPutModel)
+> updateProject(updateProjectRequest)
 
 Update project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
+ Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
 
 ### Example
 ```java
@@ -2101,9 +2143,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPutModel projectPutModel = new ProjectPutModel(); // ProjectPutModel | 
+    UpdateProjectRequest updateProjectRequest = new UpdateProjectRequest(); // UpdateProjectRequest | 
     try {
-      apiInstance.updateProject(projectPutModel);
+      apiInstance.updateProject(updateProjectRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateProject");
       System.err.println("Status code: " + e.getCode());
@@ -2119,7 +2161,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] |
+| **updateProjectRequest** | [**UpdateProjectRequest**](UpdateProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2138,8 +2180,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required |  -  |
+| **400** |  - ID is invalid   - Field is required |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
 | **409** | Project with the same name already exists |  -  |
+| **422** | Unprocessable Entity |  -  |
 

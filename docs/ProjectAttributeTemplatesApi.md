@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ProjectsProjectIdAttributesTemplatesSearchPost"></a>
 # **apiV2ProjectsProjectIdAttributesTemplatesSearchPost**
-> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel)
+> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest)
 
 Search for custom attributes templates
 
@@ -43,9 +43,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
+    ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest = new ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest(); // ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest | 
     try {
-      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesSearchPost");
@@ -68,7 +68,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest** | [**ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -86,8 +86,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete"></a>
 # **apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete**
@@ -95,7 +100,7 @@ public class Example {
 
 Delete CustomAttributeTemplate from Project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
+ Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project
 
 ### Example
 ```java
@@ -152,14 +157,18 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update project settings permission for project required |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost"></a>
 # **apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost**
@@ -167,7 +176,7 @@ null (empty response body)
 
 Add CustomAttributeTemplate to Project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System add attribute template to project
+ Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project
 
 ### Example
 ```java
@@ -224,12 +233,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update project settings permission for project required |  -  |
 | **404** | Can&#39;t find a Project with identifier |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

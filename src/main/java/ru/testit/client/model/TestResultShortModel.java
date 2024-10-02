@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,6 +50,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -99,6 +100,7 @@ public class TestResultShortModel {
   }
 
   public TestResultShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -112,12 +114,14 @@ public class TestResultShortModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultShortModel outcome(String outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -131,12 +135,14 @@ public class TestResultShortModel {
     return outcome;
   }
 
+
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultShortModel traces(String traces) {
+    
     this.traces = traces;
     return this;
   }
@@ -150,12 +156,14 @@ public class TestResultShortModel {
     return traces;
   }
 
+
   public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
   public TestResultShortModel failureType(String failureType) {
+    
     this.failureType = failureType;
     return this;
   }
@@ -169,12 +177,14 @@ public class TestResultShortModel {
     return failureType;
   }
 
+
   public void setFailureType(String failureType) {
     this.failureType = failureType;
   }
 
 
   public TestResultShortModel message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -188,12 +198,14 @@ public class TestResultShortModel {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public TestResultShortModel testPoint(TestPointPutModel testPoint) {
+    
     this.testPoint = testPoint;
     return this;
   }
@@ -207,12 +219,14 @@ public class TestResultShortModel {
     return testPoint;
   }
 
+
   public void setTestPoint(TestPointPutModel testPoint) {
     this.testPoint = testPoint;
   }
 
 
   public TestResultShortModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -226,12 +240,14 @@ public class TestResultShortModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestResultShortModel autoTest(AutoTestShortModel autoTest) {
+    
     this.autoTest = autoTest;
     return this;
   }
@@ -245,12 +261,14 @@ public class TestResultShortModel {
     return autoTest;
   }
 
+
   public void setAutoTest(AutoTestShortModel autoTest) {
     this.autoTest = autoTest;
   }
 
 
   public TestResultShortModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -271,6 +289,7 @@ public class TestResultShortModel {
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
+
 
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
@@ -367,33 +386,32 @@ public class TestResultShortModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestResultShortModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultShortModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortModel is not found in the empty JSON string", TestResultShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -411,11 +429,11 @@ public class TestResultShortModel {
       }
       // validate the optional field `testPoint`
       if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPointPutModel.validateJsonElement(jsonObj.get("testPoint"));
+        TestPointPutModel.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
       }
       // validate the optional field `autoTest`
       if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
-        AutoTestShortModel.validateJsonElement(jsonObj.get("autoTest"));
+        AutoTestShortModel.validateJsonObject(jsonObj.getAsJsonObject("autoTest"));
       }
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
@@ -427,7 +445,7 @@ public class TestResultShortModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -453,9 +471,9 @@ public class TestResultShortModel {
 
            @Override
            public TestResultShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

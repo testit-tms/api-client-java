@@ -27,7 +27,7 @@ All URIs are relative to *http://localhost*
 
 Create multiple parameters
 
-&lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates parameters  &lt;br&gt;System returns list of parameter model (listed in the response example)
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
 
 ### Example
 ```java
@@ -89,7 +89,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | &lt;br&gt;- Parameter model is not valid |  -  |
+| **400** |  - Parameter model is not valid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersBulkPut"></a>
 # **apiV2ParametersBulkPut**
@@ -97,7 +102,7 @@ public class Example {
 
 Update multiple parameters
 
-&lt;br&gt;Use case  &lt;br&gt;User sets list of parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates parameters
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
 
 ### Example
 ```java
@@ -158,9 +163,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- Parameter model is not valid |  -  |
+| **400** |  - Parameter model is not valid |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Invalid user permissions |  -  |
-| **422** | Client Error |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersGroupsGet"></a>
 # **apiV2ParametersGroupsGet**
@@ -168,7 +176,7 @@ null (empty response body)
 
 Get parameters as group
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameters  &lt;br&gt;System returns parameters models as groups (listed in the response example)
+ Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
 
 ### Example
 ```java
@@ -241,8 +249,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersKeyNameNameExistsGet"></a>
 # **apiV2ParametersKeyNameNameExistsGet**
@@ -250,7 +263,7 @@ public class Example {
 
 Check existence parameter key in system
 
-&lt;br&gt;Use case  &lt;br&gt;User sets name of parameter key  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter key  &lt;br&gt;System returns the flag for the existence of the parameter key in the system
+ Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
 
 ### Example
 ```java
@@ -311,8 +324,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersKeyValuesGet"></a>
 # **apiV2ParametersKeyValuesGet**
@@ -320,7 +338,7 @@ public class Example {
 
 Get all parameter key values
 
-&lt;br&gt;Use case  &lt;br&gt;User sets parameter key (string format)  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter values using the key  &lt;br&gt;System returns parameter
+ Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
 
 ### Example
 ```java
@@ -382,6 +400,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersKeysGet"></a>
 # **apiV2ParametersKeysGet**
@@ -389,7 +413,7 @@ public class Example {
 
 Get all parameter keys
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System search all parameter keys  &lt;br&gt;System returns parameter keys
+ Use case   User runs method execution   System search all parameter keys   System returns parameter keys
 
 ### Example
 ```java
@@ -447,10 +471,16 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersSearchGroupsPost"></a>
 # **apiV2ParametersSearchGroupsPost**
-> List&lt;ParameterGroupModel&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+> List&lt;ParameterGroupModel&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest)
 
 Search for parameters as group
 
@@ -481,9 +511,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest = new ApiV2ParametersSearchPostRequest(); // ApiV2ParametersSearchPostRequest | 
     try {
-      List<ParameterGroupModel> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      List<ParameterGroupModel> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchGroupsPost");
@@ -505,7 +535,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+| **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -523,11 +553,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ParametersSearchPost"></a>
 # **apiV2ParametersSearchPost**
-> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest)
 
 Search for parameters
 
@@ -558,9 +594,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest = new ApiV2ParametersSearchPostRequest(); // ApiV2ParametersSearchPostRequest | 
     try {
-      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
@@ -582,7 +618,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+| **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -600,15 +636,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createParameter"></a>
 # **createParameter**
-> ParameterModel createParameter(parameterPostModel)
+> ParameterModel createParameter(createParameterRequest)
 
 Create parameter
 
-&lt;br&gt;Use case  &lt;br&gt;User sets parameter model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates parameter  &lt;br&gt;System returns parameter model
+ Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
 
 ### Example
 ```java
@@ -632,9 +674,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPostModel parameterPostModel = new ParameterPostModel(); // ParameterPostModel | 
+    CreateParameterRequest createParameterRequest = new CreateParameterRequest(); // CreateParameterRequest | 
     try {
-      ParameterModel result = apiInstance.createParameter(parameterPostModel);
+      ParameterModel result = apiInstance.createParameter(createParameterRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#createParameter");
@@ -651,7 +693,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional] |
+| **createParameterRequest** | [**CreateParameterRequest**](CreateParameterRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -671,6 +713,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteByName"></a>
 # **deleteByName**
@@ -740,6 +787,10 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
 | **400** | Provided name either is empty or contains only white spaces |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
 <a id="deleteByParameterKeyId"></a>
@@ -772,7 +823,7 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UUID keyId = UUID.randomUUID(); // UUID | 
+    UUID keyId = UUID.randomUUID(); // UUID | Identifier of the parameter key
     try {
       apiInstance.deleteByParameterKeyId(keyId);
     } catch (ApiException e) {
@@ -790,7 +841,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **keyId** | **UUID**|  | |
+| **keyId** | **UUID**| Identifier of the parameter key | |
 
 ### Return type
 
@@ -809,7 +860,11 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Invalid user permissions |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
 <a id="deleteParameter"></a>
@@ -818,7 +873,7 @@ null (empty response body)
 
 Delete parameter
 
-&lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;System search and delete parameter  &lt;br&gt;System returns deleted parameter
+ Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
 
 ### Example
 ```java
@@ -878,9 +933,14 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **400** |  - ID is not valid   - DTO is not valid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
+| **0** | Error |  -  |
 
 <a id="getAllParameters"></a>
 # **getAllParameters**
@@ -888,7 +948,7 @@ null (empty response body)
 
 Get all parameters
 
-&lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted parameters  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all parameters  &lt;br&gt;System returns array of all found parameters(listed in response model)
+ Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
 
 ### Example
 ```java
@@ -959,8 +1019,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Invalid user permissions |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getParameterById"></a>
 # **getParameterById**
@@ -968,7 +1033,7 @@ public class Example {
 
 Get parameter by ID
 
-&lt;br&gt;Use case  &lt;br&gt;User sets parameter internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search parameter using the identifier  &lt;br&gt;System returns parameter
+ Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
 
 ### Example
 ```java
@@ -1029,16 +1094,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="updateParameter"></a>
 # **updateParameter**
-> updateParameter(parameterPutModel)
+> updateParameter(updateParameterRequest)
 
 Update parameter
 
-&lt;br&gt;Use case  &lt;br&gt;User sets parameter updated properties(listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updated parameter using updated properties  &lt;br&gt;System returns no content response
+ Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
 
 ### Example
 ```java
@@ -1062,9 +1132,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPutModel parameterPutModel = new ParameterPutModel(); // ParameterPutModel | 
+    UpdateParameterRequest updateParameterRequest = new UpdateParameterRequest(); // UpdateParameterRequest | 
     try {
-      apiInstance.updateParameter(parameterPutModel);
+      apiInstance.updateParameter(updateParameterRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#updateParameter");
       System.err.println("Status code: " + e.getCode());
@@ -1080,7 +1150,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional] |
+| **updateParameterRequest** | [**UpdateParameterRequest**](UpdateParameterRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1099,6 +1169,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+| **400** |  - ID is not valid   - DTO is not valid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

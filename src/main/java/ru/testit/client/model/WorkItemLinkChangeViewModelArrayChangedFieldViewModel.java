@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemLinkChangeViewModel;
@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -67,6 +68,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   }
 
   public WorkItemLinkChangeViewModelArrayChangedFieldViewModel oldValue(List<WorkItemLinkChangeViewModel> oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -88,12 +90,14 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
     return oldValue;
   }
 
+
   public void setOldValue(List<WorkItemLinkChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public WorkItemLinkChangeViewModelArrayChangedFieldViewModel newValue(List<WorkItemLinkChangeViewModel> newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -114,6 +118,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   public List<WorkItemLinkChangeViewModel> getNewValue() {
     return newValue;
   }
+
 
   public void setNewValue(List<WorkItemLinkChangeViewModel> newValue) {
     this.newValue = newValue;
@@ -186,26 +191,25 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WorkItemLinkChangeViewModelArrayChangedFieldViewModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemLinkChangeViewModelArrayChangedFieldViewModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemLinkChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemLinkChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLinkChangeViewModelArrayChangedFieldViewModel is not found in the empty JSON string", WorkItemLinkChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemLinkChangeViewModelArrayChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkChangeViewModelArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkChangeViewModelArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
         JsonArray jsonArrayoldValue = jsonObj.getAsJsonArray("oldValue");
         if (jsonArrayoldValue != null) {
@@ -216,7 +220,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
 
           // validate the optional field `oldValue` (array)
           for (int i = 0; i < jsonArrayoldValue.size(); i++) {
-            WorkItemLinkChangeViewModel.validateJsonElement(jsonArrayoldValue.get(i));
+            WorkItemLinkChangeViewModel.validateJsonObject(jsonArrayoldValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -230,7 +234,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
 
           // validate the optional field `newValue` (array)
           for (int i = 0; i < jsonArraynewValue.size(); i++) {
-            WorkItemLinkChangeViewModel.validateJsonElement(jsonArraynewValue.get(i));
+            WorkItemLinkChangeViewModel.validateJsonObject(jsonArraynewValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -256,9 +260,9 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
 
            @Override
            public WorkItemLinkChangeViewModelArrayChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

@@ -27,19 +27,19 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+import ru.testit.client.model.ApiV2TestSuitesPostRequest;
+import ru.testit.client.model.ApiV2TestSuitesPutRequest;
 import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.SearchWorkItemsRequest;
 import java.util.Set;
 import ru.testit.client.model.TestPointByTestSuiteModel;
 import ru.testit.client.model.TestResultV2ShortModel;
 import ru.testit.client.model.TestSuiteV2GetModel;
-import ru.testit.client.model.TestSuiteV2PostModel;
-import ru.testit.client.model.TestSuiteV2PutModel;
-import ru.testit.client.model.TestSuiteWorkItemsSearchModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortModel;
 
 import java.lang.reflect.Type;
@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class TestSuitesApi {
     private ApiClient localVarApiClient;
@@ -88,7 +89,7 @@ public class TestSuitesApi {
     /**
      * Build call for addTestPointsToTestSuite
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -100,10 +101,11 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,7 +119,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/test-points"
@@ -150,13 +152,13 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsToTestSuite(Async)");
         }
 
-        return addTestPointsToTestSuiteCall(id, workItemSelectModel, _callback);
+        return addTestPointsToTestSuiteCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
 
     }
 
@@ -164,7 +166,7 @@ public class TestSuitesApi {
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -174,18 +176,19 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsToTestSuite(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        addTestPointsToTestSuiteWithHttpInfo(id, workItemSelectModel);
+    public void addTestPointsToTestSuite(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
+        addTestPointsToTestSuiteWithHttpInfo(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
     }
 
     /**
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -196,11 +199,12 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, null);
+    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -208,7 +212,7 @@ public class TestSuitesApi {
      * Add test-points to test suite (asynchronously)
      * 
      * @param id Test suite internal identifier (required)
-     * @param workItemSelectModel Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -220,12 +224,13 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Test suite with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, WorkItemSelectModel workItemSelectModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, workItemSelectModel, _callback);
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -240,7 +245,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdPatchCall(UUID id, List<Operation> operation, final ApiCallback _callback) throws ApiException {
@@ -310,7 +320,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestSuitesIdPatch(UUID id, List<Operation> operation) throws ApiException {
@@ -328,7 +343,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestSuitesIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
@@ -348,7 +368,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdPatchAsync(UUID id, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
@@ -367,7 +392,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdRefreshPostCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -435,7 +465,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestSuitesIdRefreshPost(UUID id) throws ApiException {
@@ -452,7 +487,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestSuitesIdRefreshPostWithHttpInfo(UUID id) throws ApiException {
@@ -471,7 +511,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test suite is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdRefreshPostAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -491,7 +536,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdWorkItemsPostCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -561,7 +611,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestSuitesIdWorkItemsPost(UUID id, Set<UUID> UUID) throws ApiException {
@@ -579,7 +634,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestSuitesIdWorkItemsPostWithHttpInfo(UUID id, Set<UUID> UUID) throws ApiException {
@@ -599,7 +659,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestSuitesIdWorkItemsPostAsync(UUID id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {
@@ -610,7 +675,7 @@ public class TestSuitesApi {
     }
     /**
      * Build call for apiV2TestSuitesPost
-     * @param testSuiteV2PostModel  (optional)
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -618,10 +683,15 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPostCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPostCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -635,7 +705,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testSuiteV2PostModel;
+        Object localVarPostBody = apiV2TestSuitesPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites";
@@ -667,44 +737,54 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestSuitesPostValidateBeforeCall(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestSuitesPostCall(testSuiteV2PostModel, _callback);
+    private okhttp3.Call apiV2TestSuitesPostValidateBeforeCall(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPostCall(apiV2TestSuitesPostRequest, _callback);
 
     }
 
     /**
      * Create test suite
      * 
-     * @param testSuiteV2PostModel  (optional)
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestSuiteV2GetModel apiV2TestSuitesPost(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
-        ApiResponse<TestSuiteV2GetModel> localVarResp = apiV2TestSuitesPostWithHttpInfo(testSuiteV2PostModel);
+    public TestSuiteV2GetModel apiV2TestSuitesPost(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
+        ApiResponse<TestSuiteV2GetModel> localVarResp = apiV2TestSuitesPostWithHttpInfo(apiV2TestSuitesPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test suite
      * 
-     * @param testSuiteV2PostModel  (optional)
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(testSuiteV2PostModel, null);
+    public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, null);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -712,7 +792,7 @@ public class TestSuitesApi {
     /**
      * Create test suite (asynchronously)
      * 
-     * @param testSuiteV2PostModel  (optional)
+     * @param apiV2TestSuitesPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -720,19 +800,24 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPostAsync(TestSuiteV2PostModel testSuiteV2PostModel, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPostAsync(ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(testSuiteV2PostModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestSuitesPostValidateBeforeCall(apiV2TestSuitesPostRequest, _callback);
         Type localVarReturnType = new TypeToken<TestSuiteV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestSuitesPut
-     * @param testSuiteV2PutModel  (optional)
+     * @param apiV2TestSuitesPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -740,10 +825,15 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPutCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPutCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -757,7 +847,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testSuiteV2PutModel;
+        Object localVarPostBody = apiV2TestSuitesPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites";
@@ -789,49 +879,59 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestSuitesPutValidateBeforeCall(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestSuitesPutCall(testSuiteV2PutModel, _callback);
+    private okhttp3.Call apiV2TestSuitesPutValidateBeforeCall(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestSuitesPutCall(apiV2TestSuitesPutRequest, _callback);
 
     }
 
     /**
      * Edit test suite
      * 
-     * @param testSuiteV2PutModel  (optional)
+     * @param apiV2TestSuitesPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestSuitesPut(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
-        apiV2TestSuitesPutWithHttpInfo(testSuiteV2PutModel);
+    public void apiV2TestSuitesPut(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
+        apiV2TestSuitesPutWithHttpInfo(apiV2TestSuitesPutRequest);
     }
 
     /**
      * Edit test suite
      * 
-     * @param testSuiteV2PutModel  (optional)
+     * @param apiV2TestSuitesPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(testSuiteV2PutModel, null);
+    public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Edit test suite (asynchronously)
      * 
-     * @param testSuiteV2PutModel  (optional)
+     * @param apiV2TestSuitesPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -839,12 +939,17 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestSuitesPutAsync(TestSuiteV2PutModel testSuiteV2PutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestSuitesPutAsync(ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(testSuiteV2PutModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestSuitesPutValidateBeforeCall(apiV2TestSuitesPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -858,9 +963,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestSuiteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -921,16 +1029,19 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void deleteTestSuite(UUID id) throws ApiException {
@@ -939,7 +1050,7 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -947,9 +1058,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteTestSuiteWithHttpInfo(UUID id) throws ApiException {
@@ -959,7 +1073,7 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -968,9 +1082,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTestSuiteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -989,9 +1106,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByTestSuiteIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1052,7 +1172,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1060,9 +1180,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<ConfigurationModel> getConfigurationsByTestSuiteId(UUID id) throws ApiException {
@@ -1072,7 +1195,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1080,9 +1203,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ConfigurationModel>> getConfigurationsByTestSuiteIdWithHttpInfo(UUID id) throws ApiException {
@@ -1093,7 +1219,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1102,9 +1228,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConfigurationsByTestSuiteIdAsync(UUID id, final ApiCallback<List<ConfigurationModel>> _callback) throws ApiException {
@@ -1124,9 +1253,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPointsByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1187,7 +1319,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestPointByTestSuiteModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1195,9 +1327,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestPointByTestSuiteModel> getTestPointsById(UUID id) throws ApiException {
@@ -1207,7 +1342,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestPointByTestSuiteModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1215,9 +1350,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestPointByTestSuiteModel>> getTestPointsByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1228,7 +1366,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1237,9 +1375,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestPointsByIdAsync(UUID id, final ApiCallback<List<TestPointByTestSuiteModel>> _callback) throws ApiException {
@@ -1259,9 +1400,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestResultsByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1322,7 +1466,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestResultV2ShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1330,9 +1474,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TestResultV2ShortModel> getTestResultsById(UUID id) throws ApiException {
@@ -1342,7 +1489,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestResultV2ShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1350,9 +1497,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TestResultV2ShortModel>> getTestResultsByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1363,7 +1513,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1372,9 +1522,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestResultsByIdAsync(UUID id, final ApiCallback<List<TestResultV2ShortModel>> _callback) throws ApiException {
@@ -1394,9 +1547,13 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestSuiteByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1457,7 +1614,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1465,9 +1622,13 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public TestSuiteV2GetModel getTestSuiteById(UUID id) throws ApiException {
@@ -1477,7 +1638,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1485,9 +1646,13 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestSuiteV2GetModel> getTestSuiteByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1498,7 +1663,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
+     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1507,9 +1672,13 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestSuiteByIdAsync(UUID id, final ApiCallback<TestSuiteV2GetModel> _callback) throws ApiException {
@@ -1527,7 +1696,7 @@ public class TestSuitesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1539,11 +1708,13 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1557,7 +1728,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testSuiteWorkItemsSearchModel;
+        Object localVarPostBody = searchWorkItemsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/workItems/search"
@@ -1611,26 +1782,26 @@ public class TestSuitesApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchWorkItemsValidateBeforeCall(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling searchWorkItems(Async)");
         }
 
-        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
+        return searchWorkItemsCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
 
     }
 
     /**
      * Search WorkItems
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                    &lt;br&gt;System returns work items array
+     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1641,25 +1812,27 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel);
+    public List<WorkItemShortModel> searchWorkItems(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
+        ApiResponse<List<WorkItemShortModel>> localVarResp = searchWorkItemsWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Search WorkItems
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                    &lt;br&gt;System returns work items array
+     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1670,26 +1843,28 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel) throws ApiException {
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, null);
+    public ApiResponse<List<WorkItemShortModel>> searchWorkItemsWithHttpInfo(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, null);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search WorkItems (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                    &lt;br&gt;System returns work items array
+     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testSuiteWorkItemsSearchModel  (optional)
+     * @param searchWorkItemsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1701,13 +1876,15 @@ public class TestSuitesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call searchWorkItemsAsync(UUID id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWorkItemsRequest searchWorkItemsRequest, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel, _callback);
+        okhttp3.Call localVarCall = searchWorkItemsValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest, _callback);
         Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1723,10 +1900,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setConfigurationsByTestSuiteIdCall(UUID id, Set<UUID> UUID, final ApiCallback _callback) throws ApiException {
@@ -1788,7 +1967,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1796,10 +1975,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void setConfigurationsByTestSuiteId(UUID id, Set<UUID> UUID) throws ApiException {
@@ -1808,7 +1989,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1817,10 +1998,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> setConfigurationsByTestSuiteIdWithHttpInfo(UUID id, Set<UUID> UUID) throws ApiException {
@@ -1830,7 +2013,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
+     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1840,10 +2023,12 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setConfigurationsByTestSuiteIdAsync(UUID id, Set<UUID> UUID, final ApiCallback<Void> _callback) throws ApiException {

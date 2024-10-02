@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +52,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -141,6 +142,7 @@ public class TestResultV2ShortModel {
   }
 
   public TestResultV2ShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -154,12 +156,14 @@ public class TestResultV2ShortModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultV2ShortModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
@@ -173,12 +177,14 @@ public class TestResultV2ShortModel {
     return configurationId;
   }
 
+
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestResultV2ShortModel workItemVersionId(UUID workItemVersionId) {
+    
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -192,12 +198,14 @@ public class TestResultV2ShortModel {
     return workItemVersionId;
   }
 
+
   public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
   public TestResultV2ShortModel autoTestId(UUID autoTestId) {
+    
     this.autoTestId = autoTestId;
     return this;
   }
@@ -211,12 +219,14 @@ public class TestResultV2ShortModel {
     return autoTestId;
   }
 
+
   public void setAutoTestId(UUID autoTestId) {
     this.autoTestId = autoTestId;
   }
 
 
   public TestResultV2ShortModel message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -230,12 +240,14 @@ public class TestResultV2ShortModel {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public TestResultV2ShortModel traces(String traces) {
+    
     this.traces = traces;
     return this;
   }
@@ -249,12 +261,14 @@ public class TestResultV2ShortModel {
     return traces;
   }
 
+
   public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
   public TestResultV2ShortModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -268,12 +282,14 @@ public class TestResultV2ShortModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestResultV2ShortModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -287,12 +303,14 @@ public class TestResultV2ShortModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestResultV2ShortModel runByUserId(UUID runByUserId) {
+    
     this.runByUserId = runByUserId;
     return this;
   }
@@ -306,12 +324,14 @@ public class TestResultV2ShortModel {
     return runByUserId;
   }
 
+
   public void setRunByUserId(UUID runByUserId) {
     this.runByUserId = runByUserId;
   }
 
 
   public TestResultV2ShortModel stoppedByUserId(UUID stoppedByUserId) {
+    
     this.stoppedByUserId = stoppedByUserId;
     return this;
   }
@@ -325,12 +345,14 @@ public class TestResultV2ShortModel {
     return stoppedByUserId;
   }
 
+
   public void setStoppedByUserId(UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
   }
 
 
   public TestResultV2ShortModel testPointId(UUID testPointId) {
+    
     this.testPointId = testPointId;
     return this;
   }
@@ -344,12 +366,14 @@ public class TestResultV2ShortModel {
     return testPointId;
   }
 
+
   public void setTestPointId(UUID testPointId) {
     this.testPointId = testPointId;
   }
 
 
   public TestResultV2ShortModel testPoint(TestPointRelatedToTestResult testPoint) {
+    
     this.testPoint = testPoint;
     return this;
   }
@@ -363,12 +387,14 @@ public class TestResultV2ShortModel {
     return testPoint;
   }
 
+
   public void setTestPoint(TestPointRelatedToTestResult testPoint) {
     this.testPoint = testPoint;
   }
 
 
   public TestResultV2ShortModel testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
@@ -382,12 +408,14 @@ public class TestResultV2ShortModel {
     return testRunId;
   }
 
+
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public TestResultV2ShortModel outcome(String outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -401,12 +429,14 @@ public class TestResultV2ShortModel {
     return outcome;
   }
 
+
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultV2ShortModel comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -420,12 +450,14 @@ public class TestResultV2ShortModel {
     return comment;
   }
 
+
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   public TestResultV2ShortModel links(List<LinkModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -447,12 +479,14 @@ public class TestResultV2ShortModel {
     return links;
   }
 
+
   public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
   public TestResultV2ShortModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -474,12 +508,14 @@ public class TestResultV2ShortModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public TestResultV2ShortModel parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -501,12 +537,14 @@ public class TestResultV2ShortModel {
     return parameters;
   }
 
+
   public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
   public TestResultV2ShortModel properties(Map<String, String> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -527,6 +565,7 @@ public class TestResultV2ShortModel {
   public Map<String, String> getProperties() {
     return properties;
   }
+
 
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
@@ -655,33 +694,32 @@ public class TestResultV2ShortModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestResultV2ShortModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultV2ShortModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultV2ShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultV2ShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultV2ShortModel is not found in the empty JSON string", TestResultV2ShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultV2ShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultV2ShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultV2ShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultV2ShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -711,7 +749,7 @@ public class TestResultV2ShortModel {
       }
       // validate the optional field `testPoint`
       if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPointRelatedToTestResult.validateJsonElement(jsonObj.get("testPoint"));
+        TestPointRelatedToTestResult.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
       }
       if (!jsonObj.get("testRunId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
@@ -732,7 +770,7 @@ public class TestResultV2ShortModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonElement(jsonArraylinks.get(i));
+            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
@@ -746,7 +784,7 @@ public class TestResultV2ShortModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -772,9 +810,9 @@ public class TestResultV2ShortModel {
 
            @Override
            public TestResultV2ShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

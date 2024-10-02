@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestSuiteType;
@@ -45,6 +45,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -82,6 +83,7 @@ public class TestSuiteV2PostModel {
   }
 
   public TestSuiteV2PostModel parentId(UUID parentId) {
+    
     this.parentId = parentId;
     return this;
   }
@@ -95,12 +97,14 @@ public class TestSuiteV2PostModel {
     return parentId;
   }
 
+
   public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
   public TestSuiteV2PostModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -114,12 +118,14 @@ public class TestSuiteV2PostModel {
     return testPlanId;
   }
 
+
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestSuiteV2PostModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -133,12 +139,14 @@ public class TestSuiteV2PostModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestSuiteV2PostModel type(TestSuiteType type) {
+    
     this.type = type;
     return this;
   }
@@ -152,12 +160,14 @@ public class TestSuiteV2PostModel {
     return type;
   }
 
+
   public void setType(TestSuiteType type) {
     this.type = type;
   }
 
 
   public TestSuiteV2PostModel saveStructure(Boolean saveStructure) {
+    
     this.saveStructure = saveStructure;
     return this;
   }
@@ -171,12 +181,14 @@ public class TestSuiteV2PostModel {
     return saveStructure;
   }
 
+
   public void setSaveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
   public TestSuiteV2PostModel autoRefresh(Boolean autoRefresh) {
+    
     this.autoRefresh = autoRefresh;
     return this;
   }
@@ -189,6 +201,7 @@ public class TestSuiteV2PostModel {
   public Boolean getAutoRefresh() {
     return autoRefresh;
   }
+
 
   public void setAutoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
@@ -275,33 +288,32 @@ public class TestSuiteV2PostModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestSuiteV2PostModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestSuiteV2PostModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestSuiteV2PostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestSuiteV2PostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteV2PostModel is not found in the empty JSON string", TestSuiteV2PostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestSuiteV2PostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestSuiteV2PostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
       }
@@ -310,10 +322,6 @@ public class TestSuiteV2PostModel {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TestSuiteType.validateJsonElement(jsonObj.get("type"));
       }
   }
 
@@ -337,9 +345,9 @@ public class TestSuiteV2PostModel {
 
            @Override
            public TestSuiteV2PostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

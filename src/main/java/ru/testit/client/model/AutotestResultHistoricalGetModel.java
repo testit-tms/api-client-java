@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutotestResultOutcome;
@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -123,6 +124,7 @@ public class AutotestResultHistoricalGetModel {
   }
 
   public AutotestResultHistoricalGetModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -136,12 +138,14 @@ public class AutotestResultHistoricalGetModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public AutotestResultHistoricalGetModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -155,12 +159,14 @@ public class AutotestResultHistoricalGetModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public AutotestResultHistoricalGetModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -174,12 +180,14 @@ public class AutotestResultHistoricalGetModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public AutotestResultHistoricalGetModel createdByName(String createdByName) {
+    
     this.createdByName = createdByName;
     return this;
   }
@@ -193,12 +201,14 @@ public class AutotestResultHistoricalGetModel {
     return createdByName;
   }
 
+
   public void setCreatedByName(String createdByName) {
     this.createdByName = createdByName;
   }
 
 
   public AutotestResultHistoricalGetModel testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
@@ -212,12 +222,14 @@ public class AutotestResultHistoricalGetModel {
     return testRunId;
   }
 
+
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public AutotestResultHistoricalGetModel testRunName(String testRunName) {
+    
     this.testRunName = testRunName;
     return this;
   }
@@ -231,12 +243,14 @@ public class AutotestResultHistoricalGetModel {
     return testRunName;
   }
 
+
   public void setTestRunName(String testRunName) {
     this.testRunName = testRunName;
   }
 
 
   public AutotestResultHistoricalGetModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
@@ -250,12 +264,14 @@ public class AutotestResultHistoricalGetModel {
     return configurationId;
   }
 
+
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public AutotestResultHistoricalGetModel configurationName(String configurationName) {
+    
     this.configurationName = configurationName;
     return this;
   }
@@ -269,12 +285,14 @@ public class AutotestResultHistoricalGetModel {
     return configurationName;
   }
 
+
   public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   public AutotestResultHistoricalGetModel outcome(AutotestResultOutcome outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -288,12 +306,14 @@ public class AutotestResultHistoricalGetModel {
     return outcome;
   }
 
+
   public void setOutcome(AutotestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
   public AutotestResultHistoricalGetModel launchSource(String launchSource) {
+    
     this.launchSource = launchSource;
     return this;
   }
@@ -307,12 +327,14 @@ public class AutotestResultHistoricalGetModel {
     return launchSource;
   }
 
+
   public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
   public AutotestResultHistoricalGetModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -326,12 +348,14 @@ public class AutotestResultHistoricalGetModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public AutotestResultHistoricalGetModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -345,12 +369,14 @@ public class AutotestResultHistoricalGetModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public AutotestResultHistoricalGetModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -364,12 +390,14 @@ public class AutotestResultHistoricalGetModel {
     return testPlanId;
   }
 
+
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public AutotestResultHistoricalGetModel testPlanGlobalId(Long testPlanGlobalId) {
+    
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -383,12 +411,14 @@ public class AutotestResultHistoricalGetModel {
     return testPlanGlobalId;
   }
 
+
   public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
   public AutotestResultHistoricalGetModel testPlanName(String testPlanName) {
+    
     this.testPlanName = testPlanName;
     return this;
   }
@@ -402,12 +432,14 @@ public class AutotestResultHistoricalGetModel {
     return testPlanName;
   }
 
+
   public void setTestPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
   public AutotestResultHistoricalGetModel duration(Long duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -420,6 +452,7 @@ public class AutotestResultHistoricalGetModel {
   public Long getDuration() {
     return duration;
   }
+
 
   public void setDuration(Long duration) {
     this.duration = duration;
@@ -542,33 +575,32 @@ public class AutotestResultHistoricalGetModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutotestResultHistoricalGetModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutotestResultHistoricalGetModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutotestResultHistoricalGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutotestResultHistoricalGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestResultHistoricalGetModel is not found in the empty JSON string", AutotestResultHistoricalGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AutotestResultHistoricalGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultHistoricalGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultHistoricalGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutotestResultHistoricalGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -590,8 +622,6 @@ public class AutotestResultHistoricalGetModel {
       if (!jsonObj.get("configurationName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
       }
-      // validate the required field `outcome`
-      AutotestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
       }
@@ -626,9 +656,9 @@ public class AutotestResultHistoricalGetModel {
 
            @Override
            public AutotestResultHistoricalGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

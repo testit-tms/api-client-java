@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,14 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestResultModel;
-import ru.testit.client.model.TestRunAnalyticResultModel;
+import ru.testit.client.model.TestRunModelAnalytic;
 import ru.testit.client.model.TestRunState;
 
 import com.google.gson.Gson;
@@ -52,6 +52,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -79,7 +80,7 @@ public class TestRunModel {
 
   public static final String SERIALIZED_NAME_ANALYTIC = "analytic";
   @SerializedName(SERIALIZED_NAME_ANALYTIC)
-  private TestRunAnalyticResultModel analytic;
+  private TestRunModelAnalytic analytic;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
@@ -165,6 +166,7 @@ public class TestRunModel {
   }
 
   public TestRunModel autoTests(List<AutoTestModel> autoTests) {
+    
     this.autoTests = autoTests;
     return this;
   }
@@ -186,12 +188,14 @@ public class TestRunModel {
     return autoTests;
   }
 
+
   public void setAutoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
   public TestRunModel autoTestsCount(Integer autoTestsCount) {
+    
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -205,12 +209,14 @@ public class TestRunModel {
     return autoTestsCount;
   }
 
+
   public void setAutoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
   public TestRunModel testSuiteIds(List<UUID> testSuiteIds) {
+    
     this.testSuiteIds = testSuiteIds;
     return this;
   }
@@ -232,12 +238,14 @@ public class TestRunModel {
     return testSuiteIds;
   }
 
+
   public void setTestSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
   }
 
 
   public TestRunModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -251,12 +259,14 @@ public class TestRunModel {
     return isAutomated;
   }
 
+
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestRunModel analytic(TestRunAnalyticResultModel analytic) {
+  public TestRunModel analytic(TestRunModelAnalytic analytic) {
+    
     this.analytic = analytic;
     return this;
   }
@@ -266,16 +276,18 @@ public class TestRunModel {
    * @return analytic
   **/
   @javax.annotation.Nonnull
-  public TestRunAnalyticResultModel getAnalytic() {
+  public TestRunModelAnalytic getAnalytic() {
     return analytic;
   }
 
-  public void setAnalytic(TestRunAnalyticResultModel analytic) {
+
+  public void setAnalytic(TestRunModelAnalytic analytic) {
     this.analytic = analytic;
   }
 
 
   public TestRunModel testResults(List<TestResultModel> testResults) {
+    
     this.testResults = testResults;
     return this;
   }
@@ -297,12 +309,14 @@ public class TestRunModel {
     return testResults;
   }
 
+
   public void setTestResults(List<TestResultModel> testResults) {
     this.testResults = testResults;
   }
 
 
   public TestRunModel testPlan(TestPlanModel testPlan) {
+    
     this.testPlan = testPlan;
     return this;
   }
@@ -316,12 +330,14 @@ public class TestRunModel {
     return testPlan;
   }
 
+
   public void setTestPlan(TestPlanModel testPlan) {
     this.testPlan = testPlan;
   }
 
 
   public TestRunModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -335,12 +351,14 @@ public class TestRunModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestRunModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -354,12 +372,14 @@ public class TestRunModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestRunModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -373,12 +393,14 @@ public class TestRunModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestRunModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -392,12 +414,14 @@ public class TestRunModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestRunModel createdByUserName(String createdByUserName) {
+    
     this.createdByUserName = createdByUserName;
     return this;
   }
@@ -411,12 +435,14 @@ public class TestRunModel {
     return createdByUserName;
   }
 
+
   public void setCreatedByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 
 
   public TestRunModel startedDate(OffsetDateTime startedDate) {
+    
     this.startedDate = startedDate;
     return this;
   }
@@ -430,12 +456,14 @@ public class TestRunModel {
     return startedDate;
   }
 
+
   public void setStartedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
   }
 
 
   public TestRunModel completedDate(OffsetDateTime completedDate) {
+    
     this.completedDate = completedDate;
     return this;
   }
@@ -449,12 +477,14 @@ public class TestRunModel {
     return completedDate;
   }
 
+
   public void setCompletedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
   }
 
 
   public TestRunModel build(String build) {
+    
     this.build = build;
     return this;
   }
@@ -468,12 +498,14 @@ public class TestRunModel {
     return build;
   }
 
+
   public void setBuild(String build) {
     this.build = build;
   }
 
 
   public TestRunModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -487,12 +519,14 @@ public class TestRunModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestRunModel stateName(TestRunState stateName) {
+    
     this.stateName = stateName;
     return this;
   }
@@ -506,12 +540,14 @@ public class TestRunModel {
     return stateName;
   }
 
+
   public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
   public TestRunModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -525,12 +561,14 @@ public class TestRunModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestRunModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -544,12 +582,14 @@ public class TestRunModel {
     return testPlanId;
   }
 
+
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestRunModel runByUserId(UUID runByUserId) {
+    
     this.runByUserId = runByUserId;
     return this;
   }
@@ -563,12 +603,14 @@ public class TestRunModel {
     return runByUserId;
   }
 
+
   public void setRunByUserId(UUID runByUserId) {
     this.runByUserId = runByUserId;
   }
 
 
   public TestRunModel stoppedByUserId(UUID stoppedByUserId) {
+    
     this.stoppedByUserId = stoppedByUserId;
     return this;
   }
@@ -582,12 +624,14 @@ public class TestRunModel {
     return stoppedByUserId;
   }
 
+
   public void setStoppedByUserId(UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
   }
 
 
   public TestRunModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -601,12 +645,14 @@ public class TestRunModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunModel launchSource(String launchSource) {
+    
     this.launchSource = launchSource;
     return this;
   }
@@ -620,12 +666,14 @@ public class TestRunModel {
     return launchSource;
   }
 
+
   public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
   public TestRunModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -639,12 +687,14 @@ public class TestRunModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestRunModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -657,6 +707,7 @@ public class TestRunModel {
   public Boolean getIsDeleted() {
     return isDeleted;
   }
+
 
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
@@ -811,33 +862,32 @@ public class TestRunModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunModel is not found in the empty JSON string", TestRunModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("autoTests") != null && !jsonObj.get("autoTests").isJsonNull()) {
         JsonArray jsonArrayautoTests = jsonObj.getAsJsonArray("autoTests");
         if (jsonArrayautoTests != null) {
@@ -848,16 +898,16 @@ public class TestRunModel {
 
           // validate the optional field `autoTests` (array)
           for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-            AutoTestModel.validateJsonElement(jsonArrayautoTests.get(i));
+            AutoTestModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
           };
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonNull() && !jsonObj.get("testSuiteIds").isJsonArray()) {
+      if (jsonObj.get("testSuiteIds") != null && !jsonObj.get("testSuiteIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteIds` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteIds").toString()));
       }
       // validate the required field `analytic`
-      TestRunAnalyticResultModel.validateJsonElement(jsonObj.get("analytic"));
+      TestRunModelAnalytic.validateJsonObject(jsonObj.getAsJsonObject("analytic"));
       if (jsonObj.get("testResults") != null && !jsonObj.get("testResults").isJsonNull()) {
         JsonArray jsonArraytestResults = jsonObj.getAsJsonArray("testResults");
         if (jsonArraytestResults != null) {
@@ -868,13 +918,13 @@ public class TestRunModel {
 
           // validate the optional field `testResults` (array)
           for (int i = 0; i < jsonArraytestResults.size(); i++) {
-            TestResultModel.validateJsonElement(jsonArraytestResults.get(i));
+            TestResultModel.validateJsonObject(jsonArraytestResults.get(i).getAsJsonObject());
           };
         }
       }
       // validate the optional field `testPlan`
       if (jsonObj.get("testPlan") != null && !jsonObj.get("testPlan").isJsonNull()) {
-        TestPlanModel.validateJsonElement(jsonObj.get("testPlan"));
+        TestPlanModel.validateJsonObject(jsonObj.getAsJsonObject("testPlan"));
       }
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
@@ -891,8 +941,6 @@ public class TestRunModel {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `stateName`
-      TestRunState.validateJsonElement(jsonObj.get("stateName"));
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -936,9 +984,9 @@ public class TestRunModel {
 
            @Override
            public TestRunModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

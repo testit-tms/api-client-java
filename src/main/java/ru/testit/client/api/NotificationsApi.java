@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2NotificationsSearchPostRequest;
 import ru.testit.client.model.NotificationModel;
-import ru.testit.client.model.NotificationQueryFilterModel;
 import ru.testit.client.model.NotificationTypeModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class NotificationsApi {
     private ApiClient localVarApiClient;
@@ -87,7 +88,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsCountGetCall(Boolean isRead, final ApiCallback _callback) throws ApiException {
@@ -146,7 +152,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns unread notifications total (listed in the response example)
+     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -154,7 +160,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public Integer apiV2NotificationsCountGet(Boolean isRead) throws ApiException {
@@ -164,7 +175,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns unread notifications total (listed in the response example)
+     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -172,7 +183,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Integer> apiV2NotificationsCountGetWithHttpInfo(Boolean isRead) throws ApiException {
@@ -183,7 +199,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns unread notifications total (listed in the response example)
+     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -192,7 +208,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsCountGetAsync(Boolean isRead, final ApiCallback<Integer> _callback) throws ApiException {
@@ -217,8 +238,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsGetCall(NotificationTypeModel notificationType, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -297,7 +322,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User runs method execution   System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -310,8 +335,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<NotificationModel> apiV2NotificationsGet(NotificationTypeModel notificationType, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -321,7 +350,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User runs method execution   System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -334,8 +363,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<NotificationModel>> apiV2NotificationsGetWithHttpInfo(NotificationTypeModel notificationType, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -346,7 +379,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User runs method execution   System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -360,8 +393,12 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsGetAsync(NotificationTypeModel notificationType, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<NotificationModel>> _callback) throws ApiException {
@@ -380,9 +417,14 @@ public class NotificationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find notification with notificationId </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsIdReadPostCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -443,15 +485,20 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read
-     * &lt;br&gt;Use case  &lt;br&gt;User sets notification internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set notification as read
+     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find notification with notificationId </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2NotificationsIdReadPost(UUID id) throws ApiException {
@@ -460,16 +507,21 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read
-     * &lt;br&gt;Use case  &lt;br&gt;User sets notification internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set notification as read
+     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
      * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find notification with notificationId </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2NotificationsIdReadPostWithHttpInfo(UUID id) throws ApiException {
@@ -479,7 +531,7 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets notification internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set notification as read
+     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -487,9 +539,14 @@ public class NotificationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find notification with notificationId </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsIdReadPostAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -506,8 +563,14 @@ public class NotificationsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsReadPostCall(final ApiCallback _callback) throws ApiException {
@@ -562,13 +625,19 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System set all notifications as read
+     *  Use case   User runs method execution   System set all notifications as read
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2NotificationsReadPost() throws ApiException {
@@ -577,14 +646,20 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System set all notifications as read
+     *  Use case   User runs method execution   System set all notifications as read
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2NotificationsReadPostWithHttpInfo() throws ApiException {
@@ -594,15 +669,21 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System set all notifications as read
+     *  Use case   User runs method execution   System set all notifications as read
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2NotificationsReadPostAsync(final ApiCallback<Void> _callback) throws ApiException {
@@ -618,7 +699,7 @@ public class NotificationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -628,9 +709,13 @@ public class NotificationsApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2NotificationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2NotificationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -644,7 +729,7 @@ public class NotificationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = notificationQueryFilterModel;
+        Object localVarPostBody = apiV2NotificationsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/notifications/search";
@@ -696,20 +781,20 @@ public class NotificationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2NotificationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2NotificationsSearchPostCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, _callback);
+    private okhttp3.Call apiV2NotificationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2NotificationsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, _callback);
 
     }
 
     /**
      * Search Notifications for current User
-     * &lt;br&gt;Use case  &lt;br&gt;User set filter and runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @return List&lt;NotificationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -718,22 +803,26 @@ public class NotificationsApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<NotificationModel> apiV2NotificationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel) throws ApiException {
-        ApiResponse<List<NotificationModel>> localVarResp = apiV2NotificationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel);
+    public List<NotificationModel> apiV2NotificationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest) throws ApiException {
+        ApiResponse<List<NotificationModel>> localVarResp = apiV2NotificationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Search Notifications for current User
-     * &lt;br&gt;Use case  &lt;br&gt;User set filter and runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;NotificationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -742,23 +831,27 @@ public class NotificationsApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<NotificationModel>> apiV2NotificationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, null);
+    public ApiResponse<List<NotificationModel>> apiV2NotificationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<NotificationModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search Notifications for current User (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User set filter and runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -768,11 +861,15 @@ public class NotificationsApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2NotificationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback<List<NotificationModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2NotificationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback<List<NotificationModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<NotificationModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

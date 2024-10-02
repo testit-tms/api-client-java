@@ -83,15 +83,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for section is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createSection"></a>
 # **createSection**
-> SectionWithStepsModel createSection(sectionPostModel)
+> SectionWithStepsModel createSection(createSectionRequest)
 
 Create section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates section property values  &lt;br&gt;System returns section (listed in response example)
+ Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
 
 ### Example
 ```java
@@ -115,9 +120,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPostModel sectionPostModel = new SectionPostModel(); // SectionPostModel | 
+    CreateSectionRequest createSectionRequest = new CreateSectionRequest(); // CreateSectionRequest | 
     try {
-      SectionWithStepsModel result = apiInstance.createSection(sectionPostModel);
+      SectionWithStepsModel result = apiInstance.createSection(createSectionRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#createSection");
@@ -134,7 +139,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionPostModel** | [**SectionPostModel**](SectionPostModel.md)|  | [optional] |
+| **createSectionRequest** | [**CreateSectionRequest**](CreateSectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -158,6 +163,7 @@ public class Example {
 | **403** | Update permission for test library is required |  -  |
 | **404** | Parent section with provided ID was not found |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteSection"></a>
 # **deleteSection**
@@ -165,7 +171,7 @@ public class Example {
 
 Delete section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search and delete nested sections of the found section  &lt;br&gt;System search and delete workitems related to the found nested sections  &lt;br&gt;System deletes initial section and related workitem  &lt;br&gt;System returns no content response
+ Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
 
 ### Example
 ```java
@@ -229,8 +235,8 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test library is required |  -  |
-| **409** | Conflict |  -  |
 | **404** | Section with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Cannot delete root section |  -  |
 
 <a id="getSectionById"></a>
@@ -239,7 +245,7 @@ null (empty response body)
 
 Get section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the section identifier  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns section
+ Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
 
 ### Example
 ```java
@@ -302,11 +308,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getWorkItemsBySectionId"></a>
 # **getWorkItemsBySectionId**
@@ -314,7 +322,7 @@ public class Example {
 
 Get section work items
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System search work items related to the section  &lt;br&gt;              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                &lt;br&gt;System returns work item collection
+ Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
 
 ### Example
 ```java
@@ -391,15 +399,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="move"></a>
 # **move**
-> move(sectionMoveModel)
+> move(moveRequest)
 
 Move section with all work items into another section
 
@@ -425,9 +435,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionMoveModel sectionMoveModel = new SectionMoveModel(); // SectionMoveModel | 
+    MoveRequest moveRequest = new MoveRequest(); // MoveRequest | 
     try {
-      apiInstance.move(sectionMoveModel);
+      apiInstance.move(moveRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#move");
       System.err.println("Status code: " + e.getCode());
@@ -443,7 +453,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionMoveModel** | [**SectionMoveModel**](SectionMoveModel.md)|  | [optional] |
+| **moveRequest** | [**MoveRequest**](MoveRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -462,15 +472,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="rename"></a>
 # **rename**
-> rename(sectionRenameModel)
+> rename(renameRequest)
 
 Rename section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section identifier and new name (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section name using the new name  &lt;br&gt;System returns no content response
+ Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
 
 ### Example
 ```java
@@ -494,9 +509,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionRenameModel sectionRenameModel = new SectionRenameModel(); // SectionRenameModel | 
+    RenameRequest renameRequest = new RenameRequest(); // RenameRequest | 
     try {
-      apiInstance.rename(sectionRenameModel);
+      apiInstance.rename(renameRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#rename");
       System.err.println("Status code: " + e.getCode());
@@ -512,7 +527,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionRenameModel** | [**SectionRenameModel**](SectionRenameModel.md)|  | [optional] |
+| **renameRequest** | [**RenameRequest**](RenameRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -531,6 +546,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
@@ -539,11 +555,11 @@ null (empty response body)
 
 <a id="updateSection"></a>
 # **updateSection**
-> updateSection(sectionPutModel)
+> updateSection(updateSectionRequest)
 
 Update section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets section properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System search section by the identifier  &lt;br&gt;System updates section using the property values  &lt;br&gt;System returns no content response
+ Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
 
 ### Example
 ```java
@@ -567,9 +583,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPutModel sectionPutModel = new SectionPutModel(); // SectionPutModel | 
+    UpdateSectionRequest updateSectionRequest = new UpdateSectionRequest(); // UpdateSectionRequest | 
     try {
-      apiInstance.updateSection(sectionPutModel);
+      apiInstance.updateSection(updateSectionRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling SectionsApi#updateSection");
       System.err.println("Status code: " + e.getCode());
@@ -585,7 +601,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sectionPutModel** | [**SectionPutModel**](SectionPutModel.md)|  | [optional] |
+| **updateSectionRequest** | [**UpdateSectionRequest**](UpdateSectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -604,10 +620,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
+| **400** |  - ID is invalid   - Root section cannot be create |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
-| **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
+| **404** |  - Section cannot be found   - Parent section cannot be found   - Project cannot be found |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
-| **422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
+| **422** |  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed |  -  |
 

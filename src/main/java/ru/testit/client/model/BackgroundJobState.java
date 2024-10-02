@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -74,11 +74,6 @@ public enum BackgroundJobState {
       String value = jsonReader.nextString();
       return BackgroundJobState.fromValue(value);
     }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    BackgroundJobState.fromValue(value);
   }
 }
 

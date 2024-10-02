@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -43,6 +43,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -80,6 +81,7 @@ public class WebhookResponse {
   }
 
   public WebhookResponse uri(String uri) {
+    
     this.uri = uri;
     return this;
   }
@@ -93,12 +95,14 @@ public class WebhookResponse {
     return uri;
   }
 
+
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public WebhookResponse statusCode(Integer statusCode) {
+    
     this.statusCode = statusCode;
     return this;
   }
@@ -112,12 +116,14 @@ public class WebhookResponse {
     return statusCode;
   }
 
+
   public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
 
 
   public WebhookResponse requestBody(String requestBody) {
+    
     this.requestBody = requestBody;
     return this;
   }
@@ -131,12 +137,14 @@ public class WebhookResponse {
     return requestBody;
   }
 
+
   public void setRequestBody(String requestBody) {
     this.requestBody = requestBody;
   }
 
 
   public WebhookResponse requestMeta(String requestMeta) {
+    
     this.requestMeta = requestMeta;
     return this;
   }
@@ -150,12 +158,14 @@ public class WebhookResponse {
     return requestMeta;
   }
 
+
   public void setRequestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
   }
 
 
   public WebhookResponse responseBody(String responseBody) {
+    
     this.responseBody = responseBody;
     return this;
   }
@@ -169,12 +179,14 @@ public class WebhookResponse {
     return responseBody;
   }
 
+
   public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
 
 
   public WebhookResponse responseMeta(String responseMeta) {
+    
     this.responseMeta = responseMeta;
     return this;
   }
@@ -187,6 +199,7 @@ public class WebhookResponse {
   public String getResponseMeta() {
     return responseMeta;
   }
+
 
   public void setResponseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
@@ -275,33 +288,32 @@ public class WebhookResponse {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WebhookResponse
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WebhookResponse
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WebhookResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WebhookResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WebhookResponse is not found in the empty JSON string", WebhookResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WebhookResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebhookResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebhookResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WebhookResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -339,9 +351,9 @@ public class WebhookResponse {
 
            @Override
            public WebhookResponse read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

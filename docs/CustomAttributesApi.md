@@ -76,11 +76,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesGlobalIdPut"></a>
 # **apiV2CustomAttributesGlobalIdPut**
-> CustomAttributeModel apiV2CustomAttributesGlobalIdPut(id, globalCustomAttributeUpdateModel)
+> CustomAttributeModel apiV2CustomAttributesGlobalIdPut(id, apiV2CustomAttributesGlobalIdPutRequest)
 
 Edit global attribute
 
@@ -107,9 +112,9 @@ public class Example {
 
     CustomAttributesApi apiInstance = new CustomAttributesApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Unique ID of attribute
-    GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel = new GlobalCustomAttributeUpdateModel(); // GlobalCustomAttributeUpdateModel | 
+    ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest = new ApiV2CustomAttributesGlobalIdPutRequest(); // ApiV2CustomAttributesGlobalIdPutRequest | 
     try {
-      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalIdPut(id, globalCustomAttributeUpdateModel);
+      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalIdPut(id, apiV2CustomAttributesGlobalIdPutRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesGlobalIdPut");
@@ -127,7 +132,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Unique ID of attribute | |
-| **globalCustomAttributeUpdateModel** | [**GlobalCustomAttributeUpdateModel**](GlobalCustomAttributeUpdateModel.md)|  | [optional] |
+| **apiV2CustomAttributesGlobalIdPutRequest** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -145,12 +150,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesGlobalPost"></a>
 # **apiV2CustomAttributesGlobalPost**
-> CustomAttributeModel apiV2CustomAttributesGlobalPost(globalCustomAttributePostModel)
+> CustomAttributeModel apiV2CustomAttributesGlobalPost(apiV2CustomAttributesGlobalPostRequest)
 
 Create global attribute
 
@@ -176,9 +186,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributesApi apiInstance = new CustomAttributesApi(defaultClient);
-    GlobalCustomAttributePostModel globalCustomAttributePostModel = new GlobalCustomAttributePostModel(); // GlobalCustomAttributePostModel | 
+    ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest = new ApiV2CustomAttributesGlobalPostRequest(); // ApiV2CustomAttributesGlobalPostRequest | 
     try {
-      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalPost(globalCustomAttributePostModel);
+      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalPost(apiV2CustomAttributesGlobalPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesGlobalPost");
@@ -195,7 +205,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **globalCustomAttributePostModel** | [**GlobalCustomAttributePostModel**](GlobalCustomAttributePostModel.md)|  | [optional] |
+| **apiV2CustomAttributesGlobalPostRequest** | [**ApiV2CustomAttributesGlobalPostRequest**](ApiV2CustomAttributesGlobalPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -214,7 +224,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesIdGet"></a>
 # **apiV2CustomAttributesIdGet**
@@ -281,11 +296,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesSearchPost"></a>
 # **apiV2CustomAttributesSearchPost**
-> List&lt;CustomAttributeModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel)
+> List&lt;CustomAttributeModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest)
 
 Search for attributes
 
@@ -316,9 +337,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    CustomAttributeSearchQueryModel customAttributeSearchQueryModel = new CustomAttributeSearchQueryModel(); // CustomAttributeSearchQueryModel | 
+    ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest = new ApiV2CustomAttributesSearchPostRequest(); // ApiV2CustomAttributesSearchPostRequest | 
     try {
-      List<CustomAttributeModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
+      List<CustomAttributeModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesSearchPost");
@@ -340,7 +361,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **customAttributeSearchQueryModel** | [**CustomAttributeSearchQueryModel**](CustomAttributeSearchQueryModel.md)|  | [optional] |
+| **apiV2CustomAttributesSearchPostRequest** | [**ApiV2CustomAttributesSearchPostRequest**](ApiV2CustomAttributesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -358,5 +379,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

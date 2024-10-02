@@ -79,8 +79,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for requested project is required |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **0** | Error |  -  |
 
 <a id="apiV2WebhooksIdDelete"></a>
 # **apiV2WebhooksIdDelete**
@@ -147,7 +153,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Delete permission for webhooks is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksIdGet"></a>
 # **apiV2WebhooksIdGet**
@@ -214,12 +225,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for webhooks is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksIdPut"></a>
 # **apiV2WebhooksIdPut**
-> WebHookModel apiV2WebhooksIdPut(id, webHookPostModel)
+> WebHookModel apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest)
 
 Edit webhook by ID
 
@@ -246,9 +262,9 @@ public class Example {
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Webhook unique ID
-    WebHookPostModel webHookPostModel = new WebHookPostModel(); // WebHookPostModel | 
+    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
     try {
-      WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, webHookPostModel);
+      WebHookModel result = apiInstance.apiV2WebhooksIdPut(id, apiV2WebhooksPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksIdPut");
@@ -266,7 +282,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Webhook unique ID | |
-| **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] |
+| **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -284,12 +300,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for webhooks is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksPost"></a>
 # **apiV2WebhooksPost**
-> WebHookModel apiV2WebhooksPost(webHookPostModel)
+> WebHookModel apiV2WebhooksPost(apiV2WebhooksPostRequest)
 
 Create webhook
 
@@ -315,9 +336,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    WebHookPostModel webHookPostModel = new WebHookPostModel(); // WebHookPostModel | 
+    ApiV2WebhooksPostRequest apiV2WebhooksPostRequest = new ApiV2WebhooksPostRequest(); // ApiV2WebhooksPostRequest | 
     try {
-      WebHookModel result = apiInstance.apiV2WebhooksPost(webHookPostModel);
+      WebHookModel result = apiInstance.apiV2WebhooksPost(apiV2WebhooksPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksPost");
@@ -334,7 +355,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] |
+| **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -353,11 +374,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for webhooks is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksSearchPost"></a>
 # **apiV2WebhooksSearchPost**
-> List&lt;WebHookModel&gt; apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel)
+> List&lt;WebHookModel&gt; apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest)
 
 Search for webhooks
 
@@ -388,9 +414,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    SearchWebhooksQueryModel searchWebhooksQueryModel = new SearchWebhooksQueryModel(); // SearchWebhooksQueryModel | 
+    ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest = new ApiV2WebhooksSearchPostRequest(); // ApiV2WebhooksSearchPostRequest | 
     try {
-      List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel);
+      List<WebHookModel> result = apiInstance.apiV2WebhooksSearchPost(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksSearchPost");
@@ -412,7 +438,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **searchWebhooksQueryModel** | [**SearchWebhooksQueryModel**](SearchWebhooksQueryModel.md)|  | [optional] |
+| **apiV2WebhooksSearchPostRequest** | [**ApiV2WebhooksSearchPostRequest**](ApiV2WebhooksSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -430,8 +456,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for all requested projects is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksSpecialVariablesGet"></a>
 # **apiV2WebhooksSpecialVariablesGet**
@@ -500,11 +531,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WebhooksTestPost"></a>
 # **apiV2WebhooksTestPost**
-> WebhookResponse apiV2WebhooksTestPost(webHookTestModel)
+> WebhookResponse apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest)
 
 Test webhook&#39;s url
 
@@ -530,9 +567,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    WebHookTestModel webHookTestModel = new WebHookTestModel(); // WebHookTestModel | 
+    ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest = new ApiV2WebhooksTestPostRequest(); // ApiV2WebhooksTestPostRequest | 
     try {
-      WebhookResponse result = apiInstance.apiV2WebhooksTestPost(webHookTestModel);
+      WebhookResponse result = apiInstance.apiV2WebhooksTestPost(apiV2WebhooksTestPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksTestPost");
@@ -549,7 +586,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **webHookTestModel** | [**WebHookTestModel**](WebHookTestModel.md)|  | [optional] |
+| **apiV2WebhooksTestPostRequest** | [**ApiV2WebhooksTestPostRequest**](ApiV2WebhooksTestPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -567,6 +604,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for webhooks is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

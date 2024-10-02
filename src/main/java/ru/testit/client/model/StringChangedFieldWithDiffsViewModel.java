@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -43,6 +43,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -68,6 +69,7 @@ public class StringChangedFieldWithDiffsViewModel {
   }
 
   public StringChangedFieldWithDiffsViewModel diffValue(String diffValue) {
+    
     this.diffValue = diffValue;
     return this;
   }
@@ -81,12 +83,14 @@ public class StringChangedFieldWithDiffsViewModel {
     return diffValue;
   }
 
+
   public void setDiffValue(String diffValue) {
     this.diffValue = diffValue;
   }
 
 
   public StringChangedFieldWithDiffsViewModel oldValue(String oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -100,12 +104,14 @@ public class StringChangedFieldWithDiffsViewModel {
     return oldValue;
   }
 
+
   public void setOldValue(String oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public StringChangedFieldWithDiffsViewModel newValue(String newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -118,6 +124,7 @@ public class StringChangedFieldWithDiffsViewModel {
   public String getNewValue() {
     return newValue;
   }
+
 
   public void setNewValue(String newValue) {
     this.newValue = newValue;
@@ -193,26 +200,25 @@ public class StringChangedFieldWithDiffsViewModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to StringChangedFieldWithDiffsViewModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to StringChangedFieldWithDiffsViewModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!StringChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!StringChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StringChangedFieldWithDiffsViewModel is not found in the empty JSON string", StringChangedFieldWithDiffsViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!StringChangedFieldWithDiffsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("diffValue") != null && !jsonObj.get("diffValue").isJsonNull()) && !jsonObj.get("diffValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `diffValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diffValue").toString()));
       }
@@ -244,9 +250,9 @@ public class StringChangedFieldWithDiffsViewModel {
 
            @Override
            public StringChangedFieldWithDiffsViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

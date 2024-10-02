@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestSuiteChangeViewModel;
 
@@ -44,6 +44,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -65,6 +66,7 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
   }
 
   public TestSuiteChangeViewModelChangedFieldViewModel oldValue(TestSuiteChangeViewModel oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -78,12 +80,14 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
     return oldValue;
   }
 
+
   public void setOldValue(TestSuiteChangeViewModel oldValue) {
     this.oldValue = oldValue;
   }
 
 
   public TestSuiteChangeViewModelChangedFieldViewModel newValue(TestSuiteChangeViewModel newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -96,6 +100,7 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
   public TestSuiteChangeViewModel getNewValue() {
     return newValue;
   }
+
 
   public void setNewValue(TestSuiteChangeViewModel newValue) {
     this.newValue = newValue;
@@ -168,33 +173,32 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestSuiteChangeViewModelChangedFieldViewModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestSuiteChangeViewModelChangedFieldViewModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestSuiteChangeViewModelChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestSuiteChangeViewModelChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteChangeViewModelChangedFieldViewModel is not found in the empty JSON string", TestSuiteChangeViewModelChangedFieldViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestSuiteChangeViewModelChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteChangeViewModelChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteChangeViewModelChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `oldValue`
       if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
-        TestSuiteChangeViewModel.validateJsonElement(jsonObj.get("oldValue"));
+        TestSuiteChangeViewModel.validateJsonObject(jsonObj.getAsJsonObject("oldValue"));
       }
       // validate the optional field `newValue`
       if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
-        TestSuiteChangeViewModel.validateJsonElement(jsonObj.get("newValue"));
+        TestSuiteChangeViewModel.validateJsonObject(jsonObj.getAsJsonObject("newValue"));
       }
   }
 
@@ -218,9 +222,9 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
 
            @Override
            public TestSuiteChangeViewModelChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

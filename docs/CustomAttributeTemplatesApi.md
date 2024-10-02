@@ -20,7 +20,7 @@ All URIs are relative to *http://localhost*
 
 Exclude CustomAttributes from CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User sets attribute internal identifiers   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attributes from attributes tempalte
+ Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte
 
 ### Example
 ```java
@@ -82,10 +82,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost"></a>
 # **apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**
@@ -93,7 +96,7 @@ null (empty response body)
 
 Include CustomAttributes to CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User sets attribute internal identifiers   &lt;br&gt;User runs method execution  &lt;br&gt;System add attributes to attributes tempalte
+ Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte
 
 ### Example
 ```java
@@ -155,18 +158,21 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesIdDelete"></a>
 # **apiV2CustomAttributesTemplatesIdDelete**
-> NoContentResult apiV2CustomAttributesTemplatesIdDelete(id)
+> apiV2CustomAttributesTemplatesIdDelete(id)
 
 Delete CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search and delete attribute template  &lt;br&gt;System returns no content response
+ Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response
 
 ### Example
 ```java
@@ -192,8 +198,7 @@ public class Example {
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Attribute template internal (UUID) identifier
     try {
-      NoContentResult result = apiInstance.apiV2CustomAttributesTemplatesIdDelete(id);
-      System.out.println(result);
+      apiInstance.apiV2CustomAttributesTemplatesIdDelete(id);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesIdDelete");
       System.err.println("Status code: " + e.getCode());
@@ -213,7 +218,7 @@ public class Example {
 
 ### Return type
 
-[**NoContentResult**](NoContentResult.md)
+null (empty response body)
 
 ### Authorization
 
@@ -229,7 +234,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesIdGet"></a>
 # **apiV2CustomAttributesTemplatesIdGet**
@@ -237,7 +246,7 @@ public class Example {
 
 Get CustomAttributeTemplate by ID
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute template (listed in response example)
+ Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)
 
 ### Example
 ```java
@@ -298,9 +307,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesNameGet"></a>
 # **apiV2CustomAttributesTemplatesNameGet**
@@ -308,7 +321,7 @@ public class Example {
 
 Get CustomAttributeTemplate by name
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template name  &lt;br&gt;User runs method execution  &lt;br&gt;System search and return list of attribute templates (listed in response example)
+ Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)
 
 ### Example
 ```java
@@ -369,15 +382,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesPost"></a>
 # **apiV2CustomAttributesTemplatesPost**
-> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel)
+> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest)
 
 Create CustomAttributeTemplate
 
-&lt;br&gt;Use case  &lt;br&gt;User sets attribute template parameters (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates attribute template  &lt;br&gt;System returns attribute template model (example listed in response parameters)
+ Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)
 
 ### Example
 ```java
@@ -401,9 +420,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePostModel customAttributeTemplatePostModel = new CustomAttributeTemplatePostModel(); // CustomAttributeTemplatePostModel | 
+    ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest = new ApiV2CustomAttributesTemplatesPostRequest(); // ApiV2CustomAttributesTemplatesPostRequest | 
     try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel);
+      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPost");
@@ -420,7 +439,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePostModel** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPostRequest** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -440,11 +459,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Admin system role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesPut"></a>
 # **apiV2CustomAttributesTemplatesPut**
-> apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel)
+> apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest)
 
 Update custom attributes template
 
@@ -470,9 +493,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePutModel customAttributeTemplatePutModel = new CustomAttributeTemplatePutModel(); // CustomAttributeTemplatePutModel | 
+    ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest = new ApiV2CustomAttributesTemplatesPutRequest(); // ApiV2CustomAttributesTemplatesPutRequest | 
     try {
-      apiInstance.apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel);
+      apiInstance.apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPut");
       System.err.println("Status code: " + e.getCode());
@@ -488,7 +511,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePutModel** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPutRequest** | [**ApiV2CustomAttributesTemplatesPutRequest**](ApiV2CustomAttributesTemplatesPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -506,16 +529,21 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2CustomAttributesTemplatesSearchPost"></a>
 # **apiV2CustomAttributesTemplatesSearchPost**
-> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel)
+> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest)
 
 Search CustomAttributeTemplates
 
-&lt;br&gt;Use case  &lt;br&gt;User sets search params model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return attribute templates (listed in response example)
+ Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)
 
 ### Example
 ```java
@@ -544,9 +572,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel = new CustomAttributeTemplateSearchQueryModel(); // CustomAttributeTemplateSearchQueryModel | 
+    ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest = new ApiV2CustomAttributesTemplatesSearchPostRequest(); // ApiV2CustomAttributesTemplatesSearchPostRequest | 
     try {
-      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel);
+      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesSearchPost");
@@ -568,7 +596,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **customAttributeTemplateSearchQueryModel** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesSearchPostRequest** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -586,6 +614,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

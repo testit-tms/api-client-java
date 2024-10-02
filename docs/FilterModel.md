@@ -11,7 +11,7 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  |  |
+|**data** | [**FilterModelData**](FilterModelData.md) |  |  |
 |**projectId** | **UUID** |  |  |
 |**fieldsToShow** | **Object** |  |  [optional] |
 |**name** | **String** |  |  |

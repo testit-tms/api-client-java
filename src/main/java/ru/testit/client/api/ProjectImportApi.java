@@ -30,12 +30,14 @@ import java.io.IOException;
 import java.io.File;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
+import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectImportApi {
     private ApiClient localVarApiClient;
@@ -84,10 +86,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call backgroundImportToExistingProjectCall(String projectId, File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -138,6 +147,7 @@ public class ProjectImportApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call backgroundImportToExistingProjectValidateBeforeCall(String projectId, File _file, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -159,10 +169,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public UUID backgroundImportToExistingProject(String projectId, File _file) throws ApiException {
         ApiResponse<UUID> localVarResp = backgroundImportToExistingProjectWithHttpInfo(projectId, _file);
         return localVarResp.getData();
@@ -178,10 +195,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<UUID> backgroundImportToExistingProjectWithHttpInfo(String projectId, File _file) throws ApiException {
         okhttp3.Call localVarCall = backgroundImportToExistingProjectValidateBeforeCall(projectId, _file, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
@@ -199,10 +223,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call backgroundImportToExistingProjectAsync(String projectId, File _file, final ApiCallback<UUID> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = backgroundImportToExistingProjectValidateBeforeCall(projectId, _file, _callback);
@@ -220,10 +251,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call backgroundImportZipToExistingProjectCall(String projectId, File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -274,6 +312,7 @@ public class ProjectImportApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call backgroundImportZipToExistingProjectValidateBeforeCall(String projectId, File _file, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -295,10 +334,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public UUID backgroundImportZipToExistingProject(String projectId, File _file) throws ApiException {
         ApiResponse<UUID> localVarResp = backgroundImportZipToExistingProjectWithHttpInfo(projectId, _file);
         return localVarResp.getData();
@@ -314,10 +360,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<UUID> backgroundImportZipToExistingProjectWithHttpInfo(String projectId, File _file) throws ApiException {
         okhttp3.Call localVarCall = backgroundImportZipToExistingProjectValidateBeforeCall(projectId, _file, null);
         Type localVarReturnType = new TypeToken<UUID>(){}.getType();
@@ -335,10 +388,17 @@ public class ProjectImportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call backgroundImportZipToExistingProjectAsync(String projectId, File _file, final ApiCallback<UUID> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = backgroundImportZipToExistingProjectValidateBeforeCall(projectId, _file, _callback);
@@ -358,10 +418,13 @@ public class ProjectImportApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -434,7 +497,7 @@ public class ProjectImportApi {
 
     /**
      * Import project from JSON file into existing project
-     * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
+     *  Use case   User attaches project as json file taken from export or export-by-testPlans method   User runs method execution   System updates project   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param includeAttachments  (optional)
      * @param _file Select file (optional)
@@ -443,10 +506,13 @@ public class ProjectImportApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -457,7 +523,7 @@ public class ProjectImportApi {
 
     /**
      * Import project from JSON file into existing project
-     * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
+     *  Use case   User attaches project as json file taken from export or export-by-testPlans method   User runs method execution   System updates project   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param includeAttachments  (optional)
      * @param _file Select file (optional)
@@ -467,10 +533,13 @@ public class ProjectImportApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -482,7 +551,7 @@ public class ProjectImportApi {
 
     /**
      * Import project from JSON file into existing project (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
+     *  Use case   User attaches project as json file taken from export or export-by-testPlans method   User runs method execution   System updates project   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param includeAttachments  (optional)
      * @param _file Select file (optional)
@@ -493,10 +562,13 @@ public class ProjectImportApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for project settings required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Entity with same id already imported in other project </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */

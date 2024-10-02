@@ -11,7 +11,7 @@
 |**autoTestsCount** | **Integer** |  |  |
 |**testSuiteIds** | **List&lt;UUID&gt;** |  |  [optional] |
 |**isAutomated** | **Boolean** |  |  |
-|**analytic** | [**TestRunAnalyticResultModel**](TestRunAnalyticResultModel.md) |  |  |
+|**analytic** | [**TestRunModelAnalytic**](TestRunModelAnalytic.md) |  |  |
 |**testResults** | [**List&lt;TestResultModel&gt;**](TestResultModel.md) |  |  [optional] |
 |**testPlan** | [**TestPlanModel**](TestPlanModel.md) |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  |

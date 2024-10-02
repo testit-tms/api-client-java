@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2TestResultsIdPutRequest;
+import ru.testit.client.model.ApiV2TestResultsSearchPostRequest;
 import ru.testit.client.model.AttachmentModel;
 import java.io.File;
 import ru.testit.client.model.ImageResizeType;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestResultModel;
 import ru.testit.client.model.TestResultShortGetModel;
-import ru.testit.client.model.TestResultUpdateModel;
-import ru.testit.client.model.TestResultsFilterModel;
 import ru.testit.client.model.TestResultsStatisticsGetModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class TestResultsApi {
     private ApiClient localVarApiClient;
@@ -91,8 +92,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAggregatedGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -160,8 +166,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public TestResultModel apiV2TestResultsIdAggregatedGet(UUID id) throws ApiException {
@@ -178,8 +189,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestResultModel> apiV2TestResultsIdAggregatedGetWithHttpInfo(UUID id) throws ApiException {
@@ -198,8 +214,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAggregatedGetAsync(UUID id, final ApiCallback<TestResultModel> _callback) throws ApiException {
@@ -219,8 +240,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAttachmentsAttachmentIdPutCall(UUID id, UUID attachmentId, final ApiCallback _callback) throws ApiException {
@@ -294,8 +320,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestResultsIdAttachmentsAttachmentIdPut(UUID id, UUID attachmentId) throws ApiException {
@@ -312,8 +343,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestResultsIdAttachmentsAttachmentIdPutWithHttpInfo(UUID id, UUID attachmentId) throws ApiException {
@@ -332,8 +368,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAttachmentsAttachmentIdPutAsync(UUID id, UUID attachmentId, final ApiCallback<Void> _callback) throws ApiException {
@@ -351,8 +392,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAttachmentsInfoGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -420,8 +466,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<AttachmentModel> apiV2TestResultsIdAttachmentsInfoGet(UUID id) throws ApiException {
@@ -438,8 +489,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AttachmentModel>> apiV2TestResultsIdAttachmentsInfoGetWithHttpInfo(UUID id) throws ApiException {
@@ -458,8 +514,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdAttachmentsInfoGetAsync(UUID id, final ApiCallback<List<AttachmentModel>> _callback) throws ApiException {
@@ -478,8 +539,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -547,8 +613,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public TestResultModel apiV2TestResultsIdGet(UUID id) throws ApiException {
@@ -565,8 +636,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestResultModel> apiV2TestResultsIdGetWithHttpInfo(UUID id) throws ApiException {
@@ -585,8 +661,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for the test result is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestResultsIdGetAsync(UUID id, final ApiCallback<TestResultModel> _callback) throws ApiException {
@@ -599,18 +680,23 @@ public class TestResultsApi {
     /**
      * Build call for apiV2TestResultsIdPut
      * @param id Test result unique ID (required)
-     * @param testResultUpdateModel  (optional)
+     * @param apiV2TestResultsIdPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -624,7 +710,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testResultUpdateModel;
+        Object localVarPostBody = apiV2TestResultsIdPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/{id}"
@@ -657,13 +743,13 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestResultsIdPut(Async)");
         }
 
-        return apiV2TestResultsIdPutCall(id, testResultUpdateModel, _callback);
+        return apiV2TestResultsIdPutCall(id, apiV2TestResultsIdPutRequest, _callback);
 
     }
 
@@ -671,35 +757,45 @@ public class TestResultsApi {
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param testResultUpdateModel  (optional)
+     * @param apiV2TestResultsIdPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestResultsIdPut(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
-        apiV2TestResultsIdPutWithHttpInfo(id, testResultUpdateModel);
+    public void apiV2TestResultsIdPut(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
+        apiV2TestResultsIdPutWithHttpInfo(id, apiV2TestResultsIdPutRequest);
     }
 
     /**
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param testResultUpdateModel  (optional)
+     * @param apiV2TestResultsIdPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, TestResultUpdateModel testResultUpdateModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateModel, null);
+    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -707,20 +803,25 @@ public class TestResultsApi {
      * Edit test result by ID (asynchronously)
      * 
      * @param id Test result unique ID (required)
-     * @param testResultUpdateModel  (optional)
+     * @param apiV2TestResultsIdPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, TestResultUpdateModel testResultUpdateModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -731,18 +832,23 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -756,7 +862,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testResultsFilterModel;
+        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/search";
@@ -808,8 +914,8 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, _callback);
+    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
 
     }
 
@@ -821,18 +927,23 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @return List&lt;TestResultShortGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
-        ApiResponse<List<TestResultShortGetModel>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testResultsFilterModel);
+    public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestResultShortGetModel>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -844,18 +955,23 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;TestResultShortGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, null);
+    public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -868,38 +984,48 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterModel testResultsFilterModel, final ApiCallback<List<TestResultShortGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<List<TestResultShortGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestResultsStatisticsFilterPost
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -913,7 +1039,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testResultsFilterModel;
+        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/statistics/filter";
@@ -945,44 +1071,54 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(TestResultsFilterModel testResultsFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsStatisticsFilterPostCall(testResultsFilterModel, _callback);
+    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsStatisticsFilterPostCall(apiV2TestResultsSearchPostRequest, _callback);
 
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @return TestResultsStatisticsGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(TestResultsFilterModel testResultsFilterModel) throws ApiException {
-        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(testResultsFilterModel);
+    public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(apiV2TestResultsSearchPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(TestResultsFilterModel testResultsFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterModel, null);
+    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -990,20 +1126,25 @@ public class TestResultsApi {
     /**
      * Search for test results and extract statistics (asynchronously)
      * 
-     * @param testResultsFilterModel  (optional)
+     * @param apiV2TestResultsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test runs is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(TestResultsFilterModel testResultsFilterModel, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1018,12 +1159,14 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAttachmentCall(UUID id, File _file, final ApiCallback _callback) throws ApiException {
@@ -1089,54 +1232,55 @@ public class TestResultsApi {
 
     /**
      * Upload and link attachment to TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
-     * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public UUID createAttachment(UUID id, File _file) throws ApiException {
-        ApiResponse<UUID> localVarResp = createAttachmentWithHttpInfo(id, _file);
-        return localVarResp.getData();
+    public void createAttachment(UUID id, File _file) throws ApiException {
+        createAttachmentWithHttpInfo(id, _file);
     }
 
     /**
      * Upload and link attachment to TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
-     * @return ApiResponse&lt;UUID&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UUID> createAttachmentWithHttpInfo(UUID id, File _file) throws ApiException {
+    public ApiResponse<Void> createAttachmentWithHttpInfo(UUID id, File _file) throws ApiException {
         okhttp3.Call localVarCall = createAttachmentValidateBeforeCall(id, _file, null);
-        Type localVarReturnType = new TypeToken<UUID>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Upload and link attachment to TestResult (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1145,19 +1289,20 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAttachmentAsync(UUID id, File _file, final ApiCallback<UUID> _callback) throws ApiException {
+    public okhttp3.Call createAttachmentAsync(UUID id, File _file, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAttachmentValidateBeforeCall(id, _file, _callback);
-        Type localVarReturnType = new TypeToken<UUID>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1174,6 +1319,9 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAttachmentCall(UUID id, UUID attachmentId, final ApiCallback _callback) throws ApiException {
@@ -1240,7 +1388,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId and attachmentId  &lt;br&gt;User attaches a file  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes attachment and unlinks it from the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1251,6 +1399,9 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void deleteAttachment(UUID id, UUID attachmentId) throws ApiException {
@@ -1259,7 +1410,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId and attachmentId  &lt;br&gt;User attaches a file  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes attachment and unlinks it from the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1271,6 +1422,9 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteAttachmentWithHttpInfo(UUID id, UUID attachmentId) throws ApiException {
@@ -1280,7 +1434,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId and attachmentId  &lt;br&gt;User attaches a file  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes attachment and unlinks it from the test result  &lt;br&gt;System returns attachment identifier
+     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1293,6 +1447,9 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAttachmentAsync(UUID id, UUID attachmentId, final ApiCallback<Void> _callback) throws ApiException {
@@ -1316,11 +1473,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadAttachmentCall(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback _callback) throws ApiException {
@@ -1371,7 +1530,6 @@ public class TestResultsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/octet-stream",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1408,7 +1566,7 @@ public class TestResultsApi {
 
     /**
      * Get attachment of TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;[Optional] User sets resize configuration  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachments by the attachmentId and the testResultId  &lt;br&gt;                      [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                    &lt;br&gt;[Optional] Otherwise, System does not resize the attachment  &lt;br&gt;System returns attachment as a file
+     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -1416,26 +1574,26 @@ public class TestResultsApi {
      * @param resizeType Type of resizing to apply to the result image (optional)
      * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
      * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
-     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public File downloadAttachment(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
-        ApiResponse<File> localVarResp = downloadAttachmentWithHttpInfo(attachmentId, id, width, height, resizeType, backgroundColor, preview);
-        return localVarResp.getData();
+    public void downloadAttachment(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+        downloadAttachmentWithHttpInfo(attachmentId, id, width, height, resizeType, backgroundColor, preview);
     }
 
     /**
      * Get attachment of TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;[Optional] User sets resize configuration  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachments by the attachmentId and the testResultId  &lt;br&gt;                      [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                    &lt;br&gt;[Optional] Otherwise, System does not resize the attachment  &lt;br&gt;System returns attachment as a file
+     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -1443,27 +1601,28 @@ public class TestResultsApi {
      * @param resizeType Type of resizing to apply to the result image (optional)
      * @param backgroundColor Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; (optional)
      * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
-     * @return ApiResponse&lt;File&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> downloadAttachmentWithHttpInfo(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
+    public ApiResponse<Void> downloadAttachmentWithHttpInfo(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview) throws ApiException {
         okhttp3.Call localVarCall = downloadAttachmentValidateBeforeCall(attachmentId, id, width, height, resizeType, backgroundColor, preview, null);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get attachment of TestResult (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;[Optional] User sets resize configuration  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachments by the attachmentId and the testResultId  &lt;br&gt;                      [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                    &lt;br&gt;[Optional] Otherwise, System does not resize the attachment  &lt;br&gt;System returns attachment as a file
+     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -1477,18 +1636,19 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;File not found  &lt;br&gt;Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadAttachmentAsync(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call downloadAttachmentAsync(UUID attachmentId, UUID id, Integer width, Integer height, ImageResizeType resizeType, String backgroundColor, Boolean preview, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadAttachmentValidateBeforeCall(attachmentId, id, width, height, resizeType, backgroundColor, preview, _callback);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1506,6 +1666,8 @@ public class TestResultsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentCall(UUID id, UUID attachmentId, final ApiCallback _callback) throws ApiException {
@@ -1572,7 +1734,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachment by the attachmentId and the testResultId  &lt;br&gt;System returns attachment data
+     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return AttachmentModel
@@ -1585,6 +1747,8 @@ public class TestResultsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public AttachmentModel getAttachment(UUID id, UUID attachmentId) throws ApiException {
@@ -1594,7 +1758,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachment by the attachmentId and the testResultId  &lt;br&gt;System returns attachment data
+     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return ApiResponse&lt;AttachmentModel&gt;
@@ -1607,6 +1771,8 @@ public class TestResultsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AttachmentModel> getAttachmentWithHttpInfo(UUID id, UUID attachmentId) throws ApiException {
@@ -1617,7 +1783,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attachmentId and testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search attachment by the attachmentId and the testResultId  &lt;br&gt;System returns attachment data
+     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1631,6 +1797,8 @@ public class TestResultsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentAsync(UUID id, UUID attachmentId, final ApiCallback<AttachmentModel> _callback) throws ApiException {
@@ -1649,11 +1817,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentsCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1714,18 +1884,20 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search all attachments of the test result  &lt;br&gt;System returns attachments enumeration
+     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @return List&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<AttachmentModel> getAttachments(UUID id) throws ApiException {
@@ -1735,18 +1907,20 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search all attachments of the test result  &lt;br&gt;System returns attachments enumeration
+     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @return ApiResponse&lt;List&lt;AttachmentModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AttachmentModel>> getAttachmentsWithHttpInfo(UUID id) throws ApiException {
@@ -1757,7 +1931,7 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets testResultId  &lt;br&gt;User runs method execution  &lt;br&gt;System search all attachments of the test result  &lt;br&gt;System returns attachments enumeration
+     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1765,11 +1939,13 @@ public class TestResultsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> TestResult not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentsAsync(UUID id, final ApiCallback<List<AttachmentModel>> _callback) throws ApiException {

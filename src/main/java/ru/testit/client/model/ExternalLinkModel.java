@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -43,6 +43,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -88,6 +89,7 @@ public class ExternalLinkModel {
   }
 
   public ExternalLinkModel url(String url) {
+    
     this.url = url;
     return this;
   }
@@ -101,12 +103,14 @@ public class ExternalLinkModel {
     return url;
   }
 
+
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public ExternalLinkModel title(String title) {
+    
     this.title = title;
     return this;
   }
@@ -120,12 +124,14 @@ public class ExternalLinkModel {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public ExternalLinkModel issueTypeName(String issueTypeName) {
+    
     this.issueTypeName = issueTypeName;
     return this;
   }
@@ -139,12 +145,14 @@ public class ExternalLinkModel {
     return issueTypeName;
   }
 
+
   public void setIssueTypeName(String issueTypeName) {
     this.issueTypeName = issueTypeName;
   }
 
 
   public ExternalLinkModel issueTypeIconUrl(String issueTypeIconUrl) {
+    
     this.issueTypeIconUrl = issueTypeIconUrl;
     return this;
   }
@@ -158,12 +166,14 @@ public class ExternalLinkModel {
     return issueTypeIconUrl;
   }
 
+
   public void setIssueTypeIconUrl(String issueTypeIconUrl) {
     this.issueTypeIconUrl = issueTypeIconUrl;
   }
 
 
   public ExternalLinkModel priorityName(String priorityName) {
+    
     this.priorityName = priorityName;
     return this;
   }
@@ -177,12 +187,14 @@ public class ExternalLinkModel {
     return priorityName;
   }
 
+
   public void setPriorityName(String priorityName) {
     this.priorityName = priorityName;
   }
 
 
   public ExternalLinkModel priorityIconUrl(String priorityIconUrl) {
+    
     this.priorityIconUrl = priorityIconUrl;
     return this;
   }
@@ -196,12 +208,14 @@ public class ExternalLinkModel {
     return priorityIconUrl;
   }
 
+
   public void setPriorityIconUrl(String priorityIconUrl) {
     this.priorityIconUrl = priorityIconUrl;
   }
 
 
   public ExternalLinkModel statusName(String statusName) {
+    
     this.statusName = statusName;
     return this;
   }
@@ -215,12 +229,14 @@ public class ExternalLinkModel {
     return statusName;
   }
 
+
   public void setStatusName(String statusName) {
     this.statusName = statusName;
   }
 
 
   public ExternalLinkModel assigneeDisplayName(String assigneeDisplayName) {
+    
     this.assigneeDisplayName = assigneeDisplayName;
     return this;
   }
@@ -233,6 +249,7 @@ public class ExternalLinkModel {
   public String getAssigneeDisplayName() {
     return assigneeDisplayName;
   }
+
 
   public void setAssigneeDisplayName(String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
@@ -323,26 +340,25 @@ public class ExternalLinkModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ExternalLinkModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ExternalLinkModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ExternalLinkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ExternalLinkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalLinkModel is not found in the empty JSON string", ExternalLinkModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ExternalLinkModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalLinkModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalLinkModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
@@ -389,9 +405,9 @@ public class ExternalLinkModel {
 
            @Override
            public ExternalLinkModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

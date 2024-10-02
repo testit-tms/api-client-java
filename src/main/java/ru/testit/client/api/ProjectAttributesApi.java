@@ -27,20 +27,22 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.CreateProjectsAttributeRequest;
 import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
-import ru.testit.client.model.CustomAttributePostModel;
-import ru.testit.client.model.CustomAttributePutModel;
 import ru.testit.client.model.DeletionState;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.ProjectAttributesFilterModel;
+import ru.testit.client.model.SearchAttributesInProjectRequest;
 import java.util.UUID;
+import ru.testit.client.model.UpdateProjectsAttributeRequest;
+import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectAttributesApi {
     private ApiClient localVarApiClient;
@@ -82,7 +84,7 @@ public class ProjectAttributesApi {
     /**
      * Build call for createProjectsAttribute
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,14 +92,15 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectsAttributeCall(String projectId, CustomAttributePostModel customAttributePostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectsAttributeCall(String projectId, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -111,7 +114,7 @@ public class ProjectAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributePostModel;
+        Object localVarPostBody = createProjectsAttributeRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/attributes"
@@ -144,68 +147,70 @@ public class ProjectAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectsAttributeValidateBeforeCall(String projectId, CustomAttributePostModel customAttributePostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createProjectsAttributeValidateBeforeCall(String projectId, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling createProjectsAttribute(Async)");
         }
 
-        return createProjectsAttributeCall(projectId, customAttributePostModel, _callback);
+        return createProjectsAttributeCall(projectId, createProjectsAttributeRequest, _callback);
 
     }
 
     /**
      * Create project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
+     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @return CustomAttributeModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public CustomAttributeModel createProjectsAttribute(String projectId, CustomAttributePostModel customAttributePostModel) throws ApiException {
-        ApiResponse<CustomAttributeModel> localVarResp = createProjectsAttributeWithHttpInfo(projectId, customAttributePostModel);
+    public CustomAttributeModel createProjectsAttribute(String projectId, CreateProjectsAttributeRequest createProjectsAttributeRequest) throws ApiException {
+        ApiResponse<CustomAttributeModel> localVarResp = createProjectsAttributeWithHttpInfo(projectId, createProjectsAttributeRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
+     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String projectId, CustomAttributePostModel customAttributePostModel) throws ApiException {
-        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(projectId, customAttributePostModel, null);
+    public ApiResponse<CustomAttributeModel> createProjectsAttributeWithHttpInfo(String projectId, CreateProjectsAttributeRequest createProjectsAttributeRequest) throws ApiException {
+        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(projectId, createProjectsAttributeRequest, null);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create project attribute (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
+     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributePostModel  (optional)
+     * @param createProjectsAttributeRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -213,16 +218,17 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectsAttributeAsync(String projectId, CustomAttributePostModel customAttributePostModel, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectsAttributeAsync(String projectId, CreateProjectsAttributeRequest createProjectsAttributeRequest, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(projectId, customAttributePostModel, _callback);
+        okhttp3.Call localVarCall = createProjectsAttributeValidateBeforeCall(projectId, createProjectsAttributeRequest, _callback);
         Type localVarReturnType = new TypeToken<CustomAttributeModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -238,9 +244,12 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectsAttributeCall(String projectId, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -307,7 +316,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
+     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -315,9 +324,12 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void deleteProjectsAttribute(String projectId, UUID attributeId) throws ApiException {
@@ -326,7 +338,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
+     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @return ApiResponse&lt;Void&gt;
@@ -335,9 +347,12 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteProjectsAttributeWithHttpInfo(String projectId, UUID attributeId) throws ApiException {
@@ -347,7 +362,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
+     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -357,9 +372,12 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteProjectsAttributeAsync(String projectId, UUID attributeId, final ApiCallback<Void> _callback) throws ApiException {
@@ -378,9 +396,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributeByProjectIdCall(String projectId, UUID attributeId, final ApiCallback _callback) throws ApiException {
@@ -447,7 +469,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
+     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return CustomAttributeModel
@@ -455,9 +477,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public CustomAttributeModel getAttributeByProjectId(String projectId, UUID attributeId) throws ApiException {
@@ -467,7 +493,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
+     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
@@ -475,9 +501,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomAttributeModel> getAttributeByProjectIdWithHttpInfo(String projectId, UUID attributeId) throws ApiException {
@@ -488,7 +518,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
+     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -497,9 +527,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributeByProjectIdAsync(String projectId, UUID attributeId, final ApiCallback<CustomAttributeModel> _callback) throws ApiException {
@@ -519,8 +553,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributesByProjectIdCall(String projectId, DeletionState isDeleted, final ApiCallback _callback) throws ApiException {
@@ -585,7 +624,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return List&lt;CustomAttributeModel&gt;
@@ -593,8 +632,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<CustomAttributeModel> getAttributesByProjectId(String projectId, DeletionState isDeleted) throws ApiException {
@@ -604,7 +648,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
@@ -612,8 +656,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CustomAttributeModel>> getAttributesByProjectIdWithHttpInfo(String projectId, DeletionState isDeleted) throws ApiException {
@@ -624,7 +673,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback The callback to be executed when the API call finishes
@@ -633,8 +682,13 @@ public class ProjectAttributesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttributesByProjectIdAsync(String projectId, DeletionState isDeleted, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
@@ -652,18 +706,23 @@ public class ProjectAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -677,7 +736,7 @@ public class ProjectAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectAttributesFilterModel;
+        Object localVarPostBody = searchAttributesInProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/attributes/search"
@@ -730,13 +789,13 @@ public class ProjectAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling searchAttributesInProject(Async)");
         }
 
-        return searchAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        return searchAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
 
     }
 
@@ -749,18 +808,23 @@ public class ProjectAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return List&lt;CustomAttributeGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeGetModel> searchAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+    public List<CustomAttributeGetModel> searchAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
         return localVarResp.getData();
     }
 
@@ -773,18 +837,23 @@ public class ProjectAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, null);
+    public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -798,20 +867,25 @@ public class ProjectAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for project is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
+    public okhttp3.Call searchAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        okhttp3.Call localVarCall = searchAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -819,7 +893,7 @@ public class ProjectAttributesApi {
     /**
      * Build call for updateProjectsAttribute
      * @param projectId Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -827,10 +901,15 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectsAttributeCall(String projectId, CustomAttributePutModel customAttributePutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectsAttributeCall(String projectId, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -844,7 +923,7 @@ public class ProjectAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributePutModel;
+        Object localVarPostBody = updateProjectsAttributeRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/attributes"
@@ -877,13 +956,13 @@ public class ProjectAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectsAttributeValidateBeforeCall(String projectId, CustomAttributePutModel customAttributePutModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateProjectsAttributeValidateBeforeCall(String projectId, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling updateProjectsAttribute(Async)");
         }
 
-        return updateProjectsAttributeCall(projectId, customAttributePutModel, _callback);
+        return updateProjectsAttributeCall(projectId, updateProjectsAttributeRequest, _callback);
 
     }
 
@@ -891,35 +970,45 @@ public class ProjectAttributesApi {
      * Edit attribute of the project
      * 
      * @param projectId Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProjectsAttribute(String projectId, CustomAttributePutModel customAttributePutModel) throws ApiException {
-        updateProjectsAttributeWithHttpInfo(projectId, customAttributePutModel);
+    public void updateProjectsAttribute(String projectId, UpdateProjectsAttributeRequest updateProjectsAttributeRequest) throws ApiException {
+        updateProjectsAttributeWithHttpInfo(projectId, updateProjectsAttributeRequest);
     }
 
     /**
      * Edit attribute of the project
      * 
      * @param projectId Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String projectId, CustomAttributePutModel customAttributePutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(projectId, customAttributePutModel, null);
+    public ApiResponse<Void> updateProjectsAttributeWithHttpInfo(String projectId, UpdateProjectsAttributeRequest updateProjectsAttributeRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(projectId, updateProjectsAttributeRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -927,7 +1016,7 @@ public class ProjectAttributesApi {
      * Edit attribute of the project (asynchronously)
      * 
      * @param projectId Unique or global project ID (required)
-     * @param customAttributePutModel  (optional)
+     * @param updateProjectsAttributeRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -935,12 +1024,17 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectsAttributeAsync(String projectId, CustomAttributePutModel customAttributePutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectsAttributeAsync(String projectId, UpdateProjectsAttributeRequest updateProjectsAttributeRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(projectId, customAttributePutModel, _callback);
+        okhttp3.Call localVarCall = updateProjectsAttributeValidateBeforeCall(projectId, updateProjectsAttributeRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

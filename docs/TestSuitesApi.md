@@ -21,7 +21,7 @@ All URIs are relative to *http://localhost*
 
 <a id="addTestPointsToTestSuite"></a>
 # **addTestPointsToTestSuite**
-> addTestPointsToTestSuite(id, workItemSelectModel)
+> addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
 
 Add test-points to test suite
 
@@ -48,9 +48,9 @@ public class Example {
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
     UUID id = UUID.fromString("1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132"); // UUID | Test suite internal identifier
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
+    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project
     try {
-      apiInstance.addTestPointsToTestSuite(id, workItemSelectModel);
+      apiInstance.addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#addTestPointsToTestSuite");
       System.err.println("Status code: " + e.getCode());
@@ -67,7 +67,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal identifier | |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -90,6 +90,7 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
 | **404** | Test suite with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Shared steps cannot be added to test suite |  -  |
 
 <a id="apiV2TestSuitesIdPatch"></a>
@@ -161,7 +162,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test suite is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestSuitesIdRefreshPost"></a>
 # **apiV2TestSuitesIdRefreshPost**
@@ -228,7 +234,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test suite is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestSuitesIdWorkItemsPost"></a>
 # **apiV2TestSuitesIdWorkItemsPost**
@@ -297,11 +308,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestSuitesPost"></a>
 # **apiV2TestSuitesPost**
-> TestSuiteV2GetModel apiV2TestSuitesPost(testSuiteV2PostModel)
+> TestSuiteV2GetModel apiV2TestSuitesPost(apiV2TestSuitesPostRequest)
 
 Create test suite
 
@@ -327,9 +343,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-    TestSuiteV2PostModel testSuiteV2PostModel = new TestSuiteV2PostModel(); // TestSuiteV2PostModel | 
+    ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest = new ApiV2TestSuitesPostRequest(); // ApiV2TestSuitesPostRequest | 
     try {
-      TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(testSuiteV2PostModel);
+      TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(apiV2TestSuitesPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPost");
@@ -346,7 +362,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testSuiteV2PostModel** | [**TestSuiteV2PostModel**](TestSuiteV2PostModel.md)|  | [optional] |
+| **apiV2TestSuitesPostRequest** | [**ApiV2TestSuitesPostRequest**](ApiV2TestSuitesPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -365,11 +381,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestSuitesPut"></a>
 # **apiV2TestSuitesPut**
-> apiV2TestSuitesPut(testSuiteV2PutModel)
+> apiV2TestSuitesPut(apiV2TestSuitesPutRequest)
 
 Edit test suite
 
@@ -395,9 +416,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-    TestSuiteV2PutModel testSuiteV2PutModel = new TestSuiteV2PutModel(); // TestSuiteV2PutModel | 
+    ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest = new ApiV2TestSuitesPutRequest(); // ApiV2TestSuitesPutRequest | 
     try {
-      apiInstance.apiV2TestSuitesPut(testSuiteV2PutModel);
+      apiInstance.apiV2TestSuitesPut(apiV2TestSuitesPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPut");
       System.err.println("Status code: " + e.getCode());
@@ -413,7 +434,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testSuiteV2PutModel** | [**TestSuiteV2PutModel**](TestSuiteV2PutModel.md)|  | [optional] |
+| **apiV2TestSuitesPutRequest** | [**ApiV2TestSuitesPutRequest**](ApiV2TestSuitesPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -432,7 +453,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteTestSuite"></a>
 # **deleteTestSuite**
@@ -440,7 +466,7 @@ null (empty response body)
 
 Delete TestSuite
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System deletes test suite  &lt;br&gt;System returns no content response
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
 
 ### Example
 ```java
@@ -501,9 +527,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+| **404** |  Can&#39;t find a TestSuite with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getConfigurationsByTestSuiteId"></a>
 # **getConfigurationsByTestSuiteId**
@@ -511,7 +540,7 @@ null (empty response body)
 
 Get Configurations By Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configurations related to the test points  &lt;br&gt;System returns configurations array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
 
 ### Example
 ```java
@@ -573,9 +602,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getTestPointsById"></a>
 # **getTestPointsById**
@@ -583,7 +615,7 @@ public class Example {
 
 Get TestPoints By Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System returns test points array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
 
 ### Example
 ```java
@@ -645,9 +677,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getTestResultsById"></a>
 # **getTestResultsById**
@@ -655,7 +690,7 @@ public class Example {
 
 Get TestResults By Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search test results related to the test points  &lt;br&gt;System returns test results array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
 
 ### Example
 ```java
@@ -717,9 +752,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getTestSuiteById"></a>
 # **getTestSuiteById**
@@ -727,7 +765,7 @@ public class Example {
 
 Get TestSuite by Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System returns test suite
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
 
 ### Example
 ```java
@@ -789,17 +827,21 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **0** | Error |  -  |
 
 <a id="searchWorkItems"></a>
 # **searchWorkItems**
-> List&lt;WorkItemShortModel&gt; searchWorkItems(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel)
+> List&lt;WorkItemShortModel&gt; searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest)
 
 Search WorkItems
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                    &lt;br&gt;System returns work items array
+ Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
 
 ### Example
 ```java
@@ -829,9 +871,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel = new TestSuiteWorkItemsSearchModel(); // TestSuiteWorkItemsSearchModel | 
+    SearchWorkItemsRequest searchWorkItemsRequest = new SearchWorkItemsRequest(); // SearchWorkItemsRequest | 
     try {
-      List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel);
+      List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#searchWorkItems");
@@ -854,7 +896,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testSuiteWorkItemsSearchModel** | [**TestSuiteWorkItemsSearchModel**](TestSuiteWorkItemsSearchModel.md)|  | [optional] |
+| **searchWorkItemsRequest** | [**SearchWorkItemsRequest**](SearchWorkItemsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -877,6 +919,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestSuite with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="setConfigurationsByTestSuiteId"></a>
 # **setConfigurationsByTestSuiteId**
@@ -884,7 +928,7 @@ public class Example {
 
 Set Configurations By TestSuite Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of configuration identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search configuration  &lt;br&gt;System restores(if exist) or creates test points with listed configuration  &lt;br&gt;System returns no content response
+ Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
 
 ### Example
 ```java
@@ -947,8 +991,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
+| **400** |  Some of Configurations do not exist in the project, or they are not active |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+| **404** |  Can&#39;t find a TestSuite with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

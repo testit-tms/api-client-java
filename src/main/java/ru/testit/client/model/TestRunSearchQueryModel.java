@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -48,6 +48,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -85,6 +86,7 @@ public class TestRunSearchQueryModel {
   }
 
   public TestRunSearchQueryModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -98,12 +100,14 @@ public class TestRunSearchQueryModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunSearchQueryModel states(Set<TestRunState> states) {
+    
     this.states = states;
     return this;
   }
@@ -125,12 +129,14 @@ public class TestRunSearchQueryModel {
     return states;
   }
 
+
   public void setStates(Set<TestRunState> states) {
     this.states = states;
   }
 
 
   public TestRunSearchQueryModel startedDate(DateTimeRangeSelectorModel startedDate) {
+    
     this.startedDate = startedDate;
     return this;
   }
@@ -144,12 +150,14 @@ public class TestRunSearchQueryModel {
     return startedDate;
   }
 
+
   public void setStartedDate(DateTimeRangeSelectorModel startedDate) {
     this.startedDate = startedDate;
   }
 
 
   public TestRunSearchQueryModel completedDate(DateTimeRangeSelectorModel completedDate) {
+    
     this.completedDate = completedDate;
     return this;
   }
@@ -163,12 +171,14 @@ public class TestRunSearchQueryModel {
     return completedDate;
   }
 
+
   public void setCompletedDate(DateTimeRangeSelectorModel completedDate) {
     this.completedDate = completedDate;
   }
 
 
   public TestRunSearchQueryModel createdByIds(Set<UUID> createdByIds) {
+    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -190,12 +200,14 @@ public class TestRunSearchQueryModel {
     return createdByIds;
   }
 
+
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public TestRunSearchQueryModel modifiedByIds(Set<UUID> modifiedByIds) {
+    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -216,6 +228,7 @@ public class TestRunSearchQueryModel {
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
+
 
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
@@ -300,47 +313,46 @@ public class TestRunSearchQueryModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunSearchQueryModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunSearchQueryModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunSearchQueryModel is not found in the empty JSON string", TestRunSearchQueryModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunSearchQueryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // validate the optional field `startedDate`
       if (jsonObj.get("startedDate") != null && !jsonObj.get("startedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("startedDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("startedDate"));
       }
       // validate the optional field `completedDate`
       if (jsonObj.get("completedDate") != null && !jsonObj.get("completedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("completedDate"));
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("completedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
   }
@@ -365,9 +377,9 @@ public class TestRunSearchQueryModel {
 
            @Override
            public TestRunSearchQueryModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

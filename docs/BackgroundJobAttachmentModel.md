@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
 |**type** | **String** |  |  |
+|**size** | **Float** |  |  |
 
 
 

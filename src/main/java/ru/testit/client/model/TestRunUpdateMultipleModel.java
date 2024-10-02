@@ -14,17 +14,17 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestRunSelectModel;
-import ru.testit.client.model.UpdateAttachmentShortModel;
-import ru.testit.client.model.UpdateLinkShortModel;
+import ru.testit.client.model.SetOfAttachmentIds;
+import ru.testit.client.model.SetOfLinks;
+import ru.testit.client.model.TestRunSelectionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -57,7 +58,7 @@ import ru.testit.client.invoker.JSON;
 public class TestRunUpdateMultipleModel {
   public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
   @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
-  private TestRunSelectModel selectModel;
+  private TestRunSelectionModel selectModel;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -65,16 +66,17 @@ public class TestRunUpdateMultipleModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME)
-  private UpdateAttachmentShortModel attachmentUpdateScheme;
+  private SetOfAttachmentIds attachmentUpdateScheme;
 
   public static final String SERIALIZED_NAME_LINK_UPDATE_SCHEME = "linkUpdateScheme";
   @SerializedName(SERIALIZED_NAME_LINK_UPDATE_SCHEME)
-  private UpdateLinkShortModel linkUpdateScheme;
+  private SetOfLinks linkUpdateScheme;
 
   public TestRunUpdateMultipleModel() {
   }
 
-  public TestRunUpdateMultipleModel selectModel(TestRunSelectModel selectModel) {
+  public TestRunUpdateMultipleModel selectModel(TestRunSelectionModel selectModel) {
+    
     this.selectModel = selectModel;
     return this;
   }
@@ -84,16 +86,18 @@ public class TestRunUpdateMultipleModel {
    * @return selectModel
   **/
   @javax.annotation.Nonnull
-  public TestRunSelectModel getSelectModel() {
+  public TestRunSelectionModel getSelectModel() {
     return selectModel;
   }
 
-  public void setSelectModel(TestRunSelectModel selectModel) {
+
+  public void setSelectModel(TestRunSelectionModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
   public TestRunUpdateMultipleModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -107,12 +111,14 @@ public class TestRunUpdateMultipleModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestRunUpdateMultipleModel attachmentUpdateScheme(UpdateAttachmentShortModel attachmentUpdateScheme) {
+  public TestRunUpdateMultipleModel attachmentUpdateScheme(SetOfAttachmentIds attachmentUpdateScheme) {
+    
     this.attachmentUpdateScheme = attachmentUpdateScheme;
     return this;
   }
@@ -122,16 +128,18 @@ public class TestRunUpdateMultipleModel {
    * @return attachmentUpdateScheme
   **/
   @javax.annotation.Nonnull
-  public UpdateAttachmentShortModel getAttachmentUpdateScheme() {
+  public SetOfAttachmentIds getAttachmentUpdateScheme() {
     return attachmentUpdateScheme;
   }
 
-  public void setAttachmentUpdateScheme(UpdateAttachmentShortModel attachmentUpdateScheme) {
+
+  public void setAttachmentUpdateScheme(SetOfAttachmentIds attachmentUpdateScheme) {
     this.attachmentUpdateScheme = attachmentUpdateScheme;
   }
 
 
-  public TestRunUpdateMultipleModel linkUpdateScheme(UpdateLinkShortModel linkUpdateScheme) {
+  public TestRunUpdateMultipleModel linkUpdateScheme(SetOfLinks linkUpdateScheme) {
+    
     this.linkUpdateScheme = linkUpdateScheme;
     return this;
   }
@@ -141,11 +149,12 @@ public class TestRunUpdateMultipleModel {
    * @return linkUpdateScheme
   **/
   @javax.annotation.Nonnull
-  public UpdateLinkShortModel getLinkUpdateScheme() {
+  public SetOfLinks getLinkUpdateScheme() {
     return linkUpdateScheme;
   }
 
-  public void setLinkUpdateScheme(UpdateLinkShortModel linkUpdateScheme) {
+
+  public void setLinkUpdateScheme(SetOfLinks linkUpdateScheme) {
     this.linkUpdateScheme = linkUpdateScheme;
   }
 
@@ -225,42 +234,41 @@ public class TestRunUpdateMultipleModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunUpdateMultipleModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunUpdateMultipleModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunUpdateMultipleModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunUpdateMultipleModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunUpdateMultipleModel is not found in the empty JSON string", TestRunUpdateMultipleModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunUpdateMultipleModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunUpdateMultipleModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunUpdateMultipleModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunUpdateMultipleModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `selectModel`
-      TestRunSelectModel.validateJsonElement(jsonObj.get("selectModel"));
+      TestRunSelectionModel.validateJsonObject(jsonObj.getAsJsonObject("selectModel"));
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the required field `attachmentUpdateScheme`
-      UpdateAttachmentShortModel.validateJsonElement(jsonObj.get("attachmentUpdateScheme"));
+      SetOfAttachmentIds.validateJsonObject(jsonObj.getAsJsonObject("attachmentUpdateScheme"));
       // validate the required field `linkUpdateScheme`
-      UpdateLinkShortModel.validateJsonElement(jsonObj.get("linkUpdateScheme"));
+      SetOfLinks.validateJsonObject(jsonObj.getAsJsonObject("linkUpdateScheme"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -283,9 +291,9 @@ public class TestRunUpdateMultipleModel {
 
            @Override
            public TestRunUpdateMultipleModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

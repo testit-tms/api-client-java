@@ -18,7 +18,7 @@ All URIs are relative to *http://localhost*
 
 Get TestPlans analytics
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier  &lt;br&gt;User sets query params  &lt;br&gt;User runs method execution  &lt;br&gt;System return analytics
+ Use case   User sets project internal identifier   User sets query params   User runs method execution   System return analytics
 
 ### Example
 ```java
@@ -93,11 +93,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdTestPlansDeleteBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansDeleteBulkPost**
-> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, testPlanSelectModel)
+> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
 
 Delete multiple test plans
 
@@ -124,9 +130,9 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
+    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, testPlanSelectModel);
+      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansDeleteBulkPost");
@@ -144,7 +150,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -162,8 +168,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdTestPlansNameExistsGet"></a>
 # **apiV2ProjectsProjectIdTestPlansNameExistsGet**
@@ -171,7 +182,7 @@ public class Example {
 
 Checks if TestPlan exists with the specified name exists for the project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System purge delete project workitems
+ Use case   User sets project internal or global identifier    User runs method execution   System purge delete project workitems
 
 ### Example
 ```java
@@ -234,11 +245,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdTestPlansPurgeBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansPurgeBulkPost**
-> apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, testPlanSelectModel)
+> apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
 
 Permanently delete multiple archived test plans
 
@@ -265,9 +282,9 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
+    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
     try {
-      apiInstance.apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, testPlanSelectModel);
+      apiInstance.apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansPurgeBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -284,7 +301,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -303,11 +320,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Full access permission for the archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdTestPlansRestoreBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansRestoreBulkPost**
-> apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, testPlanSelectModel)
+> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
 
 Restore multiple test plans
 
@@ -334,9 +356,10 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
+    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
     try {
-      apiInstance.apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, testPlanSelectModel);
+      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansRestoreBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -353,11 +376,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
-null (empty response body)
+[**List&lt;UUID&gt;**](UUID.md)
 
 ### Authorization
 
@@ -371,16 +394,21 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for the archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ProjectsProjectIdTestPlansSearchPost"></a>
 # **apiV2ProjectsProjectIdTestPlansSearchPost**
-> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel)
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest)
 
 Get Project TestPlans with analytics
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets request body   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project testplans with analytics
+ Use case   User sets project internal or global identifier    User sets request body    User runs method execution   System returns project testplans with analytics
 
 ### Example
 ```java
@@ -411,9 +439,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
+    ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest = new ApiV2ProjectsProjectIdTestPlansSearchPostRequest(); // ApiV2ProjectsProjectIdTestPlansSearchPostRequest | 
     try {
-      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansSearchPost");
@@ -437,7 +465,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdTestPlansSearchPostRequest** | [**ApiV2ProjectsProjectIdTestPlansSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -455,5 +483,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

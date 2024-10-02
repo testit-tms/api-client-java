@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +53,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -158,6 +159,7 @@ public class WorkItemShortModel {
   }
 
   public WorkItemShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -171,12 +173,14 @@ public class WorkItemShortModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public WorkItemShortModel versionId(UUID versionId) {
+    
     this.versionId = versionId;
     return this;
   }
@@ -190,12 +194,14 @@ public class WorkItemShortModel {
     return versionId;
   }
 
+
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public WorkItemShortModel versionNumber(Integer versionNumber) {
+    
     this.versionNumber = versionNumber;
     return this;
   }
@@ -209,12 +215,14 @@ public class WorkItemShortModel {
     return versionNumber;
   }
 
+
   public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
   public WorkItemShortModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -228,12 +236,14 @@ public class WorkItemShortModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public WorkItemShortModel entityTypeName(String entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -247,12 +257,14 @@ public class WorkItemShortModel {
     return entityTypeName;
   }
 
+
   public void setEntityTypeName(String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
   public WorkItemShortModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -266,12 +278,14 @@ public class WorkItemShortModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public WorkItemShortModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
@@ -285,12 +299,14 @@ public class WorkItemShortModel {
     return sectionId;
   }
 
+
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public WorkItemShortModel sectionName(String sectionName) {
+    
     this.sectionName = sectionName;
     return this;
   }
@@ -304,12 +320,14 @@ public class WorkItemShortModel {
     return sectionName;
   }
 
+
   public void setSectionName(String sectionName) {
     this.sectionName = sectionName;
   }
 
 
   public WorkItemShortModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -323,12 +341,14 @@ public class WorkItemShortModel {
     return isAutomated;
   }
 
+
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public WorkItemShortModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
@@ -342,12 +362,14 @@ public class WorkItemShortModel {
     return globalId;
   }
 
+
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public WorkItemShortModel duration(Integer duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -361,12 +383,14 @@ public class WorkItemShortModel {
     return duration;
   }
 
+
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public WorkItemShortModel medianDuration(Long medianDuration) {
+    
     this.medianDuration = medianDuration;
     return this;
   }
@@ -380,12 +404,14 @@ public class WorkItemShortModel {
     return medianDuration;
   }
 
+
   public void setMedianDuration(Long medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
   public WorkItemShortModel attributes(Map<String, Object> attributes) {
+    
     this.attributes = attributes;
     return this;
   }
@@ -407,12 +433,14 @@ public class WorkItemShortModel {
     return attributes;
   }
 
+
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public WorkItemShortModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -426,12 +454,14 @@ public class WorkItemShortModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public WorkItemShortModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -445,12 +475,14 @@ public class WorkItemShortModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public WorkItemShortModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -464,12 +496,14 @@ public class WorkItemShortModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public WorkItemShortModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -483,12 +517,14 @@ public class WorkItemShortModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public WorkItemShortModel state(WorkItemStates state) {
+    
     this.state = state;
     return this;
   }
@@ -502,12 +538,14 @@ public class WorkItemShortModel {
     return state;
   }
 
+
   public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
   public WorkItemShortModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
@@ -521,12 +559,14 @@ public class WorkItemShortModel {
     return priority;
   }
 
+
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public WorkItemShortModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -540,12 +580,14 @@ public class WorkItemShortModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public WorkItemShortModel tagNames(List<String> tagNames) {
+    
     this.tagNames = tagNames;
     return this;
   }
@@ -567,12 +609,14 @@ public class WorkItemShortModel {
     return tagNames;
   }
 
+
   public void setTagNames(List<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
   public WorkItemShortModel iterations(List<IterationModel> iterations) {
+    
     this.iterations = iterations;
     return this;
   }
@@ -594,12 +638,14 @@ public class WorkItemShortModel {
     return iterations;
   }
 
+
   public void setIterations(List<IterationModel> iterations) {
     this.iterations = iterations;
   }
 
 
   public WorkItemShortModel links(List<LinkShortModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -620,6 +666,7 @@ public class WorkItemShortModel {
   public List<LinkShortModel> getLinks() {
     return links;
   }
+
 
   public void setLinks(List<LinkShortModel> links) {
     this.links = links;
@@ -772,33 +819,32 @@ public class WorkItemShortModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WorkItemShortModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemShortModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemShortModel is not found in the empty JSON string", WorkItemShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -826,12 +872,8 @@ public class WorkItemShortModel {
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
-      // validate the required field `state`
-      WorkItemStates.validateJsonElement(jsonObj.get("state"));
-      // validate the required field `priority`
-      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
+      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
       }
       // ensure the json data is an array
@@ -842,7 +884,7 @@ public class WorkItemShortModel {
       JsonArray jsonArrayiterations = jsonObj.getAsJsonArray("iterations");
       // validate the required field `iterations` (array)
       for (int i = 0; i < jsonArrayiterations.size(); i++) {
-        IterationModel.validateJsonElement(jsonArrayiterations.get(i));
+        IterationModel.validateJsonObject(jsonArrayiterations.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {
@@ -852,7 +894,7 @@ public class WorkItemShortModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkShortModel.validateJsonElement(jsonArraylinks.get(i));
+        LinkShortModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
       };
   }
 
@@ -876,9 +918,9 @@ public class WorkItemShortModel {
 
            @Override
            public WorkItemShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

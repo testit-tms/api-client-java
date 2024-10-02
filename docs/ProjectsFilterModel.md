@@ -17,6 +17,7 @@
 |**globalIds** | **Set&lt;Long&gt;** | Specifies a project global IDs to search for |  [optional] |
 |**createdDate** | [**ProjectsFilterModelCreatedDate**](ProjectsFilterModelCreatedDate.md) |  |  [optional] |
 |**createdByIds** | **Set&lt;UUID&gt;** | Specifies an autotest creator IDs to search for |  [optional] |
+|**types** | **Set&lt;ProjectTypeModel&gt;** | Collection of project types to search for |  [optional] |
 
 
 

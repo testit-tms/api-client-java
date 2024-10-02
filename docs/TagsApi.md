@@ -15,11 +15,11 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TagsDelete"></a>
 # **apiV2TagsDelete**
-> apiV2TagsDelete(tagSelectModel)
+> apiV2TagsDelete(apiV2TagsDeleteRequest)
 
 Delete tags
 
-&lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
+ Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
 
 ### Example
 ```java
@@ -43,9 +43,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagSelectModel tagSelectModel = new TagSelectModel(); // TagSelectModel | 
+    ApiV2TagsDeleteRequest apiV2TagsDeleteRequest = new ApiV2TagsDeleteRequest(); // ApiV2TagsDeleteRequest | 
     try {
-      apiInstance.apiV2TagsDelete(tagSelectModel);
+      apiInstance.apiV2TagsDelete(apiV2TagsDeleteRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsDelete");
       System.err.println("Status code: " + e.getCode());
@@ -61,7 +61,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagSelectModel** | [**TagSelectModel**](TagSelectModel.md)|  | [optional] |
+| **apiV2TagsDeleteRequest** | [**ApiV2TagsDeleteRequest**](ApiV2TagsDeleteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -80,10 +80,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is not valid |  -  |
+| **400** |  - ID is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
 | **404** | No tags with provided IDs were found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsGet"></a>
 # **apiV2TagsGet**
@@ -91,7 +93,7 @@ null (empty response body)
 
 Get all Tags
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+ Use case   User runs method execution   System returns tags (listed in the response example)
 
 ### Example
 ```java
@@ -149,7 +151,12 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsIdDelete"></a>
 # **apiV2TagsIdDelete**
@@ -157,7 +164,7 @@ This endpoint does not need any parameter.
 
 Delete tag
 
-&lt;br&gt;Use case  &lt;br&gt;User sets tag internal (guid format) identifier  &lt;br&gt;System search and delete tag
+ Use case   User sets tag internal (guid format) identifier   System search and delete tag
 
 ### Example
 ```java
@@ -218,18 +225,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is not valid |  -  |
+| **400** |  - ID is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
 | **404** | Tag with provided ID cannot be found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsPost"></a>
 # **apiV2TagsPost**
-> TagModel apiV2TagsPost(tagPostModel)
+> TagModel apiV2TagsPost(apiV2TagsPostRequest)
 
 Create tag
 
-&lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
+ Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
 
 ### Example
 ```java
@@ -253,9 +262,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagPostModel tagPostModel = new TagPostModel(); // TagPostModel | 
+    ApiV2TagsPostRequest apiV2TagsPostRequest = new ApiV2TagsPostRequest(); // ApiV2TagsPostRequest | 
     try {
-      TagModel result = apiInstance.apiV2TagsPost(tagPostModel);
+      TagModel result = apiInstance.apiV2TagsPost(apiV2TagsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPost");
@@ -272,7 +281,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagPostModel** | [**TagPostModel**](TagPostModel.md)|  | [optional] |
+| **apiV2TagsPostRequest** | [**ApiV2TagsPostRequest**](ApiV2TagsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -291,16 +300,20 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsPut"></a>
 # **apiV2TagsPut**
-> TagModel apiV2TagsPut(id, tagPutModel)
+> TagModel apiV2TagsPut(id, apiV2TagsPutRequest)
 
 Update tag
 
-&lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
+ Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
 
 ### Example
 ```java
@@ -325,9 +338,9 @@ public class Example {
 
     TagsApi apiInstance = new TagsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | 
-    TagPutModel tagPutModel = new TagPutModel(); // TagPutModel | 
+    ApiV2TagsPutRequest apiV2TagsPutRequest = new ApiV2TagsPutRequest(); // ApiV2TagsPutRequest | 
     try {
-      TagModel result = apiInstance.apiV2TagsPut(id, tagPutModel);
+      TagModel result = apiInstance.apiV2TagsPut(id, apiV2TagsPutRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPut");
@@ -345,7 +358,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | [optional] |
-| **tagPutModel** | [**TagPutModel**](TagPutModel.md)|  | [optional] |
+| **apiV2TagsPutRequest** | [**ApiV2TagsPutRequest**](ApiV2TagsPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -364,10 +377,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long |  -  |
+| **400** |  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project creator role is required |  -  |
 | **404** | Tag with provided ID cannot be found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsSearchGet"></a>
 # **apiV2TagsSearchGet**
@@ -375,7 +390,7 @@ public class Example {
 
 Search tags
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns collection of tags (listed in the response example)
+ Use case   User runs method execution   System returns collection of tags (listed in the response example)
 
 ### Example
 ```java
@@ -445,8 +460,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 | **401** | Unauthorized |  -  |
-| **400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TagsTestPlansTagsGet"></a>
 # **apiV2TagsTestPlansTagsGet**
@@ -454,7 +473,7 @@ public class Example {
 
 Get all Tags that are used in TestPlans
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+ Use case   User runs method execution   System returns tags (listed in the response example)
 
 ### Example
 ```java
@@ -524,6 +543,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

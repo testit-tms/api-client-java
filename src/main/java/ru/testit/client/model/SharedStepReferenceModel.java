@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,6 +49,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -134,6 +135,7 @@ public class SharedStepReferenceModel {
   }
 
   public SharedStepReferenceModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -147,12 +149,14 @@ public class SharedStepReferenceModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public SharedStepReferenceModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
@@ -166,12 +170,14 @@ public class SharedStepReferenceModel {
     return globalId;
   }
 
+
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public SharedStepReferenceModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -185,12 +191,14 @@ public class SharedStepReferenceModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public SharedStepReferenceModel entityTypeName(String entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -204,12 +212,14 @@ public class SharedStepReferenceModel {
     return entityTypeName;
   }
 
+
   public void setEntityTypeName(String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
   public SharedStepReferenceModel hasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
+    
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
     return this;
   }
@@ -223,12 +233,14 @@ public class SharedStepReferenceModel {
     return hasThisSharedStepAsStep;
   }
 
+
   public void setHasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
   }
 
 
   public SharedStepReferenceModel hasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
+    
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
     return this;
   }
@@ -242,12 +254,14 @@ public class SharedStepReferenceModel {
     return hasThisSharedStepAsPrecondition;
   }
 
+
   public void setHasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
   }
 
 
   public SharedStepReferenceModel hasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
+    
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
     return this;
   }
@@ -261,12 +275,14 @@ public class SharedStepReferenceModel {
     return hasThisSharedStepAsPostcondition;
   }
 
+
   public void setHasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
   }
 
 
   public SharedStepReferenceModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -280,12 +296,14 @@ public class SharedStepReferenceModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public SharedStepReferenceModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -299,12 +317,14 @@ public class SharedStepReferenceModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public SharedStepReferenceModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -318,12 +338,14 @@ public class SharedStepReferenceModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public SharedStepReferenceModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -337,12 +359,14 @@ public class SharedStepReferenceModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public SharedStepReferenceModel state(String state) {
+    
     this.state = state;
     return this;
   }
@@ -356,12 +380,14 @@ public class SharedStepReferenceModel {
     return state;
   }
 
+
   public void setState(String state) {
     this.state = state;
   }
 
 
   public SharedStepReferenceModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
@@ -375,12 +401,14 @@ public class SharedStepReferenceModel {
     return priority;
   }
 
+
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public SharedStepReferenceModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -394,12 +422,14 @@ public class SharedStepReferenceModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public SharedStepReferenceModel versionId(UUID versionId) {
+    
     this.versionId = versionId;
     return this;
   }
@@ -413,12 +443,14 @@ public class SharedStepReferenceModel {
     return versionId;
   }
 
+
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
   public SharedStepReferenceModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -432,12 +464,14 @@ public class SharedStepReferenceModel {
     return isAutomated;
   }
 
+
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public SharedStepReferenceModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
@@ -451,12 +485,14 @@ public class SharedStepReferenceModel {
     return sectionId;
   }
 
+
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public SharedStepReferenceModel tags(List<TagModel> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -477,6 +513,7 @@ public class SharedStepReferenceModel {
   public List<TagModel> getTags() {
     return tags;
   }
+
 
   public void setTags(List<TagModel> tags) {
     this.tags = tags;
@@ -611,33 +648,32 @@ public class SharedStepReferenceModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SharedStepReferenceModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SharedStepReferenceModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SharedStepReferenceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SharedStepReferenceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SharedStepReferenceModel is not found in the empty JSON string", SharedStepReferenceModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!SharedStepReferenceModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferenceModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferenceModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SharedStepReferenceModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -656,8 +692,6 @@ public class SharedStepReferenceModel {
       if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      // validate the required field `priority`
-      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       if (!jsonObj.get("versionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
       }
@@ -674,7 +708,7 @@ public class SharedStepReferenceModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagModel.validateJsonElement(jsonArraytags.get(i));
+            TagModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
           };
         }
       }
@@ -700,9 +734,9 @@ public class SharedStepReferenceModel {
 
            @Override
            public SharedStepReferenceModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

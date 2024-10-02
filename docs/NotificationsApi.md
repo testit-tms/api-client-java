@@ -17,7 +17,7 @@ All URIs are relative to *http://localhost*
 
 Get unread Notifications total in last 7 days
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns unread notifications total (listed in the response example)
+ Use case   User runs method execution   System returns unread notifications total (listed in the response example)
 
 ### Example
 ```java
@@ -79,7 +79,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2NotificationsGet"></a>
 # **apiV2NotificationsGet**
@@ -87,7 +92,7 @@ public class Example {
 
 Get all Notifications for current User
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+ Use case   User runs method execution   System returns notifications (listed in the response example)
 
 ### Example
 ```java
@@ -159,8 +164,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2NotificationsIdReadPost"></a>
 # **apiV2NotificationsIdReadPost**
@@ -168,7 +177,7 @@ public class Example {
 
 Set Notification as read
 
-&lt;br&gt;Use case  &lt;br&gt;User sets notification internal (guid format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set notification as read
+ Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
 
 ### Example
 ```java
@@ -228,9 +237,14 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successful operation |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Can&#39;t find notification with notificationId |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **204** | Successful operation |  -  |
 
 <a id="apiV2NotificationsReadPost"></a>
 # **apiV2NotificationsReadPost**
@@ -238,7 +252,7 @@ null (empty response body)
 
 Set all Notifications as read
 
-&lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System set all notifications as read
+ Use case   User runs method execution   System set all notifications as read
 
 ### Example
 ```java
@@ -294,16 +308,22 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successful operation |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **204** | Successful operation |  -  |
 
 <a id="apiV2NotificationsSearchPost"></a>
 # **apiV2NotificationsSearchPost**
-> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel)
+> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest)
 
 Search Notifications for current User
 
-&lt;br&gt;Use case  &lt;br&gt;User set filter and runs method execution  &lt;br&gt;System returns notifications (listed in the response example)
+ Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
 
 ### Example
 ```java
@@ -332,9 +352,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    NotificationQueryFilterModel notificationQueryFilterModel = new NotificationQueryFilterModel(); // NotificationQueryFilterModel | 
+    ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest = new ApiV2NotificationsSearchPostRequest(); // ApiV2NotificationsSearchPostRequest | 
     try {
-      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel);
+      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NotificationsApi#apiV2NotificationsSearchPost");
@@ -356,7 +376,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **notificationQueryFilterModel** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional] |
+| **apiV2NotificationsSearchPostRequest** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -377,4 +397,8 @@ public class Example {
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

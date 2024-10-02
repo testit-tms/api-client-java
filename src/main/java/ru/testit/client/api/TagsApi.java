@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2TagsDeleteRequest;
+import ru.testit.client.model.ApiV2TagsPostRequest;
+import ru.testit.client.model.ApiV2TagsPutRequest;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TagModel;
-import ru.testit.client.model.TagPostModel;
-import ru.testit.client.model.TagPutModel;
-import ru.testit.client.model.TagSelectModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 
@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class TagsApi {
     private ApiClient localVarApiClient;
@@ -80,7 +81,7 @@ public class TagsApi {
 
     /**
      * Build call for apiV2TagsDelete
-     * @param tagSelectModel  (optional)
+     * @param apiV2TagsDeleteRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,13 +89,15 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsDeleteCall(TagSelectModel tagSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsDeleteCall(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,7 +111,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = tagSelectModel;
+        Object localVarPostBody = apiV2TagsDeleteRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -143,55 +146,59 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsDeleteValidateBeforeCall(TagSelectModel tagSelectModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsDeleteCall(tagSelectModel, _callback);
+    private okhttp3.Call apiV2TagsDeleteValidateBeforeCall(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsDeleteCall(apiV2TagsDeleteRequest, _callback);
 
     }
 
     /**
      * Delete tags
-     * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param tagSelectModel  (optional)
+     *  Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+     * @param apiV2TagsDeleteRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TagsDelete(TagSelectModel tagSelectModel) throws ApiException {
-        apiV2TagsDeleteWithHttpInfo(tagSelectModel);
+    public void apiV2TagsDelete(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest) throws ApiException {
+        apiV2TagsDeleteWithHttpInfo(apiV2TagsDeleteRequest);
     }
 
     /**
      * Delete tags
-     * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param tagSelectModel  (optional)
+     *  Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+     * @param apiV2TagsDeleteRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(TagSelectModel tagSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(tagSelectModel, null);
+    public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(apiV2TagsDeleteRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete tags (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets collection of tags internal (guid format) identifiers  &lt;br&gt;System searches and deletes a collection of tags
-     * @param tagSelectModel  (optional)
+     *  Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+     * @param apiV2TagsDeleteRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -199,15 +206,17 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsDeleteAsync(TagSelectModel tagSelectModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsDeleteAsync(ApiV2TagsDeleteRequest apiV2TagsDeleteRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(tagSelectModel, _callback);
+        okhttp3.Call localVarCall = apiV2TagsDeleteValidateBeforeCall(apiV2TagsDeleteRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -220,7 +229,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -278,14 +292,19 @@ public class TagsApi {
 
     /**
      * Get all Tags
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @return List&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -297,14 +316,19 @@ public class TagsApi {
 
     /**
      * Get all Tags
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @return ApiResponse&lt;List&lt;TagModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -317,7 +341,7 @@ public class TagsApi {
 
     /**
      * Get all Tags (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -325,7 +349,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -347,10 +376,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsIdDeleteCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -411,17 +442,19 @@ public class TagsApi {
 
     /**
      * Delete tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag internal (guid format) identifier  &lt;br&gt;System search and delete tag
+     *  Use case   User sets tag internal (guid format) identifier   System search and delete tag
      * @param id Tag internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TagsIdDelete(UUID id) throws ApiException {
@@ -430,7 +463,7 @@ public class TagsApi {
 
     /**
      * Delete tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag internal (guid format) identifier  &lt;br&gt;System search and delete tag
+     *  Use case   User sets tag internal (guid format) identifier   System search and delete tag
      * @param id Tag internal (UUID) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -438,10 +471,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TagsIdDeleteWithHttpInfo(UUID id) throws ApiException {
@@ -451,7 +486,7 @@ public class TagsApi {
 
     /**
      * Delete tag (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag internal (guid format) identifier  &lt;br&gt;System search and delete tag
+     *  Use case   User sets tag internal (guid format) identifier   System search and delete tag
      * @param id Tag internal (UUID) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -460,10 +495,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsIdDeleteAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -474,7 +511,7 @@ public class TagsApi {
     }
     /**
      * Build call for apiV2TagsPost
-     * @param tagPostModel  (optional)
+     * @param apiV2TagsPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -482,11 +519,15 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPostCall(TagPostModel tagPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPostCall(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -500,7 +541,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = tagPostModel;
+        Object localVarPostBody = apiV2TagsPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -535,54 +576,62 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsPostValidateBeforeCall(TagPostModel tagPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsPostCall(tagPostModel, _callback);
+    private okhttp3.Call apiV2TagsPostValidateBeforeCall(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsPostCall(apiV2TagsPostRequest, _callback);
 
     }
 
     /**
      * Create tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param tagPostModel  (optional)
+     *  Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+     * @param apiV2TagsPostRequest  (optional)
      * @return TagModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TagModel apiV2TagsPost(TagPostModel tagPostModel) throws ApiException {
-        ApiResponse<TagModel> localVarResp = apiV2TagsPostWithHttpInfo(tagPostModel);
+    public TagModel apiV2TagsPost(ApiV2TagsPostRequest apiV2TagsPostRequest) throws ApiException {
+        ApiResponse<TagModel> localVarResp = apiV2TagsPostWithHttpInfo(apiV2TagsPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param tagPostModel  (optional)
+     *  Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+     * @param apiV2TagsPostRequest  (optional)
      * @return ApiResponse&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TagModel> apiV2TagsPostWithHttpInfo(TagPostModel tagPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(tagPostModel, null);
+    public ApiResponse<TagModel> apiV2TagsPostWithHttpInfo(ApiV2TagsPostRequest apiV2TagsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(apiV2TagsPostRequest, null);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create tag (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates tag  &lt;br&gt;System returns tag model (listed in the response example)
-     * @param tagPostModel  (optional)
+     *  Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+     * @param apiV2TagsPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -590,13 +639,17 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPostAsync(TagPostModel tagPostModel, final ApiCallback<TagModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPostAsync(ApiV2TagsPostRequest apiV2TagsPostRequest, final ApiCallback<TagModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(tagPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2TagsPostValidateBeforeCall(apiV2TagsPostRequest, _callback);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -604,7 +657,7 @@ public class TagsApi {
     /**
      * Build call for apiV2TagsPut
      * @param id  (optional)
-     * @param tagPutModel  (optional)
+     * @param apiV2TagsPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -612,13 +665,15 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPutCall(UUID id, TagPutModel tagPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPutCall(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -632,7 +687,7 @@ public class TagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = tagPutModel;
+        Object localVarPostBody = apiV2TagsPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/tags";
@@ -671,61 +726,65 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TagsPutValidateBeforeCall(UUID id, TagPutModel tagPutModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TagsPutCall(id, tagPutModel, _callback);
+    private okhttp3.Call apiV2TagsPutValidateBeforeCall(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TagsPutCall(id, apiV2TagsPutRequest, _callback);
 
     }
 
     /**
      * Update tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
+     *  Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param tagPutModel  (optional)
+     * @param apiV2TagsPutRequest  (optional)
      * @return TagModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TagModel apiV2TagsPut(UUID id, TagPutModel tagPutModel) throws ApiException {
-        ApiResponse<TagModel> localVarResp = apiV2TagsPutWithHttpInfo(id, tagPutModel);
+    public TagModel apiV2TagsPut(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest) throws ApiException {
+        ApiResponse<TagModel> localVarResp = apiV2TagsPutWithHttpInfo(id, apiV2TagsPutRequest);
         return localVarResp.getData();
     }
 
     /**
      * Update tag
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
+     *  Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param tagPutModel  (optional)
+     * @param apiV2TagsPutRequest  (optional)
      * @return ApiResponse&lt;TagModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TagModel> apiV2TagsPutWithHttpInfo(UUID id, TagPutModel tagPutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, tagPutModel, null);
+    public ApiResponse<TagModel> apiV2TagsPutWithHttpInfo(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, apiV2TagsPutRequest, null);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update tag (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User sets tag ID and model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates tag  &lt;br&gt;System returns tag model (listed in the response example)
+     *  Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
      * @param id  (optional)
-     * @param tagPutModel  (optional)
+     * @param apiV2TagsPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -733,15 +792,17 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TagsPutAsync(UUID id, TagPutModel tagPutModel, final ApiCallback<TagModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TagsPutAsync(UUID id, ApiV2TagsPutRequest apiV2TagsPutRequest, final ApiCallback<TagModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, tagPutModel, _callback);
+        okhttp3.Call localVarCall = apiV2TagsPutValidateBeforeCall(id, apiV2TagsPutRequest, _callback);
         Type localVarReturnType = new TypeToken<TagModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -760,8 +821,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsSearchGetCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -836,7 +901,7 @@ public class TagsApi {
 
     /**
      * Search tags
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns collection of tags (listed in the response example)
+     *  Use case   User runs method execution   System returns collection of tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -848,8 +913,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TagModel> apiV2TagsSearchGet(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -859,7 +928,7 @@ public class TagsApi {
 
     /**
      * Search tags
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns collection of tags (listed in the response example)
+     *  Use case   User runs method execution   System returns collection of tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -871,8 +940,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TagModel>> apiV2TagsSearchGetWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -883,7 +956,7 @@ public class TagsApi {
 
     /**
      * Search tags (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns collection of tags (listed in the response example)
+     *  Use case   User runs method execution   System returns collection of tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -896,8 +969,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsSearchGetAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TagModel>> _callback) throws ApiException {
@@ -921,8 +998,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsTestPlansTagsGetCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
@@ -997,7 +1078,7 @@ public class TagsApi {
 
     /**
      * Get all Tags that are used in TestPlans
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -1009,8 +1090,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public List<TagModel> apiV2TagsTestPlansTagsGet(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1020,7 +1105,7 @@ public class TagsApi {
 
     /**
      * Get all Tags that are used in TestPlans
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -1032,8 +1117,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TagModel>> apiV2TagsTestPlansTagsGetWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
@@ -1044,7 +1133,7 @@ public class TagsApi {
 
     /**
      * Get all Tags that are used in TestPlans (asynchronously)
-     * &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns tags (listed in the response example)
+     *  Use case   User runs method execution   System returns tags (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -1057,8 +1146,12 @@ public class TagsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TagsTestPlansTagsGetAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TagModel>> _callback) throws ApiException {
