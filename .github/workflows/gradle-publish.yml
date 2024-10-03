@@ -17,7 +17,7 @@ jobs:
       - name: Add permission
         run: chmod +x ./gradlew
       - name: Publish package
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           arguments: publish
         env:
