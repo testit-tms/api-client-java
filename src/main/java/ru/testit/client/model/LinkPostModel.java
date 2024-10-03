@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.LinkType;
 
@@ -44,6 +44,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -77,6 +78,7 @@ public class LinkPostModel {
   }
 
   public LinkPostModel title(String title) {
+    
     this.title = title;
     return this;
   }
@@ -90,12 +92,14 @@ public class LinkPostModel {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public LinkPostModel url(String url) {
+    
     this.url = url;
     return this;
   }
@@ -109,12 +113,14 @@ public class LinkPostModel {
     return url;
   }
 
+
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public LinkPostModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -128,12 +134,14 @@ public class LinkPostModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public LinkPostModel type(LinkType type) {
+    
     this.type = type;
     return this;
   }
@@ -147,12 +155,14 @@ public class LinkPostModel {
     return type;
   }
 
+
   public void setType(LinkType type) {
     this.type = type;
   }
 
 
   public LinkPostModel hasInfo(Boolean hasInfo) {
+    
     this.hasInfo = hasInfo;
     return this;
   }
@@ -165,6 +175,7 @@ public class LinkPostModel {
   public Boolean getHasInfo() {
     return hasInfo;
   }
+
 
   public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
@@ -248,33 +259,32 @@ public class LinkPostModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to LinkPostModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to LinkPostModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!LinkPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!LinkPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LinkPostModel is not found in the empty JSON string", LinkPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!LinkPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinkPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinkPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LinkPostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
@@ -283,10 +293,6 @@ public class LinkPostModel {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        LinkType.validateJsonElement(jsonObj.get("type"));
       }
   }
 
@@ -310,9 +316,9 @@ public class LinkPostModel {
 
            @Override
            public LinkPostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

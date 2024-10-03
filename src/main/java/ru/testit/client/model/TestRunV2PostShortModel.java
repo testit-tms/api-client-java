@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,6 +48,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -85,6 +86,7 @@ public class TestRunV2PostShortModel {
   }
 
   public TestRunV2PostShortModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -98,12 +100,14 @@ public class TestRunV2PostShortModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestRunV2PostShortModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -117,12 +121,14 @@ public class TestRunV2PostShortModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunV2PostShortModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -136,12 +142,14 @@ public class TestRunV2PostShortModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestRunV2PostShortModel launchSource(String launchSource) {
+    
     this.launchSource = launchSource;
     return this;
   }
@@ -155,12 +163,14 @@ public class TestRunV2PostShortModel {
     return launchSource;
   }
 
+
   public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
   public TestRunV2PostShortModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -182,12 +192,14 @@ public class TestRunV2PostShortModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public TestRunV2PostShortModel links(List<LinkPostModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -208,6 +220,7 @@ public class TestRunV2PostShortModel {
   public List<LinkPostModel> getLinks() {
     return links;
   }
+
 
   public void setLinks(List<LinkPostModel> links) {
     this.links = links;
@@ -293,33 +306,32 @@ public class TestRunV2PostShortModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunV2PostShortModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunV2PostShortModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunV2PostShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunV2PostShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunV2PostShortModel is not found in the empty JSON string", TestRunV2PostShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunV2PostShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2PostShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2PostShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunV2PostShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -342,7 +354,7 @@ public class TestRunV2PostShortModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -356,7 +368,7 @@ public class TestRunV2PostShortModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
@@ -382,9 +394,9 @@ public class TestRunV2PostShortModel {
 
            @Override
            public TestRunV2PostShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

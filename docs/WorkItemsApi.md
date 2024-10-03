@@ -33,11 +33,11 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2WorkItemsIdAttachmentsPost"></a>
 # **apiV2WorkItemsIdAttachmentsPost**
-> UUID apiV2WorkItemsIdAttachmentsPost(id, _file)
+> apiV2WorkItemsIdAttachmentsPost(id, _file)
 
 Upload and link attachment to WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets workItemId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the work item  &lt;br&gt;System returns attachment identifier
+ Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
 
 ### Example
 ```java
@@ -64,8 +64,7 @@ public class Example {
     UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Work item internal identifier (guid format)
     File _file = new File("/path/to/file"); // File | Select file
     try {
-      UUID result = apiInstance.apiV2WorkItemsIdAttachmentsPost(id, _file);
-      System.out.println(result);
+      apiInstance.apiV2WorkItemsIdAttachmentsPost(id, _file);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdAttachmentsPost");
       System.err.println("Status code: " + e.getCode());
@@ -86,7 +85,7 @@ public class Example {
 
 ### Return type
 
-[**UUID**](UUID.md)
+null (empty response body)
 
 ### Authorization
 
@@ -100,12 +99,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
+| **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** |  |  -  |
-| **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **200** | Successful operation |  -  |
 
 <a id="apiV2WorkItemsIdCheckListTransformToTestCasePost"></a>
 # **apiV2WorkItemsIdCheckListTransformToTestCasePost**
@@ -113,7 +114,7 @@ public class Example {
 
 Transform CheckList to TestCase
 
-&lt;br&gt;Use case  &lt;br&gt;User sets checklist identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System transform CheckList to TestCase
+ Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
 
 ### Example
 ```java
@@ -179,7 +180,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
 | **404** | Can&#39;t find CheckList with id |  -  |
-| **422** | Client Error |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdHistoryGet"></a>
 # **apiV2WorkItemsIdHistoryGet**
@@ -187,7 +189,7 @@ public class Example {
 
 Get change history of WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return change history of WorkItem
+ Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
 
 ### Example
 ```java
@@ -263,6 +265,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdLikeDelete"></a>
 # **apiV2WorkItemsIdLikeDelete**
@@ -270,7 +274,7 @@ public class Example {
 
 Delete like from WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete like from WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
 
 ### Example
 ```java
@@ -333,6 +337,10 @@ null (empty response body)
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdLikePost"></a>
 # **apiV2WorkItemsIdLikePost**
@@ -340,7 +348,7 @@ null (empty response body)
 
 Set like to WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set like to WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
 
 ### Example
 ```java
@@ -403,6 +411,10 @@ null (empty response body)
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdLikesCountGet"></a>
 # **apiV2WorkItemsIdLikesCountGet**
@@ -410,7 +422,7 @@ null (empty response body)
 
 Get likes count of WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes count of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
 
 ### Example
 ```java
@@ -475,6 +487,9 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdLikesGet"></a>
 # **apiV2WorkItemsIdLikesGet**
@@ -482,7 +497,7 @@ public class Example {
 
 Get likes of WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return likes of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
 
 ### Example
 ```java
@@ -547,6 +562,9 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdTestResultsHistoryGet"></a>
 # **apiV2WorkItemsIdTestResultsHistoryGet**
@@ -554,7 +572,7 @@ public class Example {
 
 Get test results history of WorkItem
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test results history of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
 
 ### Example
 ```java
@@ -647,6 +665,9 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsIdVersionVersionIdActualPost"></a>
 # **apiV2WorkItemsIdVersionVersionIdActualPost**
@@ -654,7 +675,7 @@ public class Example {
 
 Set WorkItem as actual
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System set WorkItem as actual
+ Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
 
 ### Example
 ```java
@@ -722,14 +743,16 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsMovePost"></a>
 # **apiV2WorkItemsMovePost**
-> WorkItemShortModel apiV2WorkItemsMovePost(workItemMovePostModel)
+> WorkItemShortModel apiV2WorkItemsMovePost(apiV2WorkItemsMovePostRequest)
 
 Move WorkItem to another section
 
-&lt;br&gt;Use case  &lt;br&gt;User sets WorkItem identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System move WorkItem to another section
+ Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
 
 ### Example
 ```java
@@ -753,9 +776,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    WorkItemMovePostModel workItemMovePostModel = new WorkItemMovePostModel(); // WorkItemMovePostModel | 
+    ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest = new ApiV2WorkItemsMovePostRequest(); // ApiV2WorkItemsMovePostRequest | 
     try {
-      WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(workItemMovePostModel);
+      WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(apiV2WorkItemsMovePostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsMovePost");
@@ -772,7 +795,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemMovePostModel** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md)|  | [optional] |
+| **apiV2WorkItemsMovePostRequest** | [**ApiV2WorkItemsMovePostRequest**](ApiV2WorkItemsMovePostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -794,10 +817,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsSearchPost"></a>
 # **apiV2WorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+> List&lt;WorkItemShortModel&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
 
 Search for work items
 
@@ -828,9 +854,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      List<WorkItemShortModel> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSearchPost");
@@ -852,7 +878,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -870,16 +896,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Test library read permission for all requested projects is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsSharedStepIdReferencesSectionsPost"></a>
 # **apiV2WorkItemsSharedStepIdReferencesSectionsPost**
-> List&lt;SharedStepReferenceSectionModel&gt; apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel)
+> List&lt;SharedStepReferenceSectionModel&gt; apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest)
 
 Get SharedStep references in sections
 
-&lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 ```java
@@ -909,9 +940,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel = new SharedStepReferenceSectionsQueryFilterModel(); // SharedStepReferenceSectionsQueryFilterModel | 
+    ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest = new ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(); // ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest | 
     try {
-      List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel);
+      List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesSectionsPost");
@@ -934,7 +965,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **sharedStepReferenceSectionsQueryFilterModel** | [**SharedStepReferenceSectionsQueryFilterModel**](SharedStepReferenceSectionsQueryFilterModel.md)|  | [optional] |
+| **apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -953,16 +984,20 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Can&#39;t find SharedStep with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsSharedStepIdReferencesWorkItemsPost"></a>
 # **apiV2WorkItemsSharedStepIdReferencesWorkItemsPost**
-> List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel)
+> List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest)
 
 Get SharedStep references in work items
 
-&lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 ```java
@@ -992,9 +1027,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel = new SharedStepReferencesQueryFilterModel(); // SharedStepReferencesQueryFilterModel | 
+    ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest = new ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(); // ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest | 
     try {
-      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel);
+      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost");
@@ -1017,7 +1052,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **sharedStepReferencesQueryFilterModel** | [**SharedStepReferencesQueryFilterModel**](SharedStepReferencesQueryFilterModel.md)|  | [optional] |
+| **apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1036,8 +1071,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Can&#39;t find SharedStep with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2WorkItemsSharedStepsSharedStepIdReferencesGet"></a>
 # **apiV2WorkItemsSharedStepsSharedStepIdReferencesGet**
@@ -1045,7 +1084,7 @@ public class Example {
 
 Get SharedStep references
 
-&lt;br&gt;Use case  &lt;br&gt;User sets SharedStep identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 ```java
@@ -1109,15 +1148,18 @@ public class Example {
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Can&#39;t find SharedStep with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createWorkItem"></a>
 # **createWorkItem**
-> WorkItemModel createWorkItem(workItemPostModel)
+> WorkItemModel createWorkItem(createWorkItemRequest)
 
 Create Test Case, Checklist or Shared Step
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates work item by identifier  &lt;br&gt;System returns work item model (listed in response parameters)
+ Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
 
 ### Example
 ```java
@@ -1141,9 +1183,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    WorkItemPostModel workItemPostModel = new WorkItemPostModel(); // WorkItemPostModel | 
+    CreateWorkItemRequest createWorkItemRequest = new CreateWorkItemRequest(); // CreateWorkItemRequest | 
     try {
-      WorkItemModel result = apiInstance.createWorkItem(workItemPostModel);
+      WorkItemModel result = apiInstance.createWorkItem(createWorkItemRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#createWorkItem");
@@ -1160,7 +1202,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemPostModel** | [**WorkItemPostModel**](WorkItemPostModel.md)|  | [optional] |
+| **createWorkItemRequest** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1179,10 +1221,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+| **400** |  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
+| **404** |  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteAllWorkItemsFromAutoTest"></a>
 # **deleteAllWorkItemsFromAutoTest**
@@ -1190,7 +1234,7 @@ public class Example {
 
 Delete all links AutoTests from WorkItem by Id or GlobalId
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search work item by identifier  &lt;br&gt;System search and delete all autotests, related to found work item  &lt;br&gt;System returns no content response
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
 
 ### Example
 ```java
@@ -1255,6 +1299,8 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
 | **404** | Can&#39;t find a WorkItem with workItemId |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **200** | Successful operation |  -  |
 
 <a id="deleteWorkItem"></a>
@@ -1263,7 +1309,7 @@ null (empty response body)
 
 Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System deletes work item  &lt;br&gt;System returns no content response
+ Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
 
 ### Example
 ```java
@@ -1328,6 +1374,7 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test library required |  -  |
 | **404** | Can&#39;t find a WorkItem with id |  -  |
+| **409** | Conflict |  -  |
 | **422** | Could not delete Shared Step that has references |  -  |
 
 <a id="getAutoTestsForWorkItem"></a>
@@ -1336,7 +1383,7 @@ null (empty response body)
 
 Get all AutoTests linked to WorkItem by Id or GlobalId
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search work item by identifier  &lt;br&gt;System search all autotests, related to found work item  &lt;br&gt;System returns list of found autotests
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
 
 ### Example
 ```java
@@ -1402,6 +1449,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with workItemId |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getIterations"></a>
 # **getIterations**
@@ -1473,10 +1522,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **404** | Can&#39;t find workItem with id |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
+| **404** | Can&#39;t find workItem with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getWorkItemById"></a>
 # **getWorkItemById**
@@ -1484,7 +1535,7 @@ public class Example {
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;[Optional] User sets work item version identifier  &lt;br&gt;[Optional] User sets work item version number  &lt;br&gt;User runs method execution  &lt;br&gt;System search work item by identifier  &lt;br&gt;[Optional] if User sets work item version identifier, system search work item version by identifier.  &lt;br&gt;[Optional] if user sets work item version number, system search work item version by number  &lt;br&gt;Otherwise, system search last work item version  &lt;br&gt;System returns work item 
+ Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
 
 ### Example
 ```java
@@ -1554,6 +1605,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find workItem with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getWorkItemChronology"></a>
 # **getWorkItemChronology**
@@ -1561,7 +1614,7 @@ public class Example {
 
 Get WorkItem chronology by Id or GlobalId
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search work item by identifier  &lt;br&gt;System search test results of all autotests, related to found work item  &lt;br&gt;System sort results by CompletedOn ascending, then by CreatedDate ascending  &lt;br&gt;System returns sorted collection of test results
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
 
 ### Example
 ```java
@@ -1627,6 +1680,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with workItemId |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getWorkItemVersions"></a>
 # **getWorkItemVersions**
@@ -1634,7 +1689,7 @@ public class Example {
 
 Get WorkItem versions
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item identifier  &lt;br&gt;[Optional] User sets work item version identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search work item by identifier  &lt;br&gt;                      [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                    &lt;br&gt;System returns array of work item version models (listed in response example)
+ Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
 
 ### Example
 ```java
@@ -1704,6 +1759,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with workItemId |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="purgeWorkItem"></a>
 # **purgeWorkItem**
@@ -1774,7 +1831,8 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test library is required |  -  |
 | **404** | Not Found |  -  |
-| **422** | Client Error |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="restoreWorkItem"></a>
 # **restoreWorkItem**
@@ -1840,19 +1898,21 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="updateWorkItem"></a>
 # **updateWorkItem**
-> updateWorkItem(workItemPutModel)
+> updateWorkItem(updateWorkItemRequest)
 
 Update Test Case, Checklist or Shared Step
 
-&lt;br&gt;Use case  &lt;br&gt;User sets work item properties (listed in request parameters)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates work item by identifier  &lt;br&gt;System returns updated work item model (listed in response parameters)
+ Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
 
 ### Example
 ```java
@@ -1876,9 +1936,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    WorkItemPutModel workItemPutModel = new WorkItemPutModel(); // WorkItemPutModel | 
+    UpdateWorkItemRequest updateWorkItemRequest = new UpdateWorkItemRequest(); // UpdateWorkItemRequest | 
     try {
-      apiInstance.updateWorkItem(workItemPutModel);
+      apiInstance.updateWorkItem(updateWorkItemRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#updateWorkItem");
       System.err.println("Status code: " + e.getCode());
@@ -1894,7 +1954,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemPutModel** | [**WorkItemPutModel**](WorkItemPutModel.md)|  | [optional] |
+| **updateWorkItemRequest** | [**UpdateWorkItemRequest**](UpdateWorkItemRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1913,8 +1973,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+| **400** |  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
-| **404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
+| **404** |  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -108,6 +109,7 @@ public class ConfigurationModel {
   }
 
   public ConfigurationModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -121,12 +123,14 @@ public class ConfigurationModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public ConfigurationModel parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -148,12 +152,14 @@ public class ConfigurationModel {
     return parameters;
   }
 
+
   public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
   public ConfigurationModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -167,12 +173,14 @@ public class ConfigurationModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public ConfigurationModel isDefault(Boolean isDefault) {
+    
     this.isDefault = isDefault;
     return this;
   }
@@ -186,12 +194,14 @@ public class ConfigurationModel {
     return isDefault;
   }
 
+
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
   public ConfigurationModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -205,12 +215,14 @@ public class ConfigurationModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public ConfigurationModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -224,12 +236,14 @@ public class ConfigurationModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public ConfigurationModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -243,12 +257,14 @@ public class ConfigurationModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public ConfigurationModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -262,12 +278,14 @@ public class ConfigurationModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public ConfigurationModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -281,12 +299,14 @@ public class ConfigurationModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public ConfigurationModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
@@ -300,12 +320,14 @@ public class ConfigurationModel {
     return globalId;
   }
 
+
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
   public ConfigurationModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -319,12 +341,14 @@ public class ConfigurationModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public ConfigurationModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -337,6 +361,7 @@ public class ConfigurationModel {
   public Boolean getIsDeleted() {
     return isDeleted;
   }
+
 
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
@@ -446,33 +471,32 @@ public class ConfigurationModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConfigurationModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigurationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationModel is not found in the empty JSON string", ConfigurationModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ConfigurationModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -513,9 +537,9 @@ public class ConfigurationModel {
 
            @Override
            public ConfigurationModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

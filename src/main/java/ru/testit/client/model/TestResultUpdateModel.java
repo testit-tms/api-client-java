@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -52,6 +52,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -118,6 +119,7 @@ public class TestResultUpdateModel {
   }
 
   public TestResultUpdateModel failureClassIds(List<UUID> failureClassIds) {
+    
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -139,12 +141,14 @@ public class TestResultUpdateModel {
     return failureClassIds;
   }
 
+
   public void setFailureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
   public TestResultUpdateModel outcome(TestResultOutcome outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -158,12 +162,14 @@ public class TestResultUpdateModel {
     return outcome;
   }
 
+
   public void setOutcome(TestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultUpdateModel comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -177,12 +183,14 @@ public class TestResultUpdateModel {
     return comment;
   }
 
+
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   public TestResultUpdateModel links(List<LinkModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -204,12 +212,14 @@ public class TestResultUpdateModel {
     return links;
   }
 
+
   public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
   public TestResultUpdateModel stepResults(List<StepResultModel> stepResults) {
+    
     this.stepResults = stepResults;
     return this;
   }
@@ -231,12 +241,14 @@ public class TestResultUpdateModel {
     return stepResults;
   }
 
+
   public void setStepResults(List<StepResultModel> stepResults) {
     this.stepResults = stepResults;
   }
 
 
   public TestResultUpdateModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -258,6 +270,7 @@ public class TestResultUpdateModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
@@ -265,6 +278,7 @@ public class TestResultUpdateModel {
 
   @Deprecated
   public TestResultUpdateModel durationInMs(Long durationInMs) {
+    
     this.durationInMs = durationInMs;
     return this;
   }
@@ -281,6 +295,7 @@ public class TestResultUpdateModel {
     return durationInMs;
   }
 
+
   @Deprecated
   public void setDurationInMs(Long durationInMs) {
     this.durationInMs = durationInMs;
@@ -288,6 +303,7 @@ public class TestResultUpdateModel {
 
 
   public TestResultUpdateModel duration(Long duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -302,12 +318,14 @@ public class TestResultUpdateModel {
     return duration;
   }
 
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
   public TestResultUpdateModel stepComments(List<TestResultStepCommentPutModel> stepComments) {
+    
     this.stepComments = stepComments;
     return this;
   }
@@ -329,12 +347,14 @@ public class TestResultUpdateModel {
     return stepComments;
   }
 
+
   public void setStepComments(List<TestResultStepCommentPutModel> stepComments) {
     this.stepComments = stepComments;
   }
 
 
   public TestResultUpdateModel setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+    
     this.setupResults = setupResults;
     return this;
   }
@@ -356,12 +376,14 @@ public class TestResultUpdateModel {
     return setupResults;
   }
 
+
   public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
   }
 
 
   public TestResultUpdateModel teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+    
     this.teardownResults = teardownResults;
     return this;
   }
@@ -383,12 +405,14 @@ public class TestResultUpdateModel {
     return teardownResults;
   }
 
+
   public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
   }
 
 
   public TestResultUpdateModel message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -402,12 +426,14 @@ public class TestResultUpdateModel {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public TestResultUpdateModel trace(String trace) {
+    
     this.trace = trace;
     return this;
   }
@@ -420,6 +446,7 @@ public class TestResultUpdateModel {
   public String getTrace() {
     return trace;
   }
+
 
   public void setTrace(String trace) {
     this.trace = trace;
@@ -525,33 +552,28 @@ public class TestResultUpdateModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestResultUpdateModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultUpdateModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultUpdateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultUpdateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultUpdateModel is not found in the empty JSON string", TestResultUpdateModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultUpdateModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultUpdateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultUpdateModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureClassIds") != null && !jsonObj.get("failureClassIds").isJsonNull() && !jsonObj.get("failureClassIds").isJsonArray()) {
+      if (jsonObj.get("failureClassIds") != null && !jsonObj.get("failureClassIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
-      }
-      // validate the optional field `outcome`
-      if (jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) {
-        TestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -566,7 +588,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonElement(jsonArraylinks.get(i));
+            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
@@ -580,7 +602,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            StepResultModel.validateJsonElement(jsonArraystepResults.get(i));
+            StepResultModel.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -594,7 +616,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -608,7 +630,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `stepComments` (array)
           for (int i = 0; i < jsonArraystepComments.size(); i++) {
-            TestResultStepCommentPutModel.validateJsonElement(jsonArraystepComments.get(i));
+            TestResultStepCommentPutModel.validateJsonObject(jsonArraystepComments.get(i).getAsJsonObject());
           };
         }
       }
@@ -622,7 +644,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `setupResults` (array)
           for (int i = 0; i < jsonArraysetupResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraysetupResults.get(i));
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArraysetupResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -636,7 +658,7 @@ public class TestResultUpdateModel {
 
           // validate the optional field `teardownResults` (array)
           for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArrayteardownResults.get(i));
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArrayteardownResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -668,9 +690,9 @@ public class TestResultUpdateModel {
 
            @Override
            public TestResultUpdateModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

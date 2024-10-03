@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +54,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -143,6 +144,7 @@ public class TestRunV2GetModel {
   }
 
   public TestRunV2GetModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -156,12 +158,14 @@ public class TestRunV2GetModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestRunV2GetModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -175,12 +179,14 @@ public class TestRunV2GetModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestRunV2GetModel stateName(TestRunState stateName) {
+    
     this.stateName = stateName;
     return this;
   }
@@ -194,12 +200,14 @@ public class TestRunV2GetModel {
     return stateName;
   }
 
+
   public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
   public TestRunV2GetModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -213,12 +221,14 @@ public class TestRunV2GetModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public TestRunV2GetModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -232,12 +242,14 @@ public class TestRunV2GetModel {
     return testPlanId;
   }
 
+
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestRunV2GetModel testResults(List<TestResultV2GetModel> testResults) {
+    
     this.testResults = testResults;
     return this;
   }
@@ -259,12 +271,14 @@ public class TestRunV2GetModel {
     return testResults;
   }
 
+
   public void setTestResults(List<TestResultV2GetModel> testResults) {
     this.testResults = testResults;
   }
 
 
   public TestRunV2GetModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -278,12 +292,14 @@ public class TestRunV2GetModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestRunV2GetModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -297,12 +313,14 @@ public class TestRunV2GetModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestRunV2GetModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -316,12 +334,14 @@ public class TestRunV2GetModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestRunV2GetModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -335,12 +355,14 @@ public class TestRunV2GetModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestRunV2GetModel createdByUserName(String createdByUserName) {
+    
     this.createdByUserName = createdByUserName;
     return this;
   }
@@ -354,12 +376,14 @@ public class TestRunV2GetModel {
     return createdByUserName;
   }
 
+
   public void setCreatedByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 
 
   public TestRunV2GetModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -381,12 +405,14 @@ public class TestRunV2GetModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public TestRunV2GetModel links(List<LinkModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -408,12 +434,14 @@ public class TestRunV2GetModel {
     return links;
   }
 
+
   public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
   public TestRunV2GetModel customParameters(Map<String, String> customParameters) {
+    
     this.customParameters = customParameters;
     return this;
   }
@@ -435,12 +463,14 @@ public class TestRunV2GetModel {
     return customParameters;
   }
 
+
   public void setCustomParameters(Map<String, String> customParameters) {
     this.customParameters = customParameters;
   }
 
 
   public TestRunV2GetModel webhooks(List<NamedEntityModel> webhooks) {
+    
     this.webhooks = webhooks;
     return this;
   }
@@ -462,12 +492,14 @@ public class TestRunV2GetModel {
     return webhooks;
   }
 
+
   public void setWebhooks(List<NamedEntityModel> webhooks) {
     this.webhooks = webhooks;
   }
 
 
   public TestRunV2GetModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -481,12 +513,14 @@ public class TestRunV2GetModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestRunV2GetModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -500,12 +534,14 @@ public class TestRunV2GetModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestRunV2GetModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -519,12 +555,14 @@ public class TestRunV2GetModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TestRunV2GetModel launchSource(String launchSource) {
+    
     this.launchSource = launchSource;
     return this;
   }
@@ -537,6 +575,7 @@ public class TestRunV2GetModel {
   public String getLaunchSource() {
     return launchSource;
   }
+
 
   public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
@@ -669,35 +708,32 @@ public class TestRunV2GetModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunV2GetModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunV2GetModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunV2GetModel is not found in the empty JSON string", TestRunV2GetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunV2GetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2GetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2GetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunV2GetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `stateName`
-      TestRunState.validateJsonElement(jsonObj.get("stateName"));
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -714,7 +750,7 @@ public class TestRunV2GetModel {
 
           // validate the optional field `testResults` (array)
           for (int i = 0; i < jsonArraytestResults.size(); i++) {
-            TestResultV2GetModel.validateJsonElement(jsonArraytestResults.get(i));
+            TestResultV2GetModel.validateJsonObject(jsonArraytestResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -735,7 +771,7 @@ public class TestRunV2GetModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+        AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {
@@ -745,7 +781,7 @@ public class TestRunV2GetModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkModel.validateJsonElement(jsonArraylinks.get(i));
+        LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("webhooks").isJsonArray()) {
@@ -755,7 +791,7 @@ public class TestRunV2GetModel {
       JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
       // validate the required field `webhooks` (array)
       for (int i = 0; i < jsonArraywebhooks.size(); i++) {
-        NamedEntityModel.validateJsonElement(jsonArraywebhooks.get(i));
+        NamedEntityModel.validateJsonObject(jsonArraywebhooks.get(i).getAsJsonObject());
       };
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -791,9 +827,9 @@ public class TestRunV2GetModel {
 
            @Override
            public TestRunV2GetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

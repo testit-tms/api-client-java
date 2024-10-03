@@ -8,8 +8,8 @@ Model containing options to filter test runs
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**TestRunFilterModel**](TestRunFilterModel.md) |  |  |
-|**extractionModel** | [**TestRunExtractionModel**](TestRunExtractionModel.md) |  |  |
+|**filter** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md) |  |  |
+|**extractionModel** | [**TestRunSelectModelExtractionModel**](TestRunSelectModelExtractionModel.md) |  |  |
 
 
 

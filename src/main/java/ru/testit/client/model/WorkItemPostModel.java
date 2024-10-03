@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +57,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -138,6 +139,7 @@ public class WorkItemPostModel {
   }
 
   public WorkItemPostModel entityTypeName(WorkItemEntityTypes entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -151,12 +153,14 @@ public class WorkItemPostModel {
     return entityTypeName;
   }
 
+
   public void setEntityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
   public WorkItemPostModel description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -170,12 +174,14 @@ public class WorkItemPostModel {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public WorkItemPostModel state(WorkItemStates state) {
+    
     this.state = state;
     return this;
   }
@@ -189,12 +195,14 @@ public class WorkItemPostModel {
     return state;
   }
 
+
   public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
   public WorkItemPostModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
@@ -208,12 +216,14 @@ public class WorkItemPostModel {
     return priority;
   }
 
+
   public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
   public WorkItemPostModel steps(List<StepPostModel> steps) {
+    
     this.steps = steps;
     return this;
   }
@@ -235,12 +245,14 @@ public class WorkItemPostModel {
     return steps;
   }
 
+
   public void setSteps(List<StepPostModel> steps) {
     this.steps = steps;
   }
 
 
   public WorkItemPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
+    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -262,12 +274,14 @@ public class WorkItemPostModel {
     return preconditionSteps;
   }
 
+
   public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
   public WorkItemPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
+    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -289,12 +303,14 @@ public class WorkItemPostModel {
     return postconditionSteps;
   }
 
+
   public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
   public WorkItemPostModel duration(Integer duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -310,12 +326,14 @@ public class WorkItemPostModel {
     return duration;
   }
 
+
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
   public WorkItemPostModel attributes(Map<String, Object> attributes) {
+    
     this.attributes = attributes;
     return this;
   }
@@ -337,12 +355,14 @@ public class WorkItemPostModel {
     return attributes;
   }
 
+
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public WorkItemPostModel tags(List<TagPostModel> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -364,12 +384,14 @@ public class WorkItemPostModel {
     return tags;
   }
 
+
   public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
   public WorkItemPostModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -391,12 +413,14 @@ public class WorkItemPostModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public WorkItemPostModel iterations(List<IterationPutModel> iterations) {
+    
     this.iterations = iterations;
     return this;
   }
@@ -418,12 +442,14 @@ public class WorkItemPostModel {
     return iterations;
   }
 
+
   public void setIterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
   }
 
 
   public WorkItemPostModel links(List<LinkPostModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -445,12 +471,14 @@ public class WorkItemPostModel {
     return links;
   }
 
+
   public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
   public WorkItemPostModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -464,12 +492,14 @@ public class WorkItemPostModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public WorkItemPostModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -483,12 +513,14 @@ public class WorkItemPostModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public WorkItemPostModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
@@ -502,12 +534,14 @@ public class WorkItemPostModel {
     return sectionId;
   }
 
+
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
   public WorkItemPostModel autoTests(List<AutoTestIdModel> autoTests) {
+    
     this.autoTests = autoTests;
     return this;
   }
@@ -528,6 +562,7 @@ public class WorkItemPostModel {
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
   }
+
 
   public void setAutoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
@@ -658,42 +693,35 @@ public class WorkItemPostModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WorkItemPostModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemPostModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemPostModel is not found in the empty JSON string", WorkItemPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemPostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `entityTypeName`
-      WorkItemEntityTypes.validateJsonElement(jsonObj.get("entityTypeName"));
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `state`
-      WorkItemStates.validateJsonElement(jsonObj.get("state"));
-      // validate the required field `priority`
-      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       // ensure the json data is an array
       if (!jsonObj.get("steps").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `steps` to be an array in the JSON string but got `%s`", jsonObj.get("steps").toString()));
@@ -702,7 +730,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
       // validate the required field `steps` (array)
       for (int i = 0; i < jsonArraysteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraysteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("preconditionSteps").isJsonArray()) {
@@ -712,7 +740,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraypreconditionSteps = jsonObj.getAsJsonArray("preconditionSteps");
       // validate the required field `preconditionSteps` (array)
       for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("postconditionSteps").isJsonArray()) {
@@ -722,7 +750,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraypostconditionSteps = jsonObj.getAsJsonArray("postconditionSteps");
       // validate the required field `postconditionSteps` (array)
       for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("tags").isJsonArray()) {
@@ -732,7 +760,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagPostModel.validateJsonElement(jsonArraytags.get(i));
+        TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
       };
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
@@ -744,7 +772,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -758,7 +786,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `iterations` (array)
           for (int i = 0; i < jsonArrayiterations.size(); i++) {
-            IterationPutModel.validateJsonElement(jsonArrayiterations.get(i));
+            IterationPutModel.validateJsonObject(jsonArrayiterations.get(i).getAsJsonObject());
           };
         }
       }
@@ -770,7 +798,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
+        LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
       };
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -791,7 +819,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `autoTests` (array)
           for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-            AutoTestIdModel.validateJsonElement(jsonArrayautoTests.get(i));
+            AutoTestIdModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
           };
         }
       }
@@ -817,9 +845,9 @@ public class WorkItemPostModel {
 
            @Override
            public WorkItemPostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

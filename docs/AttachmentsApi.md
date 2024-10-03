@@ -69,17 +69,22 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Attachment file was deleted successfully |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Attachment file is already in use |  -  |
 
 <a id="apiV2AttachmentsIdGet"></a>
 # **apiV2AttachmentsIdGet**
-> File apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview)
+> apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview)
 
 Download attachment file
 
@@ -112,8 +117,7 @@ public class Example {
     String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
     Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
     try {
-      File result = apiInstance.apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview);
-      System.out.println(result);
+      apiInstance.apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview);
     } catch (ApiException e) {
       System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdGet");
       System.err.println("Status code: " + e.getCode());
@@ -138,7 +142,7 @@ public class Example {
 
 ### Return type
 
-[**File**](File.md)
+null (empty response body)
 
 ### Authorization
 
@@ -147,12 +151,18 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2AttachmentsOccupiedFileStorageSizeGet"></a>
 # **apiV2AttachmentsOccupiedFileStorageSizeGet**
@@ -215,7 +225,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2AttachmentsPost"></a>
 # **apiV2AttachmentsPost**
@@ -285,7 +301,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
+| **400** |  - Invalid file contents   - Invalid HTTP headers |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

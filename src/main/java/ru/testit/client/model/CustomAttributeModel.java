@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import ru.testit.client.model.CustomAttributeOptionModel;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -92,6 +93,7 @@ public class CustomAttributeModel {
   }
 
   public CustomAttributeModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -105,12 +107,14 @@ public class CustomAttributeModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public CustomAttributeModel options(List<CustomAttributeOptionModel> options) {
+    
     this.options = options;
     return this;
   }
@@ -124,7 +128,7 @@ public class CustomAttributeModel {
   }
 
    /**
-   * Collection of the attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
   **/
   @javax.annotation.Nonnull
@@ -132,12 +136,14 @@ public class CustomAttributeModel {
     return options;
   }
 
+
   public void setOptions(List<CustomAttributeOptionModel> options) {
     this.options = options;
   }
 
 
   public CustomAttributeModel type(CustomAttributeTypesEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -151,12 +157,14 @@ public class CustomAttributeModel {
     return type;
   }
 
+
   public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
   public CustomAttributeModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -170,12 +178,14 @@ public class CustomAttributeModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public CustomAttributeModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -189,12 +199,14 @@ public class CustomAttributeModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public CustomAttributeModel isEnabled(Boolean isEnabled) {
+    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -208,12 +220,14 @@ public class CustomAttributeModel {
     return isEnabled;
   }
 
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
   public CustomAttributeModel isRequired(Boolean isRequired) {
+    
     this.isRequired = isRequired;
     return this;
   }
@@ -227,12 +241,14 @@ public class CustomAttributeModel {
     return isRequired;
   }
 
+
   public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
   public CustomAttributeModel isGlobal(Boolean isGlobal) {
+    
     this.isGlobal = isGlobal;
     return this;
   }
@@ -245,6 +261,7 @@ public class CustomAttributeModel {
   public Boolean getIsGlobal() {
     return isGlobal;
   }
+
 
   public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
@@ -332,33 +349,32 @@ public class CustomAttributeModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CustomAttributeModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CustomAttributeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!CustomAttributeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeModel is not found in the empty JSON string", CustomAttributeModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!CustomAttributeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CustomAttributeModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -370,10 +386,8 @@ public class CustomAttributeModel {
       JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
       // validate the required field `options` (array)
       for (int i = 0; i < jsonArrayoptions.size(); i++) {
-        CustomAttributeOptionModel.validateJsonElement(jsonArrayoptions.get(i));
+        CustomAttributeOptionModel.validateJsonObject(jsonArrayoptions.get(i).getAsJsonObject());
       };
-      // validate the required field `type`
-      CustomAttributeTypesEnum.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -399,9 +413,9 @@ public class CustomAttributeModel {
 
            @Override
            public CustomAttributeModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

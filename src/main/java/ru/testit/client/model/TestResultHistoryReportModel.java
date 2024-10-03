@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +51,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -168,6 +169,7 @@ public class TestResultHistoryReportModel {
   }
 
   public TestResultHistoryReportModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -181,12 +183,14 @@ public class TestResultHistoryReportModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultHistoryReportModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -200,12 +204,14 @@ public class TestResultHistoryReportModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestResultHistoryReportModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -219,12 +225,14 @@ public class TestResultHistoryReportModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestResultHistoryReportModel userId(UUID userId) {
+    
     this.userId = userId;
     return this;
   }
@@ -238,12 +246,14 @@ public class TestResultHistoryReportModel {
     return userId;
   }
 
+
   public void setUserId(UUID userId) {
     this.userId = userId;
   }
 
 
   public TestResultHistoryReportModel testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
@@ -257,12 +267,14 @@ public class TestResultHistoryReportModel {
     return testRunId;
   }
 
+
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public TestResultHistoryReportModel testRunName(String testRunName) {
+    
     this.testRunName = testRunName;
     return this;
   }
@@ -276,12 +288,14 @@ public class TestResultHistoryReportModel {
     return testRunName;
   }
 
+
   public void setTestRunName(String testRunName) {
     this.testRunName = testRunName;
   }
 
 
   public TestResultHistoryReportModel createdByUserName(String createdByUserName) {
+    
     this.createdByUserName = createdByUserName;
     return this;
   }
@@ -295,12 +309,14 @@ public class TestResultHistoryReportModel {
     return createdByUserName;
   }
 
+
   public void setCreatedByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 
 
   public TestResultHistoryReportModel testPlanId(UUID testPlanId) {
+    
     this.testPlanId = testPlanId;
     return this;
   }
@@ -314,12 +330,14 @@ public class TestResultHistoryReportModel {
     return testPlanId;
   }
 
+
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
   public TestResultHistoryReportModel testPlanGlobalId(Long testPlanGlobalId) {
+    
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -333,12 +351,14 @@ public class TestResultHistoryReportModel {
     return testPlanGlobalId;
   }
 
+
   public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
   public TestResultHistoryReportModel testPlanName(String testPlanName) {
+    
     this.testPlanName = testPlanName;
     return this;
   }
@@ -352,12 +372,14 @@ public class TestResultHistoryReportModel {
     return testPlanName;
   }
 
+
   public void setTestPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
   public TestResultHistoryReportModel configurationName(String configurationName) {
+    
     this.configurationName = configurationName;
     return this;
   }
@@ -371,12 +393,14 @@ public class TestResultHistoryReportModel {
     return configurationName;
   }
 
+
   public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   public TestResultHistoryReportModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -390,12 +414,14 @@ public class TestResultHistoryReportModel {
     return isAutomated;
   }
 
+
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public TestResultHistoryReportModel outcome(String outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -409,12 +435,14 @@ public class TestResultHistoryReportModel {
     return outcome;
   }
 
+
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultHistoryReportModel comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -428,12 +456,14 @@ public class TestResultHistoryReportModel {
     return comment;
   }
 
+
   public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   public TestResultHistoryReportModel links(List<LinkModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -455,12 +485,14 @@ public class TestResultHistoryReportModel {
     return links;
   }
 
+
   public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
   public TestResultHistoryReportModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -474,12 +506,14 @@ public class TestResultHistoryReportModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestResultHistoryReportModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -493,12 +527,14 @@ public class TestResultHistoryReportModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestResultHistoryReportModel duration(Long duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -512,12 +548,14 @@ public class TestResultHistoryReportModel {
     return duration;
   }
 
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
   public TestResultHistoryReportModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -531,12 +569,14 @@ public class TestResultHistoryReportModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestResultHistoryReportModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -550,12 +590,14 @@ public class TestResultHistoryReportModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public TestResultHistoryReportModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -577,12 +619,14 @@ public class TestResultHistoryReportModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public TestResultHistoryReportModel workItemVersionId(UUID workItemVersionId) {
+    
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -596,12 +640,14 @@ public class TestResultHistoryReportModel {
     return workItemVersionId;
   }
 
+
   public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
   public TestResultHistoryReportModel workItemVersionNumber(Integer workItemVersionNumber) {
+    
     this.workItemVersionNumber = workItemVersionNumber;
     return this;
   }
@@ -615,12 +661,14 @@ public class TestResultHistoryReportModel {
     return workItemVersionNumber;
   }
 
+
   public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
 
   public TestResultHistoryReportModel launchSource(String launchSource) {
+    
     this.launchSource = launchSource;
     return this;
   }
@@ -634,12 +682,14 @@ public class TestResultHistoryReportModel {
     return launchSource;
   }
 
+
   public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
   public TestResultHistoryReportModel failureClassIds(List<UUID> failureClassIds) {
+    
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -661,12 +711,14 @@ public class TestResultHistoryReportModel {
     return failureClassIds;
   }
 
+
   public void setFailureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
   public TestResultHistoryReportModel parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -687,6 +739,7 @@ public class TestResultHistoryReportModel {
   public Map<String, String> getParameters() {
     return parameters;
   }
+
 
   public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
@@ -838,33 +891,32 @@ public class TestResultHistoryReportModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestResultHistoryReportModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultHistoryReportModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultHistoryReportModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultHistoryReportModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultHistoryReportModel is not found in the empty JSON string", TestResultHistoryReportModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultHistoryReportModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultHistoryReportModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultHistoryReportModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultHistoryReportModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -905,7 +957,7 @@ public class TestResultHistoryReportModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonElement(jsonArraylinks.get(i));
+            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
@@ -925,7 +977,7 @@ public class TestResultHistoryReportModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -963,9 +1015,9 @@ public class TestResultHistoryReportModel {
 
            @Override
            public TestResultHistoryReportModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

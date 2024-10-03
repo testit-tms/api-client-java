@@ -38,7 +38,7 @@ All URIs are relative to *http://localhost*
 
 <a id="addTestPointsWithSections"></a>
 # **addTestPointsWithSections**
-> addTestPointsWithSections(id, workItemSelectModel)
+> addTestPointsWithSections(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
 
 Add test-points to TestPlan with sections
 
@@ -65,9 +65,9 @@ public class Example {
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
+    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project
     try {
-      apiInstance.addTestPointsWithSections(id, workItemSelectModel);
+      apiInstance.addTestPointsWithSections(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#addTestPointsWithSections");
       System.err.println("Status code: " + e.getCode());
@@ -84,7 +84,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -103,9 +103,11 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
 | **404** | Test suite with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Shared steps cannot be added to test suite |  -  |
 
 <a id="addWorkItemsWithSections"></a>
@@ -114,7 +116,7 @@ null (empty response body)
 
 Add WorkItems to TestPlan with Sections as TestSuites
 
-&lt;br&gt;Use case  &lt;br&gt;User sets TestPlan identifier  &lt;br&gt;User sets WorkItem identifiers (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System added WorkItems and Sections to TestPlan  &lt;br&gt;System returns no content response
+ Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response
 
 ### Example
 ```java
@@ -177,10 +179,11 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
+| **400** |  TestPlan is locked   Some of configurations do not exist in the project, or they are not active |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for TestPlan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist |  -  |
+| **404** |  Can&#39;t find a TestPlan with id   Some of workItems do not exist |  -  |
+| **409** | Conflict |  -  |
 | **422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
 
 <a id="apiV2TestPlansIdAnalyticsGet"></a>
@@ -189,7 +192,7 @@ null (empty response body)
 
 Get analytics by TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System returns analytics by test plan
+ Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan
 
 ### Example
 ```java
@@ -252,8 +255,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Can&#39;t find a Project with id |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Can&#39;t find a Project with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdAutobalancePost"></a>
 # **apiV2TestPlansIdAutobalancePost**
@@ -322,8 +328,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdConfigurationsGet"></a>
 # **apiV2TestPlansIdConfigurationsGet**
@@ -331,7 +342,7 @@ public class Example {
 
 Get TestPlan configurations
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan configurations
+ Use case   User sets test plan identifier   User runs method execution   System return test plan configurations
 
 ### Example
 ```java
@@ -397,14 +408,16 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdExportTestPointsXlsxPost"></a>
 # **apiV2TestPlansIdExportTestPointsXlsxPost**
-> File apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel)
+> apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest)
 
 Export TestPoints from TestPlan in xls format
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+ Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
 
 ### Example
 ```java
@@ -430,10 +443,9 @@ public class Example {
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel = new GetXlsxTestPointsByTestPlanModel(); // GetXlsxTestPointsByTestPlanModel | 
+    ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest = new ApiV2TestPlansIdExportTestPointsXlsxPostRequest(); // ApiV2TestPlansIdExportTestPointsXlsxPostRequest | 
     try {
-      File result = apiInstance.apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel);
-      System.out.println(result);
+      apiInstance.apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdExportTestPointsXlsxPost");
       System.err.println("Status code: " + e.getCode());
@@ -451,11 +463,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md)|  | [optional] |
+| **apiV2TestPlansIdExportTestPointsXlsxPostRequest** | [**ApiV2TestPlansIdExportTestPointsXlsxPostRequest**](ApiV2TestPlansIdExportTestPointsXlsxPostRequest.md)|  | [optional] |
 
 ### Return type
 
-[**File**](File.md)
+null (empty response body)
 
 ### Authorization
 
@@ -464,7 +476,7 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -474,14 +486,16 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdExportTestResultHistoryXlsxPost"></a>
 # **apiV2TestPlansIdExportTestResultHistoryXlsxPost**
-> File apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes)
+> apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes)
 
 Export TestResults history from TestPlan in xls format
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter model (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return export xlsx file
+ Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
 
 ### Example
 ```java
@@ -511,8 +525,7 @@ public class Example {
     Boolean includeDeletedTestSuites = true; // Boolean | 
     Long timeZoneOffsetInMinutes = 56L; // Long | 
     try {
-      File result = apiInstance.apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes);
-      System.out.println(result);
+      apiInstance.apiV2TestPlansIdExportTestResultHistoryXlsxPost(id, mustReturnOnlyLastTestResult, includeSteps, includeDeletedTestSuites, timeZoneOffsetInMinutes);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdExportTestResultHistoryXlsxPost");
       System.err.println("Status code: " + e.getCode());
@@ -536,7 +549,7 @@ public class Example {
 
 ### Return type
 
-[**File**](File.md)
+null (empty response body)
 
 ### Authorization
 
@@ -545,7 +558,7 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -555,6 +568,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdHistoryGet"></a>
 # **apiV2TestPlansIdHistoryGet**
@@ -562,7 +577,7 @@ public class Example {
 
 Get TestPlan history
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plan history
+ Use case   User sets test plan identifier   User runs method execution   System return test plan history
 
 ### Example
 ```java
@@ -638,6 +653,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdLinksGet"></a>
 # **apiV2TestPlansIdLinksGet**
@@ -645,7 +662,7 @@ public class Example {
 
 Get Links of TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets pagination filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns links of TestPlan
+ Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan
 
 ### Example
 ```java
@@ -713,8 +730,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdPatch"></a>
 # **apiV2TestPlansIdPatch**
@@ -785,7 +806,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestPointsLastResultsGet"></a>
 # **apiV2TestPlansIdTestPointsLastResultsGet**
@@ -793,7 +819,7 @@ null (empty response body)
 
 Get TestPoints with last result from TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System return test points with last result from test plan
+ Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
 
 ### Example
 ```java
@@ -871,6 +897,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestPointsResetPost"></a>
 # **apiV2TestPlansIdTestPointsResetPost**
@@ -878,7 +906,7 @@ public class Example {
 
 Reset TestPoints status of TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets test points identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System reset test points statuses of test plan
+ Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan
 
 ### Example
 ```java
@@ -942,12 +970,15 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
-| **422** | Client Error |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestPointsTesterDelete"></a>
 # **apiV2TestPlansIdTestPointsTesterDelete**
-> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterDelete(id, testPointSelectModel)
+> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterDelete(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest)
 
 Unassign users from multiple test points
 
@@ -974,9 +1005,9 @@ public class Example {
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the test plan
-    TestPointSelectModel testPointSelectModel = new TestPointSelectModel(); // TestPointSelectModel | 
+    ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest = new ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(); // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterDelete(id, testPointSelectModel);
+      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterDelete(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsTesterDelete");
@@ -994,7 +1025,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the test plan | |
-| **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional] |
+| **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1012,12 +1043,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plans is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestPointsTesterUserIdPost"></a>
 # **apiV2TestPlansIdTestPointsTesterUserIdPost**
-> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, testPointSelectModel)
+> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest)
 
 Assign user as a tester to multiple test points
 
@@ -1045,9 +1081,9 @@ public class Example {
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the test plan
     UUID userId = UUID.randomUUID(); // UUID | Unique ID of the user
-    TestPointSelectModel testPointSelectModel = new TestPointSelectModel(); // TestPointSelectModel | 
+    ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest = new ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(); // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, testPointSelectModel);
+      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsTesterUserIdPost");
@@ -1066,7 +1102,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the test plan | |
 | **userId** | **UUID**| Unique ID of the user | |
-| **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional] |
+| **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1084,8 +1120,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plans is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestRunsGet"></a>
 # **apiV2TestPlansIdTestRunsGet**
@@ -1093,7 +1134,7 @@ public class Example {
 
 Get TestRuns of TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRun status filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+ Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
 
 ### Example
 ```java
@@ -1173,16 +1214,20 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestRunsSearchPost"></a>
 # **apiV2TestPlansIdTestRunsSearchPost**
-> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel)
+> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest)
 
 Search TestRuns of TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User sets TestRuns filter (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System returns TestRuns for TestPlan
+ Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
 
 ### Example
 ```java
@@ -1212,9 +1257,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestRunSearchQueryModel testRunSearchQueryModel = new TestRunSearchQueryModel(); // TestRunSearchQueryModel | 
+    ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest = new ApiV2TestPlansIdTestRunsSearchPostRequest(); // ApiV2TestPlansIdTestRunsSearchPostRequest | 
     try {
-      List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, testRunSearchQueryModel);
+      List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsSearchPost");
@@ -1237,7 +1282,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testRunSearchQueryModel** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md)|  | [optional] |
+| **apiV2TestPlansIdTestRunsSearchPostRequest** | [**ApiV2TestPlansIdTestRunsSearchPostRequest**](ApiV2TestPlansIdTestRunsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1256,12 +1301,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet"></a>
 # **apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet**
-> OffsetDateTime apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id)
+> apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id)
 
 Get last modification date of test plan&#39;s test results
 
@@ -1289,8 +1338,7 @@ public class Example {
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "id_example"; // String | Test plan unique or global ID
     try {
-      OffsetDateTime result = apiInstance.apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id);
-      System.out.println(result);
+      apiInstance.apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(id);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet");
       System.err.println("Status code: " + e.getCode());
@@ -1310,7 +1358,7 @@ public class Example {
 
 ### Return type
 
-[**OffsetDateTime**](OffsetDateTime.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1324,9 +1372,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Last modification date exists |  -  |
 | **204** | Last modification date does not exist |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **200** | Last modification date exists |  -  |
 
 <a id="apiV2TestPlansIdUnlockRequestPost"></a>
 # **apiV2TestPlansIdUnlockRequestPost**
@@ -1334,7 +1387,7 @@ public class Example {
 
 Send unlock TestPlan notification
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System send unlock test plan notification
+ Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification
 
 ### Example
 ```java
@@ -1394,11 +1447,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | TestPlan not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **200** | Successful operation |  -  |
+| **0** | Error |  -  |
 
 <a id="apiV2TestPlansShortsPost"></a>
 # **apiV2TestPlansShortsPost**
@@ -1406,7 +1463,7 @@ null (empty response body)
 
 Get TestPlans short models by Project identifiers
 
-&lt;br&gt;Use case  &lt;br&gt;User sets projects identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System return test plans short models (listed in response example)
+ Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)
 
 ### Example
 ```java
@@ -1470,9 +1527,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for project required |  -  |
 | **404** | Project not found |  -  |
-| **401** | Unauthorized |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="clone"></a>
 # **clone**
@@ -1480,7 +1540,7 @@ public class Example {
 
 Clone TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System clones test plan  &lt;br&gt;System returns test plan (listed in response example)
+ Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)
 
 ### Example
 ```java
@@ -1546,6 +1606,8 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="complete"></a>
 # **complete**
@@ -1553,7 +1615,7 @@ public class Example {
 
 Complete TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System completes the test plan and updates test plan status  &lt;br&gt;System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response
 
 ### Example
 ```java
@@ -1614,18 +1676,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden |  -  |
+| **400** |  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createTestPlan"></a>
 # **createTestPlan**
-> TestPlanModel createTestPlan(testPlanPostModel)
+> TestPlanModel createTestPlan(createTestPlanRequest)
 
 Create TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan properties (listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates test plan  &lt;br&gt;System returns test plan (listed in response example)
+ Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
 
 ### Example
 ```java
@@ -1649,9 +1713,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-    TestPlanPostModel testPlanPostModel = new TestPlanPostModel(); // TestPlanPostModel | 
+    CreateTestPlanRequest createTestPlanRequest = new CreateTestPlanRequest(); // CreateTestPlanRequest | 
     try {
-      TestPlanModel result = apiInstance.createTestPlan(testPlanPostModel);
+      TestPlanModel result = apiInstance.createTestPlan(createTestPlanRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#createTestPlan");
@@ -1668,7 +1732,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testPlanPostModel** | [**TestPlanPostModel**](TestPlanPostModel.md)|  | [optional] |
+| **createTestPlanRequest** | [**CreateTestPlanRequest**](CreateTestPlanRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1687,10 +1751,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
+| **400** |  Field is required   Tags must be no more than 10! |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
+| **404** | Not Found |  -  |
 | **409** | TestPlan with the same name already exists! |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="deleteTestPlan"></a>
 # **deleteTestPlan**
@@ -1698,7 +1764,7 @@ public class Example {
 
 Delete TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System delete test plan  &lt;br&gt;System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response
 
 ### Example
 ```java
@@ -1759,9 +1825,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getTestPlanById"></a>
 # **getTestPlanById**
@@ -1769,7 +1838,7 @@ null (empty response body)
 
 Get TestPlan by Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search  test plan by the identifier  &lt;br&gt;System returns test plan
+ Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan
 
 ### Example
 ```java
@@ -1831,9 +1900,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **404** | Can&#39;t find a Project with id |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** | Can&#39;t find a Project with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **0** | Error |  -  |
 
 <a id="getTestSuitesById"></a>
 # **getTestSuitesById**
@@ -1841,7 +1914,7 @@ public class Example {
 
 Get TestSuites Tree By Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System finds test suites related to the test plan  &lt;br&gt;System returns test suites as a tree model (listed in response example)
+ Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)
 
 ### Example
 ```java
@@ -1903,9 +1976,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestRun with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="pause"></a>
 # **pause**
@@ -1913,7 +1989,7 @@ public class Example {
 
 Pause TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System pauses the test plan and updates test plan status  &lt;br&gt;System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response
 
 ### Example
 ```java
@@ -1974,10 +2050,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden |  -  |
+| **400** |  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="purgeTestPlan"></a>
 # **purgeTestPlan**
@@ -2044,7 +2122,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Full access permission for the archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="restoreTestPlan"></a>
 # **restoreTestPlan**
@@ -2052,7 +2135,7 @@ null (empty response body)
 
 Restore TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System restores test plan  &lt;br&gt;System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response
 
 ### Example
 ```java
@@ -2113,9 +2196,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="start"></a>
 # **start**
@@ -2123,7 +2209,7 @@ null (empty response body)
 
 Start TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System starts the test plan and updates test plan status  &lt;br&gt;System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response
 
 ### Example
 ```java
@@ -2184,17 +2270,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="updateTestPlan"></a>
 # **updateTestPlan**
-> updateTestPlan(testPlanPutModel)
+> updateTestPlan(updateTestPlanRequest)
 
 Update TestPlan
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test plan properties(listed in request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System updates test plan  &lt;br&gt;System returns no content response
+ Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
 
 ### Example
 ```java
@@ -2218,9 +2307,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-    TestPlanPutModel testPlanPutModel = new TestPlanPutModel(); // TestPlanPutModel | 
+    UpdateTestPlanRequest updateTestPlanRequest = new UpdateTestPlanRequest(); // UpdateTestPlanRequest | 
     try {
-      apiInstance.updateTestPlan(testPlanPutModel);
+      apiInstance.updateTestPlan(updateTestPlanRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#updateTestPlan");
       System.err.println("Status code: " + e.getCode());
@@ -2236,7 +2325,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testPlanPutModel** | [**TestPlanPutModel**](TestPlanPutModel.md)|  | [optional] |
+| **updateTestPlanRequest** | [**UpdateTestPlanRequest**](UpdateTestPlanRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2255,7 +2344,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
+| **400** |  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |

@@ -14,15 +14,15 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import ru.testit.client.model.TestRunExtractionModel;
-import ru.testit.client.model.TestRunFilterModel;
+import ru.testit.client.model.ApiV2TestRunsSearchPostRequest;
+import ru.testit.client.model.TestRunSelectModelExtractionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,6 +44,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,16 +56,17 @@ import ru.testit.client.invoker.JSON;
 public class TestRunSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private TestRunFilterModel filter;
+  private ApiV2TestRunsSearchPostRequest filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private TestRunExtractionModel extractionModel;
+  private TestRunSelectModelExtractionModel extractionModel;
 
   public TestRunSelectModel() {
   }
 
-  public TestRunSelectModel filter(TestRunFilterModel filter) {
+  public TestRunSelectModel filter(ApiV2TestRunsSearchPostRequest filter) {
+    
     this.filter = filter;
     return this;
   }
@@ -74,16 +76,18 @@ public class TestRunSelectModel {
    * @return filter
   **/
   @javax.annotation.Nonnull
-  public TestRunFilterModel getFilter() {
+  public ApiV2TestRunsSearchPostRequest getFilter() {
     return filter;
   }
 
-  public void setFilter(TestRunFilterModel filter) {
+
+  public void setFilter(ApiV2TestRunsSearchPostRequest filter) {
     this.filter = filter;
   }
 
 
-  public TestRunSelectModel extractionModel(TestRunExtractionModel extractionModel) {
+  public TestRunSelectModel extractionModel(TestRunSelectModelExtractionModel extractionModel) {
+    
     this.extractionModel = extractionModel;
     return this;
   }
@@ -93,11 +97,12 @@ public class TestRunSelectModel {
    * @return extractionModel
   **/
   @javax.annotation.Nonnull
-  public TestRunExtractionModel getExtractionModel() {
+  public TestRunSelectModelExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
-  public void setExtractionModel(TestRunExtractionModel extractionModel) {
+
+  public void setExtractionModel(TestRunSelectModelExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -159,37 +164,36 @@ public class TestRunSelectModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestRunSelectModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunSelectModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunSelectModel is not found in the empty JSON string", TestRunSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestRunSelectModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `filter`
-      TestRunFilterModel.validateJsonElement(jsonObj.get("filter"));
+      ApiV2TestRunsSearchPostRequest.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       // validate the required field `extractionModel`
-      TestRunExtractionModel.validateJsonElement(jsonObj.get("extractionModel"));
+      TestRunSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -212,9 +216,9 @@ public class TestRunSelectModel {
 
            @Override
            public TestRunSelectModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

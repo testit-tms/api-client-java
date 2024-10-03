@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +54,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -131,6 +132,7 @@ public class AutoTestResultsForTestRunModel {
   }
 
   public AutoTestResultsForTestRunModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
@@ -144,12 +146,14 @@ public class AutoTestResultsForTestRunModel {
     return configurationId;
   }
 
+
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public AutoTestResultsForTestRunModel links(List<LinkPostModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -171,12 +175,14 @@ public class AutoTestResultsForTestRunModel {
     return links;
   }
 
+
   public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
   public AutoTestResultsForTestRunModel failureReasonNames(List<FailureCategoryModel> failureReasonNames) {
+    
     this.failureReasonNames = failureReasonNames;
     return this;
   }
@@ -198,12 +204,14 @@ public class AutoTestResultsForTestRunModel {
     return failureReasonNames;
   }
 
+
   public void setFailureReasonNames(List<FailureCategoryModel> failureReasonNames) {
     this.failureReasonNames = failureReasonNames;
   }
 
 
   public AutoTestResultsForTestRunModel autoTestExternalId(String autoTestExternalId) {
+    
     this.autoTestExternalId = autoTestExternalId;
     return this;
   }
@@ -217,12 +225,14 @@ public class AutoTestResultsForTestRunModel {
     return autoTestExternalId;
   }
 
+
   public void setAutoTestExternalId(String autoTestExternalId) {
     this.autoTestExternalId = autoTestExternalId;
   }
 
 
   public AutoTestResultsForTestRunModel outcome(AvailableTestResultOutcome outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -236,12 +246,14 @@ public class AutoTestResultsForTestRunModel {
     return outcome;
   }
 
+
   public void setOutcome(AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
   public AutoTestResultsForTestRunModel message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -255,12 +267,14 @@ public class AutoTestResultsForTestRunModel {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public AutoTestResultsForTestRunModel traces(String traces) {
+    
     this.traces = traces;
     return this;
   }
@@ -274,12 +288,14 @@ public class AutoTestResultsForTestRunModel {
     return traces;
   }
 
+
   public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
   public AutoTestResultsForTestRunModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -293,12 +309,14 @@ public class AutoTestResultsForTestRunModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public AutoTestResultsForTestRunModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -312,12 +330,14 @@ public class AutoTestResultsForTestRunModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public AutoTestResultsForTestRunModel duration(Long duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -333,12 +353,14 @@ public class AutoTestResultsForTestRunModel {
     return duration;
   }
 
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
   public AutoTestResultsForTestRunModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -360,12 +382,14 @@ public class AutoTestResultsForTestRunModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public AutoTestResultsForTestRunModel parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -387,12 +411,14 @@ public class AutoTestResultsForTestRunModel {
     return parameters;
   }
 
+
   public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
   public AutoTestResultsForTestRunModel properties(Map<String, String> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -414,12 +440,14 @@ public class AutoTestResultsForTestRunModel {
     return properties;
   }
 
+
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
   }
 
 
   public AutoTestResultsForTestRunModel stepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+    
     this.stepResults = stepResults;
     return this;
   }
@@ -441,12 +469,14 @@ public class AutoTestResultsForTestRunModel {
     return stepResults;
   }
 
+
   public void setStepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = stepResults;
   }
 
 
   public AutoTestResultsForTestRunModel setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+    
     this.setupResults = setupResults;
     return this;
   }
@@ -468,12 +498,14 @@ public class AutoTestResultsForTestRunModel {
     return setupResults;
   }
 
+
   public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
   }
 
 
   public AutoTestResultsForTestRunModel teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+    
     this.teardownResults = teardownResults;
     return this;
   }
@@ -494,6 +526,7 @@ public class AutoTestResultsForTestRunModel {
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
     return teardownResults;
   }
+
 
   public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
@@ -611,33 +644,32 @@ public class AutoTestResultsForTestRunModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutoTestResultsForTestRunModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutoTestResultsForTestRunModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestResultsForTestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutoTestResultsForTestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestResultsForTestRunModel is not found in the empty JSON string", AutoTestResultsForTestRunModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AutoTestResultsForTestRunModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestResultsForTestRunModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestResultsForTestRunModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestResultsForTestRunModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("configurationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
       }
@@ -651,19 +683,17 @@ public class AutoTestResultsForTestRunModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
+            LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureReasonNames") != null && !jsonObj.get("failureReasonNames").isJsonNull() && !jsonObj.get("failureReasonNames").isJsonArray()) {
+      if (jsonObj.get("failureReasonNames") != null && !jsonObj.get("failureReasonNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureReasonNames` to be an array in the JSON string but got `%s`", jsonObj.get("failureReasonNames").toString()));
       }
       if (!jsonObj.get("autoTestExternalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestExternalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("autoTestExternalId").toString()));
       }
-      // validate the required field `outcome`
-      AvailableTestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
@@ -680,7 +710,7 @@ public class AutoTestResultsForTestRunModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -694,7 +724,7 @@ public class AutoTestResultsForTestRunModel {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraystepResults.get(i));
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -708,7 +738,7 @@ public class AutoTestResultsForTestRunModel {
 
           // validate the optional field `setupResults` (array)
           for (int i = 0; i < jsonArraysetupResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraysetupResults.get(i));
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArraysetupResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -722,7 +752,7 @@ public class AutoTestResultsForTestRunModel {
 
           // validate the optional field `teardownResults` (array)
           for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArrayteardownResults.get(i));
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArrayteardownResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -748,9 +778,9 @@ public class AutoTestResultsForTestRunModel {
 
            @Override
            public AutoTestResultsForTestRunModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

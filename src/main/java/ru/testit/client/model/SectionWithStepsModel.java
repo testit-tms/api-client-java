@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,6 +49,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -110,6 +111,7 @@ public class SectionWithStepsModel {
   }
 
   public SectionWithStepsModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -131,12 +133,14 @@ public class SectionWithStepsModel {
     return attachments;
   }
 
+
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
   public SectionWithStepsModel preconditionSteps(List<StepModel> preconditionSteps) {
+    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -158,12 +162,14 @@ public class SectionWithStepsModel {
     return preconditionSteps;
   }
 
+
   public void setPreconditionSteps(List<StepModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
   public SectionWithStepsModel postconditionSteps(List<StepModel> postconditionSteps) {
+    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -185,12 +191,14 @@ public class SectionWithStepsModel {
     return postconditionSteps;
   }
 
+
   public void setPostconditionSteps(List<StepModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
   public SectionWithStepsModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -204,12 +212,14 @@ public class SectionWithStepsModel {
     return projectId;
   }
 
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public SectionWithStepsModel parentId(UUID parentId) {
+    
     this.parentId = parentId;
     return this;
   }
@@ -223,12 +233,14 @@ public class SectionWithStepsModel {
     return parentId;
   }
 
+
   public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
   public SectionWithStepsModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -242,12 +254,14 @@ public class SectionWithStepsModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public SectionWithStepsModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -261,12 +275,14 @@ public class SectionWithStepsModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public SectionWithStepsModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -280,12 +296,14 @@ public class SectionWithStepsModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public SectionWithStepsModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -299,12 +317,14 @@ public class SectionWithStepsModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public SectionWithStepsModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
@@ -318,12 +338,14 @@ public class SectionWithStepsModel {
     return createdById;
   }
 
+
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public SectionWithStepsModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
@@ -337,12 +359,14 @@ public class SectionWithStepsModel {
     return modifiedById;
   }
 
+
   public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
   public SectionWithStepsModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -355,6 +379,7 @@ public class SectionWithStepsModel {
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
@@ -462,33 +487,32 @@ public class SectionWithStepsModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SectionWithStepsModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SectionWithStepsModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SectionWithStepsModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SectionWithStepsModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SectionWithStepsModel is not found in the empty JSON string", SectionWithStepsModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!SectionWithStepsModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionWithStepsModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionWithStepsModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SectionWithStepsModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
         if (jsonArrayattachments != null) {
@@ -499,7 +523,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -513,7 +537,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `preconditionSteps` (array)
           for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-            StepModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
+            StepModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -527,7 +551,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `postconditionSteps` (array)
           for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-            StepModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
+            StepModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -571,9 +595,9 @@ public class SectionWithStepsModel {
 
            @Override
            public SectionWithStepsModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

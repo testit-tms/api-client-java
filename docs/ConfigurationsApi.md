@@ -20,7 +20,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ConfigurationsCreateByParametersPost"></a>
 # **apiV2ConfigurationsCreateByParametersPost**
-> List&lt;UUID&gt; apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel)
+> List&lt;UUID&gt; apiV2ConfigurationsCreateByParametersPost(apiV2ConfigurationsCreateByParametersPostRequest)
 
 Create configurations by parameters
 
@@ -46,9 +46,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationByParametersModel configurationByParametersModel = new ConfigurationByParametersModel(); // ConfigurationByParametersModel | 
+    ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest = new ApiV2ConfigurationsCreateByParametersPostRequest(); // ApiV2ConfigurationsCreateByParametersPostRequest | 
     try {
-      List<UUID> result = apiInstance.apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel);
+      List<UUID> result = apiInstance.apiV2ConfigurationsCreateByParametersPost(apiV2ConfigurationsCreateByParametersPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsCreateByParametersPost");
@@ -65,7 +65,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationByParametersModel** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md)|  | [optional] |
+| **apiV2ConfigurationsCreateByParametersPostRequest** | [**ApiV2ConfigurationsCreateByParametersPostRequest**](ApiV2ConfigurationsCreateByParametersPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -84,11 +84,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for configuration is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsDeleteBulkPost"></a>
 # **apiV2ConfigurationsDeleteBulkPost**
-> Integer apiV2ConfigurationsDeleteBulkPost(configurationSelectModel)
+> Integer apiV2ConfigurationsDeleteBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
 
 Delete multiple configurations
 
@@ -114,9 +119,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
+    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
     try {
-      Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(configurationSelectModel);
+      Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsDeleteBulkPost");
@@ -133,7 +138,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
+| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -151,7 +156,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsIdDelete"></a>
 # **apiV2ConfigurationsIdDelete**
@@ -218,7 +229,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Delete permission for configurations is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsIdPatch"></a>
 # **apiV2ConfigurationsIdPatch**
@@ -289,7 +305,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for configuration is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsIdPurgePost"></a>
 # **apiV2ConfigurationsIdPurgePost**
@@ -356,7 +377,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Full access permission for the archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsIdRestorePost"></a>
 # **apiV2ConfigurationsIdRestorePost**
@@ -423,11 +449,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsPurgeBulkPost"></a>
 # **apiV2ConfigurationsPurgeBulkPost**
-> apiV2ConfigurationsPurgeBulkPost(configurationSelectModel)
+> apiV2ConfigurationsPurgeBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
 
 Permanently delete multiple archived configurations
 
@@ -453,9 +484,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
+    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
     try {
-      apiInstance.apiV2ConfigurationsPurgeBulkPost(configurationSelectModel);
+      apiInstance.apiV2ConfigurationsPurgeBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsPurgeBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -471,7 +502,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
+| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +520,17 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Full access permission for the archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsPut"></a>
 # **apiV2ConfigurationsPut**
-> apiV2ConfigurationsPut(configurationPutModel)
+> apiV2ConfigurationsPut(apiV2ConfigurationsPutRequest)
 
 Edit configuration
 
@@ -520,9 +556,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationPutModel configurationPutModel = new ConfigurationPutModel(); // ConfigurationPutModel | 
+    ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest = new ApiV2ConfigurationsPutRequest(); // ApiV2ConfigurationsPutRequest | 
     try {
-      apiInstance.apiV2ConfigurationsPut(configurationPutModel);
+      apiInstance.apiV2ConfigurationsPut(apiV2ConfigurationsPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsPut");
       System.err.println("Status code: " + e.getCode());
@@ -538,7 +574,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationPutModel** | [**ConfigurationPutModel**](ConfigurationPutModel.md)|  | [optional] |
+| **apiV2ConfigurationsPutRequest** | [**ApiV2ConfigurationsPutRequest**](ApiV2ConfigurationsPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -557,11 +593,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for configurations is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsRestoreBulkPost"></a>
 # **apiV2ConfigurationsRestoreBulkPost**
-> Integer apiV2ConfigurationsRestoreBulkPost(configurationSelectModel)
+> Integer apiV2ConfigurationsRestoreBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
 
 Restore multiple configurations from the archive
 
@@ -587,9 +628,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
+    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
     try {
-      Integer result = apiInstance.apiV2ConfigurationsRestoreBulkPost(configurationSelectModel);
+      Integer result = apiInstance.apiV2ConfigurationsRestoreBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsRestoreBulkPost");
@@ -606,7 +647,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
+| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -624,12 +665,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for archive is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="apiV2ConfigurationsSearchPost"></a>
 # **apiV2ConfigurationsSearchPost**
-> List&lt;ConfigurationModel&gt; apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationFilterModel)
+> List&lt;ConfigurationModel&gt; apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest)
 
 Search for configurations
 
@@ -660,9 +706,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ConfigurationFilterModel configurationFilterModel = new ConfigurationFilterModel(); // ConfigurationFilterModel | Model containing all the filters
+    ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest = new ApiV2ConfigurationsSearchPostRequest(); // ApiV2ConfigurationsSearchPostRequest | Model containing all the filters
     try {
-      List<ConfigurationModel> result = apiInstance.apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationFilterModel);
+      List<ConfigurationModel> result = apiInstance.apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsSearchPost");
@@ -684,7 +730,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **configurationFilterModel** | [**ConfigurationFilterModel**](ConfigurationFilterModel.md)| Model containing all the filters | [optional] |
+| **apiV2ConfigurationsSearchPostRequest** | [**ApiV2ConfigurationsSearchPostRequest**](ApiV2ConfigurationsSearchPostRequest.md)| Model containing all the filters | [optional] |
 
 ### Return type
 
@@ -702,15 +748,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="createConfiguration"></a>
 # **createConfiguration**
-> ConfigurationModel createConfiguration(configurationPostModel)
+> ConfigurationModel createConfiguration(createConfigurationRequest)
 
 Create Configuration
 
-&lt;br&gt;Use case  &lt;br&gt;User sets configuration model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configuration  &lt;br&gt;System returns created configuration (listed in the response example)
+ Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
 
 ### Example
 ```java
@@ -734,9 +786,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ConfigurationPostModel configurationPostModel = new ConfigurationPostModel(); // ConfigurationPostModel | 
+    CreateConfigurationRequest createConfigurationRequest = new CreateConfigurationRequest(); // CreateConfigurationRequest | 
     try {
-      ConfigurationModel result = apiInstance.createConfiguration(configurationPostModel);
+      ConfigurationModel result = apiInstance.createConfiguration(createConfigurationRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#createConfiguration");
@@ -753,7 +805,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationPostModel** | [**ConfigurationPostModel**](ConfigurationPostModel.md)|  | [optional] |
+| **createConfigurationRequest** | [**CreateConfigurationRequest**](CreateConfigurationRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -777,6 +829,7 @@ public class Example {
 | **403** | Update permission for configuration required |  -  |
 | **404** | Can&#39;t find project |  -  |
 | **409** | Configuration with the same name already exists! |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 <a id="getConfigurationById"></a>
 # **getConfigurationById**
@@ -784,7 +837,7 @@ public class Example {
 
 Get configuration by internal or global ID
 
-&lt;br&gt;Use case  &lt;br&gt;User sets configuration internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search configuration using the identifier  &lt;br&gt;System returns configuration
+ Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
 
 ### Example
 ```java
@@ -846,7 +899,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for configuration required |  -  |
 | **404** | Can&#39;t find configuration with id |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
 

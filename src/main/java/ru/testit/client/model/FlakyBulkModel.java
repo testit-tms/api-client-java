@@ -14,14 +14,14 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import ru.testit.client.model.AutotestSelectModel;
+import ru.testit.client.model.FlakyBulkModelAutotestSelect;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,6 +43,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,7 +55,7 @@ import ru.testit.client.invoker.JSON;
 public class FlakyBulkModel {
   public static final String SERIALIZED_NAME_AUTOTEST_SELECT = "autotestSelect";
   @SerializedName(SERIALIZED_NAME_AUTOTEST_SELECT)
-  private AutotestSelectModel autotestSelect;
+  private FlakyBulkModelAutotestSelect autotestSelect;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -63,7 +64,8 @@ public class FlakyBulkModel {
   public FlakyBulkModel() {
   }
 
-  public FlakyBulkModel autotestSelect(AutotestSelectModel autotestSelect) {
+  public FlakyBulkModel autotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
+    
     this.autotestSelect = autotestSelect;
     return this;
   }
@@ -73,16 +75,18 @@ public class FlakyBulkModel {
    * @return autotestSelect
   **/
   @javax.annotation.Nonnull
-  public AutotestSelectModel getAutotestSelect() {
+  public FlakyBulkModelAutotestSelect getAutotestSelect() {
     return autotestSelect;
   }
 
-  public void setAutotestSelect(AutotestSelectModel autotestSelect) {
+
+  public void setAutotestSelect(FlakyBulkModelAutotestSelect autotestSelect) {
     this.autotestSelect = autotestSelect;
   }
 
 
   public FlakyBulkModel value(Boolean value) {
+    
     this.value = value;
     return this;
   }
@@ -95,6 +99,7 @@ public class FlakyBulkModel {
   public Boolean getValue() {
     return value;
   }
+
 
   public void setValue(Boolean value) {
     this.value = value;
@@ -158,35 +163,34 @@ public class FlakyBulkModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to FlakyBulkModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to FlakyBulkModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!FlakyBulkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!FlakyBulkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in FlakyBulkModel is not found in the empty JSON string", FlakyBulkModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!FlakyBulkModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FlakyBulkModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FlakyBulkModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FlakyBulkModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `autotestSelect`
-      AutotestSelectModel.validateJsonElement(jsonObj.get("autotestSelect"));
+      FlakyBulkModelAutotestSelect.validateJsonObject(jsonObj.getAsJsonObject("autotestSelect"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -209,9 +213,9 @@ public class FlakyBulkModel {
 
            @Override
            public FlakyBulkModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

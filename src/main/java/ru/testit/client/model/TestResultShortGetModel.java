@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,6 +50,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -132,6 +133,7 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -145,12 +147,14 @@ public class TestResultShortGetModel {
     return id;
   }
 
+
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   public TestResultShortGetModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -164,12 +168,14 @@ public class TestResultShortGetModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TestResultShortGetModel autotestGlobalId(Long autotestGlobalId) {
+    
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
@@ -183,12 +189,14 @@ public class TestResultShortGetModel {
     return autotestGlobalId;
   }
 
+
   public void setAutotestGlobalId(Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
   public TestResultShortGetModel testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
@@ -202,12 +210,14 @@ public class TestResultShortGetModel {
     return testRunId;
   }
 
+
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
   public TestResultShortGetModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
@@ -221,12 +231,14 @@ public class TestResultShortGetModel {
     return configurationId;
   }
 
+
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public TestResultShortGetModel configurationName(String configurationName) {
+    
     this.configurationName = configurationName;
     return this;
   }
@@ -240,12 +252,14 @@ public class TestResultShortGetModel {
     return configurationName;
   }
 
+
   public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   public TestResultShortGetModel outcome(String outcome) {
+    
     this.outcome = outcome;
     return this;
   }
@@ -259,12 +273,14 @@ public class TestResultShortGetModel {
     return outcome;
   }
 
+
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
   public TestResultShortGetModel resultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
+    
     this.resultReasons = resultReasons;
     return this;
   }
@@ -286,12 +302,14 @@ public class TestResultShortGetModel {
     return resultReasons;
   }
 
+
   public void setResultReasons(List<AutotestResultReasonSubGetModel> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
   public TestResultShortGetModel comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -305,6 +323,7 @@ public class TestResultShortGetModel {
     return comment;
   }
 
+
   public void setComment(String comment) {
     this.comment = comment;
   }
@@ -312,6 +331,7 @@ public class TestResultShortGetModel {
 
   @Deprecated
   public TestResultShortGetModel date(OffsetDateTime date) {
+    
     this.date = date;
     return this;
   }
@@ -327,6 +347,7 @@ public class TestResultShortGetModel {
     return date;
   }
 
+
   @Deprecated
   public void setDate(OffsetDateTime date) {
     this.date = date;
@@ -334,6 +355,7 @@ public class TestResultShortGetModel {
 
 
   public TestResultShortGetModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -347,12 +369,14 @@ public class TestResultShortGetModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public TestResultShortGetModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -366,12 +390,14 @@ public class TestResultShortGetModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public TestResultShortGetModel startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
@@ -385,12 +411,14 @@ public class TestResultShortGetModel {
     return startedOn;
   }
 
+
   public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
   public TestResultShortGetModel completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
@@ -404,12 +432,14 @@ public class TestResultShortGetModel {
     return completedOn;
   }
 
+
   public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   public TestResultShortGetModel duration(Long duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -423,12 +453,14 @@ public class TestResultShortGetModel {
     return duration;
   }
 
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
   public TestResultShortGetModel links(List<LinkSubGetModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -450,12 +482,14 @@ public class TestResultShortGetModel {
     return links;
   }
 
+
   public void setLinks(List<LinkSubGetModel> links) {
     this.links = links;
   }
 
 
   public TestResultShortGetModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -476,6 +510,7 @@ public class TestResultShortGetModel {
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
+
 
   public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
@@ -605,33 +640,32 @@ public class TestResultShortGetModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TestResultShortGetModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultShortGetModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultShortGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortGetModel is not found in the empty JSON string", TestResultShortGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultShortGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -658,7 +692,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArrayresultReasons = jsonObj.getAsJsonArray("resultReasons");
       // validate the required field `resultReasons` (array)
       for (int i = 0; i < jsonArrayresultReasons.size(); i++) {
-        AutotestResultReasonSubGetModel.validateJsonElement(jsonArrayresultReasons.get(i));
+        AutotestResultReasonSubGetModel.validateJsonObject(jsonArrayresultReasons.get(i).getAsJsonObject());
       };
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -671,7 +705,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkSubGetModel.validateJsonElement(jsonArraylinks.get(i));
+        LinkSubGetModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("attachments").isJsonArray()) {
@@ -681,7 +715,7 @@ public class TestResultShortGetModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+        AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
       };
   }
 
@@ -705,9 +739,9 @@ public class TestResultShortGetModel {
 
            @Override
            public TestResultShortGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

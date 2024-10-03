@@ -14,15 +14,17 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -55,6 +57,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -152,10 +155,15 @@ public class WorkItemFilterModel {
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
   private Set<UUID> autoTestIds;
 
+  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_IDS = "workItemVersionIds";
+  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_IDS)
+  private List<UUID> workItemVersionIds;
+
   public WorkItemFilterModel() {
   }
 
   public WorkItemFilterModel nameOrId(String nameOrId) {
+    
     this.nameOrId = nameOrId;
     return this;
   }
@@ -169,12 +177,14 @@ public class WorkItemFilterModel {
     return nameOrId;
   }
 
+
   public void setNameOrId(String nameOrId) {
     this.nameOrId = nameOrId;
   }
 
 
   public WorkItemFilterModel includeIds(Set<UUID> includeIds) {
+    
     this.includeIds = includeIds;
     return this;
   }
@@ -196,12 +206,14 @@ public class WorkItemFilterModel {
     return includeIds;
   }
 
+
   public void setIncludeIds(Set<UUID> includeIds) {
     this.includeIds = includeIds;
   }
 
 
   public WorkItemFilterModel excludeIds(Set<UUID> excludeIds) {
+    
     this.excludeIds = excludeIds;
     return this;
   }
@@ -223,12 +235,14 @@ public class WorkItemFilterModel {
     return excludeIds;
   }
 
+
   public void setExcludeIds(Set<UUID> excludeIds) {
     this.excludeIds = excludeIds;
   }
 
 
   public WorkItemFilterModel projectIds(Set<UUID> projectIds) {
+    
     this.projectIds = projectIds;
     return this;
   }
@@ -250,12 +264,14 @@ public class WorkItemFilterModel {
     return projectIds;
   }
 
+
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
   public WorkItemFilterModel name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -269,12 +285,14 @@ public class WorkItemFilterModel {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
 
 
   public WorkItemFilterModel ids(Set<UUID> ids) {
+    
     this.ids = ids;
     return this;
   }
@@ -296,12 +314,14 @@ public class WorkItemFilterModel {
     return ids;
   }
 
+
   public void setIds(Set<UUID> ids) {
     this.ids = ids;
   }
 
 
   public WorkItemFilterModel globalIds(Set<Long> globalIds) {
+    
     this.globalIds = globalIds;
     return this;
   }
@@ -323,12 +343,14 @@ public class WorkItemFilterModel {
     return globalIds;
   }
 
+
   public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
   public WorkItemFilterModel attributes(Map<String, Set<String>> attributes) {
+    
     this.attributes = attributes;
     return this;
   }
@@ -350,12 +372,14 @@ public class WorkItemFilterModel {
     return attributes;
   }
 
+
   public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
   public WorkItemFilterModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -369,12 +393,14 @@ public class WorkItemFilterModel {
     return isDeleted;
   }
 
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   public WorkItemFilterModel sectionIds(Set<UUID> sectionIds) {
+    
     this.sectionIds = sectionIds;
     return this;
   }
@@ -396,12 +422,14 @@ public class WorkItemFilterModel {
     return sectionIds;
   }
 
+
   public void setSectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
   public WorkItemFilterModel createdByIds(Set<UUID> createdByIds) {
+    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -423,12 +451,14 @@ public class WorkItemFilterModel {
     return createdByIds;
   }
 
+
   public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
   public WorkItemFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
+    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -450,12 +480,14 @@ public class WorkItemFilterModel {
     return modifiedByIds;
   }
 
+
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
   public WorkItemFilterModel states(Set<WorkItemStates> states) {
+    
     this.states = states;
     return this;
   }
@@ -477,12 +509,14 @@ public class WorkItemFilterModel {
     return states;
   }
 
+
   public void setStates(Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
   public WorkItemFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
+    
     this.priorities = priorities;
     return this;
   }
@@ -504,12 +538,14 @@ public class WorkItemFilterModel {
     return priorities;
   }
 
+
   public void setPriorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
   public WorkItemFilterModel types(Set<WorkItemEntityTypes> types) {
+    
     this.types = types;
     return this;
   }
@@ -531,12 +567,14 @@ public class WorkItemFilterModel {
     return types;
   }
 
+
   public void setTypes(Set<WorkItemEntityTypes> types) {
     this.types = types;
   }
 
 
   public WorkItemFilterModel createdDate(TestPointFilterModelWorkItemCreatedDate createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
@@ -550,12 +588,14 @@ public class WorkItemFilterModel {
     return createdDate;
   }
 
+
   public void setCreatedDate(TestPointFilterModelWorkItemCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public WorkItemFilterModel modifiedDate(TestPointFilterModelWorkItemModifiedDate modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -569,12 +609,14 @@ public class WorkItemFilterModel {
     return modifiedDate;
   }
 
+
   public void setModifiedDate(TestPointFilterModelWorkItemModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
   public WorkItemFilterModel duration(TestSuiteWorkItemsSearchModelDuration duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -588,12 +630,14 @@ public class WorkItemFilterModel {
     return duration;
   }
 
+
   public void setDuration(TestSuiteWorkItemsSearchModelDuration duration) {
     this.duration = duration;
   }
 
 
   public WorkItemFilterModel medianDuration(TestSuiteWorkItemsSearchModelMedianDuration medianDuration) {
+    
     this.medianDuration = medianDuration;
     return this;
   }
@@ -607,12 +651,14 @@ public class WorkItemFilterModel {
     return medianDuration;
   }
 
+
   public void setMedianDuration(TestSuiteWorkItemsSearchModelMedianDuration medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
   public WorkItemFilterModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
@@ -626,12 +672,14 @@ public class WorkItemFilterModel {
     return isAutomated;
   }
 
+
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
   public WorkItemFilterModel tags(Set<String> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -653,12 +701,14 @@ public class WorkItemFilterModel {
     return tags;
   }
 
+
   public void setTags(Set<String> tags) {
     this.tags = tags;
   }
 
 
   public WorkItemFilterModel autoTestIds(Set<UUID> autoTestIds) {
+    
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -680,8 +730,38 @@ public class WorkItemFilterModel {
     return autoTestIds;
   }
 
+
   public void setAutoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
+  }
+
+
+  public WorkItemFilterModel workItemVersionIds(List<UUID> workItemVersionIds) {
+    
+    this.workItemVersionIds = workItemVersionIds;
+    return this;
+  }
+
+  public WorkItemFilterModel addWorkItemVersionIdsItem(UUID workItemVersionIdsItem) {
+    if (this.workItemVersionIds == null) {
+      this.workItemVersionIds = new ArrayList<>();
+    }
+    this.workItemVersionIds.add(workItemVersionIdsItem);
+    return this;
+  }
+
+   /**
+   * Collection of identifiers work items versions.
+   * @return workItemVersionIds
+  **/
+  @javax.annotation.Nullable
+  public List<UUID> getWorkItemVersionIds() {
+    return workItemVersionIds;
+  }
+
+
+  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
+    this.workItemVersionIds = workItemVersionIds;
   }
 
 
@@ -716,7 +796,8 @@ public class WorkItemFilterModel {
         Objects.equals(this.medianDuration, workItemFilterModel.medianDuration) &&
         Objects.equals(this.isAutomated, workItemFilterModel.isAutomated) &&
         Objects.equals(this.tags, workItemFilterModel.tags) &&
-        Objects.equals(this.autoTestIds, workItemFilterModel.autoTestIds);
+        Objects.equals(this.autoTestIds, workItemFilterModel.autoTestIds) &&
+        Objects.equals(this.workItemVersionIds, workItemFilterModel.workItemVersionIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -725,7 +806,7 @@ public class WorkItemFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nameOrId, includeIds, excludeIds, projectIds, name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds);
+    return Objects.hash(nameOrId, includeIds, excludeIds, projectIds, name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds, workItemVersionIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -761,6 +842,7 @@ public class WorkItemFilterModel {
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    autoTestIds: ").append(toIndentedString(autoTestIds)).append("\n");
+    sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -805,105 +887,109 @@ public class WorkItemFilterModel {
     openapiFields.add("isAutomated");
     openapiFields.add("tags");
     openapiFields.add("autoTestIds");
+    openapiFields.add("workItemVersionIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WorkItemFilterModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemFilterModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemFilterModel is not found in the empty JSON string", WorkItemFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("nameOrId") != null && !jsonObj.get("nameOrId").isJsonNull()) && !jsonObj.get("nameOrId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nameOrId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameOrId").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("includeIds") != null && !jsonObj.get("includeIds").isJsonNull() && !jsonObj.get("includeIds").isJsonArray()) {
+      if (jsonObj.get("includeIds") != null && !jsonObj.get("includeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `includeIds` to be an array in the JSON string but got `%s`", jsonObj.get("includeIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("excludeIds") != null && !jsonObj.get("excludeIds").isJsonNull() && !jsonObj.get("excludeIds").isJsonArray()) {
+      if (jsonObj.get("excludeIds") != null && !jsonObj.get("excludeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `excludeIds` to be an array in the JSON string but got `%s`", jsonObj.get("excludeIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull() && !jsonObj.get("ids").isJsonArray()) {
+      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ids` to be an array in the JSON string but got `%s`", jsonObj.get("ids").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull() && !jsonObj.get("sectionIds").isJsonArray()) {
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
+      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestPointFilterModelWorkItemCreatedDate.validateJsonElement(jsonObj.get("createdDate"));
+        TestPointFilterModelWorkItemCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemModifiedDate.validateJsonElement(jsonObj.get("modifiedDate"));
+        TestPointFilterModelWorkItemModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestSuiteWorkItemsSearchModelDuration.validateJsonElement(jsonObj.get("duration"));
+        TestSuiteWorkItemsSearchModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
       }
       // validate the optional field `medianDuration`
       if (jsonObj.get("medianDuration") != null && !jsonObj.get("medianDuration").isJsonNull()) {
-        TestSuiteWorkItemsSearchModelMedianDuration.validateJsonElement(jsonObj.get("medianDuration"));
+        TestSuiteWorkItemsSearchModelMedianDuration.validateJsonObject(jsonObj.getAsJsonObject("medianDuration"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonNull() && !jsonObj.get("autoTestIds").isJsonArray()) {
+      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("workItemVersionIds") != null && !jsonObj.get("workItemVersionIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workItemVersionIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemVersionIds").toString()));
       }
   }
 
@@ -927,9 +1013,9 @@ public class WorkItemFilterModel {
 
            @Override
            public WorkItemFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

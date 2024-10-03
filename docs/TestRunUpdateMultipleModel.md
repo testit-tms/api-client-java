@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**selectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  |  |
+|**selectModel** | [**TestRunSelectionModel**](TestRunSelectionModel.md) |  |  |
 |**description** | **String** |  |  [optional] |
-|**attachmentUpdateScheme** | [**UpdateAttachmentShortModel**](UpdateAttachmentShortModel.md) |  |  |
-|**linkUpdateScheme** | [**UpdateLinkShortModel**](UpdateLinkShortModel.md) |  |  |
+|**attachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  |  |
+|**linkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  |  |
 
 
 

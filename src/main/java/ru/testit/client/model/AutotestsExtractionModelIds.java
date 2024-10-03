@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -67,6 +68,7 @@ public class AutotestsExtractionModelIds {
   }
 
   public AutotestsExtractionModelIds include(List<UUID> include) {
+    
     this.include = include;
     return this;
   }
@@ -88,12 +90,14 @@ public class AutotestsExtractionModelIds {
     return include;
   }
 
+
   public void setInclude(List<UUID> include) {
     this.include = include;
   }
 
 
   public AutotestsExtractionModelIds exclude(List<UUID> exclude) {
+    
     this.exclude = exclude;
     return this;
   }
@@ -114,6 +118,7 @@ public class AutotestsExtractionModelIds {
   public List<UUID> getExclude() {
     return exclude;
   }
+
 
   public void setExclude(List<UUID> exclude) {
     this.exclude = exclude;
@@ -186,32 +191,31 @@ public class AutotestsExtractionModelIds {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutotestsExtractionModelIds
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutotestsExtractionModelIds
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutotestsExtractionModelIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutotestsExtractionModelIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestsExtractionModelIds is not found in the empty JSON string", AutotestsExtractionModelIds.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AutotestsExtractionModelIds.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestsExtractionModelIds` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestsExtractionModelIds` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("include") != null && !jsonObj.get("include").isJsonNull() && !jsonObj.get("include").isJsonArray()) {
+      if (jsonObj.get("include") != null && !jsonObj.get("include").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `include` to be an array in the JSON string but got `%s`", jsonObj.get("include").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("exclude") != null && !jsonObj.get("exclude").isJsonNull() && !jsonObj.get("exclude").isJsonArray()) {
+      if (jsonObj.get("exclude") != null && !jsonObj.get("exclude").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `exclude` to be an array in the JSON string but got `%s`", jsonObj.get("exclude").toString()));
       }
   }
@@ -236,9 +240,9 @@ public class AutotestsExtractionModelIds {
 
            @Override
            public AutotestsExtractionModelIds read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

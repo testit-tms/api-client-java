@@ -33,5 +33,9 @@
 
 * `IMPORTPROJECTS` (value: `"ImportProjects"`)
 
+* `PURGEENTITIES` (value: `"PurgeEntities"`)
+
+* `DELETECOMPLETEDJOBS` (value: `"DeleteCompletedJobs"`)
+
 
 

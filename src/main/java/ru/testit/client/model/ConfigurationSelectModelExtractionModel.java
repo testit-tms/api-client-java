@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ConfigurationExtractionModelIds;
 import ru.testit.client.model.ConfigurationExtractionModelProjectIds;
@@ -45,6 +45,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -66,6 +67,7 @@ public class ConfigurationSelectModelExtractionModel {
   }
 
   public ConfigurationSelectModelExtractionModel ids(ConfigurationExtractionModelIds ids) {
+    
     this.ids = ids;
     return this;
   }
@@ -79,12 +81,14 @@ public class ConfigurationSelectModelExtractionModel {
     return ids;
   }
 
+
   public void setIds(ConfigurationExtractionModelIds ids) {
     this.ids = ids;
   }
 
 
   public ConfigurationSelectModelExtractionModel projectIds(ConfigurationExtractionModelProjectIds projectIds) {
+    
     this.projectIds = projectIds;
     return this;
   }
@@ -97,6 +101,7 @@ public class ConfigurationSelectModelExtractionModel {
   public ConfigurationExtractionModelProjectIds getProjectIds() {
     return projectIds;
   }
+
 
   public void setProjectIds(ConfigurationExtractionModelProjectIds projectIds) {
     this.projectIds = projectIds;
@@ -169,33 +174,32 @@ public class ConfigurationSelectModelExtractionModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConfigurationSelectModelExtractionModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationSelectModelExtractionModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigurationSelectModelExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationSelectModelExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationSelectModelExtractionModel is not found in the empty JSON string", ConfigurationSelectModelExtractionModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationSelectModelExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModelExtractionModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModelExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `ids`
       if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        ConfigurationExtractionModelIds.validateJsonElement(jsonObj.get("ids"));
+        ConfigurationExtractionModelIds.validateJsonObject(jsonObj.getAsJsonObject("ids"));
       }
       // validate the optional field `projectIds`
       if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull()) {
-        ConfigurationExtractionModelProjectIds.validateJsonElement(jsonObj.get("projectIds"));
+        ConfigurationExtractionModelProjectIds.validateJsonObject(jsonObj.getAsJsonObject("projectIds"));
       }
   }
 
@@ -219,9 +223,9 @@ public class ConfigurationSelectModelExtractionModel {
 
            @Override
            public ConfigurationSelectModelExtractionModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();

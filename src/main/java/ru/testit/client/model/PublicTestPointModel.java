@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -84,6 +85,7 @@ public class PublicTestPointModel {
   }
 
   public PublicTestPointModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
@@ -97,12 +99,14 @@ public class PublicTestPointModel {
     return configurationId;
   }
 
+
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   public PublicTestPointModel configurationGlobalId(Long configurationGlobalId) {
+    
     this.configurationGlobalId = configurationGlobalId;
     return this;
   }
@@ -116,12 +120,14 @@ public class PublicTestPointModel {
     return configurationGlobalId;
   }
 
+
   public void setConfigurationGlobalId(Long configurationGlobalId) {
     this.configurationGlobalId = configurationGlobalId;
   }
 
 
   public PublicTestPointModel autoTestIds(List<UUID> autoTestIds) {
+    
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -143,12 +149,14 @@ public class PublicTestPointModel {
     return autoTestIds;
   }
 
+
   public void setAutoTestIds(List<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
   public PublicTestPointModel iterationId(UUID iterationId) {
+    
     this.iterationId = iterationId;
     return this;
   }
@@ -162,12 +170,14 @@ public class PublicTestPointModel {
     return iterationId;
   }
 
+
   public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
   public PublicTestPointModel parameterModels(List<ParameterShortModel> parameterModels) {
+    
     this.parameterModels = parameterModels;
     return this;
   }
@@ -189,12 +199,14 @@ public class PublicTestPointModel {
     return parameterModels;
   }
 
+
   public void setParameterModels(List<ParameterShortModel> parameterModels) {
     this.parameterModels = parameterModels;
   }
 
 
   public PublicTestPointModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
@@ -207,6 +219,7 @@ public class PublicTestPointModel {
   public UUID getId() {
     return id;
   }
+
 
   public void setId(UUID id) {
     this.id = id;
@@ -295,38 +308,37 @@ public class PublicTestPointModel {
   }
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PublicTestPointModel
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to PublicTestPointModel
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!PublicTestPointModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!PublicTestPointModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PublicTestPointModel is not found in the empty JSON string", PublicTestPointModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!PublicTestPointModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestPointModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestPointModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PublicTestPointModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("configurationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonNull() && !jsonObj.get("autoTestIds").isJsonArray()) {
+      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestIds").toString()));
       }
       if (!jsonObj.get("iterationId").isJsonPrimitive()) {
@@ -342,7 +354,7 @@ public class PublicTestPointModel {
 
           // validate the optional field `parameterModels` (array)
           for (int i = 0; i < jsonArrayparameterModels.size(); i++) {
-            ParameterShortModel.validateJsonElement(jsonArrayparameterModels.get(i));
+            ParameterShortModel.validateJsonObject(jsonArrayparameterModels.get(i).getAsJsonObject());
           };
         }
       }
@@ -371,9 +383,9 @@ public class PublicTestPointModel {
 
            @Override
            public PublicTestPointModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
