@@ -29,7 +29,6 @@ import ru.testit.client.model.BooleanNullableChangedFieldViewModel;
 import ru.testit.client.model.CustomAttributeChangeModel;
 import ru.testit.client.model.PeriodViewModelChangedFieldViewModel;
 import ru.testit.client.model.StringArrayChangedFieldViewModel;
-import ru.testit.client.model.StringChangedFieldViewModel;
 import ru.testit.client.model.StringChangedFieldWithDiffsViewModel;
 import ru.testit.client.model.TestPointChangeViewModelChangedFieldViewModel;
 import ru.testit.client.model.TestResultChangeViewModelChangedFieldViewModel;
@@ -75,11 +74,11 @@ public class TestPlanChangeModelTestPlanChangedFields {
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  private StringChangedFieldViewModel productName;
+  private StringChangedFieldWithDiffsViewModel productName;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  private StringChangedFieldViewModel build;
+  private StringChangedFieldWithDiffsViewModel build;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
   @SerializedName(SERIALIZED_NAME_PERIOD)
@@ -87,7 +86,7 @@ public class TestPlanChangeModelTestPlanChangedFields {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private StringChangedFieldViewModel status;
+  private StringChangedFieldWithDiffsViewModel status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -162,7 +161,7 @@ public class TestPlanChangeModelTestPlanChangedFields {
   }
 
 
-  public TestPlanChangeModelTestPlanChangedFields productName(StringChangedFieldViewModel productName) {
+  public TestPlanChangeModelTestPlanChangedFields productName(StringChangedFieldWithDiffsViewModel productName) {
     
     this.productName = productName;
     return this;
@@ -173,17 +172,17 @@ public class TestPlanChangeModelTestPlanChangedFields {
    * @return productName
   **/
   @javax.annotation.Nullable
-  public StringChangedFieldViewModel getProductName() {
+  public StringChangedFieldWithDiffsViewModel getProductName() {
     return productName;
   }
 
 
-  public void setProductName(StringChangedFieldViewModel productName) {
+  public void setProductName(StringChangedFieldWithDiffsViewModel productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanChangeModelTestPlanChangedFields build(StringChangedFieldViewModel build) {
+  public TestPlanChangeModelTestPlanChangedFields build(StringChangedFieldWithDiffsViewModel build) {
     
     this.build = build;
     return this;
@@ -194,12 +193,12 @@ public class TestPlanChangeModelTestPlanChangedFields {
    * @return build
   **/
   @javax.annotation.Nullable
-  public StringChangedFieldViewModel getBuild() {
+  public StringChangedFieldWithDiffsViewModel getBuild() {
     return build;
   }
 
 
-  public void setBuild(StringChangedFieldViewModel build) {
+  public void setBuild(StringChangedFieldWithDiffsViewModel build) {
     this.build = build;
   }
 
@@ -225,7 +224,7 @@ public class TestPlanChangeModelTestPlanChangedFields {
   }
 
 
-  public TestPlanChangeModelTestPlanChangedFields status(StringChangedFieldViewModel status) {
+  public TestPlanChangeModelTestPlanChangedFields status(StringChangedFieldWithDiffsViewModel status) {
     
     this.status = status;
     return this;
@@ -236,12 +235,12 @@ public class TestPlanChangeModelTestPlanChangedFields {
    * @return status
   **/
   @javax.annotation.Nullable
-  public StringChangedFieldViewModel getStatus() {
+  public StringChangedFieldWithDiffsViewModel getStatus() {
     return status;
   }
 
 
-  public void setStatus(StringChangedFieldViewModel status) {
+  public void setStatus(StringChangedFieldWithDiffsViewModel status) {
     this.status = status;
   }
 
@@ -529,11 +528,11 @@ public class TestPlanChangeModelTestPlanChangedFields {
       }
       // validate the optional field `productName`
       if (jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("productName"));
+        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("productName"));
       }
       // validate the optional field `build`
       if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("build"));
+        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("build"));
       }
       // validate the optional field `period`
       if (jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) {
@@ -541,7 +540,7 @@ public class TestPlanChangeModelTestPlanChangedFields {
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        StringChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
+        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
       }
       // validate the optional field `tags`
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {

@@ -132,6 +132,10 @@ public class AutotestSelectModelFilter {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
   private String externalKey;
 
+  public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS = "lastTestResultConfigurationIds";
+  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS)
+  private Set<UUID> lastTestResultConfigurationIds;
+
   public AutotestSelectModelFilter() {
   }
 
@@ -553,6 +557,35 @@ public class AutotestSelectModelFilter {
   }
 
 
+  public AutotestSelectModelFilter lastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
+    
+    this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
+    return this;
+  }
+
+  public AutotestSelectModelFilter addLastTestResultConfigurationIdsItem(UUID lastTestResultConfigurationIdsItem) {
+    if (this.lastTestResultConfigurationIds == null) {
+      this.lastTestResultConfigurationIds = new LinkedHashSet<>();
+    }
+    this.lastTestResultConfigurationIds.add(lastTestResultConfigurationIdsItem);
+    return this;
+  }
+
+   /**
+   * Specifies an autotest configuration IDs of the last test result to search for
+   * @return lastTestResultConfigurationIds
+  **/
+  @javax.annotation.Nullable
+  public Set<UUID> getLastTestResultConfigurationIds() {
+    return lastTestResultConfigurationIds;
+  }
+
+
+  public void setLastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
+    this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -580,7 +613,8 @@ public class AutotestSelectModelFilter {
         Objects.equals(this.className, autotestSelectModelFilter.className) &&
         Objects.equals(this.isEmptyClassName, autotestSelectModelFilter.isEmptyClassName) &&
         Objects.equals(this.lastTestResultOutcome, autotestSelectModelFilter.lastTestResultOutcome) &&
-        Objects.equals(this.externalKey, autotestSelectModelFilter.externalKey);
+        Objects.equals(this.externalKey, autotestSelectModelFilter.externalKey) &&
+        Objects.equals(this.lastTestResultConfigurationIds, autotestSelectModelFilter.lastTestResultConfigurationIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -589,7 +623,7 @@ public class AutotestSelectModelFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, externalIds, globalIds, name, isFlaky, mustBeApproved, stabilityPercentage, createdDate, createdByIds, modifiedDate, modifiedByIds, isDeleted, namespace, isEmptyNamespace, className, isEmptyClassName, lastTestResultOutcome, externalKey);
+    return Objects.hash(projectIds, externalIds, globalIds, name, isFlaky, mustBeApproved, stabilityPercentage, createdDate, createdByIds, modifiedDate, modifiedByIds, isDeleted, namespace, isEmptyNamespace, className, isEmptyClassName, lastTestResultOutcome, externalKey, lastTestResultConfigurationIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -621,6 +655,7 @@ public class AutotestSelectModelFilter {
     sb.append("    isEmptyClassName: ").append(toIndentedString(isEmptyClassName)).append("\n");
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
     sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
+    sb.append("    lastTestResultConfigurationIds: ").append(toIndentedString(lastTestResultConfigurationIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -661,6 +696,7 @@ public class AutotestSelectModelFilter {
     openapiFields.add("isEmptyClassName");
     openapiFields.add("lastTestResultOutcome");
     openapiFields.add("externalKey");
+    openapiFields.add("lastTestResultConfigurationIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -729,6 +765,10 @@ public class AutotestSelectModelFilter {
       }
       if ((jsonObj.get("externalKey") != null && !jsonObj.get("externalKey").isJsonNull()) && !jsonObj.get("externalKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalKey").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("lastTestResultConfigurationIds") != null && !jsonObj.get("lastTestResultConfigurationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastTestResultConfigurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("lastTestResultConfigurationIds").toString()));
       }
   }
 

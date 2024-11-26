@@ -124,6 +124,10 @@ public class TestRunV2GetModel {
   @SerializedName(SERIALIZED_NAME_WEBHOOKS)
   private List<NamedEntityModel> webhooks = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_RUN_COUNT = "runCount";
+  @SerializedName(SERIALIZED_NAME_RUN_COUNT)
+  private Integer runCount;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -498,6 +502,27 @@ public class TestRunV2GetModel {
   }
 
 
+  public TestRunV2GetModel runCount(Integer runCount) {
+    
+    this.runCount = runCount;
+    return this;
+  }
+
+   /**
+   * Get runCount
+   * @return runCount
+  **/
+  @javax.annotation.Nonnull
+  public Integer getRunCount() {
+    return runCount;
+  }
+
+
+  public void setRunCount(Integer runCount) {
+    this.runCount = runCount;
+  }
+
+
   public TestRunV2GetModel id(UUID id) {
     
     this.id = id;
@@ -607,6 +632,7 @@ public class TestRunV2GetModel {
         Objects.equals(this.links, testRunV2GetModel.links) &&
         Objects.equals(this.customParameters, testRunV2GetModel.customParameters) &&
         Objects.equals(this.webhooks, testRunV2GetModel.webhooks) &&
+        Objects.equals(this.runCount, testRunV2GetModel.runCount) &&
         Objects.equals(this.id, testRunV2GetModel.id) &&
         Objects.equals(this.name, testRunV2GetModel.name) &&
         Objects.equals(this.description, testRunV2GetModel.description) &&
@@ -619,7 +645,7 @@ public class TestRunV2GetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(startedOn, completedOn, stateName, projectId, testPlanId, testResults, createdDate, modifiedDate, createdById, modifiedById, createdByUserName, attachments, links, customParameters, webhooks, id, name, description, launchSource);
+    return Objects.hash(startedOn, completedOn, stateName, projectId, testPlanId, testResults, createdDate, modifiedDate, createdById, modifiedById, createdByUserName, attachments, links, customParameters, webhooks, runCount, id, name, description, launchSource);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -648,6 +674,7 @@ public class TestRunV2GetModel {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    customParameters: ").append(toIndentedString(customParameters)).append("\n");
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
+    sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -689,6 +716,7 @@ public class TestRunV2GetModel {
     openapiFields.add("links");
     openapiFields.add("customParameters");
     openapiFields.add("webhooks");
+    openapiFields.add("runCount");
     openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("description");
@@ -703,6 +731,7 @@ public class TestRunV2GetModel {
     openapiRequiredFields.add("attachments");
     openapiRequiredFields.add("links");
     openapiRequiredFields.add("webhooks");
+    openapiRequiredFields.add("runCount");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
   }

@@ -27,15 +27,20 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2TestResultsIdPutRequest;
+import ru.testit.client.model.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest;
+import ru.testit.client.model.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest;
 import ru.testit.client.model.ApiV2TestResultsSearchPostRequest;
 import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.DefectApiModel;
 import java.io.File;
+import ru.testit.client.model.GetExternalFormApiResult;
 import ru.testit.client.model.ImageResizeType;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TestResultModel;
-import ru.testit.client.model.TestResultShortGetModel;
-import ru.testit.client.model.TestResultsStatisticsGetModel;
+import ru.testit.client.model.RerunsModel;
+import ru.testit.client.model.TestResultResponse;
+import ru.testit.client.model.TestResultShortResponse;
+import ru.testit.client.model.TestResultUpdateV2Request;
+import ru.testit.client.model.TestResultsStatisticsResponse;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 
@@ -83,6 +88,310 @@ public class TestResultsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms"
+            .replace("{" + "externalProjectId" + "}", localVarApiClient.escapeString(externalProjectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'externalProjectId' is set
+        if (externalProjectId == null) {
+            throw new ApiException("Missing the required parameter 'externalProjectId' when calling apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(Async)");
+        }
+
+        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @return GetExternalFormApiResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest) throws ApiException {
+        ApiResponse<GetExternalFormApiResult> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @return ApiResponse&lt;GetExternalFormApiResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetExternalFormApiResult> apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, null);
+        Type localVarReturnType = new TypeToken<GetExternalFormApiResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostAsync(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback<GetExternalFormApiResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<GetExternalFormApiResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/testResults/external-projects/{externalProjectId}/defects"
+            .replace("{" + "externalProjectId" + "}", localVarApiClient.escapeString(externalProjectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'externalProjectId' is set
+        if (externalProjectId == null) {
+            throw new ApiException("Missing the required parameter 'externalProjectId' when calling apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(Async)");
+        }
+
+        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @return DefectApiModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest) throws ApiException {
+        ApiResponse<DefectApiModel> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @return ApiResponse&lt;DefectApiModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DefectApiModel> apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, null);
+        Type localVarReturnType = new TypeToken<DefectApiModel>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param externalProjectId  (required)
+     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostAsync(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback<DefectApiModel> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<DefectApiModel>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for apiV2TestResultsIdAggregatedGet
      * @param id Test result unique ID (required)
@@ -161,7 +470,7 @@ public class TestResultsApi {
      * Get test result by ID aggregated with previous results
      * 
      * @param id Test result unique ID (required)
-     * @return TestResultModel
+     * @return TestResultResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -175,8 +484,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultModel apiV2TestResultsIdAggregatedGet(UUID id) throws ApiException {
-        ApiResponse<TestResultModel> localVarResp = apiV2TestResultsIdAggregatedGetWithHttpInfo(id);
+    public TestResultResponse apiV2TestResultsIdAggregatedGet(UUID id) throws ApiException {
+        ApiResponse<TestResultResponse> localVarResp = apiV2TestResultsIdAggregatedGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -184,7 +493,7 @@ public class TestResultsApi {
      * Get test result by ID aggregated with previous results
      * 
      * @param id Test result unique ID (required)
-     * @return ApiResponse&lt;TestResultModel&gt;
+     * @return ApiResponse&lt;TestResultResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -198,9 +507,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultModel> apiV2TestResultsIdAggregatedGetWithHttpInfo(UUID id) throws ApiException {
+    public ApiResponse<TestResultResponse> apiV2TestResultsIdAggregatedGetWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestResultsIdAggregatedGetValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<TestResultModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -223,10 +532,10 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdAggregatedGetAsync(UUID id, final ApiCallback<TestResultModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdAggregatedGetAsync(UUID id, final ApiCallback<TestResultResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestResultsIdAggregatedGetValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<TestResultModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -608,7 +917,7 @@ public class TestResultsApi {
      * Get test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @return TestResultModel
+     * @return TestResultResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -622,8 +931,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultModel apiV2TestResultsIdGet(UUID id) throws ApiException {
-        ApiResponse<TestResultModel> localVarResp = apiV2TestResultsIdGetWithHttpInfo(id);
+    public TestResultResponse apiV2TestResultsIdGet(UUID id) throws ApiException {
+        ApiResponse<TestResultResponse> localVarResp = apiV2TestResultsIdGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -631,7 +940,7 @@ public class TestResultsApi {
      * Get test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @return ApiResponse&lt;TestResultModel&gt;
+     * @return ApiResponse&lt;TestResultResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -645,9 +954,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultModel> apiV2TestResultsIdGetWithHttpInfo(UUID id) throws ApiException {
+    public ApiResponse<TestResultResponse> apiV2TestResultsIdGetWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestResultsIdGetValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<TestResultModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -670,17 +979,17 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdGetAsync(UUID id, final ApiCallback<TestResultModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdGetAsync(UUID id, final ApiCallback<TestResultResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestResultsIdGetValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<TestResultModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestResultsIdPut
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateV2Request  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -696,7 +1005,7 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutCall(UUID id, TestResultUpdateV2Request testResultUpdateV2Request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -710,7 +1019,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsIdPutRequest;
+        Object localVarPostBody = testResultUpdateV2Request;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/{id}"
@@ -743,13 +1052,13 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestResultsIdPutValidateBeforeCall(UUID id, TestResultUpdateV2Request testResultUpdateV2Request, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestResultsIdPut(Async)");
         }
 
-        return apiV2TestResultsIdPutCall(id, apiV2TestResultsIdPutRequest, _callback);
+        return apiV2TestResultsIdPutCall(id, testResultUpdateV2Request, _callback);
 
     }
 
@@ -757,7 +1066,7 @@ public class TestResultsApi {
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateV2Request  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -771,15 +1080,15 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestResultsIdPut(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
-        apiV2TestResultsIdPutWithHttpInfo(id, apiV2TestResultsIdPutRequest);
+    public void apiV2TestResultsIdPut(UUID id, TestResultUpdateV2Request testResultUpdateV2Request) throws ApiException {
+        apiV2TestResultsIdPutWithHttpInfo(id, testResultUpdateV2Request);
     }
 
     /**
      * Edit test result by ID
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateV2Request  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -794,8 +1103,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, null);
+    public ApiResponse<Void> apiV2TestResultsIdPutWithHttpInfo(UUID id, TestResultUpdateV2Request testResultUpdateV2Request) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateV2Request, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -803,7 +1112,7 @@ public class TestResultsApi {
      * Edit test result by ID (asynchronously)
      * 
      * @param id Test result unique ID (required)
-     * @param apiV2TestResultsIdPutRequest  (optional)
+     * @param testResultUpdateV2Request  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -819,10 +1128,157 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsIdPutAsync(UUID id, TestResultUpdateV2Request testResultUpdateV2Request, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, apiV2TestResultsIdPutRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsIdPutValidateBeforeCall(id, testResultUpdateV2Request, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiV2TestResultsIdRerunsGet
+     * @param id Test result unique ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsIdRerunsGetCall(UUID id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/testResults/{id}/reruns"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2TestResultsIdRerunsGetValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling apiV2TestResultsIdRerunsGet(Async)");
+        }
+
+        return apiV2TestResultsIdRerunsGetCall(id, _callback);
+
+    }
+
+    /**
+     * Get reruns
+     * 
+     * @param id Test result unique ID (required)
+     * @return RerunsModel
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public RerunsModel apiV2TestResultsIdRerunsGet(UUID id) throws ApiException {
+        ApiResponse<RerunsModel> localVarResp = apiV2TestResultsIdRerunsGetWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get reruns
+     * 
+     * @param id Test result unique ID (required)
+     * @return ApiResponse&lt;RerunsModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RerunsModel> apiV2TestResultsIdRerunsGetWithHttpInfo(UUID id) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsIdRerunsGetValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<RerunsModel>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get reruns (asynchronously)
+     * 
+     * @param id Test result unique ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2TestResultsIdRerunsGetAsync(UUID id, final ApiCallback<RerunsModel> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2TestResultsIdRerunsGetValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<RerunsModel>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -928,7 +1384,7 @@ public class TestResultsApi {
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
      * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return List&lt;TestResultShortGetModel&gt;
+     * @return List&lt;TestResultShortResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -942,8 +1398,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestResultShortGetModel> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestResultShortGetModel>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
+    public List<TestResultShortResponse> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestResultShortResponse>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -956,7 +1412,7 @@ public class TestResultsApi {
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
      * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return ApiResponse&lt;List&lt;TestResultShortGetModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TestResultShortResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -970,9 +1426,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestResultShortGetModel>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+    public ApiResponse<List<TestResultShortResponse>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, null);
-        Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestResultShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1000,10 +1456,10 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<List<TestResultShortGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<List<TestResultShortResponse>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
-        Type localVarReturnType = new TypeToken<List<TestResultShortGetModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestResultShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1080,7 +1536,7 @@ public class TestResultsApi {
      * Search for test results and extract statistics
      * 
      * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return TestResultsStatisticsGetModel
+     * @return TestResultsStatisticsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1094,8 +1550,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(apiV2TestResultsSearchPostRequest);
+    public TestResultsStatisticsResponse apiV2TestResultsStatisticsFilterPost(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+        ApiResponse<TestResultsStatisticsResponse> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(apiV2TestResultsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1103,7 +1559,7 @@ public class TestResultsApi {
      * Search for test results and extract statistics
      * 
      * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
+     * @return ApiResponse&lt;TestResultsStatisticsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1117,9 +1573,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestResultsStatisticsFilterPostWithHttpInfo(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
+    public ApiResponse<TestResultsStatisticsResponse> apiV2TestResultsStatisticsFilterPostWithHttpInfo(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, null);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1142,10 +1598,10 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<TestResultsStatisticsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, _callback);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

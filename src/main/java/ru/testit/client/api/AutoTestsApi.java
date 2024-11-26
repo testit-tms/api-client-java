@@ -27,25 +27,21 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2AutoTestsFlakyBulkPostRequest;
-import ru.testit.client.model.ApiV2AutoTestsIdTestResultsSearchPostRequest;
 import ru.testit.client.model.ApiV2AutoTestsSearchPostRequest;
 import ru.testit.client.model.AutoTestAverageDurationModel;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.AutoTestPostModel;
 import ru.testit.client.model.AutoTestPutModel;
+import ru.testit.client.model.AutotestHistoricalResultSelectModel;
 import ru.testit.client.model.AutotestResultHistoricalGetModel;
-import ru.testit.client.model.CreateAutoTestRequest;
-import ru.testit.client.model.LinkAutoTestToWorkItemRequest;
-import java.time.OffsetDateTime;
+import ru.testit.client.model.FlakyBulkModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestResultChronologyModel;
-import ru.testit.client.model.TestResultHistoryReportModel;
 import ru.testit.client.model.TestRunShortModel;
 import java.util.UUID;
-import ru.testit.client.model.UpdateAutoTestRequest;
 import ru.testit.client.model.ValidationProblemDetails;
+import ru.testit.client.model.WorkItemIdModel;
 import ru.testit.client.model.WorkItemIdentifierModel;
 
 import java.lang.reflect.Type;
@@ -99,7 +95,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
+     * @param flakyBulkModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -115,7 +111,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -129,7 +125,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2AutoTestsFlakyBulkPostRequest;
+        Object localVarPostBody = flakyBulkModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/flaky/bulk";
@@ -181,8 +177,8 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, _callback);
+    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
+        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
 
     }
 
@@ -194,7 +190,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
+     * @param flakyBulkModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -208,8 +204,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest) throws ApiException {
-        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest);
+    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
+        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
     }
 
     /**
@@ -220,7 +216,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
+     * @param flakyBulkModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -235,8 +231,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, null);
+    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -248,7 +244,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsFlakyBulkPostRequest  (optional)
+     * @param flakyBulkModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -264,9 +260,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -426,7 +422,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
+     * @param autotestHistoricalResultSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -442,7 +438,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -456,7 +452,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2AutoTestsIdTestResultsSearchPostRequest;
+        Object localVarPostBody = autotestHistoricalResultSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/{id}/testResults/search"
@@ -509,13 +505,13 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2AutoTestsIdTestResultsSearchPost(Async)");
         }
 
-        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, _callback);
+        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
 
     }
 
@@ -528,7 +524,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
+     * @param autotestHistoricalResultSelectModel  (optional)
      * @return List&lt;AutotestResultHistoricalGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -543,8 +539,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<AutotestResultHistoricalGetModel> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<List<AutotestResultHistoricalGetModel>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest);
+    public List<AutotestResultHistoricalGetModel> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
+        ApiResponse<List<AutotestResultHistoricalGetModel>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
         return localVarResp.getData();
     }
 
@@ -557,7 +553,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
+     * @param autotestHistoricalResultSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;AutotestResultHistoricalGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -572,8 +568,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AutotestResultHistoricalGetModel>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, null);
+    public ApiResponse<List<AutotestResultHistoricalGetModel>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, null);
         Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -587,7 +583,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2AutoTestsIdTestResultsSearchPostRequest  (optional)
+     * @param autotestHistoricalResultSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -603,9 +599,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest, final ApiCallback<List<AutotestResultHistoricalGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback<List<AutotestResultHistoricalGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1094,7 +1090,7 @@ public class AutoTestsApi {
     }
     /**
      * Build call for createAutoTest
-     * @param createAutoTestRequest  (optional)
+     * @param autoTestPostModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1110,7 +1106,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td>  - Labels have duplicates   - Labels begin with &#x60;::&#x60;   - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAutoTestCall(CreateAutoTestRequest createAutoTestRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAutoTestCall(AutoTestPostModel autoTestPostModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1124,7 +1120,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAutoTestRequest;
+        Object localVarPostBody = autoTestPostModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests";
@@ -1156,15 +1152,15 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAutoTestValidateBeforeCall(CreateAutoTestRequest createAutoTestRequest, final ApiCallback _callback) throws ApiException {
-        return createAutoTestCall(createAutoTestRequest, _callback);
+    private okhttp3.Call createAutoTestValidateBeforeCall(AutoTestPostModel autoTestPostModel, final ApiCallback _callback) throws ApiException {
+        return createAutoTestCall(autoTestPostModel, _callback);
 
     }
 
     /**
      * Create autotest
      *  This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.   Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param createAutoTestRequest  (optional)
+     * @param autoTestPostModel  (optional)
      * @return AutoTestModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1179,15 +1175,15 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td>  - Labels have duplicates   - Labels begin with &#x60;::&#x60;   - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public AutoTestModel createAutoTest(CreateAutoTestRequest createAutoTestRequest) throws ApiException {
-        ApiResponse<AutoTestModel> localVarResp = createAutoTestWithHttpInfo(createAutoTestRequest);
+    public AutoTestModel createAutoTest(AutoTestPostModel autoTestPostModel) throws ApiException {
+        ApiResponse<AutoTestModel> localVarResp = createAutoTestWithHttpInfo(autoTestPostModel);
         return localVarResp.getData();
     }
 
     /**
      * Create autotest
      *  This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.   Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param createAutoTestRequest  (optional)
+     * @param autoTestPostModel  (optional)
      * @return ApiResponse&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1202,8 +1198,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td>  - Labels have duplicates   - Labels begin with &#x60;::&#x60;   - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoTestModel> createAutoTestWithHttpInfo(CreateAutoTestRequest createAutoTestRequest) throws ApiException {
-        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(createAutoTestRequest, null);
+    public ApiResponse<AutoTestModel> createAutoTestWithHttpInfo(AutoTestPostModel autoTestPostModel) throws ApiException {
+        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(autoTestPostModel, null);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1211,7 +1207,7 @@ public class AutoTestsApi {
     /**
      * Create autotest (asynchronously)
      *  This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.   Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
-     * @param createAutoTestRequest  (optional)
+     * @param autoTestPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1227,9 +1223,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td>  - Labels have duplicates   - Labels begin with &#x60;::&#x60;   - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAutoTestAsync(CreateAutoTestRequest createAutoTestRequest, final ApiCallback<AutoTestModel> _callback) throws ApiException {
+    public okhttp3.Call createAutoTestAsync(AutoTestPostModel autoTestPostModel, final ApiCallback<AutoTestModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(createAutoTestRequest, _callback);
+        okhttp3.Call localVarCall = createAutoTestValidateBeforeCall(autoTestPostModel, _callback);
         Type localVarReturnType = new TypeToken<AutoTestModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2621,274 +2617,6 @@ public class AutoTestsApi {
         return localVarCall;
     }
     /**
-     * Build call for getWorkItemResults
-     * @param id  (required)
-     * @param from Take results from this date (optional)
-     * @param to Take results until this date (optional)
-     * @param configurationIds Identifiers of test result configurations (optional)
-     * @param testPlanIds Identifiers of test plans which contain test results (optional)
-     * @param userIds Identifiers of users who set test results (optional)
-     * @param outcomes List of outcomes of test results (optional)
-     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
-     * @param automated If result must consist of only manual/automated test results (optional)
-     * @param testRunIds Identifiers of test runs which contain test results (optional)
-     * @param skip Amount of items to be skipped (offset) (optional)
-     * @param take Amount of items to be taken (limit) (optional)
-     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param searchField Property name for searching (optional)
-     * @param searchValue Value for searching (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getWorkItemResultsCall(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/autoTests/{id}/testResultHistory"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (from != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
-        }
-
-        if (to != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
-        }
-
-        if (configurationIds != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "configurationIds", configurationIds));
-        }
-
-        if (testPlanIds != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "testPlanIds", testPlanIds));
-        }
-
-        if (userIds != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "userIds", userIds));
-        }
-
-        if (outcomes != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "outcomes", outcomes));
-        }
-
-        if (isAutomated != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isAutomated", isAutomated));
-        }
-
-        if (automated != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("automated", automated));
-        }
-
-        if (testRunIds != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "testRunIds", testRunIds));
-        }
-
-        if (skip != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Skip", skip));
-        }
-
-        if (take != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Take", take));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("OrderBy", orderBy));
-        }
-
-        if (searchField != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SearchField", searchField));
-        }
-
-        if (searchValue != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SearchValue", searchValue));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWorkItemResultsValidateBeforeCall(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getWorkItemResults(Async)");
-        }
-
-        return getWorkItemResultsCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param id  (required)
-     * @param from Take results from this date (optional)
-     * @param to Take results until this date (optional)
-     * @param configurationIds Identifiers of test result configurations (optional)
-     * @param testPlanIds Identifiers of test plans which contain test results (optional)
-     * @param userIds Identifiers of users who set test results (optional)
-     * @param outcomes List of outcomes of test results (optional)
-     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
-     * @param automated If result must consist of only manual/automated test results (optional)
-     * @param testRunIds Identifiers of test runs which contain test results (optional)
-     * @param skip Amount of items to be skipped (offset) (optional)
-     * @param take Amount of items to be taken (limit) (optional)
-     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param searchField Property name for searching (optional)
-     * @param searchValue Value for searching (optional)
-     * @return List&lt;TestResultHistoryReportModel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public List<TestResultHistoryReportModel> getWorkItemResults(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        ApiResponse<List<TestResultHistoryReportModel>> localVarResp = getWorkItemResultsWithHttpInfo(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param id  (required)
-     * @param from Take results from this date (optional)
-     * @param to Take results until this date (optional)
-     * @param configurationIds Identifiers of test result configurations (optional)
-     * @param testPlanIds Identifiers of test plans which contain test results (optional)
-     * @param userIds Identifiers of users who set test results (optional)
-     * @param outcomes List of outcomes of test results (optional)
-     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
-     * @param automated If result must consist of only manual/automated test results (optional)
-     * @param testRunIds Identifiers of test runs which contain test results (optional)
-     * @param skip Amount of items to be skipped (offset) (optional)
-     * @param take Amount of items to be taken (limit) (optional)
-     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param searchField Property name for searching (optional)
-     * @param searchValue Value for searching (optional)
-     * @return ApiResponse&lt;List&lt;TestResultHistoryReportModel&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<List<TestResultHistoryReportModel>> getWorkItemResultsWithHttpInfo(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        okhttp3.Call localVarCall = getWorkItemResultsValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, null);
-        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param id  (required)
-     * @param from Take results from this date (optional)
-     * @param to Take results until this date (optional)
-     * @param configurationIds Identifiers of test result configurations (optional)
-     * @param testPlanIds Identifiers of test plans which contain test results (optional)
-     * @param userIds Identifiers of users who set test results (optional)
-     * @param outcomes List of outcomes of test results (optional)
-     * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
-     * @param automated If result must consist of only manual/automated test results (optional)
-     * @param testRunIds Identifiers of test runs which contain test results (optional)
-     * @param skip Amount of items to be skipped (offset) (optional)
-     * @param take Amount of items to be taken (limit) (optional)
-     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-     * @param searchField Property name for searching (optional)
-     * @param searchValue Value for searching (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getWorkItemResultsAsync(String id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestResultHistoryReportModel>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getWorkItemResultsValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
-        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportModel>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for getWorkItemsLinkedToAutoTest
      * @param id Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. (required)
      * @param isDeleted Specifies that a test is deleted or still relevant. (optional)
@@ -3054,7 +2782,7 @@ public class AutoTestsApi {
     /**
      * Build call for linkAutoTestToWorkItem
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param linkAutoTestToWorkItemRequest  (optional)
+     * @param workItemIdModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3070,7 +2798,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkAutoTestToWorkItemCall(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call linkAutoTestToWorkItemCall(String id, WorkItemIdModel workItemIdModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3084,7 +2812,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = linkAutoTestToWorkItemRequest;
+        Object localVarPostBody = workItemIdModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/{id}/workItems"
@@ -3117,13 +2845,13 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call linkAutoTestToWorkItemValidateBeforeCall(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call linkAutoTestToWorkItemValidateBeforeCall(String id, WorkItemIdModel workItemIdModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling linkAutoTestToWorkItem(Async)");
         }
 
-        return linkAutoTestToWorkItemCall(id, linkAutoTestToWorkItemRequest, _callback);
+        return linkAutoTestToWorkItemCall(id, workItemIdModel, _callback);
 
     }
 
@@ -3131,7 +2859,7 @@ public class AutoTestsApi {
      * Link autotest with work items
      *  Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param linkAutoTestToWorkItemRequest  (optional)
+     * @param workItemIdModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3145,15 +2873,15 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void linkAutoTestToWorkItem(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest) throws ApiException {
-        linkAutoTestToWorkItemWithHttpInfo(id, linkAutoTestToWorkItemRequest);
+    public void linkAutoTestToWorkItem(String id, WorkItemIdModel workItemIdModel) throws ApiException {
+        linkAutoTestToWorkItemWithHttpInfo(id, workItemIdModel);
     }
 
     /**
      * Link autotest with work items
      *  Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param linkAutoTestToWorkItemRequest  (optional)
+     * @param workItemIdModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3168,8 +2896,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest) throws ApiException {
-        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, linkAutoTestToWorkItemRequest, null);
+    public ApiResponse<Void> linkAutoTestToWorkItemWithHttpInfo(String id, WorkItemIdModel workItemIdModel) throws ApiException {
+        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, workItemIdModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -3177,7 +2905,7 @@ public class AutoTestsApi {
      * Link autotest with work items (asynchronously)
      *  Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @param linkAutoTestToWorkItemRequest  (optional)
+     * @param workItemIdModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3193,15 +2921,15 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkAutoTestToWorkItemAsync(String id, LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call linkAutoTestToWorkItemAsync(String id, WorkItemIdModel workItemIdModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, linkAutoTestToWorkItemRequest, _callback);
+        okhttp3.Call localVarCall = linkAutoTestToWorkItemValidateBeforeCall(id, workItemIdModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAutoTest
-     * @param updateAutoTestRequest  (optional)
+     * @param autoTestPutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3218,7 +2946,7 @@ public class AutoTestsApi {
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoTestCall(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAutoTestCall(AutoTestPutModel autoTestPutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3232,7 +2960,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAutoTestRequest;
+        Object localVarPostBody = autoTestPutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests";
@@ -3264,15 +2992,15 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAutoTestValidateBeforeCall(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback _callback) throws ApiException {
-        return updateAutoTestCall(updateAutoTestRequest, _callback);
+    private okhttp3.Call updateAutoTestValidateBeforeCall(AutoTestPutModel autoTestPutModel, final ApiCallback _callback) throws ApiException {
+        return updateAutoTestCall(autoTestPutModel, _callback);
 
     }
 
     /**
      * Update autotest
      *  Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
-     * @param updateAutoTestRequest  (optional)
+     * @param autoTestPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3287,14 +3015,14 @@ public class AutoTestsApi {
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void updateAutoTest(UpdateAutoTestRequest updateAutoTestRequest) throws ApiException {
-        updateAutoTestWithHttpInfo(updateAutoTestRequest);
+    public void updateAutoTest(AutoTestPutModel autoTestPutModel) throws ApiException {
+        updateAutoTestWithHttpInfo(autoTestPutModel);
     }
 
     /**
      * Update autotest
      *  Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
-     * @param updateAutoTestRequest  (optional)
+     * @param autoTestPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3310,15 +3038,15 @@ public class AutoTestsApi {
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateAutoTestWithHttpInfo(UpdateAutoTestRequest updateAutoTestRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(updateAutoTestRequest, null);
+    public ApiResponse<Void> updateAutoTestWithHttpInfo(AutoTestPutModel autoTestPutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(autoTestPutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update autotest (asynchronously)
      *  Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
-     * @param updateAutoTestRequest  (optional)
+     * @param autoTestPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3335,9 +3063,9 @@ public class AutoTestsApi {
         <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoTestAsync(UpdateAutoTestRequest updateAutoTestRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateAutoTestAsync(AutoTestPutModel autoTestPutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(updateAutoTestRequest, _callback);
+        okhttp3.Call localVarCall = updateAutoTestValidateBeforeCall(autoTestPutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

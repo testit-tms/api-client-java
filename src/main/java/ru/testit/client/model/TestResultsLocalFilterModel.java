@@ -63,8 +63,13 @@ public class TestResultsLocalFilterModel {
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
   private List<TestResultOutcome> outcomes;
+
+  public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
+  @SerializedName(SERIALIZED_NAME_STATUS_CODES)
+  private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
@@ -110,6 +115,7 @@ public class TestResultsLocalFilterModel {
   }
 
 
+  @Deprecated
   public TestResultsLocalFilterModel outcomes(List<TestResultOutcome> outcomes) {
     
     this.outcomes = outcomes;
@@ -127,15 +133,47 @@ public class TestResultsLocalFilterModel {
    /**
    * Specifies a test result outcomes to search for
    * @return outcomes
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   public List<TestResultOutcome> getOutcomes() {
     return outcomes;
   }
 
 
+  @Deprecated
   public void setOutcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
+  }
+
+
+  public TestResultsLocalFilterModel statusCodes(List<String> statusCodes) {
+    
+    this.statusCodes = statusCodes;
+    return this;
+  }
+
+  public TestResultsLocalFilterModel addStatusCodesItem(String statusCodesItem) {
+    if (this.statusCodes == null) {
+      this.statusCodes = new ArrayList<>();
+    }
+    this.statusCodes.add(statusCodesItem);
+    return this;
+  }
+
+   /**
+   * Specifies a test result status codes to search for
+   * @return statusCodes
+  **/
+  @javax.annotation.Nullable
+  public List<String> getStatusCodes() {
+    return statusCodes;
+  }
+
+
+  public void setStatusCodes(List<String> statusCodes) {
+    this.statusCodes = statusCodes;
   }
 
 
@@ -222,6 +260,7 @@ public class TestResultsLocalFilterModel {
     TestResultsLocalFilterModel testResultsLocalFilterModel = (TestResultsLocalFilterModel) o;
     return Objects.equals(this.configurationIds, testResultsLocalFilterModel.configurationIds) &&
         Objects.equals(this.outcomes, testResultsLocalFilterModel.outcomes) &&
+        Objects.equals(this.statusCodes, testResultsLocalFilterModel.statusCodes) &&
         Objects.equals(this.failureCategories, testResultsLocalFilterModel.failureCategories) &&
         Objects.equals(this.namespace, testResultsLocalFilterModel.namespace) &&
         Objects.equals(this.className, testResultsLocalFilterModel.className);
@@ -233,7 +272,7 @@ public class TestResultsLocalFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationIds, outcomes, failureCategories, namespace, className);
+    return Objects.hash(configurationIds, outcomes, statusCodes, failureCategories, namespace, className);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -249,6 +288,7 @@ public class TestResultsLocalFilterModel {
     sb.append("class TestResultsLocalFilterModel {\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
     sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
+    sb.append("    statusCodes: ").append(toIndentedString(statusCodes)).append("\n");
     sb.append("    failureCategories: ").append(toIndentedString(failureCategories)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    className: ").append(toIndentedString(className)).append("\n");
@@ -276,6 +316,7 @@ public class TestResultsLocalFilterModel {
     openapiFields = new HashSet<String>();
     openapiFields.add("configurationIds");
     openapiFields.add("outcomes");
+    openapiFields.add("statusCodes");
     openapiFields.add("failureCategories");
     openapiFields.add("namespace");
     openapiFields.add("className");
@@ -311,6 +352,10 @@ public class TestResultsLocalFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("statusCodes") != null && !jsonObj.get("statusCodes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statusCodes` to be an array in the JSON string but got `%s`", jsonObj.get("statusCodes").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonArray()) {

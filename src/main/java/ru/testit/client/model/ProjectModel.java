@@ -128,6 +128,7 @@ public class ProjectModel {
   private ProjectTypeModel type;
 
   public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
   private Boolean isFlakyAuto;
 
@@ -507,6 +508,7 @@ public class ProjectModel {
   }
 
 
+  @Deprecated
   public ProjectModel isFlakyAuto(Boolean isFlakyAuto) {
     
     this.isFlakyAuto = isFlakyAuto;
@@ -516,13 +518,16 @@ public class ProjectModel {
    /**
    * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
    * @return isFlakyAuto
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nonnull
   public Boolean getIsFlakyAuto() {
     return isFlakyAuto;
   }
 
 
+  @Deprecated
   public void setIsFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }

@@ -113,6 +113,10 @@ public class ApiV2TestRunsSearchPostRequest {
   @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
   private TestRunFilterModelCompletedDate completedDate;
 
+  public static final String SERIALIZED_NAME_TEST_RESULTS_CONFIGURATION_IDS = "testResultsConfigurationIds";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULTS_CONFIGURATION_IDS)
+  private List<UUID> testResultsConfigurationIds;
+
   public ApiV2TestRunsSearchPostRequest() {
   }
 
@@ -416,6 +420,35 @@ public class ApiV2TestRunsSearchPostRequest {
   }
 
 
+  public ApiV2TestRunsSearchPostRequest testResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
+    
+    this.testResultsConfigurationIds = testResultsConfigurationIds;
+    return this;
+  }
+
+  public ApiV2TestRunsSearchPostRequest addTestResultsConfigurationIdsItem(UUID testResultsConfigurationIdsItem) {
+    if (this.testResultsConfigurationIds == null) {
+      this.testResultsConfigurationIds = new ArrayList<>();
+    }
+    this.testResultsConfigurationIds.add(testResultsConfigurationIdsItem);
+    return this;
+  }
+
+   /**
+   * Specifies a test result configuration IDs to search for
+   * @return testResultsConfigurationIds
+  **/
+  @javax.annotation.Nullable
+  public List<UUID> getTestResultsConfigurationIds() {
+    return testResultsConfigurationIds;
+  }
+
+
+  public void setTestResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
+    this.testResultsConfigurationIds = testResultsConfigurationIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -437,7 +470,8 @@ public class ApiV2TestRunsSearchPostRequest {
         Objects.equals(this.autoTestsCount, apiV2TestRunsSearchPostRequest.autoTestsCount) &&
         Objects.equals(this.testResultsOutcome, apiV2TestRunsSearchPostRequest.testResultsOutcome) &&
         Objects.equals(this.failureCategory, apiV2TestRunsSearchPostRequest.failureCategory) &&
-        Objects.equals(this.completedDate, apiV2TestRunsSearchPostRequest.completedDate);
+        Objects.equals(this.completedDate, apiV2TestRunsSearchPostRequest.completedDate) &&
+        Objects.equals(this.testResultsConfigurationIds, apiV2TestRunsSearchPostRequest.testResultsConfigurationIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -446,7 +480,7 @@ public class ApiV2TestRunsSearchPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, name, states, createdDate, startedDate, createdByIds, modifiedByIds, isDeleted, autoTestsCount, testResultsOutcome, failureCategory, completedDate);
+    return Objects.hash(projectIds, name, states, createdDate, startedDate, createdByIds, modifiedByIds, isDeleted, autoTestsCount, testResultsOutcome, failureCategory, completedDate, testResultsConfigurationIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -472,6 +506,7 @@ public class ApiV2TestRunsSearchPostRequest {
     sb.append("    testResultsOutcome: ").append(toIndentedString(testResultsOutcome)).append("\n");
     sb.append("    failureCategory: ").append(toIndentedString(failureCategory)).append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
+    sb.append("    testResultsConfigurationIds: ").append(toIndentedString(testResultsConfigurationIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -506,6 +541,7 @@ public class ApiV2TestRunsSearchPostRequest {
     openapiFields.add("testResultsOutcome");
     openapiFields.add("failureCategory");
     openapiFields.add("completedDate");
+    openapiFields.add("testResultsConfigurationIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -573,6 +609,10 @@ public class ApiV2TestRunsSearchPostRequest {
       // validate the optional field `completedDate`
       if (jsonObj.get("completedDate") != null && !jsonObj.get("completedDate").isJsonNull()) {
         TestRunFilterModelCompletedDate.validateJsonObject(jsonObj.getAsJsonObject("completedDate"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testResultsConfigurationIds") != null && !jsonObj.get("testResultsConfigurationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testResultsConfigurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("testResultsConfigurationIds").toString()));
       }
   }
 
