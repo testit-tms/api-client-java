@@ -36,6 +36,7 @@
 |**stepComments** | [**List&lt;StepCommentModel&gt;**](StepCommentModel.md) |  |  [optional] |
 |**failureClassIds** | **List&lt;UUID&gt;** |  |  |
 |**outcome** | **TestResultOutcome** |  |  [optional] |
+|**status** | [**TestStatusModel**](TestStatusModel.md) |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |
 |**stepResults** | [**List&lt;StepResultModel&gt;**](StepResultModel.md) |  |  [optional] |

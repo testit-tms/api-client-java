@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.TestPointPutModelStatusModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -75,8 +76,13 @@ public class TestPointPutModel {
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
+
+  public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
+  @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
+  private TestPointPutModelStatusModel statusModel;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
@@ -198,6 +204,7 @@ public class TestPointPutModel {
   }
 
 
+  @Deprecated
   public TestPointPutModel status(String status) {
     
     this.status = status;
@@ -207,15 +214,39 @@ public class TestPointPutModel {
    /**
    * Get status
    * @return status
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
 
+  @Deprecated
   public void setStatus(String status) {
     this.status = status;
+  }
+
+
+  public TestPointPutModel statusModel(TestPointPutModelStatusModel statusModel) {
+    
+    this.statusModel = statusModel;
+    return this;
+  }
+
+   /**
+   * Get statusModel
+   * @return statusModel
+  **/
+  @javax.annotation.Nonnull
+  public TestPointPutModelStatusModel getStatusModel() {
+    return statusModel;
+  }
+
+
+  public void setStatusModel(TestPointPutModelStatusModel statusModel) {
+    this.statusModel = statusModel;
   }
 
 
@@ -298,6 +329,7 @@ public class TestPointPutModel {
         Objects.equals(this.configurationId, testPointPutModel.configurationId) &&
         Objects.equals(this.testSuiteId, testPointPutModel.testSuiteId) &&
         Objects.equals(this.status, testPointPutModel.status) &&
+        Objects.equals(this.statusModel, testPointPutModel.statusModel) &&
         Objects.equals(this.lastTestResultId, testPointPutModel.lastTestResultId) &&
         Objects.equals(this.id, testPointPutModel.id) &&
         Objects.equals(this.isDeleted, testPointPutModel.isDeleted);
@@ -309,7 +341,7 @@ public class TestPointPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testerId, iterationId, workItemId, configurationId, testSuiteId, status, lastTestResultId, id, isDeleted);
+    return Objects.hash(testerId, iterationId, workItemId, configurationId, testSuiteId, status, statusModel, lastTestResultId, id, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -329,6 +361,7 @@ public class TestPointPutModel {
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
     sb.append("    testSuiteId: ").append(toIndentedString(testSuiteId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusModel: ").append(toIndentedString(statusModel)).append("\n");
     sb.append("    lastTestResultId: ").append(toIndentedString(lastTestResultId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
@@ -360,6 +393,7 @@ public class TestPointPutModel {
     openapiFields.add("configurationId");
     openapiFields.add("testSuiteId");
     openapiFields.add("status");
+    openapiFields.add("statusModel");
     openapiFields.add("lastTestResultId");
     openapiFields.add("id");
     openapiFields.add("isDeleted");
@@ -368,6 +402,7 @@ public class TestPointPutModel {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("iterationId");
     openapiRequiredFields.add("testSuiteId");
+    openapiRequiredFields.add("statusModel");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("isDeleted");
   }
@@ -417,6 +452,8 @@ public class TestPointPutModel {
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
+      // validate the required field `statusModel`
+      TestPointPutModelStatusModel.validateJsonObject(jsonObj.getAsJsonObject("statusModel"));
       if ((jsonObj.get("lastTestResultId") != null && !jsonObj.get("lastTestResultId").isJsonNull()) && !jsonObj.get("lastTestResultId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultId").toString()));
       }

@@ -19,7 +19,6 @@ All URIs are relative to *http://localhost*
 | [**getAutoTestById**](AutoTestsApi.md#getAutoTestById) | **GET** /api/v2/autoTests/{id} | Get autotest by internal or global ID |
 | [**getAutoTestChronology**](AutoTestsApi.md#getAutoTestChronology) | **GET** /api/v2/autoTests/{id}/chronology | Get autotest chronology |
 | [**getTestRuns**](AutoTestsApi.md#getTestRuns) | **GET** /api/v2/autoTests/{id}/testRuns | Get completed tests runs for autotests |
-| [**getWorkItemResults**](AutoTestsApi.md#getWorkItemResults) | **GET** /api/v2/autoTests/{id}/testResultHistory |  |
 | [**getWorkItemsLinkedToAutoTest**](AutoTestsApi.md#getWorkItemsLinkedToAutoTest) | **GET** /api/v2/autoTests/{id}/workItems | Get work items linked to autotest |
 | [**linkAutoTestToWorkItem**](AutoTestsApi.md#linkAutoTestToWorkItem) | **POST** /api/v2/autoTests/{id}/workItems | Link autotest with work items |
 | [**updateAutoTest**](AutoTestsApi.md#updateAutoTest) | **PUT** /api/v2/autoTests | Update autotest |
@@ -28,7 +27,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2AutoTestsFlakyBulkPost"></a>
 # **apiV2AutoTestsFlakyBulkPost**
-> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest)
+> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel)
 
 Set \&quot;Flaky\&quot; status for multiple autotests
 
@@ -61,9 +60,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsFlakyBulkPostRequest apiV2AutoTestsFlakyBulkPostRequest = new ApiV2AutoTestsFlakyBulkPostRequest(); // ApiV2AutoTestsFlakyBulkPostRequest | 
+    FlakyBulkModel flakyBulkModel = new FlakyBulkModel(); // FlakyBulkModel | 
     try {
-      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsFlakyBulkPostRequest);
+      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsFlakyBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -84,7 +83,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsFlakyBulkPostRequest** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md)|  | [optional] |
+| **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] |
 
 ### Return type
 
@@ -188,7 +187,7 @@ null (empty response body)
 
 <a id="apiV2AutoTestsIdTestResultsSearchPost"></a>
 # **apiV2AutoTestsIdTestResultsSearchPost**
-> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest)
+> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel)
 
 Get test results history for autotest
 
@@ -222,9 +221,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsIdTestResultsSearchPostRequest apiV2AutoTestsIdTestResultsSearchPostRequest = new ApiV2AutoTestsIdTestResultsSearchPostRequest(); // ApiV2AutoTestsIdTestResultsSearchPostRequest | 
+    AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel = new AutotestHistoricalResultSelectModel(); // AutotestHistoricalResultSelectModel | 
     try {
-      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2AutoTestsIdTestResultsSearchPostRequest);
+      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsIdTestResultsSearchPost");
@@ -247,7 +246,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsIdTestResultsSearchPostRequest** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md)|  | [optional] |
+| **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -509,7 +508,7 @@ public class Example {
 
 <a id="createAutoTest"></a>
 # **createAutoTest**
-> AutoTestModel createAutoTest(createAutoTestRequest)
+> AutoTestModel createAutoTest(autoTestPostModel)
 
 Create autotest
 
@@ -537,9 +536,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    CreateAutoTestRequest createAutoTestRequest = new CreateAutoTestRequest(); // CreateAutoTestRequest | 
+    AutoTestPostModel autoTestPostModel = new AutoTestPostModel(); // AutoTestPostModel | 
     try {
-      AutoTestModel result = apiInstance.createAutoTest(createAutoTestRequest);
+      AutoTestModel result = apiInstance.createAutoTest(autoTestPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#createAutoTest");
@@ -556,7 +555,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAutoTestRequest** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md)|  | [optional] |
+| **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1232,107 +1231,6 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getWorkItemResults"></a>
-# **getWorkItemResults**
-> List&lt;TestResultHistoryReportModel&gt; getWorkItemResults(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue)
-
-
-
-### Example
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
-import ru.testit.client.api.AutoTestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-    AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    String id = "id_example"; // String | 
-    OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime | Take results from this date
-    OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime | Take results until this date
-    List<UUID> configurationIds = Arrays.asList(); // List<UUID> | Identifiers of test result configurations
-    List<UUID> testPlanIds = Arrays.asList(); // List<UUID> | Identifiers of test plans which contain test results
-    List<UUID> userIds = Arrays.asList(); // List<UUID> | Identifiers of users who set test results
-    List<String> outcomes = Arrays.asList(); // List<String> | List of outcomes of test results
-    Boolean isAutomated = true; // Boolean | OBSOLETE: Use `Automated` instead
-    Boolean automated = true; // Boolean | If result must consist of only manual/automated test results
-    List<UUID> testRunIds = Arrays.asList(); // List<UUID> | Identifiers of test runs which contain test results
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<TestResultHistoryReportModel> result = apiInstance.getWorkItemResults(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AutoTestsApi#getWorkItemResults");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **from** | **OffsetDateTime**| Take results from this date | [optional] |
-| **to** | **OffsetDateTime**| Take results until this date | [optional] |
-| **configurationIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test result configurations | [optional] |
-| **testPlanIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test plans which contain test results | [optional] |
-| **userIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of users who set test results | [optional] |
-| **outcomes** | [**List&lt;String&gt;**](String.md)| List of outcomes of test results | [optional] |
-| **isAutomated** | **Boolean**| OBSOLETE: Use &#x60;Automated&#x60; instead | [optional] |
-| **automated** | **Boolean**| If result must consist of only manual/automated test results | [optional] |
-| **testRunIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test runs which contain test results | [optional] |
-| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
-| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
-| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
-| **searchField** | **String**| Property name for searching | [optional] |
-| **searchValue** | **String**| Value for searching | [optional] |
-
-### Return type
-
-[**List&lt;TestResultHistoryReportModel&gt;**](TestResultHistoryReportModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
 <a id="getWorkItemsLinkedToAutoTest"></a>
 # **getWorkItemsLinkedToAutoTest**
 > List&lt;WorkItemIdentifierModel&gt; getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted)
@@ -1414,7 +1312,7 @@ public class Example {
 
 <a id="linkAutoTestToWorkItem"></a>
 # **linkAutoTestToWorkItem**
-> linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest)
+> linkAutoTestToWorkItem(id, workItemIdModel)
 
 Link autotest with work items
 
@@ -1443,9 +1341,9 @@ public class Example {
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
     String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
-    LinkAutoTestToWorkItemRequest linkAutoTestToWorkItemRequest = new LinkAutoTestToWorkItemRequest(); // LinkAutoTestToWorkItemRequest | 
+    WorkItemIdModel workItemIdModel = new WorkItemIdModel(); // WorkItemIdModel | 
     try {
-      apiInstance.linkAutoTestToWorkItem(id, linkAutoTestToWorkItemRequest);
+      apiInstance.linkAutoTestToWorkItem(id, workItemIdModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#linkAutoTestToWorkItem");
       System.err.println("Status code: " + e.getCode());
@@ -1462,7 +1360,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Autotest internal (UUID) or global (integer) identifier | |
-| **linkAutoTestToWorkItemRequest** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md)|  | [optional] |
+| **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1490,7 +1388,7 @@ null (empty response body)
 
 <a id="updateAutoTest"></a>
 # **updateAutoTest**
-> updateAutoTest(updateAutoTestRequest)
+> updateAutoTest(autoTestPutModel)
 
 Update autotest
 
@@ -1518,9 +1416,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-    UpdateAutoTestRequest updateAutoTestRequest = new UpdateAutoTestRequest(); // UpdateAutoTestRequest | 
+    AutoTestPutModel autoTestPutModel = new AutoTestPutModel(); // AutoTestPutModel | 
     try {
-      apiInstance.updateAutoTest(updateAutoTestRequest);
+      apiInstance.updateAutoTest(autoTestPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#updateAutoTest");
       System.err.println("Status code: " + e.getCode());
@@ -1536,7 +1434,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateAutoTestRequest** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md)|  | [optional] |
+| **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] |
 
 ### Return type
 

@@ -18,6 +18,7 @@
 |**isDeleted** | **Boolean** | Is the test run is deleted |  |
 |**autoTestsCount** | **Integer** | Number of AutoTests run in the test run |  |
 |**statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  |  |
+|**testResultsConfigurations** | [**List&lt;ConfigurationShortModel&gt;**](ConfigurationShortModel.md) | Test results configurations |  |
 
 
 

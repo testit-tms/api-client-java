@@ -5,8 +5,10 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**apiV2TestRunsDelete**](TestRunsApi.md#apiV2TestRunsDelete) | **DELETE** /api/v2/testRuns | Delete multiple test runs |
+| [**apiV2TestRunsIdAutoTestsNamespacesGet**](TestRunsApi.md#apiV2TestRunsIdAutoTestsNamespacesGet) | **GET** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run |
 | [**apiV2TestRunsIdDelete**](TestRunsApi.md#apiV2TestRunsIdDelete) | **DELETE** /api/v2/testRuns/{id} | Delete test run |
 | [**apiV2TestRunsIdPurgePost**](TestRunsApi.md#apiV2TestRunsIdPurgePost) | **POST** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive |
+| [**apiV2TestRunsIdRerunsPost**](TestRunsApi.md#apiV2TestRunsIdRerunsPost) | **POST** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run |
 | [**apiV2TestRunsIdRestorePost**](TestRunsApi.md#apiV2TestRunsIdRestorePost) | **POST** /api/v2/testRuns/{id}/restore | Restore test run from the archive |
 | [**apiV2TestRunsIdStatisticsFilterPost**](TestRunsApi.md#apiV2TestRunsIdStatisticsFilterPost) | **POST** /api/v2/testRuns/{id}/statistics/filter | Search for the test run test results and build statistics |
 | [**apiV2TestRunsIdTestPointsResultsGet**](TestRunsApi.md#apiV2TestRunsIdTestPointsResultsGet) | **GET** /api/v2/testRuns/{id}/testPoints/results | Get test results from the test run grouped by test points |
@@ -30,7 +32,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TestRunsDelete"></a>
 # **apiV2TestRunsDelete**
-> Integer apiV2TestRunsDelete(apiV2TestRunsDeleteRequest)
+> Integer apiV2TestRunsDelete(testRunSelectModel)
 
 Delete multiple test runs
 
@@ -58,9 +60,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsDeleteRequest apiV2TestRunsDeleteRequest = new ApiV2TestRunsDeleteRequest(); // ApiV2TestRunsDeleteRequest | 
+    TestRunSelectModel testRunSelectModel = new TestRunSelectModel(); // TestRunSelectModel | 
     try {
-      Integer result = apiInstance.apiV2TestRunsDelete(apiV2TestRunsDeleteRequest);
+      Integer result = apiInstance.apiV2TestRunsDelete(testRunSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsDelete");
@@ -77,7 +79,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional] |
+| **testRunSelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -97,6 +99,79 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** |  - ID is not valid   - Project was archived and cannot be edited anymore |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+<a id="apiV2TestRunsIdAutoTestsNamespacesGet"></a>
+# **apiV2TestRunsIdAutoTestsNamespacesGet**
+> AutoTestNamespacesCountResponse apiV2TestRunsIdAutoTestsNamespacesGet(id)
+
+Get autotest classes and namespaces in test run
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.TestRunsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestRunsApi apiInstance = new TestRunsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    try {
+      AutoTestNamespacesCountResponse result = apiInstance.apiV2TestRunsIdAutoTestsNamespacesGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdAutoTestsNamespacesGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**AutoTestNamespacesCountResponse**](AutoTestNamespacesCountResponse.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -247,6 +322,81 @@ null (empty response body)
 | **400** |  - ID is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for archived test runs is required |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+<a id="apiV2TestRunsIdRerunsPost"></a>
+# **apiV2TestRunsIdRerunsPost**
+> ManualRerunResultModel apiV2TestRunsIdRerunsPost(id, apiV2TestRunsIdRerunsPostRequest)
+
+Manual autotests rerun in test run
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.TestRunsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestRunsApi apiInstance = new TestRunsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest = new ApiV2TestRunsIdRerunsPostRequest(); // ApiV2TestRunsIdRerunsPostRequest | 
+    try {
+      ManualRerunResultModel result = apiInstance.apiV2TestRunsIdRerunsPost(id, apiV2TestRunsIdRerunsPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdRerunsPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **apiV2TestRunsIdRerunsPostRequest** | [**ApiV2TestRunsIdRerunsPostRequest**](ApiV2TestRunsIdRerunsPostRequest.md)|  | [optional] |
+
+### Return type
+
+[**ManualRerunResultModel**](ManualRerunResultModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -622,7 +772,7 @@ public class Example {
 
 <a id="apiV2TestRunsPurgeBulkPost"></a>
 # **apiV2TestRunsPurgeBulkPost**
-> Integer apiV2TestRunsPurgeBulkPost(apiV2TestRunsDeleteRequest)
+> Integer apiV2TestRunsPurgeBulkPost(apiV2TestRunsPurgeBulkPostRequest)
 
 Permanently delete multiple test runs from archive
 
@@ -650,9 +800,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsDeleteRequest apiV2TestRunsDeleteRequest = new ApiV2TestRunsDeleteRequest(); // ApiV2TestRunsDeleteRequest | 
+    ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest = new ApiV2TestRunsPurgeBulkPostRequest(); // ApiV2TestRunsPurgeBulkPostRequest | 
     try {
-      Integer result = apiInstance.apiV2TestRunsPurgeBulkPost(apiV2TestRunsDeleteRequest);
+      Integer result = apiInstance.apiV2TestRunsPurgeBulkPost(apiV2TestRunsPurgeBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsPurgeBulkPost");
@@ -669,7 +819,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional] |
+| **apiV2TestRunsPurgeBulkPostRequest** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -697,7 +847,7 @@ public class Example {
 
 <a id="apiV2TestRunsRestoreBulkPost"></a>
 # **apiV2TestRunsRestoreBulkPost**
-> Integer apiV2TestRunsRestoreBulkPost(apiV2TestRunsDeleteRequest)
+> Integer apiV2TestRunsRestoreBulkPost(apiV2TestRunsPurgeBulkPostRequest)
 
 Restore multiple test runs from the archive
 
@@ -725,9 +875,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsDeleteRequest apiV2TestRunsDeleteRequest = new ApiV2TestRunsDeleteRequest(); // ApiV2TestRunsDeleteRequest | 
+    ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest = new ApiV2TestRunsPurgeBulkPostRequest(); // ApiV2TestRunsPurgeBulkPostRequest | 
     try {
-      Integer result = apiInstance.apiV2TestRunsRestoreBulkPost(apiV2TestRunsDeleteRequest);
+      Integer result = apiInstance.apiV2TestRunsRestoreBulkPost(apiV2TestRunsPurgeBulkPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsRestoreBulkPost");
@@ -744,7 +894,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional] |
+| **apiV2TestRunsPurgeBulkPostRequest** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1226,7 +1376,7 @@ public class Example {
 
 <a id="createEmpty"></a>
 # **createEmpty**
-> TestRunV2GetModel createEmpty(createEmptyRequest)
+> TestRunV2GetModel createEmpty(testRunV2PostShortModel)
 
 Create empty TestRun
 
@@ -1254,9 +1404,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    CreateEmptyRequest createEmptyRequest = new CreateEmptyRequest(); // CreateEmptyRequest | 
+    TestRunV2PostShortModel testRunV2PostShortModel = new TestRunV2PostShortModel(); // TestRunV2PostShortModel | 
     try {
-      TestRunV2GetModel result = apiInstance.createEmpty(createEmptyRequest);
+      TestRunV2GetModel result = apiInstance.createEmpty(testRunV2PostShortModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createEmpty");
@@ -1273,7 +1423,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createEmptyRequest** | [**CreateEmptyRequest**](CreateEmptyRequest.md)|  | [optional] |
+| **testRunV2PostShortModel** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1367,13 +1517,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **404** |  Can&#39;t find a TestRun with id! |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
+| **404** |  TestRun with ID &#39;{id}&#39; does not exist. |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
-| **0** | Error |  -  |
 
 <a id="setAutoTestResultsForTestRun"></a>
 # **setAutoTestResultsForTestRun**
@@ -1602,7 +1751,7 @@ null (empty response body)
 
 <a id="updateEmpty"></a>
 # **updateEmpty**
-> updateEmpty(updateEmptyRequest)
+> updateEmpty(testRunV2PutModel)
 
 Update empty TestRun
 
@@ -1630,9 +1779,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    UpdateEmptyRequest updateEmptyRequest = new UpdateEmptyRequest(); // UpdateEmptyRequest | 
+    TestRunV2PutModel testRunV2PutModel = new TestRunV2PutModel(); // TestRunV2PutModel | 
     try {
-      apiInstance.updateEmpty(updateEmptyRequest);
+      apiInstance.updateEmpty(testRunV2PutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#updateEmpty");
       System.err.println("Status code: " + e.getCode());
@@ -1648,7 +1797,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateEmptyRequest** | [**UpdateEmptyRequest**](UpdateEmptyRequest.md)|  | [optional] |
+| **testRunV2PutModel** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional] |
 
 ### Return type
 

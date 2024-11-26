@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestPointShortGetModelLastTestResult;
+import ru.testit.client.model.LastTestResultModel;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemState;
@@ -169,7 +169,7 @@ public class TestPointShortGetModel {
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT = "lastTestResult";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT)
-  private TestPointShortGetModelLastTestResult lastTestResult;
+  private LastTestResultModel lastTestResult;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
@@ -776,7 +776,7 @@ public class TestPointShortGetModel {
   }
 
 
-  public TestPointShortGetModel lastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
+  public TestPointShortGetModel lastTestResult(LastTestResultModel lastTestResult) {
     
     this.lastTestResult = lastTestResult;
     return this;
@@ -787,12 +787,12 @@ public class TestPointShortGetModel {
    * @return lastTestResult
   **/
   @javax.annotation.Nonnull
-  public TestPointShortGetModelLastTestResult getLastTestResult() {
+  public LastTestResultModel getLastTestResult() {
     return lastTestResult;
   }
 
 
-  public void setLastTestResult(TestPointShortGetModelLastTestResult lastTestResult) {
+  public void setLastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
@@ -1185,7 +1185,7 @@ public class TestPointShortGetModel {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
       // validate the required field `lastTestResult`
-      TestPointShortGetModelLastTestResult.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
+      LastTestResultModel.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
       if (!jsonObj.get("iterationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iterationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iterationId").toString()));
       }

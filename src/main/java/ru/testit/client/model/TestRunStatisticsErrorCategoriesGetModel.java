@@ -52,14 +52,6 @@ import ru.testit.client.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunStatisticsErrorCategoriesGetModel {
-  public static final String SERIALIZED_NAME_NO_ANALYTICS = "noAnalytics";
-  @SerializedName(SERIALIZED_NAME_NO_ANALYTICS)
-  private Integer noAnalytics;
-
-  public static final String SERIALIZED_NAME_NO_DEFECT = "noDefect";
-  @SerializedName(SERIALIZED_NAME_NO_DEFECT)
-  private Integer noDefect;
-
   public static final String SERIALIZED_NAME_INFRASTRUCTURE_DEFECT = "infrastructureDefect";
   @SerializedName(SERIALIZED_NAME_INFRASTRUCTURE_DEFECT)
   private Integer infrastructureDefect;
@@ -74,48 +66,6 @@ public class TestRunStatisticsErrorCategoriesGetModel {
 
   public TestRunStatisticsErrorCategoriesGetModel() {
   }
-
-  public TestRunStatisticsErrorCategoriesGetModel noAnalytics(Integer noAnalytics) {
-    
-    this.noAnalytics = noAnalytics;
-    return this;
-  }
-
-   /**
-   * Number of test results which outcomes were not analyzed
-   * @return noAnalytics
-  **/
-  @javax.annotation.Nonnull
-  public Integer getNoAnalytics() {
-    return noAnalytics;
-  }
-
-
-  public void setNoAnalytics(Integer noAnalytics) {
-    this.noAnalytics = noAnalytics;
-  }
-
-
-  public TestRunStatisticsErrorCategoriesGetModel noDefect(Integer noDefect) {
-    
-    this.noDefect = noDefect;
-    return this;
-  }
-
-   /**
-   * Number of test results which outcomes were not caused by any defect
-   * @return noDefect
-  **/
-  @javax.annotation.Nonnull
-  public Integer getNoDefect() {
-    return noDefect;
-  }
-
-
-  public void setNoDefect(Integer noDefect) {
-    this.noDefect = noDefect;
-  }
-
 
   public TestRunStatisticsErrorCategoriesGetModel infrastructureDefect(Integer infrastructureDefect) {
     
@@ -190,24 +140,20 @@ public class TestRunStatisticsErrorCategoriesGetModel {
       return false;
     }
     TestRunStatisticsErrorCategoriesGetModel testRunStatisticsErrorCategoriesGetModel = (TestRunStatisticsErrorCategoriesGetModel) o;
-    return Objects.equals(this.noAnalytics, testRunStatisticsErrorCategoriesGetModel.noAnalytics) &&
-        Objects.equals(this.noDefect, testRunStatisticsErrorCategoriesGetModel.noDefect) &&
-        Objects.equals(this.infrastructureDefect, testRunStatisticsErrorCategoriesGetModel.infrastructureDefect) &&
+    return Objects.equals(this.infrastructureDefect, testRunStatisticsErrorCategoriesGetModel.infrastructureDefect) &&
         Objects.equals(this.productDefect, testRunStatisticsErrorCategoriesGetModel.productDefect) &&
         Objects.equals(this.testDefect, testRunStatisticsErrorCategoriesGetModel.testDefect);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(noAnalytics, noDefect, infrastructureDefect, productDefect, testDefect);
+    return Objects.hash(infrastructureDefect, productDefect, testDefect);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestRunStatisticsErrorCategoriesGetModel {\n");
-    sb.append("    noAnalytics: ").append(toIndentedString(noAnalytics)).append("\n");
-    sb.append("    noDefect: ").append(toIndentedString(noDefect)).append("\n");
     sb.append("    infrastructureDefect: ").append(toIndentedString(infrastructureDefect)).append("\n");
     sb.append("    productDefect: ").append(toIndentedString(productDefect)).append("\n");
     sb.append("    testDefect: ").append(toIndentedString(testDefect)).append("\n");
@@ -233,16 +179,12 @@ public class TestRunStatisticsErrorCategoriesGetModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("noAnalytics");
-    openapiFields.add("noDefect");
     openapiFields.add("infrastructureDefect");
     openapiFields.add("productDefect");
     openapiFields.add("testDefect");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("noAnalytics");
-    openapiRequiredFields.add("noDefect");
     openapiRequiredFields.add("infrastructureDefect");
     openapiRequiredFields.add("productDefect");
     openapiRequiredFields.add("testDefect");

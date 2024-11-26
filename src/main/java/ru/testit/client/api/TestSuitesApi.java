@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+import ru.testit.client.model.AddTestPointsWithSectionsRequest;
 import ru.testit.client.model.ApiV2TestSuitesPostRequest;
 import ru.testit.client.model.ApiV2TestSuitesPutRequest;
 import ru.testit.client.model.ConfigurationModel;
@@ -89,7 +89,7 @@ public class TestSuitesApi {
     /**
      * Build call for addTestPointsToTestSuite
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param addTestPointsWithSectionsRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -105,7 +105,7 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteCall(UUID id, AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -119,7 +119,7 @@ public class TestSuitesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdWorkItemsSearchPostRequest;
+        Object localVarPostBody = addTestPointsWithSectionsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testSuites/{id}/test-points"
@@ -152,13 +152,13 @@ public class TestSuitesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addTestPointsToTestSuiteValidateBeforeCall(UUID id, AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling addTestPointsToTestSuite(Async)");
         }
 
-        return addTestPointsToTestSuiteCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        return addTestPointsToTestSuiteCall(id, addTestPointsWithSectionsRequest, _callback);
 
     }
 
@@ -166,7 +166,7 @@ public class TestSuitesApi {
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param addTestPointsWithSectionsRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -180,15 +180,15 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public void addTestPointsToTestSuite(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        addTestPointsToTestSuiteWithHttpInfo(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+    public void addTestPointsToTestSuite(UUID id, AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest) throws ApiException {
+        addTestPointsToTestSuiteWithHttpInfo(id, addTestPointsWithSectionsRequest);
     }
 
     /**
      * Add test-points to test suite
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param addTestPointsWithSectionsRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -203,8 +203,8 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, null);
+    public ApiResponse<Void> addTestPointsToTestSuiteWithHttpInfo(UUID id, AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest) throws ApiException {
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, addTestPointsWithSectionsRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -212,7 +212,7 @@ public class TestSuitesApi {
      * Add test-points to test suite (asynchronously)
      * 
      * @param id Test suite internal identifier (required)
-     * @param apiV2ProjectsProjectIdWorkItemsSearchPostRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
+     * @param addTestPointsWithSectionsRequest Filter object to retrieve work items for test-suite&#39;s project (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -228,9 +228,9 @@ public class TestSuitesApi {
         <tr><td> 422 </td><td> Shared steps cannot be added to test suite </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addTestPointsToTestSuiteAsync(UUID id, AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = addTestPointsToTestSuiteValidateBeforeCall(id, addTestPointsWithSectionsRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

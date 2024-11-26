@@ -4,11 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost**](TestResultsApi.md#apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost) | **POST** /api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms |  |
+| [**apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost**](TestResultsApi.md#apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost) | **POST** /api/v2/testResults/external-projects/{externalProjectId}/defects |  |
 | [**apiV2TestResultsIdAggregatedGet**](TestResultsApi.md#apiV2TestResultsIdAggregatedGet) | **GET** /api/v2/testResults/{id}/aggregated | Get test result by ID aggregated with previous results |
 | [**apiV2TestResultsIdAttachmentsAttachmentIdPut**](TestResultsApi.md#apiV2TestResultsIdAttachmentsAttachmentIdPut) | **PUT** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result |
 | [**apiV2TestResultsIdAttachmentsInfoGet**](TestResultsApi.md#apiV2TestResultsIdAttachmentsInfoGet) | **GET** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information |
 | [**apiV2TestResultsIdGet**](TestResultsApi.md#apiV2TestResultsIdGet) | **GET** /api/v2/testResults/{id} | Get test result by ID |
 | [**apiV2TestResultsIdPut**](TestResultsApi.md#apiV2TestResultsIdPut) | **PUT** /api/v2/testResults/{id} | Edit test result by ID |
+| [**apiV2TestResultsIdRerunsGet**](TestResultsApi.md#apiV2TestResultsIdRerunsGet) | **GET** /api/v2/testResults/{id}/reruns | Get reruns |
 | [**apiV2TestResultsSearchPost**](TestResultsApi.md#apiV2TestResultsSearchPost) | **POST** /api/v2/testResults/search | Search for test results |
 | [**apiV2TestResultsStatisticsFilterPost**](TestResultsApi.md#apiV2TestResultsStatisticsFilterPost) | **POST** /api/v2/testResults/statistics/filter | Search for test results and extract statistics |
 | [**createAttachment**](TestResultsApi.md#createAttachment) | **POST** /api/v2/testResults/{id}/attachments | Upload and link attachment to TestResult |
@@ -18,9 +21,159 @@ All URIs are relative to *http://localhost*
 | [**getAttachments**](TestResultsApi.md#getAttachments) | **GET** /api/v2/testResults/{id}/attachments | Get all attachments of TestResult |
 
 
+<a id="apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost"></a>
+# **apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost**
+> GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest)
+
+
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.TestResultsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID externalProjectId = UUID.randomUUID(); // UUID | 
+    ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest = new ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest(); // ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest | 
+    try {
+      GetExternalFormApiResult result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **externalProjectId** | **UUID**|  | |
+| **apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest.md)|  | [optional] |
+
+### Return type
+
+[**GetExternalFormApiResult**](GetExternalFormApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+<a id="apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost"></a>
+# **apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost**
+> DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest)
+
+
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.TestResultsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID externalProjectId = UUID.randomUUID(); // UUID | 
+    ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest = new ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest(); // ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest | 
+    try {
+      DefectApiModel result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **externalProjectId** | **UUID**|  | |
+| **apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest.md)|  | [optional] |
+
+### Return type
+
+[**DefectApiModel**](DefectApiModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
 <a id="apiV2TestResultsIdAggregatedGet"></a>
 # **apiV2TestResultsIdAggregatedGet**
-> TestResultModel apiV2TestResultsIdAggregatedGet(id)
+> TestResultResponse apiV2TestResultsIdAggregatedGet(id)
 
 Get test result by ID aggregated with previous results
 
@@ -48,7 +201,7 @@ public class Example {
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test result unique ID
     try {
-      TestResultModel result = apiInstance.apiV2TestResultsIdAggregatedGet(id);
+      TestResultResponse result = apiInstance.apiV2TestResultsIdAggregatedGet(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAggregatedGet");
@@ -69,7 +222,7 @@ public class Example {
 
 ### Return type
 
-[**TestResultModel**](TestResultModel.md)
+[**TestResultResponse**](TestResultResponse.md)
 
 ### Authorization
 
@@ -240,7 +393,7 @@ public class Example {
 
 <a id="apiV2TestResultsIdGet"></a>
 # **apiV2TestResultsIdGet**
-> TestResultModel apiV2TestResultsIdGet(id)
+> TestResultResponse apiV2TestResultsIdGet(id)
 
 Get test result by ID
 
@@ -268,7 +421,7 @@ public class Example {
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test result unique ID
     try {
-      TestResultModel result = apiInstance.apiV2TestResultsIdGet(id);
+      TestResultResponse result = apiInstance.apiV2TestResultsIdGet(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdGet");
@@ -289,7 +442,7 @@ public class Example {
 
 ### Return type
 
-[**TestResultModel**](TestResultModel.md)
+[**TestResultResponse**](TestResultResponse.md)
 
 ### Authorization
 
@@ -313,7 +466,7 @@ public class Example {
 
 <a id="apiV2TestResultsIdPut"></a>
 # **apiV2TestResultsIdPut**
-> apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest)
+> apiV2TestResultsIdPut(id, testResultUpdateV2Request)
 
 Edit test result by ID
 
@@ -340,9 +493,9 @@ public class Example {
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test result unique ID
-    ApiV2TestResultsIdPutRequest apiV2TestResultsIdPutRequest = new ApiV2TestResultsIdPutRequest(); // ApiV2TestResultsIdPutRequest | 
+    TestResultUpdateV2Request testResultUpdateV2Request = new TestResultUpdateV2Request(); // TestResultUpdateV2Request | 
     try {
-      apiInstance.apiV2TestResultsIdPut(id, apiV2TestResultsIdPutRequest);
+      apiInstance.apiV2TestResultsIdPut(id, testResultUpdateV2Request);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdPut");
       System.err.println("Status code: " + e.getCode());
@@ -359,7 +512,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test result unique ID | |
-| **apiV2TestResultsIdPutRequest** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md)|  | [optional] |
+| **testResultUpdateV2Request** | [**TestResultUpdateV2Request**](TestResultUpdateV2Request.md)|  | [optional] |
 
 ### Return type
 
@@ -385,9 +538,82 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
+<a id="apiV2TestResultsIdRerunsGet"></a>
+# **apiV2TestResultsIdRerunsGet**
+> RerunsModel apiV2TestResultsIdRerunsGet(id)
+
+Get reruns
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.TestResultsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestResultsApi apiInstance = new TestResultsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test result unique ID
+    try {
+      RerunsModel result = apiInstance.apiV2TestResultsIdRerunsGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdRerunsGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Test result unique ID | |
+
+### Return type
+
+[**RerunsModel**](RerunsModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
 <a id="apiV2TestResultsSearchPost"></a>
 # **apiV2TestResultsSearchPost**
-> List&lt;TestResultShortGetModel&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest)
+> List&lt;TestResultShortResponse&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest)
 
 Search for test results
 
@@ -420,7 +646,7 @@ public class Example {
     String searchValue = "searchValue_example"; // String | Value for searching
     ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      List<TestResultShortGetModel> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
+      List<TestResultShortResponse> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
@@ -446,7 +672,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestResultShortGetModel&gt;**](TestResultShortGetModel.md)
+[**List&lt;TestResultShortResponse&gt;**](TestResultShortResponse.md)
 
 ### Authorization
 
@@ -470,7 +696,7 @@ public class Example {
 
 <a id="apiV2TestResultsStatisticsFilterPost"></a>
 # **apiV2TestResultsStatisticsFilterPost**
-> TestResultsStatisticsGetModel apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest)
+> TestResultsStatisticsResponse apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest)
 
 Search for test results and extract statistics
 
@@ -498,7 +724,7 @@ public class Example {
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      TestResultsStatisticsGetModel result = apiInstance.apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest);
+      TestResultsStatisticsResponse result = apiInstance.apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
@@ -519,7 +745,7 @@ public class Example {
 
 ### Return type
 
-[**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md)
+[**TestResultsStatisticsResponse**](TestResultsStatisticsResponse.md)
 
 ### Authorization
 

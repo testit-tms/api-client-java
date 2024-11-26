@@ -13,6 +13,7 @@
 |**configurationId** | **UUID** |  |  [optional] |
 |**testSuiteId** | **UUID** |  |  |
 |**status** | **String** |  |  [optional] |
+|**statusModel** | [**TestPointPutModelStatusModel**](TestPointPutModelStatusModel.md) |  |  |
 |**lastTestResultId** | **UUID** |  |  [optional] |
 |**id** | **UUID** | Unique ID of the entity |  |
 |**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |

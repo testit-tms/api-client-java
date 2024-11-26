@@ -7,6 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
+|**modifiedById** | **UUID** |  |  [optional] |
+|**testPlanId** | **UUID** |  |  [optional] |
+|**testPlanGlobalId** | **Long** |  |  [optional] |
+|**testPlanName** | **String** |  |  [optional] |
+|**duration** | **Long** |  |  [optional] |
 |**id** | **UUID** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  |
 |**createdById** | **UUID** |  |  |
@@ -17,12 +23,8 @@
 |**configurationName** | **String** |  |  |
 |**outcome** | **AutotestResultOutcome** |  |  |
 |**launchSource** | **String** |  |  [optional] |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**modifiedById** | **UUID** |  |  [optional] |
-|**testPlanId** | **UUID** |  |  [optional] |
-|**testPlanGlobalId** | **Long** |  |  [optional] |
-|**testPlanName** | **String** |  |  [optional] |
-|**duration** | **Long** |  |  [optional] |
+|**rerunCount** | **Integer** |  |  |
+|**rerunTestResults** | [**List&lt;RerunTestResultModel&gt;**](RerunTestResultModel.md) |  |  |
 
 
 

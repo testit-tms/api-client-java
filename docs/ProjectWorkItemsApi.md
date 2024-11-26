@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ProjectsProjectIdWorkItemsSearchGroupedPost"></a>
 # **apiV2ProjectsProjectIdWorkItemsSearchGroupedPost**
-> List&lt;WorkItemGroupModel&gt; apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest)
+> List&lt;WorkItemGroupModel&gt; apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel)
 
 Search for work items and group results by attribute
 
@@ -45,9 +45,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest | 
+    WorkItemGroupGetModel workItemGroupGetModel = new WorkItemGroupGetModel(); // WorkItemGroupGetModel | 
     try {
-      List<WorkItemGroupModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest);
+      List<WorkItemGroupModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchGroupedPost(projectId, skip, take, orderBy, searchField, searchValue, workItemGroupGetModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsSearchGroupedPost");
@@ -70,7 +70,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest.md)|  | [optional] |
+| **workItemGroupGetModel** | [**WorkItemGroupGetModel**](WorkItemGroupGetModel.md)|  | [optional] |
 
 ### Return type
 
@@ -98,7 +98,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdWorkItemsSearchIdPost"></a>
 # **apiV2ProjectsProjectIdWorkItemsSearchIdPost**
-> List&lt;UUID&gt; apiV2ProjectsProjectIdWorkItemsSearchIdPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
+> List&lt;UUID&gt; apiV2ProjectsProjectIdWorkItemsSearchIdPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
 
 Search for work items and extract IDs only
 
@@ -130,9 +130,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | 
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchIdPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+      List<UUID> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchIdPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsSearchIdPost");
@@ -155,7 +155,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -183,7 +183,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdWorkItemsSearchPost"></a>
 # **apiV2ProjectsProjectIdWorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
+> List&lt;WorkItemShortModel&gt; apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
 
 Search for work items
 
@@ -215,9 +215,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | 
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsSearchPost");
@@ -240,7 +240,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
 
 ### Return type
 

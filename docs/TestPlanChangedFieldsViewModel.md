@@ -9,10 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
 |**description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
-|**productName** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
-|**build** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**productName** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
+|**build** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
 |**period** | [**PeriodViewModelChangedFieldViewModel**](PeriodViewModelChangedFieldViewModel.md) |  |  [optional] |
-|**status** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  [optional] |
+|**status** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
 |**tags** | [**StringArrayChangedFieldViewModel**](StringArrayChangedFieldViewModel.md) |  |  [optional] |
 |**testSuite** | [**TestSuiteChangeViewModelChangedFieldViewModel**](TestSuiteChangeViewModelChangedFieldViewModel.md) |  |  [optional] |
 |**testPoints** | [**TestPointChangeViewModelChangedFieldViewModel**](TestPointChangeViewModelChangedFieldViewModel.md) |  |  [optional] |

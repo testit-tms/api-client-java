@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutoTestModelLastTestResultConfiguration;
 import ru.testit.client.model.AutoTestStepModel;
 import ru.testit.client.model.LabelShortModel;
 import ru.testit.client.model.LinkPutModel;
@@ -103,6 +104,10 @@ public class AutoTestModel {
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
   private UUID lastTestResultId;
+
+  public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION = "lastTestResultConfiguration";
+  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION)
+  private AutoTestModelLastTestResultConfiguration lastTestResultConfiguration;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
@@ -399,6 +404,27 @@ public class AutoTestModel {
 
   public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
+  }
+
+
+  public AutoTestModel lastTestResultConfiguration(AutoTestModelLastTestResultConfiguration lastTestResultConfiguration) {
+    
+    this.lastTestResultConfiguration = lastTestResultConfiguration;
+    return this;
+  }
+
+   /**
+   * Get lastTestResultConfiguration
+   * @return lastTestResultConfiguration
+  **/
+  @javax.annotation.Nullable
+  public AutoTestModelLastTestResultConfiguration getLastTestResultConfiguration() {
+    return lastTestResultConfiguration;
+  }
+
+
+  public void setLastTestResultConfiguration(AutoTestModelLastTestResultConfiguration lastTestResultConfiguration) {
+    this.lastTestResultConfiguration = lastTestResultConfiguration;
   }
 
 
@@ -799,6 +825,7 @@ public class AutoTestModel {
         Objects.equals(this.lastTestRunId, autoTestModel.lastTestRunId) &&
         Objects.equals(this.lastTestRunName, autoTestModel.lastTestRunName) &&
         Objects.equals(this.lastTestResultId, autoTestModel.lastTestResultId) &&
+        Objects.equals(this.lastTestResultConfiguration, autoTestModel.lastTestResultConfiguration) &&
         Objects.equals(this.lastTestResultOutcome, autoTestModel.lastTestResultOutcome) &&
         Objects.equals(this.stabilityPercentage, autoTestModel.stabilityPercentage) &&
         Objects.equals(this.externalId, autoTestModel.externalId) &&
@@ -823,7 +850,7 @@ public class AutoTestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(globalId, isDeleted, mustBeApproved, id, createdDate, modifiedDate, createdById, modifiedById, lastTestRunId, lastTestRunName, lastTestResultId, lastTestResultOutcome, stabilityPercentage, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
+    return Objects.hash(globalId, isDeleted, mustBeApproved, id, createdDate, modifiedDate, createdById, modifiedById, lastTestRunId, lastTestRunName, lastTestResultId, lastTestResultConfiguration, lastTestResultOutcome, stabilityPercentage, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -848,6 +875,7 @@ public class AutoTestModel {
     sb.append("    lastTestRunId: ").append(toIndentedString(lastTestRunId)).append("\n");
     sb.append("    lastTestRunName: ").append(toIndentedString(lastTestRunName)).append("\n");
     sb.append("    lastTestResultId: ").append(toIndentedString(lastTestResultId)).append("\n");
+    sb.append("    lastTestResultConfiguration: ").append(toIndentedString(lastTestResultConfiguration)).append("\n");
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
     sb.append("    stabilityPercentage: ").append(toIndentedString(stabilityPercentage)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
@@ -897,6 +925,7 @@ public class AutoTestModel {
     openapiFields.add("lastTestRunId");
     openapiFields.add("lastTestRunName");
     openapiFields.add("lastTestResultId");
+    openapiFields.add("lastTestResultConfiguration");
     openapiFields.add("lastTestResultOutcome");
     openapiFields.add("stabilityPercentage");
     openapiFields.add("externalId");
@@ -971,6 +1000,10 @@ public class AutoTestModel {
       }
       if ((jsonObj.get("lastTestResultId") != null && !jsonObj.get("lastTestResultId").isJsonNull()) && !jsonObj.get("lastTestResultId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultId").toString()));
+      }
+      // validate the optional field `lastTestResultConfiguration`
+      if (jsonObj.get("lastTestResultConfiguration") != null && !jsonObj.get("lastTestResultConfiguration").isJsonNull()) {
+        AutoTestModelLastTestResultConfiguration.validateJsonObject(jsonObj.getAsJsonObject("lastTestResultConfiguration"));
       }
       if ((jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) && !jsonObj.get("lastTestResultOutcome").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultOutcome").toString()));

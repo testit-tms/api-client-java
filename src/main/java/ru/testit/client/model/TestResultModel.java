@@ -36,6 +36,7 @@ import ru.testit.client.model.StepCommentModel;
 import ru.testit.client.model.StepResultModel;
 import ru.testit.client.model.TestPointPutModel;
 import ru.testit.client.model.TestResultOutcome;
+import ru.testit.client.model.TestStatusModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -182,6 +183,10 @@ public class TestResultModel {
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
   private TestResultOutcome outcome;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private TestStatusModel status;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -867,6 +872,27 @@ public class TestResultModel {
   }
 
 
+  public TestResultModel status(TestStatusModel status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  public TestStatusModel getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(TestStatusModel status) {
+    this.status = status;
+  }
+
+
   public TestResultModel comment(String comment) {
     
     this.comment = comment;
@@ -1014,6 +1040,7 @@ public class TestResultModel {
         Objects.equals(this.stepComments, testResultModel.stepComments) &&
         Objects.equals(this.failureClassIds, testResultModel.failureClassIds) &&
         Objects.equals(this.outcome, testResultModel.outcome) &&
+        Objects.equals(this.status, testResultModel.status) &&
         Objects.equals(this.comment, testResultModel.comment) &&
         Objects.equals(this.links, testResultModel.links) &&
         Objects.equals(this.stepResults, testResultModel.stepResults) &&
@@ -1026,7 +1053,7 @@ public class TestResultModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoTestId, configurationId, startedOn, completedOn, durationInMs, traces, failureType, message, runByUserId, stoppedByUserId, testPointId, testRunId, testPoint, autoTest, autoTestStepResults, setupResults, teardownResults, workItemVersionId, workItemVersionNumber, parameters, properties, id, createdDate, modifiedDate, createdById, modifiedById, stepComments, failureClassIds, outcome, comment, links, stepResults, attachments);
+    return Objects.hash(autoTestId, configurationId, startedOn, completedOn, durationInMs, traces, failureType, message, runByUserId, stoppedByUserId, testPointId, testRunId, testPoint, autoTest, autoTestStepResults, setupResults, teardownResults, workItemVersionId, workItemVersionNumber, parameters, properties, id, createdDate, modifiedDate, createdById, modifiedById, stepComments, failureClassIds, outcome, status, comment, links, stepResults, attachments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1069,6 +1096,7 @@ public class TestResultModel {
     sb.append("    stepComments: ").append(toIndentedString(stepComments)).append("\n");
     sb.append("    failureClassIds: ").append(toIndentedString(failureClassIds)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    stepResults: ").append(toIndentedString(stepResults)).append("\n");
@@ -1124,6 +1152,7 @@ public class TestResultModel {
     openapiFields.add("stepComments");
     openapiFields.add("failureClassIds");
     openapiFields.add("outcome");
+    openapiFields.add("status");
     openapiFields.add("comment");
     openapiFields.add("links");
     openapiFields.add("stepResults");
@@ -1276,6 +1305,10 @@ public class TestResultModel {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("failureClassIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        TestStatusModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));

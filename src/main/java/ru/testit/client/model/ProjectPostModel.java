@@ -66,6 +66,7 @@ public class ProjectPostModel {
   private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
   private Boolean isFlakyAuto;
 
@@ -135,6 +136,7 @@ public class ProjectPostModel {
   }
 
 
+  @Deprecated
   public ProjectPostModel isFlakyAuto(Boolean isFlakyAuto) {
     
     this.isFlakyAuto = isFlakyAuto;
@@ -144,13 +146,16 @@ public class ProjectPostModel {
    /**
    * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
    * @return isFlakyAuto
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   public Boolean getIsFlakyAuto() {
     return isFlakyAuto;
   }
 
 
+  @Deprecated
   public void setIsFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }

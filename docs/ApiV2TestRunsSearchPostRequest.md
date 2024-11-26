@@ -19,6 +19,7 @@
 |**testResultsOutcome** | **List&lt;TestResultOutcome&gt;** | Specifies test results outcomes |  [optional] |
 |**failureCategory** | **List&lt;FailureCategoryModel&gt;** | Specifies failure categories |  [optional] |
 |**completedDate** | [**TestRunFilterModelCompletedDate**](TestRunFilterModelCompletedDate.md) |  |  [optional] |
+|**testResultsConfigurationIds** | **List&lt;UUID&gt;** | Specifies a test result configuration IDs to search for |  [optional] |
 
 
 

@@ -22,8 +22,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.ConfigurationShortModel;
 import ru.testit.client.model.TestRunShortGetModelStatistics;
 import ru.testit.client.model.TestRunState;
 
@@ -100,6 +103,10 @@ public class TestRunShortGetModel {
   public static final String SERIALIZED_NAME_STATISTICS = "statistics";
   @SerializedName(SERIALIZED_NAME_STATISTICS)
   private TestRunShortGetModelStatistics statistics;
+
+  public static final String SERIALIZED_NAME_TEST_RESULTS_CONFIGURATIONS = "testResultsConfigurations";
+  @SerializedName(SERIALIZED_NAME_TEST_RESULTS_CONFIGURATIONS)
+  private List<ConfigurationShortModel> testResultsConfigurations = new ArrayList<>();
 
   public TestRunShortGetModel() {
   }
@@ -335,6 +342,35 @@ public class TestRunShortGetModel {
   }
 
 
+  public TestRunShortGetModel testResultsConfigurations(List<ConfigurationShortModel> testResultsConfigurations) {
+    
+    this.testResultsConfigurations = testResultsConfigurations;
+    return this;
+  }
+
+  public TestRunShortGetModel addTestResultsConfigurationsItem(ConfigurationShortModel testResultsConfigurationsItem) {
+    if (this.testResultsConfigurations == null) {
+      this.testResultsConfigurations = new ArrayList<>();
+    }
+    this.testResultsConfigurations.add(testResultsConfigurationsItem);
+    return this;
+  }
+
+   /**
+   * Test results configurations
+   * @return testResultsConfigurations
+  **/
+  @javax.annotation.Nonnull
+  public List<ConfigurationShortModel> getTestResultsConfigurations() {
+    return testResultsConfigurations;
+  }
+
+
+  public void setTestResultsConfigurations(List<ConfigurationShortModel> testResultsConfigurations) {
+    this.testResultsConfigurations = testResultsConfigurations;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -355,7 +391,8 @@ public class TestRunShortGetModel {
         Objects.equals(this.modifiedById, testRunShortGetModel.modifiedById) &&
         Objects.equals(this.isDeleted, testRunShortGetModel.isDeleted) &&
         Objects.equals(this.autoTestsCount, testRunShortGetModel.autoTestsCount) &&
-        Objects.equals(this.statistics, testRunShortGetModel.statistics);
+        Objects.equals(this.statistics, testRunShortGetModel.statistics) &&
+        Objects.equals(this.testResultsConfigurations, testRunShortGetModel.testResultsConfigurations);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -364,7 +401,7 @@ public class TestRunShortGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, state, createdDate, startedDate, completedDate, createdById, modifiedById, isDeleted, autoTestsCount, statistics);
+    return Objects.hash(id, name, state, createdDate, startedDate, completedDate, createdById, modifiedById, isDeleted, autoTestsCount, statistics, testResultsConfigurations);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -389,6 +426,7 @@ public class TestRunShortGetModel {
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    testResultsConfigurations: ").append(toIndentedString(testResultsConfigurations)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -422,6 +460,7 @@ public class TestRunShortGetModel {
     openapiFields.add("isDeleted");
     openapiFields.add("autoTestsCount");
     openapiFields.add("statistics");
+    openapiFields.add("testResultsConfigurations");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -433,6 +472,7 @@ public class TestRunShortGetModel {
     openapiRequiredFields.add("isDeleted");
     openapiRequiredFields.add("autoTestsCount");
     openapiRequiredFields.add("statistics");
+    openapiRequiredFields.add("testResultsConfigurations");
   }
 
  /**
@@ -476,6 +516,16 @@ public class TestRunShortGetModel {
       }
       // validate the required field `statistics`
       TestRunShortGetModelStatistics.validateJsonObject(jsonObj.getAsJsonObject("statistics"));
+      // ensure the json data is an array
+      if (!jsonObj.get("testResultsConfigurations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testResultsConfigurations` to be an array in the JSON string but got `%s`", jsonObj.get("testResultsConfigurations").toString()));
+      }
+
+      JsonArray jsonArraytestResultsConfigurations = jsonObj.getAsJsonArray("testResultsConfigurations");
+      // validate the required field `testResultsConfigurations` (array)
+      for (int i = 0; i < jsonArraytestResultsConfigurations.size(); i++) {
+        ConfigurationShortModel.validateJsonObject(jsonArraytestResultsConfigurations.get(i).getAsJsonObject());
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

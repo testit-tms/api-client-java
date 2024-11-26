@@ -33,7 +33,7 @@
 |**sectionId** | **UUID** | Unique ID of section where work item the test point represents is located |  |
 |**sectionName** | **String** | Name of section where work item the test point represents is located |  [optional] |
 |**projectId** | **UUID** | Unique ID of the test point project |  |
-|**lastTestResult** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  |  |
+|**lastTestResult** | [**LastTestResultModel**](LastTestResultModel.md) |  |  |
 |**iterationId** | **UUID** | Unique ID of work item iteration the test point represents |  |
 |**workItemState** | **WorkItemState** |  |  |
 |**workItemCreatedById** | **UUID** | Unique ID of the work item creator |  |

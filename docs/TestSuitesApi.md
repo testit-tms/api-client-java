@@ -21,7 +21,7 @@ All URIs are relative to *http://localhost*
 
 <a id="addTestPointsToTestSuite"></a>
 # **addTestPointsToTestSuite**
-> addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest)
+> addTestPointsToTestSuite(id, addTestPointsWithSectionsRequest)
 
 Add test-points to test suite
 
@@ -48,9 +48,9 @@ public class Example {
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
     UUID id = UUID.fromString("1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132"); // UUID | Test suite internal identifier
-    ApiV2ProjectsProjectIdWorkItemsSearchPostRequest apiV2ProjectsProjectIdWorkItemsSearchPostRequest = new ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(); // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project
+    AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest = new AddTestPointsWithSectionsRequest(); // AddTestPointsWithSectionsRequest | Filter object to retrieve work items for test-suite's project
     try {
-      apiInstance.addTestPointsToTestSuite(id, apiV2ProjectsProjectIdWorkItemsSearchPostRequest);
+      apiInstance.addTestPointsToTestSuite(id, addTestPointsWithSectionsRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#addTestPointsToTestSuite");
       System.err.println("Status code: " + e.getCode());
@@ -67,7 +67,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal identifier | |
-| **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **addTestPointsWithSectionsRequest** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 

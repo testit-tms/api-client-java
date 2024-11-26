@@ -25,13 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.FailureCategoryModel;
+import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.TestResultOutcome;
-import ru.testit.client.model.TestResultsFilterModelCompletedOn;
-import ru.testit.client.model.TestResultsFilterModelCreatedDate;
-import ru.testit.client.model.TestResultsFilterModelDuration;
-import ru.testit.client.model.TestResultsFilterModelModifiedDate;
-import ru.testit.client.model.TestResultsFilterModelStartedOn;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,49 +60,18 @@ import ru.testit.client.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultsFilterModel {
-  public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  private List<UUID> testRunIds;
-
-  public static final String SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS = "autoTestGlobalIds";
-  @SerializedName(SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS)
-  private List<Long> autoTestGlobalIds;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private TestResultsFilterModelCreatedDate createdDate;
-
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private TestResultsFilterModelModifiedDate modifiedDate;
-
-  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
-  @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  private TestResultsFilterModelStartedOn startedOn;
-
-  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
-  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  private TestResultsFilterModelCompletedOn completedOn;
-
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private TestResultsFilterModelDuration duration;
-
-  public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
-  @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
-  private List<String> resultReasons;
-
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
   private List<TestResultOutcome> outcomes;
+
+  public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
+  @SerializedName(SERIALIZED_NAME_STATUS_CODES)
+  private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
@@ -119,221 +85,44 @@ public class TestResultsFilterModel {
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
   private String className;
 
+  public static final String SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS = "autoTestGlobalIds";
+  @SerializedName(SERIALIZED_NAME_AUTO_TEST_GLOBAL_IDS)
+  private List<Long> autoTestGlobalIds;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private DateTimeRangeSelectorModel createdDate;
+
+  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  private DateTimeRangeSelectorModel modifiedDate;
+
+  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
+  @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  private DateTimeRangeSelectorModel startedOn;
+
+  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  private DateTimeRangeSelectorModel completedOn;
+
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Int64RangeSelectorModel duration;
+
+  public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
+  @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
+  private List<String> resultReasons;
+
+  public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
+  @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
+  private List<UUID> testRunIds;
+
   public TestResultsFilterModel() {
   }
-
-  public TestResultsFilterModel testRunIds(List<UUID> testRunIds) {
-    
-    this.testRunIds = testRunIds;
-    return this;
-  }
-
-  public TestResultsFilterModel addTestRunIdsItem(UUID testRunIdsItem) {
-    if (this.testRunIds == null) {
-      this.testRunIds = new ArrayList<>();
-    }
-    this.testRunIds.add(testRunIdsItem);
-    return this;
-  }
-
-   /**
-   * Specifies a test result test run IDs to search for
-   * @return testRunIds
-  **/
-  @javax.annotation.Nullable
-  public List<UUID> getTestRunIds() {
-    return testRunIds;
-  }
-
-
-  public void setTestRunIds(List<UUID> testRunIds) {
-    this.testRunIds = testRunIds;
-  }
-
-
-  public TestResultsFilterModel autoTestGlobalIds(List<Long> autoTestGlobalIds) {
-    
-    this.autoTestGlobalIds = autoTestGlobalIds;
-    return this;
-  }
-
-  public TestResultsFilterModel addAutoTestGlobalIdsItem(Long autoTestGlobalIdsItem) {
-    if (this.autoTestGlobalIds == null) {
-      this.autoTestGlobalIds = new ArrayList<>();
-    }
-    this.autoTestGlobalIds.add(autoTestGlobalIdsItem);
-    return this;
-  }
-
-   /**
-   * Specifies an autotest global IDs to search results for
-   * @return autoTestGlobalIds
-  **/
-  @javax.annotation.Nullable
-  public List<Long> getAutoTestGlobalIds() {
-    return autoTestGlobalIds;
-  }
-
-
-  public void setAutoTestGlobalIds(List<Long> autoTestGlobalIds) {
-    this.autoTestGlobalIds = autoTestGlobalIds;
-  }
-
-
-  public TestResultsFilterModel name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Specifies an autotest name to search results for
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public TestResultsFilterModel createdDate(TestResultsFilterModelCreatedDate createdDate) {
-    
-    this.createdDate = createdDate;
-    return this;
-  }
-
-   /**
-   * Get createdDate
-   * @return createdDate
-  **/
-  @javax.annotation.Nullable
-  public TestResultsFilterModelCreatedDate getCreatedDate() {
-    return createdDate;
-  }
-
-
-  public void setCreatedDate(TestResultsFilterModelCreatedDate createdDate) {
-    this.createdDate = createdDate;
-  }
-
-
-  public TestResultsFilterModel modifiedDate(TestResultsFilterModelModifiedDate modifiedDate) {
-    
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-   /**
-   * Get modifiedDate
-   * @return modifiedDate
-  **/
-  @javax.annotation.Nullable
-  public TestResultsFilterModelModifiedDate getModifiedDate() {
-    return modifiedDate;
-  }
-
-
-  public void setModifiedDate(TestResultsFilterModelModifiedDate modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
-
-
-  public TestResultsFilterModel startedOn(TestResultsFilterModelStartedOn startedOn) {
-    
-    this.startedOn = startedOn;
-    return this;
-  }
-
-   /**
-   * Get startedOn
-   * @return startedOn
-  **/
-  @javax.annotation.Nullable
-  public TestResultsFilterModelStartedOn getStartedOn() {
-    return startedOn;
-  }
-
-
-  public void setStartedOn(TestResultsFilterModelStartedOn startedOn) {
-    this.startedOn = startedOn;
-  }
-
-
-  public TestResultsFilterModel completedOn(TestResultsFilterModelCompletedOn completedOn) {
-    
-    this.completedOn = completedOn;
-    return this;
-  }
-
-   /**
-   * Get completedOn
-   * @return completedOn
-  **/
-  @javax.annotation.Nullable
-  public TestResultsFilterModelCompletedOn getCompletedOn() {
-    return completedOn;
-  }
-
-
-  public void setCompletedOn(TestResultsFilterModelCompletedOn completedOn) {
-    this.completedOn = completedOn;
-  }
-
-
-  public TestResultsFilterModel duration(TestResultsFilterModelDuration duration) {
-    
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * Get duration
-   * @return duration
-  **/
-  @javax.annotation.Nullable
-  public TestResultsFilterModelDuration getDuration() {
-    return duration;
-  }
-
-
-  public void setDuration(TestResultsFilterModelDuration duration) {
-    this.duration = duration;
-  }
-
-
-  public TestResultsFilterModel resultReasons(List<String> resultReasons) {
-    
-    this.resultReasons = resultReasons;
-    return this;
-  }
-
-  public TestResultsFilterModel addResultReasonsItem(String resultReasonsItem) {
-    if (this.resultReasons == null) {
-      this.resultReasons = new ArrayList<>();
-    }
-    this.resultReasons.add(resultReasonsItem);
-    return this;
-  }
-
-   /**
-   * Specifies result reasons for searching test results
-   * @return resultReasons
-  **/
-  @javax.annotation.Nullable
-  public List<String> getResultReasons() {
-    return resultReasons;
-  }
-
-
-  public void setResultReasons(List<String> resultReasons) {
-    this.resultReasons = resultReasons;
-  }
-
 
   public TestResultsFilterModel configurationIds(List<UUID> configurationIds) {
     
@@ -350,7 +139,7 @@ public class TestResultsFilterModel {
   }
 
    /**
-   * Specifies a test result configuration IDs to search for
+   * Get configurationIds
    * @return configurationIds
   **/
   @javax.annotation.Nullable
@@ -364,6 +153,7 @@ public class TestResultsFilterModel {
   }
 
 
+  @Deprecated
   public TestResultsFilterModel outcomes(List<TestResultOutcome> outcomes) {
     
     this.outcomes = outcomes;
@@ -379,17 +169,49 @@ public class TestResultsFilterModel {
   }
 
    /**
-   * Specifies a test result outcomes to search for
+   * Get outcomes
    * @return outcomes
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   public List<TestResultOutcome> getOutcomes() {
     return outcomes;
   }
 
 
+  @Deprecated
   public void setOutcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
+  }
+
+
+  public TestResultsFilterModel statusCodes(List<String> statusCodes) {
+    
+    this.statusCodes = statusCodes;
+    return this;
+  }
+
+  public TestResultsFilterModel addStatusCodesItem(String statusCodesItem) {
+    if (this.statusCodes == null) {
+      this.statusCodes = new ArrayList<>();
+    }
+    this.statusCodes.add(statusCodesItem);
+    return this;
+  }
+
+   /**
+   * Get statusCodes
+   * @return statusCodes
+  **/
+  @javax.annotation.Nullable
+  public List<String> getStatusCodes() {
+    return statusCodes;
+  }
+
+
+  public void setStatusCodes(List<String> statusCodes) {
+    this.statusCodes = statusCodes;
   }
 
 
@@ -408,7 +230,7 @@ public class TestResultsFilterModel {
   }
 
    /**
-   * Specifies a test result failure categories to search for
+   * Get failureCategories
    * @return failureCategories
   **/
   @javax.annotation.Nullable
@@ -429,7 +251,7 @@ public class TestResultsFilterModel {
   }
 
    /**
-   * Specifies a test result namespace to search for
+   * Get namespace
    * @return namespace
   **/
   @javax.annotation.Nullable
@@ -450,7 +272,7 @@ public class TestResultsFilterModel {
   }
 
    /**
-   * Specifies a test result class name to search for
+   * Get className
    * @return className
   **/
   @javax.annotation.Nullable
@@ -464,6 +286,219 @@ public class TestResultsFilterModel {
   }
 
 
+  public TestResultsFilterModel autoTestGlobalIds(List<Long> autoTestGlobalIds) {
+    
+    this.autoTestGlobalIds = autoTestGlobalIds;
+    return this;
+  }
+
+  public TestResultsFilterModel addAutoTestGlobalIdsItem(Long autoTestGlobalIdsItem) {
+    if (this.autoTestGlobalIds == null) {
+      this.autoTestGlobalIds = new ArrayList<>();
+    }
+    this.autoTestGlobalIds.add(autoTestGlobalIdsItem);
+    return this;
+  }
+
+   /**
+   * Get autoTestGlobalIds
+   * @return autoTestGlobalIds
+  **/
+  @javax.annotation.Nullable
+  public List<Long> getAutoTestGlobalIds() {
+    return autoTestGlobalIds;
+  }
+
+
+  public void setAutoTestGlobalIds(List<Long> autoTestGlobalIds) {
+    this.autoTestGlobalIds = autoTestGlobalIds;
+  }
+
+
+  public TestResultsFilterModel name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public TestResultsFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+    
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Get createdDate
+   * @return createdDate
+  **/
+  @javax.annotation.Nullable
+  public DateTimeRangeSelectorModel getCreatedDate() {
+    return createdDate;
+  }
+
+
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public TestResultsFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+    
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+   /**
+   * Get modifiedDate
+   * @return modifiedDate
+  **/
+  @javax.annotation.Nullable
+  public DateTimeRangeSelectorModel getModifiedDate() {
+    return modifiedDate;
+  }
+
+
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public TestResultsFilterModel startedOn(DateTimeRangeSelectorModel startedOn) {
+    
+    this.startedOn = startedOn;
+    return this;
+  }
+
+   /**
+   * Get startedOn
+   * @return startedOn
+  **/
+  @javax.annotation.Nullable
+  public DateTimeRangeSelectorModel getStartedOn() {
+    return startedOn;
+  }
+
+
+  public void setStartedOn(DateTimeRangeSelectorModel startedOn) {
+    this.startedOn = startedOn;
+  }
+
+
+  public TestResultsFilterModel completedOn(DateTimeRangeSelectorModel completedOn) {
+    
+    this.completedOn = completedOn;
+    return this;
+  }
+
+   /**
+   * Get completedOn
+   * @return completedOn
+  **/
+  @javax.annotation.Nullable
+  public DateTimeRangeSelectorModel getCompletedOn() {
+    return completedOn;
+  }
+
+
+  public void setCompletedOn(DateTimeRangeSelectorModel completedOn) {
+    this.completedOn = completedOn;
+  }
+
+
+  public TestResultsFilterModel duration(Int64RangeSelectorModel duration) {
+    
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Get duration
+   * @return duration
+  **/
+  @javax.annotation.Nullable
+  public Int64RangeSelectorModel getDuration() {
+    return duration;
+  }
+
+
+  public void setDuration(Int64RangeSelectorModel duration) {
+    this.duration = duration;
+  }
+
+
+  public TestResultsFilterModel resultReasons(List<String> resultReasons) {
+    
+    this.resultReasons = resultReasons;
+    return this;
+  }
+
+  public TestResultsFilterModel addResultReasonsItem(String resultReasonsItem) {
+    if (this.resultReasons == null) {
+      this.resultReasons = new ArrayList<>();
+    }
+    this.resultReasons.add(resultReasonsItem);
+    return this;
+  }
+
+   /**
+   * Get resultReasons
+   * @return resultReasons
+  **/
+  @javax.annotation.Nullable
+  public List<String> getResultReasons() {
+    return resultReasons;
+  }
+
+
+  public void setResultReasons(List<String> resultReasons) {
+    this.resultReasons = resultReasons;
+  }
+
+
+  public TestResultsFilterModel testRunIds(List<UUID> testRunIds) {
+    
+    this.testRunIds = testRunIds;
+    return this;
+  }
+
+  public TestResultsFilterModel addTestRunIdsItem(UUID testRunIdsItem) {
+    if (this.testRunIds == null) {
+      this.testRunIds = new ArrayList<>();
+    }
+    this.testRunIds.add(testRunIdsItem);
+    return this;
+  }
+
+   /**
+   * Get testRunIds
+   * @return testRunIds
+  **/
+  @javax.annotation.Nullable
+  public List<UUID> getTestRunIds() {
+    return testRunIds;
+  }
+
+
+  public void setTestRunIds(List<UUID> testRunIds) {
+    this.testRunIds = testRunIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -474,7 +509,12 @@ public class TestResultsFilterModel {
       return false;
     }
     TestResultsFilterModel testResultsFilterModel = (TestResultsFilterModel) o;
-    return Objects.equals(this.testRunIds, testResultsFilterModel.testRunIds) &&
+    return Objects.equals(this.configurationIds, testResultsFilterModel.configurationIds) &&
+        Objects.equals(this.outcomes, testResultsFilterModel.outcomes) &&
+        Objects.equals(this.statusCodes, testResultsFilterModel.statusCodes) &&
+        Objects.equals(this.failureCategories, testResultsFilterModel.failureCategories) &&
+        Objects.equals(this.namespace, testResultsFilterModel.namespace) &&
+        Objects.equals(this.className, testResultsFilterModel.className) &&
         Objects.equals(this.autoTestGlobalIds, testResultsFilterModel.autoTestGlobalIds) &&
         Objects.equals(this.name, testResultsFilterModel.name) &&
         Objects.equals(this.createdDate, testResultsFilterModel.createdDate) &&
@@ -483,11 +523,7 @@ public class TestResultsFilterModel {
         Objects.equals(this.completedOn, testResultsFilterModel.completedOn) &&
         Objects.equals(this.duration, testResultsFilterModel.duration) &&
         Objects.equals(this.resultReasons, testResultsFilterModel.resultReasons) &&
-        Objects.equals(this.configurationIds, testResultsFilterModel.configurationIds) &&
-        Objects.equals(this.outcomes, testResultsFilterModel.outcomes) &&
-        Objects.equals(this.failureCategories, testResultsFilterModel.failureCategories) &&
-        Objects.equals(this.namespace, testResultsFilterModel.namespace) &&
-        Objects.equals(this.className, testResultsFilterModel.className);
+        Objects.equals(this.testRunIds, testResultsFilterModel.testRunIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -496,7 +532,7 @@ public class TestResultsFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunIds, autoTestGlobalIds, name, createdDate, modifiedDate, startedOn, completedOn, duration, resultReasons, configurationIds, outcomes, failureCategories, namespace, className);
+    return Objects.hash(configurationIds, outcomes, statusCodes, failureCategories, namespace, className, autoTestGlobalIds, name, createdDate, modifiedDate, startedOn, completedOn, duration, resultReasons, testRunIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -510,7 +546,12 @@ public class TestResultsFilterModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestResultsFilterModel {\n");
-    sb.append("    testRunIds: ").append(toIndentedString(testRunIds)).append("\n");
+    sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
+    sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
+    sb.append("    statusCodes: ").append(toIndentedString(statusCodes)).append("\n");
+    sb.append("    failureCategories: ").append(toIndentedString(failureCategories)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    className: ").append(toIndentedString(className)).append("\n");
     sb.append("    autoTestGlobalIds: ").append(toIndentedString(autoTestGlobalIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
@@ -519,11 +560,7 @@ public class TestResultsFilterModel {
     sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    resultReasons: ").append(toIndentedString(resultReasons)).append("\n");
-    sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
-    sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
-    sb.append("    failureCategories: ").append(toIndentedString(failureCategories)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    className: ").append(toIndentedString(className)).append("\n");
+    sb.append("    testRunIds: ").append(toIndentedString(testRunIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -546,7 +583,12 @@ public class TestResultsFilterModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("testRunIds");
+    openapiFields.add("configurationIds");
+    openapiFields.add("outcomes");
+    openapiFields.add("statusCodes");
+    openapiFields.add("failureCategories");
+    openapiFields.add("namespace");
+    openapiFields.add("className");
     openapiFields.add("autoTestGlobalIds");
     openapiFields.add("name");
     openapiFields.add("createdDate");
@@ -555,11 +597,7 @@ public class TestResultsFilterModel {
     openapiFields.add("completedOn");
     openapiFields.add("duration");
     openapiFields.add("resultReasons");
-    openapiFields.add("configurationIds");
-    openapiFields.add("outcomes");
-    openapiFields.add("failureCategories");
-    openapiFields.add("namespace");
-    openapiFields.add("className");
+    openapiFields.add("testRunIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -586,47 +624,16 @@ public class TestResultsFilterModel {
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestGlobalIds") != null && !jsonObj.get("autoTestGlobalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `autoTestGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestGlobalIds").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestResultsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
-      }
-      // validate the optional field `modifiedDate`
-      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        TestResultsFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
-      }
-      // validate the optional field `startedOn`
-      if (jsonObj.get("startedOn") != null && !jsonObj.get("startedOn").isJsonNull()) {
-        TestResultsFilterModelStartedOn.validateJsonObject(jsonObj.getAsJsonObject("startedOn"));
-      }
-      // validate the optional field `completedOn`
-      if (jsonObj.get("completedOn") != null && !jsonObj.get("completedOn").isJsonNull()) {
-        TestResultsFilterModelCompletedOn.validateJsonObject(jsonObj.getAsJsonObject("completedOn"));
-      }
-      // validate the optional field `duration`
-      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestResultsFilterModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultReasons` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasons").toString()));
-      }
-      // ensure the optional json data is an array if present
       if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("statusCodes") != null && !jsonObj.get("statusCodes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statusCodes` to be an array in the JSON string but got `%s`", jsonObj.get("statusCodes").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonArray()) {
@@ -637,6 +644,41 @@ public class TestResultsFilterModel {
       }
       if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("autoTestGlobalIds") != null && !jsonObj.get("autoTestGlobalIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `autoTestGlobalIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestGlobalIds").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `createdDate`
+      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+      }
+      // validate the optional field `modifiedDate`
+      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+      }
+      // validate the optional field `startedOn`
+      if (jsonObj.get("startedOn") != null && !jsonObj.get("startedOn").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("startedOn"));
+      }
+      // validate the optional field `completedOn`
+      if (jsonObj.get("completedOn") != null && !jsonObj.get("completedOn").isJsonNull()) {
+        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("completedOn"));
+      }
+      // validate the optional field `duration`
+      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
+        Int64RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("resultReasons") != null && !jsonObj.get("resultReasons").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resultReasons` to be an array in the JSON string but got `%s`", jsonObj.get("resultReasons").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
       }
   }
 

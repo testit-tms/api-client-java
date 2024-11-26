@@ -31,6 +31,7 @@ import ru.testit.client.model.ApiV2CustomAttributesGlobalIdPutRequest;
 import ru.testit.client.model.ApiV2CustomAttributesGlobalPostRequest;
 import ru.testit.client.model.ApiV2CustomAttributesSearchPostRequest;
 import ru.testit.client.model.CustomAttributeModel;
+import ru.testit.client.model.CustomAttributeValidationResult;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -79,6 +80,159 @@ public class CustomAttributesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for apiV2CustomAttributesExistsGet
+     * @param name  (optional)
+     * @param isGlobal  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2CustomAttributesExistsGetCall(String name, Boolean isGlobal, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/customAttributes/exists";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (isGlobal != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isGlobal", isGlobal));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2CustomAttributesExistsGetValidateBeforeCall(String name, Boolean isGlobal, final ApiCallback _callback) throws ApiException {
+        return apiV2CustomAttributesExistsGetCall(name, isGlobal, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param name  (optional)
+     * @param isGlobal  (optional)
+     * @return CustomAttributeValidationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public CustomAttributeValidationResult apiV2CustomAttributesExistsGet(String name, Boolean isGlobal) throws ApiException {
+        ApiResponse<CustomAttributeValidationResult> localVarResp = apiV2CustomAttributesExistsGetWithHttpInfo(name, isGlobal);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param name  (optional)
+     * @param isGlobal  (optional)
+     * @return ApiResponse&lt;CustomAttributeValidationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomAttributeValidationResult> apiV2CustomAttributesExistsGetWithHttpInfo(String name, Boolean isGlobal) throws ApiException {
+        okhttp3.Call localVarCall = apiV2CustomAttributesExistsGetValidateBeforeCall(name, isGlobal, null);
+        Type localVarReturnType = new TypeToken<CustomAttributeValidationResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param name  (optional)
+     * @param isGlobal  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2CustomAttributesExistsGetAsync(String name, Boolean isGlobal, final ApiCallback<CustomAttributeValidationResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2CustomAttributesExistsGetValidateBeforeCall(name, isGlobal, _callback);
+        Type localVarReturnType = new TypeToken<CustomAttributeValidationResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for apiV2CustomAttributesGlobalIdDelete
      * @param id Unique ID of attribute (required)

@@ -26,6 +26,7 @@ Object containing different filters to adjust search
 |**isEmptyClassName** | **Boolean** | Specifies an autotest class name presence status to search for |  [optional] |
 |**lastTestResultOutcome** | **AutotestResultOutcome** |  |  [optional] |
 |**externalKey** | **String** | Specifies an autotest external key to search for |  [optional] |
+|**lastTestResultConfigurationIds** | **Set&lt;UUID&gt;** | Specifies an autotest configuration IDs of the last test result to search for |  [optional] |
 
 
 
