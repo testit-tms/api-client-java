@@ -1185,7 +1185,10 @@ public class TestPointShortGetModel {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
       // validate the required field `lastTestResult`
-      LastTestResultModel.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
+      // manual check for null added
+      if (jsonObj.get("lastTestResult") != null && !jsonObj.get("lastTestResult").isJsonNull()) {
+        LastTestResultModel.validateJsonObject(jsonObj.getAsJsonObject("lastTestResult"));
+      }
       if (!jsonObj.get("iterationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iterationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iterationId").toString()));
       }
