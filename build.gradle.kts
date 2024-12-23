@@ -23,11 +23,16 @@ repositories {
     mavenCentral()
 }
 
+val sonaUsername = providers.gradleProperty("sonatypeAccessToken")
+val sonaPassword = providers.gradleProperty("sonatypeAccessPassword")
+
 nexusPublishing {
     repositories {
         sonatype {
             nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+            username.set(sonaUsername.get())
+            password.set(sonaPassword.get())
         }
     }
 }
@@ -35,12 +40,13 @@ nexusPublishing {
 publishing {
     repositories {
         maven {
-        name = "OSSRH"
-        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-        credentials {
-            username = System.getenv("MAVEN_USERNAME")
-            password = System.getenv("MAVEN_PASSWORD")
-        }
+            val releasesUrl = uri("https://s01.oss.sonatype.org/content/repositories/releases")
+            val snapshotsUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+            url = if (version.toString().toLowerCase().contains("snapshot")) snapshotsUrl else releasesUrl
+            credentials {
+                username = sonaUsername.get()
+                password = sonaPassword.get()
+            }
         }
     }
     publications {
@@ -115,7 +121,8 @@ publishing.publications.named<MavenPublication>("maven") {
         from(components["java"])
     }
 }
-
+val junitVersion = "5.8.2"
+val junitLauncherVersion = "1.9.0"
 val jakarta_annotation_version = "1.3.5"
 
 dependencies {
@@ -130,6 +137,12 @@ dependencies {
 	implementation("org.openapitools:jackson-databind-nullable:0.2.6")
 	implementation("jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version")
 	implementation("org.apache.commons:commons-lang3:3.12.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
+    testImplementation("org.junit.platform:junit-platform-launcher:$junitLauncherVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
 }
 
-
+tasks.test {
+    useJUnitPlatform()
+}
