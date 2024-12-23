@@ -14,9 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -24,29 +22,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import ru.testit.client.model.CustomAttributeOptionModel;
-import ru.testit.client.model.CustomAttributeTypesEnum;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -88,6 +71,15 @@ public class CustomAttributeModel {
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
   private Boolean isGlobal;
+
+  public static final String SERIALIZED_WORKITEM_USAGE = "workItemUsage";
+  @SerializedName(SERIALIZED_WORKITEM_USAGE)
+  private List<ProjectShortestModel> workItemUsage = new ArrayList<>();
+
+  public static final String SERIALIZED_TESTPLAN_USAGE = "testPlanUsage";
+  @SerializedName(SERIALIZED_TESTPLAN_USAGE)
+  private List<ProjectShortestModel> testPlanUsage = new ArrayList<>();
+
 
   public CustomAttributeModel() {
   }
@@ -285,12 +277,14 @@ public class CustomAttributeModel {
         Objects.equals(this.name, customAttributeModel.name) &&
         Objects.equals(this.isEnabled, customAttributeModel.isEnabled) &&
         Objects.equals(this.isRequired, customAttributeModel.isRequired) &&
-        Objects.equals(this.isGlobal, customAttributeModel.isGlobal);
+        Objects.equals(this.isGlobal, customAttributeModel.isGlobal) &&
+        Objects.equals(this.workItemUsage, customAttributeModel.workItemUsage) &&
+        Objects.equals(this.testPlanUsage, customAttributeModel.testPlanUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal);
+    return Objects.hash(id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal, testPlanUsage, workItemUsage);
   }
 
   @Override
@@ -305,6 +299,9 @@ public class CustomAttributeModel {
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");
     sb.append("    isGlobal: ").append(toIndentedString(isGlobal)).append("\n");
+    sb.append("    isGlobal: ").append(toIndentedString(isGlobal)).append("\n");
+    sb.append("    testPlanUsage: ").append(toIndentedString(testPlanUsage)).append("\n");
+    sb.append("    workItemUsage: ").append(toIndentedString(workItemUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -335,6 +332,8 @@ public class CustomAttributeModel {
     openapiFields.add("isEnabled");
     openapiFields.add("isRequired");
     openapiFields.add("isGlobal");
+    openapiFields.add("workItemUsage");
+    openapiFields.add("testPlanUsage");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
