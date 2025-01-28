@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -29,9 +29,9 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WorkItemState.Adapter.class)
 public enum WorkItemState {
   
-  NEEDSWORK("NeedsWork"),
+  NEEDS_WORK("NeedsWork"),
   
-  NOTREADY("NotReady"),
+  NOT_READY("NotReady"),
   
   READY("Ready");
 
@@ -70,6 +70,11 @@ public enum WorkItemState {
       String value = jsonReader.nextString();
       return WorkItemState.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    WorkItemState.fromValue(value);
   }
 }
 

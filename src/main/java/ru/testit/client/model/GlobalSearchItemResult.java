@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,12 +39,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,132 +50,127 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalSearchItemResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalSearchItemResult {
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resourceType";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
+  @javax.annotation.Nonnull
   private String resourceType;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resourceId";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
+  @javax.annotation.Nonnull
   private UUID resourceId;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nullable
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_GLOBAL_ID = "projectGlobalId";
   @SerializedName(SERIALIZED_NAME_PROJECT_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long projectGlobalId;
 
   public GlobalSearchItemResult() {
   }
 
-  public GlobalSearchItemResult resourceType(String resourceType) {
-    
+  public GlobalSearchItemResult resourceType(@javax.annotation.Nonnull String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
 
-   /**
+  /**
    * Get resourceType
    * @return resourceType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getResourceType() {
     return resourceType;
   }
 
-
-  public void setResourceType(String resourceType) {
+  public void setResourceType(@javax.annotation.Nonnull String resourceType) {
     this.resourceType = resourceType;
   }
 
 
-  public GlobalSearchItemResult resourceId(UUID resourceId) {
-    
+  public GlobalSearchItemResult resourceId(@javax.annotation.Nonnull UUID resourceId) {
     this.resourceId = resourceId;
     return this;
   }
 
-   /**
+  /**
    * Get resourceId
    * @return resourceId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getResourceId() {
     return resourceId;
   }
 
-
-  public void setResourceId(UUID resourceId) {
+  public void setResourceId(@javax.annotation.Nonnull UUID resourceId) {
     this.resourceId = resourceId;
   }
 
 
-  public GlobalSearchItemResult globalId(Long globalId) {
-    
+  public GlobalSearchItemResult globalId(@javax.annotation.Nullable Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Get globalId
    * @return globalId
-  **/
+   */
   @javax.annotation.Nullable
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nullable Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public GlobalSearchItemResult name(String name) {
-    
+  public GlobalSearchItemResult name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public GlobalSearchItemResult projectGlobalId(Long projectGlobalId) {
-    
+  public GlobalSearchItemResult projectGlobalId(@javax.annotation.Nonnull Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get projectGlobalId
    * @return projectGlobalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getProjectGlobalId() {
     return projectGlobalId;
   }
 
-
-  public void setProjectGlobalId(Long projectGlobalId) {
+  public void setProjectGlobalId(@javax.annotation.Nonnull Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
   }
 
@@ -260,33 +253,34 @@ public class GlobalSearchItemResult {
     openapiRequiredFields.add("projectGlobalId");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GlobalSearchItemResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!GlobalSearchItemResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GlobalSearchItemResult
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GlobalSearchItemResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GlobalSearchItemResult is not found in the empty JSON string", GlobalSearchItemResult.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GlobalSearchItemResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSearchItemResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSearchItemResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GlobalSearchItemResult.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("resourceType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `resourceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceType").toString()));
       }
@@ -318,31 +312,31 @@ public class GlobalSearchItemResult {
 
            @Override
            public GlobalSearchItemResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of GlobalSearchItemResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GlobalSearchItemResult
-  * @throws IOException if the JSON string is invalid with respect to GlobalSearchItemResult
-  */
+  /**
+   * Create an instance of GlobalSearchItemResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GlobalSearchItemResult
+   * @throws IOException if the JSON string is invalid with respect to GlobalSearchItemResult
+   */
   public static GlobalSearchItemResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GlobalSearchItemResult.class);
   }
 
- /**
-  * Convert an instance of GlobalSearchItemResult to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GlobalSearchItemResult to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

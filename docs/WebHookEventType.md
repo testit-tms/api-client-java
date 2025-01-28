@@ -5,39 +5,39 @@
 ## Enum
 
 
-* `AUTOMATEDTESTRUNCREATED` (value: `"AutomatedTestRunCreated"`)
+* `AUTOMATED_TEST_RUN_CREATED` (value: `"AutomatedTestRunCreated"`)
 
-* `TESTPLANSSTATUSCHANGED` (value: `"TestPlansStatusChanged"`)
+* `TEST_PLANS_STATUS_CHANGED` (value: `"TestPlansStatusChanged"`)
 
-* `TESTRUNSTOPPED` (value: `"TestRunStopped"`)
+* `TEST_RUN_STOPPED` (value: `"TestRunStopped"`)
 
-* `TESTPOINTASSIGNED` (value: `"TestPointAssigned"`)
+* `TEST_POINT_ASSIGNED` (value: `"TestPointAssigned"`)
 
-* `TESTRESULTJIRAISSUECREATED` (value: `"TestResultJiraIssueCreated"`)
+* `TEST_RESULT_JIRA_ISSUE_CREATED` (value: `"TestResultJiraIssueCreated"`)
 
-* `AUTOTESTFINISHED` (value: `"AutoTestFinished"`)
+* `AUTO_TEST_FINISHED` (value: `"AutoTestFinished"`)
 
-* `USERMENTIONEDINCOMMENT` (value: `"UserMentionedInComment"`)
+* `USER_MENTIONED_IN_COMMENT` (value: `"UserMentionedInComment"`)
 
-* `USERSELECTEDINWORKITEMATTRIBUTE` (value: `"UserSelectedInWorkItemAttribute"`)
+* `USER_SELECTED_IN_WORK_ITEM_ATTRIBUTE` (value: `"UserSelectedInWorkItemAttribute"`)
 
-* `ALLTESTPOINTSFINISHED` (value: `"AllTestPointsFinished"`)
+* `ALL_TEST_POINTS_FINISHED` (value: `"AllTestPointsFinished"`)
 
-* `ALLAUTOTESTSFINISHED` (value: `"AllAutoTestsFinished"`)
+* `ALL_AUTO_TESTS_FINISHED` (value: `"AllAutoTestsFinished"`)
 
-* `AUTOTESTCHANGED` (value: `"AutoTestChanged"`)
+* `AUTO_TEST_CHANGED` (value: `"AutoTestChanged"`)
 
-* `WORKITEMAUTOTESTRELATIONCHANGED` (value: `"WorkItemAutoTestRelationChanged"`)
+* `WORK_ITEM_AUTO_TEST_RELATION_CHANGED` (value: `"WorkItemAutoTestRelationChanged"`)
 
-* `WORKITEMATTRIBUTECHANGED` (value: `"WorkItemAttributeChanged"`)
+* `WORK_ITEM_ATTRIBUTE_CHANGED` (value: `"WorkItemAttributeChanged"`)
 
-* `WORKITEMCHANGED` (value: `"WorkItemChanged"`)
+* `WORK_ITEM_CHANGED` (value: `"WorkItemChanged"`)
 
-* `CONFIGURATIONCHANGED` (value: `"ConfigurationChanged"`)
+* `CONFIGURATION_CHANGED` (value: `"ConfigurationChanged"`)
 
-* `PROJECTCHANGED` (value: `"ProjectChanged"`)
+* `PROJECT_CHANGED` (value: `"ProjectChanged"`)
 
-* `TESTPLANCHANGED` (value: `"TestPlanChanged"`)
+* `TEST_PLAN_CHANGED` (value: `"TestPlanChanged"`)
 
 
 

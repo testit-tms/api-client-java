@@ -1,5 +1,6 @@
 package ru.testit.client.model;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -15,12 +16,13 @@ public class TestPointWithLastResultModelTest {
     @Test
     void testValidateJsonObjectAnother_ValidJson() {
         // Setup
-        TestPointWithLastResultModel.openapiFields = new HashSet<>(Arrays.asList(
+        TestPointWithLastResultResponseModel.openapiFields = new HashSet<>(Arrays.asList(
                 "id", "workItemName", "testerId", "workItemId", "configurationId",
-                "testSuiteId", "status", "sectionId", "createdById", "modifiedById", "lastTestResult"
+                "testSuiteId", "status", "sectionId", "createdById", "modifiedById",
+                "lastTestResult", "priority"
         ));
-        TestPointWithLastResultModel.openapiRequiredFields = new HashSet<>(Arrays.asList(
-                "id", "workItemId", "testSuiteId", "sectionId", "createdById", "lastTestResult"
+        TestPointWithLastResultResponseModel.openapiRequiredFields = new HashSet<>(Arrays.asList(
+                "id", "workItemId", "testSuiteId", "sectionId", "createdById", "lastTestResult", "priority"
         ));
 
         JsonObject jsonObj = new JsonObject();
@@ -30,8 +32,9 @@ public class TestPointWithLastResultModelTest {
         jsonObj.add("sectionId", new JsonPrimitive(789));
         jsonObj.add("createdById", new JsonPrimitive(1001));
         jsonObj.add("lastTestResult", JsonNull.INSTANCE);
+        jsonObj.add("priority", new JsonPrimitive("Medium"));
 
         // Execute & Verify
-        assertDoesNotThrow(() -> TestPointWithLastResultModel.validateJsonObject(jsonObj));
+        assertDoesNotThrow(() -> TestPointWithLastResultResponseModel.validateJsonElement(jsonObj));
     }
 }

@@ -14,28 +14,28 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AttachmentChangeViewModelArrayChangedFieldViewModel;
+import ru.testit.client.model.AutoTestChangeViewModelArrayChangedFieldViewModel;
+import ru.testit.client.model.BooleanChangedFieldViewModel;
+import ru.testit.client.model.GuidChangedFieldViewModel;
+import ru.testit.client.model.Int32ChangedFieldViewModel;
+import ru.testit.client.model.Int64ChangedFieldViewModel;
+import ru.testit.client.model.StringArrayChangedFieldViewModel;
+import ru.testit.client.model.StringChangedFieldViewModel;
 import ru.testit.client.model.StringChangedFieldWithDiffsViewModel;
 import ru.testit.client.model.WorkItemChangedAttributeViewModel;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelAttachments;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelAutoTests;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelDuration;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelGlobalId;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelIsDeleted;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelLinks;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelProjectId;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelState;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelSteps;
-import ru.testit.client.model.WorkItemChangedFieldsViewModelTags;
+import ru.testit.client.model.WorkItemLinkChangeViewModelArrayChangedFieldViewModel;
+import ru.testit.client.model.WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,12 +52,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -65,282 +63,283 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemChangedFieldsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemChangedFieldsViewModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel name;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private WorkItemChangedFieldsViewModelIsDeleted isDeleted;
+  @javax.annotation.Nonnull
+  private BooleanChangedFieldViewModel isDeleted;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  private WorkItemChangedFieldsViewModelProjectId projectId;
+  @javax.annotation.Nonnull
+  private GuidChangedFieldViewModel projectId;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  private WorkItemChangedFieldsViewModelIsDeleted isAutomated;
+  @javax.annotation.Nonnull
+  private BooleanChangedFieldViewModel isAutomated;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  private WorkItemChangedFieldsViewModelProjectId sectionId;
+  @javax.annotation.Nonnull
+  private GuidChangedFieldViewModel sectionId;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel description;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  private WorkItemChangedFieldsViewModelState state;
+  @javax.annotation.Nonnull
+  private StringChangedFieldViewModel state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  private WorkItemChangedFieldsViewModelState priority;
+  @javax.annotation.Nonnull
+  private StringChangedFieldViewModel priority;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  private WorkItemChangedFieldsViewModelDuration duration;
+  @javax.annotation.Nonnull
+  private Int32ChangedFieldViewModel duration;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nonnull
   private Map<String, WorkItemChangedAttributeViewModel> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private WorkItemChangedFieldsViewModelSteps steps;
+  @javax.annotation.Nonnull
+  private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps;
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private WorkItemChangedFieldsViewModelSteps preconditionSteps;
+  @javax.annotation.Nonnull
+  private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private WorkItemChangedFieldsViewModelSteps postconditionSteps;
+  @javax.annotation.Nonnull
+  private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private WorkItemChangedFieldsViewModelAutoTests autoTests;
+  @javax.annotation.Nonnull
+  private AutoTestChangeViewModelArrayChangedFieldViewModel autoTests;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private WorkItemChangedFieldsViewModelAttachments attachments;
+  @javax.annotation.Nonnull
+  private AttachmentChangeViewModelArrayChangedFieldViewModel attachments;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private WorkItemChangedFieldsViewModelTags tags;
+  @javax.annotation.Nonnull
+  private StringArrayChangedFieldViewModel tags;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private WorkItemChangedFieldsViewModelLinks links;
+  @javax.annotation.Nonnull
+  private WorkItemLinkChangeViewModelArrayChangedFieldViewModel links;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  private WorkItemChangedFieldsViewModelGlobalId globalId;
+  @javax.annotation.Nonnull
+  private Int64ChangedFieldViewModel globalId;
 
   public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
   @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
-  private WorkItemChangedFieldsViewModelDuration versionNumber;
+  @javax.annotation.Nonnull
+  private Int32ChangedFieldViewModel versionNumber;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
-  private WorkItemChangedFieldsViewModelState entityTypeName;
+  @javax.annotation.Nonnull
+  private StringChangedFieldViewModel entityTypeName;
 
   public WorkItemChangedFieldsViewModel() {
   }
 
-  public WorkItemChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
-    
+  public WorkItemChangedFieldsViewModel name(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getName() {
     return name;
   }
 
-
-  public void setName(StringChangedFieldWithDiffsViewModel name) {
+  public void setName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
   }
 
 
-  public WorkItemChangedFieldsViewModel isDeleted(WorkItemChangedFieldsViewModelIsDeleted isDeleted) {
-    
+  public WorkItemChangedFieldsViewModel isDeleted(@javax.annotation.Nonnull BooleanChangedFieldViewModel isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelIsDeleted getIsDeleted() {
+  public BooleanChangedFieldViewModel getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(WorkItemChangedFieldsViewModelIsDeleted isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull BooleanChangedFieldViewModel isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemChangedFieldsViewModel projectId(WorkItemChangedFieldsViewModelProjectId projectId) {
-    
+  public WorkItemChangedFieldsViewModel projectId(@javax.annotation.Nonnull GuidChangedFieldViewModel projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * Get projectId
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelProjectId getProjectId() {
+  public GuidChangedFieldViewModel getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(WorkItemChangedFieldsViewModelProjectId projectId) {
+  public void setProjectId(@javax.annotation.Nonnull GuidChangedFieldViewModel projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemChangedFieldsViewModel isAutomated(WorkItemChangedFieldsViewModelIsDeleted isAutomated) {
-    
+  public WorkItemChangedFieldsViewModel isAutomated(@javax.annotation.Nonnull BooleanChangedFieldViewModel isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
 
-   /**
+  /**
    * Get isAutomated
    * @return isAutomated
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelIsDeleted getIsAutomated() {
+  public BooleanChangedFieldViewModel getIsAutomated() {
     return isAutomated;
   }
 
-
-  public void setIsAutomated(WorkItemChangedFieldsViewModelIsDeleted isAutomated) {
+  public void setIsAutomated(@javax.annotation.Nonnull BooleanChangedFieldViewModel isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemChangedFieldsViewModel sectionId(WorkItemChangedFieldsViewModelProjectId sectionId) {
-    
+  public WorkItemChangedFieldsViewModel sectionId(@javax.annotation.Nonnull GuidChangedFieldViewModel sectionId) {
     this.sectionId = sectionId;
     return this;
   }
 
-   /**
+  /**
    * Get sectionId
    * @return sectionId
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelProjectId getSectionId() {
+  public GuidChangedFieldViewModel getSectionId() {
     return sectionId;
   }
 
-
-  public void setSectionId(WorkItemChangedFieldsViewModelProjectId sectionId) {
+  public void setSectionId(@javax.annotation.Nonnull GuidChangedFieldViewModel sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
-    
+  public WorkItemChangedFieldsViewModel description(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getDescription() {
     return description;
   }
 
-
-  public void setDescription(StringChangedFieldWithDiffsViewModel description) {
+  public void setDescription(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
   }
 
 
-  public WorkItemChangedFieldsViewModel state(WorkItemChangedFieldsViewModelState state) {
-    
+  public WorkItemChangedFieldsViewModel state(@javax.annotation.Nonnull StringChangedFieldViewModel state) {
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelState getState() {
+  public StringChangedFieldViewModel getState() {
     return state;
   }
 
-
-  public void setState(WorkItemChangedFieldsViewModelState state) {
+  public void setState(@javax.annotation.Nonnull StringChangedFieldViewModel state) {
     this.state = state;
   }
 
 
-  public WorkItemChangedFieldsViewModel priority(WorkItemChangedFieldsViewModelState priority) {
-    
+  public WorkItemChangedFieldsViewModel priority(@javax.annotation.Nonnull StringChangedFieldViewModel priority) {
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * Get priority
    * @return priority
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelState getPriority() {
+  public StringChangedFieldViewModel getPriority() {
     return priority;
   }
 
-
-  public void setPriority(WorkItemChangedFieldsViewModelState priority) {
+  public void setPriority(@javax.annotation.Nonnull StringChangedFieldViewModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemChangedFieldsViewModel duration(WorkItemChangedFieldsViewModelDuration duration) {
-    
+  public WorkItemChangedFieldsViewModel duration(@javax.annotation.Nonnull Int32ChangedFieldViewModel duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * @return duration
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelDuration getDuration() {
+  public Int32ChangedFieldViewModel getDuration() {
     return duration;
   }
 
-
-  public void setDuration(WorkItemChangedFieldsViewModelDuration duration) {
+  public void setDuration(@javax.annotation.Nonnull Int32ChangedFieldViewModel duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemChangedFieldsViewModel attributes(Map<String, WorkItemChangedAttributeViewModel> attributes) {
-    
+  public WorkItemChangedFieldsViewModel attributes(@javax.annotation.Nonnull Map<String, WorkItemChangedAttributeViewModel> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -353,227 +352,206 @@ public class WorkItemChangedFieldsViewModel {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @javax.annotation.Nonnull
   public Map<String, WorkItemChangedAttributeViewModel> getAttributes() {
     return attributes;
   }
 
-
-  public void setAttributes(Map<String, WorkItemChangedAttributeViewModel> attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Map<String, WorkItemChangedAttributeViewModel> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemChangedFieldsViewModel steps(WorkItemChangedFieldsViewModelSteps steps) {
-    
+  public WorkItemChangedFieldsViewModel steps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
     this.steps = steps;
     return this;
   }
 
-   /**
+  /**
    * Get steps
    * @return steps
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelSteps getSteps() {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel getSteps() {
     return steps;
   }
 
-
-  public void setSteps(WorkItemChangedFieldsViewModelSteps steps) {
+  public void setSteps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemChangedFieldsViewModel preconditionSteps(WorkItemChangedFieldsViewModelSteps preconditionSteps) {
-    
+  public WorkItemChangedFieldsViewModel preconditionSteps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
 
-   /**
+  /**
    * Get preconditionSteps
    * @return preconditionSteps
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelSteps getPreconditionSteps() {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel getPreconditionSteps() {
     return preconditionSteps;
   }
 
-
-  public void setPreconditionSteps(WorkItemChangedFieldsViewModelSteps preconditionSteps) {
+  public void setPreconditionSteps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemChangedFieldsViewModel postconditionSteps(WorkItemChangedFieldsViewModelSteps postconditionSteps) {
-    
+  public WorkItemChangedFieldsViewModel postconditionSteps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
 
-   /**
+  /**
    * Get postconditionSteps
    * @return postconditionSteps
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelSteps getPostconditionSteps() {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel getPostconditionSteps() {
     return postconditionSteps;
   }
 
-
-  public void setPostconditionSteps(WorkItemChangedFieldsViewModelSteps postconditionSteps) {
+  public void setPostconditionSteps(@javax.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemChangedFieldsViewModel autoTests(WorkItemChangedFieldsViewModelAutoTests autoTests) {
-    
+  public WorkItemChangedFieldsViewModel autoTests(@javax.annotation.Nonnull AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
     this.autoTests = autoTests;
     return this;
   }
 
-   /**
+  /**
    * Get autoTests
    * @return autoTests
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelAutoTests getAutoTests() {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel getAutoTests() {
     return autoTests;
   }
 
-
-  public void setAutoTests(WorkItemChangedFieldsViewModelAutoTests autoTests) {
+  public void setAutoTests(@javax.annotation.Nonnull AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public WorkItemChangedFieldsViewModel attachments(WorkItemChangedFieldsViewModelAttachments attachments) {
-    
+  public WorkItemChangedFieldsViewModel attachments(@javax.annotation.Nonnull AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
     this.attachments = attachments;
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelAttachments getAttachments() {
+  public AttachmentChangeViewModelArrayChangedFieldViewModel getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(WorkItemChangedFieldsViewModelAttachments attachments) {
+  public void setAttachments(@javax.annotation.Nonnull AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemChangedFieldsViewModel tags(WorkItemChangedFieldsViewModelTags tags) {
-    
+  public WorkItemChangedFieldsViewModel tags(@javax.annotation.Nonnull StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelTags getTags() {
+  public StringArrayChangedFieldViewModel getTags() {
     return tags;
   }
 
-
-  public void setTags(WorkItemChangedFieldsViewModelTags tags) {
+  public void setTags(@javax.annotation.Nonnull StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemChangedFieldsViewModel links(WorkItemChangedFieldsViewModelLinks links) {
-    
+  public WorkItemChangedFieldsViewModel links(@javax.annotation.Nonnull WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
     this.links = links;
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelLinks getLinks() {
+  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel getLinks() {
     return links;
   }
 
-
-  public void setLinks(WorkItemChangedFieldsViewModelLinks links) {
+  public void setLinks(@javax.annotation.Nonnull WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
     this.links = links;
   }
 
 
-  public WorkItemChangedFieldsViewModel globalId(WorkItemChangedFieldsViewModelGlobalId globalId) {
-    
+  public WorkItemChangedFieldsViewModel globalId(@javax.annotation.Nonnull Int64ChangedFieldViewModel globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Get globalId
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelGlobalId getGlobalId() {
+  public Int64ChangedFieldViewModel getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(WorkItemChangedFieldsViewModelGlobalId globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Int64ChangedFieldViewModel globalId) {
     this.globalId = globalId;
   }
 
 
-  public WorkItemChangedFieldsViewModel versionNumber(WorkItemChangedFieldsViewModelDuration versionNumber) {
-    
+  public WorkItemChangedFieldsViewModel versionNumber(@javax.annotation.Nonnull Int32ChangedFieldViewModel versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
 
-   /**
+  /**
    * Get versionNumber
    * @return versionNumber
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelDuration getVersionNumber() {
+  public Int32ChangedFieldViewModel getVersionNumber() {
     return versionNumber;
   }
 
-
-  public void setVersionNumber(WorkItemChangedFieldsViewModelDuration versionNumber) {
+  public void setVersionNumber(@javax.annotation.Nonnull Int32ChangedFieldViewModel versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemChangedFieldsViewModel entityTypeName(WorkItemChangedFieldsViewModelState entityTypeName) {
-    
+  public WorkItemChangedFieldsViewModel entityTypeName(@javax.annotation.Nonnull StringChangedFieldViewModel entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
 
-   /**
+  /**
    * Get entityTypeName
    * @return entityTypeName
-  **/
+   */
   @javax.annotation.Nonnull
-  public WorkItemChangedFieldsViewModelState getEntityTypeName() {
+  public StringChangedFieldViewModel getEntityTypeName() {
     return entityTypeName;
   }
 
-
-  public void setEntityTypeName(WorkItemChangedFieldsViewModelState entityTypeName) {
+  public void setEntityTypeName(@javax.annotation.Nonnull StringChangedFieldViewModel entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
@@ -715,75 +693,76 @@ public class WorkItemChangedFieldsViewModel {
     openapiRequiredFields.add("entityTypeName");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkItemChangedFieldsViewModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WorkItemChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to WorkItemChangedFieldsViewModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WorkItemChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemChangedFieldsViewModel is not found in the empty JSON string", WorkItemChangedFieldsViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WorkItemChangedFieldsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemChangedFieldsViewModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `name`
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("name"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("name"));
       }
       // validate the required field `isDeleted`
-      WorkItemChangedFieldsViewModelIsDeleted.validateJsonObject(jsonObj.getAsJsonObject("isDeleted"));
+      BooleanChangedFieldViewModel.validateJsonElement(jsonObj.get("isDeleted"));
       // validate the required field `projectId`
-      WorkItemChangedFieldsViewModelProjectId.validateJsonObject(jsonObj.getAsJsonObject("projectId"));
+      GuidChangedFieldViewModel.validateJsonElement(jsonObj.get("projectId"));
       // validate the required field `isAutomated`
-      WorkItemChangedFieldsViewModelIsDeleted.validateJsonObject(jsonObj.getAsJsonObject("isAutomated"));
+      BooleanChangedFieldViewModel.validateJsonElement(jsonObj.get("isAutomated"));
       // validate the required field `sectionId`
-      WorkItemChangedFieldsViewModelProjectId.validateJsonObject(jsonObj.getAsJsonObject("sectionId"));
+      GuidChangedFieldViewModel.validateJsonElement(jsonObj.get("sectionId"));
       // validate the optional field `description`
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("description"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("description"));
       }
       // validate the required field `state`
-      WorkItemChangedFieldsViewModelState.validateJsonObject(jsonObj.getAsJsonObject("state"));
+      StringChangedFieldViewModel.validateJsonElement(jsonObj.get("state"));
       // validate the required field `priority`
-      WorkItemChangedFieldsViewModelState.validateJsonObject(jsonObj.getAsJsonObject("priority"));
+      StringChangedFieldViewModel.validateJsonElement(jsonObj.get("priority"));
       // validate the required field `duration`
-      WorkItemChangedFieldsViewModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+      Int32ChangedFieldViewModel.validateJsonElement(jsonObj.get("duration"));
       // validate the required field `steps`
-      WorkItemChangedFieldsViewModelSteps.validateJsonObject(jsonObj.getAsJsonObject("steps"));
+      WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("steps"));
       // validate the required field `preconditionSteps`
-      WorkItemChangedFieldsViewModelSteps.validateJsonObject(jsonObj.getAsJsonObject("preconditionSteps"));
+      WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("preconditionSteps"));
       // validate the required field `postconditionSteps`
-      WorkItemChangedFieldsViewModelSteps.validateJsonObject(jsonObj.getAsJsonObject("postconditionSteps"));
+      WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("postconditionSteps"));
       // validate the required field `autoTests`
-      WorkItemChangedFieldsViewModelAutoTests.validateJsonObject(jsonObj.getAsJsonObject("autoTests"));
+      AutoTestChangeViewModelArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("autoTests"));
       // validate the required field `attachments`
-      WorkItemChangedFieldsViewModelAttachments.validateJsonObject(jsonObj.getAsJsonObject("attachments"));
+      AttachmentChangeViewModelArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("attachments"));
       // validate the required field `tags`
-      WorkItemChangedFieldsViewModelTags.validateJsonObject(jsonObj.getAsJsonObject("tags"));
+      StringArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("tags"));
       // validate the required field `links`
-      WorkItemChangedFieldsViewModelLinks.validateJsonObject(jsonObj.getAsJsonObject("links"));
+      WorkItemLinkChangeViewModelArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("links"));
       // validate the required field `globalId`
-      WorkItemChangedFieldsViewModelGlobalId.validateJsonObject(jsonObj.getAsJsonObject("globalId"));
+      Int64ChangedFieldViewModel.validateJsonElement(jsonObj.get("globalId"));
       // validate the required field `versionNumber`
-      WorkItemChangedFieldsViewModelDuration.validateJsonObject(jsonObj.getAsJsonObject("versionNumber"));
+      Int32ChangedFieldViewModel.validateJsonElement(jsonObj.get("versionNumber"));
       // validate the required field `entityTypeName`
-      WorkItemChangedFieldsViewModelState.validateJsonObject(jsonObj.getAsJsonObject("entityTypeName"));
+      StringChangedFieldViewModel.validateJsonElement(jsonObj.get("entityTypeName"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -806,31 +785,31 @@ public class WorkItemChangedFieldsViewModel {
 
            @Override
            public WorkItemChangedFieldsViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of WorkItemChangedFieldsViewModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkItemChangedFieldsViewModel
-  * @throws IOException if the JSON string is invalid with respect to WorkItemChangedFieldsViewModel
-  */
+  /**
+   * Create an instance of WorkItemChangedFieldsViewModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of WorkItemChangedFieldsViewModel
+   * @throws IOException if the JSON string is invalid with respect to WorkItemChangedFieldsViewModel
+   */
   public static WorkItemChangedFieldsViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemChangedFieldsViewModel.class);
   }
 
- /**
-  * Convert an instance of WorkItemChangedFieldsViewModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of WorkItemChangedFieldsViewModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

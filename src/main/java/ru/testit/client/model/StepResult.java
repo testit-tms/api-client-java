@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,12 +43,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,96 +54,94 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StepResult {
   public static final String SERIALIZED_NAME_STEP_ID = "stepId";
   @SerializedName(SERIALIZED_NAME_STEP_ID)
+  @javax.annotation.Nonnull
   private UUID stepId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nonnull
   private String outcome;
 
   public static final String SERIALIZED_NAME_SHARED_STEP_VERSION_ID = "sharedStepVersionId";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_VERSION_ID)
+  @javax.annotation.Nullable
   private UUID sharedStepVersionId;
 
   public static final String SERIALIZED_NAME_SHARED_STEP_RESULTS = "sharedStepResults";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_RESULTS)
+  @javax.annotation.Nullable
   private List<SharedStepResult> sharedStepResults;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private StepComment comment;
 
   public StepResult() {
   }
 
-  public StepResult stepId(UUID stepId) {
-    
+  public StepResult stepId(@javax.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
     return this;
   }
 
-   /**
+  /**
    * Get stepId
    * @return stepId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getStepId() {
     return stepId;
   }
 
-
-  public void setStepId(UUID stepId) {
+  public void setStepId(@javax.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public StepResult outcome(String outcome) {
-    
+  public StepResult outcome(@javax.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Get outcome
    * @return outcome
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(String outcome) {
+  public void setOutcome(@javax.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public StepResult sharedStepVersionId(UUID sharedStepVersionId) {
-    
+  public StepResult sharedStepVersionId(@javax.annotation.Nullable UUID sharedStepVersionId) {
     this.sharedStepVersionId = sharedStepVersionId;
     return this;
   }
 
-   /**
+  /**
    * Get sharedStepVersionId
    * @return sharedStepVersionId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getSharedStepVersionId() {
     return sharedStepVersionId;
   }
 
-
-  public void setSharedStepVersionId(UUID sharedStepVersionId) {
+  public void setSharedStepVersionId(@javax.annotation.Nullable UUID sharedStepVersionId) {
     this.sharedStepVersionId = sharedStepVersionId;
   }
 
 
-  public StepResult sharedStepResults(List<SharedStepResult> sharedStepResults) {
-    
+  public StepResult sharedStepResults(@javax.annotation.Nullable List<SharedStepResult> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
     return this;
   }
@@ -158,38 +154,35 @@ public class StepResult {
     return this;
   }
 
-   /**
+  /**
    * Get sharedStepResults
    * @return sharedStepResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<SharedStepResult> getSharedStepResults() {
     return sharedStepResults;
   }
 
-
-  public void setSharedStepResults(List<SharedStepResult> sharedStepResults) {
+  public void setSharedStepResults(@javax.annotation.Nullable List<SharedStepResult> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
   }
 
 
-  public StepResult comment(StepComment comment) {
-    
+  public StepResult comment(@javax.annotation.Nullable StepComment comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public StepComment getComment() {
     return comment;
   }
 
-
-  public void setComment(StepComment comment) {
+  public void setComment(@javax.annotation.Nullable StepComment comment) {
     this.comment = comment;
   }
 
@@ -270,33 +263,34 @@ public class StepResult {
     openapiRequiredFields.add("outcome");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StepResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StepResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StepResult
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StepResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StepResult is not found in the empty JSON string", StepResult.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StepResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StepResult.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("stepId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
       }
@@ -316,13 +310,13 @@ public class StepResult {
 
           // validate the optional field `sharedStepResults` (array)
           for (int i = 0; i < jsonArraysharedStepResults.size(); i++) {
-            SharedStepResult.validateJsonObject(jsonArraysharedStepResults.get(i).getAsJsonObject());
+            SharedStepResult.validateJsonElement(jsonArraysharedStepResults.get(i));
           };
         }
       }
       // validate the optional field `comment`
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) {
-        StepComment.validateJsonObject(jsonObj.getAsJsonObject("comment"));
+        StepComment.validateJsonElement(jsonObj.get("comment"));
       }
   }
 
@@ -346,31 +340,31 @@ public class StepResult {
 
            @Override
            public StepResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StepResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StepResult
-  * @throws IOException if the JSON string is invalid with respect to StepResult
-  */
+  /**
+   * Create an instance of StepResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StepResult
+   * @throws IOException if the JSON string is invalid with respect to StepResult
+   */
   public static StepResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StepResult.class);
   }
 
- /**
-  * Convert an instance of StepResult to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StepResult to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

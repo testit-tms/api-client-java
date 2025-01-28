@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,12 +38,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,113 +49,80 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectPostModel {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
+  @javax.annotation.Nullable
   private Boolean isFavorite;
-
-  public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
-  private Boolean isFlakyAuto;
 
   public ProjectPostModel() {
   }
 
-  public ProjectPostModel description(String description) {
-    
+  public ProjectPostModel description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the project
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public ProjectPostModel name(String name) {
-    
+  public ProjectPostModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the project
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectPostModel isFavorite(Boolean isFavorite) {
-    
+  public ProjectPostModel isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the project is marked as favorite
    * @return isFavorite
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsFavorite() {
     return isFavorite;
   }
 
-
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = isFavorite;
-  }
-
-
-  @Deprecated
-  public ProjectPostModel isFlakyAuto(Boolean isFlakyAuto) {
-    
-    this.isFlakyAuto = isFlakyAuto;
-    return this;
-  }
-
-   /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
-   * @return isFlakyAuto
-   * @deprecated
-  **/
-  @Deprecated
-  @javax.annotation.Nullable
-  public Boolean getIsFlakyAuto() {
-    return isFlakyAuto;
-  }
-
-
-  @Deprecated
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
   }
 
 
@@ -173,8 +138,7 @@ public class ProjectPostModel {
     ProjectPostModel projectPostModel = (ProjectPostModel) o;
     return Objects.equals(this.description, projectPostModel.description) &&
         Objects.equals(this.name, projectPostModel.name) &&
-        Objects.equals(this.isFavorite, projectPostModel.isFavorite) &&
-        Objects.equals(this.isFlakyAuto, projectPostModel.isFlakyAuto);
+        Objects.equals(this.isFavorite, projectPostModel.isFavorite);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -183,7 +147,7 @@ public class ProjectPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, isFavorite, isFlakyAuto);
+    return Objects.hash(description, name, isFavorite);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -200,7 +164,6 @@ public class ProjectPostModel {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
-    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,40 +189,40 @@ public class ProjectPostModel {
     openapiFields.add("description");
     openapiFields.add("name");
     openapiFields.add("isFavorite");
-    openapiFields.add("isFlakyAuto");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectPostModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ProjectPostModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectPostModel is not found in the empty JSON string", ProjectPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ProjectPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -288,31 +251,31 @@ public class ProjectPostModel {
 
            @Override
            public ProjectPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ProjectPostModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectPostModel
-  * @throws IOException if the JSON string is invalid with respect to ProjectPostModel
-  */
+  /**
+   * Create an instance of ProjectPostModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ProjectPostModel
+   * @throws IOException if the JSON string is invalid with respect to ProjectPostModel
+   */
   public static ProjectPostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ProjectPostModel.class);
   }
 
- /**
-  * Convert an instance of ProjectPostModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ProjectPostModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

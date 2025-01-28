@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,12 +44,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -57,442 +55,425 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutotestResultHistoricalGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutotestResultHistoricalGetModel {
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
+  @javax.annotation.Nullable
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
+  @javax.annotation.Nullable
   private String testPlanName;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_CREATED_BY_NAME = "createdByName";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_NAME)
+  @javax.annotation.Nonnull
   private String createdByName;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_NAME = "testRunName";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_NAME)
+  @javax.annotation.Nullable
   private String testRunName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  @javax.annotation.Nonnull
   private String configurationName;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nonnull
   private AutotestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_RERUN_COUNT = "rerunCount";
   @SerializedName(SERIALIZED_NAME_RERUN_COUNT)
+  @javax.annotation.Nonnull
   private Integer rerunCount;
 
   public static final String SERIALIZED_NAME_RERUN_TEST_RESULTS = "rerunTestResults";
   @SerializedName(SERIALIZED_NAME_RERUN_TEST_RESULTS)
+  @javax.annotation.Nonnull
   private List<RerunTestResultModel> rerunTestResults = new ArrayList<>();
 
   public AutotestResultHistoricalGetModel() {
   }
 
-  public AutotestResultHistoricalGetModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public AutotestResultHistoricalGetModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedDate
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutotestResultHistoricalGetModel modifiedById(UUID modifiedById) {
-    
+  public AutotestResultHistoricalGetModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedById
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AutotestResultHistoricalGetModel testPlanId(UUID testPlanId) {
-    
+  public AutotestResultHistoricalGetModel testPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
 
-   /**
+  /**
    * Get testPlanId
    * @return testPlanId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
-
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public AutotestResultHistoricalGetModel testPlanGlobalId(Long testPlanGlobalId) {
-    
+  public AutotestResultHistoricalGetModel testPlanGlobalId(@javax.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get testPlanGlobalId
    * @return testPlanGlobalId
-  **/
+   */
   @javax.annotation.Nullable
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
-
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(@javax.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public AutotestResultHistoricalGetModel testPlanName(String testPlanName) {
-    
+  public AutotestResultHistoricalGetModel testPlanName(@javax.annotation.Nullable String testPlanName) {
     this.testPlanName = testPlanName;
     return this;
   }
 
-   /**
+  /**
    * Get testPlanName
    * @return testPlanName
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestPlanName() {
     return testPlanName;
   }
 
-
-  public void setTestPlanName(String testPlanName) {
+  public void setTestPlanName(@javax.annotation.Nullable String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
-  public AutotestResultHistoricalGetModel duration(Long duration) {
-    
+  public AutotestResultHistoricalGetModel duration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Long getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Long duration) {
+  public void setDuration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
   }
 
 
-  public AutotestResultHistoricalGetModel id(UUID id) {
-    
+  public AutotestResultHistoricalGetModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutotestResultHistoricalGetModel createdDate(OffsetDateTime createdDate) {
-    
+  public AutotestResultHistoricalGetModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutotestResultHistoricalGetModel createdById(UUID createdById) {
-    
+  public AutotestResultHistoricalGetModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Get createdById
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutotestResultHistoricalGetModel createdByName(String createdByName) {
-    
+  public AutotestResultHistoricalGetModel createdByName(@javax.annotation.Nonnull String createdByName) {
     this.createdByName = createdByName;
     return this;
   }
 
-   /**
+  /**
    * Get createdByName
    * @return createdByName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCreatedByName() {
     return createdByName;
   }
 
-
-  public void setCreatedByName(String createdByName) {
+  public void setCreatedByName(@javax.annotation.Nonnull String createdByName) {
     this.createdByName = createdByName;
   }
 
 
-  public AutotestResultHistoricalGetModel testRunId(UUID testRunId) {
-    
+  public AutotestResultHistoricalGetModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Get testRunId
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public AutotestResultHistoricalGetModel testRunName(String testRunName) {
-    
+  public AutotestResultHistoricalGetModel testRunName(@javax.annotation.Nullable String testRunName) {
     this.testRunName = testRunName;
     return this;
   }
 
-   /**
+  /**
    * Get testRunName
    * @return testRunName
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestRunName() {
     return testRunName;
   }
 
-
-  public void setTestRunName(String testRunName) {
+  public void setTestRunName(@javax.annotation.Nullable String testRunName) {
     this.testRunName = testRunName;
   }
 
 
-  public AutotestResultHistoricalGetModel configurationId(UUID configurationId) {
-    
+  public AutotestResultHistoricalGetModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
 
-   /**
+  /**
    * Get configurationId
    * @return configurationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public AutotestResultHistoricalGetModel configurationName(String configurationName) {
-    
+  public AutotestResultHistoricalGetModel configurationName(@javax.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
 
-   /**
+  /**
    * Get configurationName
    * @return configurationName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getConfigurationName() {
     return configurationName;
   }
 
-
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@javax.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public AutotestResultHistoricalGetModel outcome(AutotestResultOutcome outcome) {
-    
+  public AutotestResultHistoricalGetModel outcome(@javax.annotation.Nonnull AutotestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Get outcome
    * @return outcome
-  **/
+   */
   @javax.annotation.Nonnull
   public AutotestResultOutcome getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(AutotestResultOutcome outcome) {
+  public void setOutcome(@javax.annotation.Nonnull AutotestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public AutotestResultHistoricalGetModel launchSource(String launchSource) {
-    
+  public AutotestResultHistoricalGetModel launchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
 
-   /**
+  /**
    * Get launchSource
    * @return launchSource
-  **/
+   */
   @javax.annotation.Nullable
   public String getLaunchSource() {
     return launchSource;
   }
 
-
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public AutotestResultHistoricalGetModel rerunCount(Integer rerunCount) {
-    
+  public AutotestResultHistoricalGetModel rerunCount(@javax.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
     return this;
   }
 
-   /**
+  /**
    * Get rerunCount
    * @return rerunCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRerunCount() {
     return rerunCount;
   }
 
-
-  public void setRerunCount(Integer rerunCount) {
+  public void setRerunCount(@javax.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
   }
 
 
-  public AutotestResultHistoricalGetModel rerunTestResults(List<RerunTestResultModel> rerunTestResults) {
-    
+  public AutotestResultHistoricalGetModel rerunTestResults(@javax.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
     return this;
   }
@@ -505,17 +486,16 @@ public class AutotestResultHistoricalGetModel {
     return this;
   }
 
-   /**
+  /**
    * Get rerunTestResults
    * @return rerunTestResults
-  **/
+   */
   @javax.annotation.Nonnull
   public List<RerunTestResultModel> getRerunTestResults() {
     return rerunTestResults;
   }
 
-
-  public void setRerunTestResults(List<RerunTestResultModel> rerunTestResults) {
+  public void setRerunTestResults(@javax.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
   }
 
@@ -643,33 +623,34 @@ public class AutotestResultHistoricalGetModel {
     openapiRequiredFields.add("rerunTestResults");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutotestResultHistoricalGetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutotestResultHistoricalGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutotestResultHistoricalGetModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutotestResultHistoricalGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestResultHistoricalGetModel is not found in the empty JSON string", AutotestResultHistoricalGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutotestResultHistoricalGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultHistoricalGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestResultHistoricalGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutotestResultHistoricalGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
@@ -700,6 +681,8 @@ public class AutotestResultHistoricalGetModel {
       if (!jsonObj.get("configurationName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
       }
+      // validate the required field `outcome`
+      AutotestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
       }
@@ -711,7 +694,7 @@ public class AutotestResultHistoricalGetModel {
       JsonArray jsonArrayrerunTestResults = jsonObj.getAsJsonArray("rerunTestResults");
       // validate the required field `rerunTestResults` (array)
       for (int i = 0; i < jsonArrayrerunTestResults.size(); i++) {
-        RerunTestResultModel.validateJsonObject(jsonArrayrerunTestResults.get(i).getAsJsonObject());
+        RerunTestResultModel.validateJsonElement(jsonArrayrerunTestResults.get(i));
       };
   }
 
@@ -735,31 +718,31 @@ public class AutotestResultHistoricalGetModel {
 
            @Override
            public AutotestResultHistoricalGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutotestResultHistoricalGetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutotestResultHistoricalGetModel
-  * @throws IOException if the JSON string is invalid with respect to AutotestResultHistoricalGetModel
-  */
+  /**
+   * Create an instance of AutotestResultHistoricalGetModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutotestResultHistoricalGetModel
+   * @throws IOException if the JSON string is invalid with respect to AutotestResultHistoricalGetModel
+   */
   public static AutotestResultHistoricalGetModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutotestResultHistoricalGetModel.class);
   }
 
- /**
-  * Convert an instance of AutotestResultHistoricalGetModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutotestResultHistoricalGetModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -5,9 +5,9 @@
 ## Enum
 
 
-* `NEEDSWORK` (value: `"NeedsWork"`)
+* `NEEDS_WORK` (value: `"NeedsWork"`)
 
-* `NOTREADY` (value: `"NotReady"`)
+* `NOT_READY` (value: `"NotReady"`)
 
 * `READY` (value: `"Ready"`)
 

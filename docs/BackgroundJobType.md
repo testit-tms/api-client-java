@@ -5,37 +5,37 @@
 ## Enum
 
 
-* `EXPORTXLSXTESTRESULTSBYTESTPLAN` (value: `"ExportXlsxTestResultsByTestPlan"`)
+* `EXPORT_XLSX_TEST_RESULTS_BY_TEST_PLAN` (value: `"ExportXlsxTestResultsByTestPlan"`)
 
-* `EXPORTXLSXWORKITEMSBYPROJECT` (value: `"ExportXlsxWorkItemsByProject"`)
+* `EXPORT_XLSX_WORK_ITEMS_BY_PROJECT` (value: `"ExportXlsxWorkItemsByProject"`)
 
-* `EXPORTXLSXTESTPOINTSBYTESTPLAN` (value: `"ExportXlsxTestPointsByTestPlan"`)
+* `EXPORT_XLSX_TEST_POINTS_BY_TEST_PLAN` (value: `"ExportXlsxTestPointsByTestPlan"`)
 
-* `EXPORTJSONPROJECT` (value: `"ExportJsonProject"`)
+* `EXPORT_JSON_PROJECT` (value: `"ExportJsonProject"`)
 
-* `EXPORTZIPPROJECT` (value: `"ExportZipProject"`)
+* `EXPORT_ZIP_PROJECT` (value: `"ExportZipProject"`)
 
-* `EXPORTJSONPROJECTWITHTESTPLANS` (value: `"ExportJsonProjectWithTestPlans"`)
+* `EXPORT_JSON_PROJECT_WITH_TEST_PLANS` (value: `"ExportJsonProjectWithTestPlans"`)
 
-* `EXPORTZIPPROJECTWITHTESTPLANS` (value: `"ExportZipProjectWithTestPlans"`)
+* `EXPORT_ZIP_PROJECT_WITH_TEST_PLANS` (value: `"ExportZipProjectWithTestPlans"`)
 
-* `IMPORTJSONPROJECT` (value: `"ImportJsonProject"`)
+* `IMPORT_JSON_PROJECT` (value: `"ImportJsonProject"`)
 
-* `IMPORTZIPPROJECT` (value: `"ImportZipProject"`)
+* `IMPORT_ZIP_PROJECT` (value: `"ImportZipProject"`)
 
-* `IMPORTXLSXPROJECT` (value: `"ImportXlsxProject"`)
+* `IMPORT_XLSX_PROJECT` (value: `"ImportXlsxProject"`)
 
-* `IMPORTTESTRAILXMLPROJECT` (value: `"ImportTestRailXmlProject"`)
+* `IMPORT_TEST_RAIL_XML_PROJECT` (value: `"ImportTestRailXmlProject"`)
 
-* `PURGEPROJECT` (value: `"PurgeProject"`)
+* `PURGE_PROJECT` (value: `"PurgeProject"`)
 
-* `EXPORTPROJECTS` (value: `"ExportProjects"`)
+* `EXPORT_PROJECTS` (value: `"ExportProjects"`)
 
-* `IMPORTPROJECTS` (value: `"ImportProjects"`)
+* `IMPORT_PROJECTS` (value: `"ImportProjects"`)
 
-* `PURGEENTITIES` (value: `"PurgeEntities"`)
+* `PURGE_ENTITIES` (value: `"PurgeEntities"`)
 
-* `DELETECOMPLETEDJOBS` (value: `"DeleteCompletedJobs"`)
+* `DELETE_COMPLETED_JOBS` (value: `"DeleteCompletedJobs"`)
 
 
 

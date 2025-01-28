@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -31,7 +31,7 @@ public enum ImageResizeType {
   
   CROP("Crop"),
   
-  ADDBACKGROUNDSTRIPES("AddBackgroundStripes");
+  ADD_BACKGROUND_STRIPES("AddBackgroundStripes");
 
   private String value;
 
@@ -68,6 +68,11 @@ public enum ImageResizeType {
       String value = jsonReader.nextString();
       return ImageResizeType.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    ImageResizeType.fromValue(value);
   }
 }
 

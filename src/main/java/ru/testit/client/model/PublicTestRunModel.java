@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +46,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -59,187 +57,186 @@ import ru.testit.client.invoker.JSON;
 /**
  * PublicTestRunModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PublicTestRunModel {
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
+  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
+  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
+  @javax.annotation.Nonnull
   private List<ConfigurationModel> configurations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
+  @javax.annotation.Nonnull
   private List<AutoTestModel> autoTests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
+  @javax.annotation.Nonnull
   private List<PublicTestPointModel> testPoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_CUSTOM_PARAMETERS = "customParameters";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PARAMETERS)
+  @javax.annotation.Nullable
   private Map<String, String> customParameters;
 
   public static final String SERIALIZED_NAME_TEST_RUN_DESCRIPTION = "testRunDescription";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_DESCRIPTION)
+  @javax.annotation.Nullable
   private String testRunDescription;
 
   public PublicTestRunModel() {
   }
 
-  public PublicTestRunModel testRunId(UUID testRunId) {
-    
+  public PublicTestRunModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Get testRunId
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public PublicTestRunModel testPlanId(UUID testPlanId) {
-    
+  public PublicTestRunModel testPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
 
-   /**
+  /**
    * Get testPlanId
    * @return testPlanId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
-
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public PublicTestRunModel testPlanGlobalId(Long testPlanGlobalId) {
-    
+  public PublicTestRunModel testPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get testPlanGlobalId
    * @return testPlanGlobalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
-
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public PublicTestRunModel name(String name) {
-    
+  public PublicTestRunModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public PublicTestRunModel productName(String productName) {
-    
+  public PublicTestRunModel productName(@javax.annotation.Nullable String productName) {
     this.productName = productName;
     return this;
   }
 
-   /**
+  /**
    * Get productName
    * @return productName
-  **/
+   */
   @javax.annotation.Nullable
   public String getProductName() {
     return productName;
   }
 
-
-  public void setProductName(String productName) {
+  public void setProductName(@javax.annotation.Nullable String productName) {
     this.productName = productName;
   }
 
 
-  public PublicTestRunModel build(String build) {
-    
+  public PublicTestRunModel build(@javax.annotation.Nullable String build) {
     this.build = build;
     return this;
   }
 
-   /**
+  /**
    * Get build
    * @return build
-  **/
+   */
   @javax.annotation.Nullable
   public String getBuild() {
     return build;
   }
 
-
-  public void setBuild(String build) {
+  public void setBuild(@javax.annotation.Nullable String build) {
     this.build = build;
   }
 
 
-  public PublicTestRunModel configurations(List<ConfigurationModel> configurations) {
-    
+  public PublicTestRunModel configurations(@javax.annotation.Nonnull List<ConfigurationModel> configurations) {
     this.configurations = configurations;
     return this;
   }
@@ -252,23 +249,21 @@ public class PublicTestRunModel {
     return this;
   }
 
-   /**
+  /**
    * Get configurations
    * @return configurations
-  **/
+   */
   @javax.annotation.Nonnull
   public List<ConfigurationModel> getConfigurations() {
     return configurations;
   }
 
-
-  public void setConfigurations(List<ConfigurationModel> configurations) {
+  public void setConfigurations(@javax.annotation.Nonnull List<ConfigurationModel> configurations) {
     this.configurations = configurations;
   }
 
 
-  public PublicTestRunModel autoTests(List<AutoTestModel> autoTests) {
-    
+  public PublicTestRunModel autoTests(@javax.annotation.Nonnull List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -281,23 +276,21 @@ public class PublicTestRunModel {
     return this;
   }
 
-   /**
+  /**
    * Get autoTests
    * @return autoTests
-  **/
+   */
   @javax.annotation.Nonnull
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
   }
 
-
-  public void setAutoTests(List<AutoTestModel> autoTests) {
+  public void setAutoTests(@javax.annotation.Nonnull List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public PublicTestRunModel testPoints(List<PublicTestPointModel> testPoints) {
-    
+  public PublicTestRunModel testPoints(@javax.annotation.Nonnull List<PublicTestPointModel> testPoints) {
     this.testPoints = testPoints;
     return this;
   }
@@ -310,44 +303,40 @@ public class PublicTestRunModel {
     return this;
   }
 
-   /**
+  /**
    * Get testPoints
    * @return testPoints
-  **/
+   */
   @javax.annotation.Nonnull
   public List<PublicTestPointModel> getTestPoints() {
     return testPoints;
   }
 
-
-  public void setTestPoints(List<PublicTestPointModel> testPoints) {
+  public void setTestPoints(@javax.annotation.Nonnull List<PublicTestPointModel> testPoints) {
     this.testPoints = testPoints;
   }
 
 
-  public PublicTestRunModel status(String status) {
-    
+  public PublicTestRunModel status(@javax.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public String getStatus() {
     return status;
   }
 
-
-  public void setStatus(String status) {
+  public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public PublicTestRunModel customParameters(Map<String, String> customParameters) {
-    
+  public PublicTestRunModel customParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
     this.customParameters = customParameters;
     return this;
   }
@@ -360,38 +349,35 @@ public class PublicTestRunModel {
     return this;
   }
 
-   /**
+  /**
    * Get customParameters
    * @return customParameters
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getCustomParameters() {
     return customParameters;
   }
 
-
-  public void setCustomParameters(Map<String, String> customParameters) {
+  public void setCustomParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
     this.customParameters = customParameters;
   }
 
 
-  public PublicTestRunModel testRunDescription(String testRunDescription) {
-    
+  public PublicTestRunModel testRunDescription(@javax.annotation.Nullable String testRunDescription) {
     this.testRunDescription = testRunDescription;
     return this;
   }
 
-   /**
+  /**
    * Get testRunDescription
    * @return testRunDescription
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestRunDescription() {
     return testRunDescription;
   }
 
-
-  public void setTestRunDescription(String testRunDescription) {
+  public void setTestRunDescription(@javax.annotation.Nullable String testRunDescription) {
     this.testRunDescription = testRunDescription;
   }
 
@@ -498,33 +484,34 @@ public class PublicTestRunModel {
     openapiRequiredFields.add("status");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PublicTestRunModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!PublicTestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PublicTestRunModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PublicTestRunModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PublicTestRunModel is not found in the empty JSON string", PublicTestRunModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PublicTestRunModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestRunModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestRunModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PublicTestRunModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("testRunId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
       }
@@ -548,7 +535,7 @@ public class PublicTestRunModel {
       JsonArray jsonArrayconfigurations = jsonObj.getAsJsonArray("configurations");
       // validate the required field `configurations` (array)
       for (int i = 0; i < jsonArrayconfigurations.size(); i++) {
-        ConfigurationModel.validateJsonObject(jsonArrayconfigurations.get(i).getAsJsonObject());
+        ConfigurationModel.validateJsonElement(jsonArrayconfigurations.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("autoTests").isJsonArray()) {
@@ -558,7 +545,7 @@ public class PublicTestRunModel {
       JsonArray jsonArrayautoTests = jsonObj.getAsJsonArray("autoTests");
       // validate the required field `autoTests` (array)
       for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-        AutoTestModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
+        AutoTestModel.validateJsonElement(jsonArrayautoTests.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("testPoints").isJsonArray()) {
@@ -568,7 +555,7 @@ public class PublicTestRunModel {
       JsonArray jsonArraytestPoints = jsonObj.getAsJsonArray("testPoints");
       // validate the required field `testPoints` (array)
       for (int i = 0; i < jsonArraytestPoints.size(); i++) {
-        PublicTestPointModel.validateJsonObject(jsonArraytestPoints.get(i).getAsJsonObject());
+        PublicTestPointModel.validateJsonElement(jsonArraytestPoints.get(i));
       };
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -598,31 +585,31 @@ public class PublicTestRunModel {
 
            @Override
            public PublicTestRunModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PublicTestRunModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PublicTestRunModel
-  * @throws IOException if the JSON string is invalid with respect to PublicTestRunModel
-  */
+  /**
+   * Create an instance of PublicTestRunModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PublicTestRunModel
+   * @throws IOException if the JSON string is invalid with respect to PublicTestRunModel
+   */
   public static PublicTestRunModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PublicTestRunModel.class);
   }
 
- /**
-  * Convert an instance of PublicTestRunModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PublicTestRunModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

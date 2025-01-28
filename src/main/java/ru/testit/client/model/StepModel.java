@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.SectionSharedStep;
+import ru.testit.client.model.SharedStepModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,182 +51,175 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StepModel {
   public static final String SERIALIZED_NAME_WORK_ITEM = "workItem";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM)
-  private SectionSharedStep workItem;
+  @javax.annotation.Nullable
+  private SharedStepModel workItem;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
+  @javax.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_EXPECTED = "expected";
   @SerializedName(SERIALIZED_NAME_EXPECTED)
+  @javax.annotation.Nullable
   private String expected;
 
   public static final String SERIALIZED_NAME_TEST_DATA = "testData";
   @SerializedName(SERIALIZED_NAME_TEST_DATA)
+  @javax.annotation.Nullable
   private String testData;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
+  @javax.annotation.Nullable
   private String comments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
+  @javax.annotation.Nullable
   private UUID workItemId;
 
   public StepModel() {
   }
 
-  public StepModel workItem(SectionSharedStep workItem) {
-    
+  public StepModel workItem(@javax.annotation.Nullable SharedStepModel workItem) {
     this.workItem = workItem;
     return this;
   }
 
-   /**
-   * Get workItem
+  /**
+   * Nested shared steps are allowed
    * @return workItem
-  **/
+   */
   @javax.annotation.Nullable
-  public SectionSharedStep getWorkItem() {
+  public SharedStepModel getWorkItem() {
     return workItem;
   }
 
-
-  public void setWorkItem(SectionSharedStep workItem) {
+  public void setWorkItem(@javax.annotation.Nullable SharedStepModel workItem) {
     this.workItem = workItem;
   }
 
 
-  public StepModel id(UUID id) {
-    
+  public StepModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public StepModel action(String action) {
-    
+  public StepModel action(@javax.annotation.Nullable String action) {
     this.action = action;
     return this;
   }
 
-   /**
+  /**
    * Get action
    * @return action
-  **/
+   */
   @javax.annotation.Nullable
   public String getAction() {
     return action;
   }
 
-
-  public void setAction(String action) {
+  public void setAction(@javax.annotation.Nullable String action) {
     this.action = action;
   }
 
 
-  public StepModel expected(String expected) {
-    
+  public StepModel expected(@javax.annotation.Nullable String expected) {
     this.expected = expected;
     return this;
   }
 
-   /**
+  /**
    * Get expected
    * @return expected
-  **/
+   */
   @javax.annotation.Nullable
   public String getExpected() {
     return expected;
   }
 
-
-  public void setExpected(String expected) {
+  public void setExpected(@javax.annotation.Nullable String expected) {
     this.expected = expected;
   }
 
 
-  public StepModel testData(String testData) {
-    
+  public StepModel testData(@javax.annotation.Nullable String testData) {
     this.testData = testData;
     return this;
   }
 
-   /**
+  /**
    * Get testData
    * @return testData
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestData() {
     return testData;
   }
 
-
-  public void setTestData(String testData) {
+  public void setTestData(@javax.annotation.Nullable String testData) {
     this.testData = testData;
   }
 
 
-  public StepModel comments(String comments) {
-    
+  public StepModel comments(@javax.annotation.Nullable String comments) {
     this.comments = comments;
     return this;
   }
 
-   /**
+  /**
    * Get comments
    * @return comments
-  **/
+   */
   @javax.annotation.Nullable
   public String getComments() {
     return comments;
   }
 
-
-  public void setComments(String comments) {
+  public void setComments(@javax.annotation.Nullable String comments) {
     this.comments = comments;
   }
 
 
-  public StepModel workItemId(UUID workItemId) {
-    
+  public StepModel workItemId(@javax.annotation.Nullable UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemId
    * @return workItemId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getWorkItemId() {
     return workItemId;
   }
 
-
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
     this.workItemId = workItemId;
   }
 
@@ -314,36 +305,37 @@ public class StepModel {
     openapiRequiredFields.add("id");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StepModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StepModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StepModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StepModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StepModel is not found in the empty JSON string", StepModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StepModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StepModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StepModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `workItem`
       if (jsonObj.get("workItem") != null && !jsonObj.get("workItem").isJsonNull()) {
-        SectionSharedStep.validateJsonObject(jsonObj.getAsJsonObject("workItem"));
+        SharedStepModel.validateJsonElement(jsonObj.get("workItem"));
       }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -385,31 +377,31 @@ public class StepModel {
 
            @Override
            public StepModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StepModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StepModel
-  * @throws IOException if the JSON string is invalid with respect to StepModel
-  */
+  /**
+   * Create an instance of StepModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StepModel
+   * @throws IOException if the JSON string is invalid with respect to StepModel
+   */
   public static StepModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StepModel.class);
   }
 
- /**
-  * Convert an instance of StepModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StepModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

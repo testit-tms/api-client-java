@@ -7,7 +7,7 @@
 
 * `NEW` (value: `"New"`)
 
-* `INPROGRESS` (value: `"InProgress"`)
+* `IN_PROGRESS` (value: `"InProgress"`)
 
 * `PAUSED` (value: `"Paused"`)
 

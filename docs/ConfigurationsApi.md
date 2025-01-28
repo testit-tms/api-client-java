@@ -20,7 +20,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ConfigurationsCreateByParametersPost"></a>
 # **apiV2ConfigurationsCreateByParametersPost**
-> List&lt;UUID&gt; apiV2ConfigurationsCreateByParametersPost(apiV2ConfigurationsCreateByParametersPostRequest)
+> List&lt;UUID&gt; apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel)
 
 Create configurations by parameters
 
@@ -46,9 +46,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ApiV2ConfigurationsCreateByParametersPostRequest apiV2ConfigurationsCreateByParametersPostRequest = new ApiV2ConfigurationsCreateByParametersPostRequest(); // ApiV2ConfigurationsCreateByParametersPostRequest | 
+    ConfigurationByParametersModel configurationByParametersModel = new ConfigurationByParametersModel(); // ConfigurationByParametersModel | 
     try {
-      List<UUID> result = apiInstance.apiV2ConfigurationsCreateByParametersPost(apiV2ConfigurationsCreateByParametersPostRequest);
+      List<UUID> result = apiInstance.apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsCreateByParametersPost");
@@ -65,7 +65,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ConfigurationsCreateByParametersPostRequest** | [**ApiV2ConfigurationsCreateByParametersPostRequest**](ApiV2ConfigurationsCreateByParametersPostRequest.md)|  | [optional] |
+| **configurationByParametersModel** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md)|  | [optional] |
 
 ### Return type
 
@@ -93,7 +93,7 @@ public class Example {
 
 <a id="apiV2ConfigurationsDeleteBulkPost"></a>
 # **apiV2ConfigurationsDeleteBulkPost**
-> Integer apiV2ConfigurationsDeleteBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
+> Integer apiV2ConfigurationsDeleteBulkPost(configurationSelectModel)
 
 Delete multiple configurations
 
@@ -119,9 +119,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
+    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
     try {
-      Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
+      Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(configurationSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsDeleteBulkPost");
@@ -138,7 +138,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
+| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -458,7 +458,7 @@ null (empty response body)
 
 <a id="apiV2ConfigurationsPurgeBulkPost"></a>
 # **apiV2ConfigurationsPurgeBulkPost**
-> apiV2ConfigurationsPurgeBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
+> apiV2ConfigurationsPurgeBulkPost(configurationSelectModel)
 
 Permanently delete multiple archived configurations
 
@@ -484,9 +484,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
+    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
     try {
-      apiInstance.apiV2ConfigurationsPurgeBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
+      apiInstance.apiV2ConfigurationsPurgeBulkPost(configurationSelectModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsPurgeBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -502,7 +502,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
+| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -530,7 +530,7 @@ null (empty response body)
 
 <a id="apiV2ConfigurationsPut"></a>
 # **apiV2ConfigurationsPut**
-> apiV2ConfigurationsPut(apiV2ConfigurationsPutRequest)
+> apiV2ConfigurationsPut(configurationPutModel)
 
 Edit configuration
 
@@ -556,9 +556,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ApiV2ConfigurationsPutRequest apiV2ConfigurationsPutRequest = new ApiV2ConfigurationsPutRequest(); // ApiV2ConfigurationsPutRequest | 
+    ConfigurationPutModel configurationPutModel = new ConfigurationPutModel(); // ConfigurationPutModel | 
     try {
-      apiInstance.apiV2ConfigurationsPut(apiV2ConfigurationsPutRequest);
+      apiInstance.apiV2ConfigurationsPut(configurationPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsPut");
       System.err.println("Status code: " + e.getCode());
@@ -574,7 +574,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ConfigurationsPutRequest** | [**ApiV2ConfigurationsPutRequest**](ApiV2ConfigurationsPutRequest.md)|  | [optional] |
+| **configurationPutModel** | [**ConfigurationPutModel**](ConfigurationPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -602,7 +602,7 @@ null (empty response body)
 
 <a id="apiV2ConfigurationsRestoreBulkPost"></a>
 # **apiV2ConfigurationsRestoreBulkPost**
-> Integer apiV2ConfigurationsRestoreBulkPost(apiV2ConfigurationsPurgeBulkPostRequest)
+> Integer apiV2ConfigurationsRestoreBulkPost(configurationSelectModel)
 
 Restore multiple configurations from the archive
 
@@ -628,9 +628,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    ApiV2ConfigurationsPurgeBulkPostRequest apiV2ConfigurationsPurgeBulkPostRequest = new ApiV2ConfigurationsPurgeBulkPostRequest(); // ApiV2ConfigurationsPurgeBulkPostRequest | 
+    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
     try {
-      Integer result = apiInstance.apiV2ConfigurationsRestoreBulkPost(apiV2ConfigurationsPurgeBulkPostRequest);
+      Integer result = apiInstance.apiV2ConfigurationsRestoreBulkPost(configurationSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsRestoreBulkPost");
@@ -647,7 +647,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional] |
+| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -675,7 +675,7 @@ public class Example {
 
 <a id="apiV2ConfigurationsSearchPost"></a>
 # **apiV2ConfigurationsSearchPost**
-> List&lt;ConfigurationModel&gt; apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest)
+> List&lt;ConfigurationModel&gt; apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationFilterModel)
 
 Search for configurations
 
@@ -706,9 +706,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ConfigurationsSearchPostRequest apiV2ConfigurationsSearchPostRequest = new ApiV2ConfigurationsSearchPostRequest(); // ApiV2ConfigurationsSearchPostRequest | Model containing all the filters
+    ConfigurationFilterModel configurationFilterModel = new ConfigurationFilterModel(); // ConfigurationFilterModel | Model containing all the filters
     try {
-      List<ConfigurationModel> result = apiInstance.apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ConfigurationsSearchPostRequest);
+      List<ConfigurationModel> result = apiInstance.apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsSearchPost");
@@ -730,7 +730,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ConfigurationsSearchPostRequest** | [**ApiV2ConfigurationsSearchPostRequest**](ApiV2ConfigurationsSearchPostRequest.md)| Model containing all the filters | [optional] |
+| **configurationFilterModel** | [**ConfigurationFilterModel**](ConfigurationFilterModel.md)| Model containing all the filters | [optional] |
 
 ### Return type
 
@@ -758,7 +758,7 @@ public class Example {
 
 <a id="createConfiguration"></a>
 # **createConfiguration**
-> ConfigurationModel createConfiguration(createConfigurationRequest)
+> ConfigurationModel createConfiguration(configurationPostModel)
 
 Create Configuration
 
@@ -786,9 +786,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-    CreateConfigurationRequest createConfigurationRequest = new CreateConfigurationRequest(); // CreateConfigurationRequest | 
+    ConfigurationPostModel configurationPostModel = new ConfigurationPostModel(); // ConfigurationPostModel | 
     try {
-      ConfigurationModel result = apiInstance.createConfiguration(createConfigurationRequest);
+      ConfigurationModel result = apiInstance.createConfiguration(configurationPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfigurationsApi#createConfiguration");
@@ -805,7 +805,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createConfigurationRequest** | [**CreateConfigurationRequest**](CreateConfigurationRequest.md)|  | [optional] |
+| **configurationPostModel** | [**ConfigurationPostModel**](ConfigurationPostModel.md)|  | [optional] |
 
 ### Return type
 

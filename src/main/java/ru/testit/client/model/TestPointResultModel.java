@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,12 +43,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,146 +54,142 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointResultModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointResultModel {
   public static final String SERIALIZED_NAME_TEST_POINT_ID = "testPointId";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_ID)
+  @javax.annotation.Nullable
   private UUID testPointId;
 
   public static final String SERIALIZED_NAME_AGGREGATED_OUTCOME = "aggregatedOutcome";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_OUTCOME)
+  @javax.annotation.Nullable
   private String aggregatedOutcome;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
+  @javax.annotation.Nullable
   private Long workItemGlobalId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
+  @javax.annotation.Nullable
   private String workItemName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  @javax.annotation.Nullable
   private String configurationName;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
+  @javax.annotation.Nullable
   private List<TestResultShortModel> testResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public TestPointResultModel() {
   }
 
-  public TestPointResultModel testPointId(UUID testPointId) {
-    
+  public TestPointResultModel testPointId(@javax.annotation.Nullable UUID testPointId) {
     this.testPointId = testPointId;
     return this;
   }
 
-   /**
+  /**
    * Get testPointId
    * @return testPointId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestPointId() {
     return testPointId;
   }
 
-
-  public void setTestPointId(UUID testPointId) {
+  public void setTestPointId(@javax.annotation.Nullable UUID testPointId) {
     this.testPointId = testPointId;
   }
 
 
-  public TestPointResultModel aggregatedOutcome(String aggregatedOutcome) {
-    
+  public TestPointResultModel aggregatedOutcome(@javax.annotation.Nullable String aggregatedOutcome) {
     this.aggregatedOutcome = aggregatedOutcome;
     return this;
   }
 
-   /**
+  /**
    * Get aggregatedOutcome
    * @return aggregatedOutcome
-  **/
+   */
   @javax.annotation.Nullable
   public String getAggregatedOutcome() {
     return aggregatedOutcome;
   }
 
-
-  public void setAggregatedOutcome(String aggregatedOutcome) {
+  public void setAggregatedOutcome(@javax.annotation.Nullable String aggregatedOutcome) {
     this.aggregatedOutcome = aggregatedOutcome;
   }
 
 
-  public TestPointResultModel workItemGlobalId(Long workItemGlobalId) {
-    
+  public TestPointResultModel workItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemGlobalId
    * @return workItemGlobalId
-  **/
+   */
   @javax.annotation.Nullable
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
   }
 
-
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
+  public void setWorkItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPointResultModel workItemName(String workItemName) {
-    
+  public TestPointResultModel workItemName(@javax.annotation.Nullable String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
 
-   /**
+  /**
    * Get workItemName
    * @return workItemName
-  **/
+   */
   @javax.annotation.Nullable
   public String getWorkItemName() {
     return workItemName;
   }
 
-
-  public void setWorkItemName(String workItemName) {
+  public void setWorkItemName(@javax.annotation.Nullable String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public TestPointResultModel configurationName(String configurationName) {
-    
+  public TestPointResultModel configurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
 
-   /**
+  /**
    * Get configurationName
    * @return configurationName
-  **/
+   */
   @javax.annotation.Nullable
   public String getConfigurationName() {
     return configurationName;
   }
 
-
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestPointResultModel testResults(List<TestResultShortModel> testResults) {
-    
+  public TestPointResultModel testResults(@javax.annotation.Nullable List<TestResultShortModel> testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -208,23 +202,21 @@ public class TestPointResultModel {
     return this;
   }
 
-   /**
+  /**
    * Get testResults
    * @return testResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<TestResultShortModel> getTestResults() {
     return testResults;
   }
 
-
-  public void setTestResults(List<TestResultShortModel> testResults) {
+  public void setTestResults(@javax.annotation.Nullable List<TestResultShortModel> testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestPointResultModel attachments(List<AttachmentModel> attachments) {
-    
+  public TestPointResultModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -237,17 +229,16 @@ public class TestPointResultModel {
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
@@ -332,26 +323,27 @@ public class TestPointResultModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPointResultModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPointResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestPointResultModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPointResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointResultModel is not found in the empty JSON string", TestPointResultModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPointResultModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointResultModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("testPointId") != null && !jsonObj.get("testPointId").isJsonNull()) && !jsonObj.get("testPointId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testPointId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPointId").toString()));
       }
@@ -374,7 +366,7 @@ public class TestPointResultModel {
 
           // validate the optional field `testResults` (array)
           for (int i = 0; i < jsonArraytestResults.size(); i++) {
-            TestResultShortModel.validateJsonObject(jsonArraytestResults.get(i).getAsJsonObject());
+            TestResultShortModel.validateJsonElement(jsonArraytestResults.get(i));
           };
         }
       }
@@ -388,7 +380,7 @@ public class TestPointResultModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -414,31 +406,31 @@ public class TestPointResultModel {
 
            @Override
            public TestPointResultModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestPointResultModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPointResultModel
-  * @throws IOException if the JSON string is invalid with respect to TestPointResultModel
-  */
+  /**
+   * Create an instance of TestPointResultModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestPointResultModel
+   * @throws IOException if the JSON string is invalid with respect to TestPointResultModel
+   */
   public static TestPointResultModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPointResultModel.class);
   }
 
- /**
-  * Convert an instance of TestPointResultModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestPointResultModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

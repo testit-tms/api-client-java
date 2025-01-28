@@ -15,7 +15,7 @@
 |**stepComments** | [**List&lt;StepComment&gt;**](StepComment.md) |  |  [optional] |
 |**failureClassIds** | **List&lt;UUID&gt;** |  |  |
 |**outcome** | **TestResultOutcome** |  |  [optional] |
-|**status** | [**TestStatus**](TestStatus.md) |  |  [optional] |
+|**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
 |**stepResults** | [**List&lt;StepResult&gt;**](StepResult.md) |  |  [optional] |

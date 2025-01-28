@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +44,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -57,29 +55,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormCreateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormCreateModel {
   public static final String SERIALIZED_NAME_POSSIBLE_VALUES = "possibleValues";
   @SerializedName(SERIALIZED_NAME_POSSIBLE_VALUES)
+  @javax.annotation.Nonnull
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
+  @javax.annotation.Nonnull
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nonnull
   private List<ExternalFormLinkModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
+  @javax.annotation.Nonnull
   private Map<String, Object> values = new HashMap<>();
 
   public ExternalFormCreateModel() {
   }
 
-  public ExternalFormCreateModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
-    
+  public ExternalFormCreateModel possibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
     return this;
   }
@@ -92,23 +93,21 @@ public class ExternalFormCreateModel {
     return this;
   }
 
-   /**
+  /**
    * Get possibleValues
    * @return possibleValues
-  **/
+   */
   @javax.annotation.Nonnull
   public Map<String, List<ExternalFormAllowedValueModel>> getPossibleValues() {
     return possibleValues;
   }
 
-
-  public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public void setPossibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
 
 
-  public ExternalFormCreateModel fields(List<ExternalFormFieldModel> fields) {
-    
+  public ExternalFormCreateModel fields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
     return this;
   }
@@ -121,23 +120,21 @@ public class ExternalFormCreateModel {
     return this;
   }
 
-   /**
+  /**
    * Get fields
    * @return fields
-  **/
+   */
   @javax.annotation.Nonnull
   public List<ExternalFormFieldModel> getFields() {
     return fields;
   }
 
-
-  public void setFields(List<ExternalFormFieldModel> fields) {
+  public void setFields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
 
 
-  public ExternalFormCreateModel links(List<ExternalFormLinkModel> links) {
-    
+  public ExternalFormCreateModel links(@javax.annotation.Nonnull List<ExternalFormLinkModel> links) {
     this.links = links;
     return this;
   }
@@ -150,23 +147,21 @@ public class ExternalFormCreateModel {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nonnull
   public List<ExternalFormLinkModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<ExternalFormLinkModel> links) {
+  public void setLinks(@javax.annotation.Nonnull List<ExternalFormLinkModel> links) {
     this.links = links;
   }
 
 
-  public ExternalFormCreateModel values(Map<String, Object> values) {
-    
+  public ExternalFormCreateModel values(@javax.annotation.Nonnull Map<String, Object> values) {
     this.values = values;
     return this;
   }
@@ -179,17 +174,16 @@ public class ExternalFormCreateModel {
     return this;
   }
 
-   /**
+  /**
    * Get values
    * @return values
-  **/
+   */
   @javax.annotation.Nonnull
   public Map<String, Object> getValues() {
     return values;
   }
 
-
-  public void setValues(Map<String, Object> values) {
+  public void setValues(@javax.annotation.Nonnull Map<String, Object> values) {
     this.values = values;
   }
 
@@ -258,33 +252,34 @@ public class ExternalFormCreateModel {
     openapiRequiredFields.add("values");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ExternalFormCreateModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ExternalFormCreateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ExternalFormCreateModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ExternalFormCreateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalFormCreateModel is not found in the empty JSON string", ExternalFormCreateModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExternalFormCreateModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormCreateModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormCreateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ExternalFormCreateModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("fields").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `fields` to be an array in the JSON string but got `%s`", jsonObj.get("fields").toString()));
@@ -293,7 +288,7 @@ public class ExternalFormCreateModel {
       JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
       // validate the required field `fields` (array)
       for (int i = 0; i < jsonArrayfields.size(); i++) {
-        ExternalFormFieldModel.validateJsonObject(jsonArrayfields.get(i).getAsJsonObject());
+        ExternalFormFieldModel.validateJsonElement(jsonArrayfields.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {
@@ -303,7 +298,7 @@ public class ExternalFormCreateModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        ExternalFormLinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+        ExternalFormLinkModel.validateJsonElement(jsonArraylinks.get(i));
       };
   }
 
@@ -327,31 +322,31 @@ public class ExternalFormCreateModel {
 
            @Override
            public ExternalFormCreateModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ExternalFormCreateModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ExternalFormCreateModel
-  * @throws IOException if the JSON string is invalid with respect to ExternalFormCreateModel
-  */
+  /**
+   * Create an instance of ExternalFormCreateModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ExternalFormCreateModel
+   * @throws IOException if the JSON string is invalid with respect to ExternalFormCreateModel
+   */
   public static ExternalFormCreateModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ExternalFormCreateModel.class);
   }
 
- /**
-  * Convert an instance of ExternalFormCreateModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ExternalFormCreateModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

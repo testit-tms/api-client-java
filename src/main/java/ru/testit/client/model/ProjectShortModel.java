@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ProjectTypeModel;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,413 +52,368 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
+  @javax.annotation.Nonnull
   private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
+  @javax.annotation.Nullable
   private Integer testCasesCount;
 
   public static final String SERIALIZED_NAME_SHARED_STEPS_COUNT = "sharedStepsCount";
   @SerializedName(SERIALIZED_NAME_SHARED_STEPS_COUNT)
+  @javax.annotation.Nullable
   private Integer sharedStepsCount;
 
   public static final String SERIALIZED_NAME_CHECK_LISTS_COUNT = "checkListsCount";
   @SerializedName(SERIALIZED_NAME_CHECK_LISTS_COUNT)
+  @javax.annotation.Nullable
   private Integer checkListsCount;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
+  @javax.annotation.Nullable
   private Integer autoTestsCount;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
   private ProjectTypeModel type;
-
-  public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
-  private Boolean isFlakyAuto;
 
   public ProjectShortModel() {
   }
 
-  public ProjectShortModel id(UUID id) {
-    
+  public ProjectShortModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the project
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectShortModel description(String description) {
-    
+  public ProjectShortModel description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the project
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public ProjectShortModel name(String name) {
-    
+  public ProjectShortModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the project
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectShortModel isFavorite(Boolean isFavorite) {
-    
+  public ProjectShortModel isFavorite(@javax.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the project is marked as favorite
    * @return isFavorite
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsFavorite() {
     return isFavorite;
   }
 
-
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@javax.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
-  public ProjectShortModel testCasesCount(Integer testCasesCount) {
-    
+  public ProjectShortModel testCasesCount(@javax.annotation.Nullable Integer testCasesCount) {
     this.testCasesCount = testCasesCount;
     return this;
   }
 
-   /**
+  /**
    * Number of test cases in the project
    * @return testCasesCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getTestCasesCount() {
     return testCasesCount;
   }
 
-
-  public void setTestCasesCount(Integer testCasesCount) {
+  public void setTestCasesCount(@javax.annotation.Nullable Integer testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
-  public ProjectShortModel sharedStepsCount(Integer sharedStepsCount) {
-    
+  public ProjectShortModel sharedStepsCount(@javax.annotation.Nullable Integer sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
 
-   /**
+  /**
    * Number of shared steps in the project
    * @return sharedStepsCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getSharedStepsCount() {
     return sharedStepsCount;
   }
 
-
-  public void setSharedStepsCount(Integer sharedStepsCount) {
+  public void setSharedStepsCount(@javax.annotation.Nullable Integer sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
-  public ProjectShortModel checkListsCount(Integer checkListsCount) {
-    
+  public ProjectShortModel checkListsCount(@javax.annotation.Nullable Integer checkListsCount) {
     this.checkListsCount = checkListsCount;
     return this;
   }
 
-   /**
+  /**
    * Number of checklists in the project
    * @return checkListsCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getCheckListsCount() {
     return checkListsCount;
   }
 
-
-  public void setCheckListsCount(Integer checkListsCount) {
+  public void setCheckListsCount(@javax.annotation.Nullable Integer checkListsCount) {
     this.checkListsCount = checkListsCount;
   }
 
 
-  public ProjectShortModel autoTestsCount(Integer autoTestsCount) {
-    
+  public ProjectShortModel autoTestsCount(@javax.annotation.Nullable Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
 
-   /**
+  /**
    * Number of autotests in the project
    * @return autoTestsCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getAutoTestsCount() {
     return autoTestsCount;
   }
 
-
-  public void setAutoTestsCount(Integer autoTestsCount) {
+  public void setAutoTestsCount(@javax.annotation.Nullable Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
-  public ProjectShortModel isDeleted(Boolean isDeleted) {
-    
+  public ProjectShortModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the project is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectShortModel createdDate(OffsetDateTime createdDate) {
-    
+  public ProjectShortModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Creation date of the project
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ProjectShortModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public ProjectShortModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Last modification date of the project
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public ProjectShortModel createdById(UUID createdById) {
-    
+  public ProjectShortModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the project creator
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public ProjectShortModel modifiedById(UUID modifiedById) {
-    
+  public ProjectShortModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the project last editor
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public ProjectShortModel globalId(Long globalId) {
-    
+  public ProjectShortModel globalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Global ID of the project
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ProjectShortModel type(ProjectTypeModel type) {
-    
+  public ProjectShortModel type(@javax.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
     return this;
   }
 
-   /**
-   * Get type
+  /**
+   * Type of the project
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public ProjectTypeModel getType() {
     return type;
   }
 
-
-  public void setType(ProjectTypeModel type) {
+  public void setType(@javax.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
-  }
-
-
-  @Deprecated
-  public ProjectShortModel isFlakyAuto(Boolean isFlakyAuto) {
-    
-    this.isFlakyAuto = isFlakyAuto;
-    return this;
-  }
-
-   /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
-   * @return isFlakyAuto
-   * @deprecated
-  **/
-  @Deprecated
-  @javax.annotation.Nonnull
-  public Boolean getIsFlakyAuto() {
-    return isFlakyAuto;
-  }
-
-
-  @Deprecated
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
   }
 
 
@@ -488,8 +441,7 @@ public class ProjectShortModel {
         Objects.equals(this.createdById, projectShortModel.createdById) &&
         Objects.equals(this.modifiedById, projectShortModel.modifiedById) &&
         Objects.equals(this.globalId, projectShortModel.globalId) &&
-        Objects.equals(this.type, projectShortModel.type) &&
-        Objects.equals(this.isFlakyAuto, projectShortModel.isFlakyAuto);
+        Objects.equals(this.type, projectShortModel.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -498,7 +450,7 @@ public class ProjectShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, name, isFavorite, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type, isFlakyAuto);
+    return Objects.hash(id, description, name, isFavorite, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -527,7 +479,6 @@ public class ProjectShortModel {
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -565,7 +516,6 @@ public class ProjectShortModel {
     openapiFields.add("modifiedById");
     openapiFields.add("globalId");
     openapiFields.add("type");
-    openapiFields.add("isFlakyAuto");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -577,36 +527,36 @@ public class ProjectShortModel {
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("globalId");
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("isFlakyAuto");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectShortModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ProjectShortModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectShortModel is not found in the empty JSON string", ProjectShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ProjectShortModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -622,6 +572,8 @@ public class ProjectShortModel {
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
+      // validate the required field `type`
+      ProjectTypeModel.validateJsonElement(jsonObj.get("type"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -644,31 +596,31 @@ public class ProjectShortModel {
 
            @Override
            public ProjectShortModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ProjectShortModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectShortModel
-  * @throws IOException if the JSON string is invalid with respect to ProjectShortModel
-  */
+  /**
+   * Create an instance of ProjectShortModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ProjectShortModel
+   * @throws IOException if the JSON string is invalid with respect to ProjectShortModel
+   */
   public static ProjectShortModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ProjectShortModel.class);
   }
 
- /**
-  * Convert an instance of ProjectShortModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ProjectShortModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

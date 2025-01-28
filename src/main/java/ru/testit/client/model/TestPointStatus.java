@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -29,7 +29,7 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(TestPointStatus.Adapter.class)
 public enum TestPointStatus {
   
-  INPROGRESS("InProgress"),
+  IN_PROGRESS("InProgress"),
   
   PASSED("Passed"),
   
@@ -39,7 +39,7 @@ public enum TestPointStatus {
   
   BLOCKED("Blocked"),
   
-  NORESULTS("NoResults");
+  NO_RESULTS("NoResults");
 
   private String value;
 
@@ -76,6 +76,11 @@ public enum TestPointStatus {
       String value = jsonReader.nextString();
       return TestPointStatus.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    TestPointStatus.fromValue(value);
   }
 }
 
