@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -49,103 +51,107 @@ import ru.testit.client.invoker.JSON;
 /**
  * Operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Operation {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
   private Object value = null;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
-  @javax.annotation.Nullable
   private String path;
 
   public static final String SERIALIZED_NAME_OP = "op";
   @SerializedName(SERIALIZED_NAME_OP)
-  @javax.annotation.Nullable
   private String op;
 
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private String from;
 
   public Operation() {
   }
 
-  public Operation value(@javax.annotation.Nullable Object value) {
+  public Operation value(Object value) {
+    
     this.value = value;
     return this;
   }
 
-  /**
+   /**
    * Get value
    * @return value
-   */
+  **/
   @javax.annotation.Nullable
   public Object getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable Object value) {
+
+  public void setValue(Object value) {
     this.value = value;
   }
 
 
-  public Operation path(@javax.annotation.Nullable String path) {
+  public Operation path(String path) {
+    
     this.path = path;
     return this;
   }
 
-  /**
+   /**
    * Get path
    * @return path
-   */
+  **/
   @javax.annotation.Nullable
   public String getPath() {
     return path;
   }
 
-  public void setPath(@javax.annotation.Nullable String path) {
+
+  public void setPath(String path) {
     this.path = path;
   }
 
 
-  public Operation op(@javax.annotation.Nullable String op) {
+  public Operation op(String op) {
+    
     this.op = op;
     return this;
   }
 
-  /**
+   /**
    * Get op
    * @return op
-   */
+  **/
   @javax.annotation.Nullable
   public String getOp() {
     return op;
   }
 
-  public void setOp(@javax.annotation.Nullable String op) {
+
+  public void setOp(String op) {
     this.op = op;
   }
 
 
-  public Operation from(@javax.annotation.Nullable String from) {
+  public Operation from(String from) {
+    
     this.from = from;
     return this;
   }
 
-  /**
+   /**
    * Get from
    * @return from
-   */
+  **/
   @javax.annotation.Nullable
   public String getFrom() {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable String from) {
+
+  public void setFrom(String from) {
     this.from = from;
   }
 
@@ -221,27 +227,26 @@ public class Operation {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Operation
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Operation.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to Operation
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!Operation.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Operation is not found in the empty JSON string", Operation.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!Operation.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Operation` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Operation` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
@@ -273,31 +278,31 @@ public class Operation {
 
            @Override
            public Operation read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of Operation given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Operation
-   * @throws IOException if the JSON string is invalid with respect to Operation
-   */
+ /**
+  * Create an instance of Operation given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Operation
+  * @throws IOException if the JSON string is invalid with respect to Operation
+  */
   public static Operation fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Operation.class);
   }
 
-  /**
-   * Convert an instance of Operation to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of Operation to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

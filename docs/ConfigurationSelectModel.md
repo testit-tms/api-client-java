@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**ConfigurationFilterModel**](ConfigurationFilterModel.md) | Configuration filters collection |  [optional] |
-|**extractionModel** | [**ConfigurationExtractionModel**](ConfigurationExtractionModel.md) | Rules for configurations extraction |  [optional] |
+|**filter** | [**ConfigurationSelectModelFilter**](ConfigurationSelectModelFilter.md) |  |  [optional] |
+|**extractionModel** | [**ConfigurationSelectModelExtractionModel**](ConfigurationSelectModelExtractionModel.md) |  |  [optional] |
 
 
 

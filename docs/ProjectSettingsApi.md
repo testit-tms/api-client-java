@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ProjectsProjectIdSettingsAutotestsPost"></a>
 # **apiV2ProjectsProjectIdSettingsAutotestsPost**
-> apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsPostModel)
+> apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest)
 
 Set autotest project settings.
 
@@ -37,9 +37,9 @@ public class Example {
 
     ProjectSettingsApi apiInstance = new ProjectSettingsApi(defaultClient);
     String projectId = "projectId_example"; // String | 
-    AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel = new AutoTestProjectSettingsPostModel(); // AutoTestProjectSettingsPostModel | 
+    ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest = new ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(); // ApiV2ProjectsProjectIdSettingsAutotestsPostRequest | 
     try {
-      apiInstance.apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsPostModel);
+      apiInstance.apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectSettingsApi#apiV2ProjectsProjectIdSettingsAutotestsPost");
       System.err.println("Status code: " + e.getCode());
@@ -56,7 +56,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**|  | |
-| **autoTestProjectSettingsPostModel** | [**AutoTestProjectSettingsPostModel**](AutoTestProjectSettingsPostModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdSettingsAutotestsPostRequest** | [**ApiV2ProjectsProjectIdSettingsAutotestsPostRequest**](ApiV2ProjectsProjectIdSettingsAutotestsPostRequest.md)|  | [optional] |
 
 ### Return type
 

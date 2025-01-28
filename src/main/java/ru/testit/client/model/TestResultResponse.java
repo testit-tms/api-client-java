@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +36,7 @@ import ru.testit.client.model.StepComment;
 import ru.testit.client.model.StepResult;
 import ru.testit.client.model.TestPoint;
 import ru.testit.client.model.TestResultOutcome;
-import ru.testit.client.model.TestStatusApiResult;
+import ru.testit.client.model.TestStatus;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,10 +53,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -64,278 +66,254 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  @javax.annotation.Nullable
   private List<StepComment> stepComments;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> failureClassIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
-  @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private TestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private TestStatusApiResult status;
+  private TestStatus status;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<Link> links;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<StepResult> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<Attachment> attachments;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
-  @javax.annotation.Nullable
   private UUID autoTestId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
   @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
-  @javax.annotation.Nullable
   private Long durationInMs;
 
   public static final String SERIALIZED_NAME_TRACES = "traces";
   @SerializedName(SERIALIZED_NAME_TRACES)
-  @javax.annotation.Nullable
   private String traces;
 
   public static final String SERIALIZED_NAME_FAILURE_TYPE = "failureType";
   @SerializedName(SERIALIZED_NAME_FAILURE_TYPE)
-  @javax.annotation.Nullable
   private String failureType;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_RUN_BY_USER_ID = "runByUserId";
   @SerializedName(SERIALIZED_NAME_RUN_BY_USER_ID)
-  @javax.annotation.Nullable
   private UUID runByUserId;
 
   public static final String SERIALIZED_NAME_STOPPED_BY_USER_ID = "stoppedByUserId";
   @SerializedName(SERIALIZED_NAME_STOPPED_BY_USER_ID)
-  @javax.annotation.Nullable
   private UUID stoppedByUserId;
 
   public static final String SERIALIZED_NAME_TEST_POINT_ID = "testPointId";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_ID)
-  @javax.annotation.Nonnull
   private UUID testPointId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
-  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
   @SerializedName(SERIALIZED_NAME_TEST_POINT)
-  @javax.annotation.Nullable
   private TestPoint testPoint;
 
   public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST)
-  @javax.annotation.Nullable
   private AutoTest autoTest;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_STEP_RESULTS = "autoTestStepResults";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<AutoTestStepResult> autoTestStepResults;
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  @javax.annotation.Nullable
   private List<AutoTestStepResult> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  @javax.annotation.Nullable
   private List<AutoTestStepResult> teardownResults;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER)
-  @javax.annotation.Nullable
   private Integer workItemVersionNumber;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  @javax.annotation.Nullable
   private Map<String, String> properties;
 
   public TestResultResponse() {
   }
 
-  public TestResultResponse id(@javax.annotation.Nonnull UUID id) {
+  public TestResultResponse id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestResultResponse createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestResultResponse createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultResponse modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestResultResponse modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedDate
    * @return modifiedDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestResultResponse createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestResultResponse createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
 
-  /**
+   /**
    * Get createdById
    * @return createdById
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestResultResponse modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestResultResponse modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedById
    * @return modifiedById
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestResultResponse stepComments(@javax.annotation.Nullable List<StepComment> stepComments) {
+  public TestResultResponse stepComments(List<StepComment> stepComments) {
+    
     this.stepComments = stepComments;
     return this;
   }
@@ -348,21 +326,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get stepComments
    * @return stepComments
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepComment> getStepComments() {
     return stepComments;
   }
 
-  public void setStepComments(@javax.annotation.Nullable List<StepComment> stepComments) {
+
+  public void setStepComments(List<StepComment> stepComments) {
     this.stepComments = stepComments;
   }
 
 
-  public TestResultResponse failureClassIds(@javax.annotation.Nonnull List<UUID> failureClassIds) {
+  public TestResultResponse failureClassIds(List<UUID> failureClassIds) {
+    
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -375,82 +355,86 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get failureClassIds
    * @return failureClassIds
-   */
+  **/
   @javax.annotation.Nonnull
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
   }
 
-  public void setFailureClassIds(@javax.annotation.Nonnull List<UUID> failureClassIds) {
+
+  public void setFailureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
-  @Deprecated
-  public TestResultResponse outcome(@javax.annotation.Nullable TestResultOutcome outcome) {
+  public TestResultResponse outcome(TestResultOutcome outcome) {
+    
     this.outcome = outcome;
     return this;
   }
 
-  /**
+   /**
    * Get outcome
    * @return outcome
-   * @deprecated
-   */
-  @Deprecated
+  **/
   @javax.annotation.Nullable
   public TestResultOutcome getOutcome() {
     return outcome;
   }
 
-  @Deprecated
-  public void setOutcome(@javax.annotation.Nullable TestResultOutcome outcome) {
+
+  public void setOutcome(TestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultResponse status(@javax.annotation.Nullable TestStatusApiResult status) {
+  public TestResultResponse status(TestStatus status) {
+    
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * Get status
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
-  public TestStatusApiResult getStatus() {
+  public TestStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable TestStatusApiResult status) {
+
+  public void setStatus(TestStatus status) {
     this.status = status;
   }
 
 
-  public TestResultResponse comment(@javax.annotation.Nullable String comment) {
+  public TestResultResponse comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
 
-  /**
+   /**
    * Get comment
    * @return comment
-   */
+  **/
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public TestResultResponse links(@javax.annotation.Nullable List<Link> links) {
+  public TestResultResponse links(List<Link> links) {
+    
     this.links = links;
     return this;
   }
@@ -463,21 +447,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get links
    * @return links
-   */
+  **/
   @javax.annotation.Nullable
   public List<Link> getLinks() {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<Link> links) {
+
+  public void setLinks(List<Link> links) {
     this.links = links;
   }
 
 
-  public TestResultResponse stepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
+  public TestResultResponse stepResults(List<StepResult> stepResults) {
+    
     this.stepResults = stepResults;
     return this;
   }
@@ -490,21 +476,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get stepResults
    * @return stepResults
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepResult> getStepResults() {
     return stepResults;
   }
 
-  public void setStepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
+
+  public void setStepResults(List<StepResult> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public TestResultResponse attachments(@javax.annotation.Nullable List<Attachment> attachments) {
+  public TestResultResponse attachments(List<Attachment> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -517,287 +505,317 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get attachments
    * @return attachments
-   */
+  **/
   @javax.annotation.Nullable
   public List<Attachment> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<Attachment> attachments) {
+
+  public void setAttachments(List<Attachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultResponse autoTestId(@javax.annotation.Nullable UUID autoTestId) {
+  public TestResultResponse autoTestId(UUID autoTestId) {
+    
     this.autoTestId = autoTestId;
     return this;
   }
 
-  /**
+   /**
    * Get autoTestId
    * @return autoTestId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getAutoTestId() {
     return autoTestId;
   }
 
-  public void setAutoTestId(@javax.annotation.Nullable UUID autoTestId) {
+
+  public void setAutoTestId(UUID autoTestId) {
     this.autoTestId = autoTestId;
   }
 
 
-  public TestResultResponse configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public TestResultResponse configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
 
-  /**
+   /**
    * Get configurationId
    * @return configurationId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultResponse startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestResultResponse startedOn(OffsetDateTime startedOn) {
+    
     this.startedOn = startedOn;
     return this;
   }
 
-  /**
+   /**
    * Get startedOn
    * @return startedOn
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestResultResponse completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestResultResponse completedOn(OffsetDateTime completedOn) {
+    
     this.completedOn = completedOn;
     return this;
   }
 
-  /**
+   /**
    * Get completedOn
    * @return completedOn
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestResultResponse durationInMs(@javax.annotation.Nullable Long durationInMs) {
+  public TestResultResponse durationInMs(Long durationInMs) {
+    
     this.durationInMs = durationInMs;
     return this;
   }
 
-  /**
+   /**
    * Get durationInMs
    * @return durationInMs
-   */
+  **/
   @javax.annotation.Nullable
   public Long getDurationInMs() {
     return durationInMs;
   }
 
-  public void setDurationInMs(@javax.annotation.Nullable Long durationInMs) {
+
+  public void setDurationInMs(Long durationInMs) {
     this.durationInMs = durationInMs;
   }
 
 
-  public TestResultResponse traces(@javax.annotation.Nullable String traces) {
+  public TestResultResponse traces(String traces) {
+    
     this.traces = traces;
     return this;
   }
 
-  /**
+   /**
    * Get traces
    * @return traces
-   */
+  **/
   @javax.annotation.Nullable
   public String getTraces() {
     return traces;
   }
 
-  public void setTraces(@javax.annotation.Nullable String traces) {
+
+  public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
-  public TestResultResponse failureType(@javax.annotation.Nullable String failureType) {
+  public TestResultResponse failureType(String failureType) {
+    
     this.failureType = failureType;
     return this;
   }
 
-  /**
+   /**
    * Get failureType
    * @return failureType
-   */
+  **/
   @javax.annotation.Nullable
   public String getFailureType() {
     return failureType;
   }
 
-  public void setFailureType(@javax.annotation.Nullable String failureType) {
+
+  public void setFailureType(String failureType) {
     this.failureType = failureType;
   }
 
 
-  public TestResultResponse message(@javax.annotation.Nullable String message) {
+  public TestResultResponse message(String message) {
+    
     this.message = message;
     return this;
   }
 
-  /**
+   /**
    * Get message
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+
+  public void setMessage(String message) {
     this.message = message;
   }
 
 
-  public TestResultResponse runByUserId(@javax.annotation.Nullable UUID runByUserId) {
+  public TestResultResponse runByUserId(UUID runByUserId) {
+    
     this.runByUserId = runByUserId;
     return this;
   }
 
-  /**
+   /**
    * Get runByUserId
    * @return runByUserId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getRunByUserId() {
     return runByUserId;
   }
 
-  public void setRunByUserId(@javax.annotation.Nullable UUID runByUserId) {
+
+  public void setRunByUserId(UUID runByUserId) {
     this.runByUserId = runByUserId;
   }
 
 
-  public TestResultResponse stoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
+  public TestResultResponse stoppedByUserId(UUID stoppedByUserId) {
+    
     this.stoppedByUserId = stoppedByUserId;
     return this;
   }
 
-  /**
+   /**
    * Get stoppedByUserId
    * @return stoppedByUserId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
   }
 
-  public void setStoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
+
+  public void setStoppedByUserId(UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
   }
 
 
-  public TestResultResponse testPointId(@javax.annotation.Nonnull UUID testPointId) {
+  public TestResultResponse testPointId(UUID testPointId) {
+    
     this.testPointId = testPointId;
     return this;
   }
 
-  /**
+   /**
    * Get testPointId
    * @return testPointId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getTestPointId() {
     return testPointId;
   }
 
-  public void setTestPointId(@javax.annotation.Nonnull UUID testPointId) {
+
+  public void setTestPointId(UUID testPointId) {
     this.testPointId = testPointId;
   }
 
 
-  public TestResultResponse testRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public TestResultResponse testRunId(UUID testRunId) {
+    
     this.testRunId = testRunId;
     return this;
   }
 
-  /**
+   /**
    * Get testRunId
    * @return testRunId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
+
+  public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultResponse testPoint(@javax.annotation.Nullable TestPoint testPoint) {
+  public TestResultResponse testPoint(TestPoint testPoint) {
+    
     this.testPoint = testPoint;
     return this;
   }
 
-  /**
+   /**
    * Get testPoint
    * @return testPoint
-   */
+  **/
   @javax.annotation.Nullable
   public TestPoint getTestPoint() {
     return testPoint;
   }
 
-  public void setTestPoint(@javax.annotation.Nullable TestPoint testPoint) {
+
+  public void setTestPoint(TestPoint testPoint) {
     this.testPoint = testPoint;
   }
 
 
-  public TestResultResponse autoTest(@javax.annotation.Nullable AutoTest autoTest) {
+  public TestResultResponse autoTest(AutoTest autoTest) {
+    
     this.autoTest = autoTest;
     return this;
   }
 
-  /**
+   /**
    * Get autoTest
    * @return autoTest
-   */
+  **/
   @javax.annotation.Nullable
   public AutoTest getAutoTest() {
     return autoTest;
   }
 
-  public void setAutoTest(@javax.annotation.Nullable AutoTest autoTest) {
+
+  public void setAutoTest(AutoTest autoTest) {
     this.autoTest = autoTest;
   }
 
 
-  public TestResultResponse autoTestStepResults(@javax.annotation.Nullable List<AutoTestStepResult> autoTestStepResults) {
+  public TestResultResponse autoTestStepResults(List<AutoTestStepResult> autoTestStepResults) {
+    
     this.autoTestStepResults = autoTestStepResults;
     return this;
   }
@@ -810,21 +828,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get autoTestStepResults
    * @return autoTestStepResults
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestStepResult> getAutoTestStepResults() {
     return autoTestStepResults;
   }
 
-  public void setAutoTestStepResults(@javax.annotation.Nullable List<AutoTestStepResult> autoTestStepResults) {
+
+  public void setAutoTestStepResults(List<AutoTestStepResult> autoTestStepResults) {
     this.autoTestStepResults = autoTestStepResults;
   }
 
 
-  public TestResultResponse setupResults(@javax.annotation.Nullable List<AutoTestStepResult> setupResults) {
+  public TestResultResponse setupResults(List<AutoTestStepResult> setupResults) {
+    
     this.setupResults = setupResults;
     return this;
   }
@@ -837,21 +857,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get setupResults
    * @return setupResults
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestStepResult> getSetupResults() {
     return setupResults;
   }
 
-  public void setSetupResults(@javax.annotation.Nullable List<AutoTestStepResult> setupResults) {
+
+  public void setSetupResults(List<AutoTestStepResult> setupResults) {
     this.setupResults = setupResults;
   }
 
 
-  public TestResultResponse teardownResults(@javax.annotation.Nullable List<AutoTestStepResult> teardownResults) {
+  public TestResultResponse teardownResults(List<AutoTestStepResult> teardownResults) {
+    
     this.teardownResults = teardownResults;
     return this;
   }
@@ -864,59 +886,65 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get teardownResults
    * @return teardownResults
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestStepResult> getTeardownResults() {
     return teardownResults;
   }
 
-  public void setTeardownResults(@javax.annotation.Nullable List<AutoTestStepResult> teardownResults) {
+
+  public void setTeardownResults(List<AutoTestStepResult> teardownResults) {
     this.teardownResults = teardownResults;
   }
 
 
-  public TestResultResponse workItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+  public TestResultResponse workItemVersionId(UUID workItemVersionId) {
+    
     this.workItemVersionId = workItemVersionId;
     return this;
   }
 
-  /**
+   /**
    * Get workItemVersionId
    * @return workItemVersionId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
 
-  public void setWorkItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+
+  public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestResultResponse workItemVersionNumber(@javax.annotation.Nullable Integer workItemVersionNumber) {
+  public TestResultResponse workItemVersionNumber(Integer workItemVersionNumber) {
+    
     this.workItemVersionNumber = workItemVersionNumber;
     return this;
   }
 
-  /**
+   /**
    * Get workItemVersionNumber
    * @return workItemVersionNumber
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getWorkItemVersionNumber() {
     return workItemVersionNumber;
   }
 
-  public void setWorkItemVersionNumber(@javax.annotation.Nullable Integer workItemVersionNumber) {
+
+  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
 
-  public TestResultResponse parameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public TestResultResponse parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -929,21 +957,23 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get parameters
    * @return parameters
-   */
+  **/
   @javax.annotation.Nullable
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
+
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public TestResultResponse properties(@javax.annotation.Nullable Map<String, String> properties) {
+  public TestResultResponse properties(Map<String, String> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -956,16 +986,17 @@ public class TestResultResponse {
     return this;
   }
 
-  /**
+   /**
    * Get properties
    * @return properties
-   */
+  **/
   @javax.annotation.Nullable
   public Map<String, String> getProperties() {
     return properties;
   }
 
-  public void setProperties(@javax.annotation.Nullable Map<String, String> properties) {
+
+  public void setProperties(Map<String, String> properties) {
     this.properties = properties;
   }
 
@@ -1139,34 +1170,33 @@ public class TestResultResponse {
     openapiRequiredFields.add("workItemVersionId");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultResponse
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultResponse is not found in the empty JSON string", TestResultResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -1186,7 +1216,7 @@ public class TestResultResponse {
 
           // validate the optional field `stepComments` (array)
           for (int i = 0; i < jsonArraystepComments.size(); i++) {
-            StepComment.validateJsonElement(jsonArraystepComments.get(i));
+            StepComment.validateJsonObject(jsonArraystepComments.get(i).getAsJsonObject());
           };
         }
       }
@@ -1196,13 +1226,9 @@ public class TestResultResponse {
       } else if (!jsonObj.get("failureClassIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
       }
-      // validate the optional field `outcome`
-      if (jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) {
-        TestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
-      }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        TestStatusApiResult.validateJsonElement(jsonObj.get("status"));
+        TestStatus.validateJsonObject(jsonObj.getAsJsonObject("status"));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -1217,7 +1243,7 @@ public class TestResultResponse {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            Link.validateJsonElement(jsonArraylinks.get(i));
+            Link.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
           };
         }
       }
@@ -1231,7 +1257,7 @@ public class TestResultResponse {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            StepResult.validateJsonElement(jsonArraystepResults.get(i));
+            StepResult.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -1245,7 +1271,7 @@ public class TestResultResponse {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            Attachment.validateJsonElement(jsonArrayattachments.get(i));
+            Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -1278,11 +1304,11 @@ public class TestResultResponse {
       }
       // validate the optional field `testPoint`
       if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPoint.validateJsonElement(jsonObj.get("testPoint"));
+        TestPoint.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
       }
       // validate the optional field `autoTest`
       if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
-        AutoTest.validateJsonElement(jsonObj.get("autoTest"));
+        AutoTest.validateJsonObject(jsonObj.getAsJsonObject("autoTest"));
       }
       if (jsonObj.get("autoTestStepResults") != null && !jsonObj.get("autoTestStepResults").isJsonNull()) {
         JsonArray jsonArrayautoTestStepResults = jsonObj.getAsJsonArray("autoTestStepResults");
@@ -1294,7 +1320,7 @@ public class TestResultResponse {
 
           // validate the optional field `autoTestStepResults` (array)
           for (int i = 0; i < jsonArrayautoTestStepResults.size(); i++) {
-            AutoTestStepResult.validateJsonElement(jsonArrayautoTestStepResults.get(i));
+            AutoTestStepResult.validateJsonObject(jsonArrayautoTestStepResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -1308,7 +1334,7 @@ public class TestResultResponse {
 
           // validate the optional field `setupResults` (array)
           for (int i = 0; i < jsonArraysetupResults.size(); i++) {
-            AutoTestStepResult.validateJsonElement(jsonArraysetupResults.get(i));
+            AutoTestStepResult.validateJsonObject(jsonArraysetupResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -1322,7 +1348,7 @@ public class TestResultResponse {
 
           // validate the optional field `teardownResults` (array)
           for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
-            AutoTestStepResult.validateJsonElement(jsonArrayteardownResults.get(i));
+            AutoTestStepResult.validateJsonObject(jsonArrayteardownResults.get(i).getAsJsonObject());
           };
         }
       }
@@ -1351,31 +1377,31 @@ public class TestResultResponse {
 
            @Override
            public TestResultResponse read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestResultResponse given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultResponse
-   * @throws IOException if the JSON string is invalid with respect to TestResultResponse
-   */
+ /**
+  * Create an instance of TestResultResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultResponse
+  * @throws IOException if the JSON string is invalid with respect to TestResultResponse
+  */
   public static TestResultResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultResponse.class);
   }
 
-  /**
-   * Convert an instance of TestResultResponse to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestResultResponse to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

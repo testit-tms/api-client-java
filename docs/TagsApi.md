@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TagsDelete"></a>
 # **apiV2TagsDelete**
-> apiV2TagsDelete(tagSelectModel)
+> apiV2TagsDelete(apiV2TagsDeleteRequest)
 
 Delete tags
 
@@ -43,9 +43,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagSelectModel tagSelectModel = new TagSelectModel(); // TagSelectModel | 
+    ApiV2TagsDeleteRequest apiV2TagsDeleteRequest = new ApiV2TagsDeleteRequest(); // ApiV2TagsDeleteRequest | 
     try {
-      apiInstance.apiV2TagsDelete(tagSelectModel);
+      apiInstance.apiV2TagsDelete(apiV2TagsDeleteRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsDelete");
       System.err.println("Status code: " + e.getCode());
@@ -61,7 +61,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagSelectModel** | [**TagSelectModel**](TagSelectModel.md)|  | [optional] |
+| **apiV2TagsDeleteRequest** | [**ApiV2TagsDeleteRequest**](ApiV2TagsDeleteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -234,7 +234,7 @@ null (empty response body)
 
 <a id="apiV2TagsPost"></a>
 # **apiV2TagsPost**
-> TagModel apiV2TagsPost(tagPostModel)
+> TagModel apiV2TagsPost(apiV2TagsPostRequest)
 
 Create tag
 
@@ -262,9 +262,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagPostModel tagPostModel = new TagPostModel(); // TagPostModel | 
+    ApiV2TagsPostRequest apiV2TagsPostRequest = new ApiV2TagsPostRequest(); // ApiV2TagsPostRequest | 
     try {
-      TagModel result = apiInstance.apiV2TagsPost(tagPostModel);
+      TagModel result = apiInstance.apiV2TagsPost(apiV2TagsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPost");
@@ -281,7 +281,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagPostModel** | [**TagPostModel**](TagPostModel.md)|  | [optional] |
+| **apiV2TagsPostRequest** | [**ApiV2TagsPostRequest**](ApiV2TagsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -309,7 +309,7 @@ public class Example {
 
 <a id="apiV2TagsPut"></a>
 # **apiV2TagsPut**
-> TagModel apiV2TagsPut(id, tagPutModel)
+> TagModel apiV2TagsPut(id, apiV2TagsPutRequest)
 
 Update tag
 
@@ -338,9 +338,9 @@ public class Example {
 
     TagsApi apiInstance = new TagsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | 
-    TagPutModel tagPutModel = new TagPutModel(); // TagPutModel | 
+    ApiV2TagsPutRequest apiV2TagsPutRequest = new ApiV2TagsPutRequest(); // ApiV2TagsPutRequest | 
     try {
-      TagModel result = apiInstance.apiV2TagsPut(id, tagPutModel);
+      TagModel result = apiInstance.apiV2TagsPut(id, apiV2TagsPutRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPut");
@@ -358,7 +358,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | [optional] |
-| **tagPutModel** | [**TagPutModel**](TagPutModel.md)|  | [optional] |
+| **apiV2TagsPutRequest** | [**ApiV2TagsPutRequest**](ApiV2TagsPutRequest.md)|  | [optional] |
 
 ### Return type
 

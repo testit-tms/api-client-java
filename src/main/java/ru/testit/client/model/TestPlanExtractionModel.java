@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.GuidExtractionModel;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,31 +52,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel ids;
 
   public TestPlanExtractionModel() {
   }
 
-  public TestPlanExtractionModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public TestPlanExtractionModel ids(GuidExtractionModel ids) {
+    
     this.ids = ids;
     return this;
   }
 
-  /**
+   /**
    * Get ids
    * @return ids
-   */
+  **/
   @javax.annotation.Nullable
   public GuidExtractionModel getIds() {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
+
+  public void setIds(GuidExtractionModel ids) {
     this.ids = ids;
   }
 
@@ -141,30 +144,29 @@ public class TestPlanExtractionModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanExtractionModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanExtractionModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanExtractionModel is not found in the empty JSON string", TestPlanExtractionModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPlanExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanExtractionModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `ids`
       if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        GuidExtractionModel.validateJsonElement(jsonObj.get("ids"));
+        GuidExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("ids"));
       }
   }
 
@@ -188,31 +190,31 @@ public class TestPlanExtractionModel {
 
            @Override
            public TestPlanExtractionModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPlanExtractionModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanExtractionModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanExtractionModel
-   */
+ /**
+  * Create an instance of TestPlanExtractionModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanExtractionModel
+  * @throws IOException if the JSON string is invalid with respect to TestPlanExtractionModel
+  */
   public static TestPlanExtractionModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanExtractionModel.class);
   }
 
-  /**
-   * Convert an instance of TestPlanExtractionModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPlanExtractionModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

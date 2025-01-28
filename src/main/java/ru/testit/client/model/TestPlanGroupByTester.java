@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,55 +52,57 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanGroupByTester
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanGroupByTester {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nullable
   private UUID userId;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByTester() {
   }
 
-  public TestPlanGroupByTester userId(@javax.annotation.Nullable UUID userId) {
+  public TestPlanGroupByTester userId(UUID userId) {
+    
     this.userId = userId;
     return this;
   }
 
-  /**
+   /**
    * Get userId
    * @return userId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getUserId() {
     return userId;
   }
 
-  public void setUserId(@javax.annotation.Nullable UUID userId) {
+
+  public void setUserId(UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPlanGroupByTester value(@javax.annotation.Nonnull Long value) {
+  public TestPlanGroupByTester value(Long value) {
+    
     this.value = value;
     return this;
   }
 
-  /**
+   /**
    * Get value
    * @return value
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Long value) {
+
+  public void setValue(Long value) {
     this.value = value;
   }
 
@@ -169,34 +173,33 @@ public class TestPlanGroupByTester {
     openapiRequiredFields.add("value");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanGroupByTester
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanGroupByTester.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanGroupByTester
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanGroupByTester.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanGroupByTester is not found in the empty JSON string", TestPlanGroupByTester.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPlanGroupByTester.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanGroupByTester` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanGroupByTester` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanGroupByTester.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
@@ -222,31 +225,31 @@ public class TestPlanGroupByTester {
 
            @Override
            public TestPlanGroupByTester read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPlanGroupByTester given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanGroupByTester
-   * @throws IOException if the JSON string is invalid with respect to TestPlanGroupByTester
-   */
+ /**
+  * Create an instance of TestPlanGroupByTester given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanGroupByTester
+  * @throws IOException if the JSON string is invalid with respect to TestPlanGroupByTester
+  */
   public static TestPlanGroupByTester fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanGroupByTester.class);
   }
 
-  /**
-   * Convert an instance of TestPlanGroupByTester to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPlanGroupByTester to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

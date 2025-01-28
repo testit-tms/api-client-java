@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,41 +53,42 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationByParametersModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationByParametersModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARAMETER_IDS = "parameterIds";
   @SerializedName(SERIALIZED_NAME_PARAMETER_IDS)
-  @javax.annotation.Nonnull
   private Set<UUID> parameterIds = new LinkedHashSet<>();
 
   public ConfigurationByParametersModel() {
   }
 
-  public ConfigurationByParametersModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public ConfigurationByParametersModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * This property is used to link configuration with project
    * @return projectId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationByParametersModel parameterIds(@javax.annotation.Nonnull Set<UUID> parameterIds) {
+  public ConfigurationByParametersModel parameterIds(Set<UUID> parameterIds) {
+    
     this.parameterIds = parameterIds;
     return this;
   }
@@ -98,16 +101,17 @@ public class ConfigurationByParametersModel {
     return this;
   }
 
-  /**
+   /**
    * Get parameterIds
    * @return parameterIds
-   */
+  **/
   @javax.annotation.Nonnull
   public Set<UUID> getParameterIds() {
     return parameterIds;
   }
 
-  public void setParameterIds(@javax.annotation.Nonnull Set<UUID> parameterIds) {
+
+  public void setParameterIds(Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
   }
 
@@ -168,34 +172,33 @@ public class ConfigurationByParametersModel {
     openapiRequiredFields.add("parameterIds");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConfigurationByParametersModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigurationByParametersModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationByParametersModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationByParametersModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationByParametersModel is not found in the empty JSON string", ConfigurationByParametersModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationByParametersModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationByParametersModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationByParametersModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ConfigurationByParametersModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -227,31 +230,31 @@ public class ConfigurationByParametersModel {
 
            @Override
            public ConfigurationByParametersModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of ConfigurationByParametersModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ConfigurationByParametersModel
-   * @throws IOException if the JSON string is invalid with respect to ConfigurationByParametersModel
-   */
+ /**
+  * Create an instance of ConfigurationByParametersModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigurationByParametersModel
+  * @throws IOException if the JSON string is invalid with respect to ConfigurationByParametersModel
+  */
   public static ConfigurationByParametersModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConfigurationByParametersModel.class);
   }
 
-  /**
-   * Convert an instance of ConfigurationByParametersModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ConfigurationByParametersModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

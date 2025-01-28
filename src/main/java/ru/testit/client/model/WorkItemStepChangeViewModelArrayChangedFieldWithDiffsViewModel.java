@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemStepChangeViewModel;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,27 +54,25 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
   public static final String SERIALIZED_NAME_DIFF_VALUE = "diffValue";
   @SerializedName(SERIALIZED_NAME_DIFF_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> diffValue;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> newValue;
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel() {
   }
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(List<WorkItemStepChangeViewModel> diffValue) {
+    
     this.diffValue = diffValue;
     return this;
   }
@@ -85,21 +85,23 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return this;
   }
 
-  /**
+   /**
    * Get diffValue
    * @return diffValue
-   */
+  **/
   @javax.annotation.Nullable
   public List<WorkItemStepChangeViewModel> getDiffValue() {
     return diffValue;
   }
 
-  public void setDiffValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
+
+  public void setDiffValue(List<WorkItemStepChangeViewModel> diffValue) {
     this.diffValue = diffValue;
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(List<WorkItemStepChangeViewModel> oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -112,21 +114,23 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return this;
   }
 
-  /**
+   /**
    * Get oldValue
    * @return oldValue
-   */
+  **/
   @javax.annotation.Nullable
   public List<WorkItemStepChangeViewModel> getOldValue() {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
+
+  public void setOldValue(List<WorkItemStepChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(List<WorkItemStepChangeViewModel> newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -139,16 +143,17 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return this;
   }
 
-  /**
+   /**
    * Get newValue
    * @return newValue
-   */
+  **/
   @javax.annotation.Nullable
   public List<WorkItemStepChangeViewModel> getNewValue() {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
+
+  public void setNewValue(List<WorkItemStepChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 
@@ -221,27 +226,26 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel is not found in the empty JSON string", WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("diffValue") != null && !jsonObj.get("diffValue").isJsonNull()) {
         JsonArray jsonArraydiffValue = jsonObj.getAsJsonArray("diffValue");
         if (jsonArraydiffValue != null) {
@@ -252,7 +256,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
 
           // validate the optional field `diffValue` (array)
           for (int i = 0; i < jsonArraydiffValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArraydiffValue.get(i));
+            WorkItemStepChangeViewModel.validateJsonObject(jsonArraydiffValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -266,7 +270,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
 
           // validate the optional field `oldValue` (array)
           for (int i = 0; i < jsonArrayoldValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArrayoldValue.get(i));
+            WorkItemStepChangeViewModel.validateJsonObject(jsonArrayoldValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -280,7 +284,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
 
           // validate the optional field `newValue` (array)
           for (int i = 0; i < jsonArraynewValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArraynewValue.get(i));
+            WorkItemStepChangeViewModel.validateJsonObject(jsonArraynewValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -306,31 +310,31 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
 
            @Override
            public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   */
+ /**
+  * Create an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
+  */
   public static WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.class);
   }
 
-  /**
-   * Convert an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

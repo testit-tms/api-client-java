@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,10 +37,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -48,127 +50,132 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemChangedAttributeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemChangedAttributeViewModel {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
   @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
-  @javax.annotation.Nonnull
   private String oldAttributeName;
 
   public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
   @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
-  @javax.annotation.Nonnull
   private String newAttributeName;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private Object oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private Object newValue = null;
 
   public WorkItemChangedAttributeViewModel() {
   }
 
-  public WorkItemChangedAttributeViewModel type(@javax.annotation.Nonnull String type) {
+  public WorkItemChangedAttributeViewModel type(String type) {
+    
     this.type = type;
     return this;
   }
 
-  /**
+   /**
    * Get type
    * @return type
-   */
+  **/
   @javax.annotation.Nonnull
   public String getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldAttributeName(@javax.annotation.Nonnull String oldAttributeName) {
+  public WorkItemChangedAttributeViewModel oldAttributeName(String oldAttributeName) {
+    
     this.oldAttributeName = oldAttributeName;
     return this;
   }
 
-  /**
+   /**
    * Get oldAttributeName
    * @return oldAttributeName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getOldAttributeName() {
     return oldAttributeName;
   }
 
-  public void setOldAttributeName(@javax.annotation.Nonnull String oldAttributeName) {
+
+  public void setOldAttributeName(String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel newAttributeName(@javax.annotation.Nonnull String newAttributeName) {
+  public WorkItemChangedAttributeViewModel newAttributeName(String newAttributeName) {
+    
     this.newAttributeName = newAttributeName;
     return this;
   }
 
-  /**
+   /**
    * Get newAttributeName
    * @return newAttributeName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getNewAttributeName() {
     return newAttributeName;
   }
 
-  public void setNewAttributeName(@javax.annotation.Nonnull String newAttributeName) {
+
+  public void setNewAttributeName(String newAttributeName) {
     this.newAttributeName = newAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldValue(@javax.annotation.Nullable Object oldValue) {
+  public WorkItemChangedAttributeViewModel oldValue(Object oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
 
-  /**
+   /**
    * Get oldValue
    * @return oldValue
-   */
+  **/
   @javax.annotation.Nullable
   public Object getOldValue() {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable Object oldValue) {
+
+  public void setOldValue(Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemChangedAttributeViewModel newValue(@javax.annotation.Nullable Object newValue) {
+  public WorkItemChangedAttributeViewModel newValue(Object newValue) {
+    
     this.newValue = newValue;
     return this;
   }
 
-  /**
+   /**
    * Get newValue
    * @return newValue
-   */
+  **/
   @javax.annotation.Nullable
   public Object getNewValue() {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable Object newValue) {
+
+  public void setNewValue(Object newValue) {
     this.newValue = newValue;
   }
 
@@ -241,34 +248,33 @@ public class WorkItemChangedAttributeViewModel {
     openapiRequiredFields.add("newValue");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemChangedAttributeViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemChangedAttributeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemChangedAttributeViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemChangedAttributeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemChangedAttributeViewModel is not found in the empty JSON string", WorkItemChangedAttributeViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemChangedAttributeViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemChangedAttributeViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemChangedAttributeViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemChangedAttributeViewModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -300,31 +306,31 @@ public class WorkItemChangedAttributeViewModel {
 
            @Override
            public WorkItemChangedAttributeViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of WorkItemChangedAttributeViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemChangedAttributeViewModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemChangedAttributeViewModel
-   */
+ /**
+  * Create an instance of WorkItemChangedAttributeViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemChangedAttributeViewModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemChangedAttributeViewModel
+  */
   public static WorkItemChangedAttributeViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemChangedAttributeViewModel.class);
   }
 
-  /**
-   * Convert an instance of WorkItemChangedAttributeViewModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of WorkItemChangedAttributeViewModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

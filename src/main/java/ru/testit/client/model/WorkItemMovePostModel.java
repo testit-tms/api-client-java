@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,103 +52,107 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemMovePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemMovePostModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NEW_SECTION_ID = "newSectionId";
   @SerializedName(SERIALIZED_NAME_NEW_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID newSectionId;
 
   public static final String SERIALIZED_NAME_OLD_SECTION_ID = "oldSectionId";
   @SerializedName(SERIALIZED_NAME_OLD_SECTION_ID)
-  @javax.annotation.Nullable
   private UUID oldSectionId;
 
   public static final String SERIALIZED_NAME_NEXT_WORK_ITEM_ID = "nextWorkItemId";
   @SerializedName(SERIALIZED_NAME_NEXT_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID nextWorkItemId;
 
   public WorkItemMovePostModel() {
   }
 
-  public WorkItemMovePostModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemMovePostModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemMovePostModel newSectionId(@javax.annotation.Nonnull UUID newSectionId) {
+  public WorkItemMovePostModel newSectionId(UUID newSectionId) {
+    
     this.newSectionId = newSectionId;
     return this;
   }
 
-  /**
+   /**
    * Get newSectionId
    * @return newSectionId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getNewSectionId() {
     return newSectionId;
   }
 
-  public void setNewSectionId(@javax.annotation.Nonnull UUID newSectionId) {
+
+  public void setNewSectionId(UUID newSectionId) {
     this.newSectionId = newSectionId;
   }
 
 
-  public WorkItemMovePostModel oldSectionId(@javax.annotation.Nullable UUID oldSectionId) {
+  public WorkItemMovePostModel oldSectionId(UUID oldSectionId) {
+    
     this.oldSectionId = oldSectionId;
     return this;
   }
 
-  /**
+   /**
    * Get oldSectionId
    * @return oldSectionId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getOldSectionId() {
     return oldSectionId;
   }
 
-  public void setOldSectionId(@javax.annotation.Nullable UUID oldSectionId) {
+
+  public void setOldSectionId(UUID oldSectionId) {
     this.oldSectionId = oldSectionId;
   }
 
 
-  public WorkItemMovePostModel nextWorkItemId(@javax.annotation.Nullable UUID nextWorkItemId) {
+  public WorkItemMovePostModel nextWorkItemId(UUID nextWorkItemId) {
+    
     this.nextWorkItemId = nextWorkItemId;
     return this;
   }
 
-  /**
+   /**
    * Get nextWorkItemId
    * @return nextWorkItemId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getNextWorkItemId() {
     return nextWorkItemId;
   }
 
-  public void setNextWorkItemId(@javax.annotation.Nullable UUID nextWorkItemId) {
+
+  public void setNextWorkItemId(UUID nextWorkItemId) {
     this.nextWorkItemId = nextWorkItemId;
   }
 
@@ -224,34 +230,33 @@ public class WorkItemMovePostModel {
     openapiRequiredFields.add("newSectionId");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemMovePostModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemMovePostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemMovePostModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemMovePostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemMovePostModel is not found in the empty JSON string", WorkItemMovePostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemMovePostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemMovePostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemMovePostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemMovePostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -286,31 +291,31 @@ public class WorkItemMovePostModel {
 
            @Override
            public WorkItemMovePostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of WorkItemMovePostModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemMovePostModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemMovePostModel
-   */
+ /**
+  * Create an instance of WorkItemMovePostModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemMovePostModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemMovePostModel
+  */
   public static WorkItemMovePostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemMovePostModel.class);
   }
 
-  /**
-   * Convert an instance of WorkItemMovePostModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of WorkItemMovePostModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

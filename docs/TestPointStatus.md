@@ -5,7 +5,7 @@
 ## Enum
 
 
-* `IN_PROGRESS` (value: `"InProgress"`)
+* `INPROGRESS` (value: `"InProgress"`)
 
 * `PASSED` (value: `"Passed"`)
 
@@ -15,7 +15,7 @@
 
 * `BLOCKED` (value: `"Blocked"`)
 
-* `NO_RESULTS` (value: `"NoResults"`)
+* `NORESULTS` (value: `"NoResults"`)
 
 
 

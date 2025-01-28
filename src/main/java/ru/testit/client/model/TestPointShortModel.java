@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,223 +52,232 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointShortModel {
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nullable
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
-  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Long workItemMedianDuration;
 
   public TestPointShortModel() {
   }
 
-  public TestPointShortModel testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPointShortModel testSuiteId(UUID testSuiteId) {
+    
     this.testSuiteId = testSuiteId;
     return this;
   }
 
-  /**
+   /**
    * Get testSuiteId
    * @return testSuiteId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPointShortModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPointShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Test point unique internal identifier
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortModel testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestPointShortModel testerId(UUID testerId) {
+    
     this.testerId = testerId;
     return this;
   }
 
-  /**
+   /**
    * Tester who is responded for the test unique internal identifier
    * @return testerId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getTesterId() {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPointShortModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public TestPointShortModel workItemId(UUID workItemId) {
+    
     this.workItemId = workItemId;
     return this;
   }
 
-  /**
+   /**
    * Workitem to which test point relates unique identifier
    * @return workItemId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getWorkItemId() {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPointShortModel configurationId(@javax.annotation.Nullable UUID configurationId) {
+  public TestPointShortModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
 
-  /**
+   /**
    * Configuration to which test point relates unique identifier
    * @return configurationId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nullable UUID configurationId) {
+
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointShortModel status(@javax.annotation.Nullable String status) {
+  public TestPointShortModel status(String status) {
+    
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable String status) {
+
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestPointShortModel lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public TestPointShortModel lastTestResultId(UUID lastTestResultId) {
+    
     this.lastTestResultId = lastTestResultId;
     return this;
   }
 
-  /**
+   /**
    * Last test result unique identifier
    * @return lastTestResultId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
 
-  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+
+  public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
-  public TestPointShortModel iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public TestPointShortModel iterationId(UUID iterationId) {
+    
     this.iterationId = iterationId;
     return this;
   }
 
-  /**
+   /**
    * Iteration unique identifier
    * @return iterationId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getIterationId() {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortModel workItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+  public TestPointShortModel workItemMedianDuration(Long workItemMedianDuration) {
+    
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
 
-  /**
+   /**
    * Median duration of work item the test point represents
    * @return workItemMedianDuration
-   */
+  **/
   @javax.annotation.Nullable
   public Long getWorkItemMedianDuration() {
     return workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+
+  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
@@ -360,34 +371,33 @@ public class TestPointShortModel {
     openapiRequiredFields.add("iterationId");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPointShortModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPointShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointShortModel is not found in the empty JSON string", TestPointShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPointShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPointShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("testSuiteId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteId").toString()));
       }
@@ -434,31 +444,31 @@ public class TestPointShortModel {
 
            @Override
            public TestPointShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPointShortModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPointShortModel
-   * @throws IOException if the JSON string is invalid with respect to TestPointShortModel
-   */
+ /**
+  * Create an instance of TestPointShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointShortModel
+  * @throws IOException if the JSON string is invalid with respect to TestPointShortModel
+  */
   public static TestPointShortModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPointShortModel.class);
   }
 
-  /**
-   * Convert an instance of TestPointShortModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPointShortModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

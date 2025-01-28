@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -49,157 +51,163 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestProjectSettingsGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoTestProjectSettingsGetModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
-  @javax.annotation.Nullable
   private Boolean isFlakyAuto = false;
 
   public static final String SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
   @SerializedName(SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE)
-  @javax.annotation.Nullable
   private Integer flakyStabilityPercentage = 100;
 
   public static final String SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
   @SerializedName(SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT)
-  @javax.annotation.Nullable
   private Integer flakyTestRunCount = 100;
 
   public static final String SERIALIZED_NAME_RERUN_ENABLED = "rerunEnabled";
   @SerializedName(SERIALIZED_NAME_RERUN_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean rerunEnabled;
 
   public static final String SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   @SerializedName(SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer rerunAttemptsCount;
 
   public AutoTestProjectSettingsGetModel() {
   }
 
-  public AutoTestProjectSettingsGetModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestProjectSettingsGetModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * Unique ID of the project.
    * @return projectId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestProjectSettingsGetModel isFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
+  public AutoTestProjectSettingsGetModel isFlakyAuto(Boolean isFlakyAuto) {
+    
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
 
-  /**
+   /**
    * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
    * @return isFlakyAuto
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsFlakyAuto() {
     return isFlakyAuto;
   }
 
-  public void setIsFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
+
+  public void setIsFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
+  public AutoTestProjectSettingsGetModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
+    
     this.flakyStabilityPercentage = flakyStabilityPercentage;
     return this;
   }
 
-  /**
+   /**
    * Stability percentage for autotest flaky computing
    * minimum: 0
    * maximum: 100
    * @return flakyStabilityPercentage
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getFlakyStabilityPercentage() {
     return flakyStabilityPercentage;
   }
 
-  public void setFlakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
+
+  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
+  public AutoTestProjectSettingsGetModel flakyTestRunCount(Integer flakyTestRunCount) {
+    
     this.flakyTestRunCount = flakyTestRunCount;
     return this;
   }
 
-  /**
+   /**
    * Last test run count for autotest flaky computing
    * minimum: 1
    * maximum: 1000
    * @return flakyTestRunCount
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getFlakyTestRunCount() {
     return flakyTestRunCount;
   }
 
-  public void setFlakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
+
+  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
   }
 
 
-  public AutoTestProjectSettingsGetModel rerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
+  public AutoTestProjectSettingsGetModel rerunEnabled(Boolean rerunEnabled) {
+    
     this.rerunEnabled = rerunEnabled;
     return this;
   }
 
-  /**
+   /**
    * Auto rerun enabled
    * @return rerunEnabled
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getRerunEnabled() {
     return rerunEnabled;
   }
 
-  public void setRerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
+
+  public void setRerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
   }
 
 
-  public AutoTestProjectSettingsGetModel rerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
+  public AutoTestProjectSettingsGetModel rerunAttemptsCount(Integer rerunAttemptsCount) {
+    
     this.rerunAttemptsCount = rerunAttemptsCount;
     return this;
   }
 
-  /**
+   /**
    * Auto rerun attempt count
    * minimum: 1
    * maximum: 10
    * @return rerunAttemptsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getRerunAttemptsCount() {
     return rerunAttemptsCount;
   }
 
-  public void setRerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
+
+  public void setRerunAttemptsCount(Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
   }
 
@@ -273,34 +281,33 @@ public class AutoTestProjectSettingsGetModel {
     openapiRequiredFields.add("rerunAttemptsCount");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestProjectSettingsGetModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestProjectSettingsGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutoTestProjectSettingsGetModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutoTestProjectSettingsGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestProjectSettingsGetModel is not found in the empty JSON string", AutoTestProjectSettingsGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AutoTestProjectSettingsGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestProjectSettingsGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestProjectSettingsGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestProjectSettingsGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -326,31 +333,31 @@ public class AutoTestProjectSettingsGetModel {
 
            @Override
            public AutoTestProjectSettingsGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of AutoTestProjectSettingsGetModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestProjectSettingsGetModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestProjectSettingsGetModel
-   */
+ /**
+  * Create an instance of AutoTestProjectSettingsGetModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutoTestProjectSettingsGetModel
+  * @throws IOException if the JSON string is invalid with respect to AutoTestProjectSettingsGetModel
+  */
   public static AutoTestProjectSettingsGetModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestProjectSettingsGetModel.class);
   }
 
-  /**
-   * Convert an instance of AutoTestProjectSettingsGetModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of AutoTestProjectSettingsGetModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

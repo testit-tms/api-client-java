@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**options** | [**List&lt;CustomAttributeOptionPostModel&gt;**](CustomAttributeOptionPostModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only |  [optional] |
-|**type** | **CustomAttributeTypesEnum** | Type of attribute |  |
+|**type** | **CustomAttributeTypesEnum** |  |  |
 |**name** | **String** | Name of the attribute |  |
 |**isEnabled** | **Boolean** | Indicates if the attribute is enabled |  |
 |**isRequired** | **Boolean** | Indicates if the attribute value is mandatory to specify |  |

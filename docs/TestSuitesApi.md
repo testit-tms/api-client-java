@@ -21,7 +21,7 @@ All URIs are relative to *http://localhost*
 
 <a id="addTestPointsToTestSuite"></a>
 # **addTestPointsToTestSuite**
-> addTestPointsToTestSuite(id, workItemSelectModel)
+> addTestPointsToTestSuite(id, addTestPointsWithSectionsRequest)
 
 Add test-points to test suite
 
@@ -48,9 +48,9 @@ public class Example {
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
     UUID id = UUID.fromString("1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132"); // UUID | Test suite internal identifier
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
+    AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest = new AddTestPointsWithSectionsRequest(); // AddTestPointsWithSectionsRequest | Filter object to retrieve work items for test-suite's project
     try {
-      apiInstance.addTestPointsToTestSuite(id, workItemSelectModel);
+      apiInstance.addTestPointsToTestSuite(id, addTestPointsWithSectionsRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#addTestPointsToTestSuite");
       System.err.println("Status code: " + e.getCode());
@@ -67,7 +67,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal identifier | |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **addTestPointsWithSectionsRequest** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -317,7 +317,7 @@ null (empty response body)
 
 <a id="apiV2TestSuitesPost"></a>
 # **apiV2TestSuitesPost**
-> TestSuiteV2GetModel apiV2TestSuitesPost(testSuiteV2PostModel)
+> TestSuiteV2GetModel apiV2TestSuitesPost(apiV2TestSuitesPostRequest)
 
 Create test suite
 
@@ -343,9 +343,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-    TestSuiteV2PostModel testSuiteV2PostModel = new TestSuiteV2PostModel(); // TestSuiteV2PostModel | 
+    ApiV2TestSuitesPostRequest apiV2TestSuitesPostRequest = new ApiV2TestSuitesPostRequest(); // ApiV2TestSuitesPostRequest | 
     try {
-      TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(testSuiteV2PostModel);
+      TestSuiteV2GetModel result = apiInstance.apiV2TestSuitesPost(apiV2TestSuitesPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPost");
@@ -362,7 +362,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testSuiteV2PostModel** | [**TestSuiteV2PostModel**](TestSuiteV2PostModel.md)|  | [optional] |
+| **apiV2TestSuitesPostRequest** | [**ApiV2TestSuitesPostRequest**](ApiV2TestSuitesPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -390,7 +390,7 @@ public class Example {
 
 <a id="apiV2TestSuitesPut"></a>
 # **apiV2TestSuitesPut**
-> apiV2TestSuitesPut(testSuiteV2PutModel)
+> apiV2TestSuitesPut(apiV2TestSuitesPutRequest)
 
 Edit test suite
 
@@ -416,9 +416,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-    TestSuiteV2PutModel testSuiteV2PutModel = new TestSuiteV2PutModel(); // TestSuiteV2PutModel | 
+    ApiV2TestSuitesPutRequest apiV2TestSuitesPutRequest = new ApiV2TestSuitesPutRequest(); // ApiV2TestSuitesPutRequest | 
     try {
-      apiInstance.apiV2TestSuitesPut(testSuiteV2PutModel);
+      apiInstance.apiV2TestSuitesPut(apiV2TestSuitesPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesPut");
       System.err.println("Status code: " + e.getCode());
@@ -434,7 +434,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testSuiteV2PutModel** | [**TestSuiteV2PutModel**](TestSuiteV2PutModel.md)|  | [optional] |
+| **apiV2TestSuitesPutRequest** | [**ApiV2TestSuitesPutRequest**](ApiV2TestSuitesPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -837,7 +837,7 @@ public class Example {
 
 <a id="searchWorkItems"></a>
 # **searchWorkItems**
-> List&lt;WorkItemShortModel&gt; searchWorkItems(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel)
+> List&lt;WorkItemShortModel&gt; searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest)
 
 Search WorkItems
 
@@ -871,9 +871,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestSuiteWorkItemsSearchModel testSuiteWorkItemsSearchModel = new TestSuiteWorkItemsSearchModel(); // TestSuiteWorkItemsSearchModel | 
+    SearchWorkItemsRequest searchWorkItemsRequest = new SearchWorkItemsRequest(); // SearchWorkItemsRequest | 
     try {
-      List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, testSuiteWorkItemsSearchModel);
+      List<WorkItemShortModel> result = apiInstance.searchWorkItems(id, skip, take, orderBy, searchField, searchValue, searchWorkItemsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestSuitesApi#searchWorkItems");
@@ -896,7 +896,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testSuiteWorkItemsSearchModel** | [**TestSuiteWorkItemsSearchModel**](TestSuiteWorkItemsSearchModel.md)|  | [optional] |
+| **searchWorkItemsRequest** | [**SearchWorkItemsRequest**](SearchWorkItemsRequest.md)|  | [optional] |
 
 ### Return type
 

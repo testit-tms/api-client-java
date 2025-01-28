@@ -381,7 +381,7 @@ public class Example {
 
 <a id="apiV2BackgroundJobsSearchPost"></a>
 # **apiV2BackgroundJobsSearchPost**
-> List&lt;BackgroundJobGetModel&gt; apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel)
+> List&lt;BackgroundJobGetModel&gt; apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest)
 
 Search for user background jobs
 
@@ -412,9 +412,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    BackgroundJobFilterModel backgroundJobFilterModel = new BackgroundJobFilterModel(); // BackgroundJobFilterModel | 
+    ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest = new ApiV2BackgroundJobsSearchPostRequest(); // ApiV2BackgroundJobsSearchPostRequest | 
     try {
-      List<BackgroundJobGetModel> result = apiInstance.apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel);
+      List<BackgroundJobGetModel> result = apiInstance.apiV2BackgroundJobsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BackgroundJobsApi#apiV2BackgroundJobsSearchPost");
@@ -436,7 +436,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **backgroundJobFilterModel** | [**BackgroundJobFilterModel**](BackgroundJobFilterModel.md)|  | [optional] |
+| **apiV2BackgroundJobsSearchPostRequest** | [**ApiV2BackgroundJobsSearchPostRequest**](ApiV2BackgroundJobsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

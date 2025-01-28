@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.LinkType;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,127 +52,132 @@ import ru.testit.client.invoker.JSON;
 /**
  * LinkPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LinkPostModel {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private LinkType type;
 
   public static final String SERIALIZED_NAME_HAS_INFO = "hasInfo";
   @SerializedName(SERIALIZED_NAME_HAS_INFO)
-  @javax.annotation.Nonnull
   private Boolean hasInfo;
 
   public LinkPostModel() {
   }
 
-  public LinkPostModel title(@javax.annotation.Nullable String title) {
+  public LinkPostModel title(String title) {
+    
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Link name.
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public LinkPostModel url(@javax.annotation.Nonnull String url) {
+  public LinkPostModel url(String url) {
+    
     this.url = url;
     return this;
   }
 
-  /**
+   /**
    * Address can be specified without protocol, but necessarily with the domain.
    * @return url
-   */
+  **/
   @javax.annotation.Nonnull
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public LinkPostModel description(@javax.annotation.Nullable String description) {
+  public LinkPostModel description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Link description.
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public LinkPostModel type(@javax.annotation.Nullable LinkType type) {
+  public LinkPostModel type(LinkType type) {
+    
     this.type = type;
     return this;
   }
 
-  /**
-   * Specifies the type of the link.
+   /**
+   * Get type
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   public LinkType getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable LinkType type) {
+
+  public void setType(LinkType type) {
     this.type = type;
   }
 
 
-  public LinkPostModel hasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+  public LinkPostModel hasInfo(Boolean hasInfo) {
+    
     this.hasInfo = hasInfo;
     return this;
   }
 
-  /**
+   /**
    * Get hasInfo
    * @return hasInfo
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getHasInfo() {
     return hasInfo;
   }
 
-  public void setHasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+
+  public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
@@ -251,34 +258,33 @@ public class LinkPostModel {
     openapiRequiredFields.add("hasInfo");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to LinkPostModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!LinkPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to LinkPostModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!LinkPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LinkPostModel is not found in the empty JSON string", LinkPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!LinkPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinkPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinkPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LinkPostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
@@ -287,10 +293,6 @@ public class LinkPostModel {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        LinkType.validateJsonElement(jsonObj.get("type"));
       }
   }
 
@@ -314,31 +316,31 @@ public class LinkPostModel {
 
            @Override
            public LinkPostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of LinkPostModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of LinkPostModel
-   * @throws IOException if the JSON string is invalid with respect to LinkPostModel
-   */
+ /**
+  * Create an instance of LinkPostModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of LinkPostModel
+  * @throws IOException if the JSON string is invalid with respect to LinkPostModel
+  */
   public static LinkPostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LinkPostModel.class);
   }
 
-  /**
-   * Convert an instance of LinkPostModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of LinkPostModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

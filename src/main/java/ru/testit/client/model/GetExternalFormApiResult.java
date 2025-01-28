@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,10 +22,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import ru.testit.client.model.ExternalFormModel;
+import ru.testit.client.model.GetExternalFormApiResultForm;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,22 +54,21 @@ import ru.testit.client.invoker.JSON;
 /**
  * GetExternalFormApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetExternalFormApiResult {
   public static final String SERIALIZED_NAME_TEST_RESULT_IDS = "testResultIds";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> testResultIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FORM = "form";
   @SerializedName(SERIALIZED_NAME_FORM)
-  @javax.annotation.Nonnull
-  private ExternalFormModel form;
+  private GetExternalFormApiResultForm form;
 
   public GetExternalFormApiResult() {
   }
 
-  public GetExternalFormApiResult testResultIds(@javax.annotation.Nonnull List<UUID> testResultIds) {
+  public GetExternalFormApiResult testResultIds(List<UUID> testResultIds) {
+    
     this.testResultIds = testResultIds;
     return this;
   }
@@ -80,35 +81,38 @@ public class GetExternalFormApiResult {
     return this;
   }
 
-  /**
+   /**
    * Linked test result IDs
    * @return testResultIds
-   */
+  **/
   @javax.annotation.Nonnull
   public List<UUID> getTestResultIds() {
     return testResultIds;
   }
 
-  public void setTestResultIds(@javax.annotation.Nonnull List<UUID> testResultIds) {
+
+  public void setTestResultIds(List<UUID> testResultIds) {
     this.testResultIds = testResultIds;
   }
 
 
-  public GetExternalFormApiResult form(@javax.annotation.Nonnull ExternalFormModel form) {
+  public GetExternalFormApiResult form(GetExternalFormApiResultForm form) {
+    
     this.form = form;
     return this;
   }
 
-  /**
-   * External form definition
+   /**
+   * Get form
    * @return form
-   */
+  **/
   @javax.annotation.Nonnull
-  public ExternalFormModel getForm() {
+  public GetExternalFormApiResultForm getForm() {
     return form;
   }
 
-  public void setForm(@javax.annotation.Nonnull ExternalFormModel form) {
+
+  public void setForm(GetExternalFormApiResultForm form) {
     this.form = form;
   }
 
@@ -169,34 +173,33 @@ public class GetExternalFormApiResult {
     openapiRequiredFields.add("form");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetExternalFormApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!GetExternalFormApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to GetExternalFormApiResult
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!GetExternalFormApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetExternalFormApiResult is not found in the empty JSON string", GetExternalFormApiResult.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!GetExternalFormApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetExternalFormApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetExternalFormApiResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetExternalFormApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the required json array is present
       if (jsonObj.get("testResultIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
@@ -204,7 +207,7 @@ public class GetExternalFormApiResult {
         throw new IllegalArgumentException(String.format("Expected the field `testResultIds` to be an array in the JSON string but got `%s`", jsonObj.get("testResultIds").toString()));
       }
       // validate the required field `form`
-      ExternalFormModel.validateJsonElement(jsonObj.get("form"));
+      GetExternalFormApiResultForm.validateJsonObject(jsonObj.getAsJsonObject("form"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -227,31 +230,31 @@ public class GetExternalFormApiResult {
 
            @Override
            public GetExternalFormApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of GetExternalFormApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of GetExternalFormApiResult
-   * @throws IOException if the JSON string is invalid with respect to GetExternalFormApiResult
-   */
+ /**
+  * Create an instance of GetExternalFormApiResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of GetExternalFormApiResult
+  * @throws IOException if the JSON string is invalid with respect to GetExternalFormApiResult
+  */
   public static GetExternalFormApiResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetExternalFormApiResult.class);
   }
 
-  /**
-   * Convert an instance of GetExternalFormApiResult to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of GetExternalFormApiResult to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

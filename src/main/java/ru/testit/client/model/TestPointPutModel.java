@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestStatusModel;
+import ru.testit.client.model.TestPointPutModelStatusModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,252 +53,262 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointPutModel {
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nullable
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
   @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
-  @javax.annotation.Nonnull
-  private TestStatusModel statusModel;
+  private TestPointPutModelStatusModel statusModel;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
-  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public TestPointPutModel() {
   }
 
-  public TestPointPutModel testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestPointPutModel testerId(UUID testerId) {
+    
     this.testerId = testerId;
     return this;
   }
 
-  /**
+   /**
    * Get testerId
    * @return testerId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getTesterId() {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPointPutModel iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public TestPointPutModel iterationId(UUID iterationId) {
+    
     this.iterationId = iterationId;
     return this;
   }
 
-  /**
+   /**
    * Get iterationId
    * @return iterationId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getIterationId() {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointPutModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public TestPointPutModel workItemId(UUID workItemId) {
+    
     this.workItemId = workItemId;
     return this;
   }
 
-  /**
+   /**
    * Get workItemId
    * @return workItemId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getWorkItemId() {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPointPutModel configurationId(@javax.annotation.Nullable UUID configurationId) {
+  public TestPointPutModel configurationId(UUID configurationId) {
+    
     this.configurationId = configurationId;
     return this;
   }
 
-  /**
+   /**
    * Get configurationId
    * @return configurationId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nullable UUID configurationId) {
+
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointPutModel testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPointPutModel testSuiteId(UUID testSuiteId) {
+    
     this.testSuiteId = testSuiteId;
     return this;
   }
 
-  /**
+   /**
    * Get testSuiteId
    * @return testSuiteId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
   @Deprecated
-  public TestPointPutModel status(@javax.annotation.Nullable String status) {
+  public TestPointPutModel status(String status) {
+    
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * Get status
    * @return status
    * @deprecated
-   */
+  **/
   @Deprecated
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
+
   @Deprecated
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestPointPutModel statusModel(@javax.annotation.Nonnull TestStatusModel statusModel) {
+  public TestPointPutModel statusModel(TestPointPutModelStatusModel statusModel) {
+    
     this.statusModel = statusModel;
     return this;
   }
 
-  /**
+   /**
    * Get statusModel
    * @return statusModel
-   */
+  **/
   @javax.annotation.Nonnull
-  public TestStatusModel getStatusModel() {
+  public TestPointPutModelStatusModel getStatusModel() {
     return statusModel;
   }
 
-  public void setStatusModel(@javax.annotation.Nonnull TestStatusModel statusModel) {
+
+  public void setStatusModel(TestPointPutModelStatusModel statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPointPutModel lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public TestPointPutModel lastTestResultId(UUID lastTestResultId) {
+    
     this.lastTestResultId = lastTestResultId;
     return this;
   }
 
-  /**
+   /**
    * Get lastTestResultId
    * @return lastTestResultId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
 
-  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+
+  public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
-  public TestPointPutModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPointPutModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Unique ID of the entity
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPointPutModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestPointPutModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
+   /**
    * Indicates if the entity is deleted
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
@@ -395,34 +407,33 @@ public class TestPointPutModel {
     openapiRequiredFields.add("isDeleted");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPointPutModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPointPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointPutModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointPutModel is not found in the empty JSON string", TestPointPutModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPointPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointPutModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPointPutModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("testerId") != null && !jsonObj.get("testerId").isJsonNull()) && !jsonObj.get("testerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testerId").toString()));
       }
@@ -442,7 +453,7 @@ public class TestPointPutModel {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the required field `statusModel`
-      TestStatusModel.validateJsonElement(jsonObj.get("statusModel"));
+      TestPointPutModelStatusModel.validateJsonObject(jsonObj.getAsJsonObject("statusModel"));
       if ((jsonObj.get("lastTestResultId") != null && !jsonObj.get("lastTestResultId").isJsonNull()) && !jsonObj.get("lastTestResultId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultId").toString()));
       }
@@ -471,31 +482,31 @@ public class TestPointPutModel {
 
            @Override
            public TestPointPutModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPointPutModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPointPutModel
-   * @throws IOException if the JSON string is invalid with respect to TestPointPutModel
-   */
+ /**
+  * Create an instance of TestPointPutModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointPutModel
+  * @throws IOException if the JSON string is invalid with respect to TestPointPutModel
+  */
   public static TestPointPutModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPointPutModel.class);
   }
 
-  /**
-   * Convert an instance of TestPointPutModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPointPutModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

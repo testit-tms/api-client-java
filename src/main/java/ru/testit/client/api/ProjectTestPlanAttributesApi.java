@@ -29,11 +29,11 @@ import java.io.IOException;
 
 import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
-import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.ProjectAttributesFilterModel;
+import ru.testit.client.model.SearchAttributesInProjectRequest;
 import java.util.Set;
 import java.util.UUID;
+import ru.testit.client.model.UpdateCustomAttributeTestPlanProjectRelationsRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectTestPlanAttributesApi {
     private ApiClient localVarApiClient;
@@ -87,8 +88,7 @@ public class ProjectTestPlanAttributesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
@@ -163,8 +163,7 @@ public class ProjectTestPlanAttributesApi {
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
@@ -187,8 +186,7 @@ public class ProjectTestPlanAttributesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
@@ -213,8 +211,7 @@ public class ProjectTestPlanAttributesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
@@ -239,8 +236,7 @@ public class ProjectTestPlanAttributesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -320,8 +316,7 @@ public class ProjectTestPlanAttributesApi {
      * @param attributeId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -344,8 +339,7 @@ public class ProjectTestPlanAttributesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -370,8 +364,7 @@ public class ProjectTestPlanAttributesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -395,8 +388,7 @@ public class ProjectTestPlanAttributesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -470,8 +462,7 @@ public class ProjectTestPlanAttributesApi {
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -494,8 +485,7 @@ public class ProjectTestPlanAttributesApi {
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -520,8 +510,7 @@ public class ProjectTestPlanAttributesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -547,13 +536,12 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -564,7 +552,7 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,7 +566,7 @@ public class ProjectTestPlanAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectAttributesFilterModel;
+        Object localVarPostBody = searchAttributesInProjectRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes/search"
@@ -631,13 +619,13 @@ public class ProjectTestPlanAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchTestPlanAttributesInProjectValidateBeforeCall(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling searchTestPlanAttributesInProject(Async)");
         }
 
-        return searchTestPlanAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        return searchTestPlanAttributesInProjectCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
 
     }
 
@@ -650,12 +638,11 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return List&lt;CustomAttributeGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -666,8 +653,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+    public List<CustomAttributeGetModel> searchTestPlanAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        ApiResponse<List<CustomAttributeGetModel>> localVarResp = searchTestPlanAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
         return localVarResp.getData();
     }
 
@@ -680,12 +667,11 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -696,8 +682,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, null);
+    public ApiResponse<List<CustomAttributeGetModel>> searchTestPlanAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest) throws ApiException {
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, null);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -711,13 +697,12 @@ public class ProjectTestPlanAttributesApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param projectAttributesFilterModel  (optional)
+     * @param searchAttributesInProjectRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -728,9 +713,9 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
+    public okhttp3.Call searchTestPlanAttributesInProjectAsync(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchAttributesInProjectRequest searchAttributesInProjectRequest, final ApiCallback<List<CustomAttributeGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel, _callback);
+        okhttp3.Call localVarCall = searchTestPlanAttributesInProjectValidateBeforeCall(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CustomAttributeGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -738,13 +723,12 @@ public class ProjectTestPlanAttributesApi {
     /**
      * Build call for updateCustomAttributeTestPlanProjectRelations
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -755,7 +739,7 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsCall(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -769,7 +753,7 @@ public class ProjectTestPlanAttributesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = customAttributeTestPlanProjectRelationPutModel;
+        Object localVarPostBody = updateCustomAttributeTestPlanProjectRelationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/attributes"
@@ -802,13 +786,13 @@ public class ProjectTestPlanAttributesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling updateCustomAttributeTestPlanProjectRelations(Async)");
         }
 
-        return updateCustomAttributeTestPlanProjectRelationsCall(projectId, customAttributeTestPlanProjectRelationPutModel, _callback);
+        return updateCustomAttributeTestPlanProjectRelationsCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
 
     }
 
@@ -816,11 +800,10 @@ public class ProjectTestPlanAttributesApi {
      * Update attribute of project&#39;s test plans
      *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -831,20 +814,19 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateCustomAttributeTestPlanProjectRelations(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, customAttributeTestPlanProjectRelationPutModel);
+    public void updateCustomAttributeTestPlanProjectRelations(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(projectId, updateCustomAttributeTestPlanProjectRelationsRequest);
     }
 
     /**
      * Update attribute of project&#39;s test plans
      *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -855,8 +837,8 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, customAttributeTestPlanProjectRelationPutModel, null);
+    public ApiResponse<Void> updateCustomAttributeTestPlanProjectRelationsWithHttpInfo(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -864,13 +846,12 @@ public class ProjectTestPlanAttributesApi {
      * Update attribute of project&#39;s test plans (asynchronously)
      *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
-     * @param customAttributeTestPlanProjectRelationPutModel  (optional)
+     * @param updateCustomAttributeTestPlanProjectRelationsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -881,9 +862,9 @@ public class ProjectTestPlanAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String projectId, CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateCustomAttributeTestPlanProjectRelationsAsync(String projectId, UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, customAttributeTestPlanProjectRelationPutModel, _callback);
+        okhttp3.Call localVarCall = updateCustomAttributeTestPlanProjectRelationsValidateBeforeCall(projectId, updateCustomAttributeTestPlanProjectRelationsRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

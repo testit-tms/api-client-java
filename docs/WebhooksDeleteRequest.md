@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**WebhooksDeleteFilterRequest**](WebhooksDeleteFilterRequest.md) |  |  |
-|**extractor** | [**WebhooksExtractionRequest**](WebhooksExtractionRequest.md) |  |  |
+|**filter** | [**WebhooksDeleteRequestFilter**](WebhooksDeleteRequestFilter.md) |  |  |
+|**extractor** | [**WebhooksDeleteRequestExtractor**](WebhooksDeleteRequestExtractor.md) |  |  |
 
 
 

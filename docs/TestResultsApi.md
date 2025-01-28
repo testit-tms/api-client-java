@@ -23,7 +23,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost"></a>
 # **apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost**
-> GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, testResultsSelectApiModel)
+> GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest)
 
 
 
@@ -50,9 +50,9 @@ public class Example {
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID externalProjectId = UUID.randomUUID(); // UUID | 
-    TestResultsSelectApiModel testResultsSelectApiModel = new TestResultsSelectApiModel(); // TestResultsSelectApiModel | 
+    ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest = new ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest(); // ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest | 
     try {
-      GetExternalFormApiResult result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, testResultsSelectApiModel);
+      GetExternalFormApiResult result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost");
@@ -70,7 +70,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **externalProjectId** | **UUID**|  | |
-| **testResultsSelectApiModel** | [**TestResultsSelectApiModel**](TestResultsSelectApiModel.md)|  | [optional] |
+| **apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -98,7 +98,7 @@ public class Example {
 
 <a id="apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost"></a>
 # **apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost**
-> DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, createDefectApiModel)
+> DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest)
 
 
 
@@ -125,9 +125,9 @@ public class Example {
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
     UUID externalProjectId = UUID.randomUUID(); // UUID | 
-    CreateDefectApiModel createDefectApiModel = new CreateDefectApiModel(); // CreateDefectApiModel | 
+    ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest = new ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest(); // ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest | 
     try {
-      DefectApiModel result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, createDefectApiModel);
+      DefectApiModel result = apiInstance.apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost");
@@ -145,7 +145,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **externalProjectId** | **UUID**|  | |
-| **createDefectApiModel** | [**CreateDefectApiModel**](CreateDefectApiModel.md)|  | [optional] |
+| **apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -613,7 +613,7 @@ public class Example {
 
 <a id="apiV2TestResultsSearchPost"></a>
 # **apiV2TestResultsSearchPost**
-> List&lt;TestResultShortResponse&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel)
+> List&lt;TestResultShortResponse&gt; apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest)
 
 Search for test results
 
@@ -644,9 +644,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    TestResultsFilterApiModel testResultsFilterApiModel = new TestResultsFilterApiModel(); // TestResultsFilterApiModel | 
+    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      List<TestResultShortResponse> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel);
+      List<TestResultShortResponse> result = apiInstance.apiV2TestResultsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsSearchPost");
@@ -668,7 +668,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **testResultsFilterApiModel** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md)|  | [optional] |
+| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -696,7 +696,7 @@ public class Example {
 
 <a id="apiV2TestResultsStatisticsFilterPost"></a>
 # **apiV2TestResultsStatisticsFilterPost**
-> TestResultsStatisticsApiResult apiV2TestResultsStatisticsFilterPost(testResultsFilterApiModel)
+> TestResultsStatisticsResponse apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest)
 
 Search for test results and extract statistics
 
@@ -722,9 +722,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestResultsApi apiInstance = new TestResultsApi(defaultClient);
-    TestResultsFilterApiModel testResultsFilterApiModel = new TestResultsFilterApiModel(); // TestResultsFilterApiModel | 
+    ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest = new ApiV2TestResultsSearchPostRequest(); // ApiV2TestResultsSearchPostRequest | 
     try {
-      TestResultsStatisticsApiResult result = apiInstance.apiV2TestResultsStatisticsFilterPost(testResultsFilterApiModel);
+      TestResultsStatisticsResponse result = apiInstance.apiV2TestResultsStatisticsFilterPost(apiV2TestResultsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestResultsApi#apiV2TestResultsStatisticsFilterPost");
@@ -741,11 +741,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testResultsFilterApiModel** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md)|  | [optional] |
+| **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 
-[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
+[**TestResultsStatisticsResponse**](TestResultsStatisticsResponse.md)
 
 ### Authorization
 

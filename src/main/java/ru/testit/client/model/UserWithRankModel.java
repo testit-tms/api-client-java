@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.UserRankModel;
+import ru.testit.client.model.UserWithRankModelUserRank;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,343 +53,357 @@ import ru.testit.client.invoker.JSON;
 /**
  * UserWithRankModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserWithRankModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  @javax.annotation.Nonnull
   private String firstName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  @javax.annotation.Nonnull
   private String lastName;
 
   public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
   @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
-  @javax.annotation.Nonnull
   private String middleName;
 
   public static final String SERIALIZED_NAME_USER_NAME = "userName";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
-  @javax.annotation.Nonnull
   private String userName;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  @javax.annotation.Nonnull
   private String displayName;
 
   public static final String SERIALIZED_NAME_USER_TYPE = "userType";
   @SerializedName(SERIALIZED_NAME_USER_TYPE)
-  @javax.annotation.Nonnull
   private String userType;
 
   public static final String SERIALIZED_NAME_AVATAR_URL = "avatarUrl";
   @SerializedName(SERIALIZED_NAME_AVATAR_URL)
-  @javax.annotation.Nonnull
   private String avatarUrl;
 
   public static final String SERIALIZED_NAME_AVATAR_METADATA = "avatarMetadata";
   @SerializedName(SERIALIZED_NAME_AVATAR_METADATA)
-  @javax.annotation.Nonnull
   private String avatarMetadata;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_IS_DISABLED = "isDisabled";
   @SerializedName(SERIALIZED_NAME_IS_DISABLED)
-  @javax.annotation.Nonnull
   private Boolean isDisabled;
 
   public static final String SERIALIZED_NAME_PROVIDER_ID = "providerId";
   @SerializedName(SERIALIZED_NAME_PROVIDER_ID)
-  @javax.annotation.Nullable
   private UUID providerId;
 
   public static final String SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY = "isActiveStatusByEntity";
   @SerializedName(SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY)
-  @javax.annotation.Nonnull
   private Boolean isActiveStatusByEntity;
 
   public static final String SERIALIZED_NAME_USER_RANK = "userRank";
   @SerializedName(SERIALIZED_NAME_USER_RANK)
-  @javax.annotation.Nonnull
-  private UserRankModel userRank;
+  private UserWithRankModelUserRank userRank;
 
   public UserWithRankModel() {
   }
 
-  public UserWithRankModel id(@javax.annotation.Nonnull UUID id) {
+  public UserWithRankModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public UserWithRankModel firstName(@javax.annotation.Nonnull String firstName) {
+  public UserWithRankModel firstName(String firstName) {
+    
     this.firstName = firstName;
     return this;
   }
 
-  /**
+   /**
    * Get firstName
    * @return firstName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(@javax.annotation.Nonnull String firstName) {
+
+  public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
 
-  public UserWithRankModel lastName(@javax.annotation.Nonnull String lastName) {
+  public UserWithRankModel lastName(String lastName) {
+    
     this.lastName = lastName;
     return this;
   }
 
-  /**
+   /**
    * Get lastName
    * @return lastName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(@javax.annotation.Nonnull String lastName) {
+
+  public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
 
-  public UserWithRankModel middleName(@javax.annotation.Nonnull String middleName) {
+  public UserWithRankModel middleName(String middleName) {
+    
     this.middleName = middleName;
     return this;
   }
 
-  /**
+   /**
    * Get middleName
    * @return middleName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getMiddleName() {
     return middleName;
   }
 
-  public void setMiddleName(@javax.annotation.Nonnull String middleName) {
+
+  public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
 
 
-  public UserWithRankModel userName(@javax.annotation.Nonnull String userName) {
+  public UserWithRankModel userName(String userName) {
+    
     this.userName = userName;
     return this;
   }
 
-  /**
+   /**
    * Get userName
    * @return userName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getUserName() {
     return userName;
   }
 
-  public void setUserName(@javax.annotation.Nonnull String userName) {
+
+  public void setUserName(String userName) {
     this.userName = userName;
   }
 
 
-  public UserWithRankModel displayName(@javax.annotation.Nonnull String displayName) {
+  public UserWithRankModel displayName(String displayName) {
+    
     this.displayName = displayName;
     return this;
   }
 
-  /**
+   /**
    * Get displayName
    * @return displayName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getDisplayName() {
     return displayName;
   }
 
-  public void setDisplayName(@javax.annotation.Nonnull String displayName) {
+
+  public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
-  public UserWithRankModel userType(@javax.annotation.Nonnull String userType) {
+  public UserWithRankModel userType(String userType) {
+    
     this.userType = userType;
     return this;
   }
 
-  /**
+   /**
    * Get userType
    * @return userType
-   */
+  **/
   @javax.annotation.Nonnull
   public String getUserType() {
     return userType;
   }
 
-  public void setUserType(@javax.annotation.Nonnull String userType) {
+
+  public void setUserType(String userType) {
     this.userType = userType;
   }
 
 
-  public UserWithRankModel avatarUrl(@javax.annotation.Nonnull String avatarUrl) {
+  public UserWithRankModel avatarUrl(String avatarUrl) {
+    
     this.avatarUrl = avatarUrl;
     return this;
   }
 
-  /**
+   /**
    * Get avatarUrl
    * @return avatarUrl
-   */
+  **/
   @javax.annotation.Nonnull
   public String getAvatarUrl() {
     return avatarUrl;
   }
 
-  public void setAvatarUrl(@javax.annotation.Nonnull String avatarUrl) {
+
+  public void setAvatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
 
 
-  public UserWithRankModel avatarMetadata(@javax.annotation.Nonnull String avatarMetadata) {
+  public UserWithRankModel avatarMetadata(String avatarMetadata) {
+    
     this.avatarMetadata = avatarMetadata;
     return this;
   }
 
-  /**
+   /**
    * Get avatarMetadata
    * @return avatarMetadata
-   */
+  **/
   @javax.annotation.Nonnull
   public String getAvatarMetadata() {
     return avatarMetadata;
   }
 
-  public void setAvatarMetadata(@javax.annotation.Nonnull String avatarMetadata) {
+
+  public void setAvatarMetadata(String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
   }
 
 
-  public UserWithRankModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public UserWithRankModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
+   /**
    * Get isDeleted
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public UserWithRankModel isDisabled(@javax.annotation.Nonnull Boolean isDisabled) {
+  public UserWithRankModel isDisabled(Boolean isDisabled) {
+    
     this.isDisabled = isDisabled;
     return this;
   }
 
-  /**
+   /**
    * Get isDisabled
    * @return isDisabled
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDisabled() {
     return isDisabled;
   }
 
-  public void setIsDisabled(@javax.annotation.Nonnull Boolean isDisabled) {
+
+  public void setIsDisabled(Boolean isDisabled) {
     this.isDisabled = isDisabled;
   }
 
 
-  public UserWithRankModel providerId(@javax.annotation.Nullable UUID providerId) {
+  public UserWithRankModel providerId(UUID providerId) {
+    
     this.providerId = providerId;
     return this;
   }
 
-  /**
+   /**
    * Get providerId
    * @return providerId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getProviderId() {
     return providerId;
   }
 
-  public void setProviderId(@javax.annotation.Nullable UUID providerId) {
+
+  public void setProviderId(UUID providerId) {
     this.providerId = providerId;
   }
 
 
-  public UserWithRankModel isActiveStatusByEntity(@javax.annotation.Nonnull Boolean isActiveStatusByEntity) {
+  public UserWithRankModel isActiveStatusByEntity(Boolean isActiveStatusByEntity) {
+    
     this.isActiveStatusByEntity = isActiveStatusByEntity;
     return this;
   }
 
-  /**
+   /**
    * Get isActiveStatusByEntity
    * @return isActiveStatusByEntity
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsActiveStatusByEntity() {
     return isActiveStatusByEntity;
   }
 
-  public void setIsActiveStatusByEntity(@javax.annotation.Nonnull Boolean isActiveStatusByEntity) {
+
+  public void setIsActiveStatusByEntity(Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
   }
 
 
-  public UserWithRankModel userRank(@javax.annotation.Nonnull UserRankModel userRank) {
+  public UserWithRankModel userRank(UserWithRankModelUserRank userRank) {
+    
     this.userRank = userRank;
     return this;
   }
 
-  /**
+   /**
    * Get userRank
    * @return userRank
-   */
+  **/
   @javax.annotation.Nonnull
-  public UserRankModel getUserRank() {
+  public UserWithRankModelUserRank getUserRank() {
     return userRank;
   }
 
-  public void setUserRank(@javax.annotation.Nonnull UserRankModel userRank) {
+
+  public void setUserRank(UserWithRankModelUserRank userRank) {
     this.userRank = userRank;
   }
 
@@ -506,34 +522,33 @@ public class UserWithRankModel {
     openapiRequiredFields.add("userRank");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UserWithRankModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UserWithRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UserWithRankModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!UserWithRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UserWithRankModel is not found in the empty JSON string", UserWithRankModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!UserWithRankModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserWithRankModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserWithRankModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UserWithRankModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -565,7 +580,7 @@ public class UserWithRankModel {
         throw new IllegalArgumentException(String.format("Expected the field `providerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("providerId").toString()));
       }
       // validate the required field `userRank`
-      UserRankModel.validateJsonElement(jsonObj.get("userRank"));
+      UserWithRankModelUserRank.validateJsonObject(jsonObj.getAsJsonObject("userRank"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -588,31 +603,31 @@ public class UserWithRankModel {
 
            @Override
            public UserWithRankModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of UserWithRankModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UserWithRankModel
-   * @throws IOException if the JSON string is invalid with respect to UserWithRankModel
-   */
+ /**
+  * Create an instance of UserWithRankModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UserWithRankModel
+  * @throws IOException if the JSON string is invalid with respect to UserWithRankModel
+  */
   public static UserWithRankModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UserWithRankModel.class);
   }
 
-  /**
-   * Convert an instance of UserWithRankModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of UserWithRankModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestChangeViewModel;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,22 +54,21 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestChangeViewModelArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoTestChangeViewModelArrayChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<AutoTestChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<AutoTestChangeViewModel> newValue;
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel() {
   }
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(List<AutoTestChangeViewModel> oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -80,21 +81,23 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     return this;
   }
 
-  /**
+   /**
    * Get oldValue
    * @return oldValue
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestChangeViewModel> getOldValue() {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
+
+  public void setOldValue(List<AutoTestChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(List<AutoTestChangeViewModel> newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -107,16 +110,17 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     return this;
   }
 
-  /**
+   /**
    * Get newValue
    * @return newValue
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestChangeViewModel> getNewValue() {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
+
+  public void setNewValue(List<AutoTestChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 
@@ -186,27 +190,26 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutoTestChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestChangeViewModelArrayChangedFieldViewModel is not found in the empty JSON string", AutoTestChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AutoTestChangeViewModelArrayChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestChangeViewModelArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestChangeViewModelArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
         JsonArray jsonArrayoldValue = jsonObj.getAsJsonArray("oldValue");
         if (jsonArrayoldValue != null) {
@@ -217,7 +220,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
 
           // validate the optional field `oldValue` (array)
           for (int i = 0; i < jsonArrayoldValue.size(); i++) {
-            AutoTestChangeViewModel.validateJsonElement(jsonArrayoldValue.get(i));
+            AutoTestChangeViewModel.validateJsonObject(jsonArrayoldValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -231,7 +234,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
 
           // validate the optional field `newValue` (array)
           for (int i = 0; i < jsonArraynewValue.size(); i++) {
-            AutoTestChangeViewModel.validateJsonElement(jsonArraynewValue.get(i));
+            AutoTestChangeViewModel.validateJsonObject(jsonArraynewValue.get(i).getAsJsonObject());
           };
         }
       }
@@ -257,31 +260,31 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
 
            @Override
            public AutoTestChangeViewModelArrayChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of AutoTestChangeViewModelArrayChangedFieldViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestChangeViewModelArrayChangedFieldViewModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
-   */
+ /**
+  * Create an instance of AutoTestChangeViewModelArrayChangedFieldViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutoTestChangeViewModelArrayChangedFieldViewModel
+  * @throws IOException if the JSON string is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
+  */
   public static AutoTestChangeViewModelArrayChangedFieldViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestChangeViewModelArrayChangedFieldViewModel.class);
   }
 
-  /**
-   * Convert an instance of AutoTestChangeViewModelArrayChangedFieldViewModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of AutoTestChangeViewModelArrayChangedFieldViewModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

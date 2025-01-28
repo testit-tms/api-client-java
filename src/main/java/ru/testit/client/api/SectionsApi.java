@@ -27,15 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.CreateSectionRequest;
 import ru.testit.client.model.DeletionState;
+import ru.testit.client.model.MoveRequest;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SectionMoveModel;
-import ru.testit.client.model.SectionPostModel;
-import ru.testit.client.model.SectionPutModel;
-import ru.testit.client.model.SectionRenameModel;
+import ru.testit.client.model.RenameRequest;
 import ru.testit.client.model.SectionWithStepsModel;
 import java.util.UUID;
+import ru.testit.client.model.UpdateSectionRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemShortModel;
 
@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class SectionsApi {
     private ApiClient localVarApiClient;
@@ -90,8 +91,7 @@ public class SectionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -166,8 +166,7 @@ public class SectionsApi {
      * @param operation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -190,8 +189,7 @@ public class SectionsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -216,8 +214,7 @@ public class SectionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -236,13 +233,12 @@ public class SectionsApi {
     }
     /**
      * Build call for createSection
-     * @param sectionPostModel  (optional)
+     * @param createSectionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
@@ -253,7 +249,7 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSectionCall(SectionPostModel sectionPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSectionCall(CreateSectionRequest createSectionRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -267,7 +263,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionPostModel;
+        Object localVarPostBody = createSectionRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections";
@@ -299,20 +295,19 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSectionValidateBeforeCall(SectionPostModel sectionPostModel, final ApiCallback _callback) throws ApiException {
-        return createSectionCall(sectionPostModel, _callback);
+    private okhttp3.Call createSectionValidateBeforeCall(CreateSectionRequest createSectionRequest, final ApiCallback _callback) throws ApiException {
+        return createSectionCall(createSectionRequest, _callback);
 
     }
 
     /**
      * Create section
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     * @param createSectionRequest  (optional)
      * @return SectionWithStepsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
@@ -323,20 +318,19 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public SectionWithStepsModel createSection(SectionPostModel sectionPostModel) throws ApiException {
-        ApiResponse<SectionWithStepsModel> localVarResp = createSectionWithHttpInfo(sectionPostModel);
+    public SectionWithStepsModel createSection(CreateSectionRequest createSectionRequest) throws ApiException {
+        ApiResponse<SectionWithStepsModel> localVarResp = createSectionWithHttpInfo(createSectionRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create section
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     * @param createSectionRequest  (optional)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
@@ -347,8 +341,8 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(SectionPostModel sectionPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createSectionValidateBeforeCall(sectionPostModel, null);
+    public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(CreateSectionRequest createSectionRequest) throws ApiException {
+        okhttp3.Call localVarCall = createSectionValidateBeforeCall(createSectionRequest, null);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -356,13 +350,12 @@ public class SectionsApi {
     /**
      * Create section (asynchronously)
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
-     * @param sectionPostModel  (optional)
+     * @param createSectionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Cannot create section without parent ID </td><td>  -  </td></tr>
@@ -373,9 +366,9 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSectionAsync(SectionPostModel sectionPostModel, final ApiCallback<SectionWithStepsModel> _callback) throws ApiException {
+    public okhttp3.Call createSectionAsync(CreateSectionRequest createSectionRequest, final ApiCallback<SectionWithStepsModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSectionValidateBeforeCall(sectionPostModel, _callback);
+        okhttp3.Call localVarCall = createSectionValidateBeforeCall(createSectionRequest, _callback);
         Type localVarReturnType = new TypeToken<SectionWithStepsModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -387,8 +380,7 @@ public class SectionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -461,8 +453,7 @@ public class SectionsApi {
      * @param id Section internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -484,8 +475,7 @@ public class SectionsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -509,8 +499,7 @@ public class SectionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -535,8 +524,7 @@ public class SectionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -615,8 +603,7 @@ public class SectionsApi {
      * @return SectionWithStepsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -640,8 +627,7 @@ public class SectionsApi {
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -667,8 +653,7 @@ public class SectionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -701,8 +686,7 @@ public class SectionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
@@ -819,8 +803,7 @@ public class SectionsApi {
      * @return List&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
@@ -853,8 +836,7 @@ public class SectionsApi {
      * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
@@ -889,8 +871,7 @@ public class SectionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
@@ -912,13 +893,12 @@ public class SectionsApi {
     }
     /**
      * Build call for move
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -929,7 +909,7 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveCall(SectionMoveModel sectionMoveModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call moveCall(MoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -943,7 +923,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionMoveModel;
+        Object localVarPostBody = moveRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections/move";
@@ -975,19 +955,18 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call moveValidateBeforeCall(SectionMoveModel sectionMoveModel, final ApiCallback _callback) throws ApiException {
-        return moveCall(sectionMoveModel, _callback);
+    private okhttp3.Call moveValidateBeforeCall(MoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
+        return moveCall(moveRequest, _callback);
 
     }
 
     /**
      * Move section with all work items into another section
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -998,19 +977,18 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void move(SectionMoveModel sectionMoveModel) throws ApiException {
-        moveWithHttpInfo(sectionMoveModel);
+    public void move(MoveRequest moveRequest) throws ApiException {
+        moveWithHttpInfo(moveRequest);
     }
 
     /**
      * Move section with all work items into another section
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1021,21 +999,20 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> moveWithHttpInfo(SectionMoveModel sectionMoveModel) throws ApiException {
-        okhttp3.Call localVarCall = moveValidateBeforeCall(sectionMoveModel, null);
+    public ApiResponse<Void> moveWithHttpInfo(MoveRequest moveRequest) throws ApiException {
+        okhttp3.Call localVarCall = moveValidateBeforeCall(moveRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Move section with all work items into another section (asynchronously)
      * 
-     * @param sectionMoveModel  (optional)
+     * @param moveRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1046,21 +1023,20 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveAsync(SectionMoveModel sectionMoveModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call moveAsync(MoveRequest moveRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = moveValidateBeforeCall(sectionMoveModel, _callback);
+        okhttp3.Call localVarCall = moveValidateBeforeCall(moveRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for rename
-     * @param sectionRenameModel  (optional)
+     * @param renameRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1071,7 +1047,7 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameCall(SectionRenameModel sectionRenameModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call renameCall(RenameRequest renameRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1085,7 +1061,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionRenameModel;
+        Object localVarPostBody = renameRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections/rename";
@@ -1117,19 +1093,18 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call renameValidateBeforeCall(SectionRenameModel sectionRenameModel, final ApiCallback _callback) throws ApiException {
-        return renameCall(sectionRenameModel, _callback);
+    private okhttp3.Call renameValidateBeforeCall(RenameRequest renameRequest, final ApiCallback _callback) throws ApiException {
+        return renameCall(renameRequest, _callback);
 
     }
 
     /**
      * Rename section
      *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
-     * @param sectionRenameModel  (optional)
+     * @param renameRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1140,19 +1115,18 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public void rename(SectionRenameModel sectionRenameModel) throws ApiException {
-        renameWithHttpInfo(sectionRenameModel);
+    public void rename(RenameRequest renameRequest) throws ApiException {
+        renameWithHttpInfo(renameRequest);
     }
 
     /**
      * Rename section
      *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
-     * @param sectionRenameModel  (optional)
+     * @param renameRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1163,21 +1137,20 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> renameWithHttpInfo(SectionRenameModel sectionRenameModel) throws ApiException {
-        okhttp3.Call localVarCall = renameValidateBeforeCall(sectionRenameModel, null);
+    public ApiResponse<Void> renameWithHttpInfo(RenameRequest renameRequest) throws ApiException {
+        okhttp3.Call localVarCall = renameValidateBeforeCall(renameRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Rename section (asynchronously)
      *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
-     * @param sectionRenameModel  (optional)
+     * @param renameRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1188,21 +1161,20 @@ public class SectionsApi {
         <tr><td> 422 </td><td> Root section cannot be renamed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameAsync(SectionRenameModel sectionRenameModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call renameAsync(RenameRequest renameRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = renameValidateBeforeCall(sectionRenameModel, _callback);
+        okhttp3.Call localVarCall = renameValidateBeforeCall(renameRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSection
-     * @param sectionPutModel  (optional)
+     * @param updateSectionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
@@ -1213,7 +1185,7 @@ public class SectionsApi {
         <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSectionCall(SectionPutModel sectionPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSectionCall(UpdateSectionRequest updateSectionRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1227,7 +1199,7 @@ public class SectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sectionPutModel;
+        Object localVarPostBody = updateSectionRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/sections";
@@ -1259,19 +1231,18 @@ public class SectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSectionValidateBeforeCall(SectionPutModel sectionPutModel, final ApiCallback _callback) throws ApiException {
-        return updateSectionCall(sectionPutModel, _callback);
+    private okhttp3.Call updateSectionValidateBeforeCall(UpdateSectionRequest updateSectionRequest, final ApiCallback _callback) throws ApiException {
+        return updateSectionCall(updateSectionRequest, _callback);
 
     }
 
     /**
      * Update section
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
-     * @param sectionPutModel  (optional)
+     * @param updateSectionRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
@@ -1282,19 +1253,18 @@ public class SectionsApi {
         <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public void updateSection(SectionPutModel sectionPutModel) throws ApiException {
-        updateSectionWithHttpInfo(sectionPutModel);
+    public void updateSection(UpdateSectionRequest updateSectionRequest) throws ApiException {
+        updateSectionWithHttpInfo(updateSectionRequest);
     }
 
     /**
      * Update section
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
-     * @param sectionPutModel  (optional)
+     * @param updateSectionRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
@@ -1305,21 +1275,20 @@ public class SectionsApi {
         <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateSectionWithHttpInfo(SectionPutModel sectionPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(sectionPutModel, null);
+    public ApiResponse<Void> updateSectionWithHttpInfo(UpdateSectionRequest updateSectionRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(updateSectionRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update section (asynchronously)
      *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
-     * @param sectionPutModel  (optional)
+     * @param updateSectionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
@@ -1330,9 +1299,9 @@ public class SectionsApi {
         <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSectionAsync(SectionPutModel sectionPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateSectionAsync(UpdateSectionRequest updateSectionRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(sectionPutModel, _callback);
+        okhttp3.Call localVarCall = updateSectionValidateBeforeCall(updateSectionRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

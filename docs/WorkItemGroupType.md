@@ -11,13 +11,13 @@
 
 * `STATUS` (value: `"Status"`)
 
-* `AUTOMATION_STATUS` (value: `"AutomationStatus"`)
+* `AUTOMATIONSTATUS` (value: `"AutomationStatus"`)
 
 * `CREATOR` (value: `"Creator"`)
 
-* `LAST_EDITOR` (value: `"LastEditor"`)
+* `LASTEDITOR` (value: `"LastEditor"`)
 
-* `CUSTOM_ATTRIBUTE` (value: `"CustomAttribute"`)
+* `CUSTOMATTRIBUTE` (value: `"CustomAttribute"`)
 
 
 

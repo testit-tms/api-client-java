@@ -5,9 +5,9 @@
 ## Enum
 
 
-* `NOT_STARTED` (value: `"NotStarted"`)
+* `NOTSTARTED` (value: `"NotStarted"`)
 
-* `IN_PROGRESS` (value: `"InProgress"`)
+* `INPROGRESS` (value: `"InProgress"`)
 
 * `STOPPED` (value: `"Stopped"`)
 

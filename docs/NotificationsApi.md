@@ -319,7 +319,7 @@ null (empty response body)
 
 <a id="apiV2NotificationsSearchPost"></a>
 # **apiV2NotificationsSearchPost**
-> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel)
+> List&lt;NotificationModel&gt; apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest)
 
 Search Notifications for current User
 
@@ -352,9 +352,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    NotificationQueryFilterModel notificationQueryFilterModel = new NotificationQueryFilterModel(); // NotificationQueryFilterModel | 
+    ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest = new ApiV2NotificationsSearchPostRequest(); // ApiV2NotificationsSearchPostRequest | 
     try {
-      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel);
+      List<NotificationModel> result = apiInstance.apiV2NotificationsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NotificationsApi#apiV2NotificationsSearchPost");
@@ -376,7 +376,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **notificationQueryFilterModel** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional] |
+| **apiV2NotificationsSearchPostRequest** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

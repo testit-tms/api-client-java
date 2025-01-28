@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,10 +44,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,425 +57,442 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepReferenceModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SharedStepReferenceModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
-  @javax.annotation.Nonnull
   private String entityTypeName;
 
   public static final String SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_STEP = "hasThisSharedStepAsStep";
   @SerializedName(SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_STEP)
-  @javax.annotation.Nonnull
   private Boolean hasThisSharedStepAsStep;
 
   public static final String SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_PRECONDITION = "hasThisSharedStepAsPrecondition";
   @SerializedName(SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_PRECONDITION)
-  @javax.annotation.Nonnull
   private Boolean hasThisSharedStepAsPrecondition;
 
   public static final String SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_POSTCONDITION = "hasThisSharedStepAsPostcondition";
   @SerializedName(SERIALIZED_NAME_HAS_THIS_SHARED_STEP_AS_POSTCONDITION)
-  @javax.annotation.Nonnull
   private Boolean hasThisSharedStepAsPostcondition;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private String state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID versionId;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private List<TagModel> tags;
 
   public SharedStepReferenceModel() {
   }
 
-  public SharedStepReferenceModel id(@javax.annotation.Nonnull UUID id) {
+  public SharedStepReferenceModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SharedStepReferenceModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public SharedStepReferenceModel globalId(Long globalId) {
+    
     this.globalId = globalId;
     return this;
   }
 
-  /**
+   /**
    * Get globalId
    * @return globalId
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepReferenceModel name(@javax.annotation.Nonnull String name) {
+  public SharedStepReferenceModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SharedStepReferenceModel entityTypeName(@javax.annotation.Nonnull String entityTypeName) {
+  public SharedStepReferenceModel entityTypeName(String entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
 
-  /**
+   /**
    * Get entityTypeName
    * @return entityTypeName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getEntityTypeName() {
     return entityTypeName;
   }
 
-  public void setEntityTypeName(@javax.annotation.Nonnull String entityTypeName) {
+
+  public void setEntityTypeName(String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsStep(@javax.annotation.Nonnull Boolean hasThisSharedStepAsStep) {
+  public SharedStepReferenceModel hasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
+    
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
     return this;
   }
 
-  /**
+   /**
    * Get hasThisSharedStepAsStep
    * @return hasThisSharedStepAsStep
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getHasThisSharedStepAsStep() {
     return hasThisSharedStepAsStep;
   }
 
-  public void setHasThisSharedStepAsStep(@javax.annotation.Nonnull Boolean hasThisSharedStepAsStep) {
+
+  public void setHasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsPrecondition(@javax.annotation.Nonnull Boolean hasThisSharedStepAsPrecondition) {
+  public SharedStepReferenceModel hasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
+    
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
     return this;
   }
 
-  /**
+   /**
    * Get hasThisSharedStepAsPrecondition
    * @return hasThisSharedStepAsPrecondition
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getHasThisSharedStepAsPrecondition() {
     return hasThisSharedStepAsPrecondition;
   }
 
-  public void setHasThisSharedStepAsPrecondition(@javax.annotation.Nonnull Boolean hasThisSharedStepAsPrecondition) {
+
+  public void setHasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsPostcondition(@javax.annotation.Nonnull Boolean hasThisSharedStepAsPostcondition) {
+  public SharedStepReferenceModel hasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
+    
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
     return this;
   }
 
-  /**
+   /**
    * Get hasThisSharedStepAsPostcondition
    * @return hasThisSharedStepAsPostcondition
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getHasThisSharedStepAsPostcondition() {
     return hasThisSharedStepAsPostcondition;
   }
 
-  public void setHasThisSharedStepAsPostcondition(@javax.annotation.Nonnull Boolean hasThisSharedStepAsPostcondition) {
+
+  public void setHasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
   }
 
 
-  public SharedStepReferenceModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public SharedStepReferenceModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
 
-  /**
+   /**
    * Get createdById
    * @return createdById
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public SharedStepReferenceModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public SharedStepReferenceModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedById
    * @return modifiedById
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public SharedStepReferenceModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public SharedStepReferenceModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SharedStepReferenceModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public SharedStepReferenceModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedDate
    * @return modifiedDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public SharedStepReferenceModel state(@javax.annotation.Nonnull String state) {
+  public SharedStepReferenceModel state(String state) {
+    
     this.state = state;
     return this;
   }
 
-  /**
+   /**
    * Get state
    * @return state
-   */
+  **/
   @javax.annotation.Nonnull
   public String getState() {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull String state) {
+
+  public void setState(String state) {
     this.state = state;
   }
 
 
-  public SharedStepReferenceModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public SharedStepReferenceModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
 
-  /**
+   /**
    * Get priority
    * @return priority
-   */
+  **/
   @javax.annotation.Nonnull
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public SharedStepReferenceModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public SharedStepReferenceModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
+   /**
    * Get isDeleted
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public SharedStepReferenceModel versionId(@javax.annotation.Nonnull UUID versionId) {
+  public SharedStepReferenceModel versionId(UUID versionId) {
+    
     this.versionId = versionId;
     return this;
   }
 
-  /**
+   /**
    * used for versioning changes in workitem
    * @return versionId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getVersionId() {
     return versionId;
   }
 
-  public void setVersionId(@javax.annotation.Nonnull UUID versionId) {
+
+  public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public SharedStepReferenceModel isAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public SharedStepReferenceModel isAutomated(Boolean isAutomated) {
+    
     this.isAutomated = isAutomated;
     return this;
   }
 
-  /**
+   /**
    * Get isAutomated
    * @return isAutomated
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public SharedStepReferenceModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public SharedStepReferenceModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
 
-  /**
+   /**
    * Get sectionId
    * @return sectionId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getSectionId() {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public SharedStepReferenceModel tags(@javax.annotation.Nullable List<TagModel> tags) {
+  public SharedStepReferenceModel tags(List<TagModel> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -486,16 +505,17 @@ public class SharedStepReferenceModel {
     return this;
   }
 
-  /**
+   /**
    * Get tags
    * @return tags
-   */
+  **/
   @javax.annotation.Nullable
   public List<TagModel> getTags() {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<TagModel> tags) {
+
+  public void setTags(List<TagModel> tags) {
     this.tags = tags;
   }
 
@@ -627,34 +647,33 @@ public class SharedStepReferenceModel {
     openapiRequiredFields.add("sectionId");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SharedStepReferenceModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SharedStepReferenceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SharedStepReferenceModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SharedStepReferenceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SharedStepReferenceModel is not found in the empty JSON string", SharedStepReferenceModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!SharedStepReferenceModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferenceModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferenceModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SharedStepReferenceModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -673,8 +692,6 @@ public class SharedStepReferenceModel {
       if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      // validate the required field `priority`
-      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       if (!jsonObj.get("versionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
       }
@@ -691,7 +708,7 @@ public class SharedStepReferenceModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagModel.validateJsonElement(jsonArraytags.get(i));
+            TagModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
           };
         }
       }
@@ -717,31 +734,31 @@ public class SharedStepReferenceModel {
 
            @Override
            public SharedStepReferenceModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of SharedStepReferenceModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SharedStepReferenceModel
-   * @throws IOException if the JSON string is invalid with respect to SharedStepReferenceModel
-   */
+ /**
+  * Create an instance of SharedStepReferenceModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SharedStepReferenceModel
+  * @throws IOException if the JSON string is invalid with respect to SharedStepReferenceModel
+  */
   public static SharedStepReferenceModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SharedStepReferenceModel.class);
   }
 
-  /**
-   * Convert an instance of SharedStepReferenceModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of SharedStepReferenceModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

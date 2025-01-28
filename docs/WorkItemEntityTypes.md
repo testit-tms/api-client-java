@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `TEST_CASES` (value: `"TestCases"`)
+* `TESTCASES` (value: `"TestCases"`)
 
-* `CHECK_LISTS` (value: `"CheckLists"`)
+* `CHECKLISTS` (value: `"CheckLists"`)
 
-* `SHARED_STEPS` (value: `"SharedSteps"`)
+* `SHAREDSTEPS` (value: `"SharedSteps"`)
 
 
 

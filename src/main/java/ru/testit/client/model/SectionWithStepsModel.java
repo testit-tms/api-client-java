@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,10 +44,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,72 +57,61 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionWithStepsModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionWithStepsModel {
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepModel> postconditionSteps;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nullable
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public SectionWithStepsModel() {
   }
 
-  public SectionWithStepsModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public SectionWithStepsModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -133,21 +124,23 @@ public class SectionWithStepsModel {
     return this;
   }
 
-  /**
+   /**
    * Get attachments
    * @return attachments
-   */
+  **/
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public SectionWithStepsModel preconditionSteps(@javax.annotation.Nullable List<StepModel> preconditionSteps) {
+  public SectionWithStepsModel preconditionSteps(List<StepModel> preconditionSteps) {
+    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -160,21 +153,23 @@ public class SectionWithStepsModel {
     return this;
   }
 
-  /**
+   /**
    * Get preconditionSteps
    * @return preconditionSteps
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepModel> getPreconditionSteps() {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nullable List<StepModel> preconditionSteps) {
+
+  public void setPreconditionSteps(List<StepModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public SectionWithStepsModel postconditionSteps(@javax.annotation.Nullable List<StepModel> postconditionSteps) {
+  public SectionWithStepsModel postconditionSteps(List<StepModel> postconditionSteps) {
+    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -187,187 +182,206 @@ public class SectionWithStepsModel {
     return this;
   }
 
-  /**
+   /**
    * Get postconditionSteps
    * @return postconditionSteps
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepModel> getPostconditionSteps() {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nullable List<StepModel> postconditionSteps) {
+
+  public void setPostconditionSteps(List<StepModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public SectionWithStepsModel projectId(@javax.annotation.Nullable UUID projectId) {
+  public SectionWithStepsModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * Get projectId
    * @return projectId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nullable UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public SectionWithStepsModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public SectionWithStepsModel parentId(UUID parentId) {
+    
     this.parentId = parentId;
     return this;
   }
 
-  /**
+   /**
    * Get parentId
    * @return parentId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getParentId() {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionWithStepsModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public SectionWithStepsModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
+   /**
    * Get isDeleted
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public SectionWithStepsModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionWithStepsModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionWithStepsModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public SectionWithStepsModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SectionWithStepsModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public SectionWithStepsModel modifiedDate(OffsetDateTime modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedDate
    * @return modifiedDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public SectionWithStepsModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public SectionWithStepsModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
 
-  /**
+   /**
    * Get createdById
    * @return createdById
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public SectionWithStepsModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public SectionWithStepsModel modifiedById(UUID modifiedById) {
+    
     this.modifiedById = modifiedById;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedById
    * @return modifiedById
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public SectionWithStepsModel name(@javax.annotation.Nonnull String name) {
+  public SectionWithStepsModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
@@ -472,34 +486,33 @@ public class SectionWithStepsModel {
     openapiRequiredFields.add("name");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SectionWithStepsModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SectionWithStepsModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SectionWithStepsModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SectionWithStepsModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SectionWithStepsModel is not found in the empty JSON string", SectionWithStepsModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!SectionWithStepsModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionWithStepsModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionWithStepsModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SectionWithStepsModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
         if (jsonArrayattachments != null) {
@@ -510,7 +523,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -524,7 +537,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `preconditionSteps` (array)
           for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-            StepModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
+            StepModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -538,7 +551,7 @@ public class SectionWithStepsModel {
 
           // validate the optional field `postconditionSteps` (array)
           for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-            StepModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
+            StepModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -582,31 +595,31 @@ public class SectionWithStepsModel {
 
            @Override
            public SectionWithStepsModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of SectionWithStepsModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SectionWithStepsModel
-   * @throws IOException if the JSON string is invalid with respect to SectionWithStepsModel
-   */
+ /**
+  * Create an instance of SectionWithStepsModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SectionWithStepsModel
+  * @throws IOException if the JSON string is invalid with respect to SectionWithStepsModel
+  */
   public static SectionWithStepsModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SectionWithStepsModel.class);
   }
 
-  /**
-   * Convert an instance of SectionWithStepsModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of SectionWithStepsModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

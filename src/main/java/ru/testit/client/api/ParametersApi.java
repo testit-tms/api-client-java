@@ -27,7 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ParameterFilterModel;
+import ru.testit.client.model.ApiV2ParametersSearchPostRequest;
+import ru.testit.client.model.CreateParameterRequest;
 import ru.testit.client.model.ParameterGroupModel;
 import ru.testit.client.model.ParameterModel;
 import ru.testit.client.model.ParameterPostModel;
@@ -35,6 +36,7 @@ import ru.testit.client.model.ParameterPutModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.Set;
 import java.util.UUID;
+import ru.testit.client.model.UpdateParameterRequest;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -42,6 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ParametersApi {
     private ApiClient localVarApiClient;
@@ -87,8 +90,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -157,8 +159,7 @@ public class ParametersApi {
      * @return List&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -181,8 +182,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -207,8 +207,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -233,8 +232,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -302,8 +300,7 @@ public class ParametersApi {
      * @param parameterPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -325,8 +322,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -350,8 +346,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Parameter model is not valid </td><td>  -  </td></tr>
@@ -381,8 +376,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -484,8 +478,7 @@ public class ParametersApi {
      * @return List&lt;ParameterGroupModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -514,8 +507,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;List&lt;ParameterGroupModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -546,8 +538,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -572,8 +563,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -647,8 +637,7 @@ public class ParametersApi {
      * @return Boolean
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -671,8 +660,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;Boolean&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -697,8 +685,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -723,8 +710,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -798,8 +784,7 @@ public class ParametersApi {
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -822,8 +807,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -848,8 +832,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -873,8 +856,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -941,8 +923,7 @@ public class ParametersApi {
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -964,8 +945,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -989,8 +969,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1015,13 +994,12 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1032,7 +1010,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchGroupsPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchGroupsPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1046,7 +1024,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterFilterModel;
+        Object localVarPostBody = apiV2ParametersSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/search/groups";
@@ -1098,8 +1076,8 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersSearchGroupsPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersSearchGroupsPostCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+    private okhttp3.Call apiV2ParametersSearchGroupsPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersSearchGroupsPostCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, _callback);
 
     }
 
@@ -1111,12 +1089,11 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @return List&lt;ParameterGroupModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1127,8 +1104,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterGroupModel> apiV2ParametersSearchGroupsPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        ApiResponse<List<ParameterGroupModel>> localVarResp = apiV2ParametersSearchGroupsPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+    public List<ParameterGroupModel> apiV2ParametersSearchGroupsPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest) throws ApiException {
+        ApiResponse<List<ParameterGroupModel>> localVarResp = apiV2ParametersSearchGroupsPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1140,12 +1117,11 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;ParameterGroupModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1156,8 +1132,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterGroupModel>> apiV2ParametersSearchGroupsPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, null);
+    public ApiResponse<List<ParameterGroupModel>> apiV2ParametersSearchGroupsPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1170,13 +1146,12 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1187,9 +1162,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchGroupsPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback<List<ParameterGroupModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchGroupsPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback<List<ParameterGroupModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1201,13 +1176,12 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1218,7 +1192,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1232,7 +1206,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterFilterModel;
+        Object localVarPostBody = apiV2ParametersSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/search";
@@ -1284,8 +1258,8 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersSearchPostCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+    private okhttp3.Call apiV2ParametersSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, _callback);
 
     }
 
@@ -1297,12 +1271,11 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @return List&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1313,8 +1286,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterModel> apiV2ParametersSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        ApiResponse<List<ParameterModel>> localVarResp = apiV2ParametersSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+    public List<ParameterModel> apiV2ParametersSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest) throws ApiException {
+        ApiResponse<List<ParameterModel>> localVarResp = apiV2ParametersSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1326,12 +1299,11 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1342,8 +1314,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterModel>> apiV2ParametersSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, null);
+    public ApiResponse<List<ParameterModel>> apiV2ParametersSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1356,13 +1328,12 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param apiV2ParametersSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1373,22 +1344,21 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback<List<ParameterModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest, final ApiCallback<List<ParameterModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createParameter
-     * @param parameterPostModel  (optional)
+     * @param createParameterRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1399,7 +1369,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createParameterCall(ParameterPostModel parameterPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createParameterCall(CreateParameterRequest createParameterRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1413,7 +1383,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPostModel;
+        Object localVarPostBody = createParameterRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters";
@@ -1445,20 +1415,19 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createParameterValidateBeforeCall(ParameterPostModel parameterPostModel, final ApiCallback _callback) throws ApiException {
-        return createParameterCall(parameterPostModel, _callback);
+    private okhttp3.Call createParameterValidateBeforeCall(CreateParameterRequest createParameterRequest, final ApiCallback _callback) throws ApiException {
+        return createParameterCall(createParameterRequest, _callback);
 
     }
 
     /**
      * Create parameter
      *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
+     * @param createParameterRequest  (optional)
      * @return ParameterModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1469,20 +1438,19 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ParameterModel createParameter(ParameterPostModel parameterPostModel) throws ApiException {
-        ApiResponse<ParameterModel> localVarResp = createParameterWithHttpInfo(parameterPostModel);
+    public ParameterModel createParameter(CreateParameterRequest createParameterRequest) throws ApiException {
+        ApiResponse<ParameterModel> localVarResp = createParameterWithHttpInfo(createParameterRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create parameter
      *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
+     * @param createParameterRequest  (optional)
      * @return ApiResponse&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1493,8 +1461,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ParameterModel> createParameterWithHttpInfo(ParameterPostModel parameterPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createParameterValidateBeforeCall(parameterPostModel, null);
+    public ApiResponse<ParameterModel> createParameterWithHttpInfo(CreateParameterRequest createParameterRequest) throws ApiException {
+        okhttp3.Call localVarCall = createParameterValidateBeforeCall(createParameterRequest, null);
         Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1502,13 +1470,12 @@ public class ParametersApi {
     /**
      * Create parameter (asynchronously)
      *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
+     * @param createParameterRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1519,9 +1486,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createParameterAsync(ParameterPostModel parameterPostModel, final ApiCallback<ParameterModel> _callback) throws ApiException {
+    public okhttp3.Call createParameterAsync(CreateParameterRequest createParameterRequest, final ApiCallback<ParameterModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createParameterValidateBeforeCall(parameterPostModel, _callback);
+        okhttp3.Call localVarCall = createParameterValidateBeforeCall(createParameterRequest, _callback);
         Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1533,8 +1500,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
@@ -1607,8 +1573,7 @@ public class ParametersApi {
      * @param name Name of the parameter (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
@@ -1630,8 +1595,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
@@ -1655,8 +1619,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Provided name either is empty or contains only white spaces </td><td>  -  </td></tr>
@@ -1680,8 +1643,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1754,8 +1716,7 @@ public class ParametersApi {
      * @param keyId Identifier of the parameter key (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1777,8 +1738,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1802,8 +1762,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1827,8 +1786,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -1902,8 +1860,7 @@ public class ParametersApi {
      * @param id Parameter internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -1926,8 +1883,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -1952,8 +1908,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -1983,8 +1938,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2081,8 +2035,7 @@ public class ParametersApi {
      * @return List&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2110,8 +2063,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2141,8 +2093,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2167,8 +2118,7 @@ public class ParametersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2242,8 +2192,7 @@ public class ParametersApi {
      * @return ParameterModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2266,8 +2215,7 @@ public class ParametersApi {
      * @return ApiResponse&lt;ParameterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2292,8 +2240,7 @@ public class ParametersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2313,13 +2260,12 @@ public class ParametersApi {
     }
     /**
      * Build call for updateParameter
-     * @param parameterPutModel  (optional)
+     * @param updateParameterRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
@@ -2330,7 +2276,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateParameterCall(ParameterPutModel parameterPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateParameterCall(UpdateParameterRequest updateParameterRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2344,7 +2290,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPutModel;
+        Object localVarPostBody = updateParameterRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters";
@@ -2376,19 +2322,18 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateParameterValidateBeforeCall(ParameterPutModel parameterPutModel, final ApiCallback _callback) throws ApiException {
-        return updateParameterCall(parameterPutModel, _callback);
+    private okhttp3.Call updateParameterValidateBeforeCall(UpdateParameterRequest updateParameterRequest, final ApiCallback _callback) throws ApiException {
+        return updateParameterCall(updateParameterRequest, _callback);
 
     }
 
     /**
      * Update parameter
      *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     * @param updateParameterRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
@@ -2399,19 +2344,18 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateParameter(ParameterPutModel parameterPutModel) throws ApiException {
-        updateParameterWithHttpInfo(parameterPutModel);
+    public void updateParameter(UpdateParameterRequest updateParameterRequest) throws ApiException {
+        updateParameterWithHttpInfo(updateParameterRequest);
     }
 
     /**
      * Update parameter
      *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     * @param updateParameterRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
@@ -2422,21 +2366,20 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateParameterWithHttpInfo(ParameterPutModel parameterPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(parameterPutModel, null);
+    public ApiResponse<Void> updateParameterWithHttpInfo(UpdateParameterRequest updateParameterRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(updateParameterRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update parameter (asynchronously)
      *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     * @param updateParameterRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
@@ -2447,9 +2390,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateParameterAsync(ParameterPutModel parameterPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateParameterAsync(UpdateParameterRequest updateParameterRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(parameterPutModel, _callback);
+        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(updateParameterRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

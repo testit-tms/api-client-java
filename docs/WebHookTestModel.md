@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**requestType** | **RequestTypeModel** | Request method of the webhook |  |
+|**requestType** | **RequestTypeModel** |  |  |
 |**url** | **String** | Request URL of the webhook |  |
 
 

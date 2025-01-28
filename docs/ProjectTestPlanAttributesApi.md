@@ -240,7 +240,7 @@ public class Example {
 
 <a id="searchTestPlanAttributesInProject"></a>
 # **searchTestPlanAttributesInProject**
-> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest)
 
 Search for attributes used in the project test plans
 
@@ -272,9 +272,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    SearchAttributesInProjectRequest searchAttributesInProjectRequest = new SearchAttributesInProjectRequest(); // SearchAttributesInProjectRequest | 
     try {
-      List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlanAttributesApi#searchTestPlanAttributesInProject");
@@ -297,7 +297,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+| **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -325,7 +325,7 @@ public class Example {
 
 <a id="updateCustomAttributeTestPlanProjectRelations"></a>
 # **updateCustomAttributeTestPlanProjectRelations**
-> updateCustomAttributeTestPlanProjectRelations(projectId, customAttributeTestPlanProjectRelationPutModel)
+> updateCustomAttributeTestPlanProjectRelations(projectId, updateCustomAttributeTestPlanProjectRelationsRequest)
 
 Update attribute of project&#39;s test plans
 
@@ -354,9 +354,9 @@ public class Example {
 
     ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
-    CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
+    UpdateCustomAttributeTestPlanProjectRelationsRequest updateCustomAttributeTestPlanProjectRelationsRequest = new UpdateCustomAttributeTestPlanProjectRelationsRequest(); // UpdateCustomAttributeTestPlanProjectRelationsRequest | 
     try {
-      apiInstance.updateCustomAttributeTestPlanProjectRelations(projectId, customAttributeTestPlanProjectRelationPutModel);
+      apiInstance.updateCustomAttributeTestPlanProjectRelations(projectId, updateCustomAttributeTestPlanProjectRelationsRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlanAttributesApi#updateCustomAttributeTestPlanProjectRelations");
       System.err.println("Status code: " + e.getCode());
@@ -373,7 +373,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional] |
+| **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md)|  | [optional] |
 
 ### Return type
 

@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2ProjectsProjectIdSettingsAutotestsPostRequest;
 import ru.testit.client.model.AutoTestProjectSettingsGetModel;
-import ru.testit.client.model.AutoTestProjectSettingsPostModel;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ValidationProblemDetails;
 
@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectSettingsApi {
     private ApiClient localVarApiClient;
@@ -78,13 +79,12 @@ public class ProjectSettingsApi {
     /**
      * Build call for apiV2ProjectsProjectIdSettingsAutotestsPost
      * @param projectId  (required)
-     * @param autoTestProjectSettingsPostModel  (optional)
+     * @param apiV2ProjectsProjectIdSettingsAutotestsPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -95,7 +95,7 @@ public class ProjectSettingsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostCall(String projectId, AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostCall(String projectId, ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +109,7 @@ public class ProjectSettingsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autoTestProjectSettingsPostModel;
+        Object localVarPostBody = apiV2ProjectsProjectIdSettingsAutotestsPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/settings/autotests"
@@ -142,13 +142,13 @@ public class ProjectSettingsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(String projectId, AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(String projectId, ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdSettingsAutotestsPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdSettingsAutotestsPostCall(projectId, autoTestProjectSettingsPostModel, _callback);
+        return apiV2ProjectsProjectIdSettingsAutotestsPostCall(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest, _callback);
 
     }
 
@@ -156,11 +156,10 @@ public class ProjectSettingsApi {
      * Set autotest project settings.
      * 
      * @param projectId  (required)
-     * @param autoTestProjectSettingsPostModel  (optional)
+     * @param apiV2ProjectsProjectIdSettingsAutotestsPostRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -171,20 +170,19 @@ public class ProjectSettingsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ProjectsProjectIdSettingsAutotestsPost(String projectId, AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel) throws ApiException {
-        apiV2ProjectsProjectIdSettingsAutotestsPostWithHttpInfo(projectId, autoTestProjectSettingsPostModel);
+    public void apiV2ProjectsProjectIdSettingsAutotestsPost(String projectId, ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest) throws ApiException {
+        apiV2ProjectsProjectIdSettingsAutotestsPostWithHttpInfo(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest);
     }
 
     /**
      * Set autotest project settings.
      * 
      * @param projectId  (required)
-     * @param autoTestProjectSettingsPostModel  (optional)
+     * @param apiV2ProjectsProjectIdSettingsAutotestsPostRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -195,8 +193,8 @@ public class ProjectSettingsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ProjectsProjectIdSettingsAutotestsPostWithHttpInfo(String projectId, AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(projectId, autoTestProjectSettingsPostModel, null);
+    public ApiResponse<Void> apiV2ProjectsProjectIdSettingsAutotestsPostWithHttpInfo(String projectId, ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -204,13 +202,12 @@ public class ProjectSettingsApi {
      * Set autotest project settings. (asynchronously)
      * 
      * @param projectId  (required)
-     * @param autoTestProjectSettingsPostModel  (optional)
+     * @param apiV2ProjectsProjectIdSettingsAutotestsPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -221,9 +218,9 @@ public class ProjectSettingsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostAsync(String projectId, AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdSettingsAutotestsPostAsync(String projectId, ApiV2ProjectsProjectIdSettingsAutotestsPostRequest apiV2ProjectsProjectIdSettingsAutotestsPostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(projectId, autoTestProjectSettingsPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdSettingsAutotestsPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdSettingsAutotestsPostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -234,8 +231,7 @@ public class ProjectSettingsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -309,8 +305,7 @@ public class ProjectSettingsApi {
      * @return AutoTestProjectSettingsGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -333,8 +328,7 @@ public class ProjectSettingsApi {
      * @return ApiResponse&lt;AutoTestProjectSettingsGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -359,8 +353,7 @@ public class ProjectSettingsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

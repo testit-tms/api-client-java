@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,10 +52,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -63,173 +65,165 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemPostModel {
   public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
-  @javax.annotation.Nonnull
   private WorkItemEntityTypes entityTypeName;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> preconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> postconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<TagPostModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModel> attachments;
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  @javax.annotation.Nullable
   private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkPostModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nullable
   private List<AutoTestIdModel> autoTests;
 
   public WorkItemPostModel() {
   }
 
-  public WorkItemPostModel entityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public WorkItemPostModel entityTypeName(WorkItemEntityTypes entityTypeName) {
+    
     this.entityTypeName = entityTypeName;
     return this;
   }
 
-  /**
+   /**
    * Get entityTypeName
    * @return entityTypeName
-   */
+  **/
   @javax.annotation.Nonnull
   public WorkItemEntityTypes getEntityTypeName() {
     return entityTypeName;
   }
 
-  public void setEntityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+
+  public void setEntityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemPostModel description(@javax.annotation.Nullable String description) {
+  public WorkItemPostModel description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Get description
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WorkItemPostModel state(@javax.annotation.Nonnull WorkItemStates state) {
+  public WorkItemPostModel state(WorkItemStates state) {
+    
     this.state = state;
     return this;
   }
 
-  /**
+   /**
    * Get state
    * @return state
-   */
+  **/
   @javax.annotation.Nonnull
   public WorkItemStates getState() {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull WorkItemStates state) {
+
+  public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemPostModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public WorkItemPostModel priority(WorkItemPriorityModel priority) {
+    
     this.priority = priority;
     return this;
   }
 
-  /**
+   /**
    * Get priority
    * @return priority
-   */
+  **/
   @javax.annotation.Nonnull
   public WorkItemPriorityModel getPriority() {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemPostModel steps(@javax.annotation.Nonnull List<StepPostModel> steps) {
+  public WorkItemPostModel steps(List<StepPostModel> steps) {
+    
     this.steps = steps;
     return this;
   }
@@ -242,21 +236,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get steps
    * @return steps
-   */
+  **/
   @javax.annotation.Nonnull
   public List<StepPostModel> getSteps() {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nonnull List<StepPostModel> steps) {
+
+  public void setSteps(List<StepPostModel> steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemPostModel preconditionSteps(@javax.annotation.Nonnull List<StepPostModel> preconditionSteps) {
+  public WorkItemPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
+    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -269,21 +265,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get preconditionSteps
    * @return preconditionSteps
-   */
+  **/
   @javax.annotation.Nonnull
   public List<StepPostModel> getPreconditionSteps() {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nonnull List<StepPostModel> preconditionSteps) {
+
+  public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemPostModel postconditionSteps(@javax.annotation.Nonnull List<StepPostModel> postconditionSteps) {
+  public WorkItemPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
+    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -296,42 +294,46 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get postconditionSteps
    * @return postconditionSteps
-   */
+  **/
   @javax.annotation.Nonnull
   public List<StepPostModel> getPostconditionSteps() {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nonnull List<StepPostModel> postconditionSteps) {
+
+  public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemPostModel duration(@javax.annotation.Nonnull Integer duration) {
+  public WorkItemPostModel duration(Integer duration) {
+    
     this.duration = duration;
     return this;
   }
 
-  /**
+   /**
    * Must be 0 for shared steps and greater than 0 for the other types of work items
    * minimum: 0
    * maximum: 86400000
    * @return duration
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getDuration() {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nonnull Integer duration) {
+
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemPostModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public WorkItemPostModel attributes(Map<String, Object> attributes) {
+    
     this.attributes = attributes;
     return this;
   }
@@ -344,21 +346,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get attributes
    * @return attributes
-   */
+  **/
   @javax.annotation.Nonnull
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemPostModel tags(@javax.annotation.Nonnull List<TagPostModel> tags) {
+  public WorkItemPostModel tags(List<TagPostModel> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -371,21 +375,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get tags
    * @return tags
-   */
+  **/
   @javax.annotation.Nonnull
   public List<TagPostModel> getTags() {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<TagPostModel> tags) {
+
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemPostModel attachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+  public WorkItemPostModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -398,21 +404,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get attachments
    * @return attachments
-   */
+  **/
   @javax.annotation.Nullable
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemPostModel iterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+  public WorkItemPostModel iterations(List<IterationPutModel> iterations) {
+    
     this.iterations = iterations;
     return this;
   }
@@ -425,21 +433,23 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get iterations
    * @return iterations
-   */
+  **/
   @javax.annotation.Nullable
   public List<IterationPutModel> getIterations() {
     return iterations;
   }
 
-  public void setIterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+
+  public void setIterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemPostModel links(@javax.annotation.Nonnull List<LinkPostModel> links) {
+  public WorkItemPostModel links(List<LinkPostModel> links) {
+    
     this.links = links;
     return this;
   }
@@ -452,78 +462,86 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get links
    * @return links
-   */
+  **/
   @javax.annotation.Nonnull
   public List<LinkPostModel> getLinks() {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkPostModel> links) {
+
+  public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
-  public WorkItemPostModel name(@javax.annotation.Nonnull String name) {
+  public WorkItemPostModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WorkItemPostModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WorkItemPostModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * This property is used to link workitem with project
    * @return projectId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemPostModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public WorkItemPostModel sectionId(UUID sectionId) {
+    
     this.sectionId = sectionId;
     return this;
   }
 
-  /**
+   /**
    * Get sectionId
    * @return sectionId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getSectionId() {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemPostModel autoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+  public WorkItemPostModel autoTests(List<AutoTestIdModel> autoTests) {
+    
     this.autoTests = autoTests;
     return this;
   }
@@ -536,16 +554,17 @@ public class WorkItemPostModel {
     return this;
   }
 
-  /**
+   /**
    * Get autoTests
    * @return autoTests
-   */
+  **/
   @javax.annotation.Nullable
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+
+  public void setAutoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
   }
 
@@ -673,43 +692,36 @@ public class WorkItemPostModel {
     openapiRequiredFields.add("sectionId");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemPostModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to WorkItemPostModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!WorkItemPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemPostModel is not found in the empty JSON string", WorkItemPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!WorkItemPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemPostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `entityTypeName`
-      WorkItemEntityTypes.validateJsonElement(jsonObj.get("entityTypeName"));
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `state`
-      WorkItemStates.validateJsonElement(jsonObj.get("state"));
-      // validate the required field `priority`
-      WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
       // ensure the json data is an array
       if (!jsonObj.get("steps").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `steps` to be an array in the JSON string but got `%s`", jsonObj.get("steps").toString()));
@@ -718,7 +730,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
       // validate the required field `steps` (array)
       for (int i = 0; i < jsonArraysteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraysteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("preconditionSteps").isJsonArray()) {
@@ -728,7 +740,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraypreconditionSteps = jsonObj.getAsJsonArray("preconditionSteps");
       // validate the required field `preconditionSteps` (array)
       for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("postconditionSteps").isJsonArray()) {
@@ -738,7 +750,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraypostconditionSteps = jsonObj.getAsJsonArray("postconditionSteps");
       // validate the required field `postconditionSteps` (array)
       for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-        StepPostModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
+        StepPostModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
       };
       // ensure the json data is an array
       if (!jsonObj.get("tags").isJsonArray()) {
@@ -748,7 +760,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagPostModel.validateJsonElement(jsonArraytags.get(i));
+        TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
       };
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
@@ -760,7 +772,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -774,7 +786,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `iterations` (array)
           for (int i = 0; i < jsonArrayiterations.size(); i++) {
-            IterationPutModel.validateJsonElement(jsonArrayiterations.get(i));
+            IterationPutModel.validateJsonObject(jsonArrayiterations.get(i).getAsJsonObject());
           };
         }
       }
@@ -786,7 +798,7 @@ public class WorkItemPostModel {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkPostModel.validateJsonElement(jsonArraylinks.get(i));
+        LinkPostModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
       };
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -807,7 +819,7 @@ public class WorkItemPostModel {
 
           // validate the optional field `autoTests` (array)
           for (int i = 0; i < jsonArrayautoTests.size(); i++) {
-            AutoTestIdModel.validateJsonElement(jsonArrayautoTests.get(i));
+            AutoTestIdModel.validateJsonObject(jsonArrayautoTests.get(i).getAsJsonObject());
           };
         }
       }
@@ -833,31 +845,31 @@ public class WorkItemPostModel {
 
            @Override
            public WorkItemPostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of WorkItemPostModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemPostModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemPostModel
-   */
+ /**
+  * Create an instance of WorkItemPostModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WorkItemPostModel
+  * @throws IOException if the JSON string is invalid with respect to WorkItemPostModel
+  */
   public static WorkItemPostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemPostModel.class);
   }
 
-  /**
-   * Convert an instance of WorkItemPostModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of WorkItemPostModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

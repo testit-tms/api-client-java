@@ -15,7 +15,7 @@
 |**configurationId** | **UUID** |  |  [optional] |
 |**testSuiteId** | **UUID** |  |  |
 |**status** | **String** |  |  [optional] |
-|**statusModel** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  [optional] |
+|**statusModel** | [**TestStatus**](TestStatus.md) |  |  [optional] |
 |**lastTestResultId** | **UUID** |  |  [optional] |
 
 

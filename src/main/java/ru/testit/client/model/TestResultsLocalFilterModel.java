@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,10 +43,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,43 +56,38 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsLocalFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultsLocalFilterModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  @javax.annotation.Nullable
   private List<TestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
   @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  @javax.annotation.Nullable
   private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  @javax.annotation.Nullable
   private List<FailureCategoryModel> failureCategories;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
-  @javax.annotation.Nullable
   private String className;
 
   public TestResultsLocalFilterModel() {
   }
 
-  public TestResultsLocalFilterModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public TestResultsLocalFilterModel configurationIds(List<UUID> configurationIds) {
+    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -103,22 +100,24 @@ public class TestResultsLocalFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result configuration IDs to search for
    * @return configurationIds
-   */
+  **/
   @javax.annotation.Nullable
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
   @Deprecated
-  public TestResultsLocalFilterModel outcomes(@javax.annotation.Nullable List<TestResultOutcome> outcomes) {
+  public TestResultsLocalFilterModel outcomes(List<TestResultOutcome> outcomes) {
+    
     this.outcomes = outcomes;
     return this;
   }
@@ -131,24 +130,26 @@ public class TestResultsLocalFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result outcomes to search for
    * @return outcomes
    * @deprecated
-   */
+  **/
   @Deprecated
   @javax.annotation.Nullable
   public List<TestResultOutcome> getOutcomes() {
     return outcomes;
   }
 
+
   @Deprecated
-  public void setOutcomes(@javax.annotation.Nullable List<TestResultOutcome> outcomes) {
+  public void setOutcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
   }
 
 
-  public TestResultsLocalFilterModel statusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public TestResultsLocalFilterModel statusCodes(List<String> statusCodes) {
+    
     this.statusCodes = statusCodes;
     return this;
   }
@@ -161,21 +162,23 @@ public class TestResultsLocalFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result status codes to search for
    * @return statusCodes
-   */
+  **/
   @javax.annotation.Nullable
   public List<String> getStatusCodes() {
     return statusCodes;
   }
 
-  public void setStatusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+
+  public void setStatusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
   }
 
 
-  public TestResultsLocalFilterModel failureCategories(@javax.annotation.Nullable List<FailureCategoryModel> failureCategories) {
+  public TestResultsLocalFilterModel failureCategories(List<FailureCategoryModel> failureCategories) {
+    
     this.failureCategories = failureCategories;
     return this;
   }
@@ -188,54 +191,59 @@ public class TestResultsLocalFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result failure categories to search for
    * @return failureCategories
-   */
+  **/
   @javax.annotation.Nullable
   public List<FailureCategoryModel> getFailureCategories() {
     return failureCategories;
   }
 
-  public void setFailureCategories(@javax.annotation.Nullable List<FailureCategoryModel> failureCategories) {
+
+  public void setFailureCategories(List<FailureCategoryModel> failureCategories) {
     this.failureCategories = failureCategories;
   }
 
 
-  public TestResultsLocalFilterModel namespace(@javax.annotation.Nullable String namespace) {
+  public TestResultsLocalFilterModel namespace(String namespace) {
+    
     this.namespace = namespace;
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result namespace to search for
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public TestResultsLocalFilterModel className(@javax.annotation.Nullable String className) {
+  public TestResultsLocalFilterModel className(String className) {
+    
     this.className = className;
     return this;
   }
 
-  /**
+   /**
    * Specifies a test result class name to search for
    * @return className
-   */
+  **/
   @javax.annotation.Nullable
   public String getClassName() {
     return className;
   }
 
-  public void setClassName(@javax.annotation.Nullable String className) {
+
+  public void setClassName(String className) {
     this.className = className;
   }
 
@@ -317,41 +325,40 @@ public class TestResultsLocalFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultsLocalFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultsLocalFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultsLocalFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultsLocalFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultsLocalFilterModel is not found in the empty JSON string", TestResultsLocalFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultsLocalFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsLocalFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultsLocalFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonNull() && !jsonObj.get("outcomes").isJsonArray()) {
+      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("statusCodes") != null && !jsonObj.get("statusCodes").isJsonNull() && !jsonObj.get("statusCodes").isJsonArray()) {
+      if (jsonObj.get("statusCodes") != null && !jsonObj.get("statusCodes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `statusCodes` to be an array in the JSON string but got `%s`", jsonObj.get("statusCodes").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonNull() && !jsonObj.get("failureCategories").isJsonArray()) {
+      if (jsonObj.get("failureCategories") != null && !jsonObj.get("failureCategories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureCategories` to be an array in the JSON string but got `%s`", jsonObj.get("failureCategories").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
@@ -382,31 +389,31 @@ public class TestResultsLocalFilterModel {
 
            @Override
            public TestResultsLocalFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestResultsLocalFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultsLocalFilterModel
-   * @throws IOException if the JSON string is invalid with respect to TestResultsLocalFilterModel
-   */
+ /**
+  * Create an instance of TestResultsLocalFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultsLocalFilterModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultsLocalFilterModel
+  */
   public static TestResultsLocalFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultsLocalFilterModel.class);
   }
 
-  /**
-   * Convert an instance of TestResultsLocalFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestResultsLocalFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

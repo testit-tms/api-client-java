@@ -27,18 +27,18 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2WebhooksDeleteRequest;
+import ru.testit.client.model.ApiV2WebhooksPostRequest;
+import ru.testit.client.model.ApiV2WebhooksPutRequest;
+import ru.testit.client.model.ApiV2WebhooksSearchPostRequest;
+import ru.testit.client.model.ApiV2WebhooksTestPostRequest;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.SearchWebhooksQueryModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WebHookEventType;
 import ru.testit.client.model.WebHookModel;
-import ru.testit.client.model.WebHookPostModel;
-import ru.testit.client.model.WebHookTestModel;
 import ru.testit.client.model.WebhookResponse;
 import ru.testit.client.model.WebhookVariablesType;
-import ru.testit.client.model.WebhooksDeleteRequest;
-import ru.testit.client.model.WebhooksUpdateRequest;
 import ru.testit.client.model.WebhooksUpdateResponse;
 
 import java.lang.reflect.Type;
@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class WebhooksApi {
     private ApiClient localVarApiClient;
@@ -86,13 +87,12 @@ public class WebhooksApi {
 
     /**
      * Build call for apiV2WebhooksDelete
-     * @param webhooksDeleteRequest  (optional)
+     * @param apiV2WebhooksDeleteRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -103,7 +103,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksDeleteCall(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksDeleteCall(ApiV2WebhooksDeleteRequest apiV2WebhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,7 +117,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webhooksDeleteRequest;
+        Object localVarPostBody = apiV2WebhooksDeleteRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -149,19 +149,18 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksDeleteValidateBeforeCall(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksDeleteCall(webhooksDeleteRequest, _callback);
+    private okhttp3.Call apiV2WebhooksDeleteValidateBeforeCall(ApiV2WebhooksDeleteRequest apiV2WebhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksDeleteCall(apiV2WebhooksDeleteRequest, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param apiV2WebhooksDeleteRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -172,19 +171,18 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2WebhooksDelete(WebhooksDeleteRequest webhooksDeleteRequest) throws ApiException {
-        apiV2WebhooksDeleteWithHttpInfo(webhooksDeleteRequest);
+    public void apiV2WebhooksDelete(ApiV2WebhooksDeleteRequest apiV2WebhooksDeleteRequest) throws ApiException {
+        apiV2WebhooksDeleteWithHttpInfo(apiV2WebhooksDeleteRequest);
     }
 
     /**
      * 
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param apiV2WebhooksDeleteRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -195,21 +193,20 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2WebhooksDeleteWithHttpInfo(WebhooksDeleteRequest webhooksDeleteRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteRequest, null);
+    public ApiResponse<Void> apiV2WebhooksDeleteWithHttpInfo(ApiV2WebhooksDeleteRequest apiV2WebhooksDeleteRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(apiV2WebhooksDeleteRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param apiV2WebhooksDeleteRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -220,9 +217,9 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksDeleteAsync(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksDeleteAsync(ApiV2WebhooksDeleteRequest apiV2WebhooksDeleteRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(apiV2WebhooksDeleteRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -233,8 +230,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -307,8 +303,7 @@ public class WebhooksApi {
      * @return List&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -332,8 +327,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;List&lt;WebHookModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -359,8 +353,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -386,8 +379,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -460,8 +452,7 @@ public class WebhooksApi {
      * @param id Webhook unique ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -483,8 +474,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -508,8 +498,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -533,8 +522,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -608,8 +596,7 @@ public class WebhooksApi {
      * @return WebHookModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -632,8 +619,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -658,8 +644,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -680,13 +665,12 @@ public class WebhooksApi {
     /**
      * Build call for apiV2WebhooksIdPut
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -697,7 +681,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksIdPutCall(UUID id, WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksIdPutCall(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -711,7 +695,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webHookPostModel;
+        Object localVarPostBody = apiV2WebhooksPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks/{id}"
@@ -744,13 +728,13 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksIdPutValidateBeforeCall(UUID id, WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2WebhooksIdPutValidateBeforeCall(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2WebhooksIdPut(Async)");
         }
 
-        return apiV2WebhooksIdPutCall(id, webHookPostModel, _callback);
+        return apiV2WebhooksIdPutCall(id, apiV2WebhooksPostRequest, _callback);
 
     }
 
@@ -758,12 +742,11 @@ public class WebhooksApi {
      * Edit webhook by ID
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return WebHookModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -774,8 +757,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WebHookModel apiV2WebhooksIdPut(UUID id, WebHookPostModel webHookPostModel) throws ApiException {
-        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksIdPutWithHttpInfo(id, webHookPostModel);
+    public WebHookModel apiV2WebhooksIdPut(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksIdPutWithHttpInfo(id, apiV2WebhooksPostRequest);
         return localVarResp.getData();
     }
 
@@ -783,12 +766,11 @@ public class WebhooksApi {
      * Edit webhook by ID
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return ApiResponse&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -799,8 +781,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebHookModel> apiV2WebhooksIdPutWithHttpInfo(UUID id, WebHookPostModel webHookPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, webHookPostModel, null);
+    public ApiResponse<WebHookModel> apiV2WebhooksIdPutWithHttpInfo(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, apiV2WebhooksPostRequest, null);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -809,13 +791,12 @@ public class WebhooksApi {
      * Edit webhook by ID (asynchronously)
      * 
      * @param id Webhook unique ID (required)
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -826,22 +807,21 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksIdPutAsync(UUID id, WebHookPostModel webHookPostModel, final ApiCallback<WebHookModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksIdPutAsync(UUID id, ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback<WebHookModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, webHookPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksIdPutValidateBeforeCall(id, apiV2WebhooksPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2WebhooksPost
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -852,7 +832,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPostCall(WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPostCall(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -866,7 +846,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webHookPostModel;
+        Object localVarPostBody = apiV2WebhooksPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -898,20 +878,19 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksPostValidateBeforeCall(WebHookPostModel webHookPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksPostCall(webHookPostModel, _callback);
+    private okhttp3.Call apiV2WebhooksPostValidateBeforeCall(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksPostCall(apiV2WebhooksPostRequest, _callback);
 
     }
 
     /**
      * Create webhook
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return WebHookModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -922,20 +901,19 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WebHookModel apiV2WebhooksPost(WebHookPostModel webHookPostModel) throws ApiException {
-        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksPostWithHttpInfo(webHookPostModel);
+    public WebHookModel apiV2WebhooksPost(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        ApiResponse<WebHookModel> localVarResp = apiV2WebhooksPostWithHttpInfo(apiV2WebhooksPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create webhook
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @return ApiResponse&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -946,8 +924,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(WebHookPostModel webHookPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(webHookPostModel, null);
+    public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(apiV2WebhooksPostRequest, null);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -955,13 +933,12 @@ public class WebhooksApi {
     /**
      * Create webhook (asynchronously)
      * 
-     * @param webHookPostModel  (optional)
+     * @param apiV2WebhooksPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -972,22 +949,21 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPostAsync(WebHookPostModel webHookPostModel, final ApiCallback<WebHookModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPostAsync(ApiV2WebhooksPostRequest apiV2WebhooksPostRequest, final ApiCallback<WebHookModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(webHookPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksPostValidateBeforeCall(apiV2WebhooksPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WebHookModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2WebhooksPut
-     * @param webhooksUpdateRequest  (optional)
+     * @param apiV2WebhooksPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -998,7 +974,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPutCall(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPutCall(ApiV2WebhooksPutRequest apiV2WebhooksPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1012,7 +988,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webhooksUpdateRequest;
+        Object localVarPostBody = apiV2WebhooksPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -1044,20 +1020,19 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksPutValidateBeforeCall(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksPutCall(webhooksUpdateRequest, _callback);
+    private okhttp3.Call apiV2WebhooksPutValidateBeforeCall(ApiV2WebhooksPutRequest apiV2WebhooksPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksPutCall(apiV2WebhooksPutRequest, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param webhooksUpdateRequest  (optional)
+     * @param apiV2WebhooksPutRequest  (optional)
      * @return WebhooksUpdateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1068,20 +1043,19 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WebhooksUpdateResponse apiV2WebhooksPut(WebhooksUpdateRequest webhooksUpdateRequest) throws ApiException {
-        ApiResponse<WebhooksUpdateResponse> localVarResp = apiV2WebhooksPutWithHttpInfo(webhooksUpdateRequest);
+    public WebhooksUpdateResponse apiV2WebhooksPut(ApiV2WebhooksPutRequest apiV2WebhooksPutRequest) throws ApiException {
+        ApiResponse<WebhooksUpdateResponse> localVarResp = apiV2WebhooksPutWithHttpInfo(apiV2WebhooksPutRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param webhooksUpdateRequest  (optional)
+     * @param apiV2WebhooksPutRequest  (optional)
      * @return ApiResponse&lt;WebhooksUpdateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1092,8 +1066,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebhooksUpdateResponse> apiV2WebhooksPutWithHttpInfo(WebhooksUpdateRequest webhooksUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateRequest, null);
+    public ApiResponse<WebhooksUpdateResponse> apiV2WebhooksPutWithHttpInfo(ApiV2WebhooksPutRequest apiV2WebhooksPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(apiV2WebhooksPutRequest, null);
         Type localVarReturnType = new TypeToken<WebhooksUpdateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1101,13 +1075,12 @@ public class WebhooksApi {
     /**
      *  (asynchronously)
      * 
-     * @param webhooksUpdateRequest  (optional)
+     * @param apiV2WebhooksPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1118,9 +1091,9 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPutAsync(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback<WebhooksUpdateResponse> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPutAsync(ApiV2WebhooksPutRequest apiV2WebhooksPutRequest, final ApiCallback<WebhooksUpdateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(apiV2WebhooksPutRequest, _callback);
         Type localVarReturnType = new TypeToken<WebhooksUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1132,13 +1105,12 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1149,7 +1121,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1163,7 +1135,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = searchWebhooksQueryModel;
+        Object localVarPostBody = apiV2WebhooksSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks/search";
@@ -1215,8 +1187,8 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksSearchPostCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, _callback);
+    private okhttp3.Call apiV2WebhooksSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, _callback);
 
     }
 
@@ -1228,12 +1200,11 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @return List&lt;WebHookModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1244,8 +1215,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<WebHookModel> apiV2WebhooksSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel) throws ApiException {
-        ApiResponse<List<WebHookModel>> localVarResp = apiV2WebhooksSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel);
+    public List<WebHookModel> apiV2WebhooksSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest) throws ApiException {
+        ApiResponse<List<WebHookModel>> localVarResp = apiV2WebhooksSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1257,12 +1228,11 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;WebHookModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1273,8 +1243,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WebHookModel>> apiV2WebhooksSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, null);
+    public ApiResponse<List<WebHookModel>> apiV2WebhooksSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<WebHookModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1287,13 +1257,12 @@ public class WebhooksApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param searchWebhooksQueryModel  (optional)
+     * @param apiV2WebhooksSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1304,9 +1273,9 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, SearchWebhooksQueryModel searchWebhooksQueryModel, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2WebhooksSearchPostRequest apiV2WebhooksSearchPostRequest, final ApiCallback<List<WebHookModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, searchWebhooksQueryModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2WebhooksSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<WebHookModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1319,8 +1288,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1397,8 +1365,7 @@ public class WebhooksApi {
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1422,8 +1389,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1449,8 +1415,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1470,13 +1435,12 @@ public class WebhooksApi {
     }
     /**
      * Build call for apiV2WebhooksTestPost
-     * @param webHookTestModel  (optional)
+     * @param apiV2WebhooksTestPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1487,7 +1451,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksTestPostCall(WebHookTestModel webHookTestModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksTestPostCall(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1501,7 +1465,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webHookTestModel;
+        Object localVarPostBody = apiV2WebhooksTestPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks/test";
@@ -1533,20 +1497,19 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksTestPostValidateBeforeCall(WebHookTestModel webHookTestModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksTestPostCall(webHookTestModel, _callback);
+    private okhttp3.Call apiV2WebhooksTestPostValidateBeforeCall(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksTestPostCall(apiV2WebhooksTestPostRequest, _callback);
 
     }
 
     /**
      * Test webhook&#39;s url
      * 
-     * @param webHookTestModel  (optional)
+     * @param apiV2WebhooksTestPostRequest  (optional)
      * @return WebhookResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1557,20 +1520,19 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WebhookResponse apiV2WebhooksTestPost(WebHookTestModel webHookTestModel) throws ApiException {
-        ApiResponse<WebhookResponse> localVarResp = apiV2WebhooksTestPostWithHttpInfo(webHookTestModel);
+    public WebhookResponse apiV2WebhooksTestPost(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest) throws ApiException {
+        ApiResponse<WebhookResponse> localVarResp = apiV2WebhooksTestPostWithHttpInfo(apiV2WebhooksTestPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Test webhook&#39;s url
      * 
-     * @param webHookTestModel  (optional)
+     * @param apiV2WebhooksTestPostRequest  (optional)
      * @return ApiResponse&lt;WebhookResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1581,8 +1543,8 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebhookResponse> apiV2WebhooksTestPostWithHttpInfo(WebHookTestModel webHookTestModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(webHookTestModel, null);
+    public ApiResponse<WebhookResponse> apiV2WebhooksTestPostWithHttpInfo(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(apiV2WebhooksTestPostRequest, null);
         Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1590,13 +1552,12 @@ public class WebhooksApi {
     /**
      * Test webhook&#39;s url (asynchronously)
      * 
-     * @param webHookTestModel  (optional)
+     * @param apiV2WebhooksTestPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1607,9 +1568,9 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksTestPostAsync(WebHookTestModel webHookTestModel, final ApiCallback<WebhookResponse> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksTestPostAsync(ApiV2WebhooksTestPostRequest apiV2WebhooksTestPostRequest, final ApiCallback<WebhookResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(webHookTestModel, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksTestPostValidateBeforeCall(apiV2WebhooksTestPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

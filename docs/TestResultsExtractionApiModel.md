@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Set of extracted test result IDs |  [optional] |
+|**ids** | [**TestResultsExtractionApiModelIds**](TestResultsExtractionApiModelIds.md) |  |  [optional] |
 
 
 

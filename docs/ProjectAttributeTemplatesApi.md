@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ProjectsProjectIdAttributesTemplatesSearchPost"></a>
 # **apiV2ProjectsProjectIdAttributesTemplatesSearchPost**
-> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel)
+> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest)
 
 Search for custom attributes templates
 
@@ -43,9 +43,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
+    ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest = new ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest(); // ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest | 
     try {
-      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesSearchPost");
@@ -68,7 +68,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md)|  | [optional] |
+| **apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest** | [**ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

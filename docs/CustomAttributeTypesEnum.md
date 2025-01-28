@@ -13,7 +13,7 @@
 
 * `USER` (value: `"user"`)
 
-* `MULTIPLE_OPTIONS` (value: `"multipleOptions"`)
+* `MULTIPLEOPTIONS` (value: `"multipleOptions"`)
 
 * `CHECKBOX` (value: `"checkbox"`)
 

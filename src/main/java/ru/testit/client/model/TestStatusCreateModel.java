@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestStatusType;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,103 +52,107 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestStatusCreateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestStatusCreateModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private TestStatusType type;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
-  @javax.annotation.Nonnull
   private String code;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public TestStatusCreateModel() {
   }
 
-  public TestStatusCreateModel name(@javax.annotation.Nonnull String name) {
+  public TestStatusCreateModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestStatusCreateModel type(@javax.annotation.Nonnull TestStatusType type) {
+  public TestStatusCreateModel type(TestStatusType type) {
+    
     this.type = type;
     return this;
   }
 
-  /**
+   /**
    * Get type
    * @return type
-   */
+  **/
   @javax.annotation.Nonnull
   public TestStatusType getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull TestStatusType type) {
+
+  public void setType(TestStatusType type) {
     this.type = type;
   }
 
 
-  public TestStatusCreateModel code(@javax.annotation.Nonnull String code) {
+  public TestStatusCreateModel code(String code) {
+    
     this.code = code;
     return this;
   }
 
-  /**
+   /**
    * Get code
    * @return code
-   */
+  **/
   @javax.annotation.Nonnull
   public String getCode() {
     return code;
   }
 
-  public void setCode(@javax.annotation.Nonnull String code) {
+
+  public void setCode(String code) {
     this.code = code;
   }
 
 
-  public TestStatusCreateModel description(@javax.annotation.Nullable String description) {
+  public TestStatusCreateModel description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Get description
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
@@ -225,39 +231,36 @@ public class TestStatusCreateModel {
     openapiRequiredFields.add("code");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestStatusCreateModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestStatusCreateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestStatusCreateModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestStatusCreateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestStatusCreateModel is not found in the empty JSON string", TestStatusCreateModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestStatusCreateModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestStatusCreateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestStatusCreateModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestStatusCreateModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the required field `type`
-      TestStatusType.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
@@ -286,31 +289,31 @@ public class TestStatusCreateModel {
 
            @Override
            public TestStatusCreateModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestStatusCreateModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestStatusCreateModel
-   * @throws IOException if the JSON string is invalid with respect to TestStatusCreateModel
-   */
+ /**
+  * Create an instance of TestStatusCreateModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestStatusCreateModel
+  * @throws IOException if the JSON string is invalid with respect to TestStatusCreateModel
+  */
   public static TestStatusCreateModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestStatusCreateModel.class);
   }
 
-  /**
-   * Convert an instance of TestStatusCreateModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestStatusCreateModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

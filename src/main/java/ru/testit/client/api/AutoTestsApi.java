@@ -27,17 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.AutoTestApiResult;
+import ru.testit.client.model.ApiV2AutoTestsSearchPostRequest;
 import ru.testit.client.model.AutoTestAverageDurationModel;
-import ru.testit.client.model.AutoTestBulkDeleteApiModel;
-import ru.testit.client.model.AutoTestBulkDeleteApiResult;
-import ru.testit.client.model.AutoTestFlakyBulkApiModel;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.AutoTestPostModel;
 import ru.testit.client.model.AutoTestPutModel;
-import ru.testit.client.model.AutoTestSearchApiModel;
 import ru.testit.client.model.AutotestHistoricalResultSelectModel;
 import ru.testit.client.model.AutotestResultHistoricalGetModel;
+import ru.testit.client.model.FlakyBulkModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestResultChronologyModel;
@@ -52,6 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class AutoTestsApi {
     private ApiClient localVarApiClient;
@@ -91,165 +89,18 @@ public class AutoTestsApi {
     }
 
     /**
-     * Build call for apiV2AutoTestsDelete
-     * @param autoTestBulkDeleteApiModel  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call apiV2AutoTestsDeleteCall(AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = autoTestBulkDeleteApiModel;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/autoTests";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsDeleteValidateBeforeCall(AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsDeleteCall(autoTestBulkDeleteApiModel, _callback);
-
-    }
-
-    /**
-     * Delete autotests
-     * 
-     * @param autoTestBulkDeleteApiModel  (optional)
-     * @return AutoTestBulkDeleteApiResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     */
-    public AutoTestBulkDeleteApiResult apiV2AutoTestsDelete(AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel) throws ApiException {
-        ApiResponse<AutoTestBulkDeleteApiResult> localVarResp = apiV2AutoTestsDeleteWithHttpInfo(autoTestBulkDeleteApiModel);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete autotests
-     * 
-     * @param autoTestBulkDeleteApiModel  (optional)
-     * @return ApiResponse&lt;AutoTestBulkDeleteApiResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<AutoTestBulkDeleteApiResult> apiV2AutoTestsDeleteWithHttpInfo(AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsDeleteValidateBeforeCall(autoTestBulkDeleteApiModel, null);
-        Type localVarReturnType = new TypeToken<AutoTestBulkDeleteApiResult>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Delete autotests (asynchronously)
-     * 
-     * @param autoTestBulkDeleteApiModel  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call apiV2AutoTestsDeleteAsync(AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel, final ApiCallback<AutoTestBulkDeleteApiResult> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = apiV2AutoTestsDeleteValidateBeforeCall(autoTestBulkDeleteApiModel, _callback);
-        Type localVarReturnType = new TypeToken<AutoTestBulkDeleteApiResult>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for apiV2AutoTestsFlakyBulkPost
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestFlakyBulkApiModel  (optional)
+     * @param flakyBulkModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -260,7 +111,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -274,7 +125,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autoTestFlakyBulkApiModel;
+        Object localVarPostBody = flakyBulkModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/flaky/bulk";
@@ -326,8 +177,8 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel, _callback);
+    private okhttp3.Call apiV2AutoTestsFlakyBulkPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback _callback) throws ApiException {
+        return apiV2AutoTestsFlakyBulkPostCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
 
     }
 
@@ -339,11 +190,10 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestFlakyBulkApiModel  (optional)
+     * @param flakyBulkModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -354,8 +204,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel) throws ApiException {
-        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel);
+    public void apiV2AutoTestsFlakyBulkPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
+        apiV2AutoTestsFlakyBulkPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
     }
 
     /**
@@ -366,12 +216,11 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestFlakyBulkApiModel  (optional)
+     * @param flakyBulkModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -382,8 +231,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel, null);
+    public ApiResponse<Void> apiV2AutoTestsFlakyBulkPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -395,13 +244,12 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestFlakyBulkApiModel  (optional)
+     * @param flakyBulkModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -412,9 +260,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Autotests with provided identifiers do not belong to the same project </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsFlakyBulkPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, FlakyBulkModel flakyBulkModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2AutoTestsFlakyBulkPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, flakyBulkModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -426,8 +274,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -502,8 +349,7 @@ public class AutoTestsApi {
      * @param operation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -526,8 +372,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -552,8 +397,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -583,8 +427,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -685,8 +528,7 @@ public class AutoTestsApi {
      * @return List&lt;AutotestResultHistoricalGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -715,8 +557,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;AutotestResultHistoricalGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -747,8 +588,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -773,8 +613,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -848,8 +687,7 @@ public class AutoTestsApi {
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -872,8 +710,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -898,8 +735,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -925,8 +761,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1006,8 +841,7 @@ public class AutoTestsApi {
      * @param workItemId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1030,8 +864,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1056,8 +889,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1081,13 +913,12 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestSearchApiModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1098,7 +929,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestSearchApiModel autoTestSearchApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1112,7 +943,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autoTestSearchApiModel;
+        Object localVarPostBody = apiV2AutoTestsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/search";
@@ -1164,8 +995,8 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestSearchApiModel autoTestSearchApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2AutoTestsSearchPostCall(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel, _callback);
+    private okhttp3.Call apiV2AutoTestsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2AutoTestsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, _callback);
 
     }
 
@@ -1177,12 +1008,11 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestSearchApiModel  (optional)
-     * @return List&lt;AutoTestApiResult&gt;
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
+     * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1193,8 +1023,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<AutoTestApiResult> apiV2AutoTestsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestSearchApiModel autoTestSearchApiModel) throws ApiException {
-        ApiResponse<List<AutoTestApiResult>> localVarResp = apiV2AutoTestsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel);
+    public List<AutoTestModel> apiV2AutoTestsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest) throws ApiException {
+        ApiResponse<List<AutoTestModel>> localVarResp = apiV2AutoTestsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -1206,12 +1036,11 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestSearchApiModel  (optional)
-     * @return ApiResponse&lt;List&lt;AutoTestApiResult&gt;&gt;
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
+     * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1222,9 +1051,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AutoTestApiResult>> apiV2AutoTestsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestSearchApiModel autoTestSearchApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel, null);
-        Type localVarReturnType = new TypeToken<List<AutoTestApiResult>>(){}.getType();
+    public ApiResponse<List<AutoTestModel>> apiV2AutoTestsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, null);
+        Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1236,13 +1065,12 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autoTestSearchApiModel  (optional)
+     * @param apiV2AutoTestsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1253,10 +1081,10 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestSearchApiModel autoTestSearchApiModel, final ApiCallback<List<AutoTestApiResult>> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest, final ApiCallback<List<AutoTestModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel, _callback);
-        Type localVarReturnType = new TypeToken<List<AutoTestApiResult>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2AutoTestsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<AutoTestModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1267,8 +1095,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1337,8 +1164,7 @@ public class AutoTestsApi {
      * @return AutoTestModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1361,8 +1187,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1387,8 +1212,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1413,8 +1237,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1483,8 +1306,7 @@ public class AutoTestsApi {
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1507,8 +1329,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1533,8 +1354,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -1559,8 +1379,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1633,8 +1452,7 @@ public class AutoTestsApi {
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1656,8 +1474,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1681,8 +1498,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1707,8 +1523,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
@@ -1786,8 +1601,7 @@ public class AutoTestsApi {
      * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
@@ -1810,8 +1624,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
@@ -1836,8 +1649,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
@@ -1886,8 +1698,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2087,8 +1898,7 @@ public class AutoTestsApi {
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2138,8 +1948,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2191,8 +2000,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2219,8 +2027,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
@@ -2295,8 +2102,7 @@ public class AutoTestsApi {
      * @return AutoTestAverageDurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
@@ -2320,8 +2126,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;AutoTestAverageDurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
@@ -2347,8 +2152,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID was not found </td><td>  -  </td></tr>
@@ -2374,8 +2178,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
@@ -2450,8 +2253,7 @@ public class AutoTestsApi {
      * @return AutoTestModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
@@ -2475,8 +2277,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
@@ -2502,8 +2303,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Autotest with provided ID cannot be found </td><td>  -  </td></tr>
@@ -2529,8 +2329,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2604,8 +2403,7 @@ public class AutoTestsApi {
      * @return List&lt;TestResultChronologyModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2628,8 +2426,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2654,8 +2451,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2680,8 +2476,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2755,8 +2550,7 @@ public class AutoTestsApi {
      * @return List&lt;TestRunShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2779,8 +2573,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;TestRunShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2805,8 +2598,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2833,8 +2625,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2918,8 +2709,7 @@ public class AutoTestsApi {
      * @return List&lt;WorkItemIdentifierModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2944,8 +2734,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;List&lt;WorkItemIdentifierModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2972,8 +2761,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2999,8 +2787,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps   - Autotest cannot be linked to work item from other project   - Work item ID is invalid </td><td>  -  </td></tr>
@@ -3075,8 +2862,7 @@ public class AutoTestsApi {
      * @param workItemIdModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps   - Autotest cannot be linked to work item from other project   - Work item ID is invalid </td><td>  -  </td></tr>
@@ -3099,8 +2885,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps   - Autotest cannot be linked to work item from other project   - Work item ID is invalid </td><td>  -  </td></tr>
@@ -3125,8 +2910,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps   - Autotest cannot be linked to work item from other project   - Work item ID is invalid </td><td>  -  </td></tr>
@@ -3150,8 +2934,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3220,8 +3003,7 @@ public class AutoTestsApi {
      * @param autoTestPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3244,8 +3026,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3270,8 +3051,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3296,8 +3076,7 @@ public class AutoTestsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3365,8 +3144,7 @@ public class AutoTestsApi {
      * @param autoTestPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3388,8 +3166,7 @@ public class AutoTestsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>
@@ -3413,8 +3190,7 @@ public class AutoTestsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters   - External ID cannot be empty or contain only white space characters   - Namespace cannot be empty or contain only white space characters   - Classname cannot be empty or contain only white space characters   - Steps cannot be &#x60;null&#x60;   - Steps nesting level is more than 15   - Invalid URI </td><td>  -  </td></tr>

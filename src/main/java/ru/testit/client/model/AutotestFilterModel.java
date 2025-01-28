@@ -14,20 +14,21 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutotestFilterModelCreatedDate;
+import ru.testit.client.model.AutotestFilterModelModifiedDate;
+import ru.testit.client.model.AutotestFilterModelStabilityPercentage;
 import ru.testit.client.model.AutotestResultOutcome;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int64RangeSelectorModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,546 +45,543 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
 
 /**
- * AutoTestFilterModel
+ * AutotestFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
-public class AutoTestFilterModel {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+public class AutotestFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
-  private List<UUID> projectIds;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_EXTERNAL_IDS = "externalIds";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_IDS)
-  @javax.annotation.Nullable
-  private List<String> externalIds;
+  private Set<String> externalIds;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
-  private List<Long> globalIds;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
-  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_MUST_BE_APPROVED = "mustBeApproved";
   @SerializedName(SERIALIZED_NAME_MUST_BE_APPROVED)
-  @javax.annotation.Nullable
   private Boolean mustBeApproved;
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
-  @javax.annotation.Nullable
-  private Int64RangeSelectorModel stabilityPercentage;
+  private AutotestFilterModelStabilityPercentage stabilityPercentage;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
-  private DateTimeRangeSelectorModel createdDate;
+  private AutotestFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
-  private List<UUID> createdByIds;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
-  private DateTimeRangeSelectorModel modifiedDate;
+  private AutotestFilterModelModifiedDate modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
-  private List<UUID> modifiedByIds;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_IS_EMPTY_NAMESPACE = "isEmptyNamespace";
   @SerializedName(SERIALIZED_NAME_IS_EMPTY_NAMESPACE)
-  @javax.annotation.Nullable
   private Boolean isEmptyNamespace;
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
-  @javax.annotation.Nullable
   private String className;
 
   public static final String SERIALIZED_NAME_IS_EMPTY_CLASS_NAME = "isEmptyClassName";
   @SerializedName(SERIALIZED_NAME_IS_EMPTY_CLASS_NAME)
-  @javax.annotation.Nullable
   private Boolean isEmptyClassName;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
-  @javax.annotation.Nullable
   private AutotestResultOutcome lastTestResultOutcome;
-
-  public static final String SERIALIZED_NAME_LAST_TEST_RESULT_STATUS_CODE = "lastTestResultStatusCode";
-  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_STATUS_CODE)
-  @javax.annotation.Nullable
-  private String lastTestResultStatusCode;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
-  @javax.annotation.Nullable
   private String externalKey;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS = "lastTestResultConfigurationIds";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
-  private List<UUID> lastTestResultConfigurationIds;
+  private Set<UUID> lastTestResultConfigurationIds;
 
-  public AutoTestFilterModel() {
+  public AutotestFilterModel() {
   }
 
-  public AutoTestFilterModel projectIds(@javax.annotation.Nullable List<UUID> projectIds) {
+  public AutotestFilterModel projectIds(Set<UUID> projectIds) {
+    
     this.projectIds = projectIds;
     return this;
   }
 
-  public AutoTestFilterModel addProjectIdsItem(UUID projectIdsItem) {
+  public AutotestFilterModel addProjectIdsItem(UUID projectIdsItem) {
     if (this.projectIds == null) {
-      this.projectIds = new ArrayList<>();
+      this.projectIds = new LinkedHashSet<>();
     }
     this.projectIds.add(projectIdsItem);
     return this;
   }
 
-  /**
-   * Get projectIds
+   /**
+   * Specifies an autotest projects IDs to search for
    * @return projectIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<UUID> getProjectIds() {
+  public Set<UUID> getProjectIds() {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable List<UUID> projectIds) {
+
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public AutoTestFilterModel externalIds(@javax.annotation.Nullable List<String> externalIds) {
+  public AutotestFilterModel externalIds(Set<String> externalIds) {
+    
     this.externalIds = externalIds;
     return this;
   }
 
-  public AutoTestFilterModel addExternalIdsItem(String externalIdsItem) {
+  public AutotestFilterModel addExternalIdsItem(String externalIdsItem) {
     if (this.externalIds == null) {
-      this.externalIds = new ArrayList<>();
+      this.externalIds = new LinkedHashSet<>();
     }
     this.externalIds.add(externalIdsItem);
     return this;
   }
 
-  /**
-   * Get externalIds
+   /**
+   * Specifies an autotest external IDs to search for
    * @return externalIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<String> getExternalIds() {
+  public Set<String> getExternalIds() {
     return externalIds;
   }
 
-  public void setExternalIds(@javax.annotation.Nullable List<String> externalIds) {
+
+  public void setExternalIds(Set<String> externalIds) {
     this.externalIds = externalIds;
   }
 
 
-  public AutoTestFilterModel globalIds(@javax.annotation.Nullable List<Long> globalIds) {
+  public AutotestFilterModel globalIds(Set<Long> globalIds) {
+    
     this.globalIds = globalIds;
     return this;
   }
 
-  public AutoTestFilterModel addGlobalIdsItem(Long globalIdsItem) {
+  public AutotestFilterModel addGlobalIdsItem(Long globalIdsItem) {
     if (this.globalIds == null) {
-      this.globalIds = new ArrayList<>();
+      this.globalIds = new LinkedHashSet<>();
     }
     this.globalIds.add(globalIdsItem);
     return this;
   }
 
-  /**
-   * Get globalIds
+   /**
+   * Specifies an autotest global IDs to search for
    * @return globalIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<Long> getGlobalIds() {
+  public Set<Long> getGlobalIds() {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable List<Long> globalIds) {
+
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public AutoTestFilterModel name(@javax.annotation.Nullable String name) {
+  public AutotestFilterModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
-   * Get name
+   /**
+   * Specifies an autotest name to search for
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestFilterModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public AutotestFilterModel isFlaky(Boolean isFlaky) {
+    
     this.isFlaky = isFlaky;
     return this;
   }
 
-  /**
-   * Get isFlaky
+   /**
+   * Specifies an autotest flaky status to search for
    * @return isFlaky
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsFlaky() {
     return isFlaky;
   }
 
-  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+
+  public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestFilterModel mustBeApproved(@javax.annotation.Nullable Boolean mustBeApproved) {
+  public AutotestFilterModel mustBeApproved(Boolean mustBeApproved) {
+    
     this.mustBeApproved = mustBeApproved;
     return this;
   }
 
-  /**
-   * Get mustBeApproved
+   /**
+   * Specifies an autotest unapproved changes status to search for
    * @return mustBeApproved
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getMustBeApproved() {
     return mustBeApproved;
   }
 
-  public void setMustBeApproved(@javax.annotation.Nullable Boolean mustBeApproved) {
+
+  public void setMustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
-  public AutoTestFilterModel stabilityPercentage(@javax.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
+  public AutotestFilterModel stabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
+    
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
 
-  /**
+   /**
    * Get stabilityPercentage
    * @return stabilityPercentage
-   */
+  **/
   @javax.annotation.Nullable
-  public Int64RangeSelectorModel getStabilityPercentage() {
+  public AutotestFilterModelStabilityPercentage getStabilityPercentage() {
     return stabilityPercentage;
   }
 
-  public void setStabilityPercentage(@javax.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
+
+  public void setStabilityPercentage(AutotestFilterModelStabilityPercentage stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
-  public AutoTestFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public AutotestFilterModel createdDate(AutotestFilterModelCreatedDate createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nullable
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public AutotestFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+
+  public void setCreatedDate(AutotestFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestFilterModel createdByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+  public AutotestFilterModel createdByIds(Set<UUID> createdByIds) {
+    
     this.createdByIds = createdByIds;
     return this;
   }
 
-  public AutoTestFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
+  public AutotestFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
     if (this.createdByIds == null) {
-      this.createdByIds = new ArrayList<>();
+      this.createdByIds = new LinkedHashSet<>();
     }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
 
-  /**
-   * Get createdByIds
+   /**
+   * Specifies an autotest creator IDs to search for
    * @return createdByIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<UUID> getCreatedByIds() {
+  public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public AutoTestFilterModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public AutotestFilterModel modifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
+    
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-  /**
+   /**
    * Get modifiedDate
    * @return modifiedDate
-   */
+  **/
   @javax.annotation.Nullable
-  public DateTimeRangeSelectorModel getModifiedDate() {
+  public AutotestFilterModelModifiedDate getModifiedDate() {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+
+  public void setModifiedDate(AutotestFilterModelModifiedDate modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestFilterModel modifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+  public AutotestFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
+    
     this.modifiedByIds = modifiedByIds;
     return this;
   }
 
-  public AutoTestFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
+  public AutotestFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
     if (this.modifiedByIds == null) {
-      this.modifiedByIds = new ArrayList<>();
+      this.modifiedByIds = new LinkedHashSet<>();
     }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
 
-  /**
-   * Get modifiedByIds
+   /**
+   * Specifies an autotest last editor IDs to search for
    * @return modifiedByIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<UUID> getModifiedByIds() {
+  public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public AutoTestFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public AutotestFilterModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
-   * Get isDeleted
+   /**
+   * Specifies an autotest deleted status to search for
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTestFilterModel namespace(@javax.annotation.Nullable String namespace) {
+  public AutotestFilterModel namespace(String namespace) {
+    
     this.namespace = namespace;
     return this;
   }
 
-  /**
-   * Get namespace
+   /**
+   * Specifies an autotest namespace to search for
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestFilterModel isEmptyNamespace(@javax.annotation.Nullable Boolean isEmptyNamespace) {
+  public AutotestFilterModel isEmptyNamespace(Boolean isEmptyNamespace) {
+    
     this.isEmptyNamespace = isEmptyNamespace;
     return this;
   }
 
-  /**
-   * Get isEmptyNamespace
+   /**
+   * Specifies an autotest namespace name presence status to search for
    * @return isEmptyNamespace
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsEmptyNamespace() {
     return isEmptyNamespace;
   }
 
-  public void setIsEmptyNamespace(@javax.annotation.Nullable Boolean isEmptyNamespace) {
+
+  public void setIsEmptyNamespace(Boolean isEmptyNamespace) {
     this.isEmptyNamespace = isEmptyNamespace;
   }
 
 
-  public AutoTestFilterModel className(@javax.annotation.Nullable String className) {
+  public AutotestFilterModel className(String className) {
+    
     this.className = className;
     return this;
   }
 
-  /**
-   * Get className
+   /**
+   * Specifies an autotest class name to search for
    * @return className
-   */
+  **/
   @javax.annotation.Nullable
   public String getClassName() {
     return className;
   }
 
-  public void setClassName(@javax.annotation.Nullable String className) {
+
+  public void setClassName(String className) {
     this.className = className;
   }
 
 
-  public AutoTestFilterModel isEmptyClassName(@javax.annotation.Nullable Boolean isEmptyClassName) {
+  public AutotestFilterModel isEmptyClassName(Boolean isEmptyClassName) {
+    
     this.isEmptyClassName = isEmptyClassName;
     return this;
   }
 
-  /**
-   * Get isEmptyClassName
+   /**
+   * Specifies an autotest class name presence status to search for
    * @return isEmptyClassName
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsEmptyClassName() {
     return isEmptyClassName;
   }
 
-  public void setIsEmptyClassName(@javax.annotation.Nullable Boolean isEmptyClassName) {
+
+  public void setIsEmptyClassName(Boolean isEmptyClassName) {
     this.isEmptyClassName = isEmptyClassName;
   }
 
 
-  public AutoTestFilterModel lastTestResultOutcome(@javax.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
+  public AutotestFilterModel lastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
+    
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
 
-  /**
+   /**
    * Get lastTestResultOutcome
    * @return lastTestResultOutcome
-   */
+  **/
   @javax.annotation.Nullable
   public AutotestResultOutcome getLastTestResultOutcome() {
     return lastTestResultOutcome;
   }
 
-  public void setLastTestResultOutcome(@javax.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
+
+  public void setLastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
-  public AutoTestFilterModel lastTestResultStatusCode(@javax.annotation.Nullable String lastTestResultStatusCode) {
-    this.lastTestResultStatusCode = lastTestResultStatusCode;
-    return this;
-  }
-
-  /**
-   * Get lastTestResultStatusCode
-   * @return lastTestResultStatusCode
-   */
-  @javax.annotation.Nullable
-  public String getLastTestResultStatusCode() {
-    return lastTestResultStatusCode;
-  }
-
-  public void setLastTestResultStatusCode(@javax.annotation.Nullable String lastTestResultStatusCode) {
-    this.lastTestResultStatusCode = lastTestResultStatusCode;
-  }
-
-
-  public AutoTestFilterModel externalKey(@javax.annotation.Nullable String externalKey) {
+  public AutotestFilterModel externalKey(String externalKey) {
+    
     this.externalKey = externalKey;
     return this;
   }
 
-  /**
-   * Get externalKey
+   /**
+   * Specifies an autotest external key to search for
    * @return externalKey
-   */
+  **/
   @javax.annotation.Nullable
   public String getExternalKey() {
     return externalKey;
   }
 
-  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
+
+  public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
   }
 
 
-  public AutoTestFilterModel lastTestResultConfigurationIds(@javax.annotation.Nullable List<UUID> lastTestResultConfigurationIds) {
+  public AutotestFilterModel lastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
+    
     this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
     return this;
   }
 
-  public AutoTestFilterModel addLastTestResultConfigurationIdsItem(UUID lastTestResultConfigurationIdsItem) {
+  public AutotestFilterModel addLastTestResultConfigurationIdsItem(UUID lastTestResultConfigurationIdsItem) {
     if (this.lastTestResultConfigurationIds == null) {
-      this.lastTestResultConfigurationIds = new ArrayList<>();
+      this.lastTestResultConfigurationIds = new LinkedHashSet<>();
     }
     this.lastTestResultConfigurationIds.add(lastTestResultConfigurationIdsItem);
     return this;
   }
 
-  /**
-   * Get lastTestResultConfigurationIds
+   /**
+   * Specifies an autotest configuration IDs of the last test result to search for
    * @return lastTestResultConfigurationIds
-   */
+  **/
   @javax.annotation.Nullable
-  public List<UUID> getLastTestResultConfigurationIds() {
+  public Set<UUID> getLastTestResultConfigurationIds() {
     return lastTestResultConfigurationIds;
   }
 
-  public void setLastTestResultConfigurationIds(@javax.annotation.Nullable List<UUID> lastTestResultConfigurationIds) {
+
+  public void setLastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
     this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
   }
 
@@ -597,27 +595,26 @@ public class AutoTestFilterModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestFilterModel autoTestFilterModel = (AutoTestFilterModel) o;
-    return Objects.equals(this.projectIds, autoTestFilterModel.projectIds) &&
-        Objects.equals(this.externalIds, autoTestFilterModel.externalIds) &&
-        Objects.equals(this.globalIds, autoTestFilterModel.globalIds) &&
-        Objects.equals(this.name, autoTestFilterModel.name) &&
-        Objects.equals(this.isFlaky, autoTestFilterModel.isFlaky) &&
-        Objects.equals(this.mustBeApproved, autoTestFilterModel.mustBeApproved) &&
-        Objects.equals(this.stabilityPercentage, autoTestFilterModel.stabilityPercentage) &&
-        Objects.equals(this.createdDate, autoTestFilterModel.createdDate) &&
-        Objects.equals(this.createdByIds, autoTestFilterModel.createdByIds) &&
-        Objects.equals(this.modifiedDate, autoTestFilterModel.modifiedDate) &&
-        Objects.equals(this.modifiedByIds, autoTestFilterModel.modifiedByIds) &&
-        Objects.equals(this.isDeleted, autoTestFilterModel.isDeleted) &&
-        Objects.equals(this.namespace, autoTestFilterModel.namespace) &&
-        Objects.equals(this.isEmptyNamespace, autoTestFilterModel.isEmptyNamespace) &&
-        Objects.equals(this.className, autoTestFilterModel.className) &&
-        Objects.equals(this.isEmptyClassName, autoTestFilterModel.isEmptyClassName) &&
-        Objects.equals(this.lastTestResultOutcome, autoTestFilterModel.lastTestResultOutcome) &&
-        Objects.equals(this.lastTestResultStatusCode, autoTestFilterModel.lastTestResultStatusCode) &&
-        Objects.equals(this.externalKey, autoTestFilterModel.externalKey) &&
-        Objects.equals(this.lastTestResultConfigurationIds, autoTestFilterModel.lastTestResultConfigurationIds);
+    AutotestFilterModel autotestFilterModel = (AutotestFilterModel) o;
+    return Objects.equals(this.projectIds, autotestFilterModel.projectIds) &&
+        Objects.equals(this.externalIds, autotestFilterModel.externalIds) &&
+        Objects.equals(this.globalIds, autotestFilterModel.globalIds) &&
+        Objects.equals(this.name, autotestFilterModel.name) &&
+        Objects.equals(this.isFlaky, autotestFilterModel.isFlaky) &&
+        Objects.equals(this.mustBeApproved, autotestFilterModel.mustBeApproved) &&
+        Objects.equals(this.stabilityPercentage, autotestFilterModel.stabilityPercentage) &&
+        Objects.equals(this.createdDate, autotestFilterModel.createdDate) &&
+        Objects.equals(this.createdByIds, autotestFilterModel.createdByIds) &&
+        Objects.equals(this.modifiedDate, autotestFilterModel.modifiedDate) &&
+        Objects.equals(this.modifiedByIds, autotestFilterModel.modifiedByIds) &&
+        Objects.equals(this.isDeleted, autotestFilterModel.isDeleted) &&
+        Objects.equals(this.namespace, autotestFilterModel.namespace) &&
+        Objects.equals(this.isEmptyNamespace, autotestFilterModel.isEmptyNamespace) &&
+        Objects.equals(this.className, autotestFilterModel.className) &&
+        Objects.equals(this.isEmptyClassName, autotestFilterModel.isEmptyClassName) &&
+        Objects.equals(this.lastTestResultOutcome, autotestFilterModel.lastTestResultOutcome) &&
+        Objects.equals(this.externalKey, autotestFilterModel.externalKey) &&
+        Objects.equals(this.lastTestResultConfigurationIds, autotestFilterModel.lastTestResultConfigurationIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -626,7 +623,7 @@ public class AutoTestFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, externalIds, globalIds, name, isFlaky, mustBeApproved, stabilityPercentage, createdDate, createdByIds, modifiedDate, modifiedByIds, isDeleted, namespace, isEmptyNamespace, className, isEmptyClassName, lastTestResultOutcome, lastTestResultStatusCode, externalKey, lastTestResultConfigurationIds);
+    return Objects.hash(projectIds, externalIds, globalIds, name, isFlaky, mustBeApproved, stabilityPercentage, createdDate, createdByIds, modifiedDate, modifiedByIds, isDeleted, namespace, isEmptyNamespace, className, isEmptyClassName, lastTestResultOutcome, externalKey, lastTestResultConfigurationIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -639,7 +636,7 @@ public class AutoTestFilterModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestFilterModel {\n");
+    sb.append("class AutotestFilterModel {\n");
     sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("    externalIds: ").append(toIndentedString(externalIds)).append("\n");
     sb.append("    globalIds: ").append(toIndentedString(globalIds)).append("\n");
@@ -657,7 +654,6 @@ public class AutoTestFilterModel {
     sb.append("    className: ").append(toIndentedString(className)).append("\n");
     sb.append("    isEmptyClassName: ").append(toIndentedString(isEmptyClassName)).append("\n");
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
-    sb.append("    lastTestResultStatusCode: ").append(toIndentedString(lastTestResultStatusCode)).append("\n");
     sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
     sb.append("    lastTestResultConfigurationIds: ").append(toIndentedString(lastTestResultConfigurationIds)).append("\n");
     sb.append("}");
@@ -699,7 +695,6 @@ public class AutoTestFilterModel {
     openapiFields.add("className");
     openapiFields.add("isEmptyClassName");
     openapiFields.add("lastTestResultOutcome");
-    openapiFields.add("lastTestResultStatusCode");
     openapiFields.add("externalKey");
     openapiFields.add("lastTestResultConfigurationIds");
 
@@ -707,37 +702,36 @@ public class AutoTestFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestFilterModel is not found in the empty JSON string", AutoTestFilterModel.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutotestFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutotestFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestFilterModel is not found in the empty JSON string", AutotestFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AutoTestFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AutotestFilterModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("externalIds") != null && !jsonObj.get("externalIds").isJsonNull() && !jsonObj.get("externalIds").isJsonArray()) {
+      if (jsonObj.get("externalIds") != null && !jsonObj.get("externalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalIds` to be an array in the JSON string but got `%s`", jsonObj.get("externalIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
@@ -745,22 +739,22 @@ public class AutoTestFilterModel {
       }
       // validate the optional field `stabilityPercentage`
       if (jsonObj.get("stabilityPercentage") != null && !jsonObj.get("stabilityPercentage").isJsonNull()) {
-        Int64RangeSelectorModel.validateJsonElement(jsonObj.get("stabilityPercentage"));
+        AutotestFilterModelStabilityPercentage.validateJsonObject(jsonObj.getAsJsonObject("stabilityPercentage"));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
+        AutotestFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("modifiedDate"));
+        AutotestFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
@@ -769,18 +763,11 @@ public class AutoTestFilterModel {
       if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
       }
-      // validate the optional field `lastTestResultOutcome`
-      if (jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) {
-        AutotestResultOutcome.validateJsonElement(jsonObj.get("lastTestResultOutcome"));
-      }
-      if ((jsonObj.get("lastTestResultStatusCode") != null && !jsonObj.get("lastTestResultStatusCode").isJsonNull()) && !jsonObj.get("lastTestResultStatusCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastTestResultStatusCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultStatusCode").toString()));
-      }
       if ((jsonObj.get("externalKey") != null && !jsonObj.get("externalKey").isJsonNull()) && !jsonObj.get("externalKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalKey").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("lastTestResultConfigurationIds") != null && !jsonObj.get("lastTestResultConfigurationIds").isJsonNull() && !jsonObj.get("lastTestResultConfigurationIds").isJsonArray()) {
+      if (jsonObj.get("lastTestResultConfigurationIds") != null && !jsonObj.get("lastTestResultConfigurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultConfigurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("lastTestResultConfigurationIds").toString()));
       }
   }
@@ -789,47 +776,47 @@ public class AutoTestFilterModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutoTestFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutoTestFilterModel' and its subtypes
+       if (!AutotestFilterModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutotestFilterModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutoTestFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestFilterModel.class));
+       final TypeAdapter<AutotestFilterModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutotestFilterModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AutoTestFilterModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<AutotestFilterModel>() {
            @Override
-           public void write(JsonWriter out, AutoTestFilterModel value) throws IOException {
+           public void write(JsonWriter out, AutotestFilterModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public AutoTestFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+           public AutotestFilterModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of AutoTestFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestFilterModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestFilterModel
-   */
-  public static AutoTestFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutoTestFilterModel.class);
+ /**
+  * Create an instance of AutotestFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutotestFilterModel
+  * @throws IOException if the JSON string is invalid with respect to AutotestFilterModel
+  */
+  public static AutotestFilterModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutotestFilterModel.class);
   }
 
-  /**
-   * Convert an instance of AutoTestFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of AutotestFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

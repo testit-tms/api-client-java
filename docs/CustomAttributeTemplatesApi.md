@@ -466,7 +466,7 @@ public class Example {
 
 <a id="apiV2CustomAttributesTemplatesPost"></a>
 # **apiV2CustomAttributesTemplatesPost**
-> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel)
+> CustomAttributeTemplateModel apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest)
 
 Create CustomAttributeTemplate
 
@@ -494,9 +494,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePostModel customAttributeTemplatePostModel = new CustomAttributeTemplatePostModel(); // CustomAttributeTemplatePostModel | 
+    ApiV2CustomAttributesTemplatesPostRequest apiV2CustomAttributesTemplatesPostRequest = new ApiV2CustomAttributesTemplatesPostRequest(); // ApiV2CustomAttributesTemplatesPostRequest | 
     try {
-      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(customAttributeTemplatePostModel);
+      CustomAttributeTemplateModel result = apiInstance.apiV2CustomAttributesTemplatesPost(apiV2CustomAttributesTemplatesPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPost");
@@ -513,7 +513,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePostModel** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPostRequest** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -541,7 +541,7 @@ public class Example {
 
 <a id="apiV2CustomAttributesTemplatesPut"></a>
 # **apiV2CustomAttributesTemplatesPut**
-> apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel)
+> apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest)
 
 Update custom attributes template
 
@@ -567,9 +567,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributeTemplatesApi apiInstance = new CustomAttributeTemplatesApi(defaultClient);
-    CustomAttributeTemplatePutModel customAttributeTemplatePutModel = new CustomAttributeTemplatePutModel(); // CustomAttributeTemplatePutModel | 
+    ApiV2CustomAttributesTemplatesPutRequest apiV2CustomAttributesTemplatesPutRequest = new ApiV2CustomAttributesTemplatesPutRequest(); // ApiV2CustomAttributesTemplatesPutRequest | 
     try {
-      apiInstance.apiV2CustomAttributesTemplatesPut(customAttributeTemplatePutModel);
+      apiInstance.apiV2CustomAttributesTemplatesPut(apiV2CustomAttributesTemplatesPutRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesPut");
       System.err.println("Status code: " + e.getCode());
@@ -585,7 +585,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customAttributeTemplatePutModel** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesPutRequest** | [**ApiV2CustomAttributesTemplatesPutRequest**](ApiV2CustomAttributesTemplatesPutRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -613,7 +613,7 @@ null (empty response body)
 
 <a id="apiV2CustomAttributesTemplatesSearchPost"></a>
 # **apiV2CustomAttributesTemplatesSearchPost**
-> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel)
+> List&lt;SearchCustomAttributeTemplateGetModel&gt; apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest)
 
 Search CustomAttributeTemplates
 
@@ -646,9 +646,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    CustomAttributeTemplateSearchQueryModel customAttributeTemplateSearchQueryModel = new CustomAttributeTemplateSearchQueryModel(); // CustomAttributeTemplateSearchQueryModel | 
+    ApiV2CustomAttributesTemplatesSearchPostRequest apiV2CustomAttributesTemplatesSearchPostRequest = new ApiV2CustomAttributesTemplatesSearchPostRequest(); // ApiV2CustomAttributesTemplatesSearchPostRequest | 
     try {
-      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeTemplateSearchQueryModel);
+      List<SearchCustomAttributeTemplateGetModel> result = apiInstance.apiV2CustomAttributesTemplatesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesTemplatesSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributeTemplatesApi#apiV2CustomAttributesTemplatesSearchPost");
@@ -670,7 +670,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **customAttributeTemplateSearchQueryModel** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md)|  | [optional] |
+| **apiV2CustomAttributesTemplatesSearchPostRequest** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

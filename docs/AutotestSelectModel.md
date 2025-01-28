@@ -1,14 +1,14 @@
 
 
-# AutoTestSelectModel
+# AutotestSelectModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**AutoTestFilterModel**](AutoTestFilterModel.md) |  |  |
-|**extractionModel** | [**AutoTestsExtractionModel**](AutoTestsExtractionModel.md) |  |  [optional] |
+|**filter** | [**AutotestSelectModelFilter**](AutotestSelectModelFilter.md) |  |  |
+|**extractionModel** | [**AutotestSelectModelExtractionModel**](AutotestSelectModelExtractionModel.md) |  |  |
 
 
 

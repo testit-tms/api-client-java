@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.NotificationTypeModel;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,343 +54,357 @@ import ru.testit.client.invoker.JSON;
 /**
  * NotificationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotificationModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_IS_READ = "isRead";
   @SerializedName(SERIALIZED_NAME_IS_READ)
-  @javax.annotation.Nonnull
   private Boolean isRead;
 
   public static final String SERIALIZED_NAME_ENTITY_ID = "entityId";
   @SerializedName(SERIALIZED_NAME_ENTITY_ID)
-  @javax.annotation.Nonnull
   private UUID entityId;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "notificationType";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
-  @javax.annotation.Nonnull
   private NotificationTypeModel notificationType;
 
   public static final String SERIALIZED_NAME_PROJECT_GLOBAL_ID = "projectGlobalId";
   @SerializedName(SERIALIZED_NAME_PROJECT_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long projectGlobalId;
 
   public static final String SERIALIZED_NAME_PROJECT_NAME = "projectName";
   @SerializedName(SERIALIZED_NAME_PROJECT_NAME)
-  @javax.annotation.Nullable
   private String projectName;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
-  @javax.annotation.Nonnull
   private String testPlanName;
 
   public static final String SERIALIZED_NAME_WORKITEM_GLOBAL_ID = "workitemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORKITEM_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long workitemGlobalId;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nonnull
   private String comment;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  @javax.annotation.Nonnull
   private String workItemName;
 
   public static final String SERIALIZED_NAME_ATTRIBUTE_NAME = "attributeName";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE_NAME)
-  @javax.annotation.Nullable
   private String attributeName;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public NotificationModel() {
   }
 
-  public NotificationModel id(@javax.annotation.Nonnull UUID id) {
+  public NotificationModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public NotificationModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public NotificationModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public NotificationModel isRead(@javax.annotation.Nonnull Boolean isRead) {
+  public NotificationModel isRead(Boolean isRead) {
+    
     this.isRead = isRead;
     return this;
   }
 
-  /**
+   /**
    * Get isRead
    * @return isRead
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsRead() {
     return isRead;
   }
 
-  public void setIsRead(@javax.annotation.Nonnull Boolean isRead) {
+
+  public void setIsRead(Boolean isRead) {
     this.isRead = isRead;
   }
 
 
-  public NotificationModel entityId(@javax.annotation.Nonnull UUID entityId) {
+  public NotificationModel entityId(UUID entityId) {
+    
     this.entityId = entityId;
     return this;
   }
 
-  /**
+   /**
    * Get entityId
    * @return entityId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getEntityId() {
     return entityId;
   }
 
-  public void setEntityId(@javax.annotation.Nonnull UUID entityId) {
+
+  public void setEntityId(UUID entityId) {
     this.entityId = entityId;
   }
 
 
-  public NotificationModel notificationType(@javax.annotation.Nonnull NotificationTypeModel notificationType) {
+  public NotificationModel notificationType(NotificationTypeModel notificationType) {
+    
     this.notificationType = notificationType;
     return this;
   }
 
-  /**
+   /**
    * Get notificationType
    * @return notificationType
-   */
+  **/
   @javax.annotation.Nonnull
   public NotificationTypeModel getNotificationType() {
     return notificationType;
   }
 
-  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeModel notificationType) {
+
+  public void setNotificationType(NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
   }
 
 
-  public NotificationModel projectGlobalId(@javax.annotation.Nullable Long projectGlobalId) {
+  public NotificationModel projectGlobalId(Long projectGlobalId) {
+    
     this.projectGlobalId = projectGlobalId;
     return this;
   }
 
-  /**
+   /**
    * Get projectGlobalId
    * @return projectGlobalId
-   */
+  **/
   @javax.annotation.Nullable
   public Long getProjectGlobalId() {
     return projectGlobalId;
   }
 
-  public void setProjectGlobalId(@javax.annotation.Nullable Long projectGlobalId) {
+
+  public void setProjectGlobalId(Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
   }
 
 
-  public NotificationModel projectName(@javax.annotation.Nullable String projectName) {
+  public NotificationModel projectName(String projectName) {
+    
     this.projectName = projectName;
     return this;
   }
 
-  /**
+   /**
    * Get projectName
    * @return projectName
-   */
+  **/
   @javax.annotation.Nullable
   public String getProjectName() {
     return projectName;
   }
 
-  public void setProjectName(@javax.annotation.Nullable String projectName) {
+
+  public void setProjectName(String projectName) {
     this.projectName = projectName;
   }
 
 
-  public NotificationModel testPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+  public NotificationModel testPlanGlobalId(Long testPlanGlobalId) {
+    
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
 
-  /**
+   /**
    * Get testPlanGlobalId
    * @return testPlanGlobalId
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
-  public void setTestPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+
+  public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public NotificationModel testPlanName(@javax.annotation.Nonnull String testPlanName) {
+  public NotificationModel testPlanName(String testPlanName) {
+    
     this.testPlanName = testPlanName;
     return this;
   }
 
-  /**
+   /**
    * Get testPlanName
    * @return testPlanName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getTestPlanName() {
     return testPlanName;
   }
 
-  public void setTestPlanName(@javax.annotation.Nonnull String testPlanName) {
+
+  public void setTestPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
-  public NotificationModel workitemGlobalId(@javax.annotation.Nullable Long workitemGlobalId) {
+  public NotificationModel workitemGlobalId(Long workitemGlobalId) {
+    
     this.workitemGlobalId = workitemGlobalId;
     return this;
   }
 
-  /**
+   /**
    * Get workitemGlobalId
    * @return workitemGlobalId
-   */
+  **/
   @javax.annotation.Nullable
   public Long getWorkitemGlobalId() {
     return workitemGlobalId;
   }
 
-  public void setWorkitemGlobalId(@javax.annotation.Nullable Long workitemGlobalId) {
+
+  public void setWorkitemGlobalId(Long workitemGlobalId) {
     this.workitemGlobalId = workitemGlobalId;
   }
 
 
-  public NotificationModel comment(@javax.annotation.Nonnull String comment) {
+  public NotificationModel comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
 
-  /**
+   /**
    * Get comment
    * @return comment
-   */
+  **/
   @javax.annotation.Nonnull
   public String getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull String comment) {
+
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public NotificationModel workItemName(@javax.annotation.Nonnull String workItemName) {
+  public NotificationModel workItemName(String workItemName) {
+    
     this.workItemName = workItemName;
     return this;
   }
 
-  /**
+   /**
    * Get workItemName
    * @return workItemName
-   */
+  **/
   @javax.annotation.Nonnull
   public String getWorkItemName() {
     return workItemName;
   }
 
-  public void setWorkItemName(@javax.annotation.Nonnull String workItemName) {
+
+  public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public NotificationModel attributeName(@javax.annotation.Nullable String attributeName) {
+  public NotificationModel attributeName(String attributeName) {
+    
     this.attributeName = attributeName;
     return this;
   }
 
-  /**
+   /**
    * Get attributeName
    * @return attributeName
-   */
+  **/
   @javax.annotation.Nullable
   public String getAttributeName() {
     return attributeName;
   }
 
-  public void setAttributeName(@javax.annotation.Nullable String attributeName) {
+
+  public void setAttributeName(String attributeName) {
     this.attributeName = attributeName;
   }
 
 
-  public NotificationModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public NotificationModel createdById(UUID createdById) {
+    
     this.createdById = createdById;
     return this;
   }
 
-  /**
+   /**
    * Get createdById
    * @return createdById
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
@@ -503,42 +519,39 @@ public class NotificationModel {
     openapiRequiredFields.add("createdById");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to NotificationModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!NotificationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to NotificationModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!NotificationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in NotificationModel is not found in the empty JSON string", NotificationModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!NotificationModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NotificationModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("entityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityId").toString()));
       }
-      // validate the required field `notificationType`
-      NotificationTypeModel.validateJsonElement(jsonObj.get("notificationType"));
       if ((jsonObj.get("projectName") != null && !jsonObj.get("projectName").isJsonNull()) && !jsonObj.get("projectName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectName").toString()));
       }
@@ -579,31 +592,31 @@ public class NotificationModel {
 
            @Override
            public NotificationModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of NotificationModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of NotificationModel
-   * @throws IOException if the JSON string is invalid with respect to NotificationModel
-   */
+ /**
+  * Create an instance of NotificationModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of NotificationModel
+  * @throws IOException if the JSON string is invalid with respect to NotificationModel
+  */
   public static NotificationModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, NotificationModel.class);
   }
 
-  /**
-   * Convert an instance of NotificationModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of NotificationModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

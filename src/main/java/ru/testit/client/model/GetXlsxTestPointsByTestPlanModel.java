@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,310 +54,321 @@ import ru.testit.client.invoker.JSON;
 /**
  * GetXlsxTestPointsByTestPlanModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetXlsxTestPointsByTestPlanModel {
   public static final String SERIALIZED_NAME_INCLUDE_NAME = "includeName";
   @SerializedName(SERIALIZED_NAME_INCLUDE_NAME)
-  @javax.annotation.Nonnull
   private Boolean includeName;
 
   public static final String SERIALIZED_NAME_INCLUDE_SECTION = "includeSection";
   @SerializedName(SERIALIZED_NAME_INCLUDE_SECTION)
-  @javax.annotation.Nonnull
   private Boolean includeSection;
 
   public static final String SERIALIZED_NAME_INCLUDE_PRIORITY = "includePriority";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PRIORITY)
-  @javax.annotation.Nonnull
   private Boolean includePriority;
 
   public static final String SERIALIZED_NAME_INCLUDE_AUTOMATED = "includeAutomated";
   @SerializedName(SERIALIZED_NAME_INCLUDE_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean includeAutomated;
 
   public static final String SERIALIZED_NAME_INCLUDE_STATUS = "includeStatus";
   @SerializedName(SERIALIZED_NAME_INCLUDE_STATUS)
-  @javax.annotation.Nonnull
   private Boolean includeStatus;
 
   public static final String SERIALIZED_NAME_INCLUDE_DURATION = "includeDuration";
   @SerializedName(SERIALIZED_NAME_INCLUDE_DURATION)
-  @javax.annotation.Nonnull
   private Boolean includeDuration;
 
   public static final String SERIALIZED_NAME_INCLUDE_CREATION_DATE = "includeCreationDate";
   @SerializedName(SERIALIZED_NAME_INCLUDE_CREATION_DATE)
-  @javax.annotation.Nonnull
   private Boolean includeCreationDate;
 
   public static final String SERIALIZED_NAME_INCLUDE_AUTHOR = "includeAuthor";
   @SerializedName(SERIALIZED_NAME_INCLUDE_AUTHOR)
-  @javax.annotation.Nonnull
   private Boolean includeAuthor;
 
   public static final String SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE = "includeModificationDate";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE)
-  @javax.annotation.Nonnull
   private Boolean includeModificationDate;
 
   public static final String SERIALIZED_NAME_INCLUDE_MODIFIED_BY = "includeModifiedBy";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFIED_BY)
-  @javax.annotation.Nonnull
   private Boolean includeModifiedBy;
 
   public static final String SERIALIZED_NAME_INCLUDE_TAGS = "includeTags";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TAGS)
-  @javax.annotation.Nonnull
   private Boolean includeTags;
 
   public static final String SERIALIZED_NAME_INCLUDE_ITERATIONS = "includeIterations";
   @SerializedName(SERIALIZED_NAME_INCLUDE_ITERATIONS)
-  @javax.annotation.Nonnull
   private Boolean includeIterations;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS)
-  @javax.annotation.Nullable
   private List<UUID> customAttributesIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public GetXlsxTestPointsByTestPlanModel() {
   }
 
-  public GetXlsxTestPointsByTestPlanModel includeName(@javax.annotation.Nonnull Boolean includeName) {
+  public GetXlsxTestPointsByTestPlanModel includeName(Boolean includeName) {
+    
     this.includeName = includeName;
     return this;
   }
 
-  /**
+   /**
    * Get includeName
    * @return includeName
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeName() {
     return includeName;
   }
 
-  public void setIncludeName(@javax.annotation.Nonnull Boolean includeName) {
+
+  public void setIncludeName(Boolean includeName) {
     this.includeName = includeName;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeSection(@javax.annotation.Nonnull Boolean includeSection) {
+  public GetXlsxTestPointsByTestPlanModel includeSection(Boolean includeSection) {
+    
     this.includeSection = includeSection;
     return this;
   }
 
-  /**
+   /**
    * Get includeSection
    * @return includeSection
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeSection() {
     return includeSection;
   }
 
-  public void setIncludeSection(@javax.annotation.Nonnull Boolean includeSection) {
+
+  public void setIncludeSection(Boolean includeSection) {
     this.includeSection = includeSection;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includePriority(@javax.annotation.Nonnull Boolean includePriority) {
+  public GetXlsxTestPointsByTestPlanModel includePriority(Boolean includePriority) {
+    
     this.includePriority = includePriority;
     return this;
   }
 
-  /**
+   /**
    * Get includePriority
    * @return includePriority
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludePriority() {
     return includePriority;
   }
 
-  public void setIncludePriority(@javax.annotation.Nonnull Boolean includePriority) {
+
+  public void setIncludePriority(Boolean includePriority) {
     this.includePriority = includePriority;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAutomated(@javax.annotation.Nonnull Boolean includeAutomated) {
+  public GetXlsxTestPointsByTestPlanModel includeAutomated(Boolean includeAutomated) {
+    
     this.includeAutomated = includeAutomated;
     return this;
   }
 
-  /**
+   /**
    * Get includeAutomated
    * @return includeAutomated
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeAutomated() {
     return includeAutomated;
   }
 
-  public void setIncludeAutomated(@javax.annotation.Nonnull Boolean includeAutomated) {
+
+  public void setIncludeAutomated(Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeStatus(@javax.annotation.Nonnull Boolean includeStatus) {
+  public GetXlsxTestPointsByTestPlanModel includeStatus(Boolean includeStatus) {
+    
     this.includeStatus = includeStatus;
     return this;
   }
 
-  /**
+   /**
    * Get includeStatus
    * @return includeStatus
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeStatus() {
     return includeStatus;
   }
 
-  public void setIncludeStatus(@javax.annotation.Nonnull Boolean includeStatus) {
+
+  public void setIncludeStatus(Boolean includeStatus) {
     this.includeStatus = includeStatus;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeDuration(@javax.annotation.Nonnull Boolean includeDuration) {
+  public GetXlsxTestPointsByTestPlanModel includeDuration(Boolean includeDuration) {
+    
     this.includeDuration = includeDuration;
     return this;
   }
 
-  /**
+   /**
    * Get includeDuration
    * @return includeDuration
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeDuration() {
     return includeDuration;
   }
 
-  public void setIncludeDuration(@javax.annotation.Nonnull Boolean includeDuration) {
+
+  public void setIncludeDuration(Boolean includeDuration) {
     this.includeDuration = includeDuration;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeCreationDate(@javax.annotation.Nonnull Boolean includeCreationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeCreationDate(Boolean includeCreationDate) {
+    
     this.includeCreationDate = includeCreationDate;
     return this;
   }
 
-  /**
+   /**
    * Get includeCreationDate
    * @return includeCreationDate
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeCreationDate() {
     return includeCreationDate;
   }
 
-  public void setIncludeCreationDate(@javax.annotation.Nonnull Boolean includeCreationDate) {
+
+  public void setIncludeCreationDate(Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAuthor(@javax.annotation.Nonnull Boolean includeAuthor) {
+  public GetXlsxTestPointsByTestPlanModel includeAuthor(Boolean includeAuthor) {
+    
     this.includeAuthor = includeAuthor;
     return this;
   }
 
-  /**
+   /**
    * Get includeAuthor
    * @return includeAuthor
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeAuthor() {
     return includeAuthor;
   }
 
-  public void setIncludeAuthor(@javax.annotation.Nonnull Boolean includeAuthor) {
+
+  public void setIncludeAuthor(Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModificationDate(@javax.annotation.Nonnull Boolean includeModificationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeModificationDate(Boolean includeModificationDate) {
+    
     this.includeModificationDate = includeModificationDate;
     return this;
   }
 
-  /**
+   /**
    * Get includeModificationDate
    * @return includeModificationDate
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeModificationDate() {
     return includeModificationDate;
   }
 
-  public void setIncludeModificationDate(@javax.annotation.Nonnull Boolean includeModificationDate) {
+
+  public void setIncludeModificationDate(Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(@javax.annotation.Nonnull Boolean includeModifiedBy) {
+  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(Boolean includeModifiedBy) {
+    
     this.includeModifiedBy = includeModifiedBy;
     return this;
   }
 
-  /**
+   /**
    * Get includeModifiedBy
    * @return includeModifiedBy
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeModifiedBy() {
     return includeModifiedBy;
   }
 
-  public void setIncludeModifiedBy(@javax.annotation.Nonnull Boolean includeModifiedBy) {
+
+  public void setIncludeModifiedBy(Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeTags(@javax.annotation.Nonnull Boolean includeTags) {
+  public GetXlsxTestPointsByTestPlanModel includeTags(Boolean includeTags) {
+    
     this.includeTags = includeTags;
     return this;
   }
 
-  /**
+   /**
    * Get includeTags
    * @return includeTags
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeTags() {
     return includeTags;
   }
 
-  public void setIncludeTags(@javax.annotation.Nonnull Boolean includeTags) {
+
+  public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeIterations(@javax.annotation.Nonnull Boolean includeIterations) {
+  public GetXlsxTestPointsByTestPlanModel includeIterations(Boolean includeIterations) {
+    
     this.includeIterations = includeIterations;
     return this;
   }
 
-  /**
+   /**
    * Get includeIterations
    * @return includeIterations
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIncludeIterations() {
     return includeIterations;
   }
 
-  public void setIncludeIterations(@javax.annotation.Nonnull Boolean includeIterations) {
+
+  public void setIncludeIterations(Boolean includeIterations) {
     this.includeIterations = includeIterations;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel customAttributesIds(@javax.annotation.Nullable List<UUID> customAttributesIds) {
+  public GetXlsxTestPointsByTestPlanModel customAttributesIds(List<UUID> customAttributesIds) {
+    
     this.customAttributesIds = customAttributesIds;
     return this;
   }
@@ -368,21 +381,23 @@ public class GetXlsxTestPointsByTestPlanModel {
     return this;
   }
 
-  /**
+   /**
    * Get customAttributesIds
    * @return customAttributesIds
-   */
+  **/
   @javax.annotation.Nullable
   public List<UUID> getCustomAttributesIds() {
     return customAttributesIds;
   }
 
-  public void setCustomAttributesIds(@javax.annotation.Nullable List<UUID> customAttributesIds) {
+
+  public void setCustomAttributesIds(List<UUID> customAttributesIds) {
     this.customAttributesIds = customAttributesIds;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public GetXlsxTestPointsByTestPlanModel configurationIds(List<UUID> configurationIds) {
+    
     this.configurationIds = configurationIds;
     return this;
   }
@@ -395,16 +410,17 @@ public class GetXlsxTestPointsByTestPlanModel {
     return this;
   }
 
-  /**
+   /**
    * Get configurationIds
    * @return configurationIds
-   */
+  **/
   @javax.annotation.Nullable
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
@@ -522,40 +538,39 @@ public class GetXlsxTestPointsByTestPlanModel {
     openapiRequiredFields.add("includeIterations");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetXlsxTestPointsByTestPlanModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to GetXlsxTestPointsByTestPlanModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetXlsxTestPointsByTestPlanModel is not found in the empty JSON string", GetXlsxTestPointsByTestPlanModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!GetXlsxTestPointsByTestPlanModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetXlsxTestPointsByTestPlanModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetXlsxTestPointsByTestPlanModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetXlsxTestPointsByTestPlanModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributesIds") != null && !jsonObj.get("customAttributesIds").isJsonNull() && !jsonObj.get("customAttributesIds").isJsonArray()) {
+      if (jsonObj.get("customAttributesIds") != null && !jsonObj.get("customAttributesIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `customAttributesIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributesIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
   }
@@ -580,31 +595,31 @@ public class GetXlsxTestPointsByTestPlanModel {
 
            @Override
            public GetXlsxTestPointsByTestPlanModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of GetXlsxTestPointsByTestPlanModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of GetXlsxTestPointsByTestPlanModel
-   * @throws IOException if the JSON string is invalid with respect to GetXlsxTestPointsByTestPlanModel
-   */
+ /**
+  * Create an instance of GetXlsxTestPointsByTestPlanModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of GetXlsxTestPointsByTestPlanModel
+  * @throws IOException if the JSON string is invalid with respect to GetXlsxTestPointsByTestPlanModel
+  */
   public static GetXlsxTestPointsByTestPlanModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetXlsxTestPointsByTestPlanModel.class);
   }
 
-  /**
-   * Convert an instance of GetXlsxTestPointsByTestPlanModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of GetXlsxTestPointsByTestPlanModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

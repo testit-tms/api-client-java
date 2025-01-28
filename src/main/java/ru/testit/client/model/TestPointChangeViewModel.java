@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,10 +39,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,79 +52,82 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPointChangeViewModel {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nonnull
   private UUID userId;
 
   public static final String SERIALIZED_NAME_USER_NAME = "userName";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
-  @javax.annotation.Nullable
   private String userName;
 
   public static final String SERIALIZED_NAME_TEST_POINT_COUNT = "testPointCount";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_COUNT)
-  @javax.annotation.Nonnull
   private Long testPointCount;
 
   public TestPointChangeViewModel() {
   }
 
-  public TestPointChangeViewModel userId(@javax.annotation.Nonnull UUID userId) {
+  public TestPointChangeViewModel userId(UUID userId) {
+    
     this.userId = userId;
     return this;
   }
 
-  /**
+   /**
    * Get userId
    * @return userId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getUserId() {
     return userId;
   }
 
-  public void setUserId(@javax.annotation.Nonnull UUID userId) {
+
+  public void setUserId(UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPointChangeViewModel userName(@javax.annotation.Nullable String userName) {
+  public TestPointChangeViewModel userName(String userName) {
+    
     this.userName = userName;
     return this;
   }
 
-  /**
+   /**
    * Get userName
    * @return userName
-   */
+  **/
   @javax.annotation.Nullable
   public String getUserName() {
     return userName;
   }
 
-  public void setUserName(@javax.annotation.Nullable String userName) {
+
+  public void setUserName(String userName) {
     this.userName = userName;
   }
 
 
-  public TestPointChangeViewModel testPointCount(@javax.annotation.Nonnull Long testPointCount) {
+  public TestPointChangeViewModel testPointCount(Long testPointCount) {
+    
     this.testPointCount = testPointCount;
     return this;
   }
 
-  /**
+   /**
    * Get testPointCount
    * @return testPointCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getTestPointCount() {
     return testPointCount;
   }
 
-  public void setTestPointCount(@javax.annotation.Nonnull Long testPointCount) {
+
+  public void setTestPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 
@@ -197,34 +202,33 @@ public class TestPointChangeViewModel {
     openapiRequiredFields.add("testPointCount");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPointChangeViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPointChangeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPointChangeViewModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPointChangeViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointChangeViewModel is not found in the empty JSON string", TestPointChangeViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPointChangeViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointChangeViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointChangeViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPointChangeViewModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
@@ -253,31 +257,31 @@ public class TestPointChangeViewModel {
 
            @Override
            public TestPointChangeViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPointChangeViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPointChangeViewModel
-   * @throws IOException if the JSON string is invalid with respect to TestPointChangeViewModel
-   */
+ /**
+  * Create an instance of TestPointChangeViewModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPointChangeViewModel
+  * @throws IOException if the JSON string is invalid with respect to TestPointChangeViewModel
+  */
   public static TestPointChangeViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPointChangeViewModel.class);
   }
 
-  /**
-   * Convert an instance of TestPointChangeViewModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPointChangeViewModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

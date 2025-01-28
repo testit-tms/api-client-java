@@ -5,13 +5,13 @@
 ## Enum
 
 
-* `MENTION_IN_COMMENT` (value: `"MentionInComment"`)
+* `MENTIONINCOMMENT` (value: `"MentionInComment"`)
 
-* `TEST_POINT_IS_SET_IN_TEST_PLAN` (value: `"TestPointIsSetInTestPlan"`)
+* `TESTPOINTISSETINTESTPLAN` (value: `"TestPointIsSetInTestPlan"`)
 
-* `MENTION_IN_CUSTOM_ATTRIBUTE` (value: `"MentionInCustomAttribute"`)
+* `MENTIONINCUSTOMATTRIBUTE` (value: `"MentionInCustomAttribute"`)
 
-* `TEST_PLAN_UNLOCK_REQUEST` (value: `"TestPlanUnlockRequest"`)
+* `TESTPLANUNLOCKREQUEST` (value: `"TestPlanUnlockRequest"`)
 
 
 

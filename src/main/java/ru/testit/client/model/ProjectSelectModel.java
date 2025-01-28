@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ProjectExtractionModel;
 import ru.testit.client.model.ProjectsFilterModel;
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,55 +53,57 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private ProjectsFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private ProjectExtractionModel extractionModel;
 
   public ProjectSelectModel() {
   }
 
-  public ProjectSelectModel filter(@javax.annotation.Nullable ProjectsFilterModel filter) {
+  public ProjectSelectModel filter(ProjectsFilterModel filter) {
+    
     this.filter = filter;
     return this;
   }
 
-  /**
+   /**
    * Get filter
    * @return filter
-   */
+  **/
   @javax.annotation.Nullable
   public ProjectsFilterModel getFilter() {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable ProjectsFilterModel filter) {
+
+  public void setFilter(ProjectsFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public ProjectSelectModel extractionModel(@javax.annotation.Nullable ProjectExtractionModel extractionModel) {
+  public ProjectSelectModel extractionModel(ProjectExtractionModel extractionModel) {
+    
     this.extractionModel = extractionModel;
     return this;
   }
 
-  /**
+   /**
    * Get extractionModel
    * @return extractionModel
-   */
+  **/
   @javax.annotation.Nullable
   public ProjectExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable ProjectExtractionModel extractionModel) {
+
+  public void setExtractionModel(ProjectExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -169,34 +173,33 @@ public class ProjectSelectModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectSelectModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ProjectSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ProjectSelectModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ProjectSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectSelectModel is not found in the empty JSON string", ProjectSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ProjectSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        ProjectsFilterModel.validateJsonElement(jsonObj.get("filter"));
+        ProjectsFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        ProjectExtractionModel.validateJsonElement(jsonObj.get("extractionModel"));
+        ProjectExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 
@@ -220,31 +223,31 @@ public class ProjectSelectModel {
 
            @Override
            public ProjectSelectModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of ProjectSelectModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ProjectSelectModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectSelectModel
-   */
+ /**
+  * Create an instance of ProjectSelectModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ProjectSelectModel
+  * @throws IOException if the JSON string is invalid with respect to ProjectSelectModel
+  */
   public static ProjectSelectModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ProjectSelectModel.class);
   }
 
-  /**
-   * Convert an instance of ProjectSelectModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ProjectSelectModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

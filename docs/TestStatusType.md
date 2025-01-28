@@ -7,7 +7,7 @@
 
 * `FAILED` (value: `"Failed"`)
 
-* `IN_PROGRESS` (value: `"InProgress"`)
+* `INPROGRESS` (value: `"InProgress"`)
 
 * `INCOMPLETE` (value: `"Incomplete"`)
 

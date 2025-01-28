@@ -14,20 +14,23 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.ProjectTypeModel;
+import ru.testit.client.model.ProjectsFilterModelAutotestsCount;
+import ru.testit.client.model.ProjectsFilterModelChecklistsCount;
+import ru.testit.client.model.ProjectsFilterModelCreatedDate;
+import ru.testit.client.model.ProjectsFilterModelSharedStepsCount;
+import ru.testit.client.model.ProjectsFilterModelTestCasesCount;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,10 +47,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,200 +60,204 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectsFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectsFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  @javax.annotation.Nullable
   private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
-  @javax.annotation.Nullable
-  private Int32RangeSelectorModel testCasesCount;
+  private ProjectsFilterModelTestCasesCount testCasesCount;
 
   public static final String SERIALIZED_NAME_CHECKLISTS_COUNT = "checklistsCount";
   @SerializedName(SERIALIZED_NAME_CHECKLISTS_COUNT)
-  @javax.annotation.Nullable
-  private Int32RangeSelectorModel checklistsCount;
+  private ProjectsFilterModelChecklistsCount checklistsCount;
 
   public static final String SERIALIZED_NAME_SHARED_STEPS_COUNT = "sharedStepsCount";
   @SerializedName(SERIALIZED_NAME_SHARED_STEPS_COUNT)
-  @javax.annotation.Nullable
-  private Int32RangeSelectorModel sharedStepsCount;
+  private ProjectsFilterModelSharedStepsCount sharedStepsCount;
 
   public static final String SERIALIZED_NAME_AUTOTESTS_COUNT = "autotestsCount";
   @SerializedName(SERIALIZED_NAME_AUTOTESTS_COUNT)
-  @javax.annotation.Nullable
-  private Int32RangeSelectorModel autotestsCount;
+  private ProjectsFilterModelAutotestsCount autotestsCount;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
-  private DateTimeRangeSelectorModel createdDate;
+  private ProjectsFilterModelCreatedDate createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private Set<ProjectTypeModel> types;
 
   public ProjectsFilterModel() {
   }
 
-  public ProjectsFilterModel name(@javax.annotation.Nullable String name) {
+  public ProjectsFilterModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Specifies a project name to search for
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectsFilterModel isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public ProjectsFilterModel isFavorite(Boolean isFavorite) {
+    
     this.isFavorite = isFavorite;
     return this;
   }
 
-  /**
+   /**
    * Specifies a project favorite status to search for
    * @return isFavorite
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsFavorite() {
     return isFavorite;
   }
 
-  public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+
+  public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
-  public ProjectsFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public ProjectsFilterModel isDeleted(Boolean isDeleted) {
+    
     this.isDeleted = isDeleted;
     return this;
   }
 
-  /**
+   /**
    * Specifies a project deleted status to search for
    * @return isDeleted
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectsFilterModel testCasesCount(@javax.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
+  public ProjectsFilterModel testCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
+    
     this.testCasesCount = testCasesCount;
     return this;
   }
 
-  /**
-   * Specifies a project range of test cases count to search for
+   /**
+   * Get testCasesCount
    * @return testCasesCount
-   */
+  **/
   @javax.annotation.Nullable
-  public Int32RangeSelectorModel getTestCasesCount() {
+  public ProjectsFilterModelTestCasesCount getTestCasesCount() {
     return testCasesCount;
   }
 
-  public void setTestCasesCount(@javax.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
+
+  public void setTestCasesCount(ProjectsFilterModelTestCasesCount testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
-  public ProjectsFilterModel checklistsCount(@javax.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
+  public ProjectsFilterModel checklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
+    
     this.checklistsCount = checklistsCount;
     return this;
   }
 
-  /**
-   * Specifies a project range of checklists count to search for
+   /**
+   * Get checklistsCount
    * @return checklistsCount
-   */
+  **/
   @javax.annotation.Nullable
-  public Int32RangeSelectorModel getChecklistsCount() {
+  public ProjectsFilterModelChecklistsCount getChecklistsCount() {
     return checklistsCount;
   }
 
-  public void setChecklistsCount(@javax.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
+
+  public void setChecklistsCount(ProjectsFilterModelChecklistsCount checklistsCount) {
     this.checklistsCount = checklistsCount;
   }
 
 
-  public ProjectsFilterModel sharedStepsCount(@javax.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
+  public ProjectsFilterModel sharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
+    
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
 
-  /**
-   * Specifies a project range of shared steps count to search for
+   /**
+   * Get sharedStepsCount
    * @return sharedStepsCount
-   */
+  **/
   @javax.annotation.Nullable
-  public Int32RangeSelectorModel getSharedStepsCount() {
+  public ProjectsFilterModelSharedStepsCount getSharedStepsCount() {
     return sharedStepsCount;
   }
 
-  public void setSharedStepsCount(@javax.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
+
+  public void setSharedStepsCount(ProjectsFilterModelSharedStepsCount sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
-  public ProjectsFilterModel autotestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
+  public ProjectsFilterModel autotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
+    
     this.autotestsCount = autotestsCount;
     return this;
   }
 
-  /**
-   * Specifies a project range of autotests count to search for
+   /**
+   * Get autotestsCount
    * @return autotestsCount
-   */
+  **/
   @javax.annotation.Nullable
-  public Int32RangeSelectorModel getAutotestsCount() {
+  public ProjectsFilterModelAutotestsCount getAutotestsCount() {
     return autotestsCount;
   }
 
-  public void setAutotestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
+
+  public void setAutotestsCount(ProjectsFilterModelAutotestsCount autotestsCount) {
     this.autotestsCount = autotestsCount;
   }
 
 
-  public ProjectsFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public ProjectsFilterModel globalIds(Set<Long> globalIds) {
+    
     this.globalIds = globalIds;
     return this;
   }
@@ -261,40 +270,44 @@ public class ProjectsFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies a project global IDs to search for
    * @return globalIds
-   */
+  **/
   @javax.annotation.Nullable
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public ProjectsFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public ProjectsFilterModel createdDate(ProjectsFilterModelCreatedDate createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
-   * Specifies a project range of creation date to search for
+   /**
+   * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nullable
-  public DateTimeRangeSelectorModel getCreatedDate() {
+  public ProjectsFilterModelCreatedDate getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+
+  public void setCreatedDate(ProjectsFilterModelCreatedDate createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ProjectsFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public ProjectsFilterModel createdByIds(Set<UUID> createdByIds) {
+    
     this.createdByIds = createdByIds;
     return this;
   }
@@ -307,21 +320,23 @@ public class ProjectsFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Specifies an autotest creator IDs to search for
    * @return createdByIds
-   */
+  **/
   @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public ProjectsFilterModel types(@javax.annotation.Nullable Set<ProjectTypeModel> types) {
+  public ProjectsFilterModel types(Set<ProjectTypeModel> types) {
+    
     this.types = types;
     return this;
   }
@@ -334,16 +349,17 @@ public class ProjectsFilterModel {
     return this;
   }
 
-  /**
+   /**
    * Collection of project types to search for
    * @return types
-   */
+  **/
   @javax.annotation.Nullable
   public Set<ProjectTypeModel> getTypes() {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable Set<ProjectTypeModel> types) {
+
+  public void setTypes(Set<ProjectTypeModel> types) {
     this.types = types;
   }
 
@@ -440,60 +456,59 @@ public class ProjectsFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectsFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ProjectsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ProjectsFilterModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ProjectsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModel is not found in the empty JSON string", ProjectsFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ProjectsFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `testCasesCount`
       if (jsonObj.get("testCasesCount") != null && !jsonObj.get("testCasesCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("testCasesCount"));
+        ProjectsFilterModelTestCasesCount.validateJsonObject(jsonObj.getAsJsonObject("testCasesCount"));
       }
       // validate the optional field `checklistsCount`
       if (jsonObj.get("checklistsCount") != null && !jsonObj.get("checklistsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("checklistsCount"));
+        ProjectsFilterModelChecklistsCount.validateJsonObject(jsonObj.getAsJsonObject("checklistsCount"));
       }
       // validate the optional field `sharedStepsCount`
       if (jsonObj.get("sharedStepsCount") != null && !jsonObj.get("sharedStepsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("sharedStepsCount"));
+        ProjectsFilterModelSharedStepsCount.validateJsonObject(jsonObj.getAsJsonObject("sharedStepsCount"));
       }
       // validate the optional field `autotestsCount`
       if (jsonObj.get("autotestsCount") != null && !jsonObj.get("autotestsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("autotestsCount"));
+        ProjectsFilterModelAutotestsCount.validateJsonObject(jsonObj.getAsJsonObject("autotestsCount"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
+        ProjectsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
+      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
       }
   }
@@ -518,31 +533,31 @@ public class ProjectsFilterModel {
 
            @Override
            public ProjectsFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of ProjectsFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ProjectsFilterModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModel
-   */
+ /**
+  * Create an instance of ProjectsFilterModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ProjectsFilterModel
+  * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModel
+  */
   public static ProjectsFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ProjectsFilterModel.class);
   }
 
-  /**
-   * Convert an instance of ProjectsFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ProjectsFilterModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createProjectsAttribute"></a>
 # **createProjectsAttribute**
-> CustomAttributeModel createProjectsAttribute(projectId, customAttributePostModel)
+> CustomAttributeModel createProjectsAttribute(projectId, createProjectsAttributeRequest)
 
 Create project attribute
 
@@ -43,9 +43,9 @@ public class Example {
 
     ProjectAttributesApi apiInstance = new ProjectAttributesApi(defaultClient);
     String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
-    CustomAttributePostModel customAttributePostModel = new CustomAttributePostModel(); // CustomAttributePostModel | 
+    CreateProjectsAttributeRequest createProjectsAttributeRequest = new CreateProjectsAttributeRequest(); // CreateProjectsAttributeRequest | 
     try {
-      CustomAttributeModel result = apiInstance.createProjectsAttribute(projectId, customAttributePostModel);
+      CustomAttributeModel result = apiInstance.createProjectsAttribute(projectId, createProjectsAttributeRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectAttributesApi#createProjectsAttribute");
@@ -63,7 +63,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Project internal (UUID) or global (integer) identifier | |
-| **customAttributePostModel** | [**CustomAttributePostModel**](CustomAttributePostModel.md)|  | [optional] |
+| **createProjectsAttributeRequest** | [**CreateProjectsAttributeRequest**](CreateProjectsAttributeRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -321,7 +321,7 @@ public class Example {
 
 <a id="searchAttributesInProject"></a>
 # **searchAttributesInProject**
-> List&lt;CustomAttributeGetModel&gt; searchAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+> List&lt;CustomAttributeGetModel&gt; searchAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest)
 
 Search for attributes used in the project
 
@@ -353,9 +353,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    SearchAttributesInProjectRequest searchAttributesInProjectRequest = new SearchAttributesInProjectRequest(); // SearchAttributesInProjectRequest | 
     try {
-      List<CustomAttributeGetModel> result = apiInstance.searchAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      List<CustomAttributeGetModel> result = apiInstance.searchAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, searchAttributesInProjectRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectAttributesApi#searchAttributesInProject");
@@ -378,7 +378,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+| **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -406,7 +406,7 @@ public class Example {
 
 <a id="updateProjectsAttribute"></a>
 # **updateProjectsAttribute**
-> updateProjectsAttribute(projectId, customAttributePutModel)
+> updateProjectsAttribute(projectId, updateProjectsAttributeRequest)
 
 Edit attribute of the project
 
@@ -433,9 +433,9 @@ public class Example {
 
     ProjectAttributesApi apiInstance = new ProjectAttributesApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global project ID
-    CustomAttributePutModel customAttributePutModel = new CustomAttributePutModel(); // CustomAttributePutModel | 
+    UpdateProjectsAttributeRequest updateProjectsAttributeRequest = new UpdateProjectsAttributeRequest(); // UpdateProjectsAttributeRequest | 
     try {
-      apiInstance.updateProjectsAttribute(projectId, customAttributePutModel);
+      apiInstance.updateProjectsAttribute(projectId, updateProjectsAttributeRequest);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectAttributesApi#updateProjectsAttribute");
       System.err.println("Status code: " + e.getCode());
@@ -452,7 +452,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global project ID | |
-| **customAttributePutModel** | [**CustomAttributePutModel**](CustomAttributePutModel.md)|  | [optional] |
+| **updateProjectsAttributeRequest** | [**UpdateProjectsAttributeRequest**](UpdateProjectsAttributeRequest.md)|  | [optional] |
 
 ### Return type
 

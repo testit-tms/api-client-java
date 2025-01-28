@@ -27,18 +27,19 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2WorkItemsCommentsPostRequest;
+import ru.testit.client.model.ApiV2WorkItemsCommentsPutRequest;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemCommentModel;
-import ru.testit.client.model.WorkItemCommentPostModel;
-import ru.testit.client.model.WorkItemCommentPutModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class WorkItemsCommentsApi {
     private ApiClient localVarApiClient;
@@ -84,8 +85,7 @@ public class WorkItemsCommentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -158,8 +158,7 @@ public class WorkItemsCommentsApi {
      * @param commentId Comment internal (guid format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -181,8 +180,7 @@ public class WorkItemsCommentsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -206,8 +204,7 @@ public class WorkItemsCommentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -226,13 +223,12 @@ public class WorkItemsCommentsApi {
     }
     /**
      * Build call for apiV2WorkItemsCommentsPost
-     * @param workItemCommentPostModel  (optional)
+     * @param apiV2WorkItemsCommentsPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -243,7 +239,7 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsCommentsPostCall(WorkItemCommentPostModel workItemCommentPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsCommentsPostCall(ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -257,7 +253,7 @@ public class WorkItemsCommentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemCommentPostModel;
+        Object localVarPostBody = apiV2WorkItemsCommentsPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/comments";
@@ -289,20 +285,19 @@ public class WorkItemsCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsCommentsPostValidateBeforeCall(WorkItemCommentPostModel workItemCommentPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WorkItemsCommentsPostCall(workItemCommentPostModel, _callback);
+    private okhttp3.Call apiV2WorkItemsCommentsPostValidateBeforeCall(ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsCommentsPostCall(apiV2WorkItemsCommentsPostRequest, _callback);
 
     }
 
     /**
      * Create WorkItem comment
      *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
-     * @param workItemCommentPostModel  (optional)
+     * @param apiV2WorkItemsCommentsPostRequest  (optional)
      * @return WorkItemCommentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -313,20 +308,19 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WorkItemCommentModel apiV2WorkItemsCommentsPost(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
-        ApiResponse<WorkItemCommentModel> localVarResp = apiV2WorkItemsCommentsPostWithHttpInfo(workItemCommentPostModel);
+    public WorkItemCommentModel apiV2WorkItemsCommentsPost(ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest) throws ApiException {
+        ApiResponse<WorkItemCommentModel> localVarResp = apiV2WorkItemsCommentsPostWithHttpInfo(apiV2WorkItemsCommentsPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create WorkItem comment
      *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
-     * @param workItemCommentPostModel  (optional)
+     * @param apiV2WorkItemsCommentsPostRequest  (optional)
      * @return ApiResponse&lt;WorkItemCommentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -337,8 +331,8 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkItemCommentModel> apiV2WorkItemsCommentsPostWithHttpInfo(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPostValidateBeforeCall(workItemCommentPostModel, null);
+    public ApiResponse<WorkItemCommentModel> apiV2WorkItemsCommentsPostWithHttpInfo(ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPostValidateBeforeCall(apiV2WorkItemsCommentsPostRequest, null);
         Type localVarReturnType = new TypeToken<WorkItemCommentModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -346,13 +340,12 @@ public class WorkItemsCommentsApi {
     /**
      * Create WorkItem comment (asynchronously)
      *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
-     * @param workItemCommentPostModel  (optional)
+     * @param apiV2WorkItemsCommentsPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -363,22 +356,21 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsCommentsPostAsync(WorkItemCommentPostModel workItemCommentPostModel, final ApiCallback<WorkItemCommentModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsCommentsPostAsync(ApiV2WorkItemsCommentsPostRequest apiV2WorkItemsCommentsPostRequest, final ApiCallback<WorkItemCommentModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPostValidateBeforeCall(workItemCommentPostModel, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPostValidateBeforeCall(apiV2WorkItemsCommentsPostRequest, _callback);
         Type localVarReturnType = new TypeToken<WorkItemCommentModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2WorkItemsCommentsPut
-     * @param workItemCommentPutModel  (optional)
+     * @param apiV2WorkItemsCommentsPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -389,7 +381,7 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsCommentsPutCall(WorkItemCommentPutModel workItemCommentPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsCommentsPutCall(ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -403,7 +395,7 @@ public class WorkItemsCommentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemCommentPutModel;
+        Object localVarPostBody = apiV2WorkItemsCommentsPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/comments";
@@ -435,19 +427,18 @@ public class WorkItemsCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsCommentsPutValidateBeforeCall(WorkItemCommentPutModel workItemCommentPutModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WorkItemsCommentsPutCall(workItemCommentPutModel, _callback);
+    private okhttp3.Call apiV2WorkItemsCommentsPutValidateBeforeCall(ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsCommentsPutCall(apiV2WorkItemsCommentsPutRequest, _callback);
 
     }
 
     /**
      * Update work item comment
      * 
-     * @param workItemCommentPutModel  (optional)
+     * @param apiV2WorkItemsCommentsPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -458,19 +449,18 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2WorkItemsCommentsPut(WorkItemCommentPutModel workItemCommentPutModel) throws ApiException {
-        apiV2WorkItemsCommentsPutWithHttpInfo(workItemCommentPutModel);
+    public void apiV2WorkItemsCommentsPut(ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest) throws ApiException {
+        apiV2WorkItemsCommentsPutWithHttpInfo(apiV2WorkItemsCommentsPutRequest);
     }
 
     /**
      * Update work item comment
      * 
-     * @param workItemCommentPutModel  (optional)
+     * @param apiV2WorkItemsCommentsPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -481,21 +471,20 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(WorkItemCommentPutModel workItemCommentPutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPutValidateBeforeCall(workItemCommentPutModel, null);
+    public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPutValidateBeforeCall(apiV2WorkItemsCommentsPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update work item comment (asynchronously)
      * 
-     * @param workItemCommentPutModel  (optional)
+     * @param apiV2WorkItemsCommentsPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -506,9 +495,9 @@ public class WorkItemsCommentsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsCommentsPutAsync(WorkItemCommentPutModel workItemCommentPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsCommentsPutAsync(ApiV2WorkItemsCommentsPutRequest apiV2WorkItemsCommentsPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPutValidateBeforeCall(workItemCommentPutModel, _callback);
+        okhttp3.Call localVarCall = apiV2WorkItemsCommentsPutValidateBeforeCall(apiV2WorkItemsCommentsPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -519,8 +508,7 @@ public class WorkItemsCommentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -594,8 +582,7 @@ public class WorkItemsCommentsApi {
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -618,8 +605,7 @@ public class WorkItemsCommentsApi {
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -644,8 +630,7 @@ public class WorkItemsCommentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -670,8 +655,7 @@ public class WorkItemsCommentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -745,8 +729,7 @@ public class WorkItemsCommentsApi {
      * @return List&lt;WorkItemCommentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -769,8 +752,7 @@ public class WorkItemsCommentsApi {
      * @return ApiResponse&lt;List&lt;WorkItemCommentModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -795,8 +777,7 @@ public class WorkItemsCommentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

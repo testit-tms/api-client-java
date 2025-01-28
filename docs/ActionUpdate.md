@@ -9,9 +9,9 @@
 
 * `REPLACE` (value: `"Replace"`)
 
-* `TO_REMOVE` (value: `"ToRemove"`)
+* `TOREMOVE` (value: `"ToRemove"`)
 
-* `CLEAR_ALL` (value: `"ClearAll"`)
+* `CLEARALL` (value: `"ClearAll"`)
 
 
 

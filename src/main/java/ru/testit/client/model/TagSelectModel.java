@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TagExtractionModel;
 import ru.testit.client.model.TagsFilterModel;
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,55 +53,57 @@ import ru.testit.client.invoker.JSON;
 /**
  * TagSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TagSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private TagsFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private TagExtractionModel extractionModel;
 
   public TagSelectModel() {
   }
 
-  public TagSelectModel filter(@javax.annotation.Nullable TagsFilterModel filter) {
+  public TagSelectModel filter(TagsFilterModel filter) {
+    
     this.filter = filter;
     return this;
   }
 
-  /**
+   /**
    * Get filter
    * @return filter
-   */
+  **/
   @javax.annotation.Nullable
   public TagsFilterModel getFilter() {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable TagsFilterModel filter) {
+
+  public void setFilter(TagsFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public TagSelectModel extractionModel(@javax.annotation.Nullable TagExtractionModel extractionModel) {
+  public TagSelectModel extractionModel(TagExtractionModel extractionModel) {
+    
     this.extractionModel = extractionModel;
     return this;
   }
 
-  /**
+   /**
    * Get extractionModel
    * @return extractionModel
-   */
+  **/
   @javax.annotation.Nullable
   public TagExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable TagExtractionModel extractionModel) {
+
+  public void setExtractionModel(TagExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -169,34 +173,33 @@ public class TagSelectModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TagSelectModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TagSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TagSelectModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TagSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TagSelectModel is not found in the empty JSON string", TagSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TagSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TagsFilterModel.validateJsonElement(jsonObj.get("filter"));
+        TagsFilterModel.validateJsonObject(jsonObj.getAsJsonObject("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        TagExtractionModel.validateJsonElement(jsonObj.get("extractionModel"));
+        TagExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
       }
   }
 
@@ -220,31 +223,31 @@ public class TagSelectModel {
 
            @Override
            public TagSelectModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TagSelectModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TagSelectModel
-   * @throws IOException if the JSON string is invalid with respect to TagSelectModel
-   */
+ /**
+  * Create an instance of TagSelectModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TagSelectModel
+  * @throws IOException if the JSON string is invalid with respect to TagSelectModel
+  */
   public static TagSelectModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TagSelectModel.class);
   }
 
-  /**
-   * Convert an instance of TagSelectModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TagSelectModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

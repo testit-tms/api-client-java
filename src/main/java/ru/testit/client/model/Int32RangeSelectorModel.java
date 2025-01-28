@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -49,55 +51,57 @@ import ru.testit.client.invoker.JSON;
 /**
  * Int32RangeSelectorModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Int32RangeSelectorModel {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private Integer from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  @javax.annotation.Nullable
   private Integer to;
 
   public Int32RangeSelectorModel() {
   }
 
-  public Int32RangeSelectorModel from(@javax.annotation.Nullable Integer from) {
+  public Int32RangeSelectorModel from(Integer from) {
+    
     this.from = from;
     return this;
   }
 
-  /**
+   /**
    * Get from
    * @return from
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getFrom() {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable Integer from) {
+
+  public void setFrom(Integer from) {
     this.from = from;
   }
 
 
-  public Int32RangeSelectorModel to(@javax.annotation.Nullable Integer to) {
+  public Int32RangeSelectorModel to(Integer to) {
+    
     this.to = to;
     return this;
   }
 
-  /**
+   /**
    * Get to
    * @return to
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getTo() {
     return to;
   }
 
-  public void setTo(@javax.annotation.Nullable Integer to) {
+
+  public void setTo(Integer to) {
     this.to = to;
   }
 
@@ -167,27 +171,26 @@ public class Int32RangeSelectorModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Int32RangeSelectorModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Int32RangeSelectorModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to Int32RangeSelectorModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!Int32RangeSelectorModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Int32RangeSelectorModel is not found in the empty JSON string", Int32RangeSelectorModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!Int32RangeSelectorModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Int32RangeSelectorModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Int32RangeSelectorModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -210,31 +213,31 @@ public class Int32RangeSelectorModel {
 
            @Override
            public Int32RangeSelectorModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of Int32RangeSelectorModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Int32RangeSelectorModel
-   * @throws IOException if the JSON string is invalid with respect to Int32RangeSelectorModel
-   */
+ /**
+  * Create an instance of Int32RangeSelectorModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Int32RangeSelectorModel
+  * @throws IOException if the JSON string is invalid with respect to Int32RangeSelectorModel
+  */
   public static Int32RangeSelectorModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Int32RangeSelectorModel.class);
   }
 
-  /**
-   * Convert an instance of Int32RangeSelectorModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of Int32RangeSelectorModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

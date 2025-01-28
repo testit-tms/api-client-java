@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2SearchGlobalSearchPost"></a>
 # **apiV2SearchGlobalSearchPost**
-> GlobalSearchResponse apiV2SearchGlobalSearchPost(globalSearchRequest)
+> GlobalSearchResponse apiV2SearchGlobalSearchPost(apiV2SearchGlobalSearchPostRequest)
 
 
 
@@ -35,9 +35,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     SearchApi apiInstance = new SearchApi(defaultClient);
-    GlobalSearchRequest globalSearchRequest = new GlobalSearchRequest(); // GlobalSearchRequest | 
+    ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest = new ApiV2SearchGlobalSearchPostRequest(); // ApiV2SearchGlobalSearchPostRequest | 
     try {
-      GlobalSearchResponse result = apiInstance.apiV2SearchGlobalSearchPost(globalSearchRequest);
+      GlobalSearchResponse result = apiInstance.apiV2SearchGlobalSearchPost(apiV2SearchGlobalSearchPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#apiV2SearchGlobalSearchPost");
@@ -54,7 +54,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **globalSearchRequest** | [**GlobalSearchRequest**](GlobalSearchRequest.md)|  | [optional] |
+| **apiV2SearchGlobalSearchPostRequest** | [**ApiV2SearchGlobalSearchPostRequest**](ApiV2SearchGlobalSearchPostRequest.md)|  | [optional] |
 
 ### Return type
 

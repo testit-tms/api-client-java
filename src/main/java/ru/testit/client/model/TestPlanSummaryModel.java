@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -49,175 +51,182 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanSummaryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestPlanSummaryModel {
   public static final String SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT = "totalTestPointsCount";
   @SerializedName(SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer totalTestPointsCount;
 
   public static final String SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
   @SerializedName(SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer manualTestPointsCount;
 
   public static final String SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
   @SerializedName(SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer automatedTestPointsCount;
 
   public static final String SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT = "completedTestPointsCount";
   @SerializedName(SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer completedTestPointsCount;
 
   public static final String SERIALIZED_NAME_DEFECTS_COUNT = "defectsCount";
   @SerializedName(SERIALIZED_NAME_DEFECTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer defectsCount;
 
   public static final String SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION = "plannedTestPointsDuration";
   @SerializedName(SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION)
-  @javax.annotation.Nonnull
   private Long plannedTestPointsDuration;
 
   public static final String SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION = "spentTestPointsDuration";
   @SerializedName(SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION)
-  @javax.annotation.Nullable
   private Long spentTestPointsDuration;
 
   public TestPlanSummaryModel() {
   }
 
-  public TestPlanSummaryModel totalTestPointsCount(@javax.annotation.Nonnull Integer totalTestPointsCount) {
+  public TestPlanSummaryModel totalTestPointsCount(Integer totalTestPointsCount) {
+    
     this.totalTestPointsCount = totalTestPointsCount;
     return this;
   }
 
-  /**
+   /**
    * Get totalTestPointsCount
    * @return totalTestPointsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getTotalTestPointsCount() {
     return totalTestPointsCount;
   }
 
-  public void setTotalTestPointsCount(@javax.annotation.Nonnull Integer totalTestPointsCount) {
+
+  public void setTotalTestPointsCount(Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel manualTestPointsCount(@javax.annotation.Nonnull Integer manualTestPointsCount) {
+  public TestPlanSummaryModel manualTestPointsCount(Integer manualTestPointsCount) {
+    
     this.manualTestPointsCount = manualTestPointsCount;
     return this;
   }
 
-  /**
+   /**
    * Get manualTestPointsCount
    * @return manualTestPointsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getManualTestPointsCount() {
     return manualTestPointsCount;
   }
 
-  public void setManualTestPointsCount(@javax.annotation.Nonnull Integer manualTestPointsCount) {
+
+  public void setManualTestPointsCount(Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel automatedTestPointsCount(@javax.annotation.Nonnull Integer automatedTestPointsCount) {
+  public TestPlanSummaryModel automatedTestPointsCount(Integer automatedTestPointsCount) {
+    
     this.automatedTestPointsCount = automatedTestPointsCount;
     return this;
   }
 
-  /**
+   /**
    * Get automatedTestPointsCount
    * @return automatedTestPointsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getAutomatedTestPointsCount() {
     return automatedTestPointsCount;
   }
 
-  public void setAutomatedTestPointsCount(@javax.annotation.Nonnull Integer automatedTestPointsCount) {
+
+  public void setAutomatedTestPointsCount(Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel completedTestPointsCount(@javax.annotation.Nonnull Integer completedTestPointsCount) {
+  public TestPlanSummaryModel completedTestPointsCount(Integer completedTestPointsCount) {
+    
     this.completedTestPointsCount = completedTestPointsCount;
     return this;
   }
 
-  /**
+   /**
    * Get completedTestPointsCount
    * @return completedTestPointsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getCompletedTestPointsCount() {
     return completedTestPointsCount;
   }
 
-  public void setCompletedTestPointsCount(@javax.annotation.Nonnull Integer completedTestPointsCount) {
+
+  public void setCompletedTestPointsCount(Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel defectsCount(@javax.annotation.Nonnull Integer defectsCount) {
+  public TestPlanSummaryModel defectsCount(Integer defectsCount) {
+    
     this.defectsCount = defectsCount;
     return this;
   }
 
-  /**
+   /**
    * Get defectsCount
    * @return defectsCount
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getDefectsCount() {
     return defectsCount;
   }
 
-  public void setDefectsCount(@javax.annotation.Nonnull Integer defectsCount) {
+
+  public void setDefectsCount(Integer defectsCount) {
     this.defectsCount = defectsCount;
   }
 
 
-  public TestPlanSummaryModel plannedTestPointsDuration(@javax.annotation.Nonnull Long plannedTestPointsDuration) {
+  public TestPlanSummaryModel plannedTestPointsDuration(Long plannedTestPointsDuration) {
+    
     this.plannedTestPointsDuration = plannedTestPointsDuration;
     return this;
   }
 
-  /**
+   /**
    * Get plannedTestPointsDuration
    * @return plannedTestPointsDuration
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getPlannedTestPointsDuration() {
     return plannedTestPointsDuration;
   }
 
-  public void setPlannedTestPointsDuration(@javax.annotation.Nonnull Long plannedTestPointsDuration) {
+
+  public void setPlannedTestPointsDuration(Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
   }
 
 
-  public TestPlanSummaryModel spentTestPointsDuration(@javax.annotation.Nullable Long spentTestPointsDuration) {
+  public TestPlanSummaryModel spentTestPointsDuration(Long spentTestPointsDuration) {
+    
     this.spentTestPointsDuration = spentTestPointsDuration;
     return this;
   }
 
-  /**
+   /**
    * Get spentTestPointsDuration
    * @return spentTestPointsDuration
-   */
+  **/
   @javax.annotation.Nullable
   public Long getSpentTestPointsDuration() {
     return spentTestPointsDuration;
   }
 
-  public void setSpentTestPointsDuration(@javax.annotation.Nullable Long spentTestPointsDuration) {
+
+  public void setSpentTestPointsDuration(Long spentTestPointsDuration) {
     this.spentTestPointsDuration = spentTestPointsDuration;
   }
 
@@ -308,34 +317,33 @@ public class TestPlanSummaryModel {
     openapiRequiredFields.add("plannedTestPointsDuration");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanSummaryModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanSummaryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestPlanSummaryModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestPlanSummaryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanSummaryModel is not found in the empty JSON string", TestPlanSummaryModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestPlanSummaryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanSummaryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanSummaryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanSummaryModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -358,31 +366,31 @@ public class TestPlanSummaryModel {
 
            @Override
            public TestPlanSummaryModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestPlanSummaryModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanSummaryModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanSummaryModel
-   */
+ /**
+  * Create an instance of TestPlanSummaryModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestPlanSummaryModel
+  * @throws IOException if the JSON string is invalid with respect to TestPlanSummaryModel
+  */
   public static TestPlanSummaryModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanSummaryModel.class);
   }
 
-  /**
-   * Convert an instance of TestPlanSummaryModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestPlanSummaryModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

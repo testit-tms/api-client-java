@@ -7,7 +7,7 @@
 
 * `RELATED` (value: `"Related"`)
 
-* `BLOCKED_BY` (value: `"BlockedBy"`)
+* `BLOCKEDBY` (value: `"BlockedBy"`)
 
 * `DEFECT` (value: `"Defect"`)
 

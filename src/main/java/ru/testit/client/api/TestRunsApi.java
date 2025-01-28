@@ -27,27 +27,28 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2TestRunsIdRerunsPostRequest;
+import ru.testit.client.model.ApiV2TestRunsIdStatisticsFilterPostRequest;
+import ru.testit.client.model.ApiV2TestRunsIdTestResultsBulkPutRequest;
+import ru.testit.client.model.ApiV2TestRunsPurgeBulkPostRequest;
+import ru.testit.client.model.ApiV2TestRunsSearchPostRequest;
+import ru.testit.client.model.ApiV2TestRunsUpdateMultiplePostRequest;
 import ru.testit.client.model.AutoTestNamespacesCountResponse;
 import ru.testit.client.model.AutoTestResultsForTestRunModel;
-import ru.testit.client.model.CreateEmptyTestRunApiModel;
-import ru.testit.client.model.CreateTestRunAndFillByAutoTestsApiModel;
-import ru.testit.client.model.CreateTestRunAndFillByConfigurationsApiModel;
-import ru.testit.client.model.CreateTestRunAndFillByWorkItemsApiModel;
-import ru.testit.client.model.ManualRerunApiResult;
-import ru.testit.client.model.ManualRerunSelectApiModel;
+import ru.testit.client.model.CreateAndFillByAutoTestsRequest;
+import ru.testit.client.model.CreateAndFillByConfigurationsRequest;
+import ru.testit.client.model.CreateAndFillByWorkItemsRequest;
+import ru.testit.client.model.ManualRerunResultModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestPointResultModel;
-import ru.testit.client.model.TestResultsStatisticsApiResult;
-import ru.testit.client.model.TestRunFilterApiModel;
-import ru.testit.client.model.TestRunSelectApiModel;
-import ru.testit.client.model.TestRunShortApiResult;
-import ru.testit.client.model.TestRunStatisticsFilterApiModel;
-import ru.testit.client.model.TestRunTestResultsPartialBulkSetModel;
-import ru.testit.client.model.TestRunV2ApiResult;
+import ru.testit.client.model.TestResultsStatisticsGetModel;
+import ru.testit.client.model.TestRunSelectModel;
+import ru.testit.client.model.TestRunShortGetModel;
+import ru.testit.client.model.TestRunV2GetModel;
+import ru.testit.client.model.TestRunV2PostShortModel;
+import ru.testit.client.model.TestRunV2PutModel;
 import java.util.UUID;
-import ru.testit.client.model.UpdateEmptyTestRunApiModel;
-import ru.testit.client.model.UpdateMultipleTestRunsApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -55,6 +56,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class TestRunsApi {
     private ApiClient localVarApiClient;
@@ -95,13 +97,12 @@ public class TestRunsApi {
 
     /**
      * Build call for apiV2TestRunsDelete
-     * @param testRunSelectApiModel  (optional)
+     * @param testRunSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -112,7 +113,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsDeleteCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsDeleteCall(TestRunSelectModel testRunSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -126,7 +127,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunSelectApiModel;
+        Object localVarPostBody = testRunSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns";
@@ -158,20 +159,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsDeleteValidateBeforeCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsDeleteCall(testRunSelectApiModel, _callback);
+    private okhttp3.Call apiV2TestRunsDeleteValidateBeforeCall(TestRunSelectModel testRunSelectModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsDeleteCall(testRunSelectModel, _callback);
 
     }
 
     /**
      * Delete multiple test runs
      *  Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param testRunSelectModel  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -182,20 +182,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public Integer apiV2TestRunsDelete(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        ApiResponse<Integer> localVarResp = apiV2TestRunsDeleteWithHttpInfo(testRunSelectApiModel);
+    public Integer apiV2TestRunsDelete(TestRunSelectModel testRunSelectModel) throws ApiException {
+        ApiResponse<Integer> localVarResp = apiV2TestRunsDeleteWithHttpInfo(testRunSelectModel);
         return localVarResp.getData();
     }
 
     /**
      * Delete multiple test runs
      *  Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param testRunSelectModel  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -206,8 +205,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> apiV2TestRunsDeleteWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsDeleteValidateBeforeCall(testRunSelectApiModel, null);
+    public ApiResponse<Integer> apiV2TestRunsDeleteWithHttpInfo(TestRunSelectModel testRunSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsDeleteValidateBeforeCall(testRunSelectModel, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -215,13 +214,12 @@ public class TestRunsApi {
     /**
      * Delete multiple test runs (asynchronously)
      *  Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param testRunSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -232,9 +230,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsDeleteAsync(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsDeleteAsync(TestRunSelectModel testRunSelectModel, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsDeleteValidateBeforeCall(testRunSelectApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsDeleteValidateBeforeCall(testRunSelectModel, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -246,8 +244,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -321,8 +318,7 @@ public class TestRunsApi {
      * @return AutoTestNamespacesCountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -345,8 +341,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;AutoTestNamespacesCountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -371,8 +366,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -397,8 +391,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -471,8 +464,7 @@ public class TestRunsApi {
      * @param id Test run internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -494,8 +486,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -519,8 +510,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -544,8 +534,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
@@ -618,8 +607,7 @@ public class TestRunsApi {
      * @param id Test run internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
@@ -641,8 +629,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
@@ -666,8 +653,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
@@ -687,13 +673,12 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdRerunsPost
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param apiV2TestRunsIdRerunsPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -704,7 +689,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdRerunsPostCall(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdRerunsPostCall(UUID id, ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -718,7 +703,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = manualRerunSelectApiModel;
+        Object localVarPostBody = apiV2TestRunsIdRerunsPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/reruns"
@@ -751,13 +736,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdRerunsPostValidateBeforeCall(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdRerunsPostValidateBeforeCall(UUID id, ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdRerunsPost(Async)");
         }
 
-        return apiV2TestRunsIdRerunsPostCall(id, manualRerunSelectApiModel, _callback);
+        return apiV2TestRunsIdRerunsPostCall(id, apiV2TestRunsIdRerunsPostRequest, _callback);
 
     }
 
@@ -765,12 +750,11 @@ public class TestRunsApi {
      * Manual autotests rerun in test run
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
-     * @return ManualRerunApiResult
+     * @param apiV2TestRunsIdRerunsPostRequest  (optional)
+     * @return ManualRerunResultModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -781,8 +765,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ManualRerunApiResult apiV2TestRunsIdRerunsPost(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel) throws ApiException {
-        ApiResponse<ManualRerunApiResult> localVarResp = apiV2TestRunsIdRerunsPostWithHttpInfo(id, manualRerunSelectApiModel);
+    public ManualRerunResultModel apiV2TestRunsIdRerunsPost(UUID id, ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest) throws ApiException {
+        ApiResponse<ManualRerunResultModel> localVarResp = apiV2TestRunsIdRerunsPostWithHttpInfo(id, apiV2TestRunsIdRerunsPostRequest);
         return localVarResp.getData();
     }
 
@@ -790,12 +774,11 @@ public class TestRunsApi {
      * Manual autotests rerun in test run
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
-     * @return ApiResponse&lt;ManualRerunApiResult&gt;
+     * @param apiV2TestRunsIdRerunsPostRequest  (optional)
+     * @return ApiResponse&lt;ManualRerunResultModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -806,9 +789,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ManualRerunApiResult> apiV2TestRunsIdRerunsPostWithHttpInfo(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectApiModel, null);
-        Type localVarReturnType = new TypeToken<ManualRerunApiResult>(){}.getType();
+    public ApiResponse<ManualRerunResultModel> apiV2TestRunsIdRerunsPostWithHttpInfo(UUID id, ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, apiV2TestRunsIdRerunsPostRequest, null);
+        Type localVarReturnType = new TypeToken<ManualRerunResultModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -816,13 +799,12 @@ public class TestRunsApi {
      * Manual autotests rerun in test run (asynchronously)
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param apiV2TestRunsIdRerunsPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -833,10 +815,10 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdRerunsPostAsync(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback<ManualRerunApiResult> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdRerunsPostAsync(UUID id, ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest, final ApiCallback<ManualRerunResultModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectApiModel, _callback);
-        Type localVarReturnType = new TypeToken<ManualRerunApiResult>(){}.getType();
+        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, apiV2TestRunsIdRerunsPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<ManualRerunResultModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -847,8 +829,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -921,8 +902,7 @@ public class TestRunsApi {
      * @param id Unique ID of the test run (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -944,8 +924,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -969,8 +948,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - ID is not valid   - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
@@ -990,13 +968,12 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdStatisticsFilterPost
      * @param id Test run unique ID (required)
-     * @param testRunStatisticsFilterApiModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1007,7 +984,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostCall(UUID id, TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostCall(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1021,7 +998,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunStatisticsFilterApiModel;
+        Object localVarPostBody = apiV2TestRunsIdStatisticsFilterPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/statistics/filter"
@@ -1054,13 +1031,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(UUID id, TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdStatisticsFilterPost(Async)");
         }
 
-        return apiV2TestRunsIdStatisticsFilterPostCall(id, testRunStatisticsFilterApiModel, _callback);
+        return apiV2TestRunsIdStatisticsFilterPostCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, _callback);
 
     }
 
@@ -1068,12 +1045,11 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics
      * 
      * @param id Test run unique ID (required)
-     * @param testRunStatisticsFilterApiModel  (optional)
-     * @return TestResultsStatisticsApiResult
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
+     * @return TestResultsStatisticsGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1084,8 +1060,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsApiResult apiV2TestRunsIdStatisticsFilterPost(UUID id, TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel) throws ApiException {
-        ApiResponse<TestResultsStatisticsApiResult> localVarResp = apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(id, testRunStatisticsFilterApiModel);
+    public TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest) throws ApiException {
+        ApiResponse<TestResultsStatisticsGetModel> localVarResp = apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(id, apiV2TestRunsIdStatisticsFilterPostRequest);
         return localVarResp.getData();
     }
 
@@ -1093,12 +1069,11 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics
      * 
      * @param id Test run unique ID (required)
-     * @param testRunStatisticsFilterApiModel  (optional)
-     * @return ApiResponse&lt;TestResultsStatisticsApiResult&gt;
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
+     * @return ApiResponse&lt;TestResultsStatisticsGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1109,9 +1084,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsApiResult> apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(UUID id, TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, testRunStatisticsFilterApiModel, null);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsApiResult>(){}.getType();
+    public ApiResponse<TestResultsStatisticsGetModel> apiV2TestRunsIdStatisticsFilterPostWithHttpInfo(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, null);
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1119,13 +1094,12 @@ public class TestRunsApi {
      * Search for the test run test results and build statistics (asynchronously)
      * 
      * @param id Test run unique ID (required)
-     * @param testRunStatisticsFilterApiModel  (optional)
+     * @param apiV2TestRunsIdStatisticsFilterPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1136,10 +1110,10 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostAsync(UUID id, TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel, final ApiCallback<TestResultsStatisticsApiResult> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdStatisticsFilterPostAsync(UUID id, ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest, final ApiCallback<TestResultsStatisticsGetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, testRunStatisticsFilterApiModel, _callback);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsApiResult>(){}.getType();
+        okhttp3.Call localVarCall = apiV2TestRunsIdStatisticsFilterPostValidateBeforeCall(id, apiV2TestRunsIdStatisticsFilterPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsGetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1150,8 +1124,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1225,8 +1198,7 @@ public class TestRunsApi {
      * @return List&lt;TestPointResultModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1249,8 +1221,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;List&lt;TestPointResultModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1275,8 +1246,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1297,13 +1267,12 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdTestResultsBulkPut
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1314,7 +1283,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutCall(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutCall(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1328,7 +1297,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunTestResultsPartialBulkSetModel;
+        Object localVarPostBody = apiV2TestRunsIdTestResultsBulkPutRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/testResults/bulk"
@@ -1361,13 +1330,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdTestResultsBulkPut(Async)");
         }
 
-        return apiV2TestRunsIdTestResultsBulkPutCall(id, testRunTestResultsPartialBulkSetModel, _callback);
+        return apiV2TestRunsIdTestResultsBulkPutCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, _callback);
 
     }
 
@@ -1375,11 +1344,10 @@ public class TestRunsApi {
      * Partial edit of multiple test results in the test run
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1390,20 +1358,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestRunsIdTestResultsBulkPut(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
-        apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(id, testRunTestResultsPartialBulkSetModel);
+    public void apiV2TestRunsIdTestResultsBulkPut(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest) throws ApiException {
+        apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(id, apiV2TestRunsIdTestResultsBulkPutRequest);
     }
 
     /**
      * Partial edit of multiple test results in the test run
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1414,8 +1381,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, testRunTestResultsPartialBulkSetModel, null);
+    public ApiResponse<Void> apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1423,13 +1390,12 @@ public class TestRunsApi {
      * Partial edit of multiple test results in the test run (asynchronously)
      * 
      * @param id Test run unique ID (required)
-     * @param testRunTestResultsPartialBulkSetModel  (optional)
+     * @param apiV2TestRunsIdTestResultsBulkPutRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1440,9 +1406,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutAsync(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutAsync(UUID id, ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, testRunTestResultsPartialBulkSetModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsIdTestResultsBulkPutValidateBeforeCall(id, apiV2TestRunsIdTestResultsBulkPutRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1453,8 +1419,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1528,8 +1493,7 @@ public class TestRunsApi {
      * @return OffsetDateTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1552,8 +1516,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;OffsetDateTime&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1578,8 +1541,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1599,13 +1561,12 @@ public class TestRunsApi {
     }
     /**
      * Build call for apiV2TestRunsPurgeBulkPost
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1616,7 +1577,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsPurgeBulkPostCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsPurgeBulkPostCall(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1630,7 +1591,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunSelectApiModel;
+        Object localVarPostBody = apiV2TestRunsPurgeBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/purge/bulk";
@@ -1662,20 +1623,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsPurgeBulkPostValidateBeforeCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsPurgeBulkPostCall(testRunSelectApiModel, _callback);
+    private okhttp3.Call apiV2TestRunsPurgeBulkPostValidateBeforeCall(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsPurgeBulkPostCall(apiV2TestRunsPurgeBulkPostRequest, _callback);
 
     }
 
     /**
      * Permanently delete multiple test runs from archive
      *  Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1686,20 +1646,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public Integer apiV2TestRunsPurgeBulkPost(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        ApiResponse<Integer> localVarResp = apiV2TestRunsPurgeBulkPostWithHttpInfo(testRunSelectApiModel);
+    public Integer apiV2TestRunsPurgeBulkPost(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest) throws ApiException {
+        ApiResponse<Integer> localVarResp = apiV2TestRunsPurgeBulkPostWithHttpInfo(apiV2TestRunsPurgeBulkPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Permanently delete multiple test runs from archive
      *  Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1710,8 +1669,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> apiV2TestRunsPurgeBulkPostWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsPurgeBulkPostValidateBeforeCall(testRunSelectApiModel, null);
+    public ApiResponse<Integer> apiV2TestRunsPurgeBulkPostWithHttpInfo(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsPurgeBulkPostValidateBeforeCall(apiV2TestRunsPurgeBulkPostRequest, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1719,13 +1678,12 @@ public class TestRunsApi {
     /**
      * Permanently delete multiple test runs from archive (asynchronously)
      *  Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1736,22 +1694,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsPurgeBulkPostAsync(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsPurgeBulkPostAsync(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsPurgeBulkPostValidateBeforeCall(testRunSelectApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsPurgeBulkPostValidateBeforeCall(apiV2TestRunsPurgeBulkPostRequest, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestRunsRestoreBulkPost
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1762,7 +1719,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsRestoreBulkPostCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsRestoreBulkPostCall(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1776,7 +1733,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunSelectApiModel;
+        Object localVarPostBody = apiV2TestRunsPurgeBulkPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/restore/bulk";
@@ -1808,20 +1765,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsRestoreBulkPostValidateBeforeCall(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsRestoreBulkPostCall(testRunSelectApiModel, _callback);
+    private okhttp3.Call apiV2TestRunsRestoreBulkPostValidateBeforeCall(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsRestoreBulkPostCall(apiV2TestRunsPurgeBulkPostRequest, _callback);
 
     }
 
     /**
      * Restore multiple test runs from the archive
      *  Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1832,20 +1788,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public Integer apiV2TestRunsRestoreBulkPost(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        ApiResponse<Integer> localVarResp = apiV2TestRunsRestoreBulkPostWithHttpInfo(testRunSelectApiModel);
+    public Integer apiV2TestRunsRestoreBulkPost(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest) throws ApiException {
+        ApiResponse<Integer> localVarResp = apiV2TestRunsRestoreBulkPostWithHttpInfo(apiV2TestRunsPurgeBulkPostRequest);
         return localVarResp.getData();
     }
 
     /**
      * Restore multiple test runs from the archive
      *  Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1856,8 +1811,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> apiV2TestRunsRestoreBulkPostWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsRestoreBulkPostValidateBeforeCall(testRunSelectApiModel, null);
+    public ApiResponse<Integer> apiV2TestRunsRestoreBulkPostWithHttpInfo(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsRestoreBulkPostValidateBeforeCall(apiV2TestRunsPurgeBulkPostRequest, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1865,13 +1820,12 @@ public class TestRunsApi {
     /**
      * Restore multiple test runs from the archive (asynchronously)
      *  Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
-     * @param testRunSelectApiModel  (optional)
+     * @param apiV2TestRunsPurgeBulkPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1882,9 +1836,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsRestoreBulkPostAsync(TestRunSelectApiModel testRunSelectApiModel, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsRestoreBulkPostAsync(ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsRestoreBulkPostValidateBeforeCall(testRunSelectApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsRestoreBulkPostValidateBeforeCall(apiV2TestRunsPurgeBulkPostRequest, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1896,13 +1850,12 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterApiModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1913,7 +1866,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterApiModel testRunFilterApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1927,7 +1880,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = testRunFilterApiModel;
+        Object localVarPostBody = apiV2TestRunsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/search";
@@ -1979,8 +1932,8 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterApiModel testRunFilterApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsSearchPostCall(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel, _callback);
+    private okhttp3.Call apiV2TestRunsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, _callback);
 
     }
 
@@ -1992,12 +1945,11 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterApiModel  (optional)
-     * @return List&lt;TestRunShortApiResult&gt;
+     * @param apiV2TestRunsSearchPostRequest  (optional)
+     * @return List&lt;TestRunShortGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2008,8 +1960,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestRunShortApiResult> apiV2TestRunsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterApiModel testRunFilterApiModel) throws ApiException {
-        ApiResponse<List<TestRunShortApiResult>> localVarResp = apiV2TestRunsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel);
+    public List<TestRunShortGetModel> apiV2TestRunsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest) throws ApiException {
+        ApiResponse<List<TestRunShortGetModel>> localVarResp = apiV2TestRunsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -2021,12 +1973,11 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterApiModel  (optional)
-     * @return ApiResponse&lt;List&lt;TestRunShortApiResult&gt;&gt;
+     * @param apiV2TestRunsSearchPostRequest  (optional)
+     * @return ApiResponse&lt;List&lt;TestRunShortGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2037,9 +1988,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestRunShortApiResult>> apiV2TestRunsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterApiModel testRunFilterApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel, null);
-        Type localVarReturnType = new TypeToken<List<TestRunShortApiResult>>(){}.getType();
+    public ApiResponse<List<TestRunShortGetModel>> apiV2TestRunsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, null);
+        Type localVarReturnType = new TypeToken<List<TestRunShortGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2051,13 +2002,12 @@ public class TestRunsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param testRunFilterApiModel  (optional)
+     * @param apiV2TestRunsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2068,22 +2018,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestRunFilterApiModel testRunFilterApiModel, final ApiCallback<List<TestRunShortApiResult>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest, final ApiCallback<List<TestRunShortGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel, _callback);
-        Type localVarReturnType = new TypeToken<List<TestRunShortApiResult>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2TestRunsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<TestRunShortGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestRunsUpdateMultiplePost
-     * @param updateMultipleTestRunsApiModel  (optional)
+     * @param apiV2TestRunsUpdateMultiplePostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2094,7 +2043,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsUpdateMultiplePostCall(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsUpdateMultiplePostCall(ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2108,7 +2057,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateMultipleTestRunsApiModel;
+        Object localVarPostBody = apiV2TestRunsUpdateMultiplePostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/updateMultiple";
@@ -2140,19 +2089,18 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsUpdateMultiplePostValidateBeforeCall(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel, final ApiCallback _callback) throws ApiException {
-        return apiV2TestRunsUpdateMultiplePostCall(updateMultipleTestRunsApiModel, _callback);
+    private okhttp3.Call apiV2TestRunsUpdateMultiplePostValidateBeforeCall(ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2TestRunsUpdateMultiplePostCall(apiV2TestRunsUpdateMultiplePostRequest, _callback);
 
     }
 
     /**
      * Update multiple test runs
      * 
-     * @param updateMultipleTestRunsApiModel  (optional)
+     * @param apiV2TestRunsUpdateMultiplePostRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2163,19 +2111,18 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2TestRunsUpdateMultiplePost(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel) throws ApiException {
-        apiV2TestRunsUpdateMultiplePostWithHttpInfo(updateMultipleTestRunsApiModel);
+    public void apiV2TestRunsUpdateMultiplePost(ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest) throws ApiException {
+        apiV2TestRunsUpdateMultiplePostWithHttpInfo(apiV2TestRunsUpdateMultiplePostRequest);
     }
 
     /**
      * Update multiple test runs
      * 
-     * @param updateMultipleTestRunsApiModel  (optional)
+     * @param apiV2TestRunsUpdateMultiplePostRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2186,21 +2133,20 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2TestRunsUpdateMultiplePostWithHttpInfo(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsUpdateMultiplePostValidateBeforeCall(updateMultipleTestRunsApiModel, null);
+    public ApiResponse<Void> apiV2TestRunsUpdateMultiplePostWithHttpInfo(ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsUpdateMultiplePostValidateBeforeCall(apiV2TestRunsUpdateMultiplePostRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update multiple test runs (asynchronously)
      * 
-     * @param updateMultipleTestRunsApiModel  (optional)
+     * @param apiV2TestRunsUpdateMultiplePostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2211,9 +2157,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsUpdateMultiplePostAsync(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsUpdateMultiplePostAsync(ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsUpdateMultiplePostValidateBeforeCall(updateMultipleTestRunsApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsUpdateMultiplePostValidateBeforeCall(apiV2TestRunsUpdateMultiplePostRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -2224,8 +2170,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -2298,8 +2243,7 @@ public class TestRunsApi {
      * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -2321,8 +2265,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -2346,8 +2289,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -2366,13 +2308,12 @@ public class TestRunsApi {
     }
     /**
      * Build call for createAndFillByAutoTests
-     * @param createTestRunAndFillByAutoTestsApiModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Configuration does not exist in the project   - Autotest does not exist in the project   - Test run must be automated   - Project ID is invalid   - Autotest external IDs are required   - Configuration IDs are required </td><td>  -  </td></tr>
@@ -2383,7 +2324,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByAutoTestsCall(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByAutoTestsCall(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2397,7 +2338,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTestRunAndFillByAutoTestsApiModel;
+        Object localVarPostBody = createAndFillByAutoTestsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byAutoTests";
@@ -2429,20 +2370,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByAutoTestsValidateBeforeCall(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByAutoTestsCall(createTestRunAndFillByAutoTestsApiModel, _callback);
+    private okhttp3.Call createAndFillByAutoTestsValidateBeforeCall(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByAutoTestsCall(createAndFillByAutoTestsRequest, _callback);
 
     }
 
     /**
      * Create test runs based on autotests and configurations
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param createTestRunAndFillByAutoTestsApiModel  (optional)
-     * @return TestRunV2ApiResult
+     * @param createAndFillByAutoTestsRequest  (optional)
+     * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Configuration does not exist in the project   - Autotest does not exist in the project   - Test run must be automated   - Project ID is invalid   - Autotest external IDs are required   - Configuration IDs are required </td><td>  -  </td></tr>
@@ -2453,20 +2393,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2ApiResult createAndFillByAutoTests(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel) throws ApiException {
-        ApiResponse<TestRunV2ApiResult> localVarResp = createAndFillByAutoTestsWithHttpInfo(createTestRunAndFillByAutoTestsApiModel);
+    public TestRunV2GetModel createAndFillByAutoTests(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByAutoTestsWithHttpInfo(createAndFillByAutoTestsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test runs based on autotests and configurations
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param createTestRunAndFillByAutoTestsApiModel  (optional)
-     * @return ApiResponse&lt;TestRunV2ApiResult&gt;
+     * @param createAndFillByAutoTestsRequest  (optional)
+     * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Configuration does not exist in the project   - Autotest does not exist in the project   - Test run must be automated   - Project ID is invalid   - Autotest external IDs are required   - Configuration IDs are required </td><td>  -  </td></tr>
@@ -2477,22 +2416,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2ApiResult> createAndFillByAutoTestsWithHttpInfo(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createTestRunAndFillByAutoTestsApiModel, null);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+    public ApiResponse<TestRunV2GetModel> createAndFillByAutoTestsWithHttpInfo(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createAndFillByAutoTestsRequest, null);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create test runs based on autotests and configurations (asynchronously)
      * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
-     * @param createTestRunAndFillByAutoTestsApiModel  (optional)
+     * @param createAndFillByAutoTestsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Configuration does not exist in the project   - Autotest does not exist in the project   - Test run must be automated   - Project ID is invalid   - Autotest external IDs are required   - Configuration IDs are required </td><td>  -  </td></tr>
@@ -2503,22 +2441,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByAutoTestsAsync(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel, final ApiCallback<TestRunV2ApiResult> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByAutoTestsAsync(CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createTestRunAndFillByAutoTestsApiModel, _callback);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        okhttp3.Call localVarCall = createAndFillByAutoTestsValidateBeforeCall(createAndFillByAutoTestsRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAndFillByConfigurations
-     * @param createTestRunAndFillByConfigurationsApiModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Test run must be automated   - Some work items do not exist   - Project ID is invalid   - Test point selectors are required   - Some work item IDs are invalid   - Some configuration IDs are invalid </td><td>  -  </td></tr>
@@ -2529,7 +2466,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByConfigurationsCall(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByConfigurationsCall(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2543,7 +2480,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTestRunAndFillByConfigurationsApiModel;
+        Object localVarPostBody = createAndFillByConfigurationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byConfigurations";
@@ -2575,20 +2512,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByConfigurationsValidateBeforeCall(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByConfigurationsCall(createTestRunAndFillByConfigurationsApiModel, _callback);
+    private okhttp3.Call createAndFillByConfigurationsValidateBeforeCall(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByConfigurationsCall(createAndFillByConfigurationsRequest, _callback);
 
     }
 
     /**
      * Create test runs picking the needed test points
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param createTestRunAndFillByConfigurationsApiModel  (optional)
-     * @return TestRunV2ApiResult
+     * @param createAndFillByConfigurationsRequest  (optional)
+     * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Test run must be automated   - Some work items do not exist   - Project ID is invalid   - Test point selectors are required   - Some work item IDs are invalid   - Some configuration IDs are invalid </td><td>  -  </td></tr>
@@ -2599,20 +2535,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2ApiResult createAndFillByConfigurations(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel) throws ApiException {
-        ApiResponse<TestRunV2ApiResult> localVarResp = createAndFillByConfigurationsWithHttpInfo(createTestRunAndFillByConfigurationsApiModel);
+    public TestRunV2GetModel createAndFillByConfigurations(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByConfigurationsWithHttpInfo(createAndFillByConfigurationsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test runs picking the needed test points
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param createTestRunAndFillByConfigurationsApiModel  (optional)
-     * @return ApiResponse&lt;TestRunV2ApiResult&gt;
+     * @param createAndFillByConfigurationsRequest  (optional)
+     * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Test run must be automated   - Some work items do not exist   - Project ID is invalid   - Test point selectors are required   - Some work item IDs are invalid   - Some configuration IDs are invalid </td><td>  -  </td></tr>
@@ -2623,22 +2558,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2ApiResult> createAndFillByConfigurationsWithHttpInfo(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createTestRunAndFillByConfigurationsApiModel, null);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+    public ApiResponse<TestRunV2GetModel> createAndFillByConfigurationsWithHttpInfo(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createAndFillByConfigurationsRequest, null);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create test runs picking the needed test points (asynchronously)
      * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
-     * @param createTestRunAndFillByConfigurationsApiModel  (optional)
+     * @param createAndFillByConfigurationsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Test run must be automated   - Some work items do not exist   - Project ID is invalid   - Test point selectors are required   - Some work item IDs are invalid   - Some configuration IDs are invalid </td><td>  -  </td></tr>
@@ -2649,22 +2583,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByConfigurationsAsync(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel, final ApiCallback<TestRunV2ApiResult> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByConfigurationsAsync(CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createTestRunAndFillByConfigurationsApiModel, _callback);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        okhttp3.Call localVarCall = createAndFillByConfigurationsValidateBeforeCall(createAndFillByConfigurationsRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAndFillByWorkItems
-     * @param createTestRunAndFillByWorkItemsApiModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Some work items do not exist   - Project ID is invalid </td><td>  -  </td></tr>
@@ -2675,7 +2608,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByWorkItemsCall(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAndFillByWorkItemsCall(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2689,7 +2622,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTestRunAndFillByWorkItemsApiModel;
+        Object localVarPostBody = createAndFillByWorkItemsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/byWorkItems";
@@ -2721,20 +2654,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAndFillByWorkItemsValidateBeforeCall(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel, final ApiCallback _callback) throws ApiException {
-        return createAndFillByWorkItemsCall(createTestRunAndFillByWorkItemsApiModel, _callback);
+    private okhttp3.Call createAndFillByWorkItemsValidateBeforeCall(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback _callback) throws ApiException {
+        return createAndFillByWorkItemsCall(createAndFillByWorkItemsRequest, _callback);
 
     }
 
     /**
      * Create test run based on configurations and work items
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param createTestRunAndFillByWorkItemsApiModel  (optional)
-     * @return TestRunV2ApiResult
+     * @param createAndFillByWorkItemsRequest  (optional)
+     * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Some work items do not exist   - Project ID is invalid </td><td>  -  </td></tr>
@@ -2745,20 +2677,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2ApiResult createAndFillByWorkItems(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel) throws ApiException {
-        ApiResponse<TestRunV2ApiResult> localVarResp = createAndFillByWorkItemsWithHttpInfo(createTestRunAndFillByWorkItemsApiModel);
+    public TestRunV2GetModel createAndFillByWorkItems(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createAndFillByWorkItemsWithHttpInfo(createAndFillByWorkItemsRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create test run based on configurations and work items
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param createTestRunAndFillByWorkItemsApiModel  (optional)
-     * @return ApiResponse&lt;TestRunV2ApiResult&gt;
+     * @param createAndFillByWorkItemsRequest  (optional)
+     * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Some work items do not exist   - Project ID is invalid </td><td>  -  </td></tr>
@@ -2769,22 +2700,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2ApiResult> createAndFillByWorkItemsWithHttpInfo(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel) throws ApiException {
-        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createTestRunAndFillByWorkItemsApiModel, null);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+    public ApiResponse<TestRunV2GetModel> createAndFillByWorkItemsWithHttpInfo(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createAndFillByWorkItemsRequest, null);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create test run based on configurations and work items (asynchronously)
      * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
-     * @param createTestRunAndFillByWorkItemsApiModel  (optional)
+     * @param createAndFillByWorkItemsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Some work items do not exist   - Project ID is invalid </td><td>  -  </td></tr>
@@ -2795,22 +2725,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAndFillByWorkItemsAsync(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel, final ApiCallback<TestRunV2ApiResult> _callback) throws ApiException {
+    public okhttp3.Call createAndFillByWorkItemsAsync(CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createTestRunAndFillByWorkItemsApiModel, _callback);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        okhttp3.Call localVarCall = createAndFillByWorkItemsValidateBeforeCall(createAndFillByWorkItemsRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createEmpty
-     * @param createEmptyTestRunApiModel  (optional)
+     * @param testRunV2PostShortModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   TestRun must be automated   ProjectId is not a valid! </td><td>  -  </td></tr>
@@ -2821,7 +2750,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmptyCall(CreateEmptyTestRunApiModel createEmptyTestRunApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEmptyCall(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2835,7 +2764,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createEmptyTestRunApiModel;
+        Object localVarPostBody = testRunV2PostShortModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns";
@@ -2867,20 +2796,19 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEmptyValidateBeforeCall(CreateEmptyTestRunApiModel createEmptyTestRunApiModel, final ApiCallback _callback) throws ApiException {
-        return createEmptyCall(createEmptyTestRunApiModel, _callback);
+    private okhttp3.Call createEmptyValidateBeforeCall(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback _callback) throws ApiException {
+        return createEmptyCall(testRunV2PostShortModel, _callback);
 
     }
 
     /**
      * Create empty TestRun
      *  Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
-     * @param createEmptyTestRunApiModel  (optional)
-     * @return TestRunV2ApiResult
+     * @param testRunV2PostShortModel  (optional)
+     * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   TestRun must be automated   ProjectId is not a valid! </td><td>  -  </td></tr>
@@ -2891,20 +2819,19 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2ApiResult createEmpty(CreateEmptyTestRunApiModel createEmptyTestRunApiModel) throws ApiException {
-        ApiResponse<TestRunV2ApiResult> localVarResp = createEmptyWithHttpInfo(createEmptyTestRunApiModel);
+    public TestRunV2GetModel createEmpty(TestRunV2PostShortModel testRunV2PostShortModel) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = createEmptyWithHttpInfo(testRunV2PostShortModel);
         return localVarResp.getData();
     }
 
     /**
      * Create empty TestRun
      *  Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
-     * @param createEmptyTestRunApiModel  (optional)
-     * @return ApiResponse&lt;TestRunV2ApiResult&gt;
+     * @param testRunV2PostShortModel  (optional)
+     * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   TestRun must be automated   ProjectId is not a valid! </td><td>  -  </td></tr>
@@ -2915,22 +2842,21 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2ApiResult> createEmptyWithHttpInfo(CreateEmptyTestRunApiModel createEmptyTestRunApiModel) throws ApiException {
-        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(createEmptyTestRunApiModel, null);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+    public ApiResponse<TestRunV2GetModel> createEmptyWithHttpInfo(TestRunV2PostShortModel testRunV2PostShortModel) throws ApiException {
+        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(testRunV2PostShortModel, null);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create empty TestRun (asynchronously)
      *  Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
-     * @param createEmptyTestRunApiModel  (optional)
+     * @param testRunV2PostShortModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   TestRun must be automated   ProjectId is not a valid! </td><td>  -  </td></tr>
@@ -2941,10 +2867,10 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmptyAsync(CreateEmptyTestRunApiModel createEmptyTestRunApiModel, final ApiCallback<TestRunV2ApiResult> _callback) throws ApiException {
+    public okhttp3.Call createEmptyAsync(TestRunV2PostShortModel testRunV2PostShortModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(createEmptyTestRunApiModel, _callback);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        okhttp3.Call localVarCall = createEmptyValidateBeforeCall(testRunV2PostShortModel, _callback);
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2955,8 +2881,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -3027,11 +2952,10 @@ public class TestRunsApi {
      * Get TestRun by Id
      *  Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
      * @param id Test Run internal identifier (GUID format) (required)
-     * @return TestRunV2ApiResult
+     * @return TestRunV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -3042,8 +2966,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestRunV2ApiResult getTestRunById(UUID id) throws ApiException {
-        ApiResponse<TestRunV2ApiResult> localVarResp = getTestRunByIdWithHttpInfo(id);
+    public TestRunV2GetModel getTestRunById(UUID id) throws ApiException {
+        ApiResponse<TestRunV2GetModel> localVarResp = getTestRunByIdWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -3051,11 +2975,10 @@ public class TestRunsApi {
      * Get TestRun by Id
      *  Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
      * @param id Test Run internal identifier (GUID format) (required)
-     * @return ApiResponse&lt;TestRunV2ApiResult&gt;
+     * @return ApiResponse&lt;TestRunV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -3066,9 +2989,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestRunV2ApiResult> getTestRunByIdWithHttpInfo(UUID id) throws ApiException {
+    public ApiResponse<TestRunV2GetModel> getTestRunByIdWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = getTestRunByIdValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3080,8 +3003,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -3092,10 +3014,10 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTestRunByIdAsync(UUID id, final ApiCallback<TestRunV2ApiResult> _callback) throws ApiException {
+    public okhttp3.Call getTestRunByIdAsync(UUID id, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTestRunByIdValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<TestRunV2ApiResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<TestRunV2GetModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3107,8 +3029,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Body is invalid   - Test points are required   - Duration must be a positive number   - Outcome is not defined   - Test run is stopped </td><td>  -  </td></tr>
@@ -3184,8 +3105,7 @@ public class TestRunsApi {
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Body is invalid   - Test points are required   - Duration must be a positive number   - Outcome is not defined   - Test run is stopped </td><td>  -  </td></tr>
@@ -3209,8 +3129,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Body is invalid   - Test points are required   - Duration must be a positive number   - Outcome is not defined   - Test run is stopped </td><td>  -  </td></tr>
@@ -3236,8 +3155,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  - Field is required   - Body is invalid   - Test points are required   - Duration must be a positive number   - Outcome is not defined   - Test run is stopped </td><td>  -  </td></tr>
@@ -3262,8 +3180,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already InProgress   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3336,8 +3253,7 @@ public class TestRunsApi {
      * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already InProgress   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3359,8 +3275,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already InProgress   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3384,8 +3299,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already InProgress   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3409,8 +3323,7 @@ public class TestRunsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3483,8 +3396,7 @@ public class TestRunsApi {
      * @param id Test Run internal identifier (GUID format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3506,8 +3418,7 @@ public class TestRunsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3531,8 +3442,7 @@ public class TestRunsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   the StateName is already Stopped   the StateName is already Completed </td><td>  -  </td></tr>
@@ -3551,13 +3461,12 @@ public class TestRunsApi {
     }
     /**
      * Build call for updateEmpty
-     * @param updateEmptyTestRunApiModel  (optional)
+     * @param testRunV2PutModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   Name is not valid </td><td>  -  </td></tr>
@@ -3568,7 +3477,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmptyCall(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateEmptyCall(TestRunV2PutModel testRunV2PutModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3582,7 +3491,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateEmptyTestRunApiModel;
+        Object localVarPostBody = testRunV2PutModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns";
@@ -3614,19 +3523,18 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEmptyValidateBeforeCall(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel, final ApiCallback _callback) throws ApiException {
-        return updateEmptyCall(updateEmptyTestRunApiModel, _callback);
+    private okhttp3.Call updateEmptyValidateBeforeCall(TestRunV2PutModel testRunV2PutModel, final ApiCallback _callback) throws ApiException {
+        return updateEmptyCall(testRunV2PutModel, _callback);
 
     }
 
     /**
      * Update empty TestRun
      *  Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
-     * @param updateEmptyTestRunApiModel  (optional)
+     * @param testRunV2PutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   Name is not valid </td><td>  -  </td></tr>
@@ -3637,19 +3545,18 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateEmpty(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel) throws ApiException {
-        updateEmptyWithHttpInfo(updateEmptyTestRunApiModel);
+    public void updateEmpty(TestRunV2PutModel testRunV2PutModel) throws ApiException {
+        updateEmptyWithHttpInfo(testRunV2PutModel);
     }
 
     /**
      * Update empty TestRun
      *  Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
-     * @param updateEmptyTestRunApiModel  (optional)
+     * @param testRunV2PutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   Name is not valid </td><td>  -  </td></tr>
@@ -3660,21 +3567,20 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateEmptyWithHttpInfo(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel) throws ApiException {
-        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(updateEmptyTestRunApiModel, null);
+    public ApiResponse<Void> updateEmptyWithHttpInfo(TestRunV2PutModel testRunV2PutModel) throws ApiException {
+        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(testRunV2PutModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update empty TestRun (asynchronously)
      *  Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
-     * @param updateEmptyTestRunApiModel  (optional)
+     * @param testRunV2PutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  Field is required   Name is not valid </td><td>  -  </td></tr>
@@ -3685,9 +3591,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmptyAsync(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateEmptyAsync(TestRunV2PutModel testRunV2PutModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(updateEmptyTestRunApiModel, _callback);
+        okhttp3.Call localVarCall = updateEmptyValidateBeforeCall(testRunV2PutModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

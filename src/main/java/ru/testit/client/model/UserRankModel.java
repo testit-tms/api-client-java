@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,10 +37,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -48,175 +50,182 @@ import ru.testit.client.invoker.JSON;
 /**
  * UserRankModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserRankModel {
   public static final String SERIALIZED_NAME_SCORE = "score";
   @SerializedName(SERIALIZED_NAME_SCORE)
-  @javax.annotation.Nonnull
   private Integer score;
 
   public static final String SERIALIZED_NAME_WORK_ITEMS_CREATED = "workItemsCreated";
   @SerializedName(SERIALIZED_NAME_WORK_ITEMS_CREATED)
-  @javax.annotation.Nonnull
   private Integer workItemsCreated;
 
   public static final String SERIALIZED_NAME_PASSED_TEST_POINTS = "passedTestPoints";
   @SerializedName(SERIALIZED_NAME_PASSED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer passedTestPoints;
 
   public static final String SERIALIZED_NAME_FAILED_TEST_POINTS = "failedTestPoints";
   @SerializedName(SERIALIZED_NAME_FAILED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer failedTestPoints;
 
   public static final String SERIALIZED_NAME_SKIPPED_TEST_POINTS = "skippedTestPoints";
   @SerializedName(SERIALIZED_NAME_SKIPPED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer skippedTestPoints;
 
   public static final String SERIALIZED_NAME_BLOCKED_TEST_POINTS = "blockedTestPoints";
   @SerializedName(SERIALIZED_NAME_BLOCKED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer blockedTestPoints;
 
   public static final String SERIALIZED_NAME_LEVEL_AVATAR_ENABLED = "levelAvatarEnabled";
   @SerializedName(SERIALIZED_NAME_LEVEL_AVATAR_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean levelAvatarEnabled;
 
   public UserRankModel() {
   }
 
-  public UserRankModel score(@javax.annotation.Nonnull Integer score) {
+  public UserRankModel score(Integer score) {
+    
     this.score = score;
     return this;
   }
 
-  /**
+   /**
    * Get score
    * @return score
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getScore() {
     return score;
   }
 
-  public void setScore(@javax.annotation.Nonnull Integer score) {
+
+  public void setScore(Integer score) {
     this.score = score;
   }
 
 
-  public UserRankModel workItemsCreated(@javax.annotation.Nonnull Integer workItemsCreated) {
+  public UserRankModel workItemsCreated(Integer workItemsCreated) {
+    
     this.workItemsCreated = workItemsCreated;
     return this;
   }
 
-  /**
+   /**
    * Get workItemsCreated
    * @return workItemsCreated
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getWorkItemsCreated() {
     return workItemsCreated;
   }
 
-  public void setWorkItemsCreated(@javax.annotation.Nonnull Integer workItemsCreated) {
+
+  public void setWorkItemsCreated(Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
   }
 
 
-  public UserRankModel passedTestPoints(@javax.annotation.Nonnull Integer passedTestPoints) {
+  public UserRankModel passedTestPoints(Integer passedTestPoints) {
+    
     this.passedTestPoints = passedTestPoints;
     return this;
   }
 
-  /**
+   /**
    * Get passedTestPoints
    * @return passedTestPoints
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getPassedTestPoints() {
     return passedTestPoints;
   }
 
-  public void setPassedTestPoints(@javax.annotation.Nonnull Integer passedTestPoints) {
+
+  public void setPassedTestPoints(Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
   }
 
 
-  public UserRankModel failedTestPoints(@javax.annotation.Nonnull Integer failedTestPoints) {
+  public UserRankModel failedTestPoints(Integer failedTestPoints) {
+    
     this.failedTestPoints = failedTestPoints;
     return this;
   }
 
-  /**
+   /**
    * Get failedTestPoints
    * @return failedTestPoints
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getFailedTestPoints() {
     return failedTestPoints;
   }
 
-  public void setFailedTestPoints(@javax.annotation.Nonnull Integer failedTestPoints) {
+
+  public void setFailedTestPoints(Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
   }
 
 
-  public UserRankModel skippedTestPoints(@javax.annotation.Nonnull Integer skippedTestPoints) {
+  public UserRankModel skippedTestPoints(Integer skippedTestPoints) {
+    
     this.skippedTestPoints = skippedTestPoints;
     return this;
   }
 
-  /**
+   /**
    * Get skippedTestPoints
    * @return skippedTestPoints
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getSkippedTestPoints() {
     return skippedTestPoints;
   }
 
-  public void setSkippedTestPoints(@javax.annotation.Nonnull Integer skippedTestPoints) {
+
+  public void setSkippedTestPoints(Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
   }
 
 
-  public UserRankModel blockedTestPoints(@javax.annotation.Nonnull Integer blockedTestPoints) {
+  public UserRankModel blockedTestPoints(Integer blockedTestPoints) {
+    
     this.blockedTestPoints = blockedTestPoints;
     return this;
   }
 
-  /**
+   /**
    * Get blockedTestPoints
    * @return blockedTestPoints
-   */
+  **/
   @javax.annotation.Nonnull
   public Integer getBlockedTestPoints() {
     return blockedTestPoints;
   }
 
-  public void setBlockedTestPoints(@javax.annotation.Nonnull Integer blockedTestPoints) {
+
+  public void setBlockedTestPoints(Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
   }
 
 
-  public UserRankModel levelAvatarEnabled(@javax.annotation.Nonnull Boolean levelAvatarEnabled) {
+  public UserRankModel levelAvatarEnabled(Boolean levelAvatarEnabled) {
+    
     this.levelAvatarEnabled = levelAvatarEnabled;
     return this;
   }
 
-  /**
+   /**
    * Get levelAvatarEnabled
    * @return levelAvatarEnabled
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getLevelAvatarEnabled() {
     return levelAvatarEnabled;
   }
 
-  public void setLevelAvatarEnabled(@javax.annotation.Nonnull Boolean levelAvatarEnabled) {
+
+  public void setLevelAvatarEnabled(Boolean levelAvatarEnabled) {
     this.levelAvatarEnabled = levelAvatarEnabled;
   }
 
@@ -297,34 +306,33 @@ public class UserRankModel {
     openapiRequiredFields.add("levelAvatarEnabled");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UserRankModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UserRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UserRankModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!UserRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UserRankModel is not found in the empty JSON string", UserRankModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!UserRankModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRankModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRankModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UserRankModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -347,31 +355,31 @@ public class UserRankModel {
 
            @Override
            public UserRankModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of UserRankModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UserRankModel
-   * @throws IOException if the JSON string is invalid with respect to UserRankModel
-   */
+ /**
+  * Create an instance of UserRankModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UserRankModel
+  * @throws IOException if the JSON string is invalid with respect to UserRankModel
+  */
   public static UserRankModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UserRankModel.class);
   }
 
-  /**
-   * Convert an instance of UserRankModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of UserRankModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

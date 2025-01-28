@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -41,10 +41,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,80 +54,79 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nonnull
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  @javax.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ConfigurationPutModel() {
   }
 
-  public ConfigurationPutModel id(@javax.annotation.Nonnull UUID id) {
+  public ConfigurationPutModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ConfigurationPutModel description(@javax.annotation.Nullable String description) {
+  public ConfigurationPutModel description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Get description
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ConfigurationPutModel parameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+  public ConfigurationPutModel parameters(Map<String, String> parameters) {
+    
     this.parameters = parameters;
     return this;
   }
@@ -138,73 +139,80 @@ public class ConfigurationPutModel {
     return this;
   }
 
-  /**
+   /**
    * Get parameters
    * @return parameters
-   */
+  **/
   @javax.annotation.Nonnull
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public ConfigurationPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public ConfigurationPutModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * This property is used to link configuration with project
    * @return projectId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationPutModel isDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public ConfigurationPutModel isDefault(Boolean isDefault) {
+    
     this.isDefault = isDefault;
     return this;
   }
 
-  /**
+   /**
    * Get isDefault
    * @return isDefault
-   */
+  **/
   @javax.annotation.Nonnull
   public Boolean getIsDefault() {
     return isDefault;
   }
 
-  public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
+
+  public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationPutModel name(@javax.annotation.Nonnull String name) {
+  public ConfigurationPutModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
@@ -291,34 +299,33 @@ public class ConfigurationPutModel {
     openapiRequiredFields.add("name");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConfigurationPutModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigurationPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationPutModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationPutModel is not found in the empty JSON string", ConfigurationPutModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationPutModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ConfigurationPutModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -353,31 +360,31 @@ public class ConfigurationPutModel {
 
            @Override
            public ConfigurationPutModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of ConfigurationPutModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ConfigurationPutModel
-   * @throws IOException if the JSON string is invalid with respect to ConfigurationPutModel
-   */
+ /**
+  * Create an instance of ConfigurationPutModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigurationPutModel
+  * @throws IOException if the JSON string is invalid with respect to ConfigurationPutModel
+  */
   public static ConfigurationPutModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConfigurationPutModel.class);
   }
 
-  /**
-   * Convert an instance of ConfigurationPutModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ConfigurationPutModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

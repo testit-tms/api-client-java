@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,10 +43,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,123 +56,125 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepPutModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepPutModel> postconditionSteps;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public SectionPutModel() {
   }
 
-  public SectionPutModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionPutModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionPutModel name(@javax.annotation.Nonnull String name) {
+  public SectionPutModel name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SectionPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public SectionPutModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * Get projectId
    * @return projectId
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public SectionPutModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public SectionPutModel parentId(UUID parentId) {
+    
     this.parentId = parentId;
     return this;
   }
 
-  /**
+   /**
    * Get parentId
    * @return parentId
-   */
+  **/
   @javax.annotation.Nullable
   public UUID getParentId() {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionPutModel preconditionSteps(@javax.annotation.Nullable List<StepPutModel> preconditionSteps) {
+  public SectionPutModel preconditionSteps(List<StepPutModel> preconditionSteps) {
+    
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -183,21 +187,23 @@ public class SectionPutModel {
     return this;
   }
 
-  /**
+   /**
    * Get preconditionSteps
    * @return preconditionSteps
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nullable List<StepPutModel> preconditionSteps) {
+
+  public void setPreconditionSteps(List<StepPutModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public SectionPutModel postconditionSteps(@javax.annotation.Nullable List<StepPutModel> postconditionSteps) {
+  public SectionPutModel postconditionSteps(List<StepPutModel> postconditionSteps) {
+    
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -210,21 +216,23 @@ public class SectionPutModel {
     return this;
   }
 
-  /**
+   /**
    * Get postconditionSteps
    * @return postconditionSteps
-   */
+  **/
   @javax.annotation.Nullable
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nullable List<StepPutModel> postconditionSteps) {
+
+  public void setPostconditionSteps(List<StepPutModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public SectionPutModel attachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+  public SectionPutModel attachments(List<AttachmentPutModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -237,16 +245,17 @@ public class SectionPutModel {
     return this;
   }
 
-  /**
+   /**
    * Get attachments
    * @return attachments
-   */
+  **/
   @javax.annotation.Nonnull
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
@@ -335,34 +344,33 @@ public class SectionPutModel {
     openapiRequiredFields.add("attachments");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SectionPutModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SectionPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to SectionPutModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!SectionPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SectionPutModel is not found in the empty JSON string", SectionPutModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!SectionPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionPutModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SectionPutModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -385,7 +393,7 @@ public class SectionPutModel {
 
           // validate the optional field `preconditionSteps` (array)
           for (int i = 0; i < jsonArraypreconditionSteps.size(); i++) {
-            StepPutModel.validateJsonElement(jsonArraypreconditionSteps.get(i));
+            StepPutModel.validateJsonObject(jsonArraypreconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -399,7 +407,7 @@ public class SectionPutModel {
 
           // validate the optional field `postconditionSteps` (array)
           for (int i = 0; i < jsonArraypostconditionSteps.size(); i++) {
-            StepPutModel.validateJsonElement(jsonArraypostconditionSteps.get(i));
+            StepPutModel.validateJsonObject(jsonArraypostconditionSteps.get(i).getAsJsonObject());
           };
         }
       }
@@ -411,7 +419,7 @@ public class SectionPutModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentPutModel.validateJsonElement(jsonArrayattachments.get(i));
+        AttachmentPutModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
       };
   }
 
@@ -435,31 +443,31 @@ public class SectionPutModel {
 
            @Override
            public SectionPutModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of SectionPutModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SectionPutModel
-   * @throws IOException if the JSON string is invalid with respect to SectionPutModel
-   */
+ /**
+  * Create an instance of SectionPutModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SectionPutModel
+  * @throws IOException if the JSON string is invalid with respect to SectionPutModel
+  */
   public static SectionPutModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SectionPutModel.class);
   }
 
-  /**
-   * Convert an instance of SectionPutModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of SectionPutModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

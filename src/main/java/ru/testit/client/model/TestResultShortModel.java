@@ -14,6 +14,7 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -45,10 +45,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,209 +58,217 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestResultShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nonnull
   private String outcome;
 
   public static final String SERIALIZED_NAME_TRACES = "traces";
   @SerializedName(SERIALIZED_NAME_TRACES)
-  @javax.annotation.Nullable
   private String traces;
 
   public static final String SERIALIZED_NAME_FAILURE_TYPE = "failureType";
   @SerializedName(SERIALIZED_NAME_FAILURE_TYPE)
-  @javax.annotation.Nonnull
   private String failureType;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
   @SerializedName(SERIALIZED_NAME_TEST_POINT)
-  @javax.annotation.Nullable
   private TestPointPutModel testPoint;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST)
-  @javax.annotation.Nullable
   private AutoTestShortModel autoTest;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public TestResultShortModel() {
   }
 
-  public TestResultShortModel id(@javax.annotation.Nonnull UUID id) {
+  public TestResultShortModel id(UUID id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestResultShortModel outcome(@javax.annotation.Nonnull String outcome) {
+  public TestResultShortModel outcome(String outcome) {
+    
     this.outcome = outcome;
     return this;
   }
 
-  /**
+   /**
    * Get outcome
    * @return outcome
-   */
+  **/
   @javax.annotation.Nonnull
   public String getOutcome() {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nonnull String outcome) {
+
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultShortModel traces(@javax.annotation.Nullable String traces) {
+  public TestResultShortModel traces(String traces) {
+    
     this.traces = traces;
     return this;
   }
 
-  /**
+   /**
    * Get traces
    * @return traces
-   */
+  **/
   @javax.annotation.Nullable
   public String getTraces() {
     return traces;
   }
 
-  public void setTraces(@javax.annotation.Nullable String traces) {
+
+  public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
-  public TestResultShortModel failureType(@javax.annotation.Nonnull String failureType) {
+  public TestResultShortModel failureType(String failureType) {
+    
     this.failureType = failureType;
     return this;
   }
 
-  /**
+   /**
    * Get failureType
    * @return failureType
-   */
+  **/
   @javax.annotation.Nonnull
   public String getFailureType() {
     return failureType;
   }
 
-  public void setFailureType(@javax.annotation.Nonnull String failureType) {
+
+  public void setFailureType(String failureType) {
     this.failureType = failureType;
   }
 
 
-  public TestResultShortModel message(@javax.annotation.Nullable String message) {
+  public TestResultShortModel message(String message) {
+    
     this.message = message;
     return this;
   }
 
-  /**
+   /**
    * Get message
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+
+  public void setMessage(String message) {
     this.message = message;
   }
 
 
-  public TestResultShortModel testPoint(@javax.annotation.Nullable TestPointPutModel testPoint) {
+  public TestResultShortModel testPoint(TestPointPutModel testPoint) {
+    
     this.testPoint = testPoint;
     return this;
   }
 
-  /**
+   /**
    * Get testPoint
    * @return testPoint
-   */
+  **/
   @javax.annotation.Nullable
   public TestPointPutModel getTestPoint() {
     return testPoint;
   }
 
-  public void setTestPoint(@javax.annotation.Nullable TestPointPutModel testPoint) {
+
+  public void setTestPoint(TestPointPutModel testPoint) {
     this.testPoint = testPoint;
   }
 
 
-  public TestResultShortModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestResultShortModel createdDate(OffsetDateTime createdDate) {
+    
     this.createdDate = createdDate;
     return this;
   }
 
-  /**
+   /**
    * Get createdDate
    * @return createdDate
-   */
+  **/
   @javax.annotation.Nullable
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultShortModel autoTest(@javax.annotation.Nullable AutoTestShortModel autoTest) {
+  public TestResultShortModel autoTest(AutoTestShortModel autoTest) {
+    
     this.autoTest = autoTest;
     return this;
   }
 
-  /**
+   /**
    * Get autoTest
    * @return autoTest
-   */
+  **/
   @javax.annotation.Nullable
   public AutoTestShortModel getAutoTest() {
     return autoTest;
   }
 
-  public void setAutoTest(@javax.annotation.Nullable AutoTestShortModel autoTest) {
+
+  public void setAutoTest(AutoTestShortModel autoTest) {
     this.autoTest = autoTest;
   }
 
 
-  public TestResultShortModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public TestResultShortModel attachments(List<AttachmentModel> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -271,16 +281,17 @@ public class TestResultShortModel {
     return this;
   }
 
-  /**
+   /**
    * Get attachments
    * @return attachments
-   */
+  **/
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
@@ -374,34 +385,33 @@ public class TestResultShortModel {
     openapiRequiredFields.add("failureType");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultShortModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestResultShortModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestResultShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortModel is not found in the empty JSON string", TestResultShortModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultShortModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -419,11 +429,11 @@ public class TestResultShortModel {
       }
       // validate the optional field `testPoint`
       if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPointPutModel.validateJsonElement(jsonObj.get("testPoint"));
+        TestPointPutModel.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
       }
       // validate the optional field `autoTest`
       if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
-        AutoTestShortModel.validateJsonElement(jsonObj.get("autoTest"));
+        AutoTestShortModel.validateJsonObject(jsonObj.getAsJsonObject("autoTest"));
       }
       if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
         JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
@@ -435,7 +445,7 @@ public class TestResultShortModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
           };
         }
       }
@@ -461,31 +471,31 @@ public class TestResultShortModel {
 
            @Override
            public TestResultShortModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of TestResultShortModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultShortModel
-   * @throws IOException if the JSON string is invalid with respect to TestResultShortModel
-   */
+ /**
+  * Create an instance of TestResultShortModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestResultShortModel
+  * @throws IOException if the JSON string is invalid with respect to TestResultShortModel
+  */
   public static TestResultShortModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultShortModel.class);
   }
 
-  /**
-   * Convert an instance of TestResultShortModel to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of TestResultShortModel to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

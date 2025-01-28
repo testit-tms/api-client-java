@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -29,11 +29,11 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WebhookVariablesType.Adapter.class)
 public enum WebhookVariablesType {
   
-  VARIABLES_FOR_URL("VariablesForUrl"),
+  VARIABLESFORURL("VariablesForUrl"),
   
-  VARIABLES_FOR_HEADERS("VariablesForHeaders"),
+  VARIABLESFORHEADERS("VariablesForHeaders"),
   
-  VARIABLES_FOR_BODY("VariablesForBody");
+  VARIABLESFORBODY("VariablesForBody");
 
   private String value;
 
@@ -70,11 +70,6 @@ public enum WebhookVariablesType {
       String value = jsonReader.nextString();
       return WebhookVariablesType.fromValue(value);
     }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    WebhookVariablesType.fromValue(value);
   }
 }
 

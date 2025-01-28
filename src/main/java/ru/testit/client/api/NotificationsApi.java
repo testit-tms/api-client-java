@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ru.testit.client.model.ApiV2NotificationsSearchPostRequest;
 import ru.testit.client.model.NotificationModel;
-import ru.testit.client.model.NotificationQueryFilterModel;
 import ru.testit.client.model.NotificationTypeModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class NotificationsApi {
     private ApiClient localVarApiClient;
@@ -84,8 +85,7 @@ public class NotificationsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -157,8 +157,7 @@ public class NotificationsApi {
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -181,8 +180,7 @@ public class NotificationsApi {
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -207,8 +205,7 @@ public class NotificationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -238,8 +235,7 @@ public class NotificationsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
@@ -336,8 +332,7 @@ public class NotificationsApi {
      * @return List&lt;NotificationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
@@ -365,8 +360,7 @@ public class NotificationsApi {
      * @return ApiResponse&lt;List&lt;NotificationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
@@ -396,8 +390,7 @@ public class NotificationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
@@ -422,8 +415,7 @@ public class NotificationsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -497,8 +489,7 @@ public class NotificationsApi {
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -521,8 +512,7 @@ public class NotificationsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -547,8 +537,7 @@ public class NotificationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -572,8 +561,7 @@ public class NotificationsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -640,8 +628,7 @@ public class NotificationsApi {
      *  Use case   User runs method execution   System set all notifications as read
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -663,8 +650,7 @@ public class NotificationsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -688,8 +674,7 @@ public class NotificationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -714,13 +699,12 @@ public class NotificationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -731,7 +715,7 @@ public class NotificationsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2NotificationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2NotificationsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -745,7 +729,7 @@ public class NotificationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = notificationQueryFilterModel;
+        Object localVarPostBody = apiV2NotificationsSearchPostRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/notifications/search";
@@ -797,8 +781,8 @@ public class NotificationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2NotificationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2NotificationsSearchPostCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, _callback);
+    private okhttp3.Call apiV2NotificationsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2NotificationsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, _callback);
 
     }
 
@@ -810,12 +794,11 @@ public class NotificationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @return List&lt;NotificationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -826,8 +809,8 @@ public class NotificationsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<NotificationModel> apiV2NotificationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel) throws ApiException {
-        ApiResponse<List<NotificationModel>> localVarResp = apiV2NotificationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel);
+    public List<NotificationModel> apiV2NotificationsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest) throws ApiException {
+        ApiResponse<List<NotificationModel>> localVarResp = apiV2NotificationsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest);
         return localVarResp.getData();
     }
 
@@ -839,12 +822,11 @@ public class NotificationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @return ApiResponse&lt;List&lt;NotificationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -855,8 +837,8 @@ public class NotificationsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<NotificationModel>> apiV2NotificationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, null);
+    public ApiResponse<List<NotificationModel>> apiV2NotificationsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, null);
         Type localVarReturnType = new TypeToken<List<NotificationModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -869,13 +851,12 @@ public class NotificationsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param notificationQueryFilterModel  (optional)
+     * @param apiV2NotificationsSearchPostRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -886,9 +867,9 @@ public class NotificationsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2NotificationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, NotificationQueryFilterModel notificationQueryFilterModel, final ApiCallback<List<NotificationModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2NotificationsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2NotificationsSearchPostRequest apiV2NotificationsSearchPostRequest, final ApiCallback<List<NotificationModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, notificationQueryFilterModel, _callback);
+        okhttp3.Call localVarCall = apiV2NotificationsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2NotificationsSearchPostRequest, _callback);
         Type localVarReturnType = new TypeToken<List<NotificationModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
