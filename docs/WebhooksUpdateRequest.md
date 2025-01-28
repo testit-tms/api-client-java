@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**WebhooksUpdateRequestFilter**](WebhooksUpdateRequestFilter.md) |  |  |
-|**model** | [**WebhooksUpdateRequestModel**](WebhooksUpdateRequestModel.md) |  |  |
-|**extractor** | [**WebhooksDeleteRequestExtractor**](WebhooksDeleteRequestExtractor.md) |  |  |
+|**filter** | [**WebhooksFilterRequest**](WebhooksFilterRequest.md) |  |  |
+|**model** | [**WebhookBulkUpdateApiModel**](WebhookBulkUpdateApiModel.md) |  |  |
+|**extractor** | [**WebhooksExtractionRequest**](WebhooksExtractionRequest.md) |  |  |
 
 
 

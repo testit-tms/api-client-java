@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,12 +38,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,207 +49,199 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalLinkModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalLinkModel {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nullable
   private String url;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_ISSUE_TYPE_NAME = "issueTypeName";
   @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_NAME)
+  @javax.annotation.Nullable
   private String issueTypeName;
 
   public static final String SERIALIZED_NAME_ISSUE_TYPE_ICON_URL = "issueTypeIconUrl";
   @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_ICON_URL)
+  @javax.annotation.Nullable
   private String issueTypeIconUrl;
 
   public static final String SERIALIZED_NAME_PRIORITY_NAME = "priorityName";
   @SerializedName(SERIALIZED_NAME_PRIORITY_NAME)
+  @javax.annotation.Nullable
   private String priorityName;
 
   public static final String SERIALIZED_NAME_PRIORITY_ICON_URL = "priorityIconUrl";
   @SerializedName(SERIALIZED_NAME_PRIORITY_ICON_URL)
+  @javax.annotation.Nullable
   private String priorityIconUrl;
 
   public static final String SERIALIZED_NAME_STATUS_NAME = "statusName";
   @SerializedName(SERIALIZED_NAME_STATUS_NAME)
+  @javax.annotation.Nullable
   private String statusName;
 
   public static final String SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME = "assigneeDisplayName";
   @SerializedName(SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME)
+  @javax.annotation.Nullable
   private String assigneeDisplayName;
 
   public ExternalLinkModel() {
   }
 
-  public ExternalLinkModel url(String url) {
-    
+  public ExternalLinkModel url(@javax.annotation.Nullable String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrl() {
     return url;
   }
 
-
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nullable String url) {
     this.url = url;
   }
 
 
-  public ExternalLinkModel title(String title) {
-    
+  public ExternalLinkModel title(@javax.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public ExternalLinkModel issueTypeName(String issueTypeName) {
-    
+  public ExternalLinkModel issueTypeName(@javax.annotation.Nullable String issueTypeName) {
     this.issueTypeName = issueTypeName;
     return this;
   }
 
-   /**
+  /**
    * Get issueTypeName
    * @return issueTypeName
-  **/
+   */
   @javax.annotation.Nullable
   public String getIssueTypeName() {
     return issueTypeName;
   }
 
-
-  public void setIssueTypeName(String issueTypeName) {
+  public void setIssueTypeName(@javax.annotation.Nullable String issueTypeName) {
     this.issueTypeName = issueTypeName;
   }
 
 
-  public ExternalLinkModel issueTypeIconUrl(String issueTypeIconUrl) {
-    
+  public ExternalLinkModel issueTypeIconUrl(@javax.annotation.Nullable String issueTypeIconUrl) {
     this.issueTypeIconUrl = issueTypeIconUrl;
     return this;
   }
 
-   /**
+  /**
    * Get issueTypeIconUrl
    * @return issueTypeIconUrl
-  **/
+   */
   @javax.annotation.Nullable
   public String getIssueTypeIconUrl() {
     return issueTypeIconUrl;
   }
 
-
-  public void setIssueTypeIconUrl(String issueTypeIconUrl) {
+  public void setIssueTypeIconUrl(@javax.annotation.Nullable String issueTypeIconUrl) {
     this.issueTypeIconUrl = issueTypeIconUrl;
   }
 
 
-  public ExternalLinkModel priorityName(String priorityName) {
-    
+  public ExternalLinkModel priorityName(@javax.annotation.Nullable String priorityName) {
     this.priorityName = priorityName;
     return this;
   }
 
-   /**
+  /**
    * Get priorityName
    * @return priorityName
-  **/
+   */
   @javax.annotation.Nullable
   public String getPriorityName() {
     return priorityName;
   }
 
-
-  public void setPriorityName(String priorityName) {
+  public void setPriorityName(@javax.annotation.Nullable String priorityName) {
     this.priorityName = priorityName;
   }
 
 
-  public ExternalLinkModel priorityIconUrl(String priorityIconUrl) {
-    
+  public ExternalLinkModel priorityIconUrl(@javax.annotation.Nullable String priorityIconUrl) {
     this.priorityIconUrl = priorityIconUrl;
     return this;
   }
 
-   /**
+  /**
    * Get priorityIconUrl
    * @return priorityIconUrl
-  **/
+   */
   @javax.annotation.Nullable
   public String getPriorityIconUrl() {
     return priorityIconUrl;
   }
 
-
-  public void setPriorityIconUrl(String priorityIconUrl) {
+  public void setPriorityIconUrl(@javax.annotation.Nullable String priorityIconUrl) {
     this.priorityIconUrl = priorityIconUrl;
   }
 
 
-  public ExternalLinkModel statusName(String statusName) {
-    
+  public ExternalLinkModel statusName(@javax.annotation.Nullable String statusName) {
     this.statusName = statusName;
     return this;
   }
 
-   /**
+  /**
    * Get statusName
    * @return statusName
-  **/
+   */
   @javax.annotation.Nullable
   public String getStatusName() {
     return statusName;
   }
 
-
-  public void setStatusName(String statusName) {
+  public void setStatusName(@javax.annotation.Nullable String statusName) {
     this.statusName = statusName;
   }
 
 
-  public ExternalLinkModel assigneeDisplayName(String assigneeDisplayName) {
-    
+  public ExternalLinkModel assigneeDisplayName(@javax.annotation.Nullable String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
     return this;
   }
 
-   /**
+  /**
    * Get assigneeDisplayName
    * @return assigneeDisplayName
-  **/
+   */
   @javax.annotation.Nullable
   public String getAssigneeDisplayName() {
     return assigneeDisplayName;
   }
 
-
-  public void setAssigneeDisplayName(String assigneeDisplayName) {
+  public void setAssigneeDisplayName(@javax.annotation.Nullable String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
   }
 
@@ -339,26 +329,27 @@ public class ExternalLinkModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ExternalLinkModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ExternalLinkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ExternalLinkModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ExternalLinkModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalLinkModel is not found in the empty JSON string", ExternalLinkModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExternalLinkModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalLinkModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalLinkModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
@@ -405,31 +396,31 @@ public class ExternalLinkModel {
 
            @Override
            public ExternalLinkModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ExternalLinkModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ExternalLinkModel
-  * @throws IOException if the JSON string is invalid with respect to ExternalLinkModel
-  */
+  /**
+   * Create an instance of ExternalLinkModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ExternalLinkModel
+   * @throws IOException if the JSON string is invalid with respect to ExternalLinkModel
+   */
   public static ExternalLinkModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ExternalLinkModel.class);
   }
 
- /**
-  * Convert an instance of ExternalLinkModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ExternalLinkModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

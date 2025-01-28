@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2BackgroundJobsSearchPostRequest;
+import ru.testit.client.model.BackgroundJobFilterModel;
 import ru.testit.client.model.BackgroundJobGetModel;
 import ru.testit.client.model.BackgroundJobState;
 import ru.testit.client.model.ProblemDetails;
@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class BackgroundJobsApi {
     private ApiClient localVarApiClient;
@@ -84,7 +83,8 @@ public class BackgroundJobsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -150,7 +150,8 @@ public class BackgroundJobsApi {
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -171,7 +172,8 @@ public class BackgroundJobsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -194,7 +196,8 @@ public class BackgroundJobsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -222,7 +225,8 @@ public class BackgroundJobsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -317,7 +321,8 @@ public class BackgroundJobsApi {
      * @return List&lt;BackgroundJobGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -346,7 +351,8 @@ public class BackgroundJobsApi {
      * @return ApiResponse&lt;List&lt;BackgroundJobGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -377,7 +383,8 @@ public class BackgroundJobsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -404,7 +411,8 @@ public class BackgroundJobsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -477,7 +485,8 @@ public class BackgroundJobsApi {
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -499,7 +508,8 @@ public class BackgroundJobsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -523,7 +533,8 @@ public class BackgroundJobsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -547,7 +558,8 @@ public class BackgroundJobsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -621,7 +633,8 @@ public class BackgroundJobsApi {
      * @return BackgroundJobGetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -644,7 +657,8 @@ public class BackgroundJobsApi {
      * @return ApiResponse&lt;BackgroundJobGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -669,7 +683,8 @@ public class BackgroundJobsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -694,7 +709,8 @@ public class BackgroundJobsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -768,7 +784,8 @@ public class BackgroundJobsApi {
      * @return BackgroundJobState
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -791,7 +808,8 @@ public class BackgroundJobsApi {
      * @return ApiResponse&lt;BackgroundJobState&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -816,7 +834,8 @@ public class BackgroundJobsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -841,12 +860,13 @@ public class BackgroundJobsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2BackgroundJobsSearchPostRequest  (optional)
+     * @param backgroundJobFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -857,7 +877,7 @@ public class BackgroundJobsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2BackgroundJobsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2BackgroundJobsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, BackgroundJobFilterModel backgroundJobFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -871,7 +891,7 @@ public class BackgroundJobsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2BackgroundJobsSearchPostRequest;
+        Object localVarPostBody = backgroundJobFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/backgroundJobs/search";
@@ -923,8 +943,8 @@ public class BackgroundJobsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2BackgroundJobsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2BackgroundJobsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2BackgroundJobsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, BackgroundJobFilterModel backgroundJobFilterModel, final ApiCallback _callback) throws ApiException {
+        return apiV2BackgroundJobsSearchPostCall(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel, _callback);
 
     }
 
@@ -936,11 +956,12 @@ public class BackgroundJobsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2BackgroundJobsSearchPostRequest  (optional)
+     * @param backgroundJobFilterModel  (optional)
      * @return List&lt;BackgroundJobGetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -951,8 +972,8 @@ public class BackgroundJobsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<BackgroundJobGetModel> apiV2BackgroundJobsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest) throws ApiException {
-        ApiResponse<List<BackgroundJobGetModel>> localVarResp = apiV2BackgroundJobsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest);
+    public List<BackgroundJobGetModel> apiV2BackgroundJobsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, BackgroundJobFilterModel backgroundJobFilterModel) throws ApiException {
+        ApiResponse<List<BackgroundJobGetModel>> localVarResp = apiV2BackgroundJobsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel);
         return localVarResp.getData();
     }
 
@@ -964,11 +985,12 @@ public class BackgroundJobsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2BackgroundJobsSearchPostRequest  (optional)
+     * @param backgroundJobFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;BackgroundJobGetModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -979,8 +1001,8 @@ public class BackgroundJobsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BackgroundJobGetModel>> apiV2BackgroundJobsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2BackgroundJobsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest, null);
+    public ApiResponse<List<BackgroundJobGetModel>> apiV2BackgroundJobsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, BackgroundJobFilterModel backgroundJobFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2BackgroundJobsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel, null);
         Type localVarReturnType = new TypeToken<List<BackgroundJobGetModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -993,12 +1015,13 @@ public class BackgroundJobsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2BackgroundJobsSearchPostRequest  (optional)
+     * @param backgroundJobFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1009,9 +1032,9 @@ public class BackgroundJobsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2BackgroundJobsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2BackgroundJobsSearchPostRequest apiV2BackgroundJobsSearchPostRequest, final ApiCallback<List<BackgroundJobGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2BackgroundJobsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, BackgroundJobFilterModel backgroundJobFilterModel, final ApiCallback<List<BackgroundJobGetModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2BackgroundJobsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2BackgroundJobsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2BackgroundJobsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, backgroundJobFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<BackgroundJobGetModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

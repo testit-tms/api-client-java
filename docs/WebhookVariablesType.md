@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `VARIABLESFORURL` (value: `"VariablesForUrl"`)
+* `VARIABLES_FOR_URL` (value: `"VariablesForUrl"`)
 
-* `VARIABLESFORHEADERS` (value: `"VariablesForHeaders"`)
+* `VARIABLES_FOR_HEADERS` (value: `"VariablesForHeaders"`)
 
-* `VARIABLESFORBODY` (value: `"VariablesForBody"`)
+* `VARIABLES_FOR_BODY` (value: `"VariablesForBody"`)
 
 
 

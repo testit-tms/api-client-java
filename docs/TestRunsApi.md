@@ -32,7 +32,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TestRunsDelete"></a>
 # **apiV2TestRunsDelete**
-> Integer apiV2TestRunsDelete(testRunSelectModel)
+> Integer apiV2TestRunsDelete(testRunSelectApiModel)
 
 Delete multiple test runs
 
@@ -60,9 +60,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunSelectModel testRunSelectModel = new TestRunSelectModel(); // TestRunSelectModel | 
+    TestRunSelectApiModel testRunSelectApiModel = new TestRunSelectApiModel(); // TestRunSelectApiModel | 
     try {
-      Integer result = apiInstance.apiV2TestRunsDelete(testRunSelectModel);
+      Integer result = apiInstance.apiV2TestRunsDelete(testRunSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsDelete");
@@ -79,7 +79,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunSelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional] |
+| **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -328,7 +328,7 @@ null (empty response body)
 
 <a id="apiV2TestRunsIdRerunsPost"></a>
 # **apiV2TestRunsIdRerunsPost**
-> ManualRerunResultModel apiV2TestRunsIdRerunsPost(id, apiV2TestRunsIdRerunsPostRequest)
+> ManualRerunApiResult apiV2TestRunsIdRerunsPost(id, manualRerunSelectApiModel)
 
 Manual autotests rerun in test run
 
@@ -355,9 +355,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | 
-    ApiV2TestRunsIdRerunsPostRequest apiV2TestRunsIdRerunsPostRequest = new ApiV2TestRunsIdRerunsPostRequest(); // ApiV2TestRunsIdRerunsPostRequest | 
+    ManualRerunSelectApiModel manualRerunSelectApiModel = new ManualRerunSelectApiModel(); // ManualRerunSelectApiModel | 
     try {
-      ManualRerunResultModel result = apiInstance.apiV2TestRunsIdRerunsPost(id, apiV2TestRunsIdRerunsPostRequest);
+      ManualRerunApiResult result = apiInstance.apiV2TestRunsIdRerunsPost(id, manualRerunSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdRerunsPost");
@@ -375,11 +375,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **apiV2TestRunsIdRerunsPostRequest** | [**ApiV2TestRunsIdRerunsPostRequest**](ApiV2TestRunsIdRerunsPostRequest.md)|  | [optional] |
+| **manualRerunSelectApiModel** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**ManualRerunResultModel**](ManualRerunResultModel.md)
+[**ManualRerunApiResult**](ManualRerunApiResult.md)
 
 ### Authorization
 
@@ -477,7 +477,7 @@ null (empty response body)
 
 <a id="apiV2TestRunsIdStatisticsFilterPost"></a>
 # **apiV2TestRunsIdStatisticsFilterPost**
-> TestResultsStatisticsGetModel apiV2TestRunsIdStatisticsFilterPost(id, apiV2TestRunsIdStatisticsFilterPostRequest)
+> TestResultsStatisticsApiResult apiV2TestRunsIdStatisticsFilterPost(id, testRunStatisticsFilterApiModel)
 
 Search for the test run test results and build statistics
 
@@ -504,9 +504,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test run unique ID
-    ApiV2TestRunsIdStatisticsFilterPostRequest apiV2TestRunsIdStatisticsFilterPostRequest = new ApiV2TestRunsIdStatisticsFilterPostRequest(); // ApiV2TestRunsIdStatisticsFilterPostRequest | 
+    TestRunStatisticsFilterApiModel testRunStatisticsFilterApiModel = new TestRunStatisticsFilterApiModel(); // TestRunStatisticsFilterApiModel | 
     try {
-      TestResultsStatisticsGetModel result = apiInstance.apiV2TestRunsIdStatisticsFilterPost(id, apiV2TestRunsIdStatisticsFilterPostRequest);
+      TestResultsStatisticsApiResult result = apiInstance.apiV2TestRunsIdStatisticsFilterPost(id, testRunStatisticsFilterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdStatisticsFilterPost");
@@ -524,11 +524,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test run unique ID | |
-| **apiV2TestRunsIdStatisticsFilterPostRequest** | [**ApiV2TestRunsIdStatisticsFilterPostRequest**](ApiV2TestRunsIdStatisticsFilterPostRequest.md)|  | [optional] |
+| **testRunStatisticsFilterApiModel** | [**TestRunStatisticsFilterApiModel**](TestRunStatisticsFilterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md)
+[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
 
 ### Authorization
 
@@ -625,7 +625,7 @@ public class Example {
 
 <a id="apiV2TestRunsIdTestResultsBulkPut"></a>
 # **apiV2TestRunsIdTestResultsBulkPut**
-> apiV2TestRunsIdTestResultsBulkPut(id, apiV2TestRunsIdTestResultsBulkPutRequest)
+> apiV2TestRunsIdTestResultsBulkPut(id, testRunTestResultsPartialBulkSetModel)
 
 Partial edit of multiple test results in the test run
 
@@ -652,9 +652,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test run unique ID
-    ApiV2TestRunsIdTestResultsBulkPutRequest apiV2TestRunsIdTestResultsBulkPutRequest = new ApiV2TestRunsIdTestResultsBulkPutRequest(); // ApiV2TestRunsIdTestResultsBulkPutRequest | 
+    TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel = new TestRunTestResultsPartialBulkSetModel(); // TestRunTestResultsPartialBulkSetModel | 
     try {
-      apiInstance.apiV2TestRunsIdTestResultsBulkPut(id, apiV2TestRunsIdTestResultsBulkPutRequest);
+      apiInstance.apiV2TestRunsIdTestResultsBulkPut(id, testRunTestResultsPartialBulkSetModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdTestResultsBulkPut");
       System.err.println("Status code: " + e.getCode());
@@ -671,7 +671,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test run unique ID | |
-| **apiV2TestRunsIdTestResultsBulkPutRequest** | [**ApiV2TestRunsIdTestResultsBulkPutRequest**](ApiV2TestRunsIdTestResultsBulkPutRequest.md)|  | [optional] |
+| **testRunTestResultsPartialBulkSetModel** | [**TestRunTestResultsPartialBulkSetModel**](TestRunTestResultsPartialBulkSetModel.md)|  | [optional] |
 
 ### Return type
 
@@ -772,7 +772,7 @@ public class Example {
 
 <a id="apiV2TestRunsPurgeBulkPost"></a>
 # **apiV2TestRunsPurgeBulkPost**
-> Integer apiV2TestRunsPurgeBulkPost(apiV2TestRunsPurgeBulkPostRequest)
+> Integer apiV2TestRunsPurgeBulkPost(testRunSelectApiModel)
 
 Permanently delete multiple test runs from archive
 
@@ -800,9 +800,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest = new ApiV2TestRunsPurgeBulkPostRequest(); // ApiV2TestRunsPurgeBulkPostRequest | 
+    TestRunSelectApiModel testRunSelectApiModel = new TestRunSelectApiModel(); // TestRunSelectApiModel | 
     try {
-      Integer result = apiInstance.apiV2TestRunsPurgeBulkPost(apiV2TestRunsPurgeBulkPostRequest);
+      Integer result = apiInstance.apiV2TestRunsPurgeBulkPost(testRunSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsPurgeBulkPost");
@@ -819,7 +819,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsPurgeBulkPostRequest** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional] |
+| **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -847,7 +847,7 @@ public class Example {
 
 <a id="apiV2TestRunsRestoreBulkPost"></a>
 # **apiV2TestRunsRestoreBulkPost**
-> Integer apiV2TestRunsRestoreBulkPost(apiV2TestRunsPurgeBulkPostRequest)
+> Integer apiV2TestRunsRestoreBulkPost(testRunSelectApiModel)
 
 Restore multiple test runs from the archive
 
@@ -875,9 +875,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsPurgeBulkPostRequest apiV2TestRunsPurgeBulkPostRequest = new ApiV2TestRunsPurgeBulkPostRequest(); // ApiV2TestRunsPurgeBulkPostRequest | 
+    TestRunSelectApiModel testRunSelectApiModel = new TestRunSelectApiModel(); // TestRunSelectApiModel | 
     try {
-      Integer result = apiInstance.apiV2TestRunsRestoreBulkPost(apiV2TestRunsPurgeBulkPostRequest);
+      Integer result = apiInstance.apiV2TestRunsRestoreBulkPost(testRunSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsRestoreBulkPost");
@@ -894,7 +894,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsPurgeBulkPostRequest** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional] |
+| **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -922,7 +922,7 @@ public class Example {
 
 <a id="apiV2TestRunsSearchPost"></a>
 # **apiV2TestRunsSearchPost**
-> List&lt;TestRunShortGetModel&gt; apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest)
+> List&lt;TestRunShortApiResult&gt; apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel)
 
 Search for test runs
 
@@ -953,9 +953,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2TestRunsSearchPostRequest apiV2TestRunsSearchPostRequest = new ApiV2TestRunsSearchPostRequest(); // ApiV2TestRunsSearchPostRequest | 
+    TestRunFilterApiModel testRunFilterApiModel = new TestRunFilterApiModel(); // TestRunFilterApiModel | 
     try {
-      List<TestRunShortGetModel> result = apiInstance.apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2TestRunsSearchPostRequest);
+      List<TestRunShortApiResult> result = apiInstance.apiV2TestRunsSearchPost(skip, take, orderBy, searchField, searchValue, testRunFilterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsSearchPost");
@@ -977,11 +977,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2TestRunsSearchPostRequest** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md)|  | [optional] |
+| **testRunFilterApiModel** | [**TestRunFilterApiModel**](TestRunFilterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;TestRunShortGetModel&gt;**](TestRunShortGetModel.md)
+[**List&lt;TestRunShortApiResult&gt;**](TestRunShortApiResult.md)
 
 ### Authorization
 
@@ -1005,7 +1005,7 @@ public class Example {
 
 <a id="apiV2TestRunsUpdateMultiplePost"></a>
 # **apiV2TestRunsUpdateMultiplePost**
-> apiV2TestRunsUpdateMultiplePost(apiV2TestRunsUpdateMultiplePostRequest)
+> apiV2TestRunsUpdateMultiplePost(updateMultipleTestRunsApiModel)
 
 Update multiple test runs
 
@@ -1031,9 +1031,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    ApiV2TestRunsUpdateMultiplePostRequest apiV2TestRunsUpdateMultiplePostRequest = new ApiV2TestRunsUpdateMultiplePostRequest(); // ApiV2TestRunsUpdateMultiplePostRequest | 
+    UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel = new UpdateMultipleTestRunsApiModel(); // UpdateMultipleTestRunsApiModel | 
     try {
-      apiInstance.apiV2TestRunsUpdateMultiplePost(apiV2TestRunsUpdateMultiplePostRequest);
+      apiInstance.apiV2TestRunsUpdateMultiplePost(updateMultipleTestRunsApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsUpdateMultiplePost");
       System.err.println("Status code: " + e.getCode());
@@ -1049,7 +1049,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2TestRunsUpdateMultiplePostRequest** | [**ApiV2TestRunsUpdateMultiplePostRequest**](ApiV2TestRunsUpdateMultiplePostRequest.md)|  | [optional] |
+| **updateMultipleTestRunsApiModel** | [**UpdateMultipleTestRunsApiModel**](UpdateMultipleTestRunsApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1151,7 +1151,7 @@ null (empty response body)
 
 <a id="createAndFillByAutoTests"></a>
 # **createAndFillByAutoTests**
-> TestRunV2GetModel createAndFillByAutoTests(createAndFillByAutoTestsRequest)
+> TestRunV2ApiResult createAndFillByAutoTests(createTestRunAndFillByAutoTestsApiModel)
 
 Create test runs based on autotests and configurations
 
@@ -1179,9 +1179,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    CreateAndFillByAutoTestsRequest createAndFillByAutoTestsRequest = new CreateAndFillByAutoTestsRequest(); // CreateAndFillByAutoTestsRequest | 
+    CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel = new CreateTestRunAndFillByAutoTestsApiModel(); // CreateTestRunAndFillByAutoTestsApiModel | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByAutoTests(createAndFillByAutoTestsRequest);
+      TestRunV2ApiResult result = apiInstance.createAndFillByAutoTests(createTestRunAndFillByAutoTestsApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByAutoTests");
@@ -1198,11 +1198,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAndFillByAutoTestsRequest** | [**CreateAndFillByAutoTestsRequest**](CreateAndFillByAutoTestsRequest.md)|  | [optional] |
+| **createTestRunAndFillByAutoTestsApiModel** | [**CreateTestRunAndFillByAutoTestsApiModel**](CreateTestRunAndFillByAutoTestsApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1226,7 +1226,7 @@ public class Example {
 
 <a id="createAndFillByConfigurations"></a>
 # **createAndFillByConfigurations**
-> TestRunV2GetModel createAndFillByConfigurations(createAndFillByConfigurationsRequest)
+> TestRunV2ApiResult createAndFillByConfigurations(createTestRunAndFillByConfigurationsApiModel)
 
 Create test runs picking the needed test points
 
@@ -1254,9 +1254,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    CreateAndFillByConfigurationsRequest createAndFillByConfigurationsRequest = new CreateAndFillByConfigurationsRequest(); // CreateAndFillByConfigurationsRequest | 
+    CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel = new CreateTestRunAndFillByConfigurationsApiModel(); // CreateTestRunAndFillByConfigurationsApiModel | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByConfigurations(createAndFillByConfigurationsRequest);
+      TestRunV2ApiResult result = apiInstance.createAndFillByConfigurations(createTestRunAndFillByConfigurationsApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByConfigurations");
@@ -1273,11 +1273,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAndFillByConfigurationsRequest** | [**CreateAndFillByConfigurationsRequest**](CreateAndFillByConfigurationsRequest.md)|  | [optional] |
+| **createTestRunAndFillByConfigurationsApiModel** | [**CreateTestRunAndFillByConfigurationsApiModel**](CreateTestRunAndFillByConfigurationsApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1301,7 +1301,7 @@ public class Example {
 
 <a id="createAndFillByWorkItems"></a>
 # **createAndFillByWorkItems**
-> TestRunV2GetModel createAndFillByWorkItems(createAndFillByWorkItemsRequest)
+> TestRunV2ApiResult createAndFillByWorkItems(createTestRunAndFillByWorkItemsApiModel)
 
 Create test run based on configurations and work items
 
@@ -1329,9 +1329,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    CreateAndFillByWorkItemsRequest createAndFillByWorkItemsRequest = new CreateAndFillByWorkItemsRequest(); // CreateAndFillByWorkItemsRequest | 
+    CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel = new CreateTestRunAndFillByWorkItemsApiModel(); // CreateTestRunAndFillByWorkItemsApiModel | 
     try {
-      TestRunV2GetModel result = apiInstance.createAndFillByWorkItems(createAndFillByWorkItemsRequest);
+      TestRunV2ApiResult result = apiInstance.createAndFillByWorkItems(createTestRunAndFillByWorkItemsApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createAndFillByWorkItems");
@@ -1348,11 +1348,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAndFillByWorkItemsRequest** | [**CreateAndFillByWorkItemsRequest**](CreateAndFillByWorkItemsRequest.md)|  | [optional] |
+| **createTestRunAndFillByWorkItemsApiModel** | [**CreateTestRunAndFillByWorkItemsApiModel**](CreateTestRunAndFillByWorkItemsApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1376,7 +1376,7 @@ public class Example {
 
 <a id="createEmpty"></a>
 # **createEmpty**
-> TestRunV2GetModel createEmpty(testRunV2PostShortModel)
+> TestRunV2ApiResult createEmpty(createEmptyTestRunApiModel)
 
 Create empty TestRun
 
@@ -1404,9 +1404,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunV2PostShortModel testRunV2PostShortModel = new TestRunV2PostShortModel(); // TestRunV2PostShortModel | 
+    CreateEmptyTestRunApiModel createEmptyTestRunApiModel = new CreateEmptyTestRunApiModel(); // CreateEmptyTestRunApiModel | 
     try {
-      TestRunV2GetModel result = apiInstance.createEmpty(testRunV2PostShortModel);
+      TestRunV2ApiResult result = apiInstance.createEmpty(createEmptyTestRunApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#createEmpty");
@@ -1423,11 +1423,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunV2PostShortModel** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional] |
+| **createEmptyTestRunApiModel** | [**CreateEmptyTestRunApiModel**](CreateEmptyTestRunApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1451,7 +1451,7 @@ public class Example {
 
 <a id="getTestRunById"></a>
 # **getTestRunById**
-> TestRunV2GetModel getTestRunById(id)
+> TestRunV2ApiResult getTestRunById(id)
 
 Get TestRun by Id
 
@@ -1481,7 +1481,7 @@ public class Example {
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test Run internal identifier (GUID format)
     try {
-      TestRunV2GetModel result = apiInstance.getTestRunById(id);
+      TestRunV2ApiResult result = apiInstance.getTestRunById(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#getTestRunById");
@@ -1502,7 +1502,7 @@ public class Example {
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1751,7 +1751,7 @@ null (empty response body)
 
 <a id="updateEmpty"></a>
 # **updateEmpty**
-> updateEmpty(testRunV2PutModel)
+> updateEmpty(updateEmptyTestRunApiModel)
 
 Update empty TestRun
 
@@ -1779,9 +1779,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
-    TestRunV2PutModel testRunV2PutModel = new TestRunV2PutModel(); // TestRunV2PutModel | 
+    UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel = new UpdateEmptyTestRunApiModel(); // UpdateEmptyTestRunApiModel | 
     try {
-      apiInstance.updateEmpty(testRunV2PutModel);
+      apiInstance.updateEmpty(updateEmptyTestRunApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#updateEmpty");
       System.err.println("Status code: " + e.getCode());
@@ -1797,7 +1797,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **testRunV2PutModel** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional] |
+| **updateEmptyTestRunApiModel** | [**UpdateEmptyTestRunApiModel**](UpdateEmptyTestRunApiModel.md)|  | [optional] |
 
 ### Return type
 

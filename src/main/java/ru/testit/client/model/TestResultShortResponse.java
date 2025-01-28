@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,13 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.Attachment;
 import ru.testit.client.model.AutoTestResultReasonShort;
 import ru.testit.client.model.LinkShort;
-import ru.testit.client.model.TestStatus;
+import ru.testit.client.model.TestStatusApiResult;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,12 +46,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -59,263 +57,265 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultShortResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultShortResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
   @SerializedName(SERIALIZED_NAME_AUTOTEST_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long autotestGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  @javax.annotation.Nonnull
   private String configurationName;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nullable
   private String outcome;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private TestStatus status;
+  @javax.annotation.Nullable
+  private TestStatusApiResult status;
 
   public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
   @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
+  @javax.annotation.Nonnull
   private List<AutoTestResultReasonShort> resultReasons = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime date;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nonnull
   private List<LinkShort> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nonnull
   private List<Attachment> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RERUN_COMPLETED_COUNT = "rerunCompletedCount";
   @SerializedName(SERIALIZED_NAME_RERUN_COMPLETED_COUNT)
+  @javax.annotation.Nonnull
   private Integer rerunCompletedCount;
 
   public TestResultShortResponse() {
   }
 
-  public TestResultShortResponse id(UUID id) {
-    
+  public TestResultShortResponse id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the test result
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultShortResponse name(String name) {
-    
+  public TestResultShortResponse name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of autotest represented by the test result
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestResultShortResponse autotestGlobalId(Long autotestGlobalId) {
-    
+  public TestResultShortResponse autotestGlobalId(@javax.annotation.Nonnull Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Global ID of autotest represented by the test result
    * @return autotestGlobalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getAutotestGlobalId() {
     return autotestGlobalId;
   }
 
-
-  public void setAutotestGlobalId(Long autotestGlobalId) {
+  public void setAutotestGlobalId(@javax.annotation.Nonnull Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
-  public TestResultShortResponse testRunId(UUID testRunId) {
-    
+  public TestResultShortResponse testRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of test run where the test result is located
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultShortResponse configurationId(UUID configurationId) {
-    
+  public TestResultShortResponse configurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of configuration which the test result uses
    * @return configurationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultShortResponse configurationName(String configurationName) {
-    
+  public TestResultShortResponse configurationName(@javax.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
 
-   /**
+  /**
    * Name of configuration which the test result uses
    * @return configurationName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getConfigurationName() {
     return configurationName;
   }
 
-
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@javax.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   @Deprecated
-  public TestResultShortResponse outcome(String outcome) {
-    
+  public TestResultShortResponse outcome(@javax.annotation.Nullable String outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Outcome of the test result
    * @return outcome
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   public String getOutcome() {
     return outcome;
   }
 
-
   @Deprecated
-  public void setOutcome(String outcome) {
+  public void setOutcome(@javax.annotation.Nullable String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultShortResponse status(TestStatus status) {
-    
+  public TestResultShortResponse status(@javax.annotation.Nullable TestStatusApiResult status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
-  public TestStatus getStatus() {
+  public TestStatusApiResult getStatus() {
     return status;
   }
 
-
-  public void setStatus(TestStatus status) {
+  public void setStatus(@javax.annotation.Nullable TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestResultShortResponse resultReasons(List<AutoTestResultReasonShort> resultReasons) {
-    
+  public TestResultShortResponse resultReasons(@javax.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
     return this;
   }
@@ -328,174 +328,158 @@ public class TestResultShortResponse {
     return this;
   }
 
-   /**
+  /**
    * Collection of result reasons which the test result have
    * @return resultReasons
-  **/
+   */
   @javax.annotation.Nonnull
   public List<AutoTestResultReasonShort> getResultReasons() {
     return resultReasons;
   }
 
-
-  public void setResultReasons(List<AutoTestResultReasonShort> resultReasons) {
+  public void setResultReasons(@javax.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
-  public TestResultShortResponse comment(String comment) {
-    
+  public TestResultShortResponse comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Comment to the test result
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
   @Deprecated
-  public TestResultShortResponse date(OffsetDateTime date) {
-    
+  public TestResultShortResponse date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
-   /**
+  /**
    * Date when the test result was completed or started or created
    * @return date
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nonnull
   public OffsetDateTime getDate() {
     return date;
   }
 
-
   @Deprecated
-  public void setDate(OffsetDateTime date) {
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
   }
 
 
-  public TestResultShortResponse createdDate(OffsetDateTime createdDate) {
-    
+  public TestResultShortResponse createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Date when the test result has been created
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultShortResponse modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public TestResultShortResponse modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Date when the test result has been modified
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestResultShortResponse startedOn(OffsetDateTime startedOn) {
-    
+  public TestResultShortResponse startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
 
-   /**
+  /**
    * Date when the test result has been started
    * @return startedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestResultShortResponse completedOn(OffsetDateTime completedOn) {
-    
+  public TestResultShortResponse completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
 
-   /**
+  /**
    * Date when the test result has been completed
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestResultShortResponse duration(Long duration) {
-    
+  public TestResultShortResponse duration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Time which it took to run the test
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Long getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Long duration) {
+  public void setDuration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
   }
 
 
-  public TestResultShortResponse links(List<LinkShort> links) {
-    
+  public TestResultShortResponse links(@javax.annotation.Nonnull List<LinkShort> links) {
     this.links = links;
     return this;
   }
@@ -508,23 +492,21 @@ public class TestResultShortResponse {
     return this;
   }
 
-   /**
+  /**
    * Collection of links attached to the test result
    * @return links
-  **/
+   */
   @javax.annotation.Nonnull
   public List<LinkShort> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkShort> links) {
+  public void setLinks(@javax.annotation.Nonnull List<LinkShort> links) {
     this.links = links;
   }
 
 
-  public TestResultShortResponse attachments(List<Attachment> attachments) {
-    
+  public TestResultShortResponse attachments(@javax.annotation.Nonnull List<Attachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -537,38 +519,35 @@ public class TestResultShortResponse {
     return this;
   }
 
-   /**
+  /**
    * Collection of files attached to the test result
    * @return attachments
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Attachment> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(@javax.annotation.Nonnull List<Attachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultShortResponse rerunCompletedCount(Integer rerunCompletedCount) {
-    
+  public TestResultShortResponse rerunCompletedCount(@javax.annotation.Nonnull Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
     return this;
   }
 
-   /**
+  /**
    * Run count
    * @return rerunCompletedCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRerunCompletedCount() {
     return rerunCompletedCount;
   }
 
-
-  public void setRerunCompletedCount(Integer rerunCompletedCount) {
+  public void setRerunCompletedCount(@javax.annotation.Nonnull Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
   }
 
@@ -701,33 +680,34 @@ public class TestResultShortResponse {
     openapiRequiredFields.add("rerunCompletedCount");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultShortResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultShortResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestResultShortResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultShortResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortResponse is not found in the empty JSON string", TestResultShortResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultShortResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -748,7 +728,7 @@ public class TestResultShortResponse {
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        TestStatus.validateJsonObject(jsonObj.getAsJsonObject("status"));
+        TestStatusApiResult.validateJsonElement(jsonObj.get("status"));
       }
       // ensure the json data is an array
       if (!jsonObj.get("resultReasons").isJsonArray()) {
@@ -758,7 +738,7 @@ public class TestResultShortResponse {
       JsonArray jsonArrayresultReasons = jsonObj.getAsJsonArray("resultReasons");
       // validate the required field `resultReasons` (array)
       for (int i = 0; i < jsonArrayresultReasons.size(); i++) {
-        AutoTestResultReasonShort.validateJsonObject(jsonArrayresultReasons.get(i).getAsJsonObject());
+        AutoTestResultReasonShort.validateJsonElement(jsonArrayresultReasons.get(i));
       };
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -771,7 +751,7 @@ public class TestResultShortResponse {
       JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
       // validate the required field `links` (array)
       for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkShort.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+        LinkShort.validateJsonElement(jsonArraylinks.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("attachments").isJsonArray()) {
@@ -781,7 +761,7 @@ public class TestResultShortResponse {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+        Attachment.validateJsonElement(jsonArrayattachments.get(i));
       };
   }
 
@@ -805,31 +785,31 @@ public class TestResultShortResponse {
 
            @Override
            public TestResultShortResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestResultShortResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestResultShortResponse
-  * @throws IOException if the JSON string is invalid with respect to TestResultShortResponse
-  */
+  /**
+   * Create an instance of TestResultShortResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestResultShortResponse
+   * @throws IOException if the JSON string is invalid with respect to TestResultShortResponse
+   */
   public static TestResultShortResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultShortResponse.class);
   }
 
- /**
-  * Convert an instance of TestResultShortResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestResultShortResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

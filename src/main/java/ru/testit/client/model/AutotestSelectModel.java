@@ -14,15 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import ru.testit.client.model.AutotestSelectModelExtractionModel;
-import ru.testit.client.model.AutotestSelectModelFilter;
+import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.AutoTestFilterModel;
+import ru.testit.client.model.AutoTestsExtractionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,70 +40,66 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
 
 /**
- * AutotestSelectModel
+ * AutoTestSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AutotestSelectModel {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+public class AutoTestSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private AutotestSelectModelFilter filter;
+  @javax.annotation.Nonnull
+  private AutoTestFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private AutotestSelectModelExtractionModel extractionModel;
+  @javax.annotation.Nullable
+  private AutoTestsExtractionModel extractionModel;
 
-  public AutotestSelectModel() {
+  public AutoTestSelectModel() {
   }
 
-  public AutotestSelectModel filter(AutotestSelectModelFilter filter) {
-    
+  public AutoTestSelectModel filter(@javax.annotation.Nonnull AutoTestFilterModel filter) {
     this.filter = filter;
     return this;
   }
 
-   /**
+  /**
    * Get filter
    * @return filter
-  **/
+   */
   @javax.annotation.Nonnull
-  public AutotestSelectModelFilter getFilter() {
+  public AutoTestFilterModel getFilter() {
     return filter;
   }
 
-
-  public void setFilter(AutotestSelectModelFilter filter) {
+  public void setFilter(@javax.annotation.Nonnull AutoTestFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public AutotestSelectModel extractionModel(AutotestSelectModelExtractionModel extractionModel) {
-    
+  public AutoTestSelectModel extractionModel(@javax.annotation.Nullable AutoTestsExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
 
-   /**
+  /**
    * Get extractionModel
    * @return extractionModel
-  **/
-  @javax.annotation.Nonnull
-  public AutotestSelectModelExtractionModel getExtractionModel() {
+   */
+  @javax.annotation.Nullable
+  public AutoTestsExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
-
-  public void setExtractionModel(AutotestSelectModelExtractionModel extractionModel) {
+  public void setExtractionModel(@javax.annotation.Nullable AutoTestsExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -116,9 +113,13 @@ public class AutotestSelectModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutotestSelectModel autotestSelectModel = (AutotestSelectModel) o;
-    return Objects.equals(this.filter, autotestSelectModel.filter) &&
-        Objects.equals(this.extractionModel, autotestSelectModel.extractionModel);
+    AutoTestSelectModel autoTestSelectModel = (AutoTestSelectModel) o;
+    return Objects.equals(this.filter, autoTestSelectModel.filter) &&
+        Objects.equals(this.extractionModel, autoTestSelectModel.extractionModel);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
@@ -126,10 +127,17 @@ public class AutotestSelectModel {
     return Objects.hash(filter, extractionModel);
   }
 
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutotestSelectModel {\n");
+    sb.append("class AutoTestSelectModel {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
     sb.append("}");
@@ -160,87 +168,89 @@ public class AutotestSelectModel {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("filter");
-    openapiRequiredFields.add("extractionModel");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutotestSelectModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutotestSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestSelectModel is not found in the empty JSON string", AutotestSelectModel.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestSelectModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestSelectModel is not found in the empty JSON string", AutoTestSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AutotestSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AutoTestSelectModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AutotestSelectModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+      for (String requiredField : AutoTestSelectModel.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `filter`
-      AutotestSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
-      // validate the required field `extractionModel`
-      AutotestSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+      AutoTestFilterModel.validateJsonElement(jsonObj.get("filter"));
+      // validate the optional field `extractionModel`
+      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
+        AutoTestsExtractionModel.validateJsonElement(jsonObj.get("extractionModel"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutotestSelectModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutotestSelectModel' and its subtypes
+       if (!AutoTestSelectModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutoTestSelectModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutotestSelectModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutotestSelectModel.class));
+       final TypeAdapter<AutoTestSelectModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestSelectModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AutotestSelectModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<AutoTestSelectModel>() {
            @Override
-           public void write(JsonWriter out, AutotestSelectModel value) throws IOException {
+           public void write(JsonWriter out, AutoTestSelectModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public AutotestSelectModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+           public AutoTestSelectModel read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutotestSelectModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutotestSelectModel
-  * @throws IOException if the JSON string is invalid with respect to AutotestSelectModel
-  */
-  public static AutotestSelectModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutotestSelectModel.class);
+  /**
+   * Create an instance of AutoTestSelectModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestSelectModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestSelectModel
+   */
+  public static AutoTestSelectModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutoTestSelectModel.class);
   }
 
- /**
-  * Convert an instance of AutotestSelectModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestSelectModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

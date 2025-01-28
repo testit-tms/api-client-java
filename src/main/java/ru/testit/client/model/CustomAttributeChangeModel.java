@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,12 +38,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,132 +49,127 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeChangeModel {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
   @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
+  @javax.annotation.Nullable
   private String oldAttributeName;
 
   public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
   @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
+  @javax.annotation.Nullable
   private String newAttributeName;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  @javax.annotation.Nullable
   private Object oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  @javax.annotation.Nullable
   private Object newValue = null;
 
   public CustomAttributeChangeModel() {
   }
 
-  public CustomAttributeChangeModel type(String type) {
-    
+  public CustomAttributeChangeModel type(@javax.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   public String getType() {
     return type;
   }
 
-
-  public void setType(String type) {
+  public void setType(@javax.annotation.Nullable String type) {
     this.type = type;
   }
 
 
-  public CustomAttributeChangeModel oldAttributeName(String oldAttributeName) {
-    
+  public CustomAttributeChangeModel oldAttributeName(@javax.annotation.Nullable String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
     return this;
   }
 
-   /**
+  /**
    * Get oldAttributeName
    * @return oldAttributeName
-  **/
+   */
   @javax.annotation.Nullable
   public String getOldAttributeName() {
     return oldAttributeName;
   }
 
-
-  public void setOldAttributeName(String oldAttributeName) {
+  public void setOldAttributeName(@javax.annotation.Nullable String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
   }
 
 
-  public CustomAttributeChangeModel newAttributeName(String newAttributeName) {
-    
+  public CustomAttributeChangeModel newAttributeName(@javax.annotation.Nullable String newAttributeName) {
     this.newAttributeName = newAttributeName;
     return this;
   }
 
-   /**
+  /**
    * Get newAttributeName
    * @return newAttributeName
-  **/
+   */
   @javax.annotation.Nullable
   public String getNewAttributeName() {
     return newAttributeName;
   }
 
-
-  public void setNewAttributeName(String newAttributeName) {
+  public void setNewAttributeName(@javax.annotation.Nullable String newAttributeName) {
     this.newAttributeName = newAttributeName;
   }
 
 
-  public CustomAttributeChangeModel oldValue(Object oldValue) {
-    
+  public CustomAttributeChangeModel oldValue(@javax.annotation.Nullable Object oldValue) {
     this.oldValue = oldValue;
     return this;
   }
 
-   /**
+  /**
    * Get oldValue
    * @return oldValue
-  **/
+   */
   @javax.annotation.Nullable
   public Object getOldValue() {
     return oldValue;
   }
 
-
-  public void setOldValue(Object oldValue) {
+  public void setOldValue(@javax.annotation.Nullable Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public CustomAttributeChangeModel newValue(Object newValue) {
-    
+  public CustomAttributeChangeModel newValue(@javax.annotation.Nullable Object newValue) {
     this.newValue = newValue;
     return this;
   }
 
-   /**
+  /**
    * Get newValue
    * @return newValue
-  **/
+   */
   @javax.annotation.Nullable
   public Object getNewValue() {
     return newValue;
   }
 
-
-  public void setNewValue(Object newValue) {
+  public void setNewValue(@javax.annotation.Nullable Object newValue) {
     this.newValue = newValue;
   }
 
@@ -255,26 +248,27 @@ public class CustomAttributeChangeModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeChangeModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CustomAttributeChangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CustomAttributeChangeModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CustomAttributeChangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeChangeModel is not found in the empty JSON string", CustomAttributeChangeModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomAttributeChangeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeChangeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeChangeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -306,31 +300,31 @@ public class CustomAttributeChangeModel {
 
            @Override
            public CustomAttributeChangeModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of CustomAttributeChangeModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomAttributeChangeModel
-  * @throws IOException if the JSON string is invalid with respect to CustomAttributeChangeModel
-  */
+  /**
+   * Create an instance of CustomAttributeChangeModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CustomAttributeChangeModel
+   * @throws IOException if the JSON string is invalid with respect to CustomAttributeChangeModel
+   */
   public static CustomAttributeChangeModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CustomAttributeChangeModel.class);
   }
 
- /**
-  * Convert an instance of CustomAttributeChangeModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CustomAttributeChangeModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -7,7 +7,7 @@
 
 * `ENQUEUED` (value: `"Enqueued"`)
 
-* `INPROGRESS` (value: `"InProgress"`)
+* `IN_PROGRESS` (value: `"InProgress"`)
 
 * `COMPLETED` (value: `"Completed"`)
 

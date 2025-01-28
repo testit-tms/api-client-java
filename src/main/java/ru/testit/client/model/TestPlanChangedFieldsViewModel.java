@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,12 +49,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -62,317 +60,305 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanChangedFieldsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanChangedFieldsViewModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel description;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel productName;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel build;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
   @SerializedName(SERIALIZED_NAME_PERIOD)
+  @javax.annotation.Nullable
   private PeriodViewModelChangedFieldViewModel period;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
   private StringArrayChangedFieldViewModel tags;
 
   public static final String SERIALIZED_NAME_TEST_SUITE = "testSuite";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE)
+  @javax.annotation.Nullable
   private TestSuiteChangeViewModelChangedFieldViewModel testSuite;
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
+  @javax.annotation.Nullable
   private TestPointChangeViewModelChangedFieldViewModel testPoints;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
+  @javax.annotation.Nullable
   private TestResultChangeViewModelChangedFieldViewModel testResults;
 
   public static final String SERIALIZED_NAME_LOCKING = "locking";
   @SerializedName(SERIALIZED_NAME_LOCKING)
+  @javax.annotation.Nullable
   private BooleanChangedFieldViewModel locking;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
+  @javax.annotation.Nullable
   private BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
   private Map<String, CustomAttributeChangeModel> attributes;
 
   public TestPlanChangedFieldsViewModel() {
   }
 
-  public TestPlanChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
-    
+  public TestPlanChangedFieldsViewModel name(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getName() {
     return name;
   }
 
-
-  public void setName(StringChangedFieldWithDiffsViewModel name) {
+  public void setName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
   }
 
 
-  public TestPlanChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
-    
+  public TestPlanChangedFieldsViewModel description(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getDescription() {
     return description;
   }
 
-
-  public void setDescription(StringChangedFieldWithDiffsViewModel description) {
+  public void setDescription(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
   }
 
 
-  public TestPlanChangedFieldsViewModel productName(StringChangedFieldWithDiffsViewModel productName) {
-    
+  public TestPlanChangedFieldsViewModel productName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
     this.productName = productName;
     return this;
   }
 
-   /**
+  /**
    * Get productName
    * @return productName
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getProductName() {
     return productName;
   }
 
-
-  public void setProductName(StringChangedFieldWithDiffsViewModel productName) {
+  public void setProductName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanChangedFieldsViewModel build(StringChangedFieldWithDiffsViewModel build) {
-    
+  public TestPlanChangedFieldsViewModel build(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
     this.build = build;
     return this;
   }
 
-   /**
+  /**
    * Get build
    * @return build
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getBuild() {
     return build;
   }
 
-
-  public void setBuild(StringChangedFieldWithDiffsViewModel build) {
+  public void setBuild(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
     this.build = build;
   }
 
 
-  public TestPlanChangedFieldsViewModel period(PeriodViewModelChangedFieldViewModel period) {
-    
+  public TestPlanChangedFieldsViewModel period(@javax.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
     this.period = period;
     return this;
   }
 
-   /**
+  /**
    * Get period
    * @return period
-  **/
+   */
   @javax.annotation.Nullable
   public PeriodViewModelChangedFieldViewModel getPeriod() {
     return period;
   }
 
-
-  public void setPeriod(PeriodViewModelChangedFieldViewModel period) {
+  public void setPeriod(@javax.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
     this.period = period;
   }
 
 
-  public TestPlanChangedFieldsViewModel status(StringChangedFieldWithDiffsViewModel status) {
-    
+  public TestPlanChangedFieldsViewModel status(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   public StringChangedFieldWithDiffsViewModel getStatus() {
     return status;
   }
 
-
-  public void setStatus(StringChangedFieldWithDiffsViewModel status) {
+  public void setStatus(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
     this.status = status;
   }
 
 
-  public TestPlanChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
-    
+  public TestPlanChangedFieldsViewModel tags(@javax.annotation.Nullable StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   public StringArrayChangedFieldViewModel getTags() {
     return tags;
   }
 
-
-  public void setTags(StringArrayChangedFieldViewModel tags) {
+  public void setTags(@javax.annotation.Nullable StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanChangedFieldsViewModel testSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
-    
+  public TestPlanChangedFieldsViewModel testSuite(@javax.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = testSuite;
     return this;
   }
 
-   /**
+  /**
    * Get testSuite
    * @return testSuite
-  **/
+   */
   @javax.annotation.Nullable
   public TestSuiteChangeViewModelChangedFieldViewModel getTestSuite() {
     return testSuite;
   }
 
-
-  public void setTestSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
+  public void setTestSuite(@javax.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = testSuite;
   }
 
 
-  public TestPlanChangedFieldsViewModel testPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
-    
+  public TestPlanChangedFieldsViewModel testPoints(@javax.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = testPoints;
     return this;
   }
 
-   /**
+  /**
    * Get testPoints
    * @return testPoints
-  **/
+   */
   @javax.annotation.Nullable
   public TestPointChangeViewModelChangedFieldViewModel getTestPoints() {
     return testPoints;
   }
 
-
-  public void setTestPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
+  public void setTestPoints(@javax.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = testPoints;
   }
 
 
-  public TestPlanChangedFieldsViewModel testResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
-    
+  public TestPlanChangedFieldsViewModel testResults(@javax.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = testResults;
     return this;
   }
 
-   /**
+  /**
    * Get testResults
    * @return testResults
-  **/
+   */
   @javax.annotation.Nullable
   public TestResultChangeViewModelChangedFieldViewModel getTestResults() {
     return testResults;
   }
 
-
-  public void setTestResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
+  public void setTestResults(@javax.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestPlanChangedFieldsViewModel locking(BooleanChangedFieldViewModel locking) {
-    
+  public TestPlanChangedFieldsViewModel locking(@javax.annotation.Nullable BooleanChangedFieldViewModel locking) {
     this.locking = locking;
     return this;
   }
 
-   /**
+  /**
    * Get locking
    * @return locking
-  **/
+   */
   @javax.annotation.Nullable
   public BooleanChangedFieldViewModel getLocking() {
     return locking;
   }
 
-
-  public void setLocking(BooleanChangedFieldViewModel locking) {
+  public void setLocking(@javax.annotation.Nullable BooleanChangedFieldViewModel locking) {
     this.locking = locking;
   }
 
 
-  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
-    
+  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(@javax.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
 
-   /**
+  /**
    * Get hasAutomaticDurationTimer
    * @return hasAutomaticDurationTimer
-  **/
+   */
   @javax.annotation.Nullable
   public BooleanNullableChangedFieldViewModel getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
   }
 
-
-  public void setHasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanChangedFieldsViewModel attributes(Map<String, CustomAttributeChangeModel> attributes) {
-    
+  public TestPlanChangedFieldsViewModel attributes(@javax.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -385,17 +371,16 @@ public class TestPlanChangedFieldsViewModel {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, CustomAttributeChangeModel> getAttributes() {
     return attributes;
   }
 
-
-  public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
+  public void setAttributes(@javax.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
   }
 
@@ -498,73 +483,74 @@ public class TestPlanChangedFieldsViewModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanChangedFieldsViewModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestPlanChangedFieldsViewModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanChangedFieldsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanChangedFieldsViewModel is not found in the empty JSON string", TestPlanChangedFieldsViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanChangedFieldsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangedFieldsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `name`
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("name"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("name"));
       }
       // validate the optional field `description`
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("description"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("description"));
       }
       // validate the optional field `productName`
       if (jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("productName"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("productName"));
       }
       // validate the optional field `build`
       if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("build"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("build"));
       }
       // validate the optional field `period`
       if (jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) {
-        PeriodViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("period"));
+        PeriodViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("period"));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        StringChangedFieldWithDiffsViewModel.validateJsonObject(jsonObj.getAsJsonObject("status"));
+        StringChangedFieldWithDiffsViewModel.validateJsonElement(jsonObj.get("status"));
       }
       // validate the optional field `tags`
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
-        StringArrayChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("tags"));
+        StringArrayChangedFieldViewModel.validateJsonElement(jsonObj.get("tags"));
       }
       // validate the optional field `testSuite`
       if (jsonObj.get("testSuite") != null && !jsonObj.get("testSuite").isJsonNull()) {
-        TestSuiteChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testSuite"));
+        TestSuiteChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testSuite"));
       }
       // validate the optional field `testPoints`
       if (jsonObj.get("testPoints") != null && !jsonObj.get("testPoints").isJsonNull()) {
-        TestPointChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testPoints"));
+        TestPointChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testPoints"));
       }
       // validate the optional field `testResults`
       if (jsonObj.get("testResults") != null && !jsonObj.get("testResults").isJsonNull()) {
-        TestResultChangeViewModelChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("testResults"));
+        TestResultChangeViewModelChangedFieldViewModel.validateJsonElement(jsonObj.get("testResults"));
       }
       // validate the optional field `locking`
       if (jsonObj.get("locking") != null && !jsonObj.get("locking").isJsonNull()) {
-        BooleanChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("locking"));
+        BooleanChangedFieldViewModel.validateJsonElement(jsonObj.get("locking"));
       }
       // validate the optional field `hasAutomaticDurationTimer`
       if (jsonObj.get("hasAutomaticDurationTimer") != null && !jsonObj.get("hasAutomaticDurationTimer").isJsonNull()) {
-        BooleanNullableChangedFieldViewModel.validateJsonObject(jsonObj.getAsJsonObject("hasAutomaticDurationTimer"));
+        BooleanNullableChangedFieldViewModel.validateJsonElement(jsonObj.get("hasAutomaticDurationTimer"));
       }
   }
 
@@ -588,31 +574,31 @@ public class TestPlanChangedFieldsViewModel {
 
            @Override
            public TestPlanChangedFieldsViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestPlanChangedFieldsViewModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPlanChangedFieldsViewModel
-  * @throws IOException if the JSON string is invalid with respect to TestPlanChangedFieldsViewModel
-  */
+  /**
+   * Create an instance of TestPlanChangedFieldsViewModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestPlanChangedFieldsViewModel
+   * @throws IOException if the JSON string is invalid with respect to TestPlanChangedFieldsViewModel
+   */
   public static TestPlanChangedFieldsViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanChangedFieldsViewModel.class);
   }
 
- /**
-  * Convert an instance of TestPlanChangedFieldsViewModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestPlanChangedFieldsViewModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

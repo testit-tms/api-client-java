@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,21 +51,22 @@ import ru.testit.client.invoker.JSON;
 /**
  * StringArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StringArrayChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  @javax.annotation.Nullable
   private List<String> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
+  @javax.annotation.Nullable
   private List<String> newValue;
 
   public StringArrayChangedFieldViewModel() {
   }
 
-  public StringArrayChangedFieldViewModel oldValue(List<String> oldValue) {
-    
+  public StringArrayChangedFieldViewModel oldValue(@javax.annotation.Nullable List<String> oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -80,23 +79,21 @@ public class StringArrayChangedFieldViewModel {
     return this;
   }
 
-   /**
+  /**
    * Get oldValue
    * @return oldValue
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getOldValue() {
     return oldValue;
   }
 
-
-  public void setOldValue(List<String> oldValue) {
+  public void setOldValue(@javax.annotation.Nullable List<String> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public StringArrayChangedFieldViewModel newValue(List<String> newValue) {
-    
+  public StringArrayChangedFieldViewModel newValue(@javax.annotation.Nullable List<String> newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -109,17 +106,16 @@ public class StringArrayChangedFieldViewModel {
     return this;
   }
 
-   /**
+  /**
    * Get newValue
    * @return newValue
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getNewValue() {
     return newValue;
   }
 
-
-  public void setNewValue(List<String> newValue) {
+  public void setNewValue(@javax.annotation.Nullable List<String> newValue) {
     this.newValue = newValue;
   }
 
@@ -189,32 +185,33 @@ public class StringArrayChangedFieldViewModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StringArrayChangedFieldViewModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StringArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StringArrayChangedFieldViewModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StringArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in StringArrayChangedFieldViewModel is not found in the empty JSON string", StringArrayChangedFieldViewModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StringArrayChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonArray()) {
+      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull() && !jsonObj.get("oldValue").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be an array in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonArray()) {
+      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull() && !jsonObj.get("newValue").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `newValue` to be an array in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
       }
   }
@@ -239,31 +236,31 @@ public class StringArrayChangedFieldViewModel {
 
            @Override
            public StringArrayChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StringArrayChangedFieldViewModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StringArrayChangedFieldViewModel
-  * @throws IOException if the JSON string is invalid with respect to StringArrayChangedFieldViewModel
-  */
+  /**
+   * Create an instance of StringArrayChangedFieldViewModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StringArrayChangedFieldViewModel
+   * @throws IOException if the JSON string is invalid with respect to StringArrayChangedFieldViewModel
+   */
   public static StringArrayChangedFieldViewModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StringArrayChangedFieldViewModel.class);
   }
 
- /**
-  * Convert an instance of StringArrayChangedFieldViewModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StringArrayChangedFieldViewModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

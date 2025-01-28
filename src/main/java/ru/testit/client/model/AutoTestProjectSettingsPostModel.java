@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +37,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,138 +48,133 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestProjectSettingsPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestProjectSettingsPostModel {
   public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
+  @javax.annotation.Nullable
   private Boolean isFlakyAuto = false;
 
   public static final String SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
   @SerializedName(SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE)
+  @javax.annotation.Nullable
   private Integer flakyStabilityPercentage = 100;
 
   public static final String SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
   @SerializedName(SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT)
+  @javax.annotation.Nullable
   private Integer flakyTestRunCount = 100;
 
   public static final String SERIALIZED_NAME_RERUN_ENABLED = "rerunEnabled";
   @SerializedName(SERIALIZED_NAME_RERUN_ENABLED)
+  @javax.annotation.Nonnull
   private Boolean rerunEnabled;
 
   public static final String SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   @SerializedName(SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT)
+  @javax.annotation.Nonnull
   private Integer rerunAttemptsCount;
 
   public AutoTestProjectSettingsPostModel() {
   }
 
-  public AutoTestProjectSettingsPostModel isFlakyAuto(Boolean isFlakyAuto) {
-    
+  public AutoTestProjectSettingsPostModel isFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
    * @return isFlakyAuto
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsFlakyAuto() {
     return isFlakyAuto;
   }
 
-
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
+  public void setIsFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }
 
 
-  public AutoTestProjectSettingsPostModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
-    
+  public AutoTestProjectSettingsPostModel flakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
     return this;
   }
 
-   /**
+  /**
    * Stability percentage for autotest flaky computing
    * minimum: 0
    * maximum: 100
    * @return flakyStabilityPercentage
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getFlakyStabilityPercentage() {
     return flakyStabilityPercentage;
   }
 
-
-  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
+  public void setFlakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
   }
 
 
-  public AutoTestProjectSettingsPostModel flakyTestRunCount(Integer flakyTestRunCount) {
-    
+  public AutoTestProjectSettingsPostModel flakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
     return this;
   }
 
-   /**
+  /**
    * Last test run count for autotest flaky computing
    * minimum: 1
    * maximum: 1000
    * @return flakyTestRunCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getFlakyTestRunCount() {
     return flakyTestRunCount;
   }
 
-
-  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
+  public void setFlakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
   }
 
 
-  public AutoTestProjectSettingsPostModel rerunEnabled(Boolean rerunEnabled) {
-    
+  public AutoTestProjectSettingsPostModel rerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
     return this;
   }
 
-   /**
+  /**
    * Auto rerun enabled
    * @return rerunEnabled
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getRerunEnabled() {
     return rerunEnabled;
   }
 
-
-  public void setRerunEnabled(Boolean rerunEnabled) {
+  public void setRerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
   }
 
 
-  public AutoTestProjectSettingsPostModel rerunAttemptsCount(Integer rerunAttemptsCount) {
-    
+  public AutoTestProjectSettingsPostModel rerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
     return this;
   }
 
-   /**
+  /**
    * Auto rerun attempt count
    * minimum: 1
    * maximum: 10
    * @return rerunAttemptsCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRerunAttemptsCount() {
     return rerunAttemptsCount;
   }
 
-
-  public void setRerunAttemptsCount(Integer rerunAttemptsCount) {
+  public void setRerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
   }
 
@@ -251,33 +244,34 @@ public class AutoTestProjectSettingsPostModel {
     openapiRequiredFields.add("rerunAttemptsCount");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestProjectSettingsPostModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestProjectSettingsPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestProjectSettingsPostModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestProjectSettingsPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestProjectSettingsPostModel is not found in the empty JSON string", AutoTestProjectSettingsPostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestProjectSettingsPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestProjectSettingsPostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestProjectSettingsPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestProjectSettingsPostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -300,31 +294,31 @@ public class AutoTestProjectSettingsPostModel {
 
            @Override
            public AutoTestProjectSettingsPostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutoTestProjectSettingsPostModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutoTestProjectSettingsPostModel
-  * @throws IOException if the JSON string is invalid with respect to AutoTestProjectSettingsPostModel
-  */
+  /**
+   * Create an instance of AutoTestProjectSettingsPostModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestProjectSettingsPostModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestProjectSettingsPostModel
+   */
   public static AutoTestProjectSettingsPostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestProjectSettingsPostModel.class);
   }
 
- /**
-  * Convert an instance of AutoTestProjectSettingsPostModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestProjectSettingsPostModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -27,10 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest;
-import ru.testit.client.model.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest;
-import ru.testit.client.model.ApiV2TestResultsSearchPostRequest;
 import ru.testit.client.model.AttachmentModel;
+import ru.testit.client.model.CreateDefectApiModel;
 import ru.testit.client.model.DefectApiModel;
 import java.io.File;
 import ru.testit.client.model.GetExternalFormApiResult;
@@ -40,7 +38,9 @@ import ru.testit.client.model.RerunsModel;
 import ru.testit.client.model.TestResultResponse;
 import ru.testit.client.model.TestResultShortResponse;
 import ru.testit.client.model.TestResultUpdateV2Request;
-import ru.testit.client.model.TestResultsStatisticsResponse;
+import ru.testit.client.model.TestResultsFilterApiModel;
+import ru.testit.client.model.TestResultsSelectApiModel;
+import ru.testit.client.model.TestResultsStatisticsApiResult;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 
@@ -49,7 +49,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TestResultsApi {
     private ApiClient localVarApiClient;
@@ -91,12 +90,13 @@ public class TestResultsApi {
     /**
      * Build call for apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param testResultsSelectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -107,7 +107,7 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -121,7 +121,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest;
+        Object localVarPostBody = testResultsSelectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms"
@@ -154,13 +154,13 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'externalProjectId' is set
         if (externalProjectId == null) {
             throw new ApiException("Missing the required parameter 'externalProjectId' when calling apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(Async)");
         }
 
-        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, _callback);
+        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostCall(externalProjectId, testResultsSelectApiModel, _callback);
 
     }
 
@@ -168,11 +168,12 @@ public class TestResultsApi {
      * 
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param testResultsSelectApiModel  (optional)
      * @return GetExternalFormApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -183,8 +184,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest) throws ApiException {
-        ApiResponse<GetExternalFormApiResult> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest);
+    public GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel) throws ApiException {
+        ApiResponse<GetExternalFormApiResult> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(externalProjectId, testResultsSelectApiModel);
         return localVarResp.getData();
     }
 
@@ -192,11 +193,12 @@ public class TestResultsApi {
      * 
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param testResultsSelectApiModel  (optional)
      * @return ApiResponse&lt;GetExternalFormApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -207,8 +209,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetExternalFormApiResult> apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, null);
+    public ApiResponse<GetExternalFormApiResult> apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, testResultsSelectApiModel, null);
         Type localVarReturnType = new TypeToken<GetExternalFormApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -217,12 +219,13 @@ public class TestResultsApi {
      *  (asynchronously)
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest  (optional)
+     * @param testResultsSelectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -233,9 +236,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostAsync(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, final ApiCallback<GetExternalFormApiResult> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostAsync(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel, final ApiCallback<GetExternalFormApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostValidateBeforeCall(externalProjectId, testResultsSelectApiModel, _callback);
         Type localVarReturnType = new TypeToken<GetExternalFormApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -243,12 +246,13 @@ public class TestResultsApi {
     /**
      * Build call for apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param createDefectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -259,7 +263,7 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(UUID externalProjectId, CreateDefectApiModel createDefectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -273,7 +277,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest;
+        Object localVarPostBody = createDefectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/external-projects/{externalProjectId}/defects"
@@ -306,13 +310,13 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(UUID externalProjectId, CreateDefectApiModel createDefectApiModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'externalProjectId' is set
         if (externalProjectId == null) {
             throw new ApiException("Missing the required parameter 'externalProjectId' when calling apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(Async)");
         }
 
-        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, _callback);
+        return apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostCall(externalProjectId, createDefectApiModel, _callback);
 
     }
 
@@ -320,11 +324,12 @@ public class TestResultsApi {
      * 
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param createDefectApiModel  (optional)
      * @return DefectApiModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -335,8 +340,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest) throws ApiException {
-        ApiResponse<DefectApiModel> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest);
+    public DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(UUID externalProjectId, CreateDefectApiModel createDefectApiModel) throws ApiException {
+        ApiResponse<DefectApiModel> localVarResp = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(externalProjectId, createDefectApiModel);
         return localVarResp.getData();
     }
 
@@ -344,11 +349,12 @@ public class TestResultsApi {
      * 
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param createDefectApiModel  (optional)
      * @return ApiResponse&lt;DefectApiModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -359,8 +365,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DefectApiModel> apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, null);
+    public ApiResponse<DefectApiModel> apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(UUID externalProjectId, CreateDefectApiModel createDefectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, createDefectApiModel, null);
         Type localVarReturnType = new TypeToken<DefectApiModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -369,12 +375,13 @@ public class TestResultsApi {
      *  (asynchronously)
      * 
      * @param externalProjectId  (required)
-     * @param apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest  (optional)
+     * @param createDefectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -385,9 +392,9 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostAsync(UUID externalProjectId, ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, final ApiCallback<DefectApiModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostAsync(UUID externalProjectId, CreateDefectApiModel createDefectApiModel, final ApiCallback<DefectApiModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostValidateBeforeCall(externalProjectId, createDefectApiModel, _callback);
         Type localVarReturnType = new TypeToken<DefectApiModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -399,7 +406,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -473,7 +481,8 @@ public class TestResultsApi {
      * @return TestResultResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -496,7 +505,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;TestResultResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -521,7 +531,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -547,7 +558,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -627,7 +639,8 @@ public class TestResultsApi {
      * @param attachmentId Attachment unique ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -650,7 +663,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -675,7 +689,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -699,7 +714,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -773,7 +789,8 @@ public class TestResultsApi {
      * @return List&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -796,7 +813,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;List&lt;AttachmentModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -821,7 +839,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -846,7 +865,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -920,7 +940,8 @@ public class TestResultsApi {
      * @return TestResultResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -943,7 +964,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;TestResultResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -968,7 +990,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -994,7 +1017,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1069,7 +1093,8 @@ public class TestResultsApi {
      * @param testResultUpdateV2Request  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1092,7 +1117,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1117,7 +1143,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1141,7 +1168,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1215,7 +1243,8 @@ public class TestResultsApi {
      * @return RerunsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1238,7 +1267,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;RerunsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1263,7 +1293,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1288,12 +1319,13 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1304,7 +1336,7 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1318,7 +1350,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
+        Object localVarPostBody = testResultsFilterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/search";
@@ -1370,8 +1402,8 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestResultsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsSearchPostCall(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel, _callback);
 
     }
 
@@ -1383,11 +1415,12 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @return List&lt;TestResultShortResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1398,8 +1431,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestResultShortResponse> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestResultShortResponse>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest);
+    public List<TestResultShortResponse> apiV2TestResultsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterApiModel testResultsFilterApiModel) throws ApiException {
+        ApiResponse<List<TestResultShortResponse>> localVarResp = apiV2TestResultsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel);
         return localVarResp.getData();
     }
 
@@ -1411,11 +1444,12 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @return ApiResponse&lt;List&lt;TestResultShortResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1426,8 +1460,8 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestResultShortResponse>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, null);
+    public ApiResponse<List<TestResultShortResponse>> apiV2TestResultsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterApiModel testResultsFilterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel, null);
         Type localVarReturnType = new TypeToken<List<TestResultShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1440,12 +1474,13 @@ public class TestResultsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1456,21 +1491,22 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<List<TestResultShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback<List<TestResultShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, apiV2TestResultsSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2TestResultsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, testResultsFilterApiModel, _callback);
         Type localVarReturnType = new TypeToken<List<TestResultShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2TestResultsStatisticsFilterPost
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1481,7 +1517,7 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostCall(TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1495,7 +1531,7 @@ public class TestResultsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2TestResultsSearchPostRequest;
+        Object localVarPostBody = testResultsFilterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testResults/statistics/filter";
@@ -1527,19 +1563,20 @@ public class TestResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2TestResultsStatisticsFilterPostCall(apiV2TestResultsSearchPostRequest, _callback);
+    private okhttp3.Call apiV2TestResultsStatisticsFilterPostValidateBeforeCall(TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2TestResultsStatisticsFilterPostCall(testResultsFilterApiModel, _callback);
 
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return TestResultsStatisticsResponse
+     * @param testResultsFilterApiModel  (optional)
+     * @return TestResultsStatisticsApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1550,19 +1587,20 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public TestResultsStatisticsResponse apiV2TestResultsStatisticsFilterPost(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        ApiResponse<TestResultsStatisticsResponse> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(apiV2TestResultsSearchPostRequest);
+    public TestResultsStatisticsApiResult apiV2TestResultsStatisticsFilterPost(TestResultsFilterApiModel testResultsFilterApiModel) throws ApiException {
+        ApiResponse<TestResultsStatisticsApiResult> localVarResp = apiV2TestResultsStatisticsFilterPostWithHttpInfo(testResultsFilterApiModel);
         return localVarResp.getData();
     }
 
     /**
      * Search for test results and extract statistics
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
-     * @return ApiResponse&lt;TestResultsStatisticsResponse&gt;
+     * @param testResultsFilterApiModel  (optional)
+     * @return ApiResponse&lt;TestResultsStatisticsApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1573,21 +1611,22 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TestResultsStatisticsResponse> apiV2TestResultsStatisticsFilterPostWithHttpInfo(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, null);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsResponse>(){}.getType();
+    public ApiResponse<TestResultsStatisticsApiResult> apiV2TestResultsStatisticsFilterPostWithHttpInfo(TestResultsFilterApiModel testResultsFilterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterApiModel, null);
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search for test results and extract statistics (asynchronously)
      * 
-     * @param apiV2TestResultsSearchPostRequest  (optional)
+     * @param testResultsFilterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1598,10 +1637,10 @@ public class TestResultsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(ApiV2TestResultsSearchPostRequest apiV2TestResultsSearchPostRequest, final ApiCallback<TestResultsStatisticsResponse> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestResultsStatisticsFilterPostAsync(TestResultsFilterApiModel testResultsFilterApiModel, final ApiCallback<TestResultsStatisticsApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(apiV2TestResultsSearchPostRequest, _callback);
-        Type localVarReturnType = new TypeToken<TestResultsStatisticsResponse>(){}.getType();
+        okhttp3.Call localVarCall = apiV2TestResultsStatisticsFilterPostValidateBeforeCall(testResultsFilterApiModel, _callback);
+        Type localVarReturnType = new TypeToken<TestResultsStatisticsApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1613,7 +1652,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1693,7 +1733,8 @@ public class TestResultsApi {
      * @param _file Select file (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1717,7 +1758,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1743,7 +1785,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1769,7 +1812,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1849,7 +1893,8 @@ public class TestResultsApi {
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1872,7 +1917,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1897,7 +1943,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1927,7 +1974,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2032,7 +2080,8 @@ public class TestResultsApi {
      * @param preview If image must be converted to a preview (lower quality, no animation) (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2060,7 +2109,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2090,7 +2140,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2115,7 +2166,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2196,7 +2248,8 @@ public class TestResultsApi {
      * @return AttachmentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2220,7 +2273,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2246,7 +2300,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2271,7 +2326,8 @@ public class TestResultsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2345,7 +2401,8 @@ public class TestResultsApi {
      * @return List&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2368,7 +2425,8 @@ public class TestResultsApi {
      * @return ApiResponse&lt;List&lt;AttachmentModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -2393,7 +2451,8 @@ public class TestResultsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

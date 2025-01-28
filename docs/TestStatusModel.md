@@ -9,7 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
+|**type** | **TestStatusType** |  |  |
+|**isBased** | **Boolean** |  |  |
+|**isDefault** | **Boolean** |  |  |
 |**code** | **String** |  |  |
+|**description** | **String** |  |  [optional] |
 
 
 

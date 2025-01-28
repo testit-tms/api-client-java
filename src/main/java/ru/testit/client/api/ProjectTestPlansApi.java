@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest;
-import ru.testit.client.model.ApiV2ProjectsProjectIdTestPlansSearchPostRequest;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.ProjectTestPlansFilterModel;
+import ru.testit.client.model.TestPlanSelectModel;
 import ru.testit.client.model.TestPlanWithAnalyticModel;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProjectTestPlansApi {
     private ApiClient localVarApiClient;
@@ -92,7 +91,8 @@ public class ProjectTestPlansApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -201,7 +201,8 @@ public class ProjectTestPlansApi {
      * @return List&lt;TestPlanWithAnalyticModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -231,7 +232,8 @@ public class ProjectTestPlansApi {
      * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -263,7 +265,8 @@ public class ProjectTestPlansApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -284,12 +287,13 @@ public class ProjectTestPlansApi {
     /**
      * Build call for apiV2ProjectsProjectIdTestPlansDeleteBulkPost
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -300,7 +304,7 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -314,7 +318,7 @@ public class ProjectTestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest;
+        Object localVarPostBody = testPlanSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/delete/bulk"
@@ -347,13 +351,13 @@ public class ProjectTestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdTestPlansDeleteBulkPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdTestPlansDeleteBulkPostCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        return apiV2ProjectsProjectIdTestPlansDeleteBulkPostCall(projectId, testPlanSelectModel, _callback);
 
     }
 
@@ -361,11 +365,12 @@ public class ProjectTestPlansApi {
      * Delete multiple test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -376,8 +381,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ProjectsProjectIdTestPlansDeleteBulkPost(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdTestPlansDeleteBulkPostWithHttpInfo(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+    public List<UUID> apiV2ProjectsProjectIdTestPlansDeleteBulkPost(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdTestPlansDeleteBulkPostWithHttpInfo(projectId, testPlanSelectModel);
         return localVarResp.getData();
     }
 
@@ -385,11 +390,12 @@ public class ProjectTestPlansApi {
      * Delete multiple test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -400,8 +406,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdTestPlansDeleteBulkPostWithHttpInfo(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdTestPlansDeleteBulkPostWithHttpInfo(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(projectId, testPlanSelectModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -410,12 +416,13 @@ public class ProjectTestPlansApi {
      * Delete multiple test plans (asynchronously)
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -426,9 +433,9 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostAsync(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansDeleteBulkPostAsync(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansDeleteBulkPostValidateBeforeCall(projectId, testPlanSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -441,7 +448,8 @@ public class ProjectTestPlansApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -522,7 +530,8 @@ public class ProjectTestPlansApi {
      * @return Boolean
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -546,7 +555,8 @@ public class ProjectTestPlansApi {
      * @return ApiResponse&lt;Boolean&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -572,7 +582,8 @@ public class ProjectTestPlansApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -593,12 +604,13 @@ public class ProjectTestPlansApi {
     /**
      * Build call for apiV2ProjectsProjectIdTestPlansPurgeBulkPost
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -609,7 +621,7 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -623,7 +635,7 @@ public class ProjectTestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest;
+        Object localVarPostBody = testPlanSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/purge/bulk"
@@ -656,13 +668,13 @@ public class ProjectTestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdTestPlansPurgeBulkPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdTestPlansPurgeBulkPostCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        return apiV2ProjectsProjectIdTestPlansPurgeBulkPostCall(projectId, testPlanSelectModel, _callback);
 
     }
 
@@ -670,10 +682,11 @@ public class ProjectTestPlansApi {
      * Permanently delete multiple archived test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -684,19 +697,20 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ProjectsProjectIdTestPlansPurgeBulkPost(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        apiV2ProjectsProjectIdTestPlansPurgeBulkPostWithHttpInfo(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+    public void apiV2ProjectsProjectIdTestPlansPurgeBulkPost(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        apiV2ProjectsProjectIdTestPlansPurgeBulkPostWithHttpInfo(projectId, testPlanSelectModel);
     }
 
     /**
      * Permanently delete multiple archived test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -707,8 +721,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ProjectsProjectIdTestPlansPurgeBulkPostWithHttpInfo(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, null);
+    public ApiResponse<Void> apiV2ProjectsProjectIdTestPlansPurgeBulkPostWithHttpInfo(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(projectId, testPlanSelectModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -716,12 +730,13 @@ public class ProjectTestPlansApi {
      * Permanently delete multiple archived test plans (asynchronously)
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -732,21 +747,22 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostAsync(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansPurgeBulkPostAsync(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansPurgeBulkPostValidateBeforeCall(projectId, testPlanSelectModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ProjectsProjectIdTestPlansRestoreBulkPost
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -757,7 +773,7 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -771,7 +787,7 @@ public class ProjectTestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest;
+        Object localVarPostBody = testPlanSelectModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/restore/bulk"
@@ -804,13 +820,13 @@ public class ProjectTestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdTestPlansRestoreBulkPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdTestPlansRestoreBulkPostCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        return apiV2ProjectsProjectIdTestPlansRestoreBulkPostCall(projectId, testPlanSelectModel, _callback);
 
     }
 
@@ -818,11 +834,12 @@ public class ProjectTestPlansApi {
      * Restore multiple test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @return List&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -833,8 +850,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<UUID> apiV2ProjectsProjectIdTestPlansRestoreBulkPost(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdTestPlansRestoreBulkPostWithHttpInfo(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+    public List<UUID> apiV2ProjectsProjectIdTestPlansRestoreBulkPost(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        ApiResponse<List<UUID>> localVarResp = apiV2ProjectsProjectIdTestPlansRestoreBulkPostWithHttpInfo(projectId, testPlanSelectModel);
         return localVarResp.getData();
     }
 
@@ -842,11 +859,12 @@ public class ProjectTestPlansApi {
      * Restore multiple test plans
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -857,8 +875,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdTestPlansRestoreBulkPostWithHttpInfo(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, null);
+    public ApiResponse<List<UUID>> apiV2ProjectsProjectIdTestPlansRestoreBulkPostWithHttpInfo(String projectId, TestPlanSelectModel testPlanSelectModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(projectId, testPlanSelectModel, null);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -867,12 +885,13 @@ public class ProjectTestPlansApi {
      * Restore multiple test plans (asynchronously)
      * 
      * @param projectId Unique or global ID of the project (required)
-     * @param apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest  (optional)
+     * @param testPlanSelectModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -883,9 +902,9 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostAsync(String projectId, ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, final ApiCallback<List<UUID>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansRestoreBulkPostAsync(String projectId, TestPlanSelectModel testPlanSelectModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansRestoreBulkPostValidateBeforeCall(projectId, testPlanSelectModel, _callback);
         Type localVarReturnType = new TypeToken<List<UUID>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -899,12 +918,13 @@ public class ProjectTestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdTestPlansSearchPostRequest  (optional)
+     * @param projectTestPlansFilterModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -915,7 +935,7 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostCall(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostCall(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -929,7 +949,7 @@ public class ProjectTestPlansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2ProjectsProjectIdTestPlansSearchPostRequest;
+        Object localVarPostBody = projectTestPlansFilterModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/{projectId}/testPlans/search"
@@ -986,13 +1006,13 @@ public class ProjectTestPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdTestPlansSearchPost(Async)");
         }
 
-        return apiV2ProjectsProjectIdTestPlansSearchPostCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest, _callback);
+        return apiV2ProjectsProjectIdTestPlansSearchPostCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, _callback);
 
     }
 
@@ -1006,11 +1026,12 @@ public class ProjectTestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdTestPlansSearchPostRequest  (optional)
+     * @param projectTestPlansFilterModel  (optional)
      * @return List&lt;TestPlanWithAnalyticModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1021,8 +1042,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestPlanWithAnalyticModel> apiV2ProjectsProjectIdTestPlansSearchPost(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest) throws ApiException {
-        ApiResponse<List<TestPlanWithAnalyticModel>> localVarResp = apiV2ProjectsProjectIdTestPlansSearchPostWithHttpInfo(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest);
+    public List<TestPlanWithAnalyticModel> apiV2ProjectsProjectIdTestPlansSearchPost(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
+        ApiResponse<List<TestPlanWithAnalyticModel>> localVarResp = apiV2ProjectsProjectIdTestPlansSearchPostWithHttpInfo(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
         return localVarResp.getData();
     }
 
@@ -1036,11 +1057,12 @@ public class ProjectTestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdTestPlansSearchPostRequest  (optional)
+     * @param projectTestPlansFilterModel  (optional)
      * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1051,8 +1073,8 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsProjectIdTestPlansSearchPostWithHttpInfo(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest, null);
+    public ApiResponse<List<TestPlanWithAnalyticModel>> apiV2ProjectsProjectIdTestPlansSearchPostWithHttpInfo(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, null);
         Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1067,12 +1089,13 @@ public class ProjectTestPlansApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param apiV2ProjectsProjectIdTestPlansSearchPostRequest  (optional)
+     * @param projectTestPlansFilterModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1083,9 +1106,9 @@ public class ProjectTestPlansApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostAsync(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest, final ApiCallback<List<TestPlanWithAnalyticModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdTestPlansSearchPostAsync(String projectId, Boolean mustUpdateCache, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectTestPlansFilterModel projectTestPlansFilterModel, final ApiCallback<List<TestPlanWithAnalyticModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2ProjectsProjectIdTestPlansSearchPostValidateBeforeCall(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel, _callback);
         Type localVarReturnType = new TypeToken<List<TestPlanWithAnalyticModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

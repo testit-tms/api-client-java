@@ -7,7 +7,7 @@
 
 * `CROP` (value: `"Crop"`)
 
-* `ADDBACKGROUNDSTRIPES` (value: `"AddBackgroundStripes"`)
+* `ADD_BACKGROUND_STRIPES` (value: `"AddBackgroundStripes"`)
 
 
 

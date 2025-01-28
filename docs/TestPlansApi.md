@@ -39,7 +39,7 @@ All URIs are relative to *http://localhost*
 
 <a id="addTestPointsWithSections"></a>
 # **addTestPointsWithSections**
-> addTestPointsWithSections(id, addTestPointsWithSectionsRequest)
+> addTestPointsWithSections(id, workItemSelectModel)
 
 Add test-points to TestPlan with sections
 
@@ -66,9 +66,9 @@ public class Example {
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
-    AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest = new AddTestPointsWithSectionsRequest(); // AddTestPointsWithSectionsRequest | Filter object to retrieve work items for test-suite's project
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
     try {
-      apiInstance.addTestPointsWithSections(id, addTestPointsWithSectionsRequest);
+      apiInstance.addTestPointsWithSections(id, workItemSelectModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#addTestPointsWithSections");
       System.err.println("Status code: " + e.getCode());
@@ -85,7 +85,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
-| **addTestPointsWithSectionsRequest** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
 
@@ -414,7 +414,7 @@ public class Example {
 
 <a id="apiV2TestPlansIdExportTestPointsXlsxPost"></a>
 # **apiV2TestPlansIdExportTestPointsXlsxPost**
-> apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest)
+> apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel)
 
 Export TestPoints from TestPlan in xls format
 
@@ -444,9 +444,9 @@ public class Example {
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
     Long timeZoneOffsetInMinutes = 56L; // Long | 
-    ApiV2TestPlansIdExportTestPointsXlsxPostRequest apiV2TestPlansIdExportTestPointsXlsxPostRequest = new ApiV2TestPlansIdExportTestPointsXlsxPostRequest(); // ApiV2TestPlansIdExportTestPointsXlsxPostRequest | 
+    GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel = new GetXlsxTestPointsByTestPlanModel(); // GetXlsxTestPointsByTestPlanModel | 
     try {
-      apiInstance.apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, apiV2TestPlansIdExportTestPointsXlsxPostRequest);
+      apiInstance.apiV2TestPlansIdExportTestPointsXlsxPost(id, timeZoneOffsetInMinutes, getXlsxTestPointsByTestPlanModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdExportTestPointsXlsxPost");
       System.err.println("Status code: " + e.getCode());
@@ -464,7 +464,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
-| **apiV2TestPlansIdExportTestPointsXlsxPostRequest** | [**ApiV2TestPlansIdExportTestPointsXlsxPostRequest**](ApiV2TestPlansIdExportTestPointsXlsxPostRequest.md)|  | [optional] |
+| **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md)|  | [optional] |
 
 ### Return type
 
@@ -891,7 +891,7 @@ public class Example {
 
 <a id="apiV2TestPlansIdTestPointsLastResultsGet"></a>
 # **apiV2TestPlansIdTestPointsLastResultsGet**
-> List&lt;TestPointWithLastResultModel&gt; apiV2TestPlansIdTestPointsLastResultsGet(id, testerId, skip, take, orderBy, searchField, searchValue)
+> List&lt;TestPointWithLastResultResponseModel&gt; apiV2TestPlansIdTestPointsLastResultsGet(id, testerId, skip, take, orderBy, searchField, searchValue)
 
 Get TestPoints with last result from TestPlan
 
@@ -927,7 +927,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<TestPointWithLastResultModel> result = apiInstance.apiV2TestPlansIdTestPointsLastResultsGet(id, testerId, skip, take, orderBy, searchField, searchValue);
+      List<TestPointWithLastResultResponseModel> result = apiInstance.apiV2TestPlansIdTestPointsLastResultsGet(id, testerId, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsLastResultsGet");
@@ -954,7 +954,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestPointWithLastResultModel&gt;**](TestPointWithLastResultModel.md)
+[**List&lt;TestPointWithLastResultResponseModel&gt;**](TestPointWithLastResultResponseModel.md)
 
 ### Authorization
 
@@ -1054,7 +1054,7 @@ null (empty response body)
 
 <a id="apiV2TestPlansIdTestPointsTesterDelete"></a>
 # **apiV2TestPlansIdTestPointsTesterDelete**
-> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterDelete(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest)
+> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterDelete(id, testPointSelectModel)
 
 Unassign users from multiple test points
 
@@ -1081,9 +1081,9 @@ public class Example {
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the test plan
-    ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest = new ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(); // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest | 
+    TestPointSelectModel testPointSelectModel = new TestPointSelectModel(); // TestPointSelectModel | 
     try {
-      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterDelete(id, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
+      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterDelete(id, testPointSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsTesterDelete");
@@ -1101,7 +1101,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the test plan | |
-| **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md)|  | [optional] |
+| **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1129,7 +1129,7 @@ public class Example {
 
 <a id="apiV2TestPlansIdTestPointsTesterUserIdPost"></a>
 # **apiV2TestPlansIdTestPointsTesterUserIdPost**
-> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest)
+> List&lt;UUID&gt; apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, testPointSelectModel)
 
 Assign user as a tester to multiple test points
 
@@ -1157,9 +1157,9 @@ public class Example {
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
     String id = "id_example"; // String | Unique or global ID of the test plan
     UUID userId = UUID.randomUUID(); // UUID | Unique ID of the user
-    ApiV2TestPlansIdTestPointsTesterUserIdPostRequest apiV2TestPlansIdTestPointsTesterUserIdPostRequest = new ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(); // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest | 
+    TestPointSelectModel testPointSelectModel = new TestPointSelectModel(); // TestPointSelectModel | 
     try {
-      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, apiV2TestPlansIdTestPointsTesterUserIdPostRequest);
+      List<UUID> result = apiInstance.apiV2TestPlansIdTestPointsTesterUserIdPost(id, userId, testPointSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestPointsTesterUserIdPost");
@@ -1178,7 +1178,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| Unique or global ID of the test plan | |
 | **userId** | **UUID**| Unique ID of the user | |
-| **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md)|  | [optional] |
+| **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1206,7 +1206,7 @@ public class Example {
 
 <a id="apiV2TestPlansIdTestRunsGet"></a>
 # **apiV2TestPlansIdTestRunsGet**
-> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue)
+> List&lt;TestRunApiResult&gt; apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue)
 
 Get TestRuns of TestPlan
 
@@ -1245,7 +1245,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue);
+      List<TestRunApiResult> result = apiInstance.apiV2TestPlansIdTestRunsGet(id, notStarted, inProgress, stopped, completed, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsGet");
@@ -1275,7 +1275,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestRunModel&gt;**](TestRunModel.md)
+[**List&lt;TestRunApiResult&gt;**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1299,7 +1299,7 @@ public class Example {
 
 <a id="apiV2TestPlansIdTestRunsSearchPost"></a>
 # **apiV2TestPlansIdTestRunsSearchPost**
-> List&lt;TestRunModel&gt; apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest)
+> List&lt;TestRunApiResult&gt; apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, searchTestRunsApiModel)
 
 Search TestRuns of TestPlan
 
@@ -1333,9 +1333,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2TestPlansIdTestRunsSearchPostRequest apiV2TestPlansIdTestRunsSearchPostRequest = new ApiV2TestPlansIdTestRunsSearchPostRequest(); // ApiV2TestPlansIdTestRunsSearchPostRequest | 
+    SearchTestRunsApiModel searchTestRunsApiModel = new SearchTestRunsApiModel(); // SearchTestRunsApiModel | 
     try {
-      List<TestRunModel> result = apiInstance.apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, apiV2TestPlansIdTestRunsSearchPostRequest);
+      List<TestRunApiResult> result = apiInstance.apiV2TestPlansIdTestRunsSearchPost(id, skip, take, orderBy, searchField, searchValue, searchTestRunsApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#apiV2TestPlansIdTestRunsSearchPost");
@@ -1358,11 +1358,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2TestPlansIdTestRunsSearchPostRequest** | [**ApiV2TestPlansIdTestRunsSearchPostRequest**](ApiV2TestPlansIdTestRunsSearchPostRequest.md)|  | [optional] |
+| **searchTestRunsApiModel** | [**SearchTestRunsApiModel**](SearchTestRunsApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;TestRunModel&gt;**](TestRunModel.md)
+[**List&lt;TestRunApiResult&gt;**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1761,7 +1761,7 @@ null (empty response body)
 
 <a id="createTestPlan"></a>
 # **createTestPlan**
-> TestPlanModel createTestPlan(createTestPlanRequest)
+> TestPlanModel createTestPlan(createTestPlanApiModel)
 
 Create TestPlan
 
@@ -1789,9 +1789,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-    CreateTestPlanRequest createTestPlanRequest = new CreateTestPlanRequest(); // CreateTestPlanRequest | 
+    CreateTestPlanApiModel createTestPlanApiModel = new CreateTestPlanApiModel(); // CreateTestPlanApiModel | 
     try {
-      TestPlanModel result = apiInstance.createTestPlan(createTestPlanRequest);
+      TestPlanModel result = apiInstance.createTestPlan(createTestPlanApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#createTestPlan");
@@ -1808,7 +1808,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createTestPlanRequest** | [**CreateTestPlanRequest**](CreateTestPlanRequest.md)|  | [optional] |
+| **createTestPlanApiModel** | [**CreateTestPlanApiModel**](CreateTestPlanApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -2355,7 +2355,7 @@ null (empty response body)
 
 <a id="updateTestPlan"></a>
 # **updateTestPlan**
-> updateTestPlan(updateTestPlanRequest)
+> updateTestPlan(updateTestPlanApiModel)
 
 Update TestPlan
 
@@ -2383,9 +2383,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-    UpdateTestPlanRequest updateTestPlanRequest = new UpdateTestPlanRequest(); // UpdateTestPlanRequest | 
+    UpdateTestPlanApiModel updateTestPlanApiModel = new UpdateTestPlanApiModel(); // UpdateTestPlanApiModel | 
     try {
-      apiInstance.updateTestPlan(updateTestPlanRequest);
+      apiInstance.updateTestPlan(updateTestPlanApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestPlansApi#updateTestPlan");
       System.err.println("Status code: " + e.getCode());
@@ -2401,7 +2401,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateTestPlanRequest** | [**UpdateTestPlanRequest**](UpdateTestPlanRequest.md)|  | [optional] |
+| **updateTestPlanApiModel** | [**UpdateTestPlanApiModel**](UpdateTestPlanApiModel.md)|  | [optional] |
 
 ### Return type
 

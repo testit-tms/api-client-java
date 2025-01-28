@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,9 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.FilterModelData;
+import ru.testit.client.model.WorkItemSearchQueryModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,257 +52,247 @@ import ru.testit.client.invoker.JSON;
 /**
  * FilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FilterModel {
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private FilterModelData data;
+  @javax.annotation.Nullable
+  private WorkItemSearchQueryModel data;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_FIELDS_TO_SHOW = "fieldsToShow";
   @SerializedName(SERIALIZED_NAME_FIELDS_TO_SHOW)
+  @javax.annotation.Nullable
   private Object fieldsToShow = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public FilterModel() {
   }
 
-  public FilterModel createdDate(OffsetDateTime createdDate) {
-    
+  public FilterModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FilterModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public FilterModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedDate
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public FilterModel createdById(UUID createdById) {
-    
+  public FilterModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Get createdById
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FilterModel modifiedById(UUID modifiedById) {
-    
+  public FilterModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedById
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public FilterModel data(FilterModelData data) {
-    
+  public FilterModel data(@javax.annotation.Nullable WorkItemSearchQueryModel data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
-  @javax.annotation.Nonnull
-  public FilterModelData getData() {
+   */
+  @javax.annotation.Nullable
+  public WorkItemSearchQueryModel getData() {
     return data;
   }
 
-
-  public void setData(FilterModelData data) {
+  public void setData(@javax.annotation.Nullable WorkItemSearchQueryModel data) {
     this.data = data;
   }
 
 
-  public FilterModel projectId(UUID projectId) {
-    
+  public FilterModel projectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * Get projectId
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public FilterModel fieldsToShow(Object fieldsToShow) {
-    
+  public FilterModel fieldsToShow(@javax.annotation.Nullable Object fieldsToShow) {
     this.fieldsToShow = fieldsToShow;
     return this;
   }
 
-   /**
+  /**
    * Get fieldsToShow
    * @return fieldsToShow
-  **/
+   */
   @javax.annotation.Nullable
   public Object getFieldsToShow() {
     return fieldsToShow;
   }
 
-
-  public void setFieldsToShow(Object fieldsToShow) {
+  public void setFieldsToShow(@javax.annotation.Nullable Object fieldsToShow) {
     this.fieldsToShow = fieldsToShow;
   }
 
 
-  public FilterModel name(String name) {
-    
+  public FilterModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public FilterModel id(UUID id) {
-    
+  public FilterModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the entity
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public FilterModel isDeleted(Boolean isDeleted) {
-    
+  public FilterModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the entity is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
@@ -398,48 +386,50 @@ public class FilterModel {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("data");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("isDeleted");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to FilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!FilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to FilterModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!FilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in FilterModel is not found in the empty JSON string", FilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FilterModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
-      // validate the required field `data`
-      FilterModelData.validateJsonObject(jsonObj.getAsJsonObject("data"));
+      // validate the optional field `data`
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        WorkItemSearchQueryModel.validateJsonElement(jsonObj.get("data"));
+      }
       if (!jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
@@ -471,31 +461,31 @@ public class FilterModel {
 
            @Override
            public FilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of FilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of FilterModel
-  * @throws IOException if the JSON string is invalid with respect to FilterModel
-  */
+  /**
+   * Create an instance of FilterModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of FilterModel
+   * @throws IOException if the JSON string is invalid with respect to FilterModel
+   */
   public static FilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, FilterModel.class);
   }
 
- /**
-  * Convert an instance of FilterModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of FilterModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

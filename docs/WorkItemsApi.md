@@ -748,7 +748,7 @@ public class Example {
 
 <a id="apiV2WorkItemsMovePost"></a>
 # **apiV2WorkItemsMovePost**
-> WorkItemShortModel apiV2WorkItemsMovePost(apiV2WorkItemsMovePostRequest)
+> WorkItemShortModel apiV2WorkItemsMovePost(workItemMovePostModel)
 
 Move WorkItem to another section
 
@@ -776,9 +776,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    ApiV2WorkItemsMovePostRequest apiV2WorkItemsMovePostRequest = new ApiV2WorkItemsMovePostRequest(); // ApiV2WorkItemsMovePostRequest | 
+    WorkItemMovePostModel workItemMovePostModel = new WorkItemMovePostModel(); // WorkItemMovePostModel | 
     try {
-      WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(apiV2WorkItemsMovePostRequest);
+      WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(workItemMovePostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsMovePost");
@@ -795,7 +795,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2WorkItemsMovePostRequest** | [**ApiV2WorkItemsMovePostRequest**](ApiV2WorkItemsMovePostRequest.md)|  | [optional] |
+| **workItemMovePostModel** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -823,7 +823,7 @@ public class Example {
 
 <a id="apiV2WorkItemsSearchPost"></a>
 # **apiV2WorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, addTestPointsWithSectionsRequest)
+> List&lt;WorkItemShortModel&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel)
 
 Search for work items
 
@@ -854,9 +854,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    AddTestPointsWithSectionsRequest addTestPointsWithSectionsRequest = new AddTestPointsWithSectionsRequest(); // AddTestPointsWithSectionsRequest | 
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, addTestPointsWithSectionsRequest);
+      List<WorkItemShortModel> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSearchPost");
@@ -878,7 +878,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **addTestPointsWithSectionsRequest** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)|  | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -906,7 +906,7 @@ public class Example {
 
 <a id="apiV2WorkItemsSharedStepIdReferencesSectionsPost"></a>
 # **apiV2WorkItemsSharedStepIdReferencesSectionsPost**
-> List&lt;SharedStepReferenceSectionModel&gt; apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest)
+> List&lt;SharedStepReferenceSectionModel&gt; apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel)
 
 Get SharedStep references in sections
 
@@ -940,9 +940,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest = new ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(); // ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest | 
+    SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel = new SharedStepReferenceSectionsQueryFilterModel(); // SharedStepReferenceSectionsQueryFilterModel | 
     try {
-      List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest);
+      List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesSectionsPost");
@@ -965,7 +965,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md)|  | [optional] |
+| **sharedStepReferenceSectionsQueryFilterModel** | [**SharedStepReferenceSectionsQueryFilterModel**](SharedStepReferenceSectionsQueryFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -993,7 +993,7 @@ public class Example {
 
 <a id="apiV2WorkItemsSharedStepIdReferencesWorkItemsPost"></a>
 # **apiV2WorkItemsSharedStepIdReferencesWorkItemsPost**
-> List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest)
+> List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel)
 
 Get SharedStep references in work items
 
@@ -1027,9 +1027,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest = new ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(); // ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest | 
+    SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel = new SharedStepReferencesQueryFilterModel(); // SharedStepReferencesQueryFilterModel | 
     try {
-      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest);
+      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost");
@@ -1052,7 +1052,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md)|  | [optional] |
+| **sharedStepReferencesQueryFilterModel** | [**SharedStepReferencesQueryFilterModel**](SharedStepReferencesQueryFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1155,7 +1155,7 @@ public class Example {
 
 <a id="createWorkItem"></a>
 # **createWorkItem**
-> WorkItemModel createWorkItem(createWorkItemRequest)
+> WorkItemModel createWorkItem(workItemPostModel)
 
 Create Test Case, Checklist or Shared Step
 
@@ -1183,9 +1183,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    CreateWorkItemRequest createWorkItemRequest = new CreateWorkItemRequest(); // CreateWorkItemRequest | 
+    WorkItemPostModel workItemPostModel = new WorkItemPostModel(); // WorkItemPostModel | 
     try {
-      WorkItemModel result = apiInstance.createWorkItem(createWorkItemRequest);
+      WorkItemModel result = apiInstance.createWorkItem(workItemPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#createWorkItem");
@@ -1202,7 +1202,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createWorkItemRequest** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md)|  | [optional] |
+| **workItemPostModel** | [**WorkItemPostModel**](WorkItemPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1908,7 +1908,7 @@ null (empty response body)
 
 <a id="updateWorkItem"></a>
 # **updateWorkItem**
-> updateWorkItem(updateWorkItemRequest)
+> updateWorkItem(workItemPutModel)
 
 Update Test Case, Checklist or Shared Step
 
@@ -1936,9 +1936,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UpdateWorkItemRequest updateWorkItemRequest = new UpdateWorkItemRequest(); // UpdateWorkItemRequest | 
+    WorkItemPutModel workItemPutModel = new WorkItemPutModel(); // WorkItemPutModel | 
     try {
-      apiInstance.updateWorkItem(updateWorkItemRequest);
+      apiInstance.updateWorkItem(workItemPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#updateWorkItem");
       System.err.println("Status code: " + e.getCode());
@@ -1954,7 +1954,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateWorkItemRequest** | [**UpdateWorkItemRequest**](UpdateWorkItemRequest.md)|  | [optional] |
+| **workItemPutModel** | [**WorkItemPutModel**](WorkItemPutModel.md)|  | [optional] |
 
 ### Return type
 

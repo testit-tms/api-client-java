@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**text** | **String** |  |  |
-|**user** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  |  |
+|**user** | [**UserWithRankModel**](UserWithRankModel.md) |  |  |
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  |

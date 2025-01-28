@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,12 +47,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -60,70 +58,84 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultUpdateV2Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultUpdateV2Request {
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
+  @javax.annotation.Nullable
   private List<UUID> failureClassIds;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nullable
   private TestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
+  @javax.annotation.Nullable
   private String statusCode;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<Link> links;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
+  @javax.annotation.Nullable
   private List<StepResult> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<AttachmentUpdateRequest> attachments;
 
   public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
+  @javax.annotation.Nullable
   private Long durationInMs;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
+  @javax.annotation.Nullable
   private List<TestResultStepCommentUpdateRequest> stepComments;
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
+  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
+  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TRACE = "trace";
   @SerializedName(SERIALIZED_NAME_TRACE)
+  @javax.annotation.Nullable
   private String trace;
 
   public TestResultUpdateV2Request() {
   }
 
-  public TestResultUpdateV2Request failureClassIds(List<UUID> failureClassIds) {
-    
+  public TestResultUpdateV2Request failureClassIds(@javax.annotation.Nullable List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -136,86 +148,82 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get failureClassIds
    * @return failureClassIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
   }
 
-
-  public void setFailureClassIds(List<UUID> failureClassIds) {
+  public void setFailureClassIds(@javax.annotation.Nullable List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
-  public TestResultUpdateV2Request outcome(TestResultOutcome outcome) {
-    
+  @Deprecated
+  public TestResultUpdateV2Request outcome(@javax.annotation.Nullable TestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Get outcome
    * @return outcome
-  **/
+   * @deprecated
+   */
+  @Deprecated
   @javax.annotation.Nullable
   public TestResultOutcome getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(TestResultOutcome outcome) {
+  @Deprecated
+  public void setOutcome(@javax.annotation.Nullable TestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultUpdateV2Request statusCode(String statusCode) {
-    
+  public TestResultUpdateV2Request statusCode(@javax.annotation.Nullable String statusCode) {
     this.statusCode = statusCode;
     return this;
   }
 
-   /**
+  /**
    * Get statusCode
    * @return statusCode
-  **/
+   */
   @javax.annotation.Nullable
   public String getStatusCode() {
     return statusCode;
   }
 
-
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(@javax.annotation.Nullable String statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public TestResultUpdateV2Request comment(String comment) {
-    
+  public TestResultUpdateV2Request comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
-  public TestResultUpdateV2Request links(List<Link> links) {
-    
+  public TestResultUpdateV2Request links(@javax.annotation.Nullable List<Link> links) {
     this.links = links;
     return this;
   }
@@ -228,23 +236,21 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<Link> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<Link> links) {
+  public void setLinks(@javax.annotation.Nullable List<Link> links) {
     this.links = links;
   }
 
 
-  public TestResultUpdateV2Request stepResults(List<StepResult> stepResults) {
-    
+  public TestResultUpdateV2Request stepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
@@ -257,23 +263,21 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get stepResults
    * @return stepResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<StepResult> getStepResults() {
     return stepResults;
   }
 
-
-  public void setStepResults(List<StepResult> stepResults) {
+  public void setStepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public TestResultUpdateV2Request attachments(List<AttachmentUpdateRequest> attachments) {
-    
+  public TestResultUpdateV2Request attachments(@javax.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -286,71 +290,65 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentUpdateRequest> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<AttachmentUpdateRequest> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
   }
 
 
   @Deprecated
-  public TestResultUpdateV2Request durationInMs(Long durationInMs) {
-    
+  public TestResultUpdateV2Request durationInMs(@javax.annotation.Nullable Long durationInMs) {
     this.durationInMs = durationInMs;
     return this;
   }
 
-   /**
+  /**
    * Get durationInMs
    * minimum: 0
    * @return durationInMs
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   public Long getDurationInMs() {
     return durationInMs;
   }
 
-
   @Deprecated
-  public void setDurationInMs(Long durationInMs) {
+  public void setDurationInMs(@javax.annotation.Nullable Long durationInMs) {
     this.durationInMs = durationInMs;
   }
 
 
-  public TestResultUpdateV2Request duration(Long duration) {
-    
+  public TestResultUpdateV2Request duration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * minimum: 0
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Long getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Long duration) {
+  public void setDuration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
   }
 
 
-  public TestResultUpdateV2Request stepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
-    
+  public TestResultUpdateV2Request stepComments(@javax.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = stepComments;
     return this;
   }
@@ -363,23 +361,21 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get stepComments
    * @return stepComments
-  **/
+   */
   @javax.annotation.Nullable
   public List<TestResultStepCommentUpdateRequest> getStepComments() {
     return stepComments;
   }
 
-
-  public void setStepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
+  public void setStepComments(@javax.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = stepComments;
   }
 
 
-  public TestResultUpdateV2Request setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
-    
+  public TestResultUpdateV2Request setupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
     return this;
   }
@@ -392,23 +388,21 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get setupResults
    * @return setupResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
     return setupResults;
   }
 
-
-  public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public void setSetupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
   }
 
 
-  public TestResultUpdateV2Request teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
-    
+  public TestResultUpdateV2Request teardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
     return this;
   }
@@ -421,59 +415,54 @@ public class TestResultUpdateV2Request {
     return this;
   }
 
-   /**
+  /**
    * Get teardownResults
    * @return teardownResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
     return teardownResults;
   }
 
-
-  public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public void setTeardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
   }
 
 
-  public TestResultUpdateV2Request message(String message) {
-    
+  public TestResultUpdateV2Request message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
-
-  public void setMessage(String message) {
+  public void setMessage(@javax.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public TestResultUpdateV2Request trace(String trace) {
-    
+  public TestResultUpdateV2Request trace(@javax.annotation.Nullable String trace) {
     this.trace = trace;
     return this;
   }
 
-   /**
+  /**
    * Get trace
    * @return trace
-  **/
+   */
   @javax.annotation.Nullable
   public String getTrace() {
     return trace;
   }
 
-
-  public void setTrace(String trace) {
+  public void setTrace(@javax.annotation.Nullable String trace) {
     this.trace = trace;
   }
 
@@ -579,29 +568,34 @@ public class TestResultUpdateV2Request {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultUpdateV2Request
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultUpdateV2Request.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestResultUpdateV2Request
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultUpdateV2Request.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultUpdateV2Request is not found in the empty JSON string", TestResultUpdateV2Request.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultUpdateV2Request.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultUpdateV2Request` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultUpdateV2Request` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("failureClassIds") != null && !jsonObj.get("failureClassIds").isJsonArray()) {
+      if (jsonObj.get("failureClassIds") != null && !jsonObj.get("failureClassIds").isJsonNull() && !jsonObj.get("failureClassIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
+      }
+      // validate the optional field `outcome`
+      if (jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) {
+        TestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       }
       if ((jsonObj.get("statusCode") != null && !jsonObj.get("statusCode").isJsonNull()) && !jsonObj.get("statusCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `statusCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusCode").toString()));
@@ -619,7 +613,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            Link.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            Link.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -633,7 +627,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            StepResult.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
+            StepResult.validateJsonElement(jsonArraystepResults.get(i));
           };
         }
       }
@@ -647,7 +641,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentUpdateRequest.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentUpdateRequest.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -661,7 +655,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `stepComments` (array)
           for (int i = 0; i < jsonArraystepComments.size(); i++) {
-            TestResultStepCommentUpdateRequest.validateJsonObject(jsonArraystepComments.get(i).getAsJsonObject());
+            TestResultStepCommentUpdateRequest.validateJsonElement(jsonArraystepComments.get(i));
           };
         }
       }
@@ -675,7 +669,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `setupResults` (array)
           for (int i = 0; i < jsonArraysetupResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArraysetupResults.get(i).getAsJsonObject());
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraysetupResults.get(i));
           };
         }
       }
@@ -689,7 +683,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `teardownResults` (array)
           for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonObject(jsonArrayteardownResults.get(i).getAsJsonObject());
+            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArrayteardownResults.get(i));
           };
         }
       }
@@ -721,31 +715,31 @@ public class TestResultUpdateV2Request {
 
            @Override
            public TestResultUpdateV2Request read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestResultUpdateV2Request given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestResultUpdateV2Request
-  * @throws IOException if the JSON string is invalid with respect to TestResultUpdateV2Request
-  */
+  /**
+   * Create an instance of TestResultUpdateV2Request given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestResultUpdateV2Request
+   * @throws IOException if the JSON string is invalid with respect to TestResultUpdateV2Request
+   */
   public static TestResultUpdateV2Request fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultUpdateV2Request.class);
   }
 
- /**
-  * Convert an instance of TestResultUpdateV2Request to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestResultUpdateV2Request to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

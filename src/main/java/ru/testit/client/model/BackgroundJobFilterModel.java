@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.BackgroundJobState;
@@ -43,12 +43,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,33 +54,37 @@ import ru.testit.client.invoker.JSON;
 /**
  * BackgroundJobFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BackgroundJobFilterModel {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
+  @javax.annotation.Nullable
   private List<BackgroundJobType> types;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
+  @javax.annotation.Nullable
   private List<BackgroundJobState> states;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
+  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
+  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel endDate;
 
   public BackgroundJobFilterModel() {
   }
 
-  public BackgroundJobFilterModel types(List<BackgroundJobType> types) {
-    
+  public BackgroundJobFilterModel types(@javax.annotation.Nullable List<BackgroundJobType> types) {
     this.types = types;
     return this;
   }
@@ -95,23 +97,21 @@ public class BackgroundJobFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Get types
    * @return types
-  **/
+   */
   @javax.annotation.Nullable
   public List<BackgroundJobType> getTypes() {
     return types;
   }
 
-
-  public void setTypes(List<BackgroundJobType> types) {
+  public void setTypes(@javax.annotation.Nullable List<BackgroundJobType> types) {
     this.types = types;
   }
 
 
-  public BackgroundJobFilterModel states(List<BackgroundJobState> states) {
-    
+  public BackgroundJobFilterModel states(@javax.annotation.Nullable List<BackgroundJobState> states) {
     this.states = states;
     return this;
   }
@@ -124,80 +124,73 @@ public class BackgroundJobFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Get states
    * @return states
-  **/
+   */
   @javax.annotation.Nullable
   public List<BackgroundJobState> getStates() {
     return states;
   }
 
-
-  public void setStates(List<BackgroundJobState> states) {
+  public void setStates(@javax.annotation.Nullable List<BackgroundJobState> states) {
     this.states = states;
   }
 
 
-  public BackgroundJobFilterModel isDeleted(Boolean isDeleted) {
-    
+  public BackgroundJobFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public BackgroundJobFilterModel startDate(DateTimeRangeSelectorModel startDate) {
-    
+  public BackgroundJobFilterModel startDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
     return this;
   }
 
-   /**
+  /**
    * Get startDate
    * @return startDate
-  **/
+   */
   @javax.annotation.Nullable
   public DateTimeRangeSelectorModel getStartDate() {
     return startDate;
   }
 
-
-  public void setStartDate(DateTimeRangeSelectorModel startDate) {
+  public void setStartDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
   }
 
 
-  public BackgroundJobFilterModel endDate(DateTimeRangeSelectorModel endDate) {
-    
+  public BackgroundJobFilterModel endDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
+  /**
    * Get endDate
    * @return endDate
-  **/
+   */
   @javax.annotation.Nullable
   public DateTimeRangeSelectorModel getEndDate() {
     return endDate;
   }
 
-
-  public void setEndDate(DateTimeRangeSelectorModel endDate) {
+  public void setEndDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
   }
 
@@ -276,41 +269,42 @@ public class BackgroundJobFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BackgroundJobFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!BackgroundJobFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to BackgroundJobFilterModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!BackgroundJobFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in BackgroundJobFilterModel is not found in the empty JSON string", BackgroundJobFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BackgroundJobFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BackgroundJobFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BackgroundJobFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
+      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // validate the optional field `startDate`
       if (jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("startDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("startDate"));
       }
       // validate the optional field `endDate`
       if (jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("endDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("endDate"));
       }
   }
 
@@ -334,31 +328,31 @@ public class BackgroundJobFilterModel {
 
            @Override
            public BackgroundJobFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of BackgroundJobFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BackgroundJobFilterModel
-  * @throws IOException if the JSON string is invalid with respect to BackgroundJobFilterModel
-  */
+  /**
+   * Create an instance of BackgroundJobFilterModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BackgroundJobFilterModel
+   * @throws IOException if the JSON string is invalid with respect to BackgroundJobFilterModel
+   */
   public static BackgroundJobFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, BackgroundJobFilterModel.class);
   }
 
- /**
-  * Convert an instance of BackgroundJobFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of BackgroundJobFilterModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

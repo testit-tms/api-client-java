@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -45,12 +45,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -58,106 +56,121 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestModelV2GetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestModelV2GetModel {
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
+  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
+  @javax.annotation.Nullable
   private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
+  @javax.annotation.Nullable
   private String externalKey;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public AutoTestModelV2GetModel() {
   }
 
-  public AutoTestModelV2GetModel externalId(String externalId) {
-    
+  public AutoTestModelV2GetModel externalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * This property is used to set autotest identifier from client system
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getExternalId() {
     return externalId;
   }
 
-
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestModelV2GetModel links(List<LinkModel> links) {
-    
+  public AutoTestModelV2GetModel links(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -170,107 +183,97 @@ public class AutoTestModelV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestModelV2GetModel projectId(UUID projectId) {
-    
+  public AutoTestModelV2GetModel projectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * This property is used to link autotest with project
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestModelV2GetModel name(String name) {
-    
+  public AutoTestModelV2GetModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AutoTestModelV2GetModel namespace(String namespace) {
-    
+  public AutoTestModelV2GetModel namespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Get namespace
    * @return namespace
-  **/
+   */
   @javax.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
 
-
-  public void setNamespace(String namespace) {
+  public void setNamespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestModelV2GetModel classname(String classname) {
-    
+  public AutoTestModelV2GetModel classname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
     return this;
   }
 
-   /**
+  /**
    * Get classname
    * @return classname
-  **/
+   */
   @javax.annotation.Nullable
   public String getClassname() {
     return classname;
   }
 
-
-  public void setClassname(String classname) {
+  public void setClassname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestModelV2GetModel steps(List<AutoTestStepModel> steps) {
-    
+  public AutoTestModelV2GetModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -283,23 +286,21 @@ public class AutoTestModelV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get steps
    * @return steps
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSteps() {
     return steps;
   }
 
-
-  public void setSteps(List<AutoTestStepModel> steps) {
+  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestModelV2GetModel setup(List<AutoTestStepModel> setup) {
-    
+  public AutoTestModelV2GetModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -312,23 +313,21 @@ public class AutoTestModelV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get setup
    * @return setup
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSetup() {
     return setup;
   }
 
-
-  public void setSetup(List<AutoTestStepModel> setup) {
+  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestModelV2GetModel teardown(List<AutoTestStepModel> teardown) {
-    
+  public AutoTestModelV2GetModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -341,128 +340,116 @@ public class AutoTestModelV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get teardown
    * @return teardown
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
   }
 
-
-  public void setTeardown(List<AutoTestStepModel> teardown) {
+  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestModelV2GetModel globalId(Long globalId) {
-    
+  public AutoTestModelV2GetModel globalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Get globalId
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestModelV2GetModel createdDate(OffsetDateTime createdDate) {
-    
+  public AutoTestModelV2GetModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestModelV2GetModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public AutoTestModelV2GetModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedDate
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestModelV2GetModel createdById(UUID createdById) {
-    
+  public AutoTestModelV2GetModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Get createdById
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestModelV2GetModel modifiedById(UUID modifiedById) {
-    
+  public AutoTestModelV2GetModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedById
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AutoTestModelV2GetModel labels(List<LabelShortModel> labels) {
-    
+  public AutoTestModelV2GetModel labels(@javax.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -475,80 +462,73 @@ public class AutoTestModelV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   public List<LabelShortModel> getLabels() {
     return labels;
   }
 
-
-  public void setLabels(List<LabelShortModel> labels) {
+  public void setLabels(@javax.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestModelV2GetModel externalKey(String externalKey) {
-    
+  public AutoTestModelV2GetModel externalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
 
-   /**
+  /**
    * Get externalKey
    * @return externalKey
-  **/
+   */
   @javax.annotation.Nullable
   public String getExternalKey() {
     return externalKey;
   }
 
-
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
   }
 
 
-  public AutoTestModelV2GetModel id(UUID id) {
-    
+  public AutoTestModelV2GetModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the entity
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestModelV2GetModel isDeleted(Boolean isDeleted) {
-    
+  public AutoTestModelV2GetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the entity is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
@@ -673,33 +653,34 @@ public class AutoTestModelV2GetModel {
     openapiRequiredFields.add("isDeleted");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestModelV2GetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestModelV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestModelV2GetModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestModelV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestModelV2GetModel is not found in the empty JSON string", AutoTestModelV2GetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestModelV2GetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModelV2GetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModelV2GetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestModelV2GetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }
@@ -713,7 +694,7 @@ public class AutoTestModelV2GetModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -739,7 +720,7 @@ public class AutoTestModelV2GetModel {
 
           // validate the optional field `steps` (array)
           for (int i = 0; i < jsonArraysteps.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysteps.get(i));
           };
         }
       }
@@ -753,7 +734,7 @@ public class AutoTestModelV2GetModel {
 
           // validate the optional field `setup` (array)
           for (int i = 0; i < jsonArraysetup.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysetup.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysetup.get(i));
           };
         }
       }
@@ -767,7 +748,7 @@ public class AutoTestModelV2GetModel {
 
           // validate the optional field `teardown` (array)
           for (int i = 0; i < jsonArrayteardown.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArrayteardown.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArrayteardown.get(i));
           };
         }
       }
@@ -787,7 +768,7 @@ public class AutoTestModelV2GetModel {
 
           // validate the optional field `labels` (array)
           for (int i = 0; i < jsonArraylabels.size(); i++) {
-            LabelShortModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
+            LabelShortModel.validateJsonElement(jsonArraylabels.get(i));
           };
         }
       }
@@ -819,31 +800,31 @@ public class AutoTestModelV2GetModel {
 
            @Override
            public AutoTestModelV2GetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutoTestModelV2GetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutoTestModelV2GetModel
-  * @throws IOException if the JSON string is invalid with respect to AutoTestModelV2GetModel
-  */
+  /**
+   * Create an instance of AutoTestModelV2GetModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestModelV2GetModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestModelV2GetModel
+   */
   public static AutoTestModelV2GetModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestModelV2GetModel.class);
   }
 
- /**
-  * Convert an instance of AutoTestModelV2GetModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestModelV2GetModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

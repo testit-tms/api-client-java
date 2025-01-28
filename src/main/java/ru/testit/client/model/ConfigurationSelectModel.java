@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.ConfigurationSelectModelExtractionModel;
-import ru.testit.client.model.ConfigurationSelectModelFilter;
+import ru.testit.client.model.ConfigurationExtractionModel;
+import ru.testit.client.model.ConfigurationFilterModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,57 +51,55 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private ConfigurationSelectModelFilter filter;
+  @javax.annotation.Nullable
+  private ConfigurationFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private ConfigurationSelectModelExtractionModel extractionModel;
+  @javax.annotation.Nullable
+  private ConfigurationExtractionModel extractionModel;
 
   public ConfigurationSelectModel() {
   }
 
-  public ConfigurationSelectModel filter(ConfigurationSelectModelFilter filter) {
-    
+  public ConfigurationSelectModel filter(@javax.annotation.Nullable ConfigurationFilterModel filter) {
     this.filter = filter;
     return this;
   }
 
-   /**
-   * Get filter
+  /**
+   * Configuration filters collection
    * @return filter
-  **/
+   */
   @javax.annotation.Nullable
-  public ConfigurationSelectModelFilter getFilter() {
+  public ConfigurationFilterModel getFilter() {
     return filter;
   }
 
-
-  public void setFilter(ConfigurationSelectModelFilter filter) {
+  public void setFilter(@javax.annotation.Nullable ConfigurationFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public ConfigurationSelectModel extractionModel(ConfigurationSelectModelExtractionModel extractionModel) {
-    
+  public ConfigurationSelectModel extractionModel(@javax.annotation.Nullable ConfigurationExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
 
-   /**
-   * Get extractionModel
+  /**
+   * Rules for configurations extraction
    * @return extractionModel
-  **/
+   */
   @javax.annotation.Nullable
-  public ConfigurationSelectModelExtractionModel getExtractionModel() {
+  public ConfigurationExtractionModel getExtractionModel() {
     return extractionModel;
   }
 
-
-  public void setExtractionModel(ConfigurationSelectModelExtractionModel extractionModel) {
+  public void setExtractionModel(@javax.annotation.Nullable ConfigurationExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
@@ -173,33 +169,34 @@ public class ConfigurationSelectModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ConfigurationSelectModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ConfigurationSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConfigurationSelectModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ConfigurationSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationSelectModel is not found in the empty JSON string", ConfigurationSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConfigurationSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        ConfigurationSelectModelFilter.validateJsonObject(jsonObj.getAsJsonObject("filter"));
+        ConfigurationFilterModel.validateJsonElement(jsonObj.get("filter"));
       }
       // validate the optional field `extractionModel`
       if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        ConfigurationSelectModelExtractionModel.validateJsonObject(jsonObj.getAsJsonObject("extractionModel"));
+        ConfigurationExtractionModel.validateJsonElement(jsonObj.get("extractionModel"));
       }
   }
 
@@ -223,31 +220,31 @@ public class ConfigurationSelectModel {
 
            @Override
            public ConfigurationSelectModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ConfigurationSelectModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConfigurationSelectModel
-  * @throws IOException if the JSON string is invalid with respect to ConfigurationSelectModel
-  */
+  /**
+   * Create an instance of ConfigurationSelectModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConfigurationSelectModel
+   * @throws IOException if the JSON string is invalid with respect to ConfigurationSelectModel
+   */
   public static ConfigurationSelectModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConfigurationSelectModel.class);
   }
 
- /**
-  * Convert an instance of ConfigurationSelectModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConfigurationSelectModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

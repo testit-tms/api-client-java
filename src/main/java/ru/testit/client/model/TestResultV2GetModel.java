@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,16 +22,17 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentModel;
-import ru.testit.client.model.AutoTestRelatedToTestResult;
+import ru.testit.client.model.AutoTestModelV2GetModel;
+import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.LinkModel;
-import ru.testit.client.model.TestPointRelatedToTestResult;
-import ru.testit.client.model.TestResultConfiguration;
+import ru.testit.client.model.TestPointShortModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,12 +49,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -62,454 +60,440 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultV2GetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultV2GetModel {
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private TestResultConfiguration _configuration;
+  @javax.annotation.Nullable
+  private ConfigurationModel _configuration;
 
   public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST)
-  private AutoTestRelatedToTestResult autoTest;
+  @javax.annotation.Nullable
+  private AutoTestModelV2GetModel autoTest;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
+  @javax.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
+  @javax.annotation.Nullable
   private UUID autoTestId;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TRACES = "traces";
   @SerializedName(SERIALIZED_NAME_TRACES)
+  @javax.annotation.Nullable
   private String traces;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_RUN_BY_USER_ID = "runByUserId";
   @SerializedName(SERIALIZED_NAME_RUN_BY_USER_ID)
+  @javax.annotation.Nullable
   private UUID runByUserId;
 
   public static final String SERIALIZED_NAME_STOPPED_BY_USER_ID = "stoppedByUserId";
   @SerializedName(SERIALIZED_NAME_STOPPED_BY_USER_ID)
+  @javax.annotation.Nullable
   private UUID stoppedByUserId;
 
   public static final String SERIALIZED_NAME_TEST_POINT_ID = "testPointId";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_ID)
+  @javax.annotation.Nullable
   private UUID testPointId;
 
   public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
   @SerializedName(SERIALIZED_NAME_TEST_POINT)
-  private TestPointRelatedToTestResult testPoint;
+  @javax.annotation.Nullable
+  private TestPointShortModel testPoint;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nonnull
   private String outcome;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  @javax.annotation.Nullable
   private Map<String, String> properties;
 
   public TestResultV2GetModel() {
   }
 
-  public TestResultV2GetModel _configuration(TestResultConfiguration _configuration) {
-    
+  public TestResultV2GetModel _configuration(@javax.annotation.Nullable ConfigurationModel _configuration) {
     this._configuration = _configuration;
     return this;
   }
 
-   /**
+  /**
    * Get _configuration
    * @return _configuration
-  **/
+   */
   @javax.annotation.Nullable
-  public TestResultConfiguration getConfiguration() {
+  public ConfigurationModel getConfiguration() {
     return _configuration;
   }
 
-
-  public void setConfiguration(TestResultConfiguration _configuration) {
+  public void setConfiguration(@javax.annotation.Nullable ConfigurationModel _configuration) {
     this._configuration = _configuration;
   }
 
 
-  public TestResultV2GetModel autoTest(AutoTestRelatedToTestResult autoTest) {
-    
+  public TestResultV2GetModel autoTest(@javax.annotation.Nullable AutoTestModelV2GetModel autoTest) {
     this.autoTest = autoTest;
     return this;
   }
 
-   /**
+  /**
    * Get autoTest
    * @return autoTest
-  **/
+   */
   @javax.annotation.Nullable
-  public AutoTestRelatedToTestResult getAutoTest() {
+  public AutoTestModelV2GetModel getAutoTest() {
     return autoTest;
   }
 
-
-  public void setAutoTest(AutoTestRelatedToTestResult autoTest) {
+  public void setAutoTest(@javax.annotation.Nullable AutoTestModelV2GetModel autoTest) {
     this.autoTest = autoTest;
   }
 
 
-  public TestResultV2GetModel id(UUID id) {
-    
+  public TestResultV2GetModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultV2GetModel configurationId(UUID configurationId) {
-    
+  public TestResultV2GetModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
 
-   /**
+  /**
    * Get configurationId
    * @return configurationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultV2GetModel workItemVersionId(UUID workItemVersionId) {
-    
+  public TestResultV2GetModel workItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemVersionId
    * @return workItemVersionId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
 
-
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestResultV2GetModel autoTestId(UUID autoTestId) {
-    
+  public TestResultV2GetModel autoTestId(@javax.annotation.Nullable UUID autoTestId) {
     this.autoTestId = autoTestId;
     return this;
   }
 
-   /**
+  /**
    * Get autoTestId
    * @return autoTestId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getAutoTestId() {
     return autoTestId;
   }
 
-
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@javax.annotation.Nullable UUID autoTestId) {
     this.autoTestId = autoTestId;
   }
 
 
-  public TestResultV2GetModel message(String message) {
-    
+  public TestResultV2GetModel message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
-
-  public void setMessage(String message) {
+  public void setMessage(@javax.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public TestResultV2GetModel traces(String traces) {
-    
+  public TestResultV2GetModel traces(@javax.annotation.Nullable String traces) {
     this.traces = traces;
     return this;
   }
 
-   /**
+  /**
    * Get traces
    * @return traces
-  **/
+   */
   @javax.annotation.Nullable
   public String getTraces() {
     return traces;
   }
 
-
-  public void setTraces(String traces) {
+  public void setTraces(@javax.annotation.Nullable String traces) {
     this.traces = traces;
   }
 
 
-  public TestResultV2GetModel startedOn(OffsetDateTime startedOn) {
-    
+  public TestResultV2GetModel startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
 
-   /**
+  /**
    * Get startedOn
    * @return startedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestResultV2GetModel completedOn(OffsetDateTime completedOn) {
-    
+  public TestResultV2GetModel completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
 
-   /**
+  /**
    * Get completedOn
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestResultV2GetModel runByUserId(UUID runByUserId) {
-    
+  public TestResultV2GetModel runByUserId(@javax.annotation.Nullable UUID runByUserId) {
     this.runByUserId = runByUserId;
     return this;
   }
 
-   /**
+  /**
    * Get runByUserId
    * @return runByUserId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getRunByUserId() {
     return runByUserId;
   }
 
-
-  public void setRunByUserId(UUID runByUserId) {
+  public void setRunByUserId(@javax.annotation.Nullable UUID runByUserId) {
     this.runByUserId = runByUserId;
   }
 
 
-  public TestResultV2GetModel stoppedByUserId(UUID stoppedByUserId) {
-    
+  public TestResultV2GetModel stoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
     return this;
   }
 
-   /**
+  /**
    * Get stoppedByUserId
    * @return stoppedByUserId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
   }
 
-
-  public void setStoppedByUserId(UUID stoppedByUserId) {
+  public void setStoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
   }
 
 
-  public TestResultV2GetModel testPointId(UUID testPointId) {
-    
+  public TestResultV2GetModel testPointId(@javax.annotation.Nullable UUID testPointId) {
     this.testPointId = testPointId;
     return this;
   }
 
-   /**
+  /**
    * Get testPointId
    * @return testPointId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestPointId() {
     return testPointId;
   }
 
-
-  public void setTestPointId(UUID testPointId) {
+  public void setTestPointId(@javax.annotation.Nullable UUID testPointId) {
     this.testPointId = testPointId;
   }
 
 
-  public TestResultV2GetModel testPoint(TestPointRelatedToTestResult testPoint) {
-    
+  public TestResultV2GetModel testPoint(@javax.annotation.Nullable TestPointShortModel testPoint) {
     this.testPoint = testPoint;
     return this;
   }
 
-   /**
+  /**
    * Get testPoint
    * @return testPoint
-  **/
+   */
   @javax.annotation.Nullable
-  public TestPointRelatedToTestResult getTestPoint() {
+  public TestPointShortModel getTestPoint() {
     return testPoint;
   }
 
-
-  public void setTestPoint(TestPointRelatedToTestResult testPoint) {
+  public void setTestPoint(@javax.annotation.Nullable TestPointShortModel testPoint) {
     this.testPoint = testPoint;
   }
 
 
-  public TestResultV2GetModel testRunId(UUID testRunId) {
-    
+  public TestResultV2GetModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Get testRunId
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultV2GetModel outcome(String outcome) {
-    
+  public TestResultV2GetModel outcome(@javax.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
    * @return outcome
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(String outcome) {
+  public void setOutcome(@javax.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultV2GetModel comment(String comment) {
-    
+  public TestResultV2GetModel comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
-  public TestResultV2GetModel links(List<LinkModel> links) {
-    
+  public TestResultV2GetModel links(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -522,23 +506,21 @@ public class TestResultV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public TestResultV2GetModel attachments(List<AttachmentModel> attachments) {
-    
+  public TestResultV2GetModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -551,23 +533,21 @@ public class TestResultV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultV2GetModel parameters(Map<String, String> parameters) {
-    
+  public TestResultV2GetModel parameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -580,23 +560,21 @@ public class TestResultV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get parameters
    * @return parameters
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public TestResultV2GetModel properties(Map<String, String> properties) {
-    
+  public TestResultV2GetModel properties(@javax.annotation.Nullable Map<String, String> properties) {
     this.properties = properties;
     return this;
   }
@@ -609,17 +587,16 @@ public class TestResultV2GetModel {
     return this;
   }
 
-   /**
+  /**
    * Get properties
    * @return properties
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getProperties() {
     return properties;
   }
 
-
-  public void setProperties(Map<String, String> properties) {
+  public void setProperties(@javax.annotation.Nullable Map<String, String> properties) {
     this.properties = properties;
   }
 
@@ -751,40 +728,41 @@ public class TestResultV2GetModel {
     openapiRequiredFields.add("outcome");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultV2GetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestResultV2GetModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultV2GetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultV2GetModel is not found in the empty JSON string", TestResultV2GetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultV2GetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultV2GetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultV2GetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultV2GetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `configuration`
       if (jsonObj.get("configuration") != null && !jsonObj.get("configuration").isJsonNull()) {
-        TestResultConfiguration.validateJsonObject(jsonObj.getAsJsonObject("configuration"));
+        ConfigurationModel.validateJsonElement(jsonObj.get("configuration"));
       }
       // validate the optional field `autoTest`
       if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
-        AutoTestRelatedToTestResult.validateJsonObject(jsonObj.getAsJsonObject("autoTest"));
+        AutoTestModelV2GetModel.validateJsonElement(jsonObj.get("autoTest"));
       }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -815,7 +793,7 @@ public class TestResultV2GetModel {
       }
       // validate the optional field `testPoint`
       if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPointRelatedToTestResult.validateJsonObject(jsonObj.getAsJsonObject("testPoint"));
+        TestPointShortModel.validateJsonElement(jsonObj.get("testPoint"));
       }
       if (!jsonObj.get("testRunId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
@@ -836,7 +814,7 @@ public class TestResultV2GetModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -850,7 +828,7 @@ public class TestResultV2GetModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -876,31 +854,31 @@ public class TestResultV2GetModel {
 
            @Override
            public TestResultV2GetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestResultV2GetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestResultV2GetModel
-  * @throws IOException if the JSON string is invalid with respect to TestResultV2GetModel
-  */
+  /**
+   * Create an instance of TestResultV2GetModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestResultV2GetModel
+   * @throws IOException if the JSON string is invalid with respect to TestResultV2GetModel
+   */
   public static TestResultV2GetModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultV2GetModel.class);
   }
 
- /**
-  * Convert an instance of TestResultV2GetModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestResultV2GetModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

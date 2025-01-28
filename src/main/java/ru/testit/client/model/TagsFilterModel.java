@@ -14,18 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TagsFilterModelCreatedDate;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +42,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,67 +53,65 @@ import ru.testit.client.invoker.JSON;
 /**
  * TagsFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TagsFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private TagsFilterModelCreatedDate createdDate;
+  @javax.annotation.Nullable
+  private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public TagsFilterModel() {
   }
 
-  public TagsFilterModel name(String name) {
-    
+  public TagsFilterModel name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Specifies a tag name to search for
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TagsFilterModel createdDate(TagsFilterModelCreatedDate createdDate) {
-    
+  public TagsFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
-   * Get createdDate
+  /**
+   * Specifies a tag range of creation date to search for
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nullable
-  public TagsFilterModelCreatedDate getCreatedDate() {
+  public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(TagsFilterModelCreatedDate createdDate) {
+  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TagsFilterModel createdByIds(Set<UUID> createdByIds) {
-    
+  public TagsFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -128,17 +124,16 @@ public class TagsFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Specifies a tag creator IDs to search for
    * @return createdByIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
 
-
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
@@ -211,35 +206,36 @@ public class TagsFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TagsFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TagsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TagsFilterModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TagsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TagsFilterModel is not found in the empty JSON string", TagsFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TagsFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TagsFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
   }
@@ -264,31 +260,31 @@ public class TagsFilterModel {
 
            @Override
            public TagsFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TagsFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TagsFilterModel
-  * @throws IOException if the JSON string is invalid with respect to TagsFilterModel
-  */
+  /**
+   * Create an instance of TagsFilterModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TagsFilterModel
+   * @throws IOException if the JSON string is invalid with respect to TagsFilterModel
+   */
   public static TagsFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TagsFilterModel.class);
   }
 
- /**
-  * Convert an instance of TagsFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TagsFilterModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

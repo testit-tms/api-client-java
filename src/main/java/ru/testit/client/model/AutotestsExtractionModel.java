@@ -14,15 +14,15 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AutotestsExtractionModelIds;
+import ru.testit.client.model.GuidExtractionModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,45 +39,42 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
 
 /**
- * AutotestsExtractionModel
+ * AutoTestsExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AutotestsExtractionModel {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+public class AutoTestsExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  private AutotestsExtractionModelIds ids;
+  @javax.annotation.Nullable
+  private GuidExtractionModel ids;
 
-  public AutotestsExtractionModel() {
+  public AutoTestsExtractionModel() {
   }
 
-  public AutotestsExtractionModel ids(AutotestsExtractionModelIds ids) {
-    
+  public AutoTestsExtractionModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
     this.ids = ids;
     return this;
   }
 
-   /**
+  /**
    * Get ids
    * @return ids
-  **/
+   */
   @javax.annotation.Nullable
-  public AutotestsExtractionModelIds getIds() {
+  public GuidExtractionModel getIds() {
     return ids;
   }
 
-
-  public void setIds(AutotestsExtractionModelIds ids) {
+  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
     this.ids = ids;
   }
 
@@ -91,8 +88,8 @@ public class AutotestsExtractionModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutotestsExtractionModel autotestsExtractionModel = (AutotestsExtractionModel) o;
-    return Objects.equals(this.ids, autotestsExtractionModel.ids);
+    AutoTestsExtractionModel autoTestsExtractionModel = (AutoTestsExtractionModel) o;
+    return Objects.equals(this.ids, autoTestsExtractionModel.ids);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -114,7 +111,7 @@ public class AutotestsExtractionModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutotestsExtractionModel {\n");
+    sb.append("class AutoTestsExtractionModel {\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -144,29 +141,30 @@ public class AutotestsExtractionModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutotestsExtractionModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutotestsExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestsExtractionModel is not found in the empty JSON string", AutotestsExtractionModel.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestsExtractionModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestsExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestsExtractionModel is not found in the empty JSON string", AutoTestsExtractionModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AutotestsExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestsExtractionModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AutoTestsExtractionModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestsExtractionModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `ids`
       if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        AutotestsExtractionModelIds.validateJsonObject(jsonObj.getAsJsonObject("ids"));
+        GuidExtractionModel.validateJsonElement(jsonObj.get("ids"));
       }
   }
 
@@ -174,47 +172,47 @@ public class AutotestsExtractionModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutotestsExtractionModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutotestsExtractionModel' and its subtypes
+       if (!AutoTestsExtractionModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutoTestsExtractionModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutotestsExtractionModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutotestsExtractionModel.class));
+       final TypeAdapter<AutoTestsExtractionModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestsExtractionModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AutotestsExtractionModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<AutoTestsExtractionModel>() {
            @Override
-           public void write(JsonWriter out, AutotestsExtractionModel value) throws IOException {
+           public void write(JsonWriter out, AutoTestsExtractionModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public AutotestsExtractionModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+           public AutoTestsExtractionModel read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutotestsExtractionModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutotestsExtractionModel
-  * @throws IOException if the JSON string is invalid with respect to AutotestsExtractionModel
-  */
-  public static AutotestsExtractionModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutotestsExtractionModel.class);
+  /**
+   * Create an instance of AutoTestsExtractionModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestsExtractionModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestsExtractionModel
+   */
+  public static AutoTestsExtractionModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutoTestsExtractionModel.class);
   }
 
- /**
-  * Convert an instance of AutotestsExtractionModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestsExtractionModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

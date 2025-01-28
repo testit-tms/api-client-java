@@ -103,7 +103,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdTestPlansDeleteBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansDeleteBulkPost**
-> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
+> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, testPlanSelectModel)
 
 Delete multiple test plans
 
@@ -130,9 +130,9 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
+    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansDeleteBulkPost(projectId, testPlanSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansDeleteBulkPost");
@@ -150,7 +150,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
+| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -255,7 +255,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdTestPlansPurgeBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansPurgeBulkPost**
-> apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
+> apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, testPlanSelectModel)
 
 Permanently delete multiple archived test plans
 
@@ -282,9 +282,9 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
+    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
     try {
-      apiInstance.apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+      apiInstance.apiV2ProjectsProjectIdTestPlansPurgeBulkPost(projectId, testPlanSelectModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansPurgeBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -301,7 +301,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
+| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -329,7 +329,7 @@ null (empty response body)
 
 <a id="apiV2ProjectsProjectIdTestPlansRestoreBulkPost"></a>
 # **apiV2ProjectsProjectIdTestPlansRestoreBulkPost**
-> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest)
+> List&lt;UUID&gt; apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, testPlanSelectModel)
 
 Restore multiple test plans
 
@@ -356,9 +356,9 @@ public class Example {
 
     ProjectTestPlansApi apiInstance = new ProjectTestPlansApi(defaultClient);
     String projectId = "projectId_example"; // String | Unique or global ID of the project
-    ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = new ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(); // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest | 
+    TestPlanSelectModel testPlanSelectModel = new TestPlanSelectModel(); // TestPlanSelectModel | 
     try {
-      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest);
+      List<UUID> result = apiInstance.apiV2ProjectsProjectIdTestPlansRestoreBulkPost(projectId, testPlanSelectModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansRestoreBulkPost");
@@ -376,7 +376,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **String**| Unique or global ID of the project | |
-| **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional] |
+| **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] |
 
 ### Return type
 
@@ -404,7 +404,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdTestPlansSearchPost"></a>
 # **apiV2ProjectsProjectIdTestPlansSearchPost**
-> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest)
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel)
 
 Get Project TestPlans with analytics
 
@@ -439,9 +439,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ProjectsProjectIdTestPlansSearchPostRequest apiV2ProjectsProjectIdTestPlansSearchPostRequest = new ApiV2ProjectsProjectIdTestPlansSearchPostRequest(); // ApiV2ProjectsProjectIdTestPlansSearchPostRequest | 
+    ProjectTestPlansFilterModel projectTestPlansFilterModel = new ProjectTestPlansFilterModel(); // ProjectTestPlansFilterModel | 
     try {
-      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, apiV2ProjectsProjectIdTestPlansSearchPostRequest);
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsProjectIdTestPlansSearchPost(projectId, mustUpdateCache, skip, take, orderBy, searchField, searchValue, projectTestPlansFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectTestPlansApi#apiV2ProjectsProjectIdTestPlansSearchPost");
@@ -465,7 +465,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ProjectsProjectIdTestPlansSearchPostRequest** | [**ApiV2ProjectsProjectIdTestPlansSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansSearchPostRequest.md)|  | [optional] |
+| **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] |
 
 ### Return type
 

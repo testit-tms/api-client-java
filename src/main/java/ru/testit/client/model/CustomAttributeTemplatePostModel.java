@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,21 +52,22 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeTemplatePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTemplatePostModel {
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> customAttributeIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public CustomAttributeTemplatePostModel() {
   }
 
-  public CustomAttributeTemplatePostModel customAttributeIds(Set<UUID> customAttributeIds) {
-    
+  public CustomAttributeTemplatePostModel customAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
     return this;
   }
@@ -81,38 +80,35 @@ public class CustomAttributeTemplatePostModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of attribute IDs
    * @return customAttributeIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getCustomAttributeIds() {
     return customAttributeIds;
   }
 
-
-  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
   }
 
 
-  public CustomAttributeTemplatePostModel name(String name) {
-    
+  public CustomAttributeTemplatePostModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Custom attributes template name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -183,35 +179,36 @@ public class CustomAttributeTemplatePostModel {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeTemplatePostModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CustomAttributeTemplatePostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CustomAttributeTemplatePostModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CustomAttributeTemplatePostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeTemplatePostModel is not found in the empty JSON string", CustomAttributeTemplatePostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomAttributeTemplatePostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeTemplatePostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeTemplatePostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CustomAttributeTemplatePostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonArray()) {
+      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonNull() && !jsonObj.get("customAttributeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `customAttributeIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeIds").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
@@ -239,31 +236,31 @@ public class CustomAttributeTemplatePostModel {
 
            @Override
            public CustomAttributeTemplatePostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of CustomAttributeTemplatePostModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomAttributeTemplatePostModel
-  * @throws IOException if the JSON string is invalid with respect to CustomAttributeTemplatePostModel
-  */
+  /**
+   * Create an instance of CustomAttributeTemplatePostModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CustomAttributeTemplatePostModel
+   * @throws IOException if the JSON string is invalid with respect to CustomAttributeTemplatePostModel
+   */
   public static CustomAttributeTemplatePostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CustomAttributeTemplatePostModel.class);
   }
 
- /**
-  * Convert an instance of CustomAttributeTemplatePostModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CustomAttributeTemplatePostModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

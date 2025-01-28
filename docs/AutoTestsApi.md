@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**apiV2AutoTestsDelete**](AutoTestsApi.md#apiV2AutoTestsDelete) | **DELETE** /api/v2/autoTests | Delete autotests |
 | [**apiV2AutoTestsFlakyBulkPost**](AutoTestsApi.md#apiV2AutoTestsFlakyBulkPost) | **POST** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests |
 | [**apiV2AutoTestsIdPatch**](AutoTestsApi.md#apiV2AutoTestsIdPatch) | **PATCH** /api/v2/autoTests/{id} | Patch auto test |
 | [**apiV2AutoTestsIdTestResultsSearchPost**](AutoTestsApi.md#apiV2AutoTestsIdTestResultsSearchPost) | **POST** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest |
@@ -25,9 +26,82 @@ All URIs are relative to *http://localhost*
 | [**updateMultiple**](AutoTestsApi.md#updateMultiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests |
 
 
+<a id="apiV2AutoTestsDelete"></a>
+# **apiV2AutoTestsDelete**
+> AutoTestBulkDeleteApiResult apiV2AutoTestsDelete(autoTestBulkDeleteApiModel)
+
+Delete autotests
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.AutoTestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
+    AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel = new AutoTestBulkDeleteApiModel(); // AutoTestBulkDeleteApiModel | 
+    try {
+      AutoTestBulkDeleteApiResult result = apiInstance.apiV2AutoTestsDelete(autoTestBulkDeleteApiModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoTestBulkDeleteApiModel** | [**AutoTestBulkDeleteApiModel**](AutoTestBulkDeleteApiModel.md)|  | [optional] |
+
+### Return type
+
+[**AutoTestBulkDeleteApiResult**](AutoTestBulkDeleteApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
 <a id="apiV2AutoTestsFlakyBulkPost"></a>
 # **apiV2AutoTestsFlakyBulkPost**
-> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel)
+> apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel)
 
 Set \&quot;Flaky\&quot; status for multiple autotests
 
@@ -60,9 +134,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    FlakyBulkModel flakyBulkModel = new FlakyBulkModel(); // FlakyBulkModel | 
+    AutoTestFlakyBulkApiModel autoTestFlakyBulkApiModel = new AutoTestFlakyBulkApiModel(); // AutoTestFlakyBulkApiModel | 
     try {
-      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, flakyBulkModel);
+      apiInstance.apiV2AutoTestsFlakyBulkPost(skip, take, orderBy, searchField, searchValue, autoTestFlakyBulkApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsFlakyBulkPost");
       System.err.println("Status code: " + e.getCode());
@@ -83,7 +157,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] |
+| **autoTestFlakyBulkApiModel** | [**AutoTestFlakyBulkApiModel**](AutoTestFlakyBulkApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -425,7 +499,7 @@ null (empty response body)
 
 <a id="apiV2AutoTestsSearchPost"></a>
 # **apiV2AutoTestsSearchPost**
-> List&lt;AutoTestModel&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest)
+> List&lt;AutoTestApiResult&gt; apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel)
 
 Search for autotests
 
@@ -456,9 +530,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2AutoTestsSearchPostRequest apiV2AutoTestsSearchPostRequest = new ApiV2AutoTestsSearchPostRequest(); // ApiV2AutoTestsSearchPostRequest | 
+    AutoTestSearchApiModel autoTestSearchApiModel = new AutoTestSearchApiModel(); // AutoTestSearchApiModel | 
     try {
-      List<AutoTestModel> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, apiV2AutoTestsSearchPostRequest);
+      List<AutoTestApiResult> result = apiInstance.apiV2AutoTestsSearchPost(skip, take, orderBy, searchField, searchValue, autoTestSearchApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsSearchPost");
@@ -480,11 +554,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2AutoTestsSearchPostRequest** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md)|  | [optional] |
+| **autoTestSearchApiModel** | [**AutoTestSearchApiModel**](AutoTestSearchApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;AutoTestModel&gt;**](AutoTestModel.md)
+[**List&lt;AutoTestApiResult&gt;**](AutoTestApiResult.md)
 
 ### Authorization
 

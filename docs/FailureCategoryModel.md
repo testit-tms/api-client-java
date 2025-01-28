@@ -5,15 +5,15 @@
 ## Enum
 
 
-* `INFRASTRUCTUREDEFECT` (value: `"InfrastructureDefect"`)
+* `INFRASTRUCTURE_DEFECT` (value: `"InfrastructureDefect"`)
 
-* `PRODUCTDEFECT` (value: `"ProductDefect"`)
+* `PRODUCT_DEFECT` (value: `"ProductDefect"`)
 
-* `TESTDEFECT` (value: `"TestDefect"`)
+* `TEST_DEFECT` (value: `"TestDefect"`)
 
-* `NODEFECT` (value: `"NoDefect"`)
+* `NO_DEFECT` (value: `"NoDefect"`)
 
-* `NOANALYTICS` (value: `"NoAnalytics"`)
+* `NO_ANALYTICS` (value: `"NoAnalytics"`)
 
 
 

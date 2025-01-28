@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -29,39 +29,39 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WebHookEventType.Adapter.class)
 public enum WebHookEventType {
   
-  AUTOMATEDTESTRUNCREATED("AutomatedTestRunCreated"),
+  AUTOMATED_TEST_RUN_CREATED("AutomatedTestRunCreated"),
   
-  TESTPLANSSTATUSCHANGED("TestPlansStatusChanged"),
+  TEST_PLANS_STATUS_CHANGED("TestPlansStatusChanged"),
   
-  TESTRUNSTOPPED("TestRunStopped"),
+  TEST_RUN_STOPPED("TestRunStopped"),
   
-  TESTPOINTASSIGNED("TestPointAssigned"),
+  TEST_POINT_ASSIGNED("TestPointAssigned"),
   
-  TESTRESULTJIRAISSUECREATED("TestResultJiraIssueCreated"),
+  TEST_RESULT_JIRA_ISSUE_CREATED("TestResultJiraIssueCreated"),
   
-  AUTOTESTFINISHED("AutoTestFinished"),
+  AUTO_TEST_FINISHED("AutoTestFinished"),
   
-  USERMENTIONEDINCOMMENT("UserMentionedInComment"),
+  USER_MENTIONED_IN_COMMENT("UserMentionedInComment"),
   
-  USERSELECTEDINWORKITEMATTRIBUTE("UserSelectedInWorkItemAttribute"),
+  USER_SELECTED_IN_WORK_ITEM_ATTRIBUTE("UserSelectedInWorkItemAttribute"),
   
-  ALLTESTPOINTSFINISHED("AllTestPointsFinished"),
+  ALL_TEST_POINTS_FINISHED("AllTestPointsFinished"),
   
-  ALLAUTOTESTSFINISHED("AllAutoTestsFinished"),
+  ALL_AUTO_TESTS_FINISHED("AllAutoTestsFinished"),
   
-  AUTOTESTCHANGED("AutoTestChanged"),
+  AUTO_TEST_CHANGED("AutoTestChanged"),
   
-  WORKITEMAUTOTESTRELATIONCHANGED("WorkItemAutoTestRelationChanged"),
+  WORK_ITEM_AUTO_TEST_RELATION_CHANGED("WorkItemAutoTestRelationChanged"),
   
-  WORKITEMATTRIBUTECHANGED("WorkItemAttributeChanged"),
+  WORK_ITEM_ATTRIBUTE_CHANGED("WorkItemAttributeChanged"),
   
-  WORKITEMCHANGED("WorkItemChanged"),
+  WORK_ITEM_CHANGED("WorkItemChanged"),
   
-  CONFIGURATIONCHANGED("ConfigurationChanged"),
+  CONFIGURATION_CHANGED("ConfigurationChanged"),
   
-  PROJECTCHANGED("ProjectChanged"),
+  PROJECT_CHANGED("ProjectChanged"),
   
-  TESTPLANCHANGED("TestPlanChanged");
+  TEST_PLAN_CHANGED("TestPlanChanged");
 
   private String value;
 
@@ -98,6 +98,11 @@ public enum WebHookEventType {
       String value = jsonReader.nextString();
       return WebHookEventType.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    WebHookEventType.fromValue(value);
   }
 }
 

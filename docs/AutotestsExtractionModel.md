@@ -1,13 +1,13 @@
 
 
-# AutotestsExtractionModel
+# AutoTestsExtractionModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ids** | [**AutotestsExtractionModelIds**](AutotestsExtractionModelIds.md) |  |  [optional] |
+|**ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  |  [optional] |
 
 
 

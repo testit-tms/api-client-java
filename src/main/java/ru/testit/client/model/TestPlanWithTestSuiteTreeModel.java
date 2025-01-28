@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,12 +47,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -60,105 +58,127 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanWithTestSuiteTreeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanWithTestSuiteTreeModel {
   public static final String SERIALIZED_NAME_TEST_SUITES = "testSuites";
   @SerializedName(SERIALIZED_NAME_TEST_SUITES)
+  @javax.annotation.Nonnull
   private List<TestSuiteWithChildrenModel> testSuites = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private TestPlanStatusModel status;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime lockedDate;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
+  @javax.annotation.Nullable
   private UUID lockedById;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
   private List<TagPostModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
+  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
+  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
+  @javax.annotation.Nullable
   private Boolean hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public TestPlanWithTestSuiteTreeModel() {
   }
 
-  public TestPlanWithTestSuiteTreeModel testSuites(List<TestSuiteWithChildrenModel> testSuites) {
-    
+  public TestPlanWithTestSuiteTreeModel testSuites(@javax.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
     return this;
   }
@@ -171,275 +191,249 @@ public class TestPlanWithTestSuiteTreeModel {
     return this;
   }
 
-   /**
+  /**
    * Get testSuites
    * @return testSuites
-  **/
+   */
   @javax.annotation.Nonnull
   public List<TestSuiteWithChildrenModel> getTestSuites() {
     return testSuites;
   }
 
-
-  public void setTestSuites(List<TestSuiteWithChildrenModel> testSuites) {
+  public void setTestSuites(@javax.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel status(TestPlanStatusModel status) {
-    
+  public TestPlanWithTestSuiteTreeModel status(@javax.annotation.Nonnull TestPlanStatusModel status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public TestPlanStatusModel getStatus() {
     return status;
   }
 
-
-  public void setStatus(TestPlanStatusModel status) {
+  public void setStatus(@javax.annotation.Nonnull TestPlanStatusModel status) {
     this.status = status;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startedOn(OffsetDateTime startedOn) {
-    
+  public TestPlanWithTestSuiteTreeModel startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
 
-   /**
+  /**
    * Set when test plan is starter (status changed to: In Progress)
    * @return startedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel completedOn(OffsetDateTime completedOn) {
-    
+  public TestPlanWithTestSuiteTreeModel completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
 
-   /**
+  /**
    * set when test plan status is completed (status changed to: Completed)
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdDate(OffsetDateTime createdDate) {
-    
+  public TestPlanWithTestSuiteTreeModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public TestPlanWithTestSuiteTreeModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedDate
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdById(UUID createdById) {
-    
+  public TestPlanWithTestSuiteTreeModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Get createdById
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedById(UUID modifiedById) {
-    
+  public TestPlanWithTestSuiteTreeModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Get modifiedById
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel globalId(Long globalId) {
-    
+  public TestPlanWithTestSuiteTreeModel globalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Used for search Test plan
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel isDeleted(Boolean isDeleted) {
-    
+  public TestPlanWithTestSuiteTreeModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedDate(OffsetDateTime lockedDate) {
-    
+  public TestPlanWithTestSuiteTreeModel lockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
     return this;
   }
 
-   /**
+  /**
    * Get lockedDate
    * @return lockedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getLockedDate() {
     return lockedDate;
   }
 
-
-  public void setLockedDate(OffsetDateTime lockedDate) {
+  public void setLockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel id(UUID id) {
-    
+  public TestPlanWithTestSuiteTreeModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedById(UUID lockedById) {
-    
+  public TestPlanWithTestSuiteTreeModel lockedById(@javax.annotation.Nullable UUID lockedById) {
     this.lockedById = lockedById;
     return this;
   }
 
-   /**
+  /**
    * Get lockedById
    * @return lockedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getLockedById() {
     return lockedById;
   }
 
-
-  public void setLockedById(UUID lockedById) {
+  public void setLockedById(@javax.annotation.Nullable UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel tags(List<TagPostModel> tags) {
-    
+  public TestPlanWithTestSuiteTreeModel tags(@javax.annotation.Nullable List<TagPostModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -452,191 +446,173 @@ public class TestPlanWithTestSuiteTreeModel {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   public List<TagPostModel> getTags() {
     return tags;
   }
 
-
-  public void setTags(List<TagPostModel> tags) {
+  public void setTags(@javax.annotation.Nullable List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel name(String name) {
-    
+  public TestPlanWithTestSuiteTreeModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startDate(OffsetDateTime startDate) {
-    
+  public TestPlanWithTestSuiteTreeModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
 
-   /**
+  /**
    * Used for analytics
    * @return startDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartDate() {
     return startDate;
   }
 
-
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel endDate(OffsetDateTime endDate) {
-    
+  public TestPlanWithTestSuiteTreeModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
+  /**
    * Used for analytics
    * @return endDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getEndDate() {
     return endDate;
   }
 
-
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel description(String description) {
-    
+  public TestPlanWithTestSuiteTreeModel description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel build(String build) {
-    
+  public TestPlanWithTestSuiteTreeModel build(@javax.annotation.Nullable String build) {
     this.build = build;
     return this;
   }
 
-   /**
+  /**
    * Get build
    * @return build
-  **/
+   */
   @javax.annotation.Nullable
   public String getBuild() {
     return build;
   }
 
-
-  public void setBuild(String build) {
+  public void setBuild(@javax.annotation.Nullable String build) {
     this.build = build;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel projectId(UUID projectId) {
-    
+  public TestPlanWithTestSuiteTreeModel projectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * Get projectId
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel productName(String productName) {
-    
+  public TestPlanWithTestSuiteTreeModel productName(@javax.annotation.Nullable String productName) {
     this.productName = productName;
     return this;
   }
 
-   /**
+  /**
    * Get productName
    * @return productName
-  **/
+   */
   @javax.annotation.Nullable
   public String getProductName() {
     return productName;
   }
 
-
-  public void setProductName(String productName) {
+  public void setProductName(@javax.annotation.Nullable String productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
-    
+  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
 
-   /**
+  /**
    * Get hasAutomaticDurationTimer
    * @return hasAutomaticDurationTimer
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
   }
 
-
-  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel attributes(Map<String, Object> attributes) {
-    
+  public TestPlanWithTestSuiteTreeModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -649,17 +625,16 @@ public class TestPlanWithTestSuiteTreeModel {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @javax.annotation.Nonnull
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
@@ -801,33 +776,34 @@ public class TestPlanWithTestSuiteTreeModel {
     openapiRequiredFields.add("attributes");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanWithTestSuiteTreeModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanWithTestSuiteTreeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestPlanWithTestSuiteTreeModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanWithTestSuiteTreeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanWithTestSuiteTreeModel is not found in the empty JSON string", TestPlanWithTestSuiteTreeModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanWithTestSuiteTreeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithTestSuiteTreeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanWithTestSuiteTreeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPlanWithTestSuiteTreeModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("testSuites").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuites` to be an array in the JSON string but got `%s`", jsonObj.get("testSuites").toString()));
@@ -836,8 +812,10 @@ public class TestPlanWithTestSuiteTreeModel {
       JsonArray jsonArraytestSuites = jsonObj.getAsJsonArray("testSuites");
       // validate the required field `testSuites` (array)
       for (int i = 0; i < jsonArraytestSuites.size(); i++) {
-        TestSuiteWithChildrenModel.validateJsonObject(jsonArraytestSuites.get(i).getAsJsonObject());
+        TestSuiteWithChildrenModel.validateJsonElement(jsonArraytestSuites.get(i));
       };
+      // validate the required field `status`
+      TestPlanStatusModel.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -860,7 +838,7 @@ public class TestPlanWithTestSuiteTreeModel {
 
           // validate the optional field `tags` (array)
           for (int i = 0; i < jsonArraytags.size(); i++) {
-            TagPostModel.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
+            TagPostModel.validateJsonElement(jsonArraytags.get(i));
           };
         }
       }
@@ -901,31 +879,31 @@ public class TestPlanWithTestSuiteTreeModel {
 
            @Override
            public TestPlanWithTestSuiteTreeModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestPlanWithTestSuiteTreeModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPlanWithTestSuiteTreeModel
-  * @throws IOException if the JSON string is invalid with respect to TestPlanWithTestSuiteTreeModel
-  */
+  /**
+   * Create an instance of TestPlanWithTestSuiteTreeModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestPlanWithTestSuiteTreeModel
+   * @throws IOException if the JSON string is invalid with respect to TestPlanWithTestSuiteTreeModel
+   */
   public static TestPlanWithTestSuiteTreeModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanWithTestSuiteTreeModel.class);
   }
 
- /**
-  * Convert an instance of TestPlanWithTestSuiteTreeModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestPlanWithTestSuiteTreeModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

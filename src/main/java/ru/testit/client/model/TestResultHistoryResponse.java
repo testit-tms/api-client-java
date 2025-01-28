@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +46,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -59,411 +57,408 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultHistoryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultHistoryResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nonnull
   private UUID userId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nullable
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_NAME = "testRunName";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_NAME)
+  @javax.annotation.Nullable
   private String testRunName;
 
   public static final String SERIALIZED_NAME_CREATED_BY_USER_NAME = "createdByUserName";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_USER_NAME)
+  @javax.annotation.Nullable
   private String createdByUserName;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
+  @javax.annotation.Nullable
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
+  @javax.annotation.Nullable
   private String testPlanName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  @javax.annotation.Nullable
   private String configurationName;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  @javax.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nullable
   private String outcome;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
+  @javax.annotation.Nullable
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER)
+  @javax.annotation.Nullable
   private Integer workItemVersionNumber;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
+  @javax.annotation.Nonnull
   private List<UUID> failureClassIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public TestResultHistoryResponse() {
   }
 
-  public TestResultHistoryResponse id(UUID id) {
-    
+  public TestResultHistoryResponse id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Internal test result identifier
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultHistoryResponse createdDate(OffsetDateTime createdDate) {
-    
+  public TestResultHistoryResponse createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Test result creation date
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultHistoryResponse modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public TestResultHistoryResponse modifiedDate(@javax.annotation.Nonnull OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Test result last modification date
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nonnull OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestResultHistoryResponse userId(UUID userId) {
-    
+  public TestResultHistoryResponse userId(@javax.annotation.Nonnull UUID userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Internal identifier of user who stopped test run related to the test result or user who created the test result                If test run was stopped, this property equals identifier of user who stopped it.  Otherwise, the property equals identifier of user who created the test result
    * @return userId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getUserId() {
     return userId;
   }
 
-
-  public void setUserId(UUID userId) {
+  public void setUserId(@javax.annotation.Nonnull UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestResultHistoryResponse testRunId(UUID testRunId) {
-    
+  public TestResultHistoryResponse testRunId(@javax.annotation.Nullable UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Identifier of test run related to the test result
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nullable UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultHistoryResponse testRunName(String testRunName) {
-    
+  public TestResultHistoryResponse testRunName(@javax.annotation.Nullable String testRunName) {
     this.testRunName = testRunName;
     return this;
   }
 
-   /**
+  /**
    * Name of test run related to the test result
    * @return testRunName
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestRunName() {
     return testRunName;
   }
 
-
-  public void setTestRunName(String testRunName) {
+  public void setTestRunName(@javax.annotation.Nullable String testRunName) {
     this.testRunName = testRunName;
   }
 
 
-  public TestResultHistoryResponse createdByUserName(String createdByUserName) {
-    
+  public TestResultHistoryResponse createdByUserName(@javax.annotation.Nullable String createdByUserName) {
     this.createdByUserName = createdByUserName;
     return this;
   }
 
-   /**
+  /**
    * Username of user who created test run
    * @return createdByUserName
-  **/
+   */
   @javax.annotation.Nullable
   public String getCreatedByUserName() {
     return createdByUserName;
   }
 
-
-  public void setCreatedByUserName(String createdByUserName) {
+  public void setCreatedByUserName(@javax.annotation.Nullable String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 
 
-  public TestResultHistoryResponse testPlanId(UUID testPlanId) {
-    
+  public TestResultHistoryResponse testPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
 
-   /**
+  /**
    * Internal identifier of test plan related to the test result&#39;s test run
    * @return testPlanId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
-
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestResultHistoryResponse testPlanGlobalId(Long testPlanGlobalId) {
-    
+  public TestResultHistoryResponse testPlanGlobalId(@javax.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Global identifier of test plan related to the test result&#39;s test run
    * @return testPlanGlobalId
-  **/
+   */
   @javax.annotation.Nullable
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
   }
 
-
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(@javax.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public TestResultHistoryResponse testPlanName(String testPlanName) {
-    
+  public TestResultHistoryResponse testPlanName(@javax.annotation.Nullable String testPlanName) {
     this.testPlanName = testPlanName;
     return this;
   }
 
-   /**
+  /**
    * Name of test plan related to the test result&#39;s test run
    * @return testPlanName
-  **/
+   */
   @javax.annotation.Nullable
   public String getTestPlanName() {
     return testPlanName;
   }
 
-
-  public void setTestPlanName(String testPlanName) {
+  public void setTestPlanName(@javax.annotation.Nullable String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
-  public TestResultHistoryResponse configurationName(String configurationName) {
-    
+  public TestResultHistoryResponse configurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
 
-   /**
+  /**
    * Configuration name of test point related to the test result or from test result itself                If test point related to the test result has configuration, this property will be equal to the test point configuration name.  Otherwise, this property will be equal to the test result configuration name
    * @return configurationName
-  **/
+   */
   @javax.annotation.Nullable
   public String getConfigurationName() {
     return configurationName;
   }
 
-
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestResultHistoryResponse isAutomated(Boolean isAutomated) {
-    
+  public TestResultHistoryResponse isAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
 
-   /**
+  /**
    * Boolean flag defines if test point related to the test result is automated or not
    * @return isAutomated
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
-
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestResultHistoryResponse outcome(String outcome) {
-    
+  public TestResultHistoryResponse outcome(@javax.annotation.Nullable String outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
+  /**
    * Outcome from test result with max modified date or from first created test result                Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped.                If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equals to the  worst outcome of the last modified test result. Otherwise, the outcome equals to the outcome of first created test result in the  test run.
    * @return outcome
-  **/
+   */
   @javax.annotation.Nullable
   public String getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(String outcome) {
+  public void setOutcome(@javax.annotation.Nullable String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultHistoryResponse comment(String comment) {
-    
+  public TestResultHistoryResponse comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Test result comment                If any test result related to the test run is linked with autotest, comment will have default value.  Otherwise, the comment equals to the comment of first created test result in the test run
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
-  public TestResultHistoryResponse links(List<LinkModel> links) {
-    
+  public TestResultHistoryResponse links(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -476,128 +471,116 @@ public class TestResultHistoryResponse {
     return this;
   }
 
-   /**
+  /**
    * Test result links                If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result.  Otherwise, the links equals to the links of first created test result in the test run.
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public TestResultHistoryResponse startedOn(OffsetDateTime startedOn) {
-    
+  public TestResultHistoryResponse startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
 
-   /**
+  /**
    * Start date time from test result or from test run (if test run new state is Running or Completed state)
    * @return startedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestResultHistoryResponse completedOn(OffsetDateTime completedOn) {
-    
+  public TestResultHistoryResponse completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
 
-   /**
+  /**
    * End date time from test result or from test run (if test run new state is In progress, Stopped or Completed)
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestResultHistoryResponse duration(Long duration) {
-    
+  public TestResultHistoryResponse duration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Duration of first created test result in the test run
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Long getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Long duration) {
+  public void setDuration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
   }
 
 
-  public TestResultHistoryResponse createdById(UUID createdById) {
-    
+  public TestResultHistoryResponse createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of user who created first test result in the test run
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestResultHistoryResponse modifiedById(UUID modifiedById) {
-    
+  public TestResultHistoryResponse modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of user who applied last modification of first test result in the test run
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestResultHistoryResponse attachments(List<AttachmentModel> attachments) {
-    
+  public TestResultHistoryResponse attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -610,86 +593,78 @@ public class TestResultHistoryResponse {
     return this;
   }
 
-   /**
+  /**
    * Attachments related to the test result                If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified  test result. Otherwise, the attachments equals to the attachments of first created test result in the test run.
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultHistoryResponse workItemVersionId(UUID workItemVersionId) {
-    
+  public TestResultHistoryResponse workItemVersionId(@javax.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of workitem version related to the first test result in the test run
    * @return workItemVersionId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
 
-
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@javax.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestResultHistoryResponse workItemVersionNumber(Integer workItemVersionNumber) {
-    
+  public TestResultHistoryResponse workItemVersionNumber(@javax.annotation.Nullable Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
     return this;
   }
 
-   /**
+  /**
    * Number of workitem version related to the first test result in the test run
    * @return workItemVersionNumber
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getWorkItemVersionNumber() {
     return workItemVersionNumber;
   }
 
-
-  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
+  public void setWorkItemVersionNumber(@javax.annotation.Nullable Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
 
-  public TestResultHistoryResponse launchSource(String launchSource) {
-    
+  public TestResultHistoryResponse launchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
 
-   /**
+  /**
    * Get launchSource
    * @return launchSource
-  **/
+   */
   @javax.annotation.Nullable
   public String getLaunchSource() {
     return launchSource;
   }
 
-
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public TestResultHistoryResponse failureClassIds(List<UUID> failureClassIds) {
-    
+  public TestResultHistoryResponse failureClassIds(@javax.annotation.Nonnull List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -702,23 +677,21 @@ public class TestResultHistoryResponse {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of failure classes related to the first test result in the test run
    * @return failureClassIds
-  **/
+   */
   @javax.annotation.Nonnull
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
   }
 
-
-  public void setFailureClassIds(List<UUID> failureClassIds) {
+  public void setFailureClassIds(@javax.annotation.Nonnull List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
-  public TestResultHistoryResponse parameters(Map<String, String> parameters) {
-    
+  public TestResultHistoryResponse parameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -731,17 +704,16 @@ public class TestResultHistoryResponse {
     return this;
   }
 
-   /**
+  /**
    * Parameters of test result
    * @return parameters
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
@@ -890,33 +862,34 @@ public class TestResultHistoryResponse {
     openapiRequiredFields.add("failureClassIds");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestResultHistoryResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestResultHistoryResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestResultHistoryResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestResultHistoryResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultHistoryResponse is not found in the empty JSON string", TestResultHistoryResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestResultHistoryResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultHistoryResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultHistoryResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestResultHistoryResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -957,7 +930,7 @@ public class TestResultHistoryResponse {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -977,7 +950,7 @@ public class TestResultHistoryResponse {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -1015,31 +988,31 @@ public class TestResultHistoryResponse {
 
            @Override
            public TestResultHistoryResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestResultHistoryResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestResultHistoryResponse
-  * @throws IOException if the JSON string is invalid with respect to TestResultHistoryResponse
-  */
+  /**
+   * Create an instance of TestResultHistoryResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestResultHistoryResponse
+   * @throws IOException if the JSON string is invalid with respect to TestResultHistoryResponse
+   */
   public static TestResultHistoryResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestResultHistoryResponse.class);
   }
 
- /**
-  * Convert an instance of TestResultHistoryResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestResultHistoryResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemShortModel;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,67 +52,65 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemGroupModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemGroupModel {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
+  @javax.annotation.Nullable
   private Object key = null;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
   private Integer size;
 
   public static final String SERIALIZED_NAME_WORK_ITEMS = "workItems";
   @SerializedName(SERIALIZED_NAME_WORK_ITEMS)
+  @javax.annotation.Nonnull
   private List<WorkItemShortModel> workItems = new ArrayList<>();
 
   public WorkItemGroupModel() {
   }
 
-  public WorkItemGroupModel key(Object key) {
-    
+  public WorkItemGroupModel key(@javax.annotation.Nullable Object key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * Get key
    * @return key
-  **/
+   */
   @javax.annotation.Nullable
   public Object getKey() {
     return key;
   }
 
-
-  public void setKey(Object key) {
+  public void setKey(@javax.annotation.Nullable Object key) {
     this.key = key;
   }
 
 
-  public WorkItemGroupModel size(Integer size) {
-    
+  public WorkItemGroupModel size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getSize() {
     return size;
   }
 
-
-  public void setSize(Integer size) {
+  public void setSize(@javax.annotation.Nonnull Integer size) {
     this.size = size;
   }
 
 
-  public WorkItemGroupModel workItems(List<WorkItemShortModel> workItems) {
-    
+  public WorkItemGroupModel workItems(@javax.annotation.Nonnull List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
     return this;
   }
@@ -127,17 +123,16 @@ public class WorkItemGroupModel {
     return this;
   }
 
-   /**
+  /**
    * Get workItems
    * @return workItems
-  **/
+   */
   @javax.annotation.Nonnull
   public List<WorkItemShortModel> getWorkItems() {
     return workItems;
   }
 
-
-  public void setWorkItems(List<WorkItemShortModel> workItems) {
+  public void setWorkItems(@javax.annotation.Nonnull List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
   }
 
@@ -212,33 +207,34 @@ public class WorkItemGroupModel {
     openapiRequiredFields.add("workItems");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkItemGroupModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WorkItemGroupModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to WorkItemGroupModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WorkItemGroupModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemGroupModel is not found in the empty JSON string", WorkItemGroupModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WorkItemGroupModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemGroupModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemGroupModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WorkItemGroupModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("workItems").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItems` to be an array in the JSON string but got `%s`", jsonObj.get("workItems").toString()));
@@ -247,7 +243,7 @@ public class WorkItemGroupModel {
       JsonArray jsonArrayworkItems = jsonObj.getAsJsonArray("workItems");
       // validate the required field `workItems` (array)
       for (int i = 0; i < jsonArrayworkItems.size(); i++) {
-        WorkItemShortModel.validateJsonObject(jsonArrayworkItems.get(i).getAsJsonObject());
+        WorkItemShortModel.validateJsonElement(jsonArrayworkItems.get(i));
       };
   }
 
@@ -271,31 +267,31 @@ public class WorkItemGroupModel {
 
            @Override
            public WorkItemGroupModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of WorkItemGroupModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkItemGroupModel
-  * @throws IOException if the JSON string is invalid with respect to WorkItemGroupModel
-  */
+  /**
+   * Create an instance of WorkItemGroupModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of WorkItemGroupModel
+   * @throws IOException if the JSON string is invalid with respect to WorkItemGroupModel
+   */
   public static WorkItemGroupModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkItemGroupModel.class);
   }
 
- /**
-  * Convert an instance of WorkItemGroupModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of WorkItemGroupModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

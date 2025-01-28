@@ -11,7 +11,7 @@
 |**isDeleted** | **Boolean** | Indicates whether the project is deleted |  |
 |**globalId** | **Long** | Global ID of project |  |
 |**name** | **String** | Name of project |  |
-|**type** | **ProjectTypeModel** |  |  |
+|**type** | **ProjectTypeModel** | Type of the project |  |
 
 
 
