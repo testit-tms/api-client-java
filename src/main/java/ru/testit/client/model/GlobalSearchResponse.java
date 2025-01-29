@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import ru.testit.client.model.GlobalSearchItemResult;
 
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,25 +51,27 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalSearchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalSearchResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
+  @javax.annotation.Nonnull
   private List<GlobalSearchItemResult> results = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MORE_RESULTS_AVAILABLE = "moreResultsAvailable";
   @SerializedName(SERIALIZED_NAME_MORE_RESULTS_AVAILABLE)
+  @javax.annotation.Nonnull
   private Boolean moreResultsAvailable;
 
   public static final String SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES = "availableResourceTypes";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES)
+  @javax.annotation.Nonnull
   private List<String> availableResourceTypes = new ArrayList<>();
 
   public GlobalSearchResponse() {
   }
 
-  public GlobalSearchResponse results(List<GlobalSearchItemResult> results) {
-    
+  public GlobalSearchResponse results(@javax.annotation.Nonnull List<GlobalSearchItemResult> results) {
     this.results = results;
     return this;
   }
@@ -84,44 +84,40 @@ public class GlobalSearchResponse {
     return this;
   }
 
-   /**
+  /**
    * Get results
    * @return results
-  **/
+   */
   @javax.annotation.Nonnull
   public List<GlobalSearchItemResult> getResults() {
     return results;
   }
 
-
-  public void setResults(List<GlobalSearchItemResult> results) {
+  public void setResults(@javax.annotation.Nonnull List<GlobalSearchItemResult> results) {
     this.results = results;
   }
 
 
-  public GlobalSearchResponse moreResultsAvailable(Boolean moreResultsAvailable) {
-    
+  public GlobalSearchResponse moreResultsAvailable(@javax.annotation.Nonnull Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
     return this;
   }
 
-   /**
+  /**
    * Get moreResultsAvailable
    * @return moreResultsAvailable
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getMoreResultsAvailable() {
     return moreResultsAvailable;
   }
 
-
-  public void setMoreResultsAvailable(Boolean moreResultsAvailable) {
+  public void setMoreResultsAvailable(@javax.annotation.Nonnull Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
   }
 
 
-  public GlobalSearchResponse availableResourceTypes(List<String> availableResourceTypes) {
-    
+  public GlobalSearchResponse availableResourceTypes(@javax.annotation.Nonnull List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
     return this;
   }
@@ -134,17 +130,16 @@ public class GlobalSearchResponse {
     return this;
   }
 
-   /**
+  /**
    * Get availableResourceTypes
    * @return availableResourceTypes
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getAvailableResourceTypes() {
     return availableResourceTypes;
   }
 
-
-  public void setAvailableResourceTypes(List<String> availableResourceTypes) {
+  public void setAvailableResourceTypes(@javax.annotation.Nonnull List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
   }
 
@@ -209,33 +204,34 @@ public class GlobalSearchResponse {
     openapiRequiredFields.add("availableResourceTypes");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GlobalSearchResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!GlobalSearchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GlobalSearchResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GlobalSearchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GlobalSearchResponse is not found in the empty JSON string", GlobalSearchResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GlobalSearchResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSearchResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSearchResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GlobalSearchResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("results").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
@@ -244,7 +240,7 @@ public class GlobalSearchResponse {
       JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
       // validate the required field `results` (array)
       for (int i = 0; i < jsonArrayresults.size(); i++) {
-        GlobalSearchItemResult.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
+        GlobalSearchItemResult.validateJsonElement(jsonArrayresults.get(i));
       };
       // ensure the required json array is present
       if (jsonObj.get("availableResourceTypes") == null) {
@@ -274,31 +270,31 @@ public class GlobalSearchResponse {
 
            @Override
            public GlobalSearchResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of GlobalSearchResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GlobalSearchResponse
-  * @throws IOException if the JSON string is invalid with respect to GlobalSearchResponse
-  */
+  /**
+   * Create an instance of GlobalSearchResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GlobalSearchResponse
+   * @throws IOException if the JSON string is invalid with respect to GlobalSearchResponse
+   */
   public static GlobalSearchResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GlobalSearchResponse.class);
   }
 
- /**
-  * Convert an instance of GlobalSearchResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GlobalSearchResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

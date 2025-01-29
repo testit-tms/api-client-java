@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import ru.testit.client.model.StepModel;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,98 +52,96 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepModel {
   public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  @javax.annotation.Nonnull
   private UUID versionId;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STEPS)
+  @javax.annotation.Nonnull
   private List<StepModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public SharedStepModel() {
   }
 
-  public SharedStepModel versionId(UUID versionId) {
-    
+  public SharedStepModel versionId(@javax.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
 
-   /**
+  /**
    * Get versionId
    * @return versionId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getVersionId() {
     return versionId;
   }
 
-
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@javax.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public SharedStepModel globalId(Long globalId) {
-    
+  public SharedStepModel globalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Get globalId
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepModel name(String name) {
-    
+  public SharedStepModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public SharedStepModel steps(List<StepModel> steps) {
-    
+  public SharedStepModel steps(@javax.annotation.Nonnull List<StepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -158,41 +154,38 @@ public class SharedStepModel {
     return this;
   }
 
-   /**
+  /**
    * Get steps
    * @return steps
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nonnull
   public List<StepModel> getSteps() {
     return steps;
   }
 
-
   @Deprecated
-  public void setSteps(List<StepModel> steps) {
+  public void setSteps(@javax.annotation.Nonnull List<StepModel> steps) {
     this.steps = steps;
   }
 
 
-  public SharedStepModel isDeleted(Boolean isDeleted) {
-    
+  public SharedStepModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
@@ -265,33 +258,34 @@ public class SharedStepModel {
     openapiRequiredFields.add("isDeleted");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SharedStepModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SharedStepModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SharedStepModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SharedStepModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SharedStepModel is not found in the empty JSON string", SharedStepModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SharedStepModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SharedStepModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("versionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
       }
@@ -306,7 +300,7 @@ public class SharedStepModel {
       JsonArray jsonArraysteps = jsonObj.getAsJsonArray("steps");
       // validate the required field `steps` (array)
       for (int i = 0; i < jsonArraysteps.size(); i++) {
-        StepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+        StepModel.validateJsonElement(jsonArraysteps.get(i));
       };
   }
 
@@ -330,31 +324,31 @@ public class SharedStepModel {
 
            @Override
            public SharedStepModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of SharedStepModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SharedStepModel
-  * @throws IOException if the JSON string is invalid with respect to SharedStepModel
-  */
+  /**
+   * Create an instance of SharedStepModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SharedStepModel
+   * @throws IOException if the JSON string is invalid with respect to SharedStepModel
+   */
   public static SharedStepModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SharedStepModel.class);
   }
 
- /**
-  * Convert an instance of SharedStepModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SharedStepModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

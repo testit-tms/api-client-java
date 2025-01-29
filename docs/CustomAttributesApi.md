@@ -161,7 +161,7 @@ null (empty response body)
 
 <a id="apiV2CustomAttributesGlobalIdPut"></a>
 # **apiV2CustomAttributesGlobalIdPut**
-> CustomAttributeModel apiV2CustomAttributesGlobalIdPut(id, apiV2CustomAttributesGlobalIdPutRequest)
+> CustomAttributeModel apiV2CustomAttributesGlobalIdPut(id, globalCustomAttributeUpdateModel)
 
 Edit global attribute
 
@@ -188,9 +188,9 @@ public class Example {
 
     CustomAttributesApi apiInstance = new CustomAttributesApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Unique ID of attribute
-    ApiV2CustomAttributesGlobalIdPutRequest apiV2CustomAttributesGlobalIdPutRequest = new ApiV2CustomAttributesGlobalIdPutRequest(); // ApiV2CustomAttributesGlobalIdPutRequest | 
+    GlobalCustomAttributeUpdateModel globalCustomAttributeUpdateModel = new GlobalCustomAttributeUpdateModel(); // GlobalCustomAttributeUpdateModel | 
     try {
-      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalIdPut(id, apiV2CustomAttributesGlobalIdPutRequest);
+      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalIdPut(id, globalCustomAttributeUpdateModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesGlobalIdPut");
@@ -208,7 +208,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Unique ID of attribute | |
-| **apiV2CustomAttributesGlobalIdPutRequest** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md)|  | [optional] |
+| **globalCustomAttributeUpdateModel** | [**GlobalCustomAttributeUpdateModel**](GlobalCustomAttributeUpdateModel.md)|  | [optional] |
 
 ### Return type
 
@@ -236,7 +236,7 @@ public class Example {
 
 <a id="apiV2CustomAttributesGlobalPost"></a>
 # **apiV2CustomAttributesGlobalPost**
-> CustomAttributeModel apiV2CustomAttributesGlobalPost(apiV2CustomAttributesGlobalPostRequest)
+> CustomAttributeModel apiV2CustomAttributesGlobalPost(globalCustomAttributePostModel)
 
 Create global attribute
 
@@ -262,9 +262,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     CustomAttributesApi apiInstance = new CustomAttributesApi(defaultClient);
-    ApiV2CustomAttributesGlobalPostRequest apiV2CustomAttributesGlobalPostRequest = new ApiV2CustomAttributesGlobalPostRequest(); // ApiV2CustomAttributesGlobalPostRequest | 
+    GlobalCustomAttributePostModel globalCustomAttributePostModel = new GlobalCustomAttributePostModel(); // GlobalCustomAttributePostModel | 
     try {
-      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalPost(apiV2CustomAttributesGlobalPostRequest);
+      CustomAttributeModel result = apiInstance.apiV2CustomAttributesGlobalPost(globalCustomAttributePostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesGlobalPost");
@@ -281,7 +281,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV2CustomAttributesGlobalPostRequest** | [**ApiV2CustomAttributesGlobalPostRequest**](ApiV2CustomAttributesGlobalPostRequest.md)|  | [optional] |
+| **globalCustomAttributePostModel** | [**GlobalCustomAttributePostModel**](GlobalCustomAttributePostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -382,7 +382,7 @@ public class Example {
 
 <a id="apiV2CustomAttributesSearchPost"></a>
 # **apiV2CustomAttributesSearchPost**
-> List&lt;CustomAttributeModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest)
+> List&lt;CustomAttributeModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel)
 
 Search for attributes
 
@@ -413,9 +413,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2CustomAttributesSearchPostRequest apiV2CustomAttributesSearchPostRequest = new ApiV2CustomAttributesSearchPostRequest(); // ApiV2CustomAttributesSearchPostRequest | 
+    CustomAttributeSearchQueryModel customAttributeSearchQueryModel = new CustomAttributeSearchQueryModel(); // CustomAttributeSearchQueryModel | 
     try {
-      List<CustomAttributeModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, apiV2CustomAttributesSearchPostRequest);
+      List<CustomAttributeModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesSearchPost");
@@ -437,7 +437,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2CustomAttributesSearchPostRequest** | [**ApiV2CustomAttributesSearchPostRequest**](ApiV2CustomAttributesSearchPostRequest.md)|  | [optional] |
+| **customAttributeSearchQueryModel** | [**CustomAttributeSearchQueryModel**](CustomAttributeSearchQueryModel.md)|  | [optional] |
 
 ### Return type
 

@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -43,12 +43,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,41 +54,47 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutotestHistoricalResultSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutotestHistoricalResultSelectModel {
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
+  @javax.annotation.Nullable
   private Set<AutotestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> testPlanIds;
 
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> testRunIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
+  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_USER_IDS = "userIds";
   @SerializedName(SERIALIZED_NAME_USER_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> userIds;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Int64RangeSelectorModel duration;
 
   public AutotestHistoricalResultSelectModel() {
   }
 
-  public AutotestHistoricalResultSelectModel outcomes(Set<AutotestResultOutcome> outcomes) {
-    
+  public AutotestHistoricalResultSelectModel outcomes(@javax.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
     this.outcomes = outcomes;
     return this;
   }
@@ -103,23 +107,21 @@ public class AutotestHistoricalResultSelectModel {
     return this;
   }
 
-   /**
+  /**
    * Get outcomes
    * @return outcomes
-  **/
+   */
   @javax.annotation.Nullable
   public Set<AutotestResultOutcome> getOutcomes() {
     return outcomes;
   }
 
-
-  public void setOutcomes(Set<AutotestResultOutcome> outcomes) {
+  public void setOutcomes(@javax.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
     this.outcomes = outcomes;
   }
 
 
-  public AutotestHistoricalResultSelectModel testPlanIds(Set<UUID> testPlanIds) {
-    
+  public AutotestHistoricalResultSelectModel testPlanIds(@javax.annotation.Nullable Set<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
     return this;
   }
@@ -132,23 +134,21 @@ public class AutotestHistoricalResultSelectModel {
     return this;
   }
 
-   /**
+  /**
    * Get testPlanIds
    * @return testPlanIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getTestPlanIds() {
     return testPlanIds;
   }
 
-
-  public void setTestPlanIds(Set<UUID> testPlanIds) {
+  public void setTestPlanIds(@javax.annotation.Nullable Set<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel testRunIds(Set<UUID> testRunIds) {
-    
+  public AutotestHistoricalResultSelectModel testRunIds(@javax.annotation.Nullable Set<UUID> testRunIds) {
     this.testRunIds = testRunIds;
     return this;
   }
@@ -161,23 +161,21 @@ public class AutotestHistoricalResultSelectModel {
     return this;
   }
 
-   /**
+  /**
    * Get testRunIds
    * @return testRunIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getTestRunIds() {
     return testRunIds;
   }
 
-
-  public void setTestRunIds(Set<UUID> testRunIds) {
+  public void setTestRunIds(@javax.annotation.Nullable Set<UUID> testRunIds) {
     this.testRunIds = testRunIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel configurationIds(Set<UUID> configurationIds) {
-    
+  public AutotestHistoricalResultSelectModel configurationIds(@javax.annotation.Nullable Set<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -190,44 +188,40 @@ public class AutotestHistoricalResultSelectModel {
     return this;
   }
 
-   /**
+  /**
    * Get configurationIds
    * @return configurationIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
   }
 
-
-  public void setConfigurationIds(Set<UUID> configurationIds) {
+  public void setConfigurationIds(@javax.annotation.Nullable Set<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel launchSource(String launchSource) {
-    
+  public AutotestHistoricalResultSelectModel launchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
 
-   /**
+  /**
    * Get launchSource
    * @return launchSource
-  **/
+   */
   @javax.annotation.Nullable
   public String getLaunchSource() {
     return launchSource;
   }
 
-
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public AutotestHistoricalResultSelectModel userIds(Set<UUID> userIds) {
-    
+  public AutotestHistoricalResultSelectModel userIds(@javax.annotation.Nullable Set<UUID> userIds) {
     this.userIds = userIds;
     return this;
   }
@@ -240,38 +234,35 @@ public class AutotestHistoricalResultSelectModel {
     return this;
   }
 
-   /**
+  /**
    * Get userIds
    * @return userIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getUserIds() {
     return userIds;
   }
 
-
-  public void setUserIds(Set<UUID> userIds) {
+  public void setUserIds(@javax.annotation.Nullable Set<UUID> userIds) {
     this.userIds = userIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel duration(Int64RangeSelectorModel duration) {
-    
+  public AutotestHistoricalResultSelectModel duration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Int64RangeSelectorModel getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Int64RangeSelectorModel duration) {
+  public void setDuration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = duration;
   }
 
@@ -356,52 +347,53 @@ public class AutotestHistoricalResultSelectModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutotestHistoricalResultSelectModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutotestHistoricalResultSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutotestHistoricalResultSelectModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutotestHistoricalResultSelectModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutotestHistoricalResultSelectModel is not found in the empty JSON string", AutotestHistoricalResultSelectModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutotestHistoricalResultSelectModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestHistoricalResultSelectModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutotestHistoricalResultSelectModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonArray()) {
+      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonNull() && !jsonObj.get("outcomes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonArray()) {
+      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonNull() && !jsonObj.get("testPlanIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testPlanIds` to be an array in the JSON string but got `%s`", jsonObj.get("testPlanIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonArray()) {
+      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonNull() && !jsonObj.get("testRunIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonArray()) {
+      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
       }
       if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("userIds") != null && !jsonObj.get("userIds").isJsonArray()) {
+      if (jsonObj.get("userIds") != null && !jsonObj.get("userIds").isJsonNull() && !jsonObj.get("userIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `userIds` to be an array in the JSON string but got `%s`", jsonObj.get("userIds").toString()));
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        Int64RangeSelectorModel.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+        Int64RangeSelectorModel.validateJsonElement(jsonObj.get("duration"));
       }
   }
 
@@ -425,31 +417,31 @@ public class AutotestHistoricalResultSelectModel {
 
            @Override
            public AutotestHistoricalResultSelectModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutotestHistoricalResultSelectModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutotestHistoricalResultSelectModel
-  * @throws IOException if the JSON string is invalid with respect to AutotestHistoricalResultSelectModel
-  */
+  /**
+   * Create an instance of AutotestHistoricalResultSelectModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutotestHistoricalResultSelectModel
+   * @throws IOException if the JSON string is invalid with respect to AutotestHistoricalResultSelectModel
+   */
   public static AutotestHistoricalResultSelectModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutotestHistoricalResultSelectModel.class);
   }
 
- /**
-  * Convert an instance of AutotestHistoricalResultSelectModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutotestHistoricalResultSelectModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

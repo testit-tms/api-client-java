@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,96 +52,94 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectAttributesFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectAttributesFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
+  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
+  @javax.annotation.Nullable
   private Boolean isGlobal;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
+  @javax.annotation.Nonnull
   private Set<CustomAttributeTypesEnum> types = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public ProjectAttributesFilterModel() {
   }
 
-  public ProjectAttributesFilterModel name(String name) {
-    
+  public ProjectAttributesFilterModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Specifies an attribute name to search for
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectAttributesFilterModel isRequired(Boolean isRequired) {
-    
+  public ProjectAttributesFilterModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
 
-   /**
+  /**
    * Specifies an attribute mandatory status to search for
    * @return isRequired
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsRequired() {
     return isRequired;
   }
 
-
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public ProjectAttributesFilterModel isGlobal(Boolean isGlobal) {
-    
+  public ProjectAttributesFilterModel isGlobal(@javax.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
 
-   /**
+  /**
    * Specifies an attribute global status to search for
    * @return isGlobal
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsGlobal() {
     return isGlobal;
   }
 
-
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@javax.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-  public ProjectAttributesFilterModel types(Set<CustomAttributeTypesEnum> types) {
-    
+  public ProjectAttributesFilterModel types(@javax.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
     this.types = types;
     return this;
   }
@@ -156,38 +152,35 @@ public class ProjectAttributesFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Specifies an attribute types to search for
    * @return types
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<CustomAttributeTypesEnum> getTypes() {
     return types;
   }
 
-
-  public void setTypes(Set<CustomAttributeTypesEnum> types) {
+  public void setTypes(@javax.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
     this.types = types;
   }
 
 
-  public ProjectAttributesFilterModel isEnabled(Boolean isEnabled) {
-    
+  public ProjectAttributesFilterModel isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-   /**
+  /**
    * Specifies an attribute enabled status to search for
    * @return isEnabled
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
-
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
@@ -268,33 +261,34 @@ public class ProjectAttributesFilterModel {
     openapiRequiredFields.add("types");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectAttributesFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ProjectAttributesFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ProjectAttributesFilterModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProjectAttributesFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectAttributesFilterModel is not found in the empty JSON string", ProjectAttributesFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProjectAttributesFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectAttributesFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectAttributesFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ProjectAttributesFilterModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -326,31 +320,31 @@ public class ProjectAttributesFilterModel {
 
            @Override
            public ProjectAttributesFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ProjectAttributesFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectAttributesFilterModel
-  * @throws IOException if the JSON string is invalid with respect to ProjectAttributesFilterModel
-  */
+  /**
+   * Create an instance of ProjectAttributesFilterModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ProjectAttributesFilterModel
+   * @throws IOException if the JSON string is invalid with respect to ProjectAttributesFilterModel
+   */
   public static ProjectAttributesFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ProjectAttributesFilterModel.class);
   }
 
- /**
-  * Convert an instance of ProjectAttributesFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ProjectAttributesFilterModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

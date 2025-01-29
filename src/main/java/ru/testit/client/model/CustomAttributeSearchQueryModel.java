@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -42,12 +42,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,58 +53,61 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeSearchQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeSearchQueryModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> customAttributeIds;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
+  @javax.annotation.Nullable
   private Set<CustomAttributeTypesEnum> customAttributeTypes;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
+  @javax.annotation.Nullable
   private Boolean isGlobal;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public CustomAttributeSearchQueryModel() {
   }
 
-  public CustomAttributeSearchQueryModel name(String name) {
-    
+  public CustomAttributeSearchQueryModel name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of attribute
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeSearchQueryModel projectIds(Set<UUID> projectIds) {
-    
+  public CustomAttributeSearchQueryModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -119,23 +120,21 @@ public class CustomAttributeSearchQueryModel {
     return this;
   }
 
-   /**
+  /**
    * Unique IDs of projects where attribute is in use
    * @return projectIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getProjectIds() {
     return projectIds;
   }
 
-
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeIds(Set<UUID> customAttributeIds) {
-    
+  public CustomAttributeSearchQueryModel customAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
     return this;
   }
@@ -148,23 +147,21 @@ public class CustomAttributeSearchQueryModel {
     return this;
   }
 
-   /**
+  /**
    * Unique IDs of attributes for search restriction
    * @return customAttributeIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getCustomAttributeIds() {
     return customAttributeIds;
   }
 
-
-  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
-    
+  public CustomAttributeSearchQueryModel customAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
     return this;
   }
@@ -177,59 +174,54 @@ public class CustomAttributeSearchQueryModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of attribute types
    * @return customAttributeTypes
-  **/
+   */
   @javax.annotation.Nullable
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
     return customAttributeTypes;
   }
 
-
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 
 
-  public CustomAttributeSearchQueryModel isGlobal(Boolean isGlobal) {
-    
+  public CustomAttributeSearchQueryModel isGlobal(@javax.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the attribute is available across all projects
    * @return isGlobal
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsGlobal() {
     return isGlobal;
   }
 
-
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@javax.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-  public CustomAttributeSearchQueryModel isDeleted(Boolean isDeleted) {
-    
+  public CustomAttributeSearchQueryModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the attribute is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
@@ -311,39 +303,40 @@ public class CustomAttributeSearchQueryModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CustomAttributeSearchQueryModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CustomAttributeSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CustomAttributeSearchQueryModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CustomAttributeSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeSearchQueryModel is not found in the empty JSON string", CustomAttributeSearchQueryModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomAttributeSearchQueryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonArray()) {
+      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonNull() && !jsonObj.get("customAttributeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `customAttributeIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeTypes") != null && !jsonObj.get("customAttributeTypes").isJsonArray()) {
+      if (jsonObj.get("customAttributeTypes") != null && !jsonObj.get("customAttributeTypes").isJsonNull() && !jsonObj.get("customAttributeTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `customAttributeTypes` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeTypes").toString()));
       }
   }
@@ -368,31 +361,31 @@ public class CustomAttributeSearchQueryModel {
 
            @Override
            public CustomAttributeSearchQueryModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of CustomAttributeSearchQueryModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomAttributeSearchQueryModel
-  * @throws IOException if the JSON string is invalid with respect to CustomAttributeSearchQueryModel
-  */
+  /**
+   * Create an instance of CustomAttributeSearchQueryModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CustomAttributeSearchQueryModel
+   * @throws IOException if the JSON string is invalid with respect to CustomAttributeSearchQueryModel
+   */
   public static CustomAttributeSearchQueryModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CustomAttributeSearchQueryModel.class);
   }
 
- /**
-  * Convert an instance of CustomAttributeSearchQueryModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CustomAttributeSearchQueryModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

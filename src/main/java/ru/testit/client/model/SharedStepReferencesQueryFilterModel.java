@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelCreatedDate;
-import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModelModifiedDate;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
 
@@ -45,12 +44,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -58,82 +55,91 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepReferencesQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepReferencesQueryFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
+  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
+  @javax.annotation.Nullable
   private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
+  @javax.annotation.Nullable
   private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
+  @javax.annotation.Nullable
   private Set<String> entityTypes;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate;
+  @javax.annotation.Nullable
+  private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate;
+  @javax.annotation.Nullable
+  private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
   private Set<String> tags;
 
   public SharedStepReferencesQueryFilterModel() {
   }
 
-  public SharedStepReferencesQueryFilterModel name(String name) {
-    
+  public SharedStepReferencesQueryFilterModel name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of work item
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public SharedStepReferencesQueryFilterModel globalIds(Set<Long> globalIds) {
-    
+  public SharedStepReferencesQueryFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -146,23 +152,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of global (integer) identifiers
    * @return globalIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
 
-
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel sectionIds(Set<UUID> sectionIds) {
-    
+  public SharedStepReferencesQueryFilterModel sectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -175,23 +179,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of section identifiers
    * @return sectionIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getSectionIds() {
     return sectionIds;
   }
 
-
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public void setSectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdByIds(Set<UUID> createdByIds) {
-    
+  public SharedStepReferencesQueryFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -204,23 +206,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of users who created work item
    * @return createdByIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
 
-
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    
+  public SharedStepReferencesQueryFilterModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -233,23 +233,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of users who applied last modification to work item
    * @return modifiedByIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
 
-
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel states(Set<WorkItemStates> states) {
-    
+  public SharedStepReferencesQueryFilterModel states(@javax.annotation.Nullable Set<WorkItemStates> states) {
     this.states = states;
     return this;
   }
@@ -262,23 +260,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of states of work item
    * @return states
-  **/
+   */
   @javax.annotation.Nullable
   public Set<WorkItemStates> getStates() {
     return states;
   }
 
-
-  public void setStates(Set<WorkItemStates> states) {
+  public void setStates(@javax.annotation.Nullable Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
-  public SharedStepReferencesQueryFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
-    
+  public SharedStepReferencesQueryFilterModel priorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -291,23 +287,21 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of priorities of work item
    * @return priorities
-  **/
+   */
   @javax.annotation.Nullable
   public Set<WorkItemPriorityModel> getPriorities() {
     return priorities;
   }
 
-
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public SharedStepReferencesQueryFilterModel entityTypes(Set<String> entityTypes) {
-    
+  public SharedStepReferencesQueryFilterModel entityTypes(@javax.annotation.Nullable Set<String> entityTypes) {
     this.entityTypes = entityTypes;
     return this;
   }
@@ -320,86 +314,78 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
-  **/
+   */
   @javax.annotation.Nullable
   public Set<String> getEntityTypes() {
     return entityTypes;
   }
 
-
-  public void setEntityTypes(Set<String> entityTypes) {
+  public void setEntityTypes(@javax.annotation.Nullable Set<String> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
-    
+  public SharedStepReferencesQueryFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
-   * Get createdDate
+  /**
+   * Date and time of work item creation
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nullable
-  public SharedStepReferenceSectionsQueryFilterModelCreatedDate getCreatedDate() {
+  public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(SharedStepReferenceSectionsQueryFilterModelCreatedDate createdDate) {
+  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
-    
+  public SharedStepReferencesQueryFilterModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
-   * Get modifiedDate
+  /**
+   * Date and time of work item last modification
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
-  public SharedStepReferenceSectionsQueryFilterModelModifiedDate getModifiedDate() {
+  public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(SharedStepReferenceSectionsQueryFilterModelModifiedDate modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public SharedStepReferencesQueryFilterModel isAutomated(Boolean isAutomated) {
-    
+  public SharedStepReferencesQueryFilterModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
 
-   /**
+  /**
    * Is result must consist of only manual/automated work items
    * @return isAutomated
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
-
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public SharedStepReferencesQueryFilterModel tags(Set<String> tags) {
-    
+  public SharedStepReferencesQueryFilterModel tags(@javax.annotation.Nullable Set<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -412,17 +398,16 @@ public class SharedStepReferencesQueryFilterModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   public Set<String> getTags() {
     return tags;
   }
 
-
-  public void setTags(Set<String> tags) {
+  public void setTags(@javax.annotation.Nullable Set<String> tags) {
     this.tags = tags;
   }
 
@@ -522,67 +507,68 @@ public class SharedStepReferencesQueryFilterModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SharedStepReferencesQueryFilterModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SharedStepReferencesQueryFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SharedStepReferencesQueryFilterModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SharedStepReferencesQueryFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SharedStepReferencesQueryFilterModel is not found in the empty JSON string", SharedStepReferencesQueryFilterModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SharedStepReferencesQueryFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferencesQueryFilterModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferencesQueryFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull() && !jsonObj.get("sectionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonArray()) {
+      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonNull() && !jsonObj.get("entityTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityTypes` to be an array in the JSON string but got `%s`", jsonObj.get("entityTypes").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        SharedStepReferenceSectionsQueryFilterModelCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        SharedStepReferenceSectionsQueryFilterModelModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("modifiedDate"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
   }
@@ -607,31 +593,31 @@ public class SharedStepReferencesQueryFilterModel {
 
            @Override
            public SharedStepReferencesQueryFilterModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of SharedStepReferencesQueryFilterModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SharedStepReferencesQueryFilterModel
-  * @throws IOException if the JSON string is invalid with respect to SharedStepReferencesQueryFilterModel
-  */
+  /**
+   * Create an instance of SharedStepReferencesQueryFilterModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SharedStepReferencesQueryFilterModel
+   * @throws IOException if the JSON string is invalid with respect to SharedStepReferencesQueryFilterModel
+   */
   public static SharedStepReferencesQueryFilterModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SharedStepReferencesQueryFilterModel.class);
   }
 
- /**
-  * Convert an instance of SharedStepReferencesQueryFilterModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SharedStepReferencesQueryFilterModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

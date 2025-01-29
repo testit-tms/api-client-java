@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -45,12 +45,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -58,267 +56,257 @@ import ru.testit.client.invoker.JSON;
 /**
  * BackgroundJobGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BackgroundJobGetModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_JOB_ID = "jobId";
   @SerializedName(SERIALIZED_NAME_JOB_ID)
+  @javax.annotation.Nonnull
   private String jobId;
 
   public static final String SERIALIZED_NAME_JOB_TYPE = "jobType";
   @SerializedName(SERIALIZED_NAME_JOB_TYPE)
+  @javax.annotation.Nonnull
   private BackgroundJobType jobType;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
+  @javax.annotation.Nonnull
   private BackgroundJobState state;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
+  @javax.annotation.Nonnull
   private Long progress;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
+  @javax.annotation.Nullable
   private String error;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nonnull
   private List<BackgroundJobAttachmentModel> attachments = new ArrayList<>();
 
   public BackgroundJobGetModel() {
   }
 
-  public BackgroundJobGetModel id(UUID id) {
-    
+  public BackgroundJobGetModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public BackgroundJobGetModel jobId(String jobId) {
-    
+  public BackgroundJobGetModel jobId(@javax.annotation.Nonnull String jobId) {
     this.jobId = jobId;
     return this;
   }
 
-   /**
+  /**
    * Get jobId
    * @return jobId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getJobId() {
     return jobId;
   }
 
-
-  public void setJobId(String jobId) {
+  public void setJobId(@javax.annotation.Nonnull String jobId) {
     this.jobId = jobId;
   }
 
 
-  public BackgroundJobGetModel jobType(BackgroundJobType jobType) {
-    
+  public BackgroundJobGetModel jobType(@javax.annotation.Nonnull BackgroundJobType jobType) {
     this.jobType = jobType;
     return this;
   }
 
-   /**
+  /**
    * Get jobType
    * @return jobType
-  **/
+   */
   @javax.annotation.Nonnull
   public BackgroundJobType getJobType() {
     return jobType;
   }
 
-
-  public void setJobType(BackgroundJobType jobType) {
+  public void setJobType(@javax.annotation.Nonnull BackgroundJobType jobType) {
     this.jobType = jobType;
   }
 
 
-  public BackgroundJobGetModel state(BackgroundJobState state) {
-    
+  public BackgroundJobGetModel state(@javax.annotation.Nonnull BackgroundJobState state) {
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nonnull
   public BackgroundJobState getState() {
     return state;
   }
 
-
-  public void setState(BackgroundJobState state) {
+  public void setState(@javax.annotation.Nonnull BackgroundJobState state) {
     this.state = state;
   }
 
 
-  public BackgroundJobGetModel isDeleted(Boolean isDeleted) {
-    
+  public BackgroundJobGetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public BackgroundJobGetModel progress(Long progress) {
-    
+  public BackgroundJobGetModel progress(@javax.annotation.Nonnull Long progress) {
     this.progress = progress;
     return this;
   }
 
-   /**
+  /**
    * Get progress
    * @return progress
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getProgress() {
     return progress;
   }
 
-
-  public void setProgress(Long progress) {
+  public void setProgress(@javax.annotation.Nonnull Long progress) {
     this.progress = progress;
   }
 
 
-  public BackgroundJobGetModel createdDate(OffsetDateTime createdDate) {
-    
+  public BackgroundJobGetModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public BackgroundJobGetModel startDate(OffsetDateTime startDate) {
-    
+  public BackgroundJobGetModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
 
-   /**
+  /**
    * Get startDate
    * @return startDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartDate() {
     return startDate;
   }
 
-
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public BackgroundJobGetModel endDate(OffsetDateTime endDate) {
-    
+  public BackgroundJobGetModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
+  /**
    * Get endDate
    * @return endDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getEndDate() {
     return endDate;
   }
 
-
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public BackgroundJobGetModel error(String error) {
-    
+  public BackgroundJobGetModel error(@javax.annotation.Nullable String error) {
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Get error
    * @return error
-  **/
+   */
   @javax.annotation.Nullable
   public String getError() {
     return error;
   }
 
-
-  public void setError(String error) {
+  public void setError(@javax.annotation.Nullable String error) {
     this.error = error;
   }
 
 
-  public BackgroundJobGetModel attachments(List<BackgroundJobAttachmentModel> attachments) {
-    
+  public BackgroundJobGetModel attachments(@javax.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -331,17 +319,16 @@ public class BackgroundJobGetModel {
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nonnull
   public List<BackgroundJobAttachmentModel> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<BackgroundJobAttachmentModel> attachments) {
+  public void setAttachments(@javax.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
@@ -446,39 +433,44 @@ public class BackgroundJobGetModel {
     openapiRequiredFields.add("attachments");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BackgroundJobGetModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!BackgroundJobGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to BackgroundJobGetModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!BackgroundJobGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in BackgroundJobGetModel is not found in the empty JSON string", BackgroundJobGetModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BackgroundJobGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BackgroundJobGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BackgroundJobGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : BackgroundJobGetModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("jobId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `jobId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobId").toString()));
       }
+      // validate the required field `jobType`
+      BackgroundJobType.validateJsonElement(jsonObj.get("jobType"));
+      // validate the required field `state`
+      BackgroundJobState.validateJsonElement(jsonObj.get("state"));
       if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
@@ -490,7 +482,7 @@ public class BackgroundJobGetModel {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        BackgroundJobAttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+        BackgroundJobAttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
       };
   }
 
@@ -514,31 +506,31 @@ public class BackgroundJobGetModel {
 
            @Override
            public BackgroundJobGetModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of BackgroundJobGetModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BackgroundJobGetModel
-  * @throws IOException if the JSON string is invalid with respect to BackgroundJobGetModel
-  */
+  /**
+   * Create an instance of BackgroundJobGetModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BackgroundJobGetModel
+   * @throws IOException if the JSON string is invalid with respect to BackgroundJobGetModel
+   */
   public static BackgroundJobGetModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, BackgroundJobGetModel.class);
   }
 
- /**
-  * Convert an instance of BackgroundJobGetModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of BackgroundJobGetModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

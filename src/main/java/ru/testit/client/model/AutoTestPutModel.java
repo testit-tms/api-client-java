@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,12 +46,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -59,98 +57,111 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nullable
   private UUID id;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST = "workItemIdsForLinkWithAutoTest";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
+  @javax.annotation.Nullable
   private Set<UUID> workItemIdsForLinkWithAutoTest;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
+  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
+  @javax.annotation.Nullable
   private List<LabelPostModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
+  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
+  @javax.annotation.Nullable
   private String externalKey;
 
   public AutoTestPutModel() {
   }
 
-  public AutoTestPutModel id(UUID id) {
-    
+  public AutoTestPutModel id(@javax.annotation.Nullable UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestPutModel workItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
-    
+  public AutoTestPutModel workItemIdsForLinkWithAutoTest(@javax.annotation.Nullable Set<UUID> workItemIdsForLinkWithAutoTest) {
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
     return this;
   }
@@ -163,44 +174,40 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Get workItemIdsForLinkWithAutoTest
    * @return workItemIdsForLinkWithAutoTest
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getWorkItemIdsForLinkWithAutoTest() {
     return workItemIdsForLinkWithAutoTest;
   }
 
-
-  public void setWorkItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
+  public void setWorkItemIdsForLinkWithAutoTest(@javax.annotation.Nullable Set<UUID> workItemIdsForLinkWithAutoTest) {
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
   }
 
 
-  public AutoTestPutModel externalId(String externalId) {
-    
+  public AutoTestPutModel externalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * External ID of the autotest
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getExternalId() {
     return externalId;
   }
 
-
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestPutModel links(List<LinkPutModel> links) {
-    
+  public AutoTestPutModel links(@javax.annotation.Nullable List<LinkPutModel> links) {
     this.links = links;
     return this;
   }
@@ -213,107 +220,97 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkPutModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkPutModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkPutModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestPutModel projectId(UUID projectId) {
-    
+  public AutoTestPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the autotest project
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestPutModel name(String name) {
-    
+  public AutoTestPutModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AutoTestPutModel namespace(String namespace) {
-    
+  public AutoTestPutModel namespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest namespace
    * @return namespace
-  **/
+   */
   @javax.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
 
-
-  public void setNamespace(String namespace) {
+  public void setNamespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestPutModel classname(String classname) {
-    
+  public AutoTestPutModel classname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest class
    * @return classname
-  **/
+   */
   @javax.annotation.Nullable
   public String getClassname() {
     return classname;
   }
 
-
-  public void setClassname(String classname) {
+  public void setClassname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestPutModel steps(List<AutoTestStepModel> steps) {
-    
+  public AutoTestPutModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -326,23 +323,21 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest steps
    * @return steps
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSteps() {
     return steps;
   }
 
-
-  public void setSteps(List<AutoTestStepModel> steps) {
+  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestPutModel setup(List<AutoTestStepModel> setup) {
-    
+  public AutoTestPutModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -355,23 +350,21 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest setup steps
    * @return setup
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSetup() {
     return setup;
   }
 
-
-  public void setSetup(List<AutoTestStepModel> setup) {
+  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestPutModel teardown(List<AutoTestStepModel> teardown) {
-    
+  public AutoTestPutModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -384,65 +377,59 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest teardown steps
    * @return teardown
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
   }
 
-
-  public void setTeardown(List<AutoTestStepModel> teardown) {
+  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestPutModel title(String title) {
-    
+  public AutoTestPutModel title(@javax.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest in autotest&#39;s card
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public AutoTestPutModel description(String description) {
-    
+  public AutoTestPutModel description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the autotest in autotest&#39;s card
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public AutoTestPutModel labels(List<LabelPostModel> labels) {
-    
+  public AutoTestPutModel labels(@javax.annotation.Nullable List<LabelPostModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -455,59 +442,54 @@ public class AutoTestPutModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest labels
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   public List<LabelPostModel> getLabels() {
     return labels;
   }
 
-
-  public void setLabels(List<LabelPostModel> labels) {
+  public void setLabels(@javax.annotation.Nullable List<LabelPostModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestPutModel isFlaky(Boolean isFlaky) {
-    
+  public AutoTestPutModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = isFlaky;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the autotest is marked as flaky
    * @return isFlaky
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsFlaky() {
     return isFlaky;
   }
 
-
-  public void setIsFlaky(Boolean isFlaky) {
+  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestPutModel externalKey(String externalKey) {
-    
+  public AutoTestPutModel externalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
 
-   /**
+  /**
    * External key of the autotest
    * @return externalKey
-  **/
+   */
   @javax.annotation.Nullable
   public String getExternalKey() {
     return externalKey;
   }
 
-
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
   }
 
@@ -622,38 +604,39 @@ public class AutoTestPutModel {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestPutModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestPutModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestPutModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestPutModel is not found in the empty JSON string", AutoTestPutModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestPutModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestPutModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestPutModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestPutModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemIdsForLinkWithAutoTest") != null && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonArray()) {
+      if (jsonObj.get("workItemIdsForLinkWithAutoTest") != null && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonNull() && !jsonObj.get("workItemIdsForLinkWithAutoTest").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemIdsForLinkWithAutoTest` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIdsForLinkWithAutoTest").toString()));
       }
       if (!jsonObj.get("externalId").isJsonPrimitive()) {
@@ -669,7 +652,7 @@ public class AutoTestPutModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPutModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkPutModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -695,7 +678,7 @@ public class AutoTestPutModel {
 
           // validate the optional field `steps` (array)
           for (int i = 0; i < jsonArraysteps.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysteps.get(i));
           };
         }
       }
@@ -709,7 +692,7 @@ public class AutoTestPutModel {
 
           // validate the optional field `setup` (array)
           for (int i = 0; i < jsonArraysetup.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysetup.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysetup.get(i));
           };
         }
       }
@@ -723,7 +706,7 @@ public class AutoTestPutModel {
 
           // validate the optional field `teardown` (array)
           for (int i = 0; i < jsonArrayteardown.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArrayteardown.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArrayteardown.get(i));
           };
         }
       }
@@ -743,7 +726,7 @@ public class AutoTestPutModel {
 
           // validate the optional field `labels` (array)
           for (int i = 0; i < jsonArraylabels.size(); i++) {
-            LabelPostModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
+            LabelPostModel.validateJsonElement(jsonArraylabels.get(i));
           };
         }
       }
@@ -772,31 +755,31 @@ public class AutoTestPutModel {
 
            @Override
            public AutoTestPutModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutoTestPutModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutoTestPutModel
-  * @throws IOException if the JSON string is invalid with respect to AutoTestPutModel
-  */
+  /**
+   * Create an instance of AutoTestPutModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestPutModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestPutModel
+   */
   public static AutoTestPutModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestPutModel.class);
   }
 
- /**
-  * Convert an instance of AutoTestPutModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestPutModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

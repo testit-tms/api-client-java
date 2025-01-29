@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,12 +45,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -58,202 +56,197 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestStepResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestStepResult {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_INFO = "info";
   @SerializedName(SERIALIZED_NAME_INFO)
+  @javax.annotation.Nullable
   private String info;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
+  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
+  @javax.annotation.Nullable
   private AvailableTestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
+  @javax.annotation.Nullable
   private List<AutoTestStepResult> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<Attachment> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public AutoTestStepResult() {
   }
 
-  public AutoTestStepResult title(String title) {
-    
+  public AutoTestStepResult title(@javax.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The name of the step.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public AutoTestStepResult description(String description) {
-    
+  public AutoTestStepResult description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the step result.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public AutoTestStepResult info(String info) {
-    
+  public AutoTestStepResult info(@javax.annotation.Nullable String info) {
     this.info = info;
     return this;
   }
 
-   /**
+  /**
    * Extended description of the step result.
    * @return info
-  **/
+   */
   @javax.annotation.Nullable
   public String getInfo() {
     return info;
   }
 
-
-  public void setInfo(String info) {
+  public void setInfo(@javax.annotation.Nullable String info) {
     this.info = info;
   }
 
 
-  public AutoTestStepResult startedOn(OffsetDateTime startedOn) {
-    
+  public AutoTestStepResult startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
 
-   /**
+  /**
    * Step start date.
    * @return startedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getStartedOn() {
     return startedOn;
   }
 
-
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public AutoTestStepResult completedOn(OffsetDateTime completedOn) {
-    
+  public AutoTestStepResult completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
 
-   /**
+  /**
    * Step end date.
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public AutoTestStepResult duration(Long duration) {
-    
+  public AutoTestStepResult duration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Expected or actual duration of the test run execution in milliseconds.
    * minimum: 0
    * maximum: 43200000000
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   public Long getDuration() {
     return duration;
   }
 
-
-  public void setDuration(Long duration) {
+  public void setDuration(@javax.annotation.Nullable Long duration) {
     this.duration = duration;
   }
 
 
-  public AutoTestStepResult outcome(AvailableTestResultOutcome outcome) {
-    
+  public AutoTestStepResult outcome(@javax.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
 
-   /**
-   * Get outcome
+  /**
+   * Specifies the result of the autotest execution.
    * @return outcome
-  **/
+   */
   @javax.annotation.Nullable
   public AvailableTestResultOutcome getOutcome() {
     return outcome;
   }
 
-
-  public void setOutcome(AvailableTestResultOutcome outcome) {
+  public void setOutcome(@javax.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public AutoTestStepResult stepResults(List<AutoTestStepResult> stepResults) {
-    
+  public AutoTestStepResult stepResults(@javax.annotation.Nullable List<AutoTestStepResult> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
@@ -266,23 +259,21 @@ public class AutoTestStepResult {
     return this;
   }
 
-   /**
+  /**
    * Nested step results. The maximum nesting level is 15.
    * @return stepResults
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepResult> getStepResults() {
     return stepResults;
   }
 
-
-  public void setStepResults(List<AutoTestStepResult> stepResults) {
+  public void setStepResults(@javax.annotation.Nullable List<AutoTestStepResult> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public AutoTestStepResult attachments(List<Attachment> attachments) {
-    
+  public AutoTestStepResult attachments(@javax.annotation.Nullable List<Attachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -295,23 +286,21 @@ public class AutoTestStepResult {
     return this;
   }
 
-   /**
+  /**
    * /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt;
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<Attachment> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<Attachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public AutoTestStepResult parameters(Map<String, String> parameters) {
-    
+  public AutoTestStepResult parameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -324,17 +313,16 @@ public class AutoTestStepResult {
     return this;
   }
 
-   /**
+  /**
    * \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent.
    * @return parameters
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
@@ -428,26 +416,27 @@ public class AutoTestStepResult {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestStepResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestStepResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestStepResult
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestStepResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestStepResult is not found in the empty JSON string", AutoTestStepResult.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestStepResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestStepResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestStepResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
@@ -456,6 +445,10 @@ public class AutoTestStepResult {
       }
       if ((jsonObj.get("info") != null && !jsonObj.get("info").isJsonNull()) && !jsonObj.get("info").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `info` to be a primitive type in the JSON string but got `%s`", jsonObj.get("info").toString()));
+      }
+      // validate the optional field `outcome`
+      if (jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) {
+        AvailableTestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
       }
       if (jsonObj.get("stepResults") != null && !jsonObj.get("stepResults").isJsonNull()) {
         JsonArray jsonArraystepResults = jsonObj.getAsJsonArray("stepResults");
@@ -467,7 +460,7 @@ public class AutoTestStepResult {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            AutoTestStepResult.validateJsonObject(jsonArraystepResults.get(i).getAsJsonObject());
+            AutoTestStepResult.validateJsonElement(jsonArraystepResults.get(i));
           };
         }
       }
@@ -481,7 +474,7 @@ public class AutoTestStepResult {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            Attachment.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -507,31 +500,31 @@ public class AutoTestStepResult {
 
            @Override
            public AutoTestStepResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutoTestStepResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutoTestStepResult
-  * @throws IOException if the JSON string is invalid with respect to AutoTestStepResult
-  */
+  /**
+   * Create an instance of AutoTestStepResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestStepResult
+   * @throws IOException if the JSON string is invalid with respect to AutoTestStepResult
+   */
   public static AutoTestStepResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestStepResult.class);
   }
 
- /**
-  * Convert an instance of AutoTestStepResult to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestStepResult to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -13,7 +13,7 @@
 |**testData** | **String** |  |  |
 |**index** | **Integer** |  |  |
 |**workItemId** | **UUID** |  |  [optional] |
-|**workItem** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  |  |
+|**workItem** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  |  |
 
 
 

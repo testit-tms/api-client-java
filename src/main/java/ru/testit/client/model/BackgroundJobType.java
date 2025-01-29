@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -29,37 +29,37 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(BackgroundJobType.Adapter.class)
 public enum BackgroundJobType {
   
-  EXPORTXLSXTESTRESULTSBYTESTPLAN("ExportXlsxTestResultsByTestPlan"),
+  EXPORT_XLSX_TEST_RESULTS_BY_TEST_PLAN("ExportXlsxTestResultsByTestPlan"),
   
-  EXPORTXLSXWORKITEMSBYPROJECT("ExportXlsxWorkItemsByProject"),
+  EXPORT_XLSX_WORK_ITEMS_BY_PROJECT("ExportXlsxWorkItemsByProject"),
   
-  EXPORTXLSXTESTPOINTSBYTESTPLAN("ExportXlsxTestPointsByTestPlan"),
+  EXPORT_XLSX_TEST_POINTS_BY_TEST_PLAN("ExportXlsxTestPointsByTestPlan"),
   
-  EXPORTJSONPROJECT("ExportJsonProject"),
+  EXPORT_JSON_PROJECT("ExportJsonProject"),
   
-  EXPORTZIPPROJECT("ExportZipProject"),
+  EXPORT_ZIP_PROJECT("ExportZipProject"),
   
-  EXPORTJSONPROJECTWITHTESTPLANS("ExportJsonProjectWithTestPlans"),
+  EXPORT_JSON_PROJECT_WITH_TEST_PLANS("ExportJsonProjectWithTestPlans"),
   
-  EXPORTZIPPROJECTWITHTESTPLANS("ExportZipProjectWithTestPlans"),
+  EXPORT_ZIP_PROJECT_WITH_TEST_PLANS("ExportZipProjectWithTestPlans"),
   
-  IMPORTJSONPROJECT("ImportJsonProject"),
+  IMPORT_JSON_PROJECT("ImportJsonProject"),
   
-  IMPORTZIPPROJECT("ImportZipProject"),
+  IMPORT_ZIP_PROJECT("ImportZipProject"),
   
-  IMPORTXLSXPROJECT("ImportXlsxProject"),
+  IMPORT_XLSX_PROJECT("ImportXlsxProject"),
   
-  IMPORTTESTRAILXMLPROJECT("ImportTestRailXmlProject"),
+  IMPORT_TEST_RAIL_XML_PROJECT("ImportTestRailXmlProject"),
   
-  PURGEPROJECT("PurgeProject"),
+  PURGE_PROJECT("PurgeProject"),
   
-  EXPORTPROJECTS("ExportProjects"),
+  EXPORT_PROJECTS("ExportProjects"),
   
-  IMPORTPROJECTS("ImportProjects"),
+  IMPORT_PROJECTS("ImportProjects"),
   
-  PURGEENTITIES("PurgeEntities"),
+  PURGE_ENTITIES("PurgeEntities"),
   
-  DELETECOMPLETEDJOBS("DeleteCompletedJobs");
+  DELETE_COMPLETED_JOBS("DeleteCompletedJobs");
 
   private String value;
 
@@ -96,6 +96,11 @@ public enum BackgroundJobType {
       String value = jsonReader.nextString();
       return BackgroundJobType.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    BackgroundJobType.fromValue(value);
   }
 }
 

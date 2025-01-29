@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +37,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -50,32 +48,31 @@ import ru.testit.client.invoker.JSON;
 /**
  * DefectApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class DefectApiModel {
   public static final String SERIALIZED_NAME_EXTERNAL_URL = "externalUrl";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_URL)
+  @javax.annotation.Nonnull
   private String externalUrl;
 
   public DefectApiModel() {
   }
 
-  public DefectApiModel externalUrl(String externalUrl) {
-    
+  public DefectApiModel externalUrl(@javax.annotation.Nonnull String externalUrl) {
     this.externalUrl = externalUrl;
     return this;
   }
 
-   /**
+  /**
    * Link to created issue
    * @return externalUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getExternalUrl() {
     return externalUrl;
   }
 
-
-  public void setExternalUrl(String externalUrl) {
+  public void setExternalUrl(@javax.annotation.Nonnull String externalUrl) {
     this.externalUrl = externalUrl;
   }
 
@@ -132,33 +129,34 @@ public class DefectApiModel {
     openapiRequiredFields.add("externalUrl");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DefectApiModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!DefectApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DefectApiModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DefectApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in DefectApiModel is not found in the empty JSON string", DefectApiModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DefectApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DefectApiModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DefectApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : DefectApiModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("externalUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalUrl").toString()));
       }
@@ -184,31 +182,31 @@ public class DefectApiModel {
 
            @Override
            public DefectApiModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of DefectApiModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DefectApiModel
-  * @throws IOException if the JSON string is invalid with respect to DefectApiModel
-  */
+  /**
+   * Create an instance of DefectApiModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DefectApiModel
+   * @throws IOException if the JSON string is invalid with respect to DefectApiModel
+   */
   public static DefectApiModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DefectApiModel.class);
   }
 
- /**
-  * Convert an instance of DefectApiModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DefectApiModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

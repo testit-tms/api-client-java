@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AutoTestModelLastTestResultConfiguration;
 import ru.testit.client.model.AutoTestStepModel;
+import ru.testit.client.model.ConfigurationShortModel;
 import ru.testit.client.model.LabelShortModel;
 import ru.testit.client.model.LinkPutModel;
 
@@ -46,12 +46,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -59,440 +57,437 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestModel {
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_MUST_BE_APPROVED = "mustBeApproved";
   @SerializedName(SERIALIZED_NAME_MUST_BE_APPROVED)
+  @javax.annotation.Nonnull
   private Boolean mustBeApproved;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
+  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RUN_ID = "lastTestRunId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RUN_ID)
+  @javax.annotation.Nullable
   private UUID lastTestRunId;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RUN_NAME = "lastTestRunName";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RUN_NAME)
+  @javax.annotation.Nullable
   private String lastTestRunName;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
+  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION = "lastTestResultConfiguration";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION)
-  private AutoTestModelLastTestResultConfiguration lastTestResultConfiguration;
+  @javax.annotation.Nullable
+  private ConfigurationShortModel lastTestResultConfiguration;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
+  @javax.annotation.Nullable
   private String lastTestResultOutcome;
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
+  @javax.annotation.Nullable
   private Integer stabilityPercentage;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
+  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
+  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
+  @javax.annotation.Nullable
   private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
+  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
+  @javax.annotation.Nullable
   private String externalKey;
 
   public AutoTestModel() {
   }
 
-  public AutoTestModel globalId(Long globalId) {
-    
+  public AutoTestModel globalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
 
-   /**
+  /**
    * Global ID of the autotest
    * @return globalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getGlobalId() {
     return globalId;
   }
 
-
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestModel isDeleted(Boolean isDeleted) {
-    
+  public AutoTestModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the autotest is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTestModel mustBeApproved(Boolean mustBeApproved) {
-    
+  public AutoTestModel mustBeApproved(@javax.annotation.Nonnull Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the autotest has unapproved changes from linked work items
    * @return mustBeApproved
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getMustBeApproved() {
     return mustBeApproved;
   }
 
-
-  public void setMustBeApproved(Boolean mustBeApproved) {
+  public void setMustBeApproved(@javax.annotation.Nonnull Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
-  public AutoTestModel id(UUID id) {
-    
+  public AutoTestModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the autotest
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestModel createdDate(OffsetDateTime createdDate) {
-    
+  public AutoTestModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * Creation date of the autotest
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestModel modifiedDate(OffsetDateTime modifiedDate) {
-    
+  public AutoTestModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Last modification date of the project
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestModel createdById(UUID createdById) {
-    
+  public AutoTestModel createdById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the project creator
    * @return createdById
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestModel modifiedById(UUID modifiedById) {
-    
+  public AutoTestModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the project last editor
    * @return modifiedById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getModifiedById() {
     return modifiedById;
   }
 
-
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AutoTestModel lastTestRunId(UUID lastTestRunId) {
-    
+  public AutoTestModel lastTestRunId(@javax.annotation.Nullable UUID lastTestRunId) {
     this.lastTestRunId = lastTestRunId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the autotest last test run
    * @return lastTestRunId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getLastTestRunId() {
     return lastTestRunId;
   }
 
-
-  public void setLastTestRunId(UUID lastTestRunId) {
+  public void setLastTestRunId(@javax.annotation.Nullable UUID lastTestRunId) {
     this.lastTestRunId = lastTestRunId;
   }
 
 
-  public AutoTestModel lastTestRunName(String lastTestRunName) {
-    
+  public AutoTestModel lastTestRunName(@javax.annotation.Nullable String lastTestRunName) {
     this.lastTestRunName = lastTestRunName;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest last test run
    * @return lastTestRunName
-  **/
+   */
   @javax.annotation.Nullable
   public String getLastTestRunName() {
     return lastTestRunName;
   }
 
-
-  public void setLastTestRunName(String lastTestRunName) {
+  public void setLastTestRunName(@javax.annotation.Nullable String lastTestRunName) {
     this.lastTestRunName = lastTestRunName;
   }
 
 
-  public AutoTestModel lastTestResultId(UUID lastTestResultId) {
-    
+  public AutoTestModel lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the autotest last test result
    * @return lastTestResultId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
 
-
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
-  public AutoTestModel lastTestResultConfiguration(AutoTestModelLastTestResultConfiguration lastTestResultConfiguration) {
-    
+  public AutoTestModel lastTestResultConfiguration(@javax.annotation.Nullable ConfigurationShortModel lastTestResultConfiguration) {
     this.lastTestResultConfiguration = lastTestResultConfiguration;
     return this;
   }
 
-   /**
-   * Get lastTestResultConfiguration
+  /**
+   * Configuration of the autotest last test result
    * @return lastTestResultConfiguration
-  **/
+   */
   @javax.annotation.Nullable
-  public AutoTestModelLastTestResultConfiguration getLastTestResultConfiguration() {
+  public ConfigurationShortModel getLastTestResultConfiguration() {
     return lastTestResultConfiguration;
   }
 
-
-  public void setLastTestResultConfiguration(AutoTestModelLastTestResultConfiguration lastTestResultConfiguration) {
+  public void setLastTestResultConfiguration(@javax.annotation.Nullable ConfigurationShortModel lastTestResultConfiguration) {
     this.lastTestResultConfiguration = lastTestResultConfiguration;
   }
 
 
-  public AutoTestModel lastTestResultOutcome(String lastTestResultOutcome) {
-    
+  public AutoTestModel lastTestResultOutcome(@javax.annotation.Nullable String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
 
-   /**
+  /**
    * Outcome of the autotest last test result
    * @return lastTestResultOutcome
-  **/
+   */
   @javax.annotation.Nullable
   public String getLastTestResultOutcome() {
     return lastTestResultOutcome;
   }
 
-
-  public void setLastTestResultOutcome(String lastTestResultOutcome) {
+  public void setLastTestResultOutcome(@javax.annotation.Nullable String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
-  public AutoTestModel stabilityPercentage(Integer stabilityPercentage) {
-    
+  public AutoTestModel stabilityPercentage(@javax.annotation.Nullable Integer stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
 
-   /**
+  /**
    * Stability percentage of the autotest
    * @return stabilityPercentage
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getStabilityPercentage() {
     return stabilityPercentage;
   }
 
-
-  public void setStabilityPercentage(Integer stabilityPercentage) {
+  public void setStabilityPercentage(@javax.annotation.Nullable Integer stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
-  public AutoTestModel externalId(String externalId) {
-    
+  public AutoTestModel externalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * External ID of the autotest
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getExternalId() {
     return externalId;
   }
 
-
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestModel links(List<LinkPutModel> links) {
-    
+  public AutoTestModel links(@javax.annotation.Nullable List<LinkPutModel> links) {
     this.links = links;
     return this;
   }
@@ -505,107 +500,97 @@ public class AutoTestModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkPutModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkPutModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkPutModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestModel projectId(UUID projectId) {
-    
+  public AutoTestModel projectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the autotest project
    * @return projectId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getProjectId() {
     return projectId;
   }
 
-
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestModel name(String name) {
-    
+  public AutoTestModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AutoTestModel namespace(String namespace) {
-    
+  public AutoTestModel namespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest namespace
    * @return namespace
-  **/
+   */
   @javax.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
 
-
-  public void setNamespace(String namespace) {
+  public void setNamespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestModel classname(String classname) {
-    
+  public AutoTestModel classname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest class
    * @return classname
-  **/
+   */
   @javax.annotation.Nullable
   public String getClassname() {
     return classname;
   }
 
-
-  public void setClassname(String classname) {
+  public void setClassname(@javax.annotation.Nullable String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestModel steps(List<AutoTestStepModel> steps) {
-    
+  public AutoTestModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -618,23 +603,21 @@ public class AutoTestModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest steps
    * @return steps
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSteps() {
     return steps;
   }
 
-
-  public void setSteps(List<AutoTestStepModel> steps) {
+  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestModel setup(List<AutoTestStepModel> setup) {
-    
+  public AutoTestModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -647,23 +630,21 @@ public class AutoTestModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest setup steps
    * @return setup
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getSetup() {
     return setup;
   }
 
-
-  public void setSetup(List<AutoTestStepModel> setup) {
+  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestModel teardown(List<AutoTestStepModel> teardown) {
-    
+  public AutoTestModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -676,65 +657,59 @@ public class AutoTestModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest teardown steps
    * @return teardown
-  **/
+   */
   @javax.annotation.Nullable
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
   }
 
-
-  public void setTeardown(List<AutoTestStepModel> teardown) {
+  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestModel title(String title) {
-    
+  public AutoTestModel title(@javax.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Name of the autotest in autotest&#39;s card
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public AutoTestModel description(String description) {
-    
+  public AutoTestModel description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the autotest in autotest&#39;s card
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public AutoTestModel labels(List<LabelShortModel> labels) {
-    
+  public AutoTestModel labels(@javax.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -747,59 +722,54 @@ public class AutoTestModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of the autotest labels
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   public List<LabelShortModel> getLabels() {
     return labels;
   }
 
-
-  public void setLabels(List<LabelShortModel> labels) {
+  public void setLabels(@javax.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestModel isFlaky(Boolean isFlaky) {
-    
+  public AutoTestModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = isFlaky;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the autotest is marked as flaky
    * @return isFlaky
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsFlaky() {
     return isFlaky;
   }
 
-
-  public void setIsFlaky(Boolean isFlaky) {
+  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestModel externalKey(String externalKey) {
-    
+  public AutoTestModel externalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
 
-   /**
+  /**
    * External key of the autotest
    * @return externalKey
-  **/
+   */
   @javax.annotation.Nullable
   public String getExternalKey() {
     return externalKey;
   }
 
-
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
     this.externalKey = externalKey;
   }
 
@@ -956,33 +926,34 @@ public class AutoTestModel {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutoTestModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AutoTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutoTestModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AutoTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestModel is not found in the empty JSON string", AutoTestModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AutoTestModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AutoTestModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -1003,7 +974,7 @@ public class AutoTestModel {
       }
       // validate the optional field `lastTestResultConfiguration`
       if (jsonObj.get("lastTestResultConfiguration") != null && !jsonObj.get("lastTestResultConfiguration").isJsonNull()) {
-        AutoTestModelLastTestResultConfiguration.validateJsonObject(jsonObj.getAsJsonObject("lastTestResultConfiguration"));
+        ConfigurationShortModel.validateJsonElement(jsonObj.get("lastTestResultConfiguration"));
       }
       if ((jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) && !jsonObj.get("lastTestResultOutcome").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultOutcome").toString()));
@@ -1021,7 +992,7 @@ public class AutoTestModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkPutModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkPutModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -1047,7 +1018,7 @@ public class AutoTestModel {
 
           // validate the optional field `steps` (array)
           for (int i = 0; i < jsonArraysteps.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysteps.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysteps.get(i));
           };
         }
       }
@@ -1061,7 +1032,7 @@ public class AutoTestModel {
 
           // validate the optional field `setup` (array)
           for (int i = 0; i < jsonArraysetup.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArraysetup.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArraysetup.get(i));
           };
         }
       }
@@ -1075,7 +1046,7 @@ public class AutoTestModel {
 
           // validate the optional field `teardown` (array)
           for (int i = 0; i < jsonArrayteardown.size(); i++) {
-            AutoTestStepModel.validateJsonObject(jsonArrayteardown.get(i).getAsJsonObject());
+            AutoTestStepModel.validateJsonElement(jsonArrayteardown.get(i));
           };
         }
       }
@@ -1095,7 +1066,7 @@ public class AutoTestModel {
 
           // validate the optional field `labels` (array)
           for (int i = 0; i < jsonArraylabels.size(); i++) {
-            LabelShortModel.validateJsonObject(jsonArraylabels.get(i).getAsJsonObject());
+            LabelShortModel.validateJsonElement(jsonArraylabels.get(i));
           };
         }
       }
@@ -1124,31 +1095,31 @@ public class AutoTestModel {
 
            @Override
            public AutoTestModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AutoTestModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutoTestModel
-  * @throws IOException if the JSON string is invalid with respect to AutoTestModel
-  */
+  /**
+   * Create an instance of AutoTestModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutoTestModel
+   * @throws IOException if the JSON string is invalid with respect to AutoTestModel
+   */
   public static AutoTestModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutoTestModel.class);
   }
 
- /**
-  * Convert an instance of AutoTestModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutoTestModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

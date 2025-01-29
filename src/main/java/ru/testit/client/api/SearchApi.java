@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ApiV2SearchGlobalSearchPostRequest;
+import ru.testit.client.model.GlobalSearchRequest;
 import ru.testit.client.model.GlobalSearchResponse;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class SearchApi {
     private ApiClient localVarApiClient;
@@ -78,12 +77,13 @@ public class SearchApi {
 
     /**
      * Build call for apiV2SearchGlobalSearchPost
-     * @param apiV2SearchGlobalSearchPostRequest  (optional)
+     * @param globalSearchRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -94,7 +94,7 @@ public class SearchApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2SearchGlobalSearchPostCall(ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2SearchGlobalSearchPostCall(GlobalSearchRequest globalSearchRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,7 +108,7 @@ public class SearchApi {
             basePath = null;
         }
 
-        Object localVarPostBody = apiV2SearchGlobalSearchPostRequest;
+        Object localVarPostBody = globalSearchRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2/search/globalSearch";
@@ -140,19 +140,20 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2SearchGlobalSearchPostValidateBeforeCall(ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2SearchGlobalSearchPostCall(apiV2SearchGlobalSearchPostRequest, _callback);
+    private okhttp3.Call apiV2SearchGlobalSearchPostValidateBeforeCall(GlobalSearchRequest globalSearchRequest, final ApiCallback _callback) throws ApiException {
+        return apiV2SearchGlobalSearchPostCall(globalSearchRequest, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param apiV2SearchGlobalSearchPostRequest  (optional)
+     * @param globalSearchRequest  (optional)
      * @return GlobalSearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -163,19 +164,20 @@ public class SearchApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public GlobalSearchResponse apiV2SearchGlobalSearchPost(ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest) throws ApiException {
-        ApiResponse<GlobalSearchResponse> localVarResp = apiV2SearchGlobalSearchPostWithHttpInfo(apiV2SearchGlobalSearchPostRequest);
+    public GlobalSearchResponse apiV2SearchGlobalSearchPost(GlobalSearchRequest globalSearchRequest) throws ApiException {
+        ApiResponse<GlobalSearchResponse> localVarResp = apiV2SearchGlobalSearchPostWithHttpInfo(globalSearchRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param apiV2SearchGlobalSearchPostRequest  (optional)
+     * @param globalSearchRequest  (optional)
      * @return ApiResponse&lt;GlobalSearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -186,8 +188,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GlobalSearchResponse> apiV2SearchGlobalSearchPostWithHttpInfo(ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2SearchGlobalSearchPostValidateBeforeCall(apiV2SearchGlobalSearchPostRequest, null);
+    public ApiResponse<GlobalSearchResponse> apiV2SearchGlobalSearchPostWithHttpInfo(GlobalSearchRequest globalSearchRequest) throws ApiException {
+        okhttp3.Call localVarCall = apiV2SearchGlobalSearchPostValidateBeforeCall(globalSearchRequest, null);
         Type localVarReturnType = new TypeToken<GlobalSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,12 +197,13 @@ public class SearchApi {
     /**
      *  (asynchronously)
      * 
-     * @param apiV2SearchGlobalSearchPostRequest  (optional)
+     * @param globalSearchRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -211,9 +214,9 @@ public class SearchApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2SearchGlobalSearchPostAsync(ApiV2SearchGlobalSearchPostRequest apiV2SearchGlobalSearchPostRequest, final ApiCallback<GlobalSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call apiV2SearchGlobalSearchPostAsync(GlobalSearchRequest globalSearchRequest, final ApiCallback<GlobalSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2SearchGlobalSearchPostValidateBeforeCall(apiV2SearchGlobalSearchPostRequest, _callback);
+        okhttp3.Call localVarCall = apiV2SearchGlobalSearchPostValidateBeforeCall(globalSearchRequest, _callback);
         Type localVarReturnType = new TypeToken<GlobalSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

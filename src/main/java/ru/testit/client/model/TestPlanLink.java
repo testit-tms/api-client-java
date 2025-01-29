@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ExternalLinkModel;
@@ -41,12 +41,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -54,182 +52,175 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanLink
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanLink {
   public static final String SERIALIZED_NAME_BUG_LINK = "bugLink";
   @SerializedName(SERIALIZED_NAME_BUG_LINK)
+  @javax.annotation.Nullable
   private LinkModel bugLink;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
+  @javax.annotation.Nullable
   private Long workItemGlobalId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
+  @javax.annotation.Nullable
   private String workItemName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
+  @javax.annotation.Nullable
   private String configurationName;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  @javax.annotation.Nullable
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_INFO = "info";
   @SerializedName(SERIALIZED_NAME_INFO)
+  @javax.annotation.Nullable
   private ExternalLinkModel info;
 
   public TestPlanLink() {
   }
 
-  public TestPlanLink bugLink(LinkModel bugLink) {
-    
+  public TestPlanLink bugLink(@javax.annotation.Nullable LinkModel bugLink) {
     this.bugLink = bugLink;
     return this;
   }
 
-   /**
+  /**
    * Get bugLink
    * @return bugLink
-  **/
+   */
   @javax.annotation.Nullable
   public LinkModel getBugLink() {
     return bugLink;
   }
 
-
-  public void setBugLink(LinkModel bugLink) {
+  public void setBugLink(@javax.annotation.Nullable LinkModel bugLink) {
     this.bugLink = bugLink;
   }
 
 
-  public TestPlanLink workItemGlobalId(Long workItemGlobalId) {
-    
+  public TestPlanLink workItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemGlobalId
    * @return workItemGlobalId
-  **/
+   */
   @javax.annotation.Nullable
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
   }
 
-
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
+  public void setWorkItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPlanLink workItemName(String workItemName) {
-    
+  public TestPlanLink workItemName(@javax.annotation.Nullable String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
 
-   /**
+  /**
    * Get workItemName
    * @return workItemName
-  **/
+   */
   @javax.annotation.Nullable
   public String getWorkItemName() {
     return workItemName;
   }
 
-
-  public void setWorkItemName(String workItemName) {
+  public void setWorkItemName(@javax.annotation.Nullable String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public TestPlanLink configurationName(String configurationName) {
-    
+  public TestPlanLink configurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
 
-   /**
+  /**
    * Get configurationName
    * @return configurationName
-  **/
+   */
   @javax.annotation.Nullable
   public String getConfigurationName() {
     return configurationName;
   }
 
-
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@javax.annotation.Nullable String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestPlanLink createdById(UUID createdById) {
-    
+  public TestPlanLink createdById(@javax.annotation.Nullable UUID createdById) {
     this.createdById = createdById;
     return this;
   }
 
-   /**
+  /**
    * Get createdById
    * @return createdById
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getCreatedById() {
     return createdById;
   }
 
-
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@javax.annotation.Nullable UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanLink comment(String comment) {
-    
+  public TestPlanLink comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
-  public TestPlanLink info(ExternalLinkModel info) {
-    
+  public TestPlanLink info(@javax.annotation.Nullable ExternalLinkModel info) {
     this.info = info;
     return this;
   }
 
-   /**
+  /**
    * Get info
    * @return info
-  **/
+   */
   @javax.annotation.Nullable
   public ExternalLinkModel getInfo() {
     return info;
   }
 
-
-  public void setInfo(ExternalLinkModel info) {
+  public void setInfo(@javax.annotation.Nullable ExternalLinkModel info) {
     this.info = info;
   }
 
@@ -314,29 +305,30 @@ public class TestPlanLink {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPlanLink
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPlanLink.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestPlanLink
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPlanLink.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanLink is not found in the empty JSON string", TestPlanLink.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPlanLink.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanLink` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanLink` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `bugLink`
       if (jsonObj.get("bugLink") != null && !jsonObj.get("bugLink").isJsonNull()) {
-        LinkModel.validateJsonObject(jsonObj.getAsJsonObject("bugLink"));
+        LinkModel.validateJsonElement(jsonObj.get("bugLink"));
       }
       if ((jsonObj.get("workItemName") != null && !jsonObj.get("workItemName").isJsonNull()) && !jsonObj.get("workItemName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemName").toString()));
@@ -352,7 +344,7 @@ public class TestPlanLink {
       }
       // validate the optional field `info`
       if (jsonObj.get("info") != null && !jsonObj.get("info").isJsonNull()) {
-        ExternalLinkModel.validateJsonObject(jsonObj.getAsJsonObject("info"));
+        ExternalLinkModel.validateJsonElement(jsonObj.get("info"));
       }
   }
 
@@ -376,31 +368,31 @@ public class TestPlanLink {
 
            @Override
            public TestPlanLink read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestPlanLink given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPlanLink
-  * @throws IOException if the JSON string is invalid with respect to TestPlanLink
-  */
+  /**
+   * Create an instance of TestPlanLink given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestPlanLink
+   * @throws IOException if the JSON string is invalid with respect to TestPlanLink
+   */
   public static TestPlanLink fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPlanLink.class);
   }
 
- /**
-  * Convert an instance of TestPlanLink to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestPlanLink to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

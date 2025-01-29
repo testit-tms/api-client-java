@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestSuiteType;
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,157 +51,151 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteV2PostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteV2PostModel {
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private TestSuiteType type;
 
   public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
   @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
+  @javax.annotation.Nullable
   private Boolean saveStructure;
 
   public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
   @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
+  @javax.annotation.Nullable
   private Boolean autoRefresh;
 
   public TestSuiteV2PostModel() {
   }
 
-  public TestSuiteV2PostModel parentId(UUID parentId) {
-    
+  public TestSuiteV2PostModel parentId(@javax.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the parent test suite in hierarchy
    * @return parentId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getParentId() {
     return parentId;
   }
 
-
-  public void setParentId(UUID parentId) {
+  public void setParentId(@javax.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteV2PostModel testPlanId(UUID testPlanId) {
-    
+  public TestSuiteV2PostModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of test plan to which the test suite belongs
    * @return testPlanId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
-
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteV2PostModel name(String name) {
-    
+  public TestSuiteV2PostModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the test suite
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteV2PostModel type(TestSuiteType type) {
-    
+  public TestSuiteV2PostModel type(@javax.annotation.Nullable TestSuiteType type) {
     this.type = type;
     return this;
   }
 
-   /**
-   * Get type
+  /**
+   * Type of the test suite
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   public TestSuiteType getType() {
     return type;
   }
 
-
-  public void setType(TestSuiteType type) {
+  public void setType(@javax.annotation.Nullable TestSuiteType type) {
     this.type = type;
   }
 
 
-  public TestSuiteV2PostModel saveStructure(Boolean saveStructure) {
-    
+  public TestSuiteV2PostModel saveStructure(@javax.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the test suite retains section tree structure
    * @return saveStructure
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getSaveStructure() {
     return saveStructure;
   }
 
-
-  public void setSaveStructure(Boolean saveStructure) {
+  public void setSaveStructure(@javax.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
-  public TestSuiteV2PostModel autoRefresh(Boolean autoRefresh) {
-    
+  public TestSuiteV2PostModel autoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
     return this;
   }
 
-   /**
+  /**
    * Indicates if scheduled auto refresh is enabled for the test suite
    * @return autoRefresh
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAutoRefresh() {
     return autoRefresh;
   }
 
-
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public void setAutoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 
@@ -287,33 +279,34 @@ public class TestSuiteV2PostModel {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestSuiteV2PostModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestSuiteV2PostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestSuiteV2PostModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestSuiteV2PostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteV2PostModel is not found in the empty JSON string", TestSuiteV2PostModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestSuiteV2PostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PostModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteV2PostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestSuiteV2PostModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
       }
@@ -322,6 +315,10 @@ public class TestSuiteV2PostModel {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `type`
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+        TestSuiteType.validateJsonElement(jsonObj.get("type"));
       }
   }
 
@@ -345,31 +342,31 @@ public class TestSuiteV2PostModel {
 
            @Override
            public TestSuiteV2PostModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestSuiteV2PostModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestSuiteV2PostModel
-  * @throws IOException if the JSON string is invalid with respect to TestSuiteV2PostModel
-  */
+  /**
+   * Create an instance of TestSuiteV2PostModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestSuiteV2PostModel
+   * @throws IOException if the JSON string is invalid with respect to TestSuiteV2PostModel
+   */
   public static TestSuiteV2PostModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestSuiteV2PostModel.class);
   }
 
- /**
-  * Convert an instance of TestSuiteV2PostModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestSuiteV2PostModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

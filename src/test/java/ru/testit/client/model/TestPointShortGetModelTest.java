@@ -19,22 +19,22 @@ public class TestPointShortGetModelTest {
         jsonObj.add("lastTestResult", JsonNull.INSTANCE);
 
         // Execute & Verify
-        assertDoesNotThrow(() -> TestPointShortGetModel.validateJsonObject(jsonObj));
+        assertDoesNotThrow(() -> TestPointShortResponseModel.validateJsonElement(jsonObj));
     }
 
 
     private JsonObject setupValidModelJsonObject() {
         // Setup
-        TestPointShortGetModel.openapiFields = new HashSet<>(Arrays.asList(
+        TestPointShortResponseModel.openapiFields = new HashSet<>(Arrays.asList(
                 "id", "createdById", "modifiedById", "testerId", "tags", "links", "testSuiteId",
                 "testSuiteName", "workItemId", "workItemVersionId", "name", "configurationId",
                 "sectionId", "sectionName", "projectId", "lastTestResult", "iterationId",
-                "workItemCreatedById", "workItemModifiedById"
+                "workItemCreatedById", "workItemModifiedById", "status", "statusModel", "priority", "workItemState"
         ));
-        TestPointShortGetModel.openapiRequiredFields = new HashSet<>(Arrays.asList(
+        TestPointShortResponseModel.openapiRequiredFields = new HashSet<>(Arrays.asList(
                 "id", "createdById", "tags", "links", "testSuiteId", "testSuiteName",
                 "workItemId", "workItemVersionId", "name", "configurationId", "sectionId", "projectId",
-                "lastTestResult", "iterationId", "workItemCreatedById"
+                "lastTestResult", "iterationId", "workItemCreatedById", "status", "priority", "workItemState"
         ));
 
         JsonObject jsonObj = new JsonObject();
@@ -68,6 +68,10 @@ public class TestPointShortGetModelTest {
         jsonObj.add("workItemCreatedById", new JsonPrimitive(5678));
         jsonObj.add("workItemModifiedById", new JsonPrimitive(91011));
         jsonObj.add("lastTestResult", JsonNull.INSTANCE);
+        jsonObj.add("status", new JsonPrimitive("NoResults"));
+        jsonObj.add("statusModel", JsonNull.INSTANCE);
+        jsonObj.add("priority", new JsonPrimitive("Medium"));
+        jsonObj.add("workItemState", new JsonPrimitive("NeedsWork"));
 
         return jsonObj;
     }

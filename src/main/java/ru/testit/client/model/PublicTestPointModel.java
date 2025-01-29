@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -42,12 +42,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -55,79 +53,80 @@ import ru.testit.client.invoker.JSON;
 /**
  * PublicTestPointModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PublicTestPointModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_GLOBAL_ID = "configurationGlobalId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_GLOBAL_ID)
+  @javax.annotation.Nonnull
   private Long configurationGlobalId;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
+  @javax.annotation.Nullable
   private List<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
+  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_PARAMETER_MODELS = "parameterModels";
   @SerializedName(SERIALIZED_NAME_PARAMETER_MODELS)
+  @javax.annotation.Nullable
   private List<ParameterShortModel> parameterModels;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public PublicTestPointModel() {
   }
 
-  public PublicTestPointModel configurationId(UUID configurationId) {
-    
+  public PublicTestPointModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
 
-   /**
+  /**
    * Get configurationId
    * @return configurationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public PublicTestPointModel configurationGlobalId(Long configurationGlobalId) {
-    
+  public PublicTestPointModel configurationGlobalId(@javax.annotation.Nonnull Long configurationGlobalId) {
     this.configurationGlobalId = configurationGlobalId;
     return this;
   }
 
-   /**
+  /**
    * Get configurationGlobalId
    * @return configurationGlobalId
-  **/
+   */
   @javax.annotation.Nonnull
   public Long getConfigurationGlobalId() {
     return configurationGlobalId;
   }
 
-
-  public void setConfigurationGlobalId(Long configurationGlobalId) {
+  public void setConfigurationGlobalId(@javax.annotation.Nonnull Long configurationGlobalId) {
     this.configurationGlobalId = configurationGlobalId;
   }
 
 
-  public PublicTestPointModel autoTestIds(List<UUID> autoTestIds) {
-    
+  public PublicTestPointModel autoTestIds(@javax.annotation.Nullable List<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -140,44 +139,40 @@ public class PublicTestPointModel {
     return this;
   }
 
-   /**
+  /**
    * Get autoTestIds
    * @return autoTestIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<UUID> getAutoTestIds() {
     return autoTestIds;
   }
 
-
-  public void setAutoTestIds(List<UUID> autoTestIds) {
+  public void setAutoTestIds(@javax.annotation.Nullable List<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
-  public PublicTestPointModel iterationId(UUID iterationId) {
-    
+  public PublicTestPointModel iterationId(@javax.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
 
-   /**
+  /**
    * Get iterationId
    * @return iterationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getIterationId() {
     return iterationId;
   }
 
-
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public PublicTestPointModel parameterModels(List<ParameterShortModel> parameterModels) {
-    
+  public PublicTestPointModel parameterModels(@javax.annotation.Nullable List<ParameterShortModel> parameterModels) {
     this.parameterModels = parameterModels;
     return this;
   }
@@ -190,38 +185,35 @@ public class PublicTestPointModel {
     return this;
   }
 
-   /**
+  /**
    * Get parameterModels
    * @return parameterModels
-  **/
+   */
   @javax.annotation.Nullable
   public List<ParameterShortModel> getParameterModels() {
     return parameterModels;
   }
 
-
-  public void setParameterModels(List<ParameterShortModel> parameterModels) {
+  public void setParameterModels(@javax.annotation.Nullable List<ParameterShortModel> parameterModels) {
     this.parameterModels = parameterModels;
   }
 
 
-  public PublicTestPointModel id(UUID id) {
-    
+  public PublicTestPointModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
@@ -307,38 +299,39 @@ public class PublicTestPointModel {
     openapiRequiredFields.add("id");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PublicTestPointModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!PublicTestPointModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PublicTestPointModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PublicTestPointModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PublicTestPointModel is not found in the empty JSON string", PublicTestPointModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PublicTestPointModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestPointModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicTestPointModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PublicTestPointModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("configurationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonArray()) {
+      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonNull() && !jsonObj.get("autoTestIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestIds").toString()));
       }
       if (!jsonObj.get("iterationId").isJsonPrimitive()) {
@@ -354,7 +347,7 @@ public class PublicTestPointModel {
 
           // validate the optional field `parameterModels` (array)
           for (int i = 0; i < jsonArrayparameterModels.size(); i++) {
-            ParameterShortModel.validateJsonObject(jsonArrayparameterModels.get(i).getAsJsonObject());
+            ParameterShortModel.validateJsonElement(jsonArrayparameterModels.get(i));
           };
         }
       }
@@ -383,31 +376,31 @@ public class PublicTestPointModel {
 
            @Override
            public PublicTestPointModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PublicTestPointModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PublicTestPointModel
-  * @throws IOException if the JSON string is invalid with respect to PublicTestPointModel
-  */
+  /**
+   * Create an instance of PublicTestPointModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PublicTestPointModel
+   * @throws IOException if the JSON string is invalid with respect to PublicTestPointModel
+   */
   public static PublicTestPointModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PublicTestPointModel.class);
   }
 
- /**
-  * Convert an instance of PublicTestPointModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PublicTestPointModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

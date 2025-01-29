@@ -11,7 +11,7 @@
 |**links** | [**List&lt;LinkPostModel&gt;**](LinkPostModel.md) | Specifies the links in the autotest. |  [optional] |
 |**failureReasonNames** | **List&lt;FailureCategoryModel&gt;** | Specifies the cause of autotest failure. |  [optional] |
 |**autoTestExternalId** | **String** | Specifies the external ID of the autotest, which was specified when the test run was created. |  |
-|**outcome** | **AvailableTestResultOutcome** |  |  |
+|**outcome** | **AvailableTestResultOutcome** | Specifies the result of the autotest execution. |  |
 |**message** | **String** | A comment for the result. |  [optional] |
 |**traces** | **String** | An extended comment or a stack trace. |  [optional] |
 |**startedOn** | **OffsetDateTime** | Test run start date. |  [optional] |

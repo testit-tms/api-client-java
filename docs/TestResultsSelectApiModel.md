@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filter** | [**TestResultsSelectApiModelFilter**](TestResultsSelectApiModelFilter.md) |  |  |
-|**extractionModel** | [**TestResultsSelectApiModelExtractionModel**](TestResultsSelectApiModelExtractionModel.md) |  |  |
+|**filter** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) | Test result filters |  |
+|**extractionModel** | [**TestResultsExtractionApiModel**](TestResultsExtractionApiModel.md) | Test results extraction model |  |
 
 
 

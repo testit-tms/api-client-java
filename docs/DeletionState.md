@@ -9,7 +9,7 @@
 
 * `DELETED` (value: `"Deleted"`)
 
-* `NOTDELETED` (value: `"NotDeleted"`)
+* `NOT_DELETED` (value: `"NotDeleted"`)
 
 
 

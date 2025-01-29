@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**selectModel** | [**WorkItemGroupGetModelSelectModel**](WorkItemGroupGetModelSelectModel.md) |  |  [optional] |
+|**selectModel** | [**WorkItemLocalSelectModel**](WorkItemLocalSelectModel.md) | Model containing options to filter work items |  [optional] |
 |**groupType** | **WorkItemGroupType** |  |  |
 |**customAttributeId** | **UUID** |  |  [optional] |
 

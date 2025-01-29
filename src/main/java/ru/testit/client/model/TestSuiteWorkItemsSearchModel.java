@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -29,10 +29,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestPointFilterModelWorkItemCreatedDate;
-import ru.testit.client.model.TestPointFilterModelWorkItemModifiedDate;
-import ru.testit.client.model.TestSuiteWorkItemsSearchModelDuration;
-import ru.testit.client.model.TestSuiteWorkItemsSearchModelMedianDuration;
+import ru.testit.client.model.DateTimeRangeSelectorModel;
+import ru.testit.client.model.Int32RangeSelectorModel;
+import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
@@ -52,12 +51,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -65,116 +62,140 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteWorkItemsSearchModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteWorkItemsSearchModel {
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
+  @javax.annotation.Nullable
   private Set<String> tagNames;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
+  @javax.annotation.Nullable
   private Set<WorkItemEntityTypes> entityTypes;
 
   public static final String SERIALIZED_NAME_NAME_OR_ID = "nameOrId";
   @SerializedName(SERIALIZED_NAME_NAME_OR_ID)
+  @javax.annotation.Nullable
   private String nameOrId;
 
   public static final String SERIALIZED_NAME_INCLUDE_IDS = "includeIds";
   @SerializedName(SERIALIZED_NAME_INCLUDE_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> includeIds;
 
   public static final String SERIALIZED_NAME_EXCLUDE_IDS = "excludeIds";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> excludeIds;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> ids;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
+  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
   private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
+  @javax.annotation.Nullable
   private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
+  @javax.annotation.Nullable
   private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
+  @javax.annotation.Nullable
   private Set<WorkItemEntityTypes> types;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private TestPointFilterModelWorkItemCreatedDate createdDate;
+  @javax.annotation.Nullable
+  private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private TestPointFilterModelWorkItemModifiedDate modifiedDate;
+  @javax.annotation.Nullable
+  private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  private TestSuiteWorkItemsSearchModelDuration duration;
+  @javax.annotation.Nullable
+  private Int32RangeSelectorModel duration;
 
   public static final String SERIALIZED_NAME_MEDIAN_DURATION = "medianDuration";
   @SerializedName(SERIALIZED_NAME_MEDIAN_DURATION)
-  private TestSuiteWorkItemsSearchModelMedianDuration medianDuration;
+  @javax.annotation.Nullable
+  private Int64RangeSelectorModel medianDuration;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
   private Set<String> tags;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
+  @javax.annotation.Nullable
   private Set<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_IDS = "workItemVersionIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_IDS)
+  @javax.annotation.Nullable
   private List<UUID> workItemVersionIds;
 
   public TestSuiteWorkItemsSearchModel() {
   }
 
   @Deprecated
-  public TestSuiteWorkItemsSearchModel tagNames(Set<String> tagNames) {
-    
+  public TestSuiteWorkItemsSearchModel tagNames(@javax.annotation.Nullable Set<String> tagNames) {
     this.tagNames = tagNames;
     return this;
   }
@@ -187,27 +208,25 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of tags
    * @return tagNames
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   public Set<String> getTagNames() {
     return tagNames;
   }
 
-
   @Deprecated
-  public void setTagNames(Set<String> tagNames) {
+  public void setTagNames(@javax.annotation.Nullable Set<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
   @Deprecated
-  public TestSuiteWorkItemsSearchModel entityTypes(Set<WorkItemEntityTypes> entityTypes) {
-    
+  public TestSuiteWorkItemsSearchModel entityTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = entityTypes;
     return this;
   }
@@ -220,47 +239,43 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   public Set<WorkItemEntityTypes> getEntityTypes() {
     return entityTypes;
   }
 
-
   @Deprecated
-  public void setEntityTypes(Set<WorkItemEntityTypes> entityTypes) {
+  public void setEntityTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
 
-  public TestSuiteWorkItemsSearchModel nameOrId(String nameOrId) {
-    
+  public TestSuiteWorkItemsSearchModel nameOrId(@javax.annotation.Nullable String nameOrId) {
     this.nameOrId = nameOrId;
     return this;
   }
 
-   /**
+  /**
    * Name or identifier (UUID) of work item
    * @return nameOrId
-  **/
+   */
   @javax.annotation.Nullable
   public String getNameOrId() {
     return nameOrId;
   }
 
-
-  public void setNameOrId(String nameOrId) {
+  public void setNameOrId(@javax.annotation.Nullable String nameOrId) {
     this.nameOrId = nameOrId;
   }
 
 
-  public TestSuiteWorkItemsSearchModel includeIds(Set<UUID> includeIds) {
-    
+  public TestSuiteWorkItemsSearchModel includeIds(@javax.annotation.Nullable Set<UUID> includeIds) {
     this.includeIds = includeIds;
     return this;
   }
@@ -273,23 +288,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of work items which need to be included in result regardless of filtering
    * @return includeIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getIncludeIds() {
     return includeIds;
   }
 
-
-  public void setIncludeIds(Set<UUID> includeIds) {
+  public void setIncludeIds(@javax.annotation.Nullable Set<UUID> includeIds) {
     this.includeIds = includeIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel excludeIds(Set<UUID> excludeIds) {
-    
+  public TestSuiteWorkItemsSearchModel excludeIds(@javax.annotation.Nullable Set<UUID> excludeIds) {
     this.excludeIds = excludeIds;
     return this;
   }
@@ -302,23 +315,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of work items which need to be excluded from result regardless of filtering
    * @return excludeIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getExcludeIds() {
     return excludeIds;
   }
 
-
-  public void setExcludeIds(Set<UUID> excludeIds) {
+  public void setExcludeIds(@javax.annotation.Nullable Set<UUID> excludeIds) {
     this.excludeIds = excludeIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel projectIds(Set<UUID> projectIds) {
-    
+  public TestSuiteWorkItemsSearchModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -331,44 +342,40 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of project identifiers
    * @return projectIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getProjectIds() {
     return projectIds;
   }
 
-
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel name(String name) {
-    
+  public TestSuiteWorkItemsSearchModel name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of work item
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TestSuiteWorkItemsSearchModel ids(Set<UUID> ids) {
-    
+  public TestSuiteWorkItemsSearchModel ids(@javax.annotation.Nullable Set<UUID> ids) {
     this.ids = ids;
     return this;
   }
@@ -381,23 +388,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Specifies a work item unique IDs to search for
    * @return ids
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getIds() {
     return ids;
   }
 
-
-  public void setIds(Set<UUID> ids) {
+  public void setIds(@javax.annotation.Nullable Set<UUID> ids) {
     this.ids = ids;
   }
 
 
-  public TestSuiteWorkItemsSearchModel globalIds(Set<Long> globalIds) {
-    
+  public TestSuiteWorkItemsSearchModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -410,23 +415,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of global (integer) identifiers
    * @return globalIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<Long> getGlobalIds() {
     return globalIds;
   }
 
-
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel attributes(Map<String, Set<String>> attributes) {
-    
+  public TestSuiteWorkItemsSearchModel attributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -439,44 +442,40 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Custom attributes of work item
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, Set<String>> getAttributes() {
     return attributes;
   }
 
-
-  public void setAttributes(Map<String, Set<String>> attributes) {
+  public void setAttributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestSuiteWorkItemsSearchModel isDeleted(Boolean isDeleted) {
-    
+  public TestSuiteWorkItemsSearchModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Is result must consist of only actual/deleted work items
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestSuiteWorkItemsSearchModel sectionIds(Set<UUID> sectionIds) {
-    
+  public TestSuiteWorkItemsSearchModel sectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -489,23 +488,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of section identifiers
    * @return sectionIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getSectionIds() {
     return sectionIds;
   }
 
-
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public void setSectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdByIds(Set<UUID> createdByIds) {
-    
+  public TestSuiteWorkItemsSearchModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -518,23 +515,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of users who created work item
    * @return createdByIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
   }
 
-
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedByIds(Set<UUID> modifiedByIds) {
-    
+  public TestSuiteWorkItemsSearchModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -547,23 +542,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of users who applied last modification to work item
    * @return modifiedByIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
   }
 
-
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel states(Set<WorkItemStates> states) {
-    
+  public TestSuiteWorkItemsSearchModel states(@javax.annotation.Nullable Set<WorkItemStates> states) {
     this.states = states;
     return this;
   }
@@ -576,23 +569,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of states of work item
    * @return states
-  **/
+   */
   @javax.annotation.Nullable
   public Set<WorkItemStates> getStates() {
     return states;
   }
 
-
-  public void setStates(Set<WorkItemStates> states) {
+  public void setStates(@javax.annotation.Nullable Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
-  public TestSuiteWorkItemsSearchModel priorities(Set<WorkItemPriorityModel> priorities) {
-    
+  public TestSuiteWorkItemsSearchModel priorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -605,23 +596,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of priorities of work item
    * @return priorities
-  **/
+   */
   @javax.annotation.Nullable
   public Set<WorkItemPriorityModel> getPriorities() {
     return priorities;
   }
 
-
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public TestSuiteWorkItemsSearchModel types(Set<WorkItemEntityTypes> types) {
-    
+  public TestSuiteWorkItemsSearchModel types(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = types;
     return this;
   }
@@ -634,128 +623,116 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of types of work item
    * @return types
-  **/
+   */
   @javax.annotation.Nullable
   public Set<WorkItemEntityTypes> getTypes() {
     return types;
   }
 
-
-  public void setTypes(Set<WorkItemEntityTypes> types) {
+  public void setTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = types;
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdDate(TestPointFilterModelWorkItemCreatedDate createdDate) {
-    
+  public TestSuiteWorkItemsSearchModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
-   * Get createdDate
+  /**
+   * Specifies a work item range of creation date to search for
    * @return createdDate
-  **/
+   */
   @javax.annotation.Nullable
-  public TestPointFilterModelWorkItemCreatedDate getCreatedDate() {
+  public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
   }
 
-
-  public void setCreatedDate(TestPointFilterModelWorkItemCreatedDate createdDate) {
+  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedDate(TestPointFilterModelWorkItemModifiedDate modifiedDate) {
-    
+  public TestSuiteWorkItemsSearchModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
 
-   /**
-   * Get modifiedDate
+  /**
+   * Specifies a work item range of last modification date to search for
    * @return modifiedDate
-  **/
+   */
   @javax.annotation.Nullable
-  public TestPointFilterModelWorkItemModifiedDate getModifiedDate() {
+  public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
   }
 
-
-  public void setModifiedDate(TestPointFilterModelWorkItemModifiedDate modifiedDate) {
+  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestSuiteWorkItemsSearchModel duration(TestSuiteWorkItemsSearchModelDuration duration) {
-    
+  public TestSuiteWorkItemsSearchModel duration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
-   * Get duration
+  /**
+   * Specifies a work item duration range to search for
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
-  public TestSuiteWorkItemsSearchModelDuration getDuration() {
+  public Int32RangeSelectorModel getDuration() {
     return duration;
   }
 
-
-  public void setDuration(TestSuiteWorkItemsSearchModelDuration duration) {
+  public void setDuration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = duration;
   }
 
 
-  public TestSuiteWorkItemsSearchModel medianDuration(TestSuiteWorkItemsSearchModelMedianDuration medianDuration) {
-    
+  public TestSuiteWorkItemsSearchModel medianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
     return this;
   }
 
-   /**
-   * Get medianDuration
+  /**
+   * Specifies a work item median duration range to search for
    * @return medianDuration
-  **/
+   */
   @javax.annotation.Nullable
-  public TestSuiteWorkItemsSearchModelMedianDuration getMedianDuration() {
+  public Int64RangeSelectorModel getMedianDuration() {
     return medianDuration;
   }
 
-
-  public void setMedianDuration(TestSuiteWorkItemsSearchModelMedianDuration medianDuration) {
+  public void setMedianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
-  public TestSuiteWorkItemsSearchModel isAutomated(Boolean isAutomated) {
-    
+  public TestSuiteWorkItemsSearchModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
 
-   /**
+  /**
    * Is result must consist of only manual/automated work items
    * @return isAutomated
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
-
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestSuiteWorkItemsSearchModel tags(Set<String> tags) {
-    
+  public TestSuiteWorkItemsSearchModel tags(@javax.annotation.Nullable Set<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -768,23 +745,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   public Set<String> getTags() {
     return tags;
   }
 
-
-  public void setTags(Set<String> tags) {
+  public void setTags(@javax.annotation.Nullable Set<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestSuiteWorkItemsSearchModel autoTestIds(Set<UUID> autoTestIds) {
-    
+  public TestSuiteWorkItemsSearchModel autoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -797,23 +772,21 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers of linked autotests
    * @return autoTestIds
-  **/
+   */
   @javax.annotation.Nullable
   public Set<UUID> getAutoTestIds() {
     return autoTestIds;
   }
 
-
-  public void setAutoTestIds(Set<UUID> autoTestIds) {
+  public void setAutoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel workItemVersionIds(List<UUID> workItemVersionIds) {
-    
+  public TestSuiteWorkItemsSearchModel workItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
     return this;
   }
@@ -826,17 +799,16 @@ public class TestSuiteWorkItemsSearchModel {
     return this;
   }
 
-   /**
+  /**
    * Collection of identifiers work items versions.
    * @return workItemVersionIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<UUID> getWorkItemVersionIds() {
     return workItemVersionIds;
   }
 
-
-  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
+  public void setWorkItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
   }
 
@@ -975,110 +947,111 @@ public class TestSuiteWorkItemsSearchModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestSuiteWorkItemsSearchModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestSuiteWorkItemsSearchModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestSuiteWorkItemsSearchModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestSuiteWorkItemsSearchModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteWorkItemsSearchModel is not found in the empty JSON string", TestSuiteWorkItemsSearchModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestSuiteWorkItemsSearchModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteWorkItemsSearchModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteWorkItemsSearchModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonArray()) {
+      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonArray()) {
+      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonNull() && !jsonObj.get("entityTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityTypes` to be an array in the JSON string but got `%s`", jsonObj.get("entityTypes").toString()));
       }
       if ((jsonObj.get("nameOrId") != null && !jsonObj.get("nameOrId").isJsonNull()) && !jsonObj.get("nameOrId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nameOrId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameOrId").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("includeIds") != null && !jsonObj.get("includeIds").isJsonArray()) {
+      if (jsonObj.get("includeIds") != null && !jsonObj.get("includeIds").isJsonNull() && !jsonObj.get("includeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `includeIds` to be an array in the JSON string but got `%s`", jsonObj.get("includeIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("excludeIds") != null && !jsonObj.get("excludeIds").isJsonArray()) {
+      if (jsonObj.get("excludeIds") != null && !jsonObj.get("excludeIds").isJsonNull() && !jsonObj.get("excludeIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `excludeIds` to be an array in the JSON string but got `%s`", jsonObj.get("excludeIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonArray()) {
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonArray()) {
+      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull() && !jsonObj.get("ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ids` to be an array in the JSON string but got `%s`", jsonObj.get("ids").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonArray()) {
+      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonArray()) {
+      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull() && !jsonObj.get("sectionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonArray()) {
+      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonArray()) {
+      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonArray()) {
+      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
+      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
+      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
       }
       // validate the optional field `createdDate`
       if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        TestPointFilterModelWorkItemCreatedDate.validateJsonObject(jsonObj.getAsJsonObject("createdDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
       }
       // validate the optional field `modifiedDate`
       if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        TestPointFilterModelWorkItemModifiedDate.validateJsonObject(jsonObj.getAsJsonObject("modifiedDate"));
+        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("modifiedDate"));
       }
       // validate the optional field `duration`
       if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        TestSuiteWorkItemsSearchModelDuration.validateJsonObject(jsonObj.getAsJsonObject("duration"));
+        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("duration"));
       }
       // validate the optional field `medianDuration`
       if (jsonObj.get("medianDuration") != null && !jsonObj.get("medianDuration").isJsonNull()) {
-        TestSuiteWorkItemsSearchModelMedianDuration.validateJsonObject(jsonObj.getAsJsonObject("medianDuration"));
+        Int64RangeSelectorModel.validateJsonElement(jsonObj.get("medianDuration"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonArray()) {
+      if (jsonObj.get("autoTestIds") != null && !jsonObj.get("autoTestIds").isJsonNull() && !jsonObj.get("autoTestIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestIds` to be an array in the JSON string but got `%s`", jsonObj.get("autoTestIds").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("workItemVersionIds") != null && !jsonObj.get("workItemVersionIds").isJsonArray()) {
+      if (jsonObj.get("workItemVersionIds") != null && !jsonObj.get("workItemVersionIds").isJsonNull() && !jsonObj.get("workItemVersionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `workItemVersionIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemVersionIds").toString()));
       }
   }
@@ -1103,31 +1076,31 @@ public class TestSuiteWorkItemsSearchModel {
 
            @Override
            public TestSuiteWorkItemsSearchModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestSuiteWorkItemsSearchModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestSuiteWorkItemsSearchModel
-  * @throws IOException if the JSON string is invalid with respect to TestSuiteWorkItemsSearchModel
-  */
+  /**
+   * Create an instance of TestSuiteWorkItemsSearchModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestSuiteWorkItemsSearchModel
+   * @throws IOException if the JSON string is invalid with respect to TestSuiteWorkItemsSearchModel
+   */
   public static TestSuiteWorkItemsSearchModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestSuiteWorkItemsSearchModel.class);
   }
 
- /**
-  * Convert an instance of TestSuiteWorkItemsSearchModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestSuiteWorkItemsSearchModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

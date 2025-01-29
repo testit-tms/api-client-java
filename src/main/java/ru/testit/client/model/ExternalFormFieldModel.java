@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -38,12 +38,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,357 +49,343 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormFieldModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormFieldModel {
   public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
   @SerializedName(SERIALIZED_NAME_FIELD_ID)
+  @javax.annotation.Nullable
   private String fieldId;
 
   public static final String SERIALIZED_NAME_FIELD_NAME = "fieldName";
   @SerializedName(SERIALIZED_NAME_FIELD_NAME)
+  @javax.annotation.Nullable
   private String fieldName;
 
   public static final String SERIALIZED_NAME_HELP_TEXT = "helpText";
   @SerializedName(SERIALIZED_NAME_HELP_TEXT)
+  @javax.annotation.Nullable
   private String helpText;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_ARRAY_VALUES_TYPE = "arrayValuesType";
   @SerializedName(SERIALIZED_NAME_ARRAY_VALUES_TYPE)
+  @javax.annotation.Nullable
   private String arrayValuesType;
 
   public static final String SERIALIZED_NAME_DEFAULT_VALUE = "defaultValue";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
+  @javax.annotation.Nullable
   private Object defaultValue = null;
 
   public static final String SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED = "isCustomValueAllowed";
   @SerializedName(SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED)
+  @javax.annotation.Nonnull
   private Boolean isCustomValueAllowed;
 
   public static final String SERIALIZED_NAME_AUTO_COMPLETE_URL = "autoCompleteUrl";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPLETE_URL)
+  @javax.annotation.Nullable
   private String autoCompleteUrl;
 
   public static final String SERIALIZED_NAME_CONTROL_TYPE = "controlType";
   @SerializedName(SERIALIZED_NAME_CONTROL_TYPE)
+  @javax.annotation.Nullable
   private String controlType;
 
   public static final String SERIALIZED_NAME_MIN_LENGTH = "minLength";
   @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
+  @javax.annotation.Nullable
   private Integer minLength;
 
   public static final String SERIALIZED_NAME_MAX_LENGTH = "maxLength";
   @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
+  @javax.annotation.Nullable
   private Integer maxLength;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
+  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
+  @javax.annotation.Nullable
   private Object min = null;
 
   public static final String SERIALIZED_NAME_MAX = "max";
   @SerializedName(SERIALIZED_NAME_MAX)
+  @javax.annotation.Nullable
   private Object max = null;
 
   public ExternalFormFieldModel() {
   }
 
-  public ExternalFormFieldModel fieldId(String fieldId) {
-    
+  public ExternalFormFieldModel fieldId(@javax.annotation.Nullable String fieldId) {
     this.fieldId = fieldId;
     return this;
   }
 
-   /**
+  /**
    * Get fieldId
    * @return fieldId
-  **/
+   */
   @javax.annotation.Nullable
   public String getFieldId() {
     return fieldId;
   }
 
-
-  public void setFieldId(String fieldId) {
+  public void setFieldId(@javax.annotation.Nullable String fieldId) {
     this.fieldId = fieldId;
   }
 
 
-  public ExternalFormFieldModel fieldName(String fieldName) {
-    
+  public ExternalFormFieldModel fieldName(@javax.annotation.Nullable String fieldName) {
     this.fieldName = fieldName;
     return this;
   }
 
-   /**
+  /**
    * Get fieldName
    * @return fieldName
-  **/
+   */
   @javax.annotation.Nullable
   public String getFieldName() {
     return fieldName;
   }
 
-
-  public void setFieldName(String fieldName) {
+  public void setFieldName(@javax.annotation.Nullable String fieldName) {
     this.fieldName = fieldName;
   }
 
 
-  public ExternalFormFieldModel helpText(String helpText) {
-    
+  public ExternalFormFieldModel helpText(@javax.annotation.Nullable String helpText) {
     this.helpText = helpText;
     return this;
   }
 
-   /**
+  /**
    * Get helpText
    * @return helpText
-  **/
+   */
   @javax.annotation.Nullable
   public String getHelpText() {
     return helpText;
   }
 
-
-  public void setHelpText(String helpText) {
+  public void setHelpText(@javax.annotation.Nullable String helpText) {
     this.helpText = helpText;
   }
 
 
-  public ExternalFormFieldModel type(String type) {
-    
+  public ExternalFormFieldModel type(@javax.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   public String getType() {
     return type;
   }
 
-
-  public void setType(String type) {
+  public void setType(@javax.annotation.Nullable String type) {
     this.type = type;
   }
 
 
-  public ExternalFormFieldModel arrayValuesType(String arrayValuesType) {
-    
+  public ExternalFormFieldModel arrayValuesType(@javax.annotation.Nullable String arrayValuesType) {
     this.arrayValuesType = arrayValuesType;
     return this;
   }
 
-   /**
+  /**
    * Get arrayValuesType
    * @return arrayValuesType
-  **/
+   */
   @javax.annotation.Nullable
   public String getArrayValuesType() {
     return arrayValuesType;
   }
 
-
-  public void setArrayValuesType(String arrayValuesType) {
+  public void setArrayValuesType(@javax.annotation.Nullable String arrayValuesType) {
     this.arrayValuesType = arrayValuesType;
   }
 
 
-  public ExternalFormFieldModel defaultValue(Object defaultValue) {
-    
+  public ExternalFormFieldModel defaultValue(@javax.annotation.Nullable Object defaultValue) {
     this.defaultValue = defaultValue;
     return this;
   }
 
-   /**
+  /**
    * Get defaultValue
    * @return defaultValue
-  **/
+   */
   @javax.annotation.Nullable
   public Object getDefaultValue() {
     return defaultValue;
   }
 
-
-  public void setDefaultValue(Object defaultValue) {
+  public void setDefaultValue(@javax.annotation.Nullable Object defaultValue) {
     this.defaultValue = defaultValue;
   }
 
 
-  public ExternalFormFieldModel isCustomValueAllowed(Boolean isCustomValueAllowed) {
-    
+  public ExternalFormFieldModel isCustomValueAllowed(@javax.annotation.Nonnull Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
     return this;
   }
 
-   /**
+  /**
    * Get isCustomValueAllowed
    * @return isCustomValueAllowed
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsCustomValueAllowed() {
     return isCustomValueAllowed;
   }
 
-
-  public void setIsCustomValueAllowed(Boolean isCustomValueAllowed) {
+  public void setIsCustomValueAllowed(@javax.annotation.Nonnull Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
   }
 
 
-  public ExternalFormFieldModel autoCompleteUrl(String autoCompleteUrl) {
-    
+  public ExternalFormFieldModel autoCompleteUrl(@javax.annotation.Nullable String autoCompleteUrl) {
     this.autoCompleteUrl = autoCompleteUrl;
     return this;
   }
 
-   /**
+  /**
    * Get autoCompleteUrl
    * @return autoCompleteUrl
-  **/
+   */
   @javax.annotation.Nullable
   public String getAutoCompleteUrl() {
     return autoCompleteUrl;
   }
 
-
-  public void setAutoCompleteUrl(String autoCompleteUrl) {
+  public void setAutoCompleteUrl(@javax.annotation.Nullable String autoCompleteUrl) {
     this.autoCompleteUrl = autoCompleteUrl;
   }
 
 
-  public ExternalFormFieldModel controlType(String controlType) {
-    
+  public ExternalFormFieldModel controlType(@javax.annotation.Nullable String controlType) {
     this.controlType = controlType;
     return this;
   }
 
-   /**
+  /**
    * Get controlType
    * @return controlType
-  **/
+   */
   @javax.annotation.Nullable
   public String getControlType() {
     return controlType;
   }
 
-
-  public void setControlType(String controlType) {
+  public void setControlType(@javax.annotation.Nullable String controlType) {
     this.controlType = controlType;
   }
 
 
-  public ExternalFormFieldModel minLength(Integer minLength) {
-    
+  public ExternalFormFieldModel minLength(@javax.annotation.Nullable Integer minLength) {
     this.minLength = minLength;
     return this;
   }
 
-   /**
+  /**
    * Get minLength
    * @return minLength
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getMinLength() {
     return minLength;
   }
 
-
-  public void setMinLength(Integer minLength) {
+  public void setMinLength(@javax.annotation.Nullable Integer minLength) {
     this.minLength = minLength;
   }
 
 
-  public ExternalFormFieldModel maxLength(Integer maxLength) {
-    
+  public ExternalFormFieldModel maxLength(@javax.annotation.Nullable Integer maxLength) {
     this.maxLength = maxLength;
     return this;
   }
 
-   /**
+  /**
    * Get maxLength
    * @return maxLength
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getMaxLength() {
     return maxLength;
   }
 
-
-  public void setMaxLength(Integer maxLength) {
+  public void setMaxLength(@javax.annotation.Nullable Integer maxLength) {
     this.maxLength = maxLength;
   }
 
 
-  public ExternalFormFieldModel isRequired(Boolean isRequired) {
-    
+  public ExternalFormFieldModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
 
-   /**
+  /**
    * Get isRequired
    * @return isRequired
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsRequired() {
     return isRequired;
   }
 
-
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public ExternalFormFieldModel min(Object min) {
-    
+  public ExternalFormFieldModel min(@javax.annotation.Nullable Object min) {
     this.min = min;
     return this;
   }
 
-   /**
+  /**
    * Get min
    * @return min
-  **/
+   */
   @javax.annotation.Nullable
   public Object getMin() {
     return min;
   }
 
-
-  public void setMin(Object min) {
+  public void setMin(@javax.annotation.Nullable Object min) {
     this.min = min;
   }
 
 
-  public ExternalFormFieldModel max(Object max) {
-    
+  public ExternalFormFieldModel max(@javax.annotation.Nullable Object max) {
     this.max = max;
     return this;
   }
 
-   /**
+  /**
    * Get max
    * @return max
-  **/
+   */
   @javax.annotation.Nullable
   public Object getMax() {
     return max;
   }
 
-
-  public void setMax(Object max) {
+  public void setMax(@javax.annotation.Nullable Object max) {
     this.max = max;
   }
 
@@ -508,33 +492,34 @@ public class ExternalFormFieldModel {
     openapiRequiredFields.add("isCustomValueAllowed");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ExternalFormFieldModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ExternalFormFieldModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ExternalFormFieldModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ExternalFormFieldModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalFormFieldModel is not found in the empty JSON string", ExternalFormFieldModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExternalFormFieldModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormFieldModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormFieldModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ExternalFormFieldModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fieldId") != null && !jsonObj.get("fieldId").isJsonNull()) && !jsonObj.get("fieldId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fieldId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldId").toString()));
       }
@@ -578,31 +563,31 @@ public class ExternalFormFieldModel {
 
            @Override
            public ExternalFormFieldModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ExternalFormFieldModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ExternalFormFieldModel
-  * @throws IOException if the JSON string is invalid with respect to ExternalFormFieldModel
-  */
+  /**
+   * Create an instance of ExternalFormFieldModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ExternalFormFieldModel
+   * @throws IOException if the JSON string is invalid with respect to ExternalFormFieldModel
+   */
   public static ExternalFormFieldModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ExternalFormFieldModel.class);
   }
 
- /**
-  * Convert an instance of ExternalFormFieldModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ExternalFormFieldModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

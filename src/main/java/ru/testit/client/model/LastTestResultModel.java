@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,12 +43,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -56,125 +54,123 @@ import ru.testit.client.invoker.JSON;
 /**
  * LastTestResultModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LastTestResultModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
+  @javax.annotation.Nullable
   private UUID autoTestId;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
+  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
+  @javax.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public LastTestResultModel() {
   }
 
-  public LastTestResultModel id(UUID id) {
-    
+  public LastTestResultModel id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public LastTestResultModel testRunId(UUID testRunId) {
-    
+  public LastTestResultModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
 
-   /**
+  /**
    * Get testRunId
    * @return testRunId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestRunId() {
     return testRunId;
   }
 
-
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public LastTestResultModel autoTestId(UUID autoTestId) {
-    
+  public LastTestResultModel autoTestId(@javax.annotation.Nullable UUID autoTestId) {
     this.autoTestId = autoTestId;
     return this;
   }
 
-   /**
+  /**
    * Get autoTestId
    * @return autoTestId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getAutoTestId() {
     return autoTestId;
   }
 
-
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@javax.annotation.Nullable UUID autoTestId) {
     this.autoTestId = autoTestId;
   }
 
 
-  public LastTestResultModel comment(String comment) {
-    
+  public LastTestResultModel comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
 
-  public LastTestResultModel links(List<LinkModel> links) {
-    
+  public LastTestResultModel links(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -187,44 +183,40 @@ public class LastTestResultModel {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   public List<LinkModel> getLinks() {
     return links;
   }
 
-
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public LastTestResultModel workItemVersionId(UUID workItemVersionId) {
-    
+  public LastTestResultModel workItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemVersionId
    * @return workItemVersionId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
   }
 
-
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public LastTestResultModel attachments(List<AttachmentModel> attachments) {
-    
+  public LastTestResultModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -237,17 +229,16 @@ public class LastTestResultModel {
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
   public List<AttachmentModel> getAttachments() {
     return attachments;
   }
 
-
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
@@ -335,33 +326,34 @@ public class LastTestResultModel {
     openapiRequiredFields.add("workItemVersionId");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LastTestResultModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!LastTestResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to LastTestResultModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!LastTestResultModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LastTestResultModel is not found in the empty JSON string", LastTestResultModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LastTestResultModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LastTestResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LastTestResultModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LastTestResultModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -384,7 +376,7 @@ public class LastTestResultModel {
 
           // validate the optional field `links` (array)
           for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkModel.validateJsonObject(jsonArraylinks.get(i).getAsJsonObject());
+            LinkModel.validateJsonElement(jsonArraylinks.get(i));
           };
         }
       }
@@ -401,7 +393,7 @@ public class LastTestResultModel {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentModel.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
+            AttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }
@@ -427,31 +419,31 @@ public class LastTestResultModel {
 
            @Override
            public LastTestResultModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of LastTestResultModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LastTestResultModel
-  * @throws IOException if the JSON string is invalid with respect to LastTestResultModel
-  */
+  /**
+   * Create an instance of LastTestResultModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LastTestResultModel
+   * @throws IOException if the JSON string is invalid with respect to LastTestResultModel
+   */
   public static LastTestResultModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LastTestResultModel.class);
   }
 
- /**
-  * Convert an instance of LastTestResultModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of LastTestResultModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

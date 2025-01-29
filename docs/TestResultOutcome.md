@@ -5,7 +5,7 @@
 ## Enum
 
 
-* `INPROGRESS` (value: `"InProgress"`)
+* `IN_PROGRESS` (value: `"InProgress"`)
 
 * `PASSED` (value: `"Passed"`)
 

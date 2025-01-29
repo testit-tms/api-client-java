@@ -14,13 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import ru.testit.client.model.RequestTypeModel;
 
 import com.google.gson.Gson;
@@ -38,12 +38,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -51,57 +49,55 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebHookTestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebHookTestModel {
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  @javax.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nonnull
   private String url;
 
   public WebHookTestModel() {
   }
 
-  public WebHookTestModel requestType(RequestTypeModel requestType) {
-    
+  public WebHookTestModel requestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
 
-   /**
-   * Get requestType
+  /**
+   * Request method of the webhook
    * @return requestType
-  **/
+   */
   @javax.annotation.Nonnull
   public RequestTypeModel getRequestType() {
     return requestType;
   }
 
-
-  public void setRequestType(RequestTypeModel requestType) {
+  public void setRequestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookTestModel url(String url) {
-    
+  public WebHookTestModel url(@javax.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Request URL of the webhook
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUrl() {
     return url;
   }
 
-
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
   }
 
@@ -162,33 +158,36 @@ public class WebHookTestModel {
     openapiRequiredFields.add("url");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebHookTestModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!WebHookTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to WebHookTestModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WebHookTestModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in WebHookTestModel is not found in the empty JSON string", WebHookTestModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WebHookTestModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookTestModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookTestModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : WebHookTestModel.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `requestType`
+      RequestTypeModel.validateJsonElement(jsonObj.get("requestType"));
       if (!jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
@@ -214,31 +213,31 @@ public class WebHookTestModel {
 
            @Override
            public WebHookTestModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of WebHookTestModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WebHookTestModel
-  * @throws IOException if the JSON string is invalid with respect to WebHookTestModel
-  */
+  /**
+   * Create an instance of WebHookTestModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of WebHookTestModel
+   * @throws IOException if the JSON string is invalid with respect to WebHookTestModel
+   */
   public static WebHookTestModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WebHookTestModel.class);
   }
 
- /**
-  * Convert an instance of WebHookTestModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of WebHookTestModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

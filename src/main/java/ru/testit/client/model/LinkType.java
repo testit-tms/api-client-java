@@ -14,11 +14,11 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -31,7 +31,7 @@ public enum LinkType {
   
   RELATED("Related"),
   
-  BLOCKEDBY("BlockedBy"),
+  BLOCKED_BY("BlockedBy"),
   
   DEFECT("Defect"),
   
@@ -76,6 +76,11 @@ public enum LinkType {
       String value = jsonReader.nextString();
       return LinkType.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    LinkType.fromValue(value);
   }
 }
 

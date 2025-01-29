@@ -480,7 +480,7 @@ This endpoint does not need any parameter.
 
 <a id="apiV2ParametersSearchGroupsPost"></a>
 # **apiV2ParametersSearchGroupsPost**
-> List&lt;ParameterGroupModel&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest)
+> List&lt;ParameterGroupModel&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
 
 Search for parameters as group
 
@@ -511,9 +511,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest = new ApiV2ParametersSearchPostRequest(); // ApiV2ParametersSearchPostRequest | 
+    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
     try {
-      List<ParameterGroupModel> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
+      List<ParameterGroupModel> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchGroupsPost");
@@ -535,7 +535,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional] |
+| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -563,7 +563,7 @@ public class Example {
 
 <a id="apiV2ParametersSearchPost"></a>
 # **apiV2ParametersSearchPost**
-> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest)
+> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
 
 Search for parameters
 
@@ -594,9 +594,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ApiV2ParametersSearchPostRequest apiV2ParametersSearchPostRequest = new ApiV2ParametersSearchPostRequest(); // ApiV2ParametersSearchPostRequest | 
+    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
     try {
-      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, apiV2ParametersSearchPostRequest);
+      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
@@ -618,7 +618,7 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional] |
+| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
 
 ### Return type
 
@@ -646,7 +646,7 @@ public class Example {
 
 <a id="createParameter"></a>
 # **createParameter**
-> ParameterModel createParameter(createParameterRequest)
+> ParameterModel createParameter(parameterPostModel)
 
 Create parameter
 
@@ -674,9 +674,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    CreateParameterRequest createParameterRequest = new CreateParameterRequest(); // CreateParameterRequest | 
+    ParameterPostModel parameterPostModel = new ParameterPostModel(); // ParameterPostModel | 
     try {
-      ParameterModel result = apiInstance.createParameter(createParameterRequest);
+      ParameterModel result = apiInstance.createParameter(parameterPostModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#createParameter");
@@ -693,7 +693,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createParameterRequest** | [**CreateParameterRequest**](CreateParameterRequest.md)|  | [optional] |
+| **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1104,7 +1104,7 @@ public class Example {
 
 <a id="updateParameter"></a>
 # **updateParameter**
-> updateParameter(updateParameterRequest)
+> updateParameter(parameterPutModel)
 
 Update parameter
 
@@ -1132,9 +1132,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UpdateParameterRequest updateParameterRequest = new UpdateParameterRequest(); // UpdateParameterRequest | 
+    ParameterPutModel parameterPutModel = new ParameterPutModel(); // ParameterPutModel | 
     try {
-      apiInstance.updateParameter(updateParameterRequest);
+      apiInstance.updateParameter(parameterPutModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#updateParameter");
       System.err.println("Status code: " + e.getCode());
@@ -1150,7 +1150,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateParameterRequest** | [**UpdateParameterRequest**](UpdateParameterRequest.md)|  | [optional] |
+| **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional] |
 
 ### Return type
 

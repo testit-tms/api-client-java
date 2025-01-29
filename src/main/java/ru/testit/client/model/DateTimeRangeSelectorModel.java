@@ -14,7 +14,6 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -39,12 +39,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -52,57 +50,55 @@ import ru.testit.client.invoker.JSON;
 /**
  * DateTimeRangeSelectorModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class DateTimeRangeSelectorModel {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
+  @javax.annotation.Nullable
   private OffsetDateTime from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
+  @javax.annotation.Nullable
   private OffsetDateTime to;
 
   public DateTimeRangeSelectorModel() {
   }
 
-  public DateTimeRangeSelectorModel from(OffsetDateTime from) {
-    
+  public DateTimeRangeSelectorModel from(@javax.annotation.Nullable OffsetDateTime from) {
     this.from = from;
     return this;
   }
 
-   /**
+  /**
    * Get from
    * @return from
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getFrom() {
     return from;
   }
 
-
-  public void setFrom(OffsetDateTime from) {
+  public void setFrom(@javax.annotation.Nullable OffsetDateTime from) {
     this.from = from;
   }
 
 
-  public DateTimeRangeSelectorModel to(OffsetDateTime to) {
-    
+  public DateTimeRangeSelectorModel to(@javax.annotation.Nullable OffsetDateTime to) {
     this.to = to;
     return this;
   }
 
-   /**
+  /**
    * Get to
    * @return to
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getTo() {
     return to;
   }
 
-
-  public void setTo(OffsetDateTime to) {
+  public void setTo(@javax.annotation.Nullable OffsetDateTime to) {
     this.to = to;
   }
 
@@ -172,26 +168,27 @@ public class DateTimeRangeSelectorModel {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DateTimeRangeSelectorModel
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!DateTimeRangeSelectorModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DateTimeRangeSelectorModel
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DateTimeRangeSelectorModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in DateTimeRangeSelectorModel is not found in the empty JSON string", DateTimeRangeSelectorModel.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DateTimeRangeSelectorModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DateTimeRangeSelectorModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DateTimeRangeSelectorModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -214,31 +211,31 @@ public class DateTimeRangeSelectorModel {
 
            @Override
            public DateTimeRangeSelectorModel read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of DateTimeRangeSelectorModel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DateTimeRangeSelectorModel
-  * @throws IOException if the JSON string is invalid with respect to DateTimeRangeSelectorModel
-  */
+  /**
+   * Create an instance of DateTimeRangeSelectorModel given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DateTimeRangeSelectorModel
+   * @throws IOException if the JSON string is invalid with respect to DateTimeRangeSelectorModel
+   */
   public static DateTimeRangeSelectorModel fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DateTimeRangeSelectorModel.class);
   }
 
- /**
-  * Convert an instance of DateTimeRangeSelectorModel to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DateTimeRangeSelectorModel to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

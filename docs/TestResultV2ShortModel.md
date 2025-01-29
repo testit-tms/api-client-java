@@ -18,7 +18,7 @@
 |**runByUserId** | **UUID** |  |  [optional] |
 |**stoppedByUserId** | **UUID** |  |  [optional] |
 |**testPointId** | **UUID** |  |  [optional] |
-|**testPoint** | [**TestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  |  [optional] |
+|**testPoint** | [**TestPointShortModel**](TestPointShortModel.md) |  |  [optional] |
 |**testRunId** | **UUID** |  |  |
 |**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  |
 |**comment** | **String** |  |  [optional] |

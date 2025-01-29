@@ -14,16 +14,16 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestStatus;
+import ru.testit.client.model.TestStatusApiResult;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +40,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import ru.testit.client.invoker.JSON;
@@ -53,262 +51,252 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPoint {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
+  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
+  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
+  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  @javax.annotation.Nullable
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
+  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
   @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
-  private TestStatus statusModel;
+  @javax.annotation.Nullable
+  private TestStatusApiResult statusModel;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
+  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public TestPoint() {
   }
 
-  public TestPoint id(UUID id) {
-    
+  public TestPoint id(@javax.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the entity
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getId() {
     return id;
   }
 
-
-  public void setId(UUID id) {
+  public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPoint isDeleted(Boolean isDeleted) {
-    
+  public TestPoint isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the entity is deleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPoint testerId(UUID testerId) {
-    
+  public TestPoint testerId(@javax.annotation.Nullable UUID testerId) {
     this.testerId = testerId;
     return this;
   }
 
-   /**
+  /**
    * Get testerId
    * @return testerId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getTesterId() {
     return testerId;
   }
 
-
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPoint iterationId(UUID iterationId) {
-    
+  public TestPoint iterationId(@javax.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
 
-   /**
+  /**
    * Get iterationId
    * @return iterationId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getIterationId() {
     return iterationId;
   }
 
-
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPoint workItemId(UUID workItemId) {
-    
+  public TestPoint workItemId(@javax.annotation.Nullable UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
 
-   /**
+  /**
    * Get workItemId
    * @return workItemId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getWorkItemId() {
     return workItemId;
   }
 
-
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPoint configurationId(UUID configurationId) {
-    
+  public TestPoint configurationId(@javax.annotation.Nullable UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
 
-   /**
+  /**
    * Get configurationId
    * @return configurationId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getConfigurationId() {
     return configurationId;
   }
 
-
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@javax.annotation.Nullable UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPoint testSuiteId(UUID testSuiteId) {
-    
+  public TestPoint testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
 
-   /**
+  /**
    * Get testSuiteId
    * @return testSuiteId
-  **/
+   */
   @javax.annotation.Nonnull
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
 
-
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
   @Deprecated
-  public TestPoint status(String status) {
-    
+  public TestPoint status(@javax.annotation.Nullable String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
-
   @Deprecated
-  public void setStatus(String status) {
+  public void setStatus(@javax.annotation.Nullable String status) {
     this.status = status;
   }
 
 
-  public TestPoint statusModel(TestStatus statusModel) {
-    
+  public TestPoint statusModel(@javax.annotation.Nullable TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
 
-   /**
+  /**
    * Get statusModel
    * @return statusModel
-  **/
+   */
   @javax.annotation.Nullable
-  public TestStatus getStatusModel() {
+  public TestStatusApiResult getStatusModel() {
     return statusModel;
   }
 
-
-  public void setStatusModel(TestStatus statusModel) {
+  public void setStatusModel(@javax.annotation.Nullable TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPoint lastTestResultId(UUID lastTestResultId) {
-    
+  public TestPoint lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
     return this;
   }
 
-   /**
+  /**
    * Get lastTestResultId
    * @return lastTestResultId
-  **/
+   */
   @javax.annotation.Nullable
   public UUID getLastTestResultId() {
     return lastTestResultId;
   }
 
-
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
@@ -406,33 +394,34 @@ public class TestPoint {
     openapiRequiredFields.add("testSuiteId");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestPoint
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TestPoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TestPoint
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TestPoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TestPoint is not found in the empty JSON string", TestPoint.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TestPoint.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPoint` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPoint` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TestPoint.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -456,7 +445,7 @@ public class TestPoint {
       }
       // validate the optional field `statusModel`
       if (jsonObj.get("statusModel") != null && !jsonObj.get("statusModel").isJsonNull()) {
-        TestStatus.validateJsonObject(jsonObj.getAsJsonObject("statusModel"));
+        TestStatusApiResult.validateJsonElement(jsonObj.get("statusModel"));
       }
       if ((jsonObj.get("lastTestResultId") != null && !jsonObj.get("lastTestResultId").isJsonNull()) && !jsonObj.get("lastTestResultId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultId").toString()));
@@ -483,31 +472,31 @@ public class TestPoint {
 
            @Override
            public TestPoint read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TestPoint given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestPoint
-  * @throws IOException if the JSON string is invalid with respect to TestPoint
-  */
+  /**
+   * Create an instance of TestPoint given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestPoint
+   * @throws IOException if the JSON string is invalid with respect to TestPoint
+   */
   public static TestPoint fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TestPoint.class);
   }
 
- /**
-  * Convert an instance of TestPoint to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TestPoint to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
